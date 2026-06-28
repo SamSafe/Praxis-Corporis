@@ -19,3 +19,9 @@ Shared vocabulary so docs and code mean the same thing.
 | **Local-first** | Architecture where data lives on the user's device; no server required. |
 | **ADR** | Architecture Decision Record (see [decisions/](decisions/)). |
 | **Systemic disease tracing** | Following one condition's effects across multiple organ systems (a North Star feature). |
+| **Atlas** | The navigable 3D anatomical model the user explores; the visual front end of the structure data. |
+| **MCAT** | Medical College Admission Test — the entry exam the early study/quiz features target. |
+| **USMLE** | United States Medical Licensing Examination — the later-stage exams Praxis aims to stay useful for. |
+| **Three.js** | The underlying WebGL 3D library that **r3f** wraps; renders the glTF model in the browser. |
+| **Walled garden** | A closed, expensive study platform that locks content behind paywalls — the kind of tool Praxis is positioned against (see [VISION.md](VISION.md)). |
+| **North Star feature** | A high-ambition capability that guides design direction even before it ships (e.g. systemic disease tracing). |
