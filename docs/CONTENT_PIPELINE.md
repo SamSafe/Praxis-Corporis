@@ -2,6 +2,9 @@
 
 Status: candidate-source research; no assets imported or model coverage verified.
 
+Use [ASSET_AUDIT.md](ASSET_AUDIT.md) for the per-source, per-body, and primary-journey
+evidence checklist. Preparing that checklist does not establish asset coverage.
+
 ## Candidate anatomy sources
 
 | Source | Verified from source documentation | Still to inspect |

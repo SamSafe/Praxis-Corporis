@@ -60,3 +60,10 @@ and remaining dependencies before implementation. Later feasibility trials are
 acceptance work, not completed evidence at the planning stage.
 
 The earlier browser/quiz-centred proposal is superseded by this draft.
+
+## Current design artifacts
+
+[Interface specification](INTERFACE_SPEC.md) adds whole-body, heart-selection, and
+pathway wireframes. They contain schematic placeholders, not evaluated anatomy.
+[Asset audit](ASSET_AUDIT.md) defines the evidence and per-body inventory needed
+before a complete anatomy source can be selected. Neither artifact is implementation.

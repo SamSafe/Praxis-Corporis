@@ -30,11 +30,13 @@ without opening a disconnected organ scene.
 
 1. [Planning status](docs/PLANNING_STATUS.md) — decisions and unresolved evidence.
 2. [Vision](docs/VISION.md) and [Scope](docs/SCOPE.md) — product and release boundaries.
-3. [Interaction design](docs/INTERACTION_DESIGN.md) — workspace, controls, primary journey.
+3. [Interaction design](docs/INTERACTION_DESIGN.md) and
+   [Interface specification](docs/INTERFACE_SPEC.md) — controls and three desktop wireframes.
 4. [Features](docs/FEATURES.md) — priorities and observable behaviour.
 5. [Architecture](docs/ARCHITECTURE.md) — proposed native design.
 6. [Data model](docs/DATA_MODEL.md) — anatomy, geometry, connections, conditions.
-7. [Content pipeline](docs/CONTENT_PIPELINE.md) — sources, preparation, review.
+7. [Content pipeline](docs/CONTENT_PIPELINE.md) and [Asset audit](docs/ASSET_AUDIT.md)
+   — sources, coverage evidence, preparation, and review.
 8. [Release requirements](docs/COMPLIANCE.md) — accuracy, licensing, accessibility, distribution.
 9. [Roadmap](docs/ROADMAP.md) and [Acceptance criteria](docs/RELEASE_CRITERIA.md).
 10. [Decisions](docs/decisions/), [Glossary](docs/GLOSSARY.md), and

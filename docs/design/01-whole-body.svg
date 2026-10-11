@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-labelledby="title desc">
+<title id="title">01 — Whole-body exploration</title>
+<desc id="desc">Start in the body scene; reveal layers and navigate toward a structure.. Static layout wireframe with schematic placeholders, not medical anatomy.</desc>
+<style>text{font-family:Inter,Arial,sans-serif}.title{font-size:27px;font-weight:700;fill:#eef3fc}.heading{font-size:17px;font-weight:600;fill:#e3eaf5}.body{font-size:15px;fill:#cbd5e1}.small{font-size:13px;fill:#bdc9db}.muted{font-size:13px;fill:#94a3b8}.active{font-size:13px;fill:#8fe1d3}.caption{font-size:12px;fill:#94a3b8}.mono{font-family:monospace;font-size:13px;fill:#bdc9db}</style>
+<rect x="0" y="0" width="1440" height="900" rx="0" fill="#0d1118" stroke="#0d1118"/>
+<text x="32" y="42" class="title" >01 — Whole-body exploration</text>
+<text x="32" y="70" class="muted" >Start in the body scene; reveal layers and navigate toward a structure.</text>
+<rect x="24" y="92" width="1392" height="728" rx="14" fill="#101722" stroke="#344055"/>
+<rect x="24" y="92" width="1392" height="64" rx="14" fill="#151c27" stroke="#344055"/>
+<text x="44" y="130" class="heading" >PRAXIS · Working name</text>
+<rect x="285" y="107" width="87" height="34" rx="8" fill="#193d47" stroke="#72d4c3"/>
+<text x="297" y="129" class="active" >Female</text>
+<rect x="380" y="107" width="70" height="34" rx="8" fill="#1b2533" stroke="#344055"/>
+<text x="392" y="129" class="small" >Male</text>
+<rect x="473" y="107" width="350" height="34" rx="8" fill="#0e1520" stroke="#344055"/>
+<text x="487" y="129" class="muted" >Search anatomy or conditions</text>
+<rect x="1070" y="107" width="141" height="34" rx="8" fill="#1b2533" stroke="#344055"/>
+<text x="1082" y="129" class="small" >Previous view</text>
+<rect x="1223" y="107" width="165" height="34" rx="8" fill="#1b2533" stroke="#344055"/>
+<text x="1235" y="129" class="small" >Whole body</text>
+<rect x="40" y="174" width="258" height="567" rx="12" fill="#151c27" stroke="#344055"/>
+<rect x="1122" y="174" width="278" height="567" rx="12" fill="#151c27" stroke="#344055"/>
+<text x="60" y="204" class="heading" >Anatomy explorer</text>
+<text x="60" y="229" class="muted" >Region and system controls</text>
+<rect x="60" y="246" width="103" height="34" rx="8" fill="#193d47" stroke="#72d4c3"/>
+<text x="72" y="268" class="active" >Regions</text>
+<rect x="173" y="246" width="105" height="34" rx="8" fill="#1b2533" stroke="#344055"/>
+<text x="185" y="268" class="small" >Systems</text>
+<text x="60" y="311" class="body" >Body</text>
+<text x="78" y="344" class="small" >Head and neck</text>
+<text x="78" y="377" class="active" >Chest</text>
+<text x="78" y="410" class="small" >Abdomen</text>
+<text x="78" y="443" class="small" >Pelvis</text>
+<text x="78" y="476" class="small" >Upper / lower limbs</text>
+<line x1="60" y1="497" x2="278" y2="497" stroke="#72d4c3" stroke-width="2" stroke-opacity=".3"/>
+<text x="60" y="527" class="heading" >Visibility</text>
+<text x="60" y="559" class="small" >Surface layer</text>
+<text x="229" y="559" class="active" >Shown</text>
+<text x="60" y="594" class="small" >Muscles</text>
+<text x="229" y="594" class="muted" >Shown</text>
+<text x="60" y="629" class="small" >Bones</text>
+<text x="232" y="629" class="small" >Shown</text>
+<text x="60" y="664" class="small" >Organs</text>
+<text x="232" y="664" class="small" >Shown</text>
+<rect x="60" y="686" width="218" height="34" rx="8" fill="#1b2533" stroke="#344055"/>
+<text x="72" y="708" class="small" >Restore visibility</text>
+<text x="1142" y="205" class="heading" >Start exploring</text>
+<text x="320" y="188" class="muted" >Body</text>
+<text x="983" y="188" class="active" >Normal anatomy</text>
+<rect x="322" y="212" width="774" height="505" rx="14" fill="#111b28" stroke="#27364b"/>
+<g stroke="#203149" stroke-width="1">
+<path d="M322 470 H1096 M709 212 V717"/>
+<path d="M322 340 H1096 M322 600 H1096"/>
+</g>
+<text x="342" y="239" class="muted" >3D scene viewport</text>
+<rect x="931" y="231" width="145" height="34" rx="8" fill="#1b2533" stroke="#344055"/>
+<text x="943" y="253" class="small" >Reveal target</text>
+<rect x="322" y="731" width="774" height="57" rx="10" fill="#151c27" stroke="#344055"/>
+<rect x="334" y="742" width="96" height="34" rx="8" fill="#193d47" stroke="#72d4c3"/>
+<text x="346" y="764" class="active" >Navigate</text>
+<rect x="436" y="742" width="68" height="34" rx="8" fill="#1b2533" stroke="#344055"/>
+<text x="448" y="764" class="small" >Move</text>
+<rect x="510" y="742" width="79" height="34" rx="8" fill="#1b2533" stroke="#344055"/>
+<text x="522" y="764" class="small" >Labels</text>
+<rect x="595" y="742" width="66" height="34" rx="8" fill="#1b2533" stroke="#344055"/>
+<text x="607" y="764" class="small" >Fade</text>
+<rect x="667" y="742" width="89" height="34" rx="8" fill="#1b2533" stroke="#344055"/>
+<text x="679" y="764" class="small" >Cutaway</text>
+<rect x="762" y="742" width="93" height="34" rx="8" fill="#1b2533" stroke="#344055"/>
+<text x="774" y="764" class="small" >Separate</text>
+<rect x="861" y="742" width="65" height="34" rx="8" fill="#1b2533" stroke="#344055"/>
+<text x="873" y="764" class="small" >Undo</text>
+<rect x="932" y="742" width="84" height="34" rx="8" fill="#1b2533" stroke="#344055"/>
+<text x="944" y="764" class="small" >Restore</text>
+<text x="44" y="800" class="caption" >Local session · Navigate mode · Reference anatomy</text>
+<text x="32" y="851" class="caption" >DESIGN ARTIFACT — layout and interaction only. Anatomy, conditions, and route segments are placeholders.</text>
+<text x="32" y="877" class="caption" >Desktop first · One continuous body scene · Reversible visibility and disassembly · Draft 2026-10-11</text>
+<g opacity="0.62" fill="#69788e" stroke="#a4b2c5" stroke-width="2">
+<ellipse cx="720" cy="276" rx="34" ry="42"/>
+<path d="M696 321 L674 354 L682 481 L700 503 L704 675 L722 675 L726 516 L739 675 L758 675 L751 503 L768 481 L776 354 L749 321 Z"/>
+<path d="M673 354 L641 459 L634 541 L651 544 L664 463 L689 380 Z"/>
+<path d="M776 354 L806 459 L815 541 L798 544 L786 464 L761 380 Z"/>
+</g>
+<text x="601" y="700" class="muted" >Whole-body model placeholder</text>
+<text x="1142" y="245" class="body" >Explore by selecting anatomy.</text>
+<text x="1142" y="274" class="body" >Rotate, zoom, or search.</text>
+<line x1="1142" y1="297" x2="1380" y2="297" stroke="#72d4c3" stroke-width="2" stroke-opacity=".3"/>
+<text x="1142" y="327" class="heading" >View options</text>
+<rect x="1142" y="347" width="236" height="34" rx="8" fill="#1b2533" stroke="#344055"/>
+<text x="1154" y="369" class="small" >Show local labels</text>
+<rect x="1142" y="393" width="236" height="34" rx="8" fill="#1b2533" stroke="#344055"/>
+<text x="1154" y="415" class="small" >Reveal deeper anatomy</text>
+<rect x="1142" y="439" width="236" height="34" rx="8" fill="#1b2533" stroke="#344055"/>
+<text x="1154" y="461" class="small" >Open a saved view</text>
+<text x="1142" y="511" class="heading" >Reference body</text>
+<text x="1142" y="541" class="body" >Female adult reference</text>
+<text x="1142" y="579" class="active" >Coverage and sources</text>
+<text x="1142" y="608" class="muted" >Available for each region.</text>
+<rect x="359" y="641" width="204" height="44" rx="8" fill="#192938" stroke="#42536a"/>
+<text x="373" y="668" class="small" >Orientation · front / back</text>
+</svg>

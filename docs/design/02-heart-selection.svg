@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-labelledby="title desc">
+<title id="title">02 — Heart selection and contextual actions</title>
+<desc id="desc">Focus at the heart's body position; labels and condition lists stay connected to selection.. Static layout wireframe with schematic placeholders, not medical anatomy.</desc>
+<style>text{font-family:Inter,Arial,sans-serif}.title{font-size:27px;font-weight:700;fill:#eef3fc}.heading{font-size:17px;font-weight:600;fill:#e3eaf5}.body{font-size:15px;fill:#cbd5e1}.small{font-size:13px;fill:#bdc9db}.muted{font-size:13px;fill:#94a3b8}.active{font-size:13px;fill:#8fe1d3}.caption{font-size:12px;fill:#94a3b8}.mono{font-family:monospace;font-size:13px;fill:#bdc9db}</style>
+<rect x="0" y="0" width="1440" height="900" rx="0" fill="#0d1118" stroke="#0d1118"/>
+<text x="32" y="42" class="title" >02 — Heart selection and contextual actions</text>
+<text x="32" y="70" class="muted" >Focus at the heart's body position; labels and condition lists stay connected to selection.</text>
+<rect x="24" y="92" width="1392" height="728" rx="14" fill="#101722" stroke="#344055"/>
+<rect x="24" y="92" width="1392" height="64" rx="14" fill="#151c27" stroke="#344055"/>
+<text x="44" y="130" class="heading" >PRAXIS · Working name</text>
+<rect x="285" y="107" width="87" height="34" rx="8" fill="#193d47" stroke="#72d4c3"/>
+<text x="297" y="129" class="active" >Female</text>
+<rect x="380" y="107" width="70" height="34" rx="8" fill="#1b2533" stroke="#344055"/>
+<text x="392" y="129" class="small" >Male</text>
+<rect x="473" y="107" width="350" height="34" rx="8" fill="#0e1520" stroke="#344055"/>
+<text x="487" y="129" class="muted" >Search anatomy or conditions</text>
+<rect x="1070" y="107" width="141" height="34" rx="8" fill="#1b2533" stroke="#344055"/>
+<text x="1082" y="129" class="small" >Previous view</text>
+<rect x="1223" y="107" width="165" height="34" rx="8" fill="#1b2533" stroke="#344055"/>
+<text x="1235" y="129" class="small" >Whole body</text>
+<rect x="40" y="174" width="258" height="567" rx="12" fill="#151c27" stroke="#344055"/>
+<rect x="1122" y="174" width="278" height="567" rx="12" fill="#151c27" stroke="#344055"/>
+<text x="60" y="204" class="heading" >Anatomy explorer</text>
+<text x="60" y="229" class="muted" >Region and system controls</text>
+<rect x="60" y="246" width="103" height="34" rx="8" fill="#193d47" stroke="#72d4c3"/>
+<text x="72" y="268" class="active" >Regions</text>
+<rect x="173" y="246" width="105" height="34" rx="8" fill="#1b2533" stroke="#344055"/>
+<text x="185" y="268" class="small" >Systems</text>
+<text x="60" y="311" class="body" >Body</text>
+<text x="78" y="344" class="small" >Head and neck</text>
+<text x="78" y="377" class="active" >Chest</text>
+<text x="78" y="410" class="small" >Abdomen</text>
+<text x="78" y="443" class="small" >Pelvis</text>
+<text x="78" y="476" class="small" >Upper / lower limbs</text>
+<line x1="60" y1="497" x2="278" y2="497" stroke="#72d4c3" stroke-width="2" stroke-opacity=".3"/>
+<text x="60" y="527" class="heading" >Visibility</text>
+<text x="60" y="559" class="small" >Surface layer</text>
+<text x="229" y="559" class="active" >Hidden</text>
+<text x="60" y="594" class="small" >Muscles</text>
+<text x="229" y="594" class="muted" >Faded</text>
+<text x="60" y="629" class="small" >Bones</text>
+<text x="232" y="629" class="small" >Shown</text>
+<text x="60" y="664" class="small" >Organs</text>
+<text x="232" y="664" class="small" >Shown</text>
+<rect x="60" y="686" width="218" height="34" rx="8" fill="#1b2533" stroke="#344055"/>
+<text x="72" y="708" class="small" >Restore visibility</text>
+<text x="1142" y="205" class="heading" >Heart</text>
+<text x="320" y="188" class="muted" >Body / Chest / Heart</text>
+<text x="983" y="188" class="active" >Normal anatomy</text>
+<rect x="322" y="212" width="774" height="505" rx="14" fill="#111b28" stroke="#27364b"/>
+<g stroke="#203149" stroke-width="1">
+<path d="M322 470 H1096 M709 212 V717"/>
+<path d="M322 340 H1096 M322 600 H1096"/>
+</g>
+<text x="342" y="239" class="muted" >3D scene viewport</text>
+<rect x="931" y="231" width="145" height="34" rx="8" fill="#1b2533" stroke="#344055"/>
+<text x="943" y="253" class="small" >Reveal target</text>
+<rect x="322" y="731" width="774" height="57" rx="10" fill="#151c27" stroke="#344055"/>
+<rect x="334" y="742" width="96" height="34" rx="8" fill="#193d47" stroke="#72d4c3"/>
+<text x="346" y="764" class="active" >Navigate</text>
+<rect x="436" y="742" width="68" height="34" rx="8" fill="#1b2533" stroke="#344055"/>
+<text x="448" y="764" class="small" >Move</text>
+<rect x="510" y="742" width="79" height="34" rx="8" fill="#193d47" stroke="#72d4c3"/>
+<text x="522" y="764" class="active" >Labels</text>
+<rect x="595" y="742" width="66" height="34" rx="8" fill="#1b2533" stroke="#344055"/>
+<text x="607" y="764" class="small" >Fade</text>
+<rect x="667" y="742" width="89" height="34" rx="8" fill="#1b2533" stroke="#344055"/>
+<text x="679" y="764" class="small" >Cutaway</text>
+<rect x="762" y="742" width="93" height="34" rx="8" fill="#1b2533" stroke="#344055"/>
+<text x="774" y="764" class="small" >Separate</text>
+<rect x="861" y="742" width="65" height="34" rx="8" fill="#1b2533" stroke="#344055"/>
+<text x="873" y="764" class="small" >Undo</text>
+<rect x="932" y="742" width="84" height="34" rx="8" fill="#1b2533" stroke="#344055"/>
+<text x="944" y="764" class="small" >Restore</text>
+<text x="44" y="800" class="caption" >Local session · Navigate mode · Reference anatomy</text>
+<text x="32" y="851" class="caption" >DESIGN ARTIFACT — layout and interaction only. Anatomy, conditions, and route segments are placeholders.</text>
+<text x="32" y="877" class="caption" >Desktop first · One continuous body scene · Reversible visibility and disassembly · Draft 2026-10-11</text>
+<rect x="423" y="280" width="565" height="357" rx="26" fill="#172435" stroke="#42536a"/>
+<text x="446" y="307" class="muted" >Surrounding chest anatomy</text>
+<g opacity=".35" stroke="#738299" fill="none" stroke-width="3">
+<path d="M460 348 Q702 255 952 349"/>
+<path d="M449 378 Q702 300 964 378"/>
+<path d="M449 410 Q702 332 964 410"/>
+<path d="M450 445 Q702 370 964 445"/>
+</g>
+<path d="M696 356 Q754 338 792 384 Q829 442 790 505 Q758 557 702 584 Q646 541 637 491 Q617 429 651 383 Z" fill="#426273" stroke="#8fe1d3" stroke-width="3"/>
+<rect x="658" y="405" width="117" height="110" rx="12" fill="#203847" stroke="#689aab"/>
+<text x="674" y="441" class="active" >Selected</text>
+<text x="676" y="467" class="body" >assembly</text>
+<line x1="687" y1="405" x2="588" y2="353" stroke="#72d4c3" stroke-width="2" />
+<rect x="469" y="325" width="139" height="39" rx="8" fill="#202b3a" stroke="#5f8190"/>
+<text x="485" y="350" class="small" >Component A</text>
+<line x1="768" y1="463" x2="899" y2="436" stroke="#72d4c3" stroke-width="2" />
+<rect x="859" y="401" width="167" height="39" rx="8" fill="#202b3a" stroke="#5f8190"/>
+<text x="874" y="426" class="small" >Component B</text>
+<line x1="704" y1="528" x2="688" y2="621" stroke="#72d4c3" stroke-width="2" />
+<rect x="624" y="620" width="154" height="39" rx="8" fill="#202b3a" stroke="#5f8190"/>
+<text x="640" y="645" class="small" >Component C</text>
+<line x1="640" y1="464" x2="620" y2="511" stroke="#72d4c3" stroke-width="2" />
+<rect x="394" y="491" width="231" height="200" rx="12" fill="#202b3a" stroke="#72d4c3"/>
+<text x="410" y="519" class="heading" >Heart · actions</text>
+<text x="410" y="552" class="small" >Inspect anatomy</text>
+<text x="410" y="579" class="small" >Show labels</text>
+<text x="410" y="606" class="small" >Show connections</text>
+<text x="410" y="633" class="active" >Related conditions</text>
+<text x="410" y="660" class="small" >Explore changes</text>
+<text x="1142" y="244" class="small" >Overview / Parts / Conditions</text>
+<line x1="1142" y1="266" x2="1380" y2="266" stroke="#72d4c3" stroke-width="2" stroke-opacity=".3"/>
+<text x="1142" y="295" class="heading" >Related conditions</text>
+<rect x="1142" y="315" width="236" height="78" rx="8" fill="#192938" stroke="#40546c"/>
+<text x="1154" y="343" class="body" >Condition entry 01</text>
+<text x="1154" y="368" class="active" >Locate affected anatomy</text>
+<rect x="1142" y="405" width="236" height="78" rx="8" fill="#192938" stroke="#40546c"/>
+<text x="1154" y="433" class="body" >Condition entry 02</text>
+<text x="1154" y="458" class="small" >Comparison available</text>
+<rect x="1142" y="495" width="236" height="78" rx="8" fill="#192938" stroke="#40546c"/>
+<text x="1154" y="523" class="body" >Condition entry 03</text>
+<text x="1154" y="548" class="small" >Explanation available</text>
+<text x="1142" y="611" class="muted" >Choose an entry to inspect it.</text>
+<text x="1142" y="643" class="active" >Sources and coverage</text>
+</svg>

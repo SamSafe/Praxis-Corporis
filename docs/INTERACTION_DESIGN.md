@@ -2,6 +2,9 @@
 
 Status: proposed desktop experience for review before implementation.
 
+See [Interface specification](INTERFACE_SPEC.md) for static screen studies and
+the exact selection, restore, pathway, and loading behaviours proposed for review.
+
 ## Workspace
 
 | Area | Purpose |
