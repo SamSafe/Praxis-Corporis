@@ -1,82 +1,66 @@
 # Vision
 
-> **Project name:** Praxis Corporis (Latin, "practice of the body") — often shortened to
-> **Praxis**. The name captures the two halves of the project: a *corpus* (the body / a
-> body of knowledge) you can navigate, and *praxis* (applied practice) — the testing and
-> study loop that is the core differentiator.
+Status: established product direction; implementation design remains a draft.
 
-## One-sentence pitch
+## Product and audience
 
-A navigable 3D human body where every structure is labeled, testable, and connected to
-the physiology and diseases that affect it — a single tool that teaches *and* examines,
-useful from MCAT through clinical practice.
+A comprehensive 3D body explorer connecting anatomy, composition, spatial
+relationships, function, disease, and injury. Like inspecting a complex machine,
+users remove layers, focus on assemblies, separate parts, inspect construction,
+and explore supported changes.
 
-## The problem
+Serve aspiring doctors, premed students, early medical students, and clinical
+medical students through adjustable explanation depth. Proposed explanations
+combine a short overview with expandable medical detail.
 
-Learning medicine forces you to hold three things in your head at once and constantly
-switch tools to do it:
+Exploration is the main learning loop. Quizzes, spaced repetition, exam preparation,
+and educator tools are optional later additions.
 
-1. **Spatial structure** — what is where, and what it looks like from different angles
-   (2D atlases and cadaver lab).
-2. **Function** — what each structure does (textbooks).
-3. **Pathology** — what goes wrong, why, and the downstream effects (more textbooks,
-   case banks, flashcards).
+## Continuous context
 
-These live in separate products. You memorize the brachial plexus in one app, learn
-about Erb's palsy in another, and get quizzed in a third. Nothing shows you the *same*
-nerve, then breaks it, then asks you what happens.
+One body scene connects the whole body, regions, systems, structures, and internal
+components. Selecting an organ focuses the camera on its actual position. Users
+then move toward nearby anatomy or follow a supported connection.
 
-## The vision
+Inspection displacement is temporary. Recorded anatomical positions remain the
+basis for restoration and relationships. Moving a part does not silently create
+an injury or change the connection graph.
 
-One environment where you can:
+## Comprehensive anatomy
 
-- **Navigate** the body in 3D — rotate, slice, isolate systems (skeletal, muscular,
-  nervous, vascular, lymphatic, organ systems), peel layers, and view cross-sections.
-- **Label & annotate** — toggle labels, add your own notes/pins, draw, save views.
-- **Learn structure → function** — click any structure for its name, relationships
-  (origin/insertion, innervation, blood supply, drainage), and physiology.
-- **Overlay pathology** — apply a disease/condition and *see* its effect on the model
-  (e.g. an MI region on the heart, a herniated disc compressing a nerve root, the
-  vascular territory of a stroke), with the clinical presentation explained.
-- **Be tested** — built-in quizzes and spaced repetition driven by the same data:
-  identify structures, match condition→effect, clinical vignettes tied to the 3D view.
-- **Trace consequences** — pick a condition and follow its systemic impact across organ
-  systems ("what does uncontrolled diabetes do, organ by organ?").
+The long-term inventory includes skeletal, muscular, nervous, cardiovascular,
+respiratory, digestive, urinary, reproductive, endocrine, lymphatic/immune, and
+integumentary anatomy, with internal detail added progressively.
 
-## Who it's for (in order)
+Both male and female adult reference bodies belong in the first-release plan.
+They require supported anatomy and spatial relationships, rather than a cosmetic
+exterior swap. Additional anatomical variants, age groups, and microscopic content
+are later extensions.
 
-1. **You / pre-med & MCAT students** — anatomy, physiology, intro pathology.
-2. **Medical & nursing/PA/allied-health students** — deeper anatomy + pathology + boards prep.
-3. (Later) **Educators** — assign content, build quizzes, track classes.
-4. (Much later) **Patient education / clinicians** — explain conditions visually.
+Track anatomy, explanations, pathways, cutaways, and disease visuals separately.
+Source object counts do not establish completeness.
 
-## The honest reality (read this before writing any code)
+## Reference experience
 
-This vision, taken whole, is **the work of a well-funded company over many years**, not
-a solo or small project. The hard part is *not* the 3D viewer — that's a solved problem
-with off-the-shelf engines. The hard parts are:
+Open the app, move around the body, reveal deeper anatomy, click the heart and
+move closer, label its parts, inspect related conditions, orbit the heart, and
+follow the relevant connections toward the lungs in the same scene.
 
-- **Medically accurate 3D assets** for the whole body (expensive to license, very
-  expensive to make).
-- **Curated, correct, referenced medical content** for thousands of structures and
-  hundreds of diseases — this is a medical-writing and review effort, not a coding one.
-- **Pathology *simulation*** (showing a disease's effect on the model) requires both
-  custom assets/animations per condition *and* domain expertise per condition.
-- **Liability and accuracy** — once it teaches medicine, wrong content has real stakes.
+## Appearance and delivery
 
-The strategic answer is not "build less ambition" — keep the big vision here as the
-North Star. The answer is to **pick one narrow, finishable wedge** and build it
-end-to-end so it's genuinely good, then expand. See [SCOPE.md](SCOPE.md).
+Clean, readable presentation with realistic anatomical shapes, proportions, and
+detail. Selection, labels, and transparency support inspection without overwhelming
+the view. Ordinary student laptops are the proposed baseline, subject to measurement.
 
-## Success criteria for v1 (proof the idea works)
+Windows and macOS first. The user and assistant build together, quality takes
+priority over a deadline, and testing progresses from the user to a private group
+to public release. Launch is free, with possible paid features later.
 
-A med/pre-med student uses it for one body region (proposed: the heart, or the upper
-limb) and says *"I'd use this instead of my current tool for this topic."* If you can't
-beat existing tools on **one** region, breadth won't save you.
+## Boundaries
 
-## Non-goals (at least early)
+General educational anatomy and authored scenarios are in scope. Patient diagnosis,
+treatment recommendations, patient-specific imaging import, unrestricted biological
+damage simulation, and surgical training are outside the initial scope.
 
-- Not a diagnostic or clinical-decision tool (regulatory minefield — see [COMPLIANCE.md](COMPLIANCE.md)).
-- Not surgical simulation / VR (huge separate effort).
-- Not patient-specific imaging (DICOM/CT/MRI reconstruction) in v1.
-- Not a content marketplace or social platform in v1.
+Mobile, VR, animation, microscopic exploration, accounts, and teaching dashboards
+remain future work.

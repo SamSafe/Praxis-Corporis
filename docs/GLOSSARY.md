@@ -1,27 +1,28 @@
 # Glossary
 
-Shared vocabulary so docs and code mean the same thing.
-
-| Term | Meaning |
+| Term | Meaning in this plan |
 |---|---|
-| **Praxis Corporis** | The project name (Latin, "practice of the body"); shortened to **Praxis**. |
-| **Wedge** | The single body region built end-to-end first (see [SCOPE.md](SCOPE.md)). |
-| **Structure** | Any anatomical entity (bone, muscle, nerve, vessel, organ, region) — a content record. |
-| **Shared-id contract** | The rule that one `id` identifies a structure across the 3D model, content, and quizzes (see [DATA_MODEL.md](DATA_MODEL.md)). |
-| **Pathology / Condition** | A disease or abnormality and its effect on one or more structures. |
-| **Overlay** | A visual change applied to the model to show a pathology (color, region, deform, mesh-swap). |
-| **Review status** | `draft` / `reviewed` / `verified` — how trustworthy a content entry's medical accuracy is. |
-| **SRS** | Spaced Repetition System — schedules review of items by recall difficulty. |
-| **FSRS / SM-2** | Specific SRS scheduling algorithms. FSRS is the modern one. |
-| **glTF / GLB** | Web-native 3D model formats; nodes within them map to structures. |
-| **Node** | A named element inside a glTF model; its name equals a structure `id`. |
-| **r3f** | react-three-fiber, the React renderer for Three.js. |
-| **Local-first** | Architecture where data lives on the user's device; no server required. |
-| **ADR** | Architecture Decision Record (see [decisions/](decisions/)). |
-| **Systemic disease tracing** | Following one condition's effects across multiple organ systems (a North Star feature). |
-| **Atlas** | The navigable 3D anatomical model the user explores; the visual front end of the structure data. |
-| **MCAT** | Medical College Admission Test — the entry exam the early study/quiz features target. |
-| **USMLE** | United States Medical Licensing Examination — the later-stage exams Praxis aims to stay useful for. |
-| **Three.js** | The underlying WebGL 3D library that **r3f** wraps; renders the glTF model in the browser. |
-| **Walled garden** | A closed, expensive study platform that locks content behind paywalls — the kind of tool Praxis is positioned against (see [VISION.md](VISION.md)). |
-| **North Star feature** | A high-ambition capability that guides design direction even before it ships (e.g. systemic disease tracing). |
+| Praxis Corporis | Existing working name; final naming is open. |
+| Reference body | A versioned adult anatomical reference with provenance and coverage. |
+| Structure | A stable anatomical concept such as an organ, vessel, bone, component, or group. |
+| Representation | Geometry for a structure in a particular body, detail level, or condition. |
+| Canonical ID | Stable application identity independent of vendor mesh names. |
+| Coverage | Explicit availability of geometry, interiors, explanations, routes, and scenarios. |
+| Continuous scene | Connected exploration in the body; high-detail assets may load progressively. |
+| Inspection displacement | Temporary movement for viewing, distinct from injury. |
+| Guided separation | Authored offsets that expose parts within the body scene. |
+| Cutaway | A prepared view exposing supplied internal anatomy. |
+| Cross-section | A slice through supported prepared anatomy, not invented internal content. |
+| Connection | A typed, evidenced relationship between structures. |
+| Pathway | A supported route across connection records, possibly with branches and gaps. |
+| Condition | A sourced educational entry linked to affected anatomy. |
+| Scenario | A prepared injury/disease representation with supported choices and explanations. |
+| Source checked | Specific claims/mappings checked by a human against recorded sources. |
+| Expert reviewed | Specific content/version reviewed by a suitably qualified person. |
+| Local use | Exploration and saved data on the user's device, without mandatory accounts. |
+| Content pack | Versioned geometry/metadata with mappings, capabilities, licences, and evidence. |
+| Level of detail | Alternate geometry fidelity with consistent structure identity. |
+| GLB | Proposed portable binary glTF geometry format. |
+| ADR | A record of a significant decision, including status and consequences. |
+| Personal prototype | Private user testing with clearly identified incomplete/draft content. |
+| Private pilot | A small-group usability/learning trial, separate from medical review. |

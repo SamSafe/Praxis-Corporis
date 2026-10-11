@@ -1,81 +1,126 @@
-# Architecture (Proposed)
+# Architecture — Proposed
 
-> This is a *proposed* starting design for the v1 wedge, not a finished spec. Record
-> significant choices as ADRs in [decisions/](decisions/).
+Status: technical recommendation, not an implemented or benchmarked stack.
 
-## Guiding principles
+## Engine recommendation
 
-- **Local-first.** v1 needs no backend. The app + content are static assets; user
-  progress lives in the browser. This keeps it free to host, private, and simple.
-- **Content separate from code.** Anatomy/pathology/quiz data are data files, not
-  hardcoded — so medical content can be authored, reviewed, and corrected without
-  redeploying logic. See [DATA_MODEL.md](DATA_MODEL.md).
-- **Buy/borrow the 3D, build the learning.** The viewer is commodity; the structured
-  content + testing loop is the value. Don't build a renderer from scratch.
+Use Godot as the initial engine candidate. Its MIT licence supports commercial
+distribution subject to its notices; application content has separate licensing.
+[Godot licence](https://godotengine.org/license/)
 
-## Recommended stack (v1)
+Godot documents native [Windows exports](https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_windows.html)
+and [macOS exports](https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_macos.html),
+including Universal 2 Mac bundles. It also provides an
+[XR system](https://docs.godotengine.org/en/stable/tutorials/xr/setting_up_xr.html).
+These capabilities make it a reasonable candidate; they do not establish viewer
+performance or make a future VR port automatic.
 
-| Concern | Recommendation | Why |
-|---|---|---|
-| Language | **TypeScript** | Type safety pays off as content schemas grow |
-| 3D engine | **Three.js**, ideally via **React-three-fiber** | De-facto standard for web 3D; huge ecosystem; glTF support |
-| UI framework | **React** (+ Vite) | Matches react-three-fiber; fast dev loop |
-| Model format | **glTF/GLB** with named nodes per structure | Web-native, compact, nodes map to selectable structures |
-| State | Lightweight store (**Zustand**) | Simple; avoids Redux overhead |
-| Content | **Markdown + JSON/YAML** files, validated by schema (**Zod**) | Human-editable, diffable, reviewable in PRs |
-| Spaced repetition | **FSRS** (or SM-2) library | Modern, well-studied scheduling |
-| Persistence (v1) | **IndexedDB** (e.g. via Dexie) | Stores progress/notes locally, larger quota than localStorage |
-| Hosting | Static host (**GitHub Pages / Netlify / Cloudflare Pages**) | Free, no server |
+The proposed stack is Godot with GDScript, native Godot UI controls, Blender for
+offline asset preparation, GLB for portable geometry, JSON for metadata and saved
+state, and small Python tools for content processing and validation.
 
-> If you'd rather not assemble the 3D yourself, the alternative is building on the
-> **BioDigital Human API** (hosted models + viewer) and layering your testing/content
-> on top. Trade-off: faster start and great assets, but vendor lock-in, cost at scale,
-> and less control. Capture this as an ADR before committing.
+Pin supported versions after the later feasibility trial. Do not scaffold now.
+Application licence selection remains separate and open.
 
-## Component sketch (v1)
+## Responsibilities
 
-```
-┌─────────────────────────────────────────────────────────┐
-│                        Web App (SPA)                      │
-│                                                           │
-│  ┌──────────────┐   ┌───────────────┐  ┌──────────────┐  │
-│  │  3D Viewer    │   │  Info / Label  │  │  Study/Quiz  │  │
-│  │ (r3f/Three)   │◄─►│     Panel      │  │    Engine    │  │
-│  │  - camera     │   │  - structure   │  │  - FSRS      │  │
-│  │  - selection  │   │  - pathology   │  │  - queues    │  │
-│  │  - clip plane │   │    toggle      │  │  - sessions  │  │
-│  └──────┬────────┘   └───────┬───────┘  └──────┬───────┘  │
-│         │                    │                  │          │
-│         └──────────┬─────────┴──────────────────┘          │
-│                    ▼                                        │
-│         ┌────────────────────┐     ┌──────────────────┐    │
-│         │  Content Store      │     │  Progress Store  │    │
-│         │  (loaded data:      │     │   (IndexedDB:    │    │
-│         │  structures,        │     │   mastery,       │    │
-│         │  pathologies, decks)│     │   notes)         │    │
-│         └─────────┬──────────┘     └──────────────────┘    │
-└───────────────────┼────────────────────────────────────────┘
-                    ▼
-        Static content bundle (glTF models + JSON/MD + schemas)
+```mermaid
+flowchart LR
+    Input[Mouse / keyboard / trackpad] --> Actions[Named viewer actions]
+    Panels[Explorer / labels / details] --> Actions
+    Actions --> State[Session and inspection state]
+    State --> Scene[Camera and body scene]
+    Catalogue[Anatomy and representation catalogue] --> Scene
+    Catalogue --> Panels
+    Paths[Reviewed connection routes] --> State
+    Scenarios[Authored condition scenarios] --> State
+    State --> Saves[Local saved views and preferences]
+    Packs[Versioned content packs] --> Catalogue
 ```
 
-## The selection mechanism (the key technical idea)
+A single continuous body scene is a user experience requirement, not a requirement
+to load every high-detail mesh at once. Keep world placement consistent while
+loading regional detail as needed.
 
-Each anatomical structure is a **named node** in the glTF model. The same `id` is the
-key used by the content files and the quiz items. So:
+- **Catalogue:** stable anatomical IDs, representations, references, capability flags.
+- **Viewer:** rendering, picking, highlighting, camera focus, labels, cutaways.
+- **Inspection:** reversible visibility, displacement, and separation commands.
+- **Pathways:** explicit reviewed connections and route guidance.
+- **Scenarios:** authored medical changes, separate from inspection transforms.
+- **Persistence:** versioned local views, notes, preferences, and recovery.
+- **Content processing:** validate and prepare data without coupling it to UI code.
 
-- Click in 3D → engine returns node `id` → look up content by `id` → render info panel.
-- Quiz "highlight this structure" → set selection by `id` → highlight node in 3D.
+## State and coordinate contracts
 
-This shared-id contract between **model**, **content**, and **quiz** is what makes the
-whole thing one connected system instead of three. Define it carefully — see
-[DATA_MODEL.md](DATA_MODEL.md).
+Record source coordinate frame, units, anatomical directions, body identity, and
+registration transforms. Normalize in the preparation pipeline and validate placement
+against landmarks. Do not fit unrelated assets together only by appearance.
 
-## What to defer (don't over-engineer v1)
+Original anatomy is immutable session baseline data. User visibility, displacement,
+camera, and selection are separate. Disease representations are another layer with
+explicit reset. Undo/redo uses named commands; history navigation is not identical
+to undo.
 
-- No backend, auth, or database server.
-- No microservices, no GraphQL.
-- No native/mobile/VR builds.
-- No CMS — content is files in the repo.
+Canonical anatomical IDs map to one or more geometry nodes in each representation.
+Do not require anatomical IDs to equal vendor node names.
+[Data model](DATA_MODEL.md) explains groups, missing geometry, and alternative models.
 
-Add these only when a concrete need (sync, sharing, scale) actually appears.
+## Geometry and labels
+
+Godot's import documentation covers supported formats and runtime scene loading.
+Validate the chosen GLB import path before adopting a packaging method.
+[3D import documentation](https://docs.godotengine.org/en/stable/tutorials/assets_pipeline/importing_3d_scenes/index.html)
+
+Use prepared selectable anatomy, pick proxies where needed, selection outlines,
+and screen-space labels anchored to actual geometry. Handle transparency, depth,
+occlusion, hidden-object picking, and small targets explicitly.
+
+Prepared organ interiors and validated cutaways are the first approach. General
+clipping requires tested surfaces and caps. A discarded outer surface cannot supply
+missing anatomical contents.
+
+## Rendering and performance
+
+Evaluate Compatibility and Mobile rendering during the feasibility trial, selecting
+one measured default with tested fallback behaviour. The name Mobile does not limit
+that renderer to phones. Godot documents different feature and hardware trade-offs.
+[Renderer overview](https://docs.godotengine.org/en/stable/tutorials/rendering/renderers.html)
+
+Reduce cost through regional loading, levels of detail, restrained materials,
+instancing where appropriate, and label budgeting. Preserve selectable small
+structures when switching detail. User-facing controls describe visual detail,
+not engine internals.
+
+Proposed target: smooth navigation at 1080p, at least 30 sustained FPS on the agreed
+baseline laptops and 60 FPS where practical. Define load, memory, and interaction
+budgets against measured hardware before declaring minimum requirements. These are
+targets, not achieved measurements.
+
+## Local content and persistence
+
+Bundle a usable starter collection so the first session is understandable. Later
+regional packs can be explicitly acquired and used offline. Keep metadata available
+when high-detail geometry is unloaded.
+
+Pack manifests specify versions, structure mappings, compatible application/schema
+versions, checksums, licences, review evidence, and supported capabilities. Validate
+packs before activation; keep a known working version and recover from interrupted
+updates. Remote packs contain data, not arbitrary executable extensions.
+
+Save user data outside the installation directory, with versioned migrations,
+atomic writes, backups, and export/import. Godot supplies a persistent user-data
+location; the application still needs its own recovery design.
+[Data paths](https://docs.godotengine.org/en/stable/tutorials/io/data_paths.html)
+
+No backend, login, cloud sync, runtime AI tutor, or automatic telemetry is required.
+If introduced later, each needs a specific product reason and a separate design.
+
+## Distribution and future devices
+
+Propose Windows x64 and a universal macOS build. Define actual OS support after
+testing the pinned engine. Direct downloads are the initial distribution proposal.
+[Release requirements](COMPLIANCE.md) cover signing and Mac notarization.
+
+Keep semantic content, routes, saved-view definitions, and representation manifests
+portable. Mobile and VR reuse those assets but require new controls, UI, performance
+work, and device testing. Do not imply that engine export alone completes a port.

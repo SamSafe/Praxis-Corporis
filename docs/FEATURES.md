@@ -1,65 +1,38 @@
-# Feature Catalog
+# Feature Catalogue
 
-Features are tagged by priority:
-- **[v1]** — part of the first wedge (see [SCOPE.md](SCOPE.md))
-- **[v2]** — next, after the wedge is good
-- **[later]** — North Star; aspirational
+Priorities below are planned, not implemented or validated.
 
-## 1. Navigation & viewing
+| Capability | Priority | Expected behaviour |
+|---|---|---|
+| Reference bodies | Core | Male and female adult anatomy with explicit coverage. |
+| Navigation | Core | Orbit, pan, zoom, focus, return, and orient within the body scene. |
+| Browsing and search | Core | Find anatomy by region, system, name, or synonym. |
+| Visibility | Core | Hide/fade/reveal groups and individual parts, then reverse changes. |
+| Labels | Core | Selection and local-part labels with readable placement. |
+| Details | Core | Overview, function, composition, relationships, and sources where covered. |
+| Manual movement | Core | Deliberately move supported anatomy, show original context, restore exactly. |
+| Guided separation | Core | Curated separated views inside the scene. |
+| Interiors and cutaways | Content dependent | Inspect supplied internal anatomy and validated cutaways. |
+| Cross-sections | Content dependent | Slice prepared geometry with appropriate surfaces and coverage information. |
+| Connections | Core | Follow recorded paths and branches without losing orientation. |
+| Related conditions | Core | Browse linked conditions and highlight supported affected anatomy. |
+| Comparison | Selected content | Clearly distinguish normal and authored condition representations. |
+| Injury scenarios | Selected content | Choose reviewed changes and inspect their causes and effects. |
+| Saved views and bookmarks | Proposed core | Restore useful viewing and inspection state. |
+| Notes and screenshots | Proposed core | Keep local observations and export views with applicable credits. |
+| Offline use | Proposed core | Explore acquired content without a connection or login. |
+| Sources and coverage | Core | Explain available anatomy, content provenance, and review evidence. |
+| Undo and restore | Core | Reverse inspection changes; restore normal assembled anatomy. |
+| Adjustable detail | Core | Preserve essential selectable anatomy at measured performance settings. |
+| Animation and microscopic detail | Later | Expand supported learning scales and processes. |
+| Mobile and VR | Later | Reuse content with device-appropriate interaction. |
+| Quizzes and spaced repetition | Optional later | Add only after exploration is useful. |
 
-- **[v1]** Rotate, pan, zoom the model (orbit camera).
-- **[v1]** Isolate / hide structures and systems (skeletal, muscular, nervous, vascular…).
-- **[v1]** Opacity / X-ray to see through layers.
-- **[v1]** Cross-section / clipping plane (slice the model along an axis).
-- **[v2]** Preset views & camera bookmarks (e.g. "anterior brachial plexus").
-- **[v2]** Layer peeling (skin → fascia → muscle → bone).
-- **[later]** Free-form dissection; explode view; physiology animation (heartbeat, peristalsis).
+Camera movement, inspection displacement, and condition-induced change are separate
+state. A disease highlight identifies a supported area without claiming to be a
+complete pathological model.
 
-## 2. Labeling & annotation
+An optional comparison viewport may show a second representation while the main
+body scene remains the navigation reference.
 
-- **[v1]** Toggle structure labels on/off.
-- **[v1]** Click a structure to select & highlight it.
-- **[v1]** Structure info panel (name, function, key relationships).
-- **[v2]** User pins/notes attached to coordinates or structures.
-- **[v2]** Drawing/markup on a saved view; export image.
-- **[later]** Shareable annotated views/scenes.
-
-## 3. Knowledge layer (structure → function)
-
-- **[v1]** Per-structure data: name(s) incl. Latin/eponyms, function, relationships
-  (e.g. muscle: origin/insertion/innervation/action/blood supply).
-- **[v2]** Cross-links between structures ("innervated by", "drains to").
-- **[v2]** Search/jump to any structure by name.
-- **[later]** Full knowledge graph traversal across systems.
-
-## 4. Pathology & disease
-
-- **[v1]** Normal ↔ diseased toggle for 3–5 conditions in the wedge region.
-- **[v1]** Condition info: what it is, cause, effect on the structure, presentation.
-- **[v2]** Multiple severities/stages of a condition.
-- **[v2]** Link condition → affected structures → expected symptoms.
-- **[later]** **Systemic disease tracing** — pick a systemic condition (diabetes,
-  hypertension, sickle cell) and see its impact across every affected organ system.
-- **[later]** Lesion placement ("cut this nerve here, what's the deficit?").
-
-## 5. Testing & study (the differentiator)
-
-- **[v1]** Identify-the-structure quiz (click the highlighted part / name it).
-- **[v1]** Spaced-repetition scheduler over the region's items (SM-2 or FSRS).
-- **[v1]** Track per-item mastery; due-today queue.
-- **[v2]** Question types: condition→effect, effect→condition, clinical vignette → 3D answer.
-- **[v2]** Custom study sets / "exam mode" (timed, scored).
-- **[later]** Import/export decks (Anki interop); shared community decks.
-
-## 6. Content authoring (for you, the maintainer)
-
-- **[v1]** Content lives in version-controlled files (see [DATA_MODEL.md](DATA_MODEL.md)),
-  editable without touching app code.
-- **[v2]** Authoring/validation tooling (schema checks, broken-link detection).
-- **[later]** In-app or web authoring UI; contributor review workflow.
-
-## 7. Platform & accounts
-
-- **[v1]** Local-first: progress & notes stored on device, no login required.
-- **[v2]** Optional account + cloud sync.
-- **[later]** Educator features (classes, assignments, analytics), mobile, VR, API.
+See [Interaction design](INTERACTION_DESIGN.md).

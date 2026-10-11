@@ -1,77 +1,91 @@
-# Compliance, Licensing & Liability
+# Release Requirements: Accuracy, Rights, Access, and Distribution
 
-Read this before publishing anything. None of this is legal advice — when money or
-public release is involved, consult a real lawyer. But these are the issues you must not
-ignore.
+Status: product requirements and unresolved dependencies, not a legal or medical
+certification. Detailed jurisdiction-specific obligations are not determined here.
 
-## 1. Medical disclaimer (do this from day one)
+## Medical accuracy
 
-The moment the app states medical facts, add a persistent, unmissable disclaimer:
+The app provides general educational anatomy and authored conditions. It does not
+accept patient records or provide patient-specific diagnosis/treatment.
 
-> **For educational and study purposes only. Not medical advice. Not a diagnostic tool.
-> Do not use for clinical decision-making. Content may be incomplete or inaccurate;
-> verify against authoritative sources.**
+Private drafts identify incomplete or unreviewed content. Public material must
+carry source and review evidence for the published version, including appropriate
+review of visual anatomy, pathway relationships, and condition/injury explanations.
 
-While content is unverified, also surface per-item review status (e.g. a "draft —
-unverified" badge), per [CONTENT_PIPELINE.md](CONTENT_PIPELINE.md).
+No qualified reviewer is currently available. Recruiting review is an unresolved
+public-release dependency, not a reason to stop planning or private development.
+A disclaimer or successful usability test is not accuracy validation.
 
-## 2. Regulatory line: education vs. medical device
+Use a concise educational-purpose statement in onboarding/About and contextual
+source/review information in details. Avoid filling ordinary exploration with
+development metadata; expose information that helps learners judge content.
 
-- An **educational/study tool** is low-risk.
-- A tool that **diagnoses, recommends treatment, or guides clinical decisions** can be
-  regulated as a medical device (FDA in the US, CE/MDR in the EU). This is a different
-  universe of cost and liability.
-- **Stay firmly on the education side** (it's a non-goal to cross it — see
-  [VISION.md](VISION.md)). Avoid any feature that outputs patient-specific guidance.
+## Content rights
 
-## 3. Content licensing (the part that sinks projects)
+Every imported asset has source, creator, version, licence, modifications, and
+required attribution. Assess permissions for distribution, changes, future paid
+features, exported views, and content updates.
 
-Two separate licenses:
+The proposed policy prefers commercially reusable sources and excludes
+noncommercial assets from the core. Do not infer that a licence on one original
+dataset clears all contributions in a derivative atlas.
 
-### Code license
-Pick one for *your* code (MIT/Apache-2.0 if you want it open and reusable; AGPL if you
-want derivatives kept open). Decide and record as an ADR.
+CC BY requires credit and change notices under its terms. CC BY-SA adds obligations
+for distributed adaptations; neither licence is inherently a prohibition on charging.
+[CC BY](https://creativecommons.org/licenses/by/4.0/),
+[CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0/).
 
-### Content license — handle each asset and text source individually
-- **3D models:** every model needs a documented license permitting your use
-  (and redistribution, if you ship the file). CC-BY requires attribution; CC-BY-SA
-  requires share-alike; CC-NC blocks commercial use; "free to download" ≠ "free to
-  redistribute." Track license + attribution per asset in `content/_references/`.
-- **Text:** you may **not** copy textbook/atlas text. Write original summaries and cite.
-  Facts aren't copyrightable; *expression* is. Netter-style illustrations are
-  copyrighted — don't trace or reproduce them.
-- **Trademarks/eponyms:** fine to *name* conditions; don't imply endorsement.
+Keep application and content licence decisions explicit. Separation of files alone
+does not answer every licensing question. Application licensing is unresolved and
+must be chosen before distributing code.
 
-### Attribution file
-Keep a top-level `ATTRIBUTIONS.md` / `NOTICE` listing every third-party asset, its
-source, license, and author. Required by most open licenses and good hygiene regardless.
+Maintain [ATTRIBUTIONS.md](../ATTRIBUTIONS.md) and a per-asset record; carry applicable
+credits with screenshots and other exported material.
 
-## 4. Privacy & data
+## Privacy
 
-- v1 is **local-first** (progress stays on device) — minimal privacy exposure.
-- The moment you add accounts/sync/analytics: add a privacy policy; minimize data;
-  remember **GDPR** (EU) and that any *real* patient data would trigger **HIPAA**-type
-  obligations (another reason to never accept patient data).
-- Don't add third-party analytics/trackers silently.
+Proposed first release stores preferences, bookmarks, notes, and saved views locally.
+No account or telemetry is required. Explain what is saved and provide backup,
+export, and deletion controls. Logs should avoid recording note contents by default.
 
-## 5. Accessibility
+Feedback from private testers is shared intentionally. Cloud sync or analytics
+would require a separate data-handling design; neither is assumed here.
 
-If students with disabilities will use it (and for any institutional adoption), aim for
-**WCAG 2.1 AA**: keyboard navigation, color-contrast, screen-reader labels, non-color
-cues. Hard with pure 3D — plan text-equivalent interactions early.
+## Accessibility and usable controls
 
-## 6. If you ever monetize or seek institutional adoption
+- Keyboard-operable browsing, search, panels, labels, and core viewer actions.
+- Trackpad alternatives to secondary-button and precision-drag gestures.
+- Visible focus, readable typography, adjustable label density, and scalable UI.
+- Non-colour cues for selection and condition highlights.
+- Reduced-motion camera transitions.
+- A text structure/relationship list as a parallel way to explore.
+- Testing with actual assistive technology before claiming a level of conformance.
 
-- Terms of Service + Privacy Policy become mandatory.
-- Institutions will ask about accessibility, data handling, and content provenance —
-  the citation registry and attributions file are exactly what they'll want to see.
+Native UI does not automatically establish screen-reader accessibility. Treat it
+as a feasibility and testing item. No accessibility certification is claimed.
 
-## Checklist before any public release
+## Desktop distribution
 
-- [ ] Disclaimer banner present and unmissable
-- [ ] Every 3D asset has a recorded, compatible license + attribution
-- [ ] No copied textbook text or traced copyrighted figures
-- [ ] `ATTRIBUTIONS.md` complete
-- [ ] Code license chosen (ADR recorded)
-- [ ] Review-status badges shown for unverified content
-- [ ] Privacy policy if any data leaves the device
+Initial proposal: direct downloads for Windows x64 and universal macOS builds,
+with clearly stated tested OS/hardware support.
+
+Godot documents Windows signing and macOS signing/notarization. Mac public
+distribution should use the normal signed/notarized path rather than expecting
+learners to bypass platform protections.
+[Windows export](https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_windows.html),
+[macOS export](https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_macos.html).
+
+Certificates, developer accounts, hardware access, and any associated distribution
+costs remain to be arranged. Free anatomy assets do not establish a zero-cost public
+distribution process. No purchases or account registrations are authorised by this plan.
+
+Version app and content separately, validate acquired packs, preserve local saves,
+and recover from interrupted updates. Choose an update mechanism after packaging
+evaluation; a hosted service is not assumed.
+
+## Public-release checklist
+
+Detailed gates are in [RELEASE_CRITERIA.md](RELEASE_CRITERIA.md): declared content
+coverage, reviewed medical material, compatible asset licences, working core journey
+on both bodies, measured performance, accessible controls, recoverable saves, and
+tested platform distribution.

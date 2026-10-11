@@ -1,60 +1,91 @@
 # Roadmap
 
-Phased so that **something works end-to-end early** and each phase produces a usable
-artifact. Pick the wedge first ([SCOPE.md](SCOPE.md)).
+Progress by demonstrated quality, not a fixed deadline. The team is the user and
+assistant. Planning precedes implementation.
 
-## Phase 0 — Foundations & decisions (no app yet)
-**Goal:** remove ambiguity so building is mechanical.
-- [ ] Choose the **wedge region** (heart vs upper limb vs kidney).
-- [ ] Choose **3D sourcing approach** (open asset set vs hosted API) — record as ADR.
-- [ ] Choose **code license** — record as ADR.
-- [ ] Confirm stack ([ARCHITECTURE.md](ARCHITECTURE.md)) — record as ADR.
-- [ ] Lock the **shared-id naming convention** ([DATA_MODEL.md](DATA_MODEL.md)).
-- **Deliverable:** filled-in docs + 3 ADRs. (This step is half-done already.)
+## Stage 0 — Settle the design
 
-## Phase 1 — Viewer skeleton ("hello, body")
-**Goal:** load and navigate one model in the browser.
-- [ ] Scaffold app (Vite + React + react-three-fiber + TypeScript).
-- [ ] Load the wedge's glTF; orbit camera; light/material setup.
-- [ ] Click a node → log its id (proves the selection mechanism).
-- [ ] Content-validation script (every model node has a structure & vice versa).
-- **Deliverable:** deployed static page where you can rotate the region and click parts.
+- Review the product, scope, interaction journey, architecture proposal, and data model.
+- Confirm established decisions and proposed defaults.
+- Record source candidates and their unverified coverage.
+- Understand medical-review and distribution dependencies.
+- Keep application licence and working name explicitly open.
 
-## Phase 2 — Knowledge layer
-**Goal:** click → learn.
-- [ ] Author structure content files for the region (`draft` status).
-- [ ] Info panel renders name/function/relationships from content by id.
-- [ ] Label toggle; isolate/hide; opacity; one clipping plane.
-- [ ] Search/jump to structure by name.
-- **Deliverable:** a genuinely useful labeled, clickable atlas of one region.
+Deliverable: coherent reviewable documentation. **Current stage.**
+Documentation completion does not authorise coding automatically.
 
-## Phase 3 — Pathology layer
-**Goal:** normal ↔ disease.
-- [ ] Author 3–5 pathologies with `visual.type` overlays.
-- [ ] Toggle disease on/off; render overlay; show condition info + presentation.
-- **Deliverable:** "show me an MI on this heart and tell me what happens."
+## Stage 1 — Feasibility and asset audit, after implementation is authorised
 
-## Phase 4 — Testing loop (the differentiator)
-**Goal:** the tool examines you.
-- [ ] Quiz items from structures/pathologies; identify-structure mode.
-- [ ] FSRS scheduler; per-item mastery; due-today queue.
-- [ ] Progress persisted in IndexedDB.
-- **Deliverable:** a daily spaced-repetition study session over the region.
+- Inspect selected free-source model files and record actual licences/versions.
+- Audit both adult reference bodies and their coverage gaps.
+- Verify exterior/layer removal, organ subparts, interiors, and spatial registration.
+- Trial Godot import, picking, focus, labels, transparency, cutaways, and local restoration.
+- Export and test minimal native viewers on Windows and macOS.
+- Establish representative baseline laptops and benchmark render/load behaviour.
+- Evaluate keyboard/trackpad access and native accessibility support.
 
-## Phase 5 — Polish & validate the wedge
-**Goal:** beat the incumbents *for this region*.
-- [ ] UX pass, performance, accessibility basics, disclaimer banner.
-- [ ] Put it in front of 3–5 real students; collect feedback.
-- **Gate:** do people prefer it for this region? If no, iterate here — **do not expand.**
+Gate: a supported content path for both bodies and a viable measured engine.
+If either fails, revise assets, engine, or public scope before deep implementation.
+An isolated male-only proof can test import, but does not satisfy this gate.
 
-## Phase 6+ — Expand
-- [ ] Add the next region using the now-proven pipeline.
-- [ ] More question types; exam mode; user notes/markup.
-- [ ] Begin medical review process (`draft` → `reviewed` → `verified`).
-- [ ] Then consider: accounts/sync, mobile, educator features, systemic disease tracing,
-      AI tutor — each justified by real demand, each its own mini-roadmap.
+## Stage 2 — Personal whole-body explorer
 
-## Suggested first three concrete steps
-1. Decide the wedge (write it into [SCOPE.md](SCOPE.md)).
-2. Find one CC-licensed model of that region and confirm its license.
-3. Do Phase 1 — get it on screen and clickable. Momentum comes from seeing it move.
+- Whole-body overview for both references, with explicit incomplete coverage.
+- Continuous camera navigation, selection, system/region browsing, and search.
+- Reversible hide/fade/reveal controls, local labels, orientation, and history.
+- Explicit Move mode, original-position context, restoration, and undo.
+- Proposed local saved views and offline starter content.
+
+Gate: the user can explore, reveal anatomy, select a structure, and return without
+getting lost or accidentally moving parts.
+
+## Stage 3 — Detailed chest journey
+
+- Heart and surrounding chest anatomy remain in the body scene.
+- Supported internal components and prepared cutaways.
+- Guided separated views with exact restoration.
+- Reviewed/sourced connection records and route guidance toward the lungs.
+- Local-part labels, composition, and expandable explanations.
+
+Gate: the complete reference journey works in both bodies with declared supported
+detail and no invented connections or hidden missing content.
+
+## Stage 4 — Conditions and injury exploration
+
+- Related-condition lists and affected-structure highlights.
+- An initial authored condition set, selected comparisons, and a supported injury scenario.
+- Clear normal/condition state, sources, review evidence, and reset.
+- Content-version handling, correction process, and scenario capability validation.
+
+Gate: the user understands what a visual represents and can restore normal anatomy.
+Unreviewed medical material stays in private drafts.
+
+## Stage 5 — Private pilot
+
+- Test with people the user knows; no messages or recruitment actions are implied.
+- Observe task completion, orientation, menu/label clarity, trackpad usability,
+  performance, and whether explanations support the exploration.
+- Include both reference bodies and representative Windows/Mac devices.
+- Resolve material problems before broader release.
+- Seek qualified medical review separately.
+
+Gate: [Private pilot criteria](RELEASE_CRITERIA.md) met; usability feedback is not
+a substitute for accuracy review.
+
+## Stage 6 — Public release
+
+- Freeze and publish the actual anatomy/condition/capability inventory.
+- Obtain qualified review of the content being published.
+- Resolve licences/credits and application code licensing.
+- Complete performance, save recovery, accessibility, and platform packaging checks.
+- Distribute tested builds with a correction/contact mechanism and supported-system list.
+
+Gate: [Public criteria](RELEASE_CRITERIA.md) met. If review or complete required body
+coverage remains unresolved, retain the private pilot or revise release scope with
+the user. Do not declare a launch complete because time or effort has been spent.
+
+## Later expansion
+
+Extend detail across systems, conditions, comparisons, and authored injuries.
+Then consider animation, microscopic content, additional variants, simpler mobile
+access, VR, and optional study tools. Retain portable content and review/version evidence.

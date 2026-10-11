@@ -1,53 +1,58 @@
-# Scope — Picking a Finishable Wedge
+# Scope
 
-The full vision is too big to build in one go (see [VISION.md](VISION.md) "honest
-reality"). This doc exists to force a decision: **what is the smallest version that is
-actually good and actually shippable?**
+## Release stages
 
-## The wedge principle
+- **Personal prototype:** private user testing; incomplete coverage and clearly
+  identified draft medical content are allowed.
+- **Private pilot:** a small group tests usability and learning. General user
+  feedback does not constitute qualified medical review.
+- **First public release:** Windows and macOS, both adult reference bodies, a usable
+  whole-body overview, and a declared inventory of supported content and operations.
 
-Build **one body region**, end-to-end, better than the incumbents *for that region*,
-then expand region by region. Breadth is the reward for depth, not a starting point.
+The chest is the first detailed milestone inside the whole-body scene. An isolated
+heart application would not meet the agreed product direction.
 
-A region is "done" when it has all four layers working together:
+## First-release plan
 
-1. **3D model** of the region, navigable + labeled.
-2. **Structured content** for each structure (function, relationships).
-3. **At least one pathology overlay** (normal ↔ diseased toggle + explanation).
-4. **Testing loop** (spaced repetition over that region's structures & conditions).
+- Whole-body, region, system, structure, and supported internal-component navigation.
+- Search, selection, focus, orientation, and navigation history.
+- Group and individual hide, fade, reveal, and restore controls.
+- Manual movement and guided separation of supported anatomy.
+- Selected-structure and local-part labels with clutter control.
+- Supported organ interiors, prepared cutaways, and cross-sections on suitable geometry.
+- Recorded connections, including the primary heart-to-lungs journey.
+- Structure explanations and related-condition lists.
+- An initial catalogue of disease highlights, selected comparisons, and a supported
+  injury scenario, dependent on assets and medical review.
+- Proposed offline use, local saved views, bookmarks, notes, and screenshot export.
+- Coverage, sources, credits, and review information.
 
-## Candidate wedges (pick one)
+Exact structure, pathway, condition, and scenario inventories remain unresolved
+until the asset audit. Both bodies must meet the published core task set. The
+release cannot imply equal or complete coverage where it has not been established.
 
-| Wedge | Why it's good | Why it's hard |
-|---|---|---|
-| **The heart** | Self-contained, huge exam relevance, classic pathologies (MI, valve disease, conduction), clear normal↔disease story | Needs motion/physiology to be compelling; conduction is dynamic |
-| **Upper limb (shoulder→hand)** | Pure anatomy showcase: bones, muscles (origin/insertion), brachial plexus, classic nerve palsies (Erb's, wrist drop, claw hand) — maps perfectly to "structure→lesion→deficit" | Lots of structures to model & label |
-| **The kidney/nephron** | Where structure↔function↔pathology is tightest; great for systemic-disease tracing (diabetes, hypertension) | More physiology than gross anatomy; harder to make "navigable" feel rich |
+## Content dependencies
 
-**Recommendation:** start with **the heart** *or* the **upper limb**. The heart wins on
-relevance and the satisfying normal↔disease toggle; the upper limb wins on showing off
-3D navigation and the clean lesion→deficit testing loop. Decide based on which one *you*
-most want to study first — your own motivation is the project's fuel.
+A selectable exterior does not establish internal anatomy. Anatomical grouping
+does not establish connectivity. Text about a disease does not establish a 3D
+pathological representation.
 
-## In scope for v1 (one wedge)
+Record each capability explicitly. A cut plane must not manufacture absent organ
+interiors; geometric adjacency must not substitute for reviewed connection data.
 
-- Web app, desktop browser first.
-- One region's 3D model, rotate/zoom/isolate/slice.
-- Click-to-identify with labels and a structure info panel.
-- 3–5 pathologies for that region with normal↔disease toggle + explanation.
-- Spaced-repetition quiz mode over that region.
-- Local save of user notes/progress.
+## Later scope
 
-## Explicitly out of scope for v1
+Animations; microscopic anatomy; additional variants and age groups; simpler mobile
+access; VR; optional quizzes; optional sync/accounts; educator features; wider
+disease and injury catalogues.
 
-- Whole-body coverage.
-- Account system / cloud sync / multiplayer (local-first first).
-- Mobile/native apps, VR.
-- AI tutor / chat (tempting, but add it once content exists, not before).
-- Educator dashboards, classes, assignments.
-- Patient-specific imaging (DICOM).
+## Public-content dependency
 
-## How to know the wedge worked
+No qualified medical reviewer is available at present. A proposed public-release
+gate is qualified review of the medical content being published. Private work can
+proceed after planning is settled. If review remains unavailable, retain private
+testing or revise the public scope explicitly; disclaimers and usability feedback
+do not substitute for review.
 
-You (and ideally 3–5 other students) reach for it instead of your current tool when
-studying that region. If not, fix the wedge before adding a second region.
+See [Acceptance criteria](RELEASE_CRITERIA.md) and
+[Planning status](PLANNING_STATUS.md).

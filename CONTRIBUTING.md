@@ -1,33 +1,38 @@
 # Contributing
 
-> Pre-alpha. These conventions exist now so the project stays coherent as it grows
-> (even if "the team" is just you today).
+The present team is the user and assistant. This repository currently contains
+planning documentation; implementation waits until the plan is settled.
 
-## Two kinds of contribution
-1. **Code** — the app (viewer, study engine, UI).
-2. **Content** — anatomy/pathology/quiz data ([DATA_MODEL.md](docs/DATA_MODEL.md)).
-   Content is held to a higher bar because it teaches medicine.
+## Planning changes
 
-## Content rules (important)
-- Every structure/pathology entry has a `reviewStatus` (`draft`/`reviewed`/`verified`).
-- Every non-trivial medical claim cites a source in `content/_references/`.
-- **No copied text** from textbooks/atlases; write original summaries. No traced/copied
-  copyrighted figures. See [COMPLIANCE.md](docs/COMPLIANCE.md).
-- AI may draft, but a cited human-checked source must back every fact before it leaves
-  `draft`. Never mark AI output `verified`.
-- Every 3D asset added must have its license + attribution recorded in
-  `content/_references/` and `ATTRIBUTIONS.md`.
+Keep user-established scope distinct from proposed technical defaults and unverified
+evidence. Record significant choices in [docs/decisions/](docs/decisions/).
+Do not reinstate a browser/quiz-first scope without a new product decision.
 
-## Code rules
-- TypeScript; keep content out of code (data lives in `content/`).
-- Respect the **shared-id contract** ([DATA_MODEL.md](docs/DATA_MODEL.md)) — never
-  hardcode structure data the content files should own.
-- Run content validation before committing (once the validator exists — Phase 1).
+## Content work, after implementation is authorised
 
-## Decisions
-Significant choices get an ADR in [docs/decisions/](docs/decisions/) — don't bury them
-in commit messages.
+- Keep medical content separate from viewer/UI code.
+- Record asset provenance, exact licences, versions, modifications, and credits.
+- Write sourced original explanations; do not assume source access grants media reuse.
+- Use draft, source_checked, and expert_reviewed evidence stages from
+  [DATA_MODEL.md](docs/DATA_MODEL.md).
+- AI may assist drafting and validation but cannot be an expert reviewer.
+- Human usability review and source checking do not establish clinical verification.
+- Keep anatomical ID-to-geometry mappings explicit and preserve saved-view compatibility.
+- Validate capabilities and references before activating or publishing content.
+- Invalidate affected review evidence when medical claims or geometry materially change.
 
-## Workflow
-- Branch per change; open a PR; PRs are how content gets reviewed for accuracy.
-- Keep PRs small and focused (one structure set, one feature, one fix).
+## Code work, after implementation is authorised
+
+Godot/GDScript and offline preparation tools are proposed, not committed scaffolding.
+Keep native viewer modules separate from portable anatomy data. Small, reviewable
+changes should include validation appropriate to their behaviour.
+
+Application code licensing remains open. A public source repository or free app does
+not automatically grant reuse rights. Resolve licensing before distributing code.
+
+## Review and release
+
+The user tests first, then a private group, then public. Public medical content requires
+the proposed accuracy gate in [RELEASE_CRITERIA.md](docs/RELEASE_CRITERIA.md).
+Neither this document nor the roadmap authorises sending messages to testers/reviewers.

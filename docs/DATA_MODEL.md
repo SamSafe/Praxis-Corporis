@@ -1,133 +1,95 @@
-# Data Model
+# Data Model — Proposed
 
-The data model is the heart of the project. Get the **shared-id contract** right and
-the 3D view, content, and quizzes stay in sync forever. Get it wrong and everything
-drifts.
+Content is versioned data, separate from rendering and UI code. Stable anatomical
+identity must survive changes in source assets, body reference, level of detail,
+engine scene nodes, and disease representation.
 
-All content is **version-controlled files** (JSON/YAML/Markdown), validated against
-schemas. No database in v1.
+## Core records
 
-## Core entities
+| Record | Main fields |
+|---|---|
+| Anatomical structure | Stable ID; names/synonyms; optional Latin name and ontology mappings; type; multiple systems/regions; parent/part relationships; composition; explanation; references; review evidence. |
+| Reference body | ID/version; adult reference designation; provenance; available anatomy; coordinate frame; registration evidence; coverage inventory. |
+| Representation | Structure/body/scenario IDs; asset/version; node mappings; geometry kind; bounds/label anchors; capability flags; levels of detail; anatomical review. |
+| Connection | Source/target structures; typed and possibly directed relationship; body applicability; references; review evidence. |
+| Pathway | Ordered/branching connection graph; supported structures; waypoints; source evidence; explicit gaps. |
+| Condition | ID; names; original sourced explanation; links to affected structures; optional visuals/scenarios; review evidence. |
+| Scenario | Condition/injury ID; supported parameter choices; affected representations; authored changes; causes/effects explanations; reset baseline; review evidence. |
+| Asset | Source/author/version; file hash; licence; attribution; modifications; source coordinates; transformations; technical validation. |
+| Reference | Author/title; URL or identifier; edition/date; access date; supported claims; reuse terms if media/text is incorporated. |
+| Saved view | Schema/content versions; reference body; camera; selection; visibility; labels; inspection displacements; scenario; notes. |
 
-### Structure
+## Identity and geometry mappings
 
-An anatomical structure (bone, muscle, nerve, vessel, organ, region…).
+Propose lowercase namespaced IDs that are never reassigned. Vendor IDs and ontology
+terms are mappings, not the sole application identity. Deprecation/alias records
+handle corrected names without breaking saved views.
 
-```yaml
-id: heart.left-ventricle        # stable, unique, matches glTF node name
-name: Left ventricle
-synonyms: [LV]
-latin: ventriculus sinister
-type: chamber                   # bone | muscle | nerve | vessel | organ | chamber | ...
-system: cardiovascular
-modelNodes: [heart.left-ventricle]   # node id(s) in the glTF model
-function: >
-  Pumps oxygenated blood into the aorta and systemic circulation; the
-  highest-pressure chamber, hence its thick myocardium.
-relationships:
-  - kind: receives-from
-    target: heart.left-atrium
-  - kind: pumps-into
-    target: vessel.aorta
-references: [ref.gray-anatomy-ch3]    # see CONTENT_PIPELINE.md
-reviewStatus: draft             # draft | reviewed | verified
-```
+One concept can map to multiple meshes; a group can select descendant structures;
+the same concept can have different representations for male/female anatomy,
+detail levels, and normal/condition state. Anatomy with no geometry can still
+exist as a sourced concept, provided the interface identifies the coverage gap.
 
-### Pathology / Condition
+Multiple systems can reference the same structure without duplicating geometry or
+creating contradictory visibility state.
 
-A disease or condition and how it changes a structure.
+Illustrative mapping, not an actual source asset or medical content record:
 
-```yaml
-id: path.myocardial-infarction
-name: Myocardial infarction (heart attack)
-category: cardiovascular
-summary: >
-  Necrosis of myocardium due to prolonged ischemia, usually from coronary
-  artery occlusion.
-affects:
-  - structure: heart.left-ventricle
-    effect: >
-      Infarcted region loses contractility; may thin, scar, or rupture.
-    visual:
-      type: region-overlay        # how the model shows it (overlay | color | swap-mesh | deform)
-      overlayNodes: [heart.lv-anterior-wall]
-      style: necrosis
-presentation: [chest pain, dyspnea, ST elevation, troponin rise]
-severityStages: [acute, subacute, chronic-scar]
-references: [ref.robbins-path-ch12]
-reviewStatus: draft
-```
+    structureId: anatomy.example-structure
+    bodyId: reference.example-adult
+    representationId: representation.example-normal
+    geometryNodes:
+      - vendor-node-001
+      - vendor-node-002
+    capabilities:
+      selectable: true
+      movable: true
+      interiorAvailable: false
+      cutawayAvailable: false
+    sourceAssetId: asset.example-source
+    anatomicalReviewStatus: draft
 
-### Quiz item
+Do not infer capabilities from filenames or assume all model names are anatomical
+structures. Source atlases can contain grouping nodes and nongeometric label markers.
 
-Generated from or linked to structures/pathologies — never a free-floating fact.
+## Relationships
 
-```yaml
-id: q.identify.left-ventricle
-type: identify-structure        # identify-structure | name-structure | condition-effect | vignette
-prompt: Identify the highlighted chamber.
-target: heart.left-ventricle    # what's highlighted / the answer
-distractors: [heart.right-ventricle, heart.left-atrium, heart.right-atrium]
-explanation: >
-  Thick-walled chamber on the (anatomical) left, pumping into the aorta.
-links: [heart.left-ventricle]
-```
+Use explicit types: part-of, adjacent-to, connects-to, supplies, drains-to, innervates,
+and affected-by, with meaning, direction, and evidence defined for each.
 
-### User progress (local, IndexedDB — not in repo)
+Containment lists and proximity do not establish flow or anatomical continuity.
+Do not automatically predict effects by traversing arbitrary graph edges.
+Scenario explanations are authored and reviewed for the supported parameter choices.
 
-```jsonc
-{
-  "schedulerVersion": "fsrs-1",
-  "items": {
-    "q.identify.left-ventricle": {
-      "due": "2026-07-02T00:00:00Z",
-      "stability": 4.2, "difficulty": 0.31,
-      "reps": 3, "lapses": 0, "lastGrade": "good"
-    }
-  },
-  "notes": { "heart.left-ventricle": "remember: thickest wall" }
-}
-```
+## Review evidence
 
-## The shared-id contract (most important rule)
+Proposed stages:
 
-`Structure.id` == glTF node name == the key used by pathologies and quiz items.
+- **draft:** authoring or import has not completed source checking.
+- **source_checked:** a human has checked the stated claims/mapping against identified
+  sources and recorded that evidence.
+- **expert_reviewed:** a suitably qualified reviewer has checked the specific content
+  version and its applicable visuals.
 
-```
-   glTF model node  ──┐
-                      ├──  "heart.left-ventricle"  ── one structure, one truth
-   content file id  ──┤
-   pathology target ─┤
-   quiz target/link ─┘
-```
+Record reviewer identity/role, date, scope, referenced versions, and unresolved issues.
+AI output is not reviewer evidence. Usability testing is not expert review.
+A change to a material claim or geometry invalidates affected review approval.
 
-Rules:
-- IDs are **lowercase, dotted, namespaced by region/system**, never reused, never
-  renamed (add `synonyms`/aliases instead).
-- A structure with no matching model node, or a model node with no structure, is a
-  **validation error** (build a checker — see [ROADMAP.md](ROADMAP.md) Phase 1).
+Geometry validation, licence clearance, factual checking, and expert review are
+independent dimensions. Never promote all of them because one check passed.
 
-## File layout (proposed)
+## Validation rules
 
-```
-content/
-  heart/                      # one folder per wedge/region
-    model.glb                 # 3D asset with named nodes (or pointer to it)
-    structures/
-      left-ventricle.yaml
-      ...
-    pathologies/
-      myocardial-infarction.yaml
-      ...
-    quizzes/
-      identify.yaml
-  _schemas/                   # Zod/JSON schemas for validation
-  _references/                # citation registry (see COMPLIANCE/CONTENT)
-```
+- Unique stable IDs; resolvable aliases, references, and relationship endpoints.
+- Valid mappings for all declared selectable representations.
+- Explicit grouping-only and unmodelled concepts.
+- Body identity, coordinate units, and reviewed transforms recorded.
+- Supported node/asset references exist for each published capability.
+- No selectable missing scenario parameters or pretend comparisons.
+- Review evidence applies to the exact published content version.
+- Licences, attribution, and modification records exist per imported asset.
+- Saved states recover when content is missing, removed, or upgraded.
 
-## Why files, not a database
-
-- **Reviewable** — medical accuracy changes go through PR review (a diff a human can read).
-- **Versioned** — every content change is tracked; you can see who changed a fact and why.
-- **Portable** — no server, trivially hostable, easy to back up.
-- Move to a DB only if/when you add multi-user authoring at scale.
+Proposed source layout: content/catalogue, content/bodies, content/representations,
+content/connections, content/conditions, content/scenarios, content/references, and
+content/assets. Do not create these implementation directories during planning.

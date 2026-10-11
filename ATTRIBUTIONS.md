@@ -1,24 +1,28 @@
 # Attributions
 
-Every third-party asset (3D models, images, data) and notable source must be listed here
-with its license and author. Required by most open licenses; see
-[docs/COMPLIANCE.md](docs/COMPLIANCE.md).
+No anatomy assets, images, medical content packs, or application libraries have been
+imported. Documentation research references are in
+[CONTENT_PIPELINE.md](docs/CONTENT_PIPELINE.md) and [ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
-> Empty for now — add an entry the moment you bring in any external asset, *before*
-> committing the asset itself.
+Source candidates are not credited as shipped assets. Add records when actual
+material is selected/imported, before distribution.
 
-## 3D models
-| Asset | Source / URL | Author | License | Used for |
-|---|---|---|---|---|
-| _(none yet)_ | | | | |
+## Imported assets
 
-## Images / figures
-| Asset | Source / URL | Author | License | Used for |
-|---|---|---|---|---|
+| Asset and version | Creator/source | Licence | Changes | Used for | Required credits |
+|---|---|---|---|---|---|
+| None yet | | | | | |
 
-## Data / references
-| Source | URL | Notes |
-|---|---|---|
+Record original URLs, hashes, relevant licence evidence, and applicability to exported
+views/content. Preserve separate obligations for contributions in derivative atlases.
 
-## Software / libraries
-Tracked via the package manifest; major ones noted here if license review is needed.
+## Software
+
+No application implementation exists. Godot is proposed; if adopted, include its
+required notice and applicable third-party notices. Application licensing remains
+separate from engine and content licensing.
+
+## Review evidence
+
+Attribution does not establish anatomical or clinical accuracy. Track technical
+validation, source checking, and expert review separately.

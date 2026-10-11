@@ -1,84 +1,108 @@
-# Content Pipeline — The Actually Hard Part
+# Content Pipeline
 
-The code is the easy 20%. This document covers the 80%: **where do the 3D models and the
-medical facts come from, and how do you keep them correct and legal?** Most projects
-like this die here, not in the codebase.
+Status: candidate-source research; no assets imported or model coverage verified.
 
-## Two separate supply problems
+## Candidate anatomy sources
 
-1. **3D anatomical assets** (the meshes).
-2. **Medical knowledge** (text: function, relationships, pathology, questions).
-
-Treat them independently — different sources, different licensing, different risks.
-
-## 1. Sourcing 3D models
-
-Options, roughly cheapest-effort to most-control:
-
-| Approach | Pros | Cons / risk |
+| Source | Verified from source documentation | Still to inspect |
 |---|---|---|
-| **Build on a hosted platform's API** (e.g. BioDigital Human) | Instant high-quality, medically vetted models + viewer | Cost, vendor lock-in, ToS limits, less control |
-| **License a 3D anatomy asset pack** | Good quality, you own the integration | Upfront cost; license terms (can you redistribute? commercial?) |
-| **Open / free model sources** — NIH 3D Print Exchange, BodyParts3D/Anatomography (CC-licensed whole-body), Z-Anatomy (open Blender project), Sketchfab CC models | Free, openable | Variable quality & accuracy; **must verify license** per asset; node naming needs cleanup |
-| **Reconstruct from open imaging** — Visible Human Project, open CT/MRI datasets, segment with 3D Slicer | Full control, real data | Large effort; segmentation is skilled work |
-| **Commission / model in Blender yourself** | Total control & ownership | Slow; needs anatomy + 3D skill |
+| BodyParts3D | Free adult male reference anatomy, downloadable geometry and anatomical grouping data. Current official archive lists CC BY 4.0. | Actual source version, structure coverage, surface/layer detail, interiors, geometry quality, and export preparation. |
+| Human Reference Atlas (HRA) | Male/female 3D reference organs; source repository lists CC BY 4.0. | Both whole-body assemblies, missing regions, small structures, registration, and suitability for disassembly. |
+| Z-Anatomy | Blender atlas derived partly from BodyParts3D; credits list multiple source licences. | Each contributing asset's rights, alterations, coverage, and quality. Do not assume a blanket licence clears every asset. |
+| Visible Human Project | Public-domain male/female cryosection, CT, and MRI reference images. | Reconstruction/segmentation work; images are not ready-made selectable meshes. |
 
-**Recommended v1 path:** start from an **open, CC-licensed set** (BodyParts3D /
-Z-Anatomy are the usual starting points) for your one wedge region, clean up and rename
-nodes to match your [DATA_MODEL.md](DATA_MODEL.md) ids. Record the exact license of
-every asset in `content/_references/`.
+Sources inspected 2026-10-11:
 
-> ⚠️ Every model file needs a documented license and attribution. "Found it online" is
-> not a license. See [COMPLIANCE.md](COMPLIANCE.md).
+- [BodyParts3D description](https://dbarchive.biosciencedbc.jp/en/bodyparts3d/desc.html),
+  [downloads](https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html),
+  [current archive licence](https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html).
+- [HRA publication](https://www.nature.com/articles/s41592-024-02563-5) and
+  [source model library](https://github.com/hubmapconsortium/ccf-3d-reference-object-library).
+- [Z-Anatomy model repository and credits](https://github.com/Z-Anatomy/Models-of-human-anatomy).
+- [Visible Human Project](https://www.nlm.nih.gov/research/visible/visible_human.html).
 
-## 2. Sourcing medical knowledge
+BodyParts3D is a candidate starting collection for male anatomy. HRA is a candidate
+for female and additional regional coverage. These are hypotheses about integration,
+not evidence that the complete two-body requirement is already satisfied.
 
-This is a **medical-writing and review** problem, not a coding one.
+Do not silently turn a male model into a female reference by changing the exterior
+or attaching unrelated structures. Every reused or aligned region needs appropriate
+spatial support and documented review.
 
-### Where facts come from
-- Authoritative textbooks (Gray's Anatomy, Moore, Netter for anatomy; Robbins for
-  pathology; Guyton for physiology). You **cannot copy their text** — you write your own
-  summaries and **cite** the source.
-- Open/public references: NIH/MedlinePlus, peer-reviewed open-access journals,
-  reputable society guidelines.
+## Commercial-compatible sourcing
 
-### The accuracy process (non-negotiable once it teaches medicine)
-Every structure/pathology entry has a `reviewStatus`:
-- `draft` — written, unverified.
-- `reviewed` — checked against ≥1 cited authoritative source.
-- `verified` — checked by someone with relevant medical training.
+Prefer public-domain/CC0 or CC BY content. CC BY-SA remains an option with its
+attribution and adaptation obligations assessed. Exclude noncommercial assets from
+the core collection unless separate permission is obtained.
 
-Until you have medical reviewers, **everything is `draft` and the UI must say so**
-(disclaimer banner — see [COMPLIANCE.md](COMPLIANCE.md)).
+CC BY and CC BY-SA allow commercial uses subject to their terms; CC BY-NC restricts
+commercial uses. [CC BY](https://creativecommons.org/licenses/by/4.0/),
+[CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0/),
+[CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/).
 
-### Citations
-Maintain a citation registry (`content/_references/`). Every non-trivial claim links to
-a reference id. This is what separates a credible study tool from a wiki of guesses, and
-it's your defense if a fact is challenged.
+Record actual licences from the selected source/version. A derivative atlas may
+carry obligations different from the newly licensed original dataset. Keeping
+files separate does not by itself resolve licence obligations.
 
-### On using AI to draft content
-Fine for **first drafts and structure**, dangerous as a **source of truth** — LLMs
-hallucinate plausible-sounding medical facts. Rule: AI may draft, a cited human-checked
-source must back every fact before it leaves `draft`. Never ship AI-generated medical
-claims as `verified`.
+## Coverage inventory
 
-## Pathology *simulation* assets
+For each body, region, and structure track:
 
-Showing a disease's effect (overlay, deformation, mesh swap) often needs **per-condition
-art or animation**. Start with the cheapest visual that teaches:
-1. **Color/region overlay** on the existing mesh (cheap, often enough).
-2. **Opacity/highlight** of affected structures.
-3. **Mesh swap / morph** (expensive — only for high-value conditions later).
+- Source, geometry, selectable parts, baseline placement, and quality.
+- Exterior/interior availability; cutaway/cross-section support.
+- Composition and explanation coverage.
+- Connections/pathways and their supporting evidence.
+- Conditions, highlights, comparisons, and scenario choices.
+- Technical validation, source checking, and medical review separately.
+- Missing pieces, known simplifications, and the next enrichment task.
 
-Define the `visual.type` per pathology in the data model so the app knows how to render
-each one.
+Prioritize the whole-body foundation and the heart-to-lungs journey. Do not declare
+a region complete using only its exterior or mesh count.
 
-## Pipeline summary
+## Geometry preparation after planning
 
-```
- source asset ──► clean + rename nodes ──► record license ──► commit to content/
- source facts ──► write summary + cite ──► reviewStatus ──► commit to content/
-                          │
-                          ▼
-                 schema validation (CI) ──► build ──► static deploy
-```
+1. Record source/version/licence and keep an unmodified source reference.
+2. Inventory true meshes, concepts, groups, and markers.
+3. Establish body, scale, units, coordinate axes, and anatomical landmarks.
+4. Map anatomical IDs to source nodes without destructive identity assumptions.
+5. Clean unsupported geometry and prepare consistent materials and detail levels.
+6. Preserve selectable small structures and important internal surfaces.
+7. Register supplemental assets against supported landmarks; record uncertainty.
+8. Prepare labels, cutaways, separation presets, and pick geometry.
+9. Validate technical integrity and check anatomy with appropriate review.
+10. Package approved assets with versions, mappings, capability flags, and credits.
+
+Blender is the proposed preparation tool. No full-body files have been downloaded
+or altered during this planning phase.
+
+## Medical explanations
+
+Write original summaries grounded in authoritative, accessible references. Record
+which source supports each substantive statement. Sources may include established
+anatomy references, institutional educational material, and primary research.
+
+Reading a copyrighted source does not grant rights to copy its text or media.
+Reuse content only under applicable permission; separately cite facts used in
+original explanations. Do not treat imported atlas descriptions as already reviewed.
+
+Use the review stages in [DATA_MODEL.md](DATA_MODEL.md). Source checking is distinct
+from qualified medical review, and neither is an automatic product of AI drafting.
+
+## Conditions and authored scenarios
+
+Start with linked explanations and reviewed structure/region highlights. Add
+normal/condition comparisons only when suitable representations exist. Add damage
+options only for prepared and reviewed choices.
+
+A model swap, overlay, or parameter is an authored educational representation.
+It does not become a physiological prediction because it is interactive.
+
+Public medical content requires the review evidence specified in
+[RELEASE_CRITERIA.md](RELEASE_CRITERIA.md). Review access is currently unresolved;
+private drafts remain useful for development but cannot be silently promoted.
+
+## Ongoing corrections
+
+Track versions and changed claims. Invalidate affected reviews on substantive
+changes. Keep a correction log, preserve saved-view recovery, and distribute content
+updates independently from unnecessary UI changes where feasible.

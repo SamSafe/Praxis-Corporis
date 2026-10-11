@@ -1,46 +1,50 @@
-# Praxis Corporis
+# Praxis Corporis — 3D Medicine Viewer
 
-*"Practice of the body"* — Latin (*praxis corporis*).
+Praxis Corporis is the existing working name; final naming is open.
 
-An interactive 3D atlas of the human body that lets you **navigate anatomy from any
-perspective, label structures, study and quiz yourself, and overlay diseases and
-pathologies to see how they affect the body** — built to stay useful from MCAT prep
-through medical school and into clinical practice.
+A desktop anatomy explorer for aspiring doctors and medical students. Reveal body
+layers, select and label structures, move parts aside, inspect internal anatomy,
+follow connections, and explore related diseases within one continuous body scene.
 
-> Status: **Concept / Pre-alpha.** This repo currently contains planning and
-> documentation only. No application code yet. See [docs/ROADMAP.md](docs/ROADMAP.md).
+**Status: documentation draft, 2026-10-11. No application implementation yet.**
+The plan must be settled before coding, scaffolding, or importing anatomy assets.
+[Planning status](docs/PLANNING_STATUS.md) separates user decisions from proposals.
 
-## Why this exists
+## Agreed direction
 
-Most study tools are either flat (flashcards, 2D atlases) or expensive walled gardens.
-The goal here is a tool that connects **structure → function → pathology → clinical
-reasoning** in one navigable 3D space, with a built-in testing/spaced-repetition layer
-so the same tool that teaches you also examines you.
+- Native Windows and macOS application.
+- Both male and female adult reference anatomy in the first-release plan.
+- Exploration first, with a clean, detailed appearance leaning realistic.
+- Free manipulation and guided separated views, with anatomical restoration.
+- Disease location/highlighting first; selected comparisons and authored injury
+  scenarios; animation later.
+- Free assets and progressive detail, with potential paid features after a free launch.
+- User and assistant build together; quality over a deadline.
+- Testing sequence: user, small private group, then public.
 
-See the full motivation and a hard look at whether this should exist in
-[docs/VISION.md](docs/VISION.md).
+Reference journey: open the body, reveal deeper anatomy, focus on the heart, label
+its parts, explore conditions, orbit it, and follow connections toward the lungs
+without opening a disconnected organ scene.
 
-## Read the docs in this order
+## Read the plan
 
-1. [docs/VISION.md](docs/VISION.md) — what we're building and why; the honest scope reality
-2. [docs/COMPETITIVE_LANDSCAPE.md](docs/COMPETITIVE_LANDSCAPE.md) — what already exists and where the gap is
-3. [docs/SCOPE.md](docs/SCOPE.md) — picking a wedge so this is finishable
-4. [docs/FEATURES.md](docs/FEATURES.md) — feature catalog, prioritized
-5. [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — proposed technical design
-6. [docs/DATA_MODEL.md](docs/DATA_MODEL.md) — how anatomy/pathology/quiz data is structured
-7. [docs/CONTENT_PIPELINE.md](docs/CONTENT_PIPELINE.md) — where 3D models and medical facts come from (the hard part)
-8. [docs/COMPLIANCE.md](docs/COMPLIANCE.md) — licensing, medical accuracy, disclaimers, liability
-9. [docs/ROADMAP.md](docs/ROADMAP.md) — phased plan, milestones
-10. [docs/decisions/](docs/decisions/) — Architecture Decision Records (ADRs)
-11. [docs/GLOSSARY.md](docs/GLOSSARY.md) — shared vocabulary
+1. [Planning status](docs/PLANNING_STATUS.md) — decisions and unresolved evidence.
+2. [Vision](docs/VISION.md) and [Scope](docs/SCOPE.md) — product and release boundaries.
+3. [Interaction design](docs/INTERACTION_DESIGN.md) — workspace, controls, primary journey.
+4. [Features](docs/FEATURES.md) — priorities and observable behaviour.
+5. [Architecture](docs/ARCHITECTURE.md) — proposed native design.
+6. [Data model](docs/DATA_MODEL.md) — anatomy, geometry, connections, conditions.
+7. [Content pipeline](docs/CONTENT_PIPELINE.md) — sources, preparation, review.
+8. [Release requirements](docs/COMPLIANCE.md) — accuracy, licensing, accessibility, distribution.
+9. [Roadmap](docs/ROADMAP.md) and [Acceptance criteria](docs/RELEASE_CRITERIA.md).
+10. [Decisions](docs/decisions/), [Glossary](docs/GLOSSARY.md), and
+    [Research notes](docs/COMPETITIVE_LANDSCAPE.md).
 
-## Quick start
+## Licensing and implementation
 
-There is no app to run yet. The first buildable milestone is defined in
-[docs/ROADMAP.md](docs/ROADMAP.md) (Phase 0 → Phase 1).
+Application code licensing is undecided. A free launch does not establish an
+open-source licence. Third-party content retains its applicable licences.
+[ATTRIBUTIONS.md](ATTRIBUTIONS.md) lists imported assets; currently there are none.
 
-## License
-
-TBD — see [docs/COMPLIANCE.md](docs/COMPLIANCE.md). Note that **content licensing**
-(3D models, medical text) and **code licensing** are separate decisions, and the
-content side is the one most likely to sink the project if ignored.
+There is no app to run. Godot is a proposed engine, subject to later asset,
+interaction, export, and performance evaluation.
