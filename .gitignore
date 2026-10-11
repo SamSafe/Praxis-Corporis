@@ -29,3 +29,13 @@ Thumbs.db
 
 # Local user progress / scratch
 *.local
+
+# Native engine cache, if Godot is selected
+.godot/
+
+# Local preparation environments and generated caches
+.venv/
+__pycache__/
+*.py[cod]
+*.blend1
+*.blend2

@@ -3,6 +3,15 @@
 The present team is the user and assistant. This repository currently contains
 planning documentation; implementation waits until the plan is settled.
 
+## Version control
+
+Keep progress in small local Git commits grouped by purpose. Inspect the diff,
+validate the changed artifacts, and stage explicit files. Commit documentation
+separately from later application changes. Preserve existing history and user edits.
+Repository initialization is already complete; reinitialization is unnecessary.
+Remote creation, pushing, public publication, and contacting others require their
+own user instruction rather than being implied by local version control.
+
 ## Planning changes
 
 Keep user-established scope distinct from proposed technical defaults and unverified
