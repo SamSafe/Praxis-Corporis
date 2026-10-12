@@ -4,16 +4,16 @@
   "artifacts": [
     {
       "file": "PraxisCorporis-Windows-x64-private.zip",
-      "bytes": 275640926,
-      "sha256": "efd82ef0402bb54e0160adf7ebe2012c82efa55a62af941668a5fc9e76d83fd4",
+      "bytes": 275648793,
+      "sha256": "675c1791906a81a7eeb5ba6ea1b330450fdbee4d73bb5eb502bef1bf21fe3def",
       "architectures": [
         "x86_64"
       ]
     },
     {
       "file": "PraxisCorporis-macOS-universal-private.zip",
-      "bytes": 298085922,
-      "sha256": "3efaaab87abc0fe4eebb805313fc67fd9022ea8283a5faea8a256ee57f952b41",
+      "bytes": 298094039,
+      "sha256": "22fdfd4880055ea536304417982a316ab0fbd60a291c4ac44f2c7a617b8b29af",
       "architectures": [
         "x86_64",
         "arm64"
@@ -22,7 +22,7 @@
   ],
   "target_device_testing": "pending",
   "publication": "local private artifacts only",
-  "source_revision": "a093b910cf875f82ce3d22bf0ce87fb546f4ec74",
+  "source_revision": "6b99a577ead8efd01bc24b9f121d719f395bab5f",
   "source_hashes": {
     "project.godot": "0f521b6466837dde12c1c0430ba80b25e1b031591cca04b23f0bbf1dd69a7269",
     "export_presets.cfg": "0cd01dab56261fe929c3cccc7f23b9b0810e03c433f2e936fafdfc845234cd6b",
@@ -30,12 +30,12 @@
     "content/source_manifest.json": "15a940b6de53461975446187bcd651f806327fb1bf9c8be10ee5f64d655a1385",
     "content/toolchain_manifest.json": "2697648889696238ca23c3a240b25791a775e57fedf525a4dc998690a0256f55",
     "addons/private_native_export/plugin.gd": "1e64469ac78d10f76bd159a913b9e95c214a05f00ca74c8b81ded7e70db1baee",
-    "scripts/anatomy_labels.gd": "35ee7d692d809e67a6b0e4bc626f6443eef0114eca96bb074b94b540b813d345",
-    "scripts/anatomy_model.gd": "f358c721c9e792d8527697b5898f5eb2af74dca3c1d934ab88d029fce9371a01",
+    "scripts/anatomy_labels.gd": "f6a5f86e317acf229e341f6de5a883238eb549476f4ed62ffb456a614adaae1b",
+    "scripts/anatomy_model.gd": "28a384870f2fe1332eefff894e59145f7c5580fb57c6017a67c30988f1acae13",
     "scripts/content_bundle.gd": "0bbfdf7f61c5552e598882a73beb3617c08ea51e4d5036e9bc255e3970a7304a",
     "scripts/orbit_camera.gd": "ccba32a5f16a9d49d27cf20d6c9d2711f17affa10a8750e0518f0f47ecc7f224",
     "scripts/source_index_extension.gd": "090d8c7f9346889a43980f0854e0bca2e588138447d86628f76b8ab87b94d84c",
-    "scripts/viewer.gd": "b8210c518ca1f437b2af3d67bd5c751efa598425655c342c1632c117a52f7065"
+    "scripts/viewer.gd": "604c7056bf0b140f3b2f33c672bc7f93d0249005dc9d64000ed6d729de34a36f"
   },
   "anatomy_package": {
     "bytes": 505499784,
@@ -43,5 +43,5 @@
   },
   "linux_qa": "passed exported-runtime two-body restoration and missing-content checks",
   "mac_content_qa": "passed two-body embedded-content check on the development engine; Mac device testing pending",
-  "source_snapshot_verified_against_revision": "a093b910cf875f82ce3d22bf0ce87fb546f4ec74"
+  "source_snapshot_verified_against_revision": "6b99a577ead8efd01bc24b9f121d719f395bab5f"
 }

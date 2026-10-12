@@ -99,9 +99,7 @@ inspection and preservation of Mac executable metadata. The local Godot editor
 import completed without script errors.
 
 Private Windows x64 and Mac Universal archives were generated from the verified
-source snapshot. Both include runtime, anatomy and notices. The Windows ZIP is
-275,640,926 bytes; the Mac ZIP is 298,085,922 bytes after the local-label update.
-Current artifact/source hashes are
+source snapshot. Both include runtime, anatomy and notices. Latest artifact/source hashes are
 retained in [native-build-report.json](audit/native-build-report.json).
 
 The exported Linux QA runtime loaded both bodies from the companion content package
@@ -184,3 +182,12 @@ The new workflow checks are in
 [part_inspection_smoke.gd](../tests/part_inspection_smoke.gd). Desktop input verification
 is in [capture_viewer.gd](../tests/capture_viewer.gd). Qualified anatomy review,
 target-device testing, authored cutaways/separation and verified pathways remain open.
+
+The packages were rebuilt from source commit `6b99a57`. The Windows ZIP is
+275,648,793 bytes; the Mac ZIP is 298,094,039 bytes. The exported Linux QA runtime
+and the Mac embedded resource pack passed both-body isolation and Return to context
+checks as well as the existing offline checks. Both archives passed CRC validation
+and retained matching licence/attribution files and updated controls instructions.
+Exact current artifact and source hashes are in
+[native-build-report.json](audit/native-build-report.json). The Mac check still uses
+the Linux development engine; Windows/Mac device trials remain pending.
