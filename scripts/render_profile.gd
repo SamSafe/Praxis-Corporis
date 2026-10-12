@@ -51,6 +51,10 @@ func sample(viewer: Control, name: String, config: Dictionary, repetition: int) 
 	var warmup_end := Time.get_ticks_usec() + int(config.warmup_seconds * 1000000)
 	while Time.get_ticks_usec() < warmup_end:
 		await RenderingServer.frame_post_draw
+	var expected := Vector2i(config.window_pixels[0], config.window_pixels[1])
+	if viewer.get_window().size != expected:
+		return {"error": "Profile window changed before sampling: " + name}
+	var initial_viewport: Vector2i = viewer.viewport.size
 	var samples: Array[float] = []
 	var draw_calls: Array[int] = []
 	var started := Time.get_ticks_usec()
@@ -62,6 +66,11 @@ func sample(viewer: Control, name: String, config: Dictionary, repetition: int) 
 		var interval := (now - previous) / 1000.0
 		previous = now
 		samples.append(interval)
+		if viewer.get_window().size != expected or viewer.viewport.size != initial_viewport:
+			return {"error": "Window or 3D viewport changed during sampling: " + name,
+				"reference": viewer.model.body.id, "repetition": repetition,
+				"observed_window_pixels": [viewer.get_window().size.x, viewer.get_window().size.y],
+				"raw_frame_intervals_ms": samples}
 		all_focused = all_focused and viewer.get_window().has_focus()
 		draw_calls.append(RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_TOTAL_DRAW_CALLS_IN_FRAME))
 		viewer.orbit.yaw += interval / 1000.0 * 0.5
@@ -96,6 +105,16 @@ func sample(viewer: Control, name: String, config: Dictionary, repetition: int) 
 		"raw_frame_intervals_ms": samples}
 	print("PROFILE ", repetition, " / ", viewer.model.body.id, " / ", name, ": %.1f frame-cadence FPS · p95 %.2f ms" % [result.average_frame_cadence_fps, result.frame_interval_ms.p95])
 	return result
+
+
+func append_sample(report: Dictionary, viewer: Control, name: String, config: Dictionary, repetition: int) -> bool:
+	var result := await sample(viewer, name, config, repetition)
+	if result.has("error"):
+		report.error = result.error
+		report.interrupted_scene = result
+		return false
+	report.scenes.append(result)
+	return true
 
 
 func record_load_interval(trace: Dictionary) -> void:
@@ -155,7 +174,15 @@ func run(viewer: Control) -> Dictionary:
 	var boundary_error := ContentBundle.verify_export_boundary()
 	if not boundary_error.is_empty():
 		return {"error": boundary_error}
-	viewer.get_window().size = Vector2i(config.window_pixels[0], config.window_pixels[1])
+	var window := viewer.get_window()
+	var expected := Vector2i(config.window_pixels[0], config.window_pixels[1])
+	# Explicit developer mode fixes only its own window; ordinary launches keep resize controls.
+	window.wrap_controls = false
+	window.mode = Window.MODE_WINDOWED
+	window.min_size = expected
+	window.max_size = expected
+	window.unresizable = true
+	window.size = expected
 	await viewer.get_tree().process_frame
 	await viewer.get_tree().process_frame
 	if viewer.get_window().size != Vector2i(config.window_pixels[0], config.window_pixels[1]):
@@ -191,14 +218,17 @@ func run(viewer: Control) -> Dictionary:
 			viewer.labels_button.button_pressed = true
 			viewer.label_density.value = 8
 			viewer.whole_body(false)
-			report.scenes.append(await sample(viewer, "whole-body orbit", config, repetition))
+			if not await append_sample(report, viewer, "whole-body orbit", config, repetition):
+				return report
 			if viewer.model.structures.has("anatomy.heart"):
 				viewer.chest_view()
 				viewer.local_labels_button.button_pressed = true
-				report.scenes.append(await sample(viewer, "chest orbit with faded lungs and local labels", config, repetition))
+				if not await append_sample(report, viewer, "chest orbit with faded lungs and local labels", config, repetition):
+					return report
 				viewer.select_structure("anatomy.heart.valve.mitral")
 			else:
 				viewer.select_structure("source.bodyparts3d-v4-male.FJ3365")
 			viewer.inspect_alone()
-			report.scenes.append(await sample(viewer, "isolated supplied-part orbit", config, repetition))
+			if not await append_sample(report, viewer, "isolated supplied-part orbit", config, repetition):
+				return report
 	return report

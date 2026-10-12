@@ -344,6 +344,7 @@ godot --path . --script tests/capture_keyboard_workspace.gd
 godot --path . --script tests/capture_loading.gd
 godot --path . --script tests/capture_search.gd
 godot --path . --script tests/capture_screenshot_export.gd
+godot --path . --script tests/capture_profile_rejection.gd
 ```
 
 This developer capture writes images under /tmp/medicine-viewer-feasibility/; create

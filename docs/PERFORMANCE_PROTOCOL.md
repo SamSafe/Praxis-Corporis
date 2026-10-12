@@ -81,6 +81,12 @@ An active power scheme does not establish AC/battery or thermal state. The windo
 includes side panels, so its 3D viewport is smaller than 1920 × 1080. Unfocused scenes
 must be interpreted accordingly. See the commands in [NATIVE_BUILDS.md](NATIVE_BUILDS.md).
 
+Fixed-window sampling rejects changes to the window or 3D viewport during a scene.
+Keep interrupted/rejected runs and their raw intervals; do not remove a long stall
+or rewrite actual dimensions to create a passing trial. A frame gap alone cannot
+establish whether rendering, window interaction, suspension or another host event
+caused it. Document the observed focus and uncontrolled context and repeat the trial.
+
 ## Optimization evidence
 
 Compare the same workload and source hashes on the same native hardware before and

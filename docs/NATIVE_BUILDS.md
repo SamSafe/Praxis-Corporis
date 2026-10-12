@@ -234,6 +234,11 @@ Options accept 1–120 sample seconds, 0.25–10 warmup seconds, 1–3 repetitio
 fail before loading anatomy. Actual window dimensions must match the request.
 Every repetition reloads each reference and reconstructs the ordinary scene before
 profiling. The 3D viewport dimensions are recorded separately from the entire window.
+Developer profiling fixes its own window's bounds and disables its resize controls.
+Window and 3D viewport sizes are checked before and throughout each sample; a change
+stops the run and writes `render-profile-rejected.json` with available partial evidence.
+Ordinary launches retain their resize controls. The profiler does not change host
+power settings or force a window to remain foreground.
 
 The repository runner extracts an exact matching archive into generated native staging,
 isolates user data, records host/driver/power identity, observes its own process memory,
@@ -259,6 +264,10 @@ runner changes no execution policy, power settings or unrelated processes. Long 
 allow time for the requested samples and loading, with an own-process timeout.
 Raw schema 2 profiles require every declared scene/repetition and load; the independent
 summary tool also accepts the earlier schema 1 diagnostic evidence.
+`attempt.json` records archive/source/tool/host identity before launch. Failed runs keep
+raw or partial profiles and native staging for diagnosis. The summary's explicit
+`--allow-window-variation` option checks diagnostic arithmetic without passing a
+fixed-window trial; native profile verification always requires exact dimensions.
 
 Create a reviewable Markdown baseline from the raw profile and its matching native
 evidence. This checks the raw-file fingerprint and independently recomputed scene

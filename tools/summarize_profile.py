@@ -69,7 +69,7 @@ def validate_load(load: dict) -> None:
     same_number(previous, wall, 'last load stage timestamp')
 
 
-def validate_plan(report: dict) -> None:
+def validate_plan(report: dict, allow_window_variation: bool = False) -> None:
     config = report['configuration']
     validate_configuration(config)
     references, expected = {}, set()
@@ -95,7 +95,7 @@ def validate_plan(report: dict) -> None:
         same_number(scene['warmup_seconds'], config['warmup_seconds'], 'scene warmup seconds')
         if scene['elapsed_seconds'] < config['seconds']:
             raise ValueError('Scene did not reach the requested duration')
-        if scene['window_pixels'] != config['window_pixels']:
+        if not allow_window_variation and scene['window_pixels'] != config['window_pixels']:
             raise ValueError('Actual window dimensions differ from the requested dimensions')
         pixels = scene['scene_viewport_pixels']
         if not isinstance(pixels, list) or len(pixels) != 2 or any(integer(p, 'scene viewport pixels', 1) > bound for p, bound in zip(pixels, config['window_pixels'])):
@@ -116,7 +116,9 @@ def validate_plan(report: dict) -> None:
         raise ValueError('Profile omits a planned reference load/repetition')
 
 
-def validate_report(report: dict) -> list[dict]:
+def validate_report(report: dict, allow_window_variation: bool = False) -> list[dict]:
+    if report.get('error'):
+        raise ValueError('Runtime profile was interrupted: ' + str(report['error']))
     if isinstance(report.get('schema_version'), bool) or report.get("schema_version") not in [1, 2] or not report.get("scenes"):
         raise ValueError("Unsupported or empty rendering profile")
     if not report.get("gpu") or not report.get("renderer"):
@@ -150,16 +152,17 @@ def validate_report(report: dict) -> list[dict]:
                      'repetition': scene.get('repetition', 1), 'frames_over_100_ms': stalled,
                      "slow_percent": slow / len(samples) * 100})
     if report['schema_version'] == 2:
-        validate_plan(report)
+        validate_plan(report, allow_window_variation)
     return rows
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("report", type=Path)
+    parser.add_argument('--allow-window-variation', action='store_true', help='Diagnostic arithmetic check only; changed dimensions cannot pass a fixed-window trial')
     args = parser.parse_args()
     report = json.loads(args.report.read_text())
-    rows = validate_report(report)
+    rows = validate_report(report, args.allow_window_variation)
     print(f"{report['platform']} · {report['gpu']} · {report['renderer']}")
     print("Repeat | Reference | Scene | Seconds | Cadence FPS | p95 ms | Frames >33.33ms | >100ms")
     for row in rows:
@@ -168,7 +171,10 @@ def main() -> None:
         print('Repeat | Reference | Load seconds | Maximum process gap ms | Gaps >100ms')
         for load in report['loads']:
             print(f"{load['repetition']} | {load['reference']} | {load['wall_seconds']:.2f} | {load['maximum_process_gap_ms']:.2f} | {load['intervals_over_100_ms']}")
-    print("PASS raw interval consistency and declared workload completeness; hardware acceptance remains separate")
+    if args.allow_window_variation:
+        print('PASS diagnostic arithmetic only; window variations allowed explicitly, no fixed-window trial claim')
+    else:
+        print("PASS raw interval consistency and declared workload completeness; hardware acceptance remains separate")
 
 
 if __name__ == "__main__":

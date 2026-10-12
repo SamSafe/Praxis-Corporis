@@ -79,6 +79,11 @@ def profile(args: argparse.Namespace) -> dict:
         raise ValueError('Use a new output folder; prior reports are kept unchanged')
     args.output.mkdir(parents=True)
     host = host_identity(args)
+    attempt = {'schema_version': 1, 'started_at_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(),
+               'source_revision': build['source_revision'], 'artifact': item, 'host': host, 'configuration': config,
+               'profiler_sha256': sha256(pathlib.Path(__file__)), 'verifier_sha256': sha256(ROOT / 'tools/verify_windows.py'),
+               'validator_sha256': sha256(ROOT / 'tools/summarize_profile.py'), 'context': args.context}
+    (args.output / 'attempt.json').write_text(json.dumps(attempt, indent=2) + '\n', encoding='utf-8')
     session, windows_session = native_session(args)
     print('Native staging:', windows_session, flush=True)
     try:
@@ -99,8 +104,8 @@ def profile(args: argparse.Namespace) -> dict:
         result = dict(observations, schema_version=1, result='passed raw measurement/complete workload validation; native exit code 0',
             recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
             source_revision=build['source_revision'], artifact=item, host=host, configuration=config,
-            profiler_sha256=sha256(pathlib.Path(__file__)), verifier_sha256=sha256(ROOT / 'tools/verify_windows.py'),
-            validator_sha256=sha256(ROOT / 'tools/summarize_profile.py'), raw_profile={'file': 'render-profile.json', 'sha256': sha256(raw_path)},
+            started_at_utc=attempt['started_at_utc'], profiler_sha256=attempt['profiler_sha256'], verifier_sha256=attempt['verifier_sha256'],
+            validator_sha256=attempt['validator_sha256'], raw_profile={'file': 'render-profile.json', 'sha256': sha256(raw_path)},
             scene_summary=rows, load_summary=[{k: load[k] for k in ['reference', 'repetition', 'wall_seconds', 'maximum_process_gap_ms', 'intervals_over_100_ms']} for load in report['loads']],
             context=args.context or 'No operator context supplied; background work, power source and thermal state uncontrolled.',
             limits=['Repeated runs in one process; later references/repetitions can reuse resources and OS file caches.',
@@ -110,6 +115,13 @@ def profile(args: argparse.Namespace) -> dict:
                     'One Windows host does not close Mac, representative-hardware, human-input or anatomy-review gates.'])
         (args.output / 'report.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8')
     except BaseException:
+        # Failed/incomplete runs still retain unmodified measurements and the startup binding.
+        for name in ['render-profile.json', 'render-profile-rejected.json']:
+            raw = session / 'user-data/PraxisCorporisPrototype' / name
+            if raw.is_file():
+                shutil.copyfile(raw, args.output / name)
+        if (session / 'engine.log').is_file():
+            shutil.copyfile(session / 'engine.log', args.output / 'engine.log')
         print('Native staging retained for diagnosis:', windows_session, flush=True)
         raise
     if (session / '.praxis-qa-owned').is_file():

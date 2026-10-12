@@ -21,7 +21,7 @@ static func developer_files(roots: Array = DEVELOPER_DIRECTORIES) -> Array[Strin
 
 
 static func verify_export_boundary() -> String:
-	if not OS.has_feature("template") and not "--main-pack" in OS.get_cmdline_args():
+	if not OS.has_feature("template") and not "--verify-export-boundary" in OS.get_cmdline_user_args():
 		return "" # Source-project developer checks intentionally have these directories.
 	var unexpected := developer_files()
 	if not unexpected.is_empty():

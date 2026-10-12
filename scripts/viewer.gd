@@ -116,19 +116,21 @@ func request_exit() -> void:
 func profile_bundle() -> void:
 	var profiler := RenderProfile.new()
 	var report: Dictionary = await profiler.run(self)
-	if report.has("error"):
-		push_error(report.error)
-		get_tree().quit(1)
-		return
-	var file := FileAccess.open("user://render-profile.json.tmp", FileAccess.WRITE)
+	var path := "user://render-profile-rejected.json" if report.has("error") else "user://render-profile.json"
+	var file := FileAccess.open(path + ".tmp", FileAccess.WRITE)
 	if file == null:
 		push_error("Could not write developer rendering profile")
 		get_tree().quit(1)
 		return
 	file.store_string(JSON.stringify(report, "\t", true, true))
 	file.close()
-	if DirAccess.rename_absolute("user://render-profile.json.tmp", "user://render-profile.json") != OK:
+	if DirAccess.rename_absolute(path + ".tmp", path) != OK:
 		push_error("Could not replace developer rendering profile")
+		get_tree().quit(1)
+		return
+	if report.has("error"):
+		print("PROFILE rejected evidence recorded: ", path)
+		push_error(report.error)
 		get_tree().quit(1)
 		return
 	print("PASS rendering profile recorded: user://render-profile.json")

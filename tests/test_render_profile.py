@@ -66,6 +66,20 @@ class RenderProfileTests(unittest.TestCase):
             with self.subTest(broken=broken), self.assertRaises(ValueError):
                 validate_report(broken)
 
+    def test_dimension_variation_is_only_allowed_for_explicit_diagnostic_arithmetic(self):
+        report = fixture()
+        report['scenes'][0]['window_pixels'] = [1920, 1111]
+        with self.assertRaises(ValueError):
+            validate_report(report)
+        self.assertEqual(len(validate_report(report, allow_window_variation=True)), 1)
+        report['scenes'][0]['frames_over_100_ms'] = 0
+        with self.assertRaises(ValueError):
+            validate_report(report, allow_window_variation=True)
+        report = fixture()
+        report['error'] = 'Window changed during the last sample'
+        with self.assertRaises(ValueError):
+            validate_report(report, allow_window_variation=True)
+
     def test_load_gap_and_stage_evidence_must_match_the_outer_wall_time(self):
         report = fixture()
         for key, value in [('interval_count', 2), ('wall_seconds', .2), ('maximum_process_gap_ms', 100),

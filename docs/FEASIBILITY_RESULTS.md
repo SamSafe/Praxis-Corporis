@@ -567,3 +567,31 @@ boundary check. The traversal test distinguishes empty/absent directories from n
 developer files; the native validator additionally requires the exact eight current
 workloads rather than accepting any eight internally consistent scene records.
 The intermediate packages were superseded before recording the sustained baseline.
+
+The first native sustained attempt from `92a1673` completed all 24 samples and nine
+reference loads but failed the fixed-window check. The reported window changed from
+1920 × 1080 to 1920 × 1111 during the first bone inspection; 17 later samples differed
+from the request. Only two samples retained focus throughout. One unfocused male
+whole-body sample included a 106,786.646 ms post-draw gap; its cause is unknown. Raw
+arithmetic/workload completeness passed an explicitly diagnostic check, with all
+intervals and actual dimensions retained. This is rejected trial evidence, not a
+fixed-resolution acceptance result. The 3D buffers were 832 × 657 or 832 × 611; a
+larger window did not establish a 1080p 3D render buffer. Process peak working set
+was 1,765,928,960 bytes; maximum sampled private memory was 1,930,596,352 bytes.
+[Rejected-run evidence](audit/windows-sustained-rejected-qa.json) and
+[raw measurements](audit/windows-render-profile-rejected.json) retain the outlier.
+
+Profiling now fixes its own window bounds and checks dimensions throughout sampling.
+An interruption saves partial evidence and stops before further workloads. The runner
+persists startup archive/source/tool/host binding before launching and retains failed
+raw data. Rendered fault injection resized an actual source-femur sample: it rejected
+the scene, retained intervals and preserved anatomy. Twenty-nine Python checks pass,
+including diagnostic variation without skipping arithmetic and rejected-profile
+handling. The corrected native sustained trial remains to be recorded.
+
+Both `92a1673` archives passed the reusable CRC, architecture, committed-notice and
+source-snapshot audit. Its Mac core pack separately passed the absolute-path resource
+checker on the Linux development engine. This verifies the pack boundary, not Mac
+device execution. Future builds run that independent checker and explicitly require
+the boundary in embedded-pack verification: engine-consumed flags are excluded from
+[`OS.get_cmdline_args`](https://docs.godotengine.org/en/stable/classes/class_os.html#class-os-method-get-cmdline-args).

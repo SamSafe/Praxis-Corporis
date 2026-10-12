@@ -216,8 +216,12 @@ def build(args: argparse.Namespace) -> dict:
                     raise ValueError("Mac application must retain its ad-hoc resource seal")
                 if args.qa_linux:
                     print("Checking the embedded Mac content using the development engine…", flush=True)
+                    # Engine-consumed --main-pack is absent from OS.get_cmdline_args().
+                    # An external script checks the actual virtual pack without relying on template features.
                     run([args.godot, "--headless", "--audio-driver", "Dummy", "--main-pack", str(core_packs[0]),
-                         "--", "--verify-bundle"], cwd=folder, env=qa_environment)
+                         "--script", str(ROOT / "tests/packed_resource_boundary.gd")], cwd=folder, env=qa_environment)
+                    run([args.godot, "--headless", "--audio-driver", "Dummy", "--main-pack", str(core_packs[0]),
+                         "--", "--verify-bundle", "--verify-export-boundary"], cwd=folder, env=qa_environment)
                     report["mac_content_qa"] = "passed every bundled reference in embedded content on the development engine; Mac device testing pending"
             if platform == "windows":
                 shutil.copyfile(data_pack, folder / "anatomy.pck")
