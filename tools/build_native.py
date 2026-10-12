@@ -1,0 +1,219 @@
+"""Build self-contained private desktop ZIPs; never publish or upload artifacts."""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import os
+import pathlib
+import shutil
+import stat
+import struct
+import subprocess
+import tempfile
+import zipfile
+
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+
+
+def sha256(path: pathlib.Path) -> str:
+    checksum = hashlib.sha256()
+    with path.open("rb") as stream:
+        while block := stream.read(1024 * 1024):
+            checksum.update(block)
+    return checksum.hexdigest()
+
+
+def run(command: list[str], cwd: pathlib.Path = ROOT, env: dict | None = None) -> None:
+    try:
+        result = subprocess.run(command, cwd=cwd, env=env, text=True, stdout=subprocess.PIPE,
+                                stderr=subprocess.STDOUT, timeout=120)
+    except subprocess.TimeoutExpired as error:
+        output = error.stdout.decode(errors="replace") if isinstance(error.stdout, bytes) else (error.stdout or "")
+        raise RuntimeError(f"Build step timed out: {command[0]}\n{output}") from error
+    if result.returncode or "SCRIPT ERROR:" in result.stdout:
+        raise RuntimeError(f"Command failed ({result.returncode}): {command[0]}\n{result.stdout}")
+    # Keep successful build output compact; retained reports describe verified results.
+    for line in result.stdout.splitlines():
+        if line.startswith(("PASS ", "Anatomy package complete:")):
+            print(line, flush=True)
+
+
+def unpack_zip(archive: pathlib.Path, destination: pathlib.Path) -> dict[str, int]:
+    modes = {}
+    with zipfile.ZipFile(archive) as package:
+        for info in package.infolist():
+            path = (destination / info.filename).resolve()
+            if not path.is_relative_to(destination.resolve()):
+                raise ValueError("Archive entry escapes its destination")
+            mode = info.external_attr >> 16
+            if stat.S_ISLNK(mode):
+                raise ValueError("Unexpected symbolic link in native export")
+            if info.is_dir():
+                path.mkdir(parents=True, exist_ok=True)
+                continue
+            path.parent.mkdir(parents=True, exist_ok=True)
+            with package.open(info) as source, path.open("wb") as target:
+                shutil.copyfileobj(source, target)
+            path.chmod((mode & 0o777) or 0o644)
+            modes[info.filename] = (mode & 0o777) or 0o644
+    return modes
+
+
+def make_zip(folder: pathlib.Path, destination: pathlib.Path, modes: dict[str, int] | None = None) -> None:
+    with zipfile.ZipFile(destination, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=6) as package:
+        for path in sorted(folder.rglob("*")):
+            if path.is_file():
+                relative = path.relative_to(folder).as_posix()
+                info = zipfile.ZipInfo.from_file(path, arcname=f"{folder.name}/{relative}")
+                info.create_system = 3
+                mode = (modes or {}).get(relative, path.stat().st_mode & 0o777)
+                info.external_attr = (stat.S_IFREG | mode) << 16
+                info.compress_type = zipfile.ZIP_DEFLATED
+                with path.open("rb") as source, package.open(info, "w") as target:
+                    shutil.copyfileobj(source, target)
+
+
+def binary_architectures(path: pathlib.Path) -> list[str]:
+    with path.open("rb") as stream:
+        header = stream.read(64)
+        if header[:2] == b"MZ":
+            offset = struct.unpack_from("<I", header, 60)[0]
+            stream.seek(offset)
+            signature, machine = struct.unpack("<4sH", stream.read(6))
+            if signature != b"PE\0\0" or machine != 0x8664:
+                raise ValueError("Expected a Windows x86_64 executable")
+            return ["x86_64"]
+        magic, count = struct.unpack_from(">II", header)
+        if magic not in (0xCAFEBABE, 0xCAFEBABF) or count > 16:
+            raise ValueError("Expected a Universal Mach-O executable")
+        stream.seek(8)
+        stride = 20 if magic == 0xCAFEBABE else 32
+        names = {0x01000007: "x86_64", 0x0100000C: "arm64"}
+        architectures = []
+        for _ in range(count):
+            cpu = struct.unpack_from(">I", stream.read(stride))[0]
+            architectures.append(names.get(cpu, str(cpu)))
+        if set(architectures) != {"x86_64", "arm64"}:
+            raise ValueError("Mac export must contain Intel and Apple Silicon slices")
+        return architectures
+
+
+def add_notices(folder: pathlib.Path, platform: str) -> None:
+    notices = folder / "NOTICES"
+    notices.mkdir()
+    for name in ["HRA-LICENSE.txt", "HRA-README.md", "Godot-LICENSE.txt", "Godot-COPYRIGHT.txt"]:
+        shutil.copyfile(ROOT / "third_party" / name, notices / name)
+    shutil.copyfile(ROOT / "ATTRIBUTIONS.md", notices / "ATTRIBUTIONS.md")
+    (folder / "START_HERE.txt").write_text(
+        "PRAXIS CORPORIS — PRIVATE ANATOMY PROTOTYPE\n\n"
+        + ("Open PraxisCorporis.exe.\n" if platform == "windows" else "Open PraxisCorporis.app.\n")
+        + "Extract this complete folder first. Keep anatomy.pck beside the application.\n"
+        "Python and the Godot editor are not required; exploration works offline.\n\n"
+        "Drag to orbit; Shift/right-drag to pan; scroll or pinch to zoom.\n"
+        "Peel away skin, choose Show chest, or select anatomy in the list.\n"
+        "Move selected enables inspection displacement. Restore returns original anatomy.\n"
+        "Save view stores a local session outside this folder.\n\n"
+        "Both reference bodies are included. This is a partial, unreviewed atlas.\n"
+        "There is no disease content, guided pathway, or public-release claim.\n"
+        "These builds still need testing on Windows and Mac hardware.\n"
+        + ("The Windows executable is unsigned.\n" if platform == "windows" else
+           "The Mac app has an ad-hoc signature and is not notarized.\n")
+        + "Credits, source licences and engine notices are in NOTICES/.\n",
+        encoding="utf-8",
+    )
+
+
+def build(args: argparse.Namespace) -> dict:
+    version = subprocess.check_output([args.godot, "--version"], text=True, timeout=10).strip()
+    if not version.startswith("4.7.2."):
+        raise ValueError("Use the pinned Godot 4.7.2 Standard build and matching export templates")
+    args.output.mkdir(parents=True, exist_ok=True)
+    report = {"engine": version, "content_pack": "hra-united-v1-1-prototype-1", "artifacts": [],
+              "target_device_testing": "pending", "publication": "local private artifacts only"}
+    report["source_revision"] = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
+    report["source_hashes"] = {str(path.relative_to(ROOT)): sha256(path) for path in
+                               [ROOT / "project.godot", ROOT / "export_presets.cfg", ROOT / "content/sample_pack.json",
+                                ROOT / "content/source_manifest.json", ROOT / "content/toolchain_manifest.json",
+                                *sorted((ROOT / "scripts").glob("*.gd"))]}
+    with tempfile.TemporaryDirectory(prefix="native-build-", dir=args.output) as workspace:
+        temporary = pathlib.Path(workspace)
+        data_pack = temporary / "anatomy.pck"
+        print("Packing prepared anatomy…", flush=True)
+        run([args.godot, "--headless", "--path", str(ROOT), "--script", "tools/pack_anatomy.gd", "--", f"--output={data_pack}"])
+        report["anatomy_package"] = {"bytes": data_pack.stat().st_size, "sha256": sha256(data_pack)}
+        if args.qa_linux:
+            qa = temporary / "qa"
+            qa.mkdir()
+            executable = qa / "PraxisCorporis.x86_64"
+            print("Exporting and checking the Linux QA runtime…", flush=True)
+            run([args.godot, "--headless", "--path", str(ROOT), "--export-release", "Linux Bundle QA", str(executable)])
+            shutil.copyfile(data_pack, qa / "anatomy.pck")
+            executable.chmod(0o755)
+            qa_environment = os.environ.copy()
+            qa_environment.update({
+                "XDG_DATA_HOME": str(temporary / "qa-user-data"),
+                "XDG_CONFIG_HOME": str(temporary / "qa-config"),
+                "XDG_CACHE_HOME": str(temporary / "qa-cache"),
+            })
+            # Run outside the source project; every anatomy read must come from the bundle.
+            run([str(executable), "--headless", "--audio-driver", "Dummy", "--", "--verify-bundle"], cwd=qa, env=qa_environment)
+            (qa / "anatomy.pck").rename(qa / "anatomy.unavailable")
+            missing = subprocess.run([str(executable), "--headless", "--", "--verify-bundle"],
+                                     cwd=qa, env=qa_environment, text=True, stdout=subprocess.PIPE,
+                                     stderr=subprocess.STDOUT, timeout=30)
+            if missing.returncode != 1 or "Anatomy is missing" not in missing.stdout:
+                raise ValueError("Missing anatomy bundle must produce a clear failure")
+            report["linux_qa"] = "passed exported-runtime two-body restoration and missing-content checks"
+        for platform in args.platform:
+            modes = {}
+            folder = temporary / "PraxisCorporis"
+            folder.mkdir()
+            print(f"Exporting {platform}…", flush=True)
+            if platform == "windows":
+                executable = folder / "PraxisCorporis.exe"
+                run([args.godot, "--headless", "--path", str(ROOT), "--export-release", "Windows Private", str(executable)])
+                architectures = binary_architectures(executable)
+            else:
+                app_archive = temporary / "macos-app.zip"
+                run([args.godot, "--headless", "--path", str(ROOT), "--export-release", "macOS Private", str(app_archive)])
+                modes = unpack_zip(app_archive, folder)
+                applications = list(folder.glob("*.app"))
+                if len(applications) != 1:
+                    raise ValueError("Expected one Mac application bundle")
+                previous_name = applications[0].name
+                if previous_name != "PraxisCorporis.app":
+                    applications[0].rename(folder / "PraxisCorporis.app")
+                    modes = {("PraxisCorporis.app/" + name[len(previous_name) + 1:]
+                              if name.startswith(previous_name + "/") else name): mode
+                             for name, mode in modes.items()}
+                executables = list(folder.glob("*.app/Contents/MacOS/*"))
+                if len(executables) != 1 or not modes.get(executables[0].relative_to(folder).as_posix(), 0) & 0o111:
+                    raise ValueError("Mac bundle must have one executable with execute permissions")
+                architectures = binary_architectures(executables[0])
+            shutil.copyfile(data_pack, folder / "anatomy.pck")
+            add_notices(folder, platform)
+            name = "PraxisCorporis-Windows-x64-private.zip" if platform == "windows" else "PraxisCorporis-macOS-universal-private.zip"
+            archive = temporary / name
+            make_zip(folder, archive, modes)
+            shutil.rmtree(folder)
+            destination = args.output / name
+            os.replace(archive, destination)
+            report["artifacts"].append({"file": name, "bytes": destination.stat().st_size,
+                                        "sha256": sha256(destination), "architectures": architectures})
+            print("Built", destination, flush=True)
+        (args.output / "build-report.json").write_text(json.dumps(report, indent=2) + "\n")
+    return report
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--godot", required=True, help="Path to the Godot 4.7.2 Standard executable")
+    parser.add_argument("--output", type=pathlib.Path, default=ROOT / "dist")
+    parser.add_argument("--platform", nargs="+", choices=["windows", "macos"], default=["windows", "macos"])
+    parser.add_argument("--qa-linux", action="store_true", help="Test an exported Linux runtime; Linux is not a release target")
+    options = parser.parse_args()
+    options.godot = shutil.which(options.godot) or str(pathlib.Path(options.godot).resolve())
+    options.output = options.output.resolve()
+    build(options)
