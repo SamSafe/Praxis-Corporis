@@ -1,0 +1,37 @@
+{
+  "test_date": "2026-10-12",
+  "host": "Microsoft Windows NT 10.0.26300.0 via WSL interop",
+  "mode": "Actual Windows release executable, native desktop rendering, Dummy audio",
+  "renderer": "OpenGL 3.3 core, Godot Compatibility, AMD Radeon(TM) Graphics",
+  "driver_observed": "25.10.37.03.260407",
+  "source_revision": "18750284772c0f879ac44304367a6ebef9bbae83",
+  "artifact": {
+    "file": "PraxisCorporis-Windows-x64-private.zip",
+    "bytes": 292879809,
+    "sha256": "a994ecdce033a7b9d53dadd14e69e9dfacb02e5c07ed9a182102d38adfbb3922",
+    "architectures": [
+      "x86_64"
+    ]
+  },
+  "result": "passed; native process exit code 0",
+  "references": {
+    "female": 801,
+    "male": 788,
+    "bodyparts-male-bones-study": 203
+  },
+  "captures": [
+    "windows-native-chest-female.png",
+    "windows-native-chest-male.png",
+    "windows-native-bones-study.png"
+  ],
+  "capture_size": [
+    1440,
+    900
+  ],
+  "limits": [
+    "Single uncontrolled scripted trial; no sustained FPS or minimum-hardware claim.",
+    "Native human mouse/trackpad acceptance and Mac hardware execution remain open.",
+    "The bone study is separate male source geometry, with no HRA or female registration."
+  ],
+  "user_data": "APPDATA and LOCALAPPDATA isolated in dedicated temporary QA directories; saved-view slot untouched."
+}

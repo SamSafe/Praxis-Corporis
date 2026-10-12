@@ -268,3 +268,14 @@ display, and full-viewer captures were inspected at normal/smaller window settin
 
 The bone source adds useful geometry without closing comprehensive two-body coverage,
 medical review, source registration, authored cutaway/pathway or public-release gates.
+
+The packages from source commit `1875028` include all three prepared references.
+Their archive CRCs, content notices, source snapshots and SHA-256 hashes were verified.
+The actual Windows executable passed native AMD desktop rendering, surface-label and
+inspection/restoration checks for 801 female, 788 male and 203 bone-study meshes,
+with exit code 0. All three 1440 × 900 captures were produced; the separate skeleton
+capture was inspected. This is scripted device evidence, without a sustained FPS
+or human-input acceptance claim. The Mac embedded content passed on the development
+engine; Mac device execution is still open. Exact evidence is recorded in
+[windows-study-rendered-qa.json](audit/windows-study-rendered-qa.json) and
+[native-build-report.json](audit/native-build-report.json).
