@@ -595,3 +595,32 @@ checker on the Linux development engine. This verifies the pack boundary, not Ma
 device execution. Future builds run that independent checker and explicitly require
 the boundary in embedded-pack verification: engine-consumed flags are excluded from
 [`OS.get_cmdline_args`](https://docs.godotengine.org/en/stable/classes/class_os.html#class-os-method-get-cmdline-args).
+
+The guarded `640cf57` Windows release then completed three repetitions of all eight
+60-second scenes at a fixed 1920 × 1080 window. Independent raw validation passed
+24 samples, 83,190 rendered intervals over 1,440.20 measured seconds, and all nine
+reference loads. Observed per-sample average cadence ranged from 48.5 to 59.9 FPS.
+The highest scene p95 was 37.69 ms in the male chest workload; 489 rendered intervals
+exceeded 33.33 ms and none exceeded 100 ms. Process peak working set was
+1,766,273,024 bytes; maximum sampled private memory was 1,933,799,424 bytes.
+
+This remains a scoped observation: actual 3D buffers were 832 × 611/657, only one
+sample retained focus throughout, and background/power/thermal conditions were
+uncontrolled. It does not establish foreground 1080p 3D or minimum-hardware acceptance.
+HRA switch wall times were approximately 2.73–3.00 seconds; largest process gaps were
+2.01–2.22 seconds during `Loading anatomy`. Source-bone loads took 0.54–0.60 seconds,
+with 0.28–0.31-second gaps. Stage timestamps include scheduling and cannot identify
+the exact engine operation responsible. Loading pauses remain a concrete optimization
+target. [Readable report](audit/WINDOWS_SUSTAINED_PROFILE.md),
+[native binding](audit/windows-sustained-profile-qa.json) and
+[unmodified raw intervals](audit/windows-sustained-profile.json) are retained.
+
+Both corrected archives passed CRC, architecture, committed-notice and source-snapshot
+checks against `640cf57`. Exported Linux checks and Mac embedded-content/boundary checks
+passed. The same actual Windows release passed normal source-search, note-editor,
+loading/failure preservation, keyboard, offline geometry and credited screenshot
+workflows after profiling. All fifteen native captures were inspected and retained
+with [their exact-artifact evidence](audit/windows-guarded-viewer-qa.json).
+The QA scripts were exercised through WSL into native Windows; direct Windows Python,
+Mac hardware, human input/picker/clipboard, representative performance and anatomy
+review acceptance remain separate work.

@@ -5,6 +5,12 @@ diagnostic observations; it does not by itself pass the sustained laptop gate. T
 remains 30 sustained FPS at 1080p, with 60 FPS as a higher-quality goal, as proposed in
 [RELEASE_CRITERIA.md](RELEASE_CRITERIA.md).
 
+The first guarded repeated native observation is retained in
+[WINDOWS_SUSTAINED_PROFILE.md](audit/WINDOWS_SUSTAINED_PROFILE.md). Its 1920 × 1080
+window used 832 × 611/657 3D buffers; only one of 24 samples remained focused
+throughout. The measurements validate the pipeline and describe that host/context.
+They do not pass a foreground trial at the intended 1080p 3D resolution.
+
 ## Identify the test
 
 Record the actual archive/hash and source revision, source geometry hashes, engine,
@@ -98,3 +104,9 @@ quality control; it cannot hide an anatomy-coverage gap.
 
 A passing local diagnostic run leaves representative hardware, Mac execution,
 trackpad/keyboard usability and qualified medical review as separate gates.
+
+The guarded Windows baseline also observed approximately 2.0–2.2-second HRA process
+gaps during the `Loading anatomy` stage despite yields elsewhere. Prioritize a
+matched before/after investigation of that stage; the timestamps alone do not
+identify a specific blocking engine operation. Preserve source geometry, selection,
+labels and restore fidelity in any loading change.

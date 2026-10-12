@@ -36,8 +36,26 @@ Windows release passed note-editor save/reopen and unchanged-view checks on AMD
 graphics for all three references; scripted native captures were inspected.
 Short native rendering profiles on the Windows Ryzen 5 PRO 6650U / AMD Radeon host
 observed about 60 frame-cadence FPS across eight scenes. Raw intervals and hardware
-identity are retained; repeated sustained 1080p trials and a representative Mac are
-still required by [the measurement protocol](PERFORMANCE_PROTOCOL.md).
+identity are retained. Representative Windows/Mac foreground trials at the intended
+3D render resolution are still required by [the measurement protocol](PERFORMANCE_PROTOCOL.md).
+The profiler now supports explicit durations, repetitions and window sizes, retains
+raw loading gaps/stages, and validates complete workloads independently. A first
+24-sample sustained Windows attempt was rejected after window-size variation and an
+unfocused long frame gap; its unmodified diagnostic evidence is retained. Fixed-window
+guards now stop interrupted samples and retain partial data. The rebuilt native
+eight-scene short check passed at 1920 × 1080. A guarded run then passed independent
+validation of 24 one-minute samples and nine loads on the actual Windows AMD host:
+48.5–59.9 average frame-cadence FPS, with 832 × 611/657 3D buffers and only one sample
+focused throughout. HRA loads still had 2.0–2.2-second process gaps. These observations
+do not pass the intended 1080p 3D/representative-hardware gate; see the retained
+[measurement report](audit/WINDOWS_SUSTAINED_PROFILE.md).
+Repository tools also audit ZIP CRCs, architectures, committed notices and runtime
+source snapshots, then produce a validated Markdown measurement report. Generated QA
+output is excluded from exports and checked at runtime; Mac embedded-content checks
+now require an independent resource boundary check on the development host.
+Both current archives match the committed `640cf57` application snapshot. Native
+Windows source search, saved notes, loading/failure preservation, keyboard workspace
+and credited exports passed again; all fifteen retained captures were inspected.
 The workspace now has a focused keyboard camera route and independently collapsible
 side panels. Camera keys preserve inspection data; search and tree arrows retain their
 own behaviour. Teal focus rendering, compact layout and source picking after collapse
@@ -109,7 +127,7 @@ implementation. Local commits preserve progress; no remote publication is implie
 | Male/female coverage | Two HRA v1.1 samples inventoried; substantial system gaps remain. | Supplement missing anatomy and validate actual coverage/interiors. |
 | Exterior and deeper layers | Skin reveal and chest selection work in the prototype; complete layers absent. | Enrich both bodies and validate the complete journey. |
 | Engine suitability | Godot 4.7.2 passes initial import, picking, movement, restore and saved-view trials. | Complete clipping, renderer/device benchmarks, accessibility and platform exports. |
-| Baseline hardware | One actual Windows AMD host has short rendering/memory observations; no acceptance matrix. | Run repeated sustained 1080p trials and test a representative Mac. |
+| Baseline hardware | One Windows AMD host has validated repeated one-minute observations; low-resolution 3D buffers, mostly unfocused and no acceptance matrix. | Repeat foreground trials at the intended 3D resolution and test a representative Mac. |
 | Pathway content | Grouping is not verified connectivity. | Source/author and review explicit routes. |
 | Medical review | No access. | Arrange review before the planned public content release. |
 | Application licence | Undecided; private prototype code now exists. | Decide before implementation distribution. |

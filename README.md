@@ -65,3 +65,6 @@ its own unregistered reference. [Source audit and preparation](docs/audit/BODYPA
 Disease content, validated cutaways and guided pathways are future work.
 Private Windows/macOS ZIPs are generated locally under dist/. Target-device testing,
 public signing/notarization, and baseline-laptop performance remain open.
+The [repeated Windows measurement report](docs/audit/WINDOWS_SUSTAINED_PROFILE.md)
+records actual frame intervals, render-buffer sizes, loading pauses and memory;
+it retains the limits of this single-host observation.
