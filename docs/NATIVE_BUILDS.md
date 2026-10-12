@@ -89,7 +89,8 @@ The first actual Windows headless run passed both-body offline and inspection ch
 [Windows evidence](audit/windows-native-qa.json) records that specific artifact/host.
 The subsequent [Windows rendering check](audit/windows-rendered-qa.json) also passed
 on AMD Radeon graphics, with both chest captures inspected. The later [loading check](audit/windows-loading-qa.json) verifies actual UI process
-frames and failed-replacement preservation in the rebuilt Windows package. Human mouse/trackpad,
+frames and failed-replacement preservation in the rebuilt Windows package. The latest [study-note check](audit/windows-study-notes-qa.json) also verifies the
+rendered note editor and reopened text for every reference. Human mouse/trackpad,
 sustained performance and Mac device trials remain open.
 The retained [build report](audit/native-build-report.json) includes a source-snapshot
 revision verified against its recorded file hashes.

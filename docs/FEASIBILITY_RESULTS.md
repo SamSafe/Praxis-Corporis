@@ -472,3 +472,15 @@ named-view checks still pass. Rendered compact-layout checks exercise actual Sav
 and Restore clicks, text undo without anatomy changes, and unsaved-choice rendering.
 [Saved-note window](prototype/saved-view-study-notes.png) and
 [draft protection](prototype/unsaved-study-notes.png) are retained inspection captures.
+
+
+Packages from source commit `8e4f5bb` passed exported Linux and Mac embedded-content
+checks, including multiline-note storage/reopening. Both archive CRCs, source
+snapshots, architecture checks and study-note startup instructions matched. The
+actual Windows release on AMD graphics passed note-editor insertion, Save notes,
+reopening and unchanged-view checks for all three references. The three retained
+native note windows were inspected. Loading/failure preservation, keyboard/panels,
+offline geometry and credited screenshot checks also passed with exit code 0.
+[Windows study-note evidence](audit/windows-study-notes-qa.json) records the exact
+archive, captures and whole-process memory observations. Human note input/OS-close
+acceptance and real Mac execution remain open.

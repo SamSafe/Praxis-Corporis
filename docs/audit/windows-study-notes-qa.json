@@ -1,0 +1,73 @@
+{
+  "test_date": "2026-10-12",
+  "host": "Microsoft Windows NT 10.0.26300.0 via WSL interop",
+  "mode": "Actual Windows release executable, native AMD rendering, Dummy audio",
+  "source_revision": "8e4f5bb68a1682626a6861491fc26a6c532237e4",
+  "artifact": {
+    "file": "PraxisCorporis-Windows-x64-private.zip",
+    "bytes": 292915171,
+    "sha256": "f7fb7285b6733bdd53b9ffbd8f88ce05bad419306902e1205df3a2d3e7c6b2a8",
+    "architectures": [
+      "x86_64"
+    ]
+  },
+  "renderer": "OpenGL 3.3 core, AMD Radeon(TM) Graphics",
+  "result": "passed; exit code 0",
+  "references": {
+    "female": 801,
+    "male": 788,
+    "bodyparts-male-bones-study": 203
+  },
+  "study_note_captures": {
+    "female": {
+      "file": "docs/prototype/windows-study-notes-female.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "92328536270f333da9ca4a147164db5fa5f3c4052580939935bdbda3ddf9c035"
+    },
+    "male": {
+      "file": "docs/prototype/windows-study-notes-male.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "f199fda00b33dbc3799731555fea3b574c0437edabfd849d003963a1924810d6"
+    },
+    "bodyparts-male-bones-study": {
+      "file": "docs/prototype/windows-study-notes-bodyparts-male-bones-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "161bbc81a0d80e445af9dc7dc70fe77e2060d665c13bfd874beb8abe03171a85"
+    }
+  },
+  "ui_process_frames_during_successful_load": {
+    "female": 39,
+    "male": 37,
+    "bodyparts-male-bones-study": 11
+  },
+  "checks": [
+    "Multiline local notes survive library write/reopen with the same view snapshot",
+    "Rendered note editor saves and reopens text for every reference",
+    "Note editing preserves the active anatomy/camera state",
+    "Loading emits interface frames and failed replacement retains exploration",
+    "Keyboard navigation and reversible panel collapse",
+    "Native credited PNG exports and offline inspection restoration"
+  ],
+  "process_memory_observations": {
+    "peak_working_set_bytes_observed": 1706131456,
+    "maximum_private_bytes_sampled": 1928691712,
+    "sampling_interval_ms": 500,
+    "scope": "Entire verification process; not per-scene or GPU memory."
+  },
+  "limits": [
+    "Note editor uses scripted text insertion/button signals; human input and OS-close acceptance remain open.",
+    "Text undo, draft decisions and failed/stale saves have separate development-host integration/rendering checks.",
+    "No sustained frame-rate or maximum-load-pause claim.",
+    "Native OS picker and Mac device execution remain open."
+  ],
+  "user_data": "APPDATA and LOCALAPPDATA isolated in dedicated QA directories; user libraries/legacy slots untouched."
+}
