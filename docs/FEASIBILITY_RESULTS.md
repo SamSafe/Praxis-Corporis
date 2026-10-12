@@ -313,3 +313,19 @@ and local persistence checks with exit code 0. The QA process kept the user's li
 and quick-save slot untouched. Its 500 ms process observations are recorded separately
 from any scene benchmark in [windows-saved-views-qa.json](audit/windows-saved-views-qa.json).
 The [private trial guide](PRIVATE_TRIAL_GUIDE.md) provides the next human-input tasks.
+
+## Rendering measurement tool — 2026-10-12
+
+The explicit developer profile measures eight scenes across the three prepared
+references, after a one-second warmup per scene. It records five seconds of scripted
+orbit frame intervals, retains every raw sample, and includes source/viewport/renderer
+identity. Its summary tool independently recomputes duration, cadence, nearest-rank
+percentiles and slow-frame counts; deliberately inconsistent measurements were rejected.
+Headless profiling is explicitly rejected before anatomy loading.
+
+The development display's Mesa llvmpipe software-rendered run completed and its raw
+measurements passed validation. Whole HRA bodies observed approximately 1.2–1.3
+frame-cadence FPS, faded-lung chest views 3.2–3.4, isolated parts about 42, and the
+whole bone study 9.2. These verify measurement behaviour on software rendering,
+not AMD performance or a student-laptop baseline. The target Windows graphics
+measurement and representative sustained 1080p acceptance remain separate work.

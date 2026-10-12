@@ -117,3 +117,36 @@ read or overwrite the user's named library or older quick-save slot. The ordinar
 
 These checks verify startup, rendering and scripted actions. They do not establish
 native mouse/trackpad usability, accessibility acceptance or sustained laptop FPS.
+
+## Developer rendering profile
+
+Use the explicit `--profile-rendered-bundle` user argument to sample every bundled
+reference at the current window resolution. For example, from the extracted Windows
+folder:
+
+```powershell
+.\PraxisCorporis.exe --audio-driver Dummy -- --profile-rendered-bundle
+```
+
+Use a dedicated test user-data directory. Profiling writes `user://render-profile.json`,
+then exits; it never accesses the named-view library or quick-save slot. Ordinary
+launches do not profile or collect telemetry. Headless mode is rejected.
+
+Each scene has a one-second warmup and five-second scripted orbit at 0.5 rad/s.
+HRA scenes are whole body, chest with faded lungs/local labels, and an isolated supplied
+valve. The separate study measures whole bones and an isolated source femur. The report
+retains raw frame intervals, counts/duration, average cadence, nearest-rank interval
+percentiles, slow-frame counts, viewport size, source hashes and graphics/CPU identity.
+Load observations include source verification in the outer wall-time figure.
+
+Validate the raw measurements and print their summary with:
+
+```sh
+python3 tools/summarize_profile.py /path/to/render-profile.json
+```
+
+These short frame-callback observations include scheduling/VSync and do not measure
+GPU timestamps or presentation latency. Cache, power state and background load are
+uncontrolled. They do not close the representative 1080p laptop acceptance gate.
+Process working-set/private-memory observations must be recorded by the host separately;
+they are neither GPU memory nor Godot's optional debug memory counters.

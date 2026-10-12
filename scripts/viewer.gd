@@ -7,6 +7,7 @@ const AnatomyLabels = preload("res://scripts/anatomy_labels.gd")
 const CoverageBrowser = preload("res://scripts/coverage_browser.gd")
 const SavedViews = preload("res://scripts/saved_views.gd")
 const SavedViewsBrowser = preload("res://scripts/saved_views_browser.gd")
+const RenderProfile = preload("res://scripts/render_profile.gd")
 var save_path := "user://saved_view.json"
 var views_path := "user://saved_views.json"
 
@@ -72,13 +73,37 @@ func _ready() -> void:
 	if not content_error.is_empty():
 		status.text = content_error
 		context.text = "Anatomy unavailable"
-		if "--verify-bundle" in OS.get_cmdline_user_args() or "--verify-rendered-bundle" in OS.get_cmdline_user_args():
+		if "--verify-bundle" in OS.get_cmdline_user_args() or "--verify-rendered-bundle" in OS.get_cmdline_user_args() or "--profile-rendered-bundle" in OS.get_cmdline_user_args():
 			push_error(content_error)
 			get_tree().quit(1)
+	elif "--profile-rendered-bundle" in OS.get_cmdline_user_args():
+		call_deferred("profile_bundle")
 	elif "--verify-bundle" in OS.get_cmdline_user_args() or "--verify-rendered-bundle" in OS.get_cmdline_user_args():
 		call_deferred("verify_bundle")
 	else:
 		call_deferred("switch_body", "female")
+
+
+func profile_bundle() -> void:
+	var profiler := RenderProfile.new()
+	var report: Dictionary = await profiler.run(self)
+	if report.has("error"):
+		push_error(report.error)
+		get_tree().quit(1)
+		return
+	var file := FileAccess.open("user://render-profile.json.tmp", FileAccess.WRITE)
+	if file == null:
+		push_error("Could not write developer rendering profile")
+		get_tree().quit(1)
+		return
+	file.store_string(JSON.stringify(report, "\t", true, true))
+	file.close()
+	if DirAccess.rename_absolute("user://render-profile.json.tmp", "user://render-profile.json") != OK:
+		push_error("Could not replace developer rendering profile")
+		get_tree().quit(1)
+		return
+	print("PASS rendering profile recorded: user://render-profile.json")
+	get_tree().quit()
 
 
 func verify_bundle() -> void:
