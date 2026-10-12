@@ -34,7 +34,7 @@ func capture() -> void:
 	root.add_child(fill)
 	var model := AnatomyModel.new()
 	root.add_child(model)
-	var error: String = model.load_body(body)
+	var error: String = await model.load_body(body)
 	if not error.is_empty() or model.meshes.size() != 203:
 		push_error("Study geometry failed: " + error)
 		quit(1)

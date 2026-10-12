@@ -24,6 +24,7 @@ restarting. Repeat the HRA tasks for both female and male references.
 
 | Task | Success to observe | Notes to record |
 |---|---|---|
+| Switch references | Watch the loading steps; wait for the new body before manipulating it. | Did the progress update, and was there a noticeable pause? |
 | Identify the current reference | Recognise its body/source and that coverage is partial. | What did you assume was included? |
 | Explore the body | Orbit, pan and zoom using the available input device. | Any jump, accidental selection or lost orientation? |
 | Reveal and select the heart | Peel skin or use Show chest; selection focuses on its actual body position. | Is surrounding context useful? |

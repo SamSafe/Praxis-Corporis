@@ -14,7 +14,7 @@ func prepare() -> void:
 	var model := AnatomyModel.new()
 	root.add_child(model)
 	for body in catalogue.bodies:
-		var error: String = model.load_body(body)
+		var error: String = await model.load_body(body)
 		if not error.is_empty():
 			push_error(error)
 			model.free()

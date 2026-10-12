@@ -413,3 +413,28 @@ The preview highlights that actual node, and the audit preserves the gap without
 inferring a clinical interpretation or manufacturing an identifier. Candidates remain
 outside the app/package catalogue. [Candidate findings](audit/HRA_SPINAL_CANDIDATES.md)
 retain verified hashes, metadata, engine evidence, previews and admission work.
+
+
+## Responsive prepared-reference loading — 2026-10-12
+
+Source hash verification now uses a file-reading worker; prepared scene reads use
+Godot's threaded ResourceLoader and selection preparation yields between mesh batches.
+The interface shows each loading step while keeping the previous anatomy in view.
+Camera/anatomy controls pause until the load resolves. Scene mappings and all declared
+meshes are checked before replacing the old body, correcting a late-failure path that
+previously cleared the current scene.
+
+Real-source integration and loading regressions passed with 801 female, 788 male and
+203 separate bone-study meshes. Tests observed process-frame updates during loads and
+verified exact scene/view/history preservation after missing files, changed hashes,
+missing anatomy roots and a declared mesh pointing to a non-mesh source node. They
+also injected undo, Escape and camera input while loading, rejected concurrent loads
+and freed a live source verifier cleanly. Named-view round trips and the offline
+bundle check passed with the asynchronous switch. The [rendered loading view](prototype/loading-reference.png)
+shows the prior displaced heart while a replacement loads.
+
+Resource background reads do not remove main-thread scene instantiation or final
+replacement pauses. The first raw development import remains a preparation step,
+and staging a second reference temporarily increases memory. These checks establish
+frame processing and failure preservation, not a maximum latency or device-performance
+acceptance result.

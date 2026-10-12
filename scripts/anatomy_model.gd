@@ -2,6 +2,7 @@ extends Node3D
 ## One physical mesh state per source node, shared by all ancestor selections.
 
 signal state_changed
+signal load_progress(stage: String, fraction: float)
 
 const SourceIndexExtension = preload("res://scripts/source_index_extension.gd")
 
@@ -23,27 +24,87 @@ var show_original_positions := true
 var ghost_material: StandardMaterial3D
 var source_scene: Node3D
 var load_seconds := 0.0
+var loading := false
+var load_wait_frames := 0
+var hash_worker: Thread
+var staged_scene: Node3D
+
+
+func _exit_tree() -> void:
+	# A worker only reads a file. Join before releasing its owning object.
+	if hash_worker != null and hash_worker.is_started():
+		hash_worker.wait_to_finish()
+	if is_instance_valid(staged_scene):
+		staged_scene.free()
+	staged_scene = null
+
+
+static func source_hash(path: String) -> String:
+	return FileAccess.get_sha256(path)
 
 
 func load_body(record: Dictionary) -> String:
+	if loading:
+		return "A reference is already loading."
+	loading = true
+	var error: String = await prepare_body(record)
+	loading = false
+	return error
+
+
+func prepare_body(record: Dictionary) -> String:
+	var started := Time.get_ticks_msec()
+	var wait_frames := 0
 	var path := "res://" + str(record.asset_path)
 	if not FileAccess.file_exists(path):
 		if OS.has_feature("template"):
 			return "Anatomy is missing from this build. Re-extract the application together with anatomy.pck."
 		return "Anatomy files are missing. Run python3 tools/fetch_assets.py, then reopen the viewer."
-	if FileAccess.get_sha256(path) != str(record.sha256):
+	load_progress.emit("Checking source file", -1.0)
+	hash_worker = Thread.new()
+	if hash_worker.start(source_hash.bind(path)) != OK:
+		hash_worker = null
+		return "Could not start source verification. Try loading the reference again."
+	while hash_worker.is_alive():
+		await get_tree().process_frame
+		wait_frames += 1
+	var actual_hash: String = hash_worker.wait_to_finish()
+	hash_worker = null
+	if actual_hash != str(record.sha256):
+		if OS.has_feature("template"):
+			return "Anatomy differs from the expected reference. Re-extract the complete private build."
 		return "The anatomy file differs from the pinned sample. Run the asset verification tool."
-	var started := Time.get_ticks_msec()
-	print("Importing ", record.id, " reference")
+	print("Loading ", record.id, " reference")
 	var cache_path := "res://assets/prepared/%s-%s.scn" % [record.id, str(record.sha256).left(12)]
 	var next_scene: Node3D
 	var node_map := {}
 	var from_cache := false
 	if FileAccess.file_exists(cache_path):
-		var cached := ResourceLoader.load(cache_path, "PackedScene") as PackedScene
+		load_progress.emit("Loading anatomy", 0.0)
+		var request_error := ResourceLoader.load_threaded_request(cache_path, "PackedScene", false)
+		if request_error != OK:
+			return "Could not start reading prepared anatomy (Godot error %d)." % request_error
+		var progress := []
+		var resource_status := ResourceLoader.load_threaded_get_status(cache_path, progress)
+		while resource_status == ResourceLoader.THREAD_LOAD_IN_PROGRESS:
+			load_progress.emit("Loading anatomy", float(progress[0]) if not progress.is_empty() else 0.0)
+			await get_tree().process_frame
+			wait_frames += 1
+			resource_status = ResourceLoader.load_threaded_get_status(cache_path, progress)
+		if resource_status != ResourceLoader.THREAD_LOAD_LOADED:
+			return "Prepared anatomy could not be read. Re-prepare the source or re-extract the complete private build."
+		# This call is nonblocking only after THREAD_LOAD_LOADED.
+		var cached := ResourceLoader.load_threaded_get(cache_path) as PackedScene
+		load_progress.emit("Preparing view", -1.0)
+		await get_tree().process_frame
+		wait_frames += 1
 		if cached:
-			next_scene = cached.instantiate() as Node3D
-			if next_scene.get_meta("source_sha256", "") == record.sha256 and next_scene.get_meta("engine", "") == Engine.get_version_info().string:
+			var instance := cached.instantiate()
+			next_scene = instance as Node3D
+			if next_scene == null:
+				instance.free()
+			elif next_scene.get_meta("source_sha256", "") == record.sha256 and next_scene.get_meta("engine", "") == Engine.get_version_info().string:
+				staged_scene = next_scene
 				index_cached_nodes(next_scene, node_map)
 				from_cache = true
 			else:
@@ -52,6 +113,10 @@ func load_body(record: Dictionary) -> String:
 	if not from_cache:
 		if OS.has_feature("template"):
 			return "Prepared anatomy does not match this application version. Re-extract the complete private build."
+		# The first development import remains an offline preparation step.
+		load_progress.emit("Preparing source geometry — first import may take several minutes", -1.0)
+		await get_tree().process_frame
+		wait_frames += 1
 		var extension := SourceIndexExtension.new()
 		GLTFDocument.register_gltf_document_extension(extension, true)
 		var document := GLTFDocument.new()
@@ -61,49 +126,39 @@ func load_body(record: Dictionary) -> String:
 		if error != OK:
 			GLTFDocument.unregister_gltf_document_extension(extension)
 			return "Could not read anatomy file (Godot error %d)." % error
-		print("glTF parsed after %.2fs" % ((Time.get_ticks_msec() - started) / 1000.0))
 		next_scene = document.generate_scene(gltf) as Node3D
 		GLTFDocument.unregister_gltf_document_extension(extension)
 		if next_scene:
+			staged_scene = next_scene
 			index_cached_nodes(next_scene, node_map)
-	print("glTF scene generated after %.2fs" % ((Time.get_ticks_msec() - started) / 1000.0))
 	if next_scene == null:
 		return "The anatomy file did not produce a 3D scene."
-	# Validate mappings before replacing the current body.
+	load_progress.emit("Checking anatomy", -1.0)
+	var mapping_error := validate_scene(record, node_map, next_scene)
+	if not mapping_error.is_empty():
+		next_scene.free()
+		staged_scene = null
+		return mapping_error
+	var next_structures := {}
 	for concept in record.structures:
-		if not node_map.has(int(concept.source_node)):
-			next_scene.free()
-			return "The catalogue does not match imported node %d (%s)." % [concept.source_node, concept.source_name]
-	clear_body()
-	body = record
-	source_scene = next_scene
-	add_child(source_scene)
-	# Only the anatomy root is retained. Sampling-site roots are never rendered/picked.
-	var anatomy_root_index := 0
-	for concept in record.structures:
-		structures[str(concept.id)] = concept
-		if concept.id == record.root_id:
-			anatomy_root_index = int(concept.source_node)
-	var anatomy_root: Node = node_map[anatomy_root_index]
-	for child in source_scene.get_children():
+		next_structures[str(concept.id)] = concept
+	var root_record: Dictionary = next_structures[str(record.root_id)]
+	var anatomy_root: Node = node_map[int(root_record.source_node)]
+	# Sampling-site roots are removed only from the staged scene.
+	for child in next_scene.get_children():
 		if child != anatomy_root:
 			child.free()
-	for index in structures[str(record.root_id)].mesh_nodes:
-		var mesh := node_map[int(index)] as MeshInstance3D
-		if mesh == null:
-			clear_body()
-			return "A declared mesh is missing from the imported scene."
-		meshes[int(index)] = mesh
-		baseline[int(index)] = mesh.transform
-		baseline_world[int(index)] = mesh.global_transform
-		states[int(index)] = {"visibility": "visible", "offset": Vector3.ZERO}
+	var next_materials := {}
+	var next_colliders := {}
+	for index in root_record.mesh_nodes:
+		var mesh: MeshInstance3D = node_map[int(index)]
 		var overrides: Array[StandardMaterial3D] = []
 		for surface in mesh.mesh.get_surface_count():
 			var source_material := mesh.get_active_material(surface) as StandardMaterial3D
 			var material := source_material.duplicate() as StandardMaterial3D if source_material else StandardMaterial3D.new()
 			material.roughness = maxf(material.roughness, 0.6)
 			overrides.append(material)
-		materials[int(index)] = overrides
+		next_materials[int(index)] = overrides
 		var collider := mesh.get_node_or_null("InspectionCollider") as StaticBody3D
 		if collider == null:
 			collider = StaticBody3D.new()
@@ -115,9 +170,27 @@ func load_body(record: Dictionary) -> String:
 			shape.shape = mesh.mesh.create_trimesh_shape()
 			collider.add_child(shape)
 			mesh.add_child(collider)
-		colliders[int(index)] = collider
-		if meshes.size() % 200 == 0:
-			print("Prepared %d mesh nodes after %.2fs" % [meshes.size(), (Time.get_ticks_msec() - started) / 1000.0])
+		next_colliders[int(index)] = collider
+		if next_materials.size() % 40 == 0:
+			load_progress.emit("Preparing selection", float(next_materials.size()) / root_record.mesh_nodes.size())
+			await get_tree().process_frame
+			wait_frames += 1
+	# No fallible mapping or preparation step remains before replacing the old scene.
+	load_progress.emit("Opening reference", -1.0)
+	clear_body()
+	body = record
+	source_scene = next_scene
+	staged_scene = null
+	add_child(source_scene)
+	structures = next_structures
+	materials = next_materials
+	colliders = next_colliders
+	for index in root_record.mesh_nodes:
+		var mesh: MeshInstance3D = node_map[int(index)]
+		meshes[int(index)] = mesh
+		baseline[int(index)] = mesh.transform
+		baseline_world[int(index)] = mesh.global_transform
+		states[int(index)] = {"visibility": "visible", "offset": Vector3.ZERO}
 	if not from_cache:
 		source_scene.set_meta("source_sha256", record.sha256)
 		source_scene.set_meta("engine", Engine.get_version_info().string)
@@ -128,7 +201,34 @@ func load_body(record: Dictionary) -> String:
 			if cache_error != OK:
 				push_warning("Could not save the local geometry cache; next load will import again.")
 	load_seconds = (Time.get_ticks_msec() - started) / 1000.0
+	load_wait_frames = wait_frames
+	print("Prepared %d meshes in %.2fs; %d frames while loading" % [meshes.size(), load_seconds, wait_frames])
 	state_changed.emit()
+	return ""
+
+
+func validate_scene(record: Dictionary, mapping: Dictionary, scene: Node3D) -> String:
+	var root_record := {}
+	for concept in record.structures:
+		if not mapping.has(int(concept.source_node)):
+			return "The catalogue does not match imported node %d (%s)." % [concept.source_node, concept.source_name]
+		if concept.id == record.root_id:
+			root_record = concept
+	if root_record.is_empty():
+		return "The catalogue does not declare its anatomy root."
+	var anatomy_root: Node = mapping[int(root_record.source_node)]
+	if anatomy_root.get_parent() != scene:
+		return "The declared anatomy root is outside the expected source hierarchy."
+	for concept in record.structures:
+		var source_node: Node = mapping[int(concept.source_node)]
+		if source_node != anatomy_root and not anatomy_root.is_ancestor_of(source_node):
+			return "A catalogue structure is outside the anatomy root."
+		for index in concept.mesh_nodes:
+			var mesh := mapping.get(int(index)) as MeshInstance3D
+			if mesh == null or mesh.mesh == null or not root_record.mesh_nodes.has(index):
+				return "A declared mesh is missing from the imported anatomy."
+			if mesh != anatomy_root and not anatomy_root.is_ancestor_of(mesh):
+				return "A declared mesh is outside the anatomy root."
 	return ""
 
 

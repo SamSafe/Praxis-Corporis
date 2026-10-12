@@ -29,7 +29,7 @@ func run() -> void:
 				requested = argument.trim_prefix("--body=")
 		if not requested.is_empty() and body.id != requested:
 			continue
-		var error: String = model.load_body(body)
+		var error: String = await model.load_body(body)
 		check(error.is_empty(), str(body.id) + ": " + error)
 		if not error.is_empty():
 			continue

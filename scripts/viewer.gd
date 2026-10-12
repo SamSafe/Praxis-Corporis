@@ -55,7 +55,12 @@ var chest_button: Button
 var source_credit: Label
 var coverage_hint: Label
 var action_buttons: Array[Button] = []
+var reference_buttons: Array[Button] = []
 var loading := false
+var loading_row: HBoxContainer
+var loading_stage: Label
+var loading_bar: ProgressBar
+var load_frame_count := 0
 var syncing_tree := false
 var scene_container: SubViewportContainer
 var explorer_panel: Control
@@ -133,6 +138,11 @@ func verify_bundle() -> void:
 			push_error("Bundled reference failed: " + str(reference.id))
 			get_tree().quit(1)
 			return
+		if load_frame_count < 2 or model.load_wait_frames < 2:
+			push_error("Bundled loading did not yield interface frames")
+			get_tree().quit(1)
+			return
+		print("PASS interface frames while loading: %s · %d" % [reference.id, load_frame_count])
 		var target := "anatomy.heart" if model.structures.has("anatomy.heart") else "anatomy.system.skeletal"
 		var leaf := "anatomy.heart.valve.mitral"
 		if target != "anatomy.heart":
@@ -175,6 +185,10 @@ func verify_bundle() -> void:
 		if not await verify_saved_view():
 			get_tree().quit(1)
 			return
+		if not await verify_failed_replacement(reference, rendered):
+			push_error("Bundled failed replacement changed the current exploration")
+			get_tree().quit(1)
+			return
 		if not await verify_keyboard_workspace():
 			get_tree().quit(1)
 			return
@@ -206,6 +220,37 @@ func verify_bundle() -> void:
 		print("PASS bundled reference: ", reference.id, " · ", model.meshes.size(), " meshes")
 	print("PASS offline native bundle")
 	get_tree().quit()
+
+
+func verify_failed_replacement(reference: Dictionary, rendered: bool) -> bool:
+	# A real cached scene with an invalid mesh mapping must leave the old scene alive.
+	var before := export_view_state()
+	var old_scene: Node3D = model.source_scene
+	var undo: Array = model.undo_stack.duplicate(true)
+	var redo: Array = model.redo_stack.duplicate(true)
+	var back: Array = back_views.duplicate(true)
+	var forward: Array = forward_views.duplicate(true)
+	var original_references: Array = pack.bodies
+	pack.bodies = original_references.duplicate(true)
+	for candidate in pack.bodies:
+		if candidate.id == reference.id:
+			for concept in candidate.structures:
+				if concept.id == candidate.root_id:
+					concept.mesh_nodes.append(concept.source_node)
+	switch_body(reference.id)
+	if rendered:
+		await RenderingServer.frame_post_draw
+		var capture := get_viewport().get_texture().get_image()
+		if capture.save_png("user://native-loading-%s.png" % str(reference.id)) != OK:
+			pack.bodies = original_references
+			return false
+	while loading:
+		await get_tree().process_frame
+	pack.bodies = original_references
+	var preserved: bool = model.source_scene == old_scene and export_view_state() == before and model.undo_stack == undo and model.redo_stack == redo and back_views == back and forward_views == forward
+	if preserved:
+		print("PASS failed replacement preserves exploration: ", reference.id)
+	return preserved
 
 
 func verify_saved_view() -> bool:
@@ -343,8 +388,8 @@ func build_interface() -> void:
 	body_choice.custom_minimum_size.x = 250
 	body_choice.item_selected.connect(func(index: int): switch_body(str(body_choice.get_item_metadata(index))))
 	top.add_child(body_choice)
-	make_button("Saved views", show_saved_views, top, "Keep multiple named exploration setups on this computer.")
-	make_button("Coverage", show_coverage, top)
+	reference_buttons.append(make_button("Saved views", show_saved_views, top, "Keep multiple named exploration setups on this computer."))
+	reference_buttons.append(make_button("Coverage", show_coverage, top))
 	make_button("Sources", show_sources, top)
 	panels_menu = MenuButton.new()
 	panels_menu.text = "Panels"
@@ -359,7 +404,7 @@ func build_interface() -> void:
 	panels_menu.get_popup().set_item_checked(1, true)
 	panels_menu.get_popup().id_pressed.connect(on_panel_action)
 	top.add_child(panels_menu)
-	make_button("Screenshot", export_screenshot, top, "Save the current workspace as a PNG with source credits and prototype status.")
+	reference_buttons.append(make_button("Screenshot", export_screenshot, top, "Save the current workspace as a PNG with source credits and prototype status."))
 	var columns := HBoxContainer.new()
 	columns.add_theme_constant_override("separation", 14)
 	columns.size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -401,6 +446,17 @@ func build_interface() -> void:
 	navigation.add_child(context)
 	inspection_banner = HBoxContainer.new()
 	center.add_child(inspection_banner)
+	loading_row = HBoxContainer.new()
+	loading_stage = make_label("", 13, Color("83cfc9"))
+	loading_stage.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	loading_stage.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	loading_row.add_child(loading_stage)
+	loading_bar = ProgressBar.new()
+	loading_bar.custom_minimum_size = Vector2(130, 14)
+	loading_bar.show_percentage = false
+	loading_row.add_child(loading_bar)
+	loading_row.visible = false
+	center.add_child(loading_row)
 	return_button = make_button("Return to context", return_to_context, inspection_banner, "Restore the selection and camera from before Inspect alone; preserve current inspection changes.")
 	inspection_note = make_label("", 13, Color("83cfc9"))
 	inspection_note.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -418,10 +474,10 @@ func build_interface() -> void:
 	container.gui_input.connect(on_scene_input)
 	container.focus_entered.connect(func():
 		frame.add_theme_stylebox_override("panel", panel_style(Color("0e1926"), Color("83d9d2")))
-		navigation_hint.text = "Arrows orbit · Shift-arrows pan · +/- zoom · F focus · Home body")
+		navigation_hint.text = "Opening reference… exploration controls resume when ready" if loading else "Arrows orbit · Shift-arrows pan · +/- zoom · F focus · Home body")
 	container.focus_exited.connect(func():
 		frame.remove_theme_stylebox_override("panel")
-		navigation_hint.text = "Drag to orbit · Shift/right-drag to pan · Scroll/pinch to zoom")
+		navigation_hint.text = "Opening reference… exploration controls resume when ready" if loading else "Drag to orbit · Shift/right-drag to pan · Scroll/pinch to zoom")
 	container.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	container.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	frame.add_child(container)
@@ -453,6 +509,7 @@ func build_interface() -> void:
 	model = AnatomyModel.new()
 	world.add_child(model)
 	model.state_changed.connect(refresh_details)
+	model.load_progress.connect(on_load_progress)
 	orbit = OrbitCamera.new()
 	world.add_child(orbit)
 	orbit.clicked.connect(on_viewport_clicked)
@@ -544,7 +601,7 @@ func build_interface() -> void:
 	var toolbar := HBoxContainer.new()
 	toolbar.add_theme_constant_override("separation", 12)
 	layout.add_child(toolbar)
-	make_button("Whole body", whole_body, toolbar)
+	reference_buttons.append(make_button("Whole body", whole_body, toolbar))
 	move_button = make_button("Move selected", toggle_move, toolbar, "In Move mode, drag in the viewer to displace selected anatomy. Shift-drag still pans.")
 	move_button.toggle_mode = true
 	labels_button = CheckButton.new()
@@ -554,7 +611,7 @@ func build_interface() -> void:
 	toolbar.add_child(labels_button)
 	undo_button = make_button("Undo", func(): model.undo(), toolbar)
 	redo_button = make_button("Redo", func(): model.redo(), toolbar)
-	make_button("Restore all", restore_all, toolbar)
+	reference_buttons.append(make_button("Restore all", restore_all, toolbar))
 	status = make_label("Preparing the local anatomy sample…", 13, Color("7891a7"))
 	status.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	status.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
@@ -573,17 +630,25 @@ func switch_body(id: String) -> void:
 	if record.is_empty():
 		return
 	loading = true
+	load_frame_count = 0
+	orbit.input_enabled = false
+	orbit.cancel_drag()
+	loading_row.visible = true
+	navigation_hint.text = "Opening reference… exploration controls resume when ready"
 	anatomy_labels.suspended = true
 	anatomy_labels.update_labels()
 	refresh_details()
 	body_choice.disabled = true
 	context.text = "Loading %s…" % str(record.label)
-	status.text = "Importing geometry and preparing selection…"
+	on_load_progress("Checking source file", -1.0)
 	var previous_selection: String = model.selected_id
 	await get_tree().process_frame
 	await get_tree().process_frame
-	var error: String = model.load_body(record)
+	var error: String = await model.load_body(record)
 	loading = false
+	orbit.input_enabled = true
+	loading_row.visible = false
+	navigation_hint.text = "Arrows orbit · Shift-arrows pan · +/- zoom · F focus · Home body" if scene_container.has_focus() else "Drag to orbit · Shift/right-drag to pan · Scroll/pinch to zoom"
 	anatomy_labels.suspended = false
 	body_choice.disabled = false
 	if not error.is_empty():
@@ -609,6 +674,14 @@ func switch_body(id: String) -> void:
 		whole_body(false)
 	status.text = str(record.get("short_label", record.label)) + " ready"
 	refresh_details()
+
+
+func on_load_progress(stage: String, fraction: float) -> void:
+	loading_stage.text = stage + "…"
+	loading_bar.indeterminate = fraction < 0.0
+	loading_bar.value = clampf(fraction, 0.0, 1.0) * 100.0
+	loading_bar.tooltip_text = "Progress within this step; reference opening includes several steps."
+	status.text = "Loading reference · " + stage
 
 
 func select_body_choice(id: String) -> void:
@@ -888,6 +961,13 @@ func refresh_details() -> void:
 		coverage_hint.text = "SEPARATE BONE STUDY\nSource geometry only.\nHRA alignment unreviewed." if model.body.get("study", false) else "PARTIAL ATLAS\nSkeleton, muscles and nerves\ncover selected regions."
 	if source_credit:
 		source_credit.text = "BodyParts3D · Database Center for Life Science\nSeparate male bone study · review pending\nLicence records: Sources" if model.body.get("study", false) else "HuBMAP / Human Reference Atlas\n3D Reference Object Library v1.1\nCC BY 4.0 · draft catalogue"
+	for button in reference_buttons:
+		button.disabled = loading or model.body.is_empty()
+	for control in [labels_button, local_labels_button, original_positions_button]:
+		if control:
+			control.disabled = loading
+	if label_density:
+		label_density.editable = not loading
 	var selected: bool = model.structures.has(model.selected_id)
 	var isolated: bool = not model.isolated_id.is_empty()
 	if peel_button:
@@ -973,6 +1053,8 @@ func return_to_context() -> void:
 
 
 func focus_selection(remember: bool = true) -> void:
+	if loading:
+		return
 	if model.structures.has(model.selected_id):
 		var previous := current_view()
 		orbit.focus(model.bounds_for(model.selected_id))
@@ -1022,6 +1104,8 @@ func peel_skin() -> void:
 
 
 func restore_selected() -> void:
+	if loading:
+		return
 	model.restore(model.selected_id)
 
 
@@ -1035,11 +1119,15 @@ func restore_all() -> void:
 
 
 func toggle_move() -> void:
+	if loading:
+		return
 	orbit.move_mode = move_button.button_pressed
 	status.text = "Drag to move the selected structure · Shift-drag to pan" if orbit.move_mode else "Drag to orbit · click to select"
 
 
 func _process(_delta: float) -> void:
+	if loading:
+		load_frame_count += 1
 	if status:
 		status.tooltip_text = status.text
 
@@ -1300,6 +1388,8 @@ func show_coverage() -> Window:
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
+	if loading:
+		return
 	if event is InputEventKey and event.pressed and not event.echo:
 		var focused := get_viewport().gui_get_focus_owner()
 		if focused is LineEdit or focused is TextEdit:

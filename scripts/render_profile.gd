@@ -74,7 +74,9 @@ func run(viewer: Control) -> Dictionary:
 			return {"error": "Could not load reference for profiling: " + str(reference.id)}
 		report.loads.append({"reference": reference.id, "reference_hash": reference.sha256,
 			"wall_seconds": (Time.get_ticks_usec() - load_started) / 1000000.0,
-			"prepared_scene_seconds": viewer.model.load_seconds})
+			"verified_prepared_scene_seconds": viewer.model.load_seconds,
+			"ui_process_frames_during_load": viewer.load_frame_count,
+			"loader_yield_frames": viewer.model.load_wait_frames})
 		viewer.local_labels_button.button_pressed = false
 		viewer.labels_button.button_pressed = true
 		viewer.whole_body(false)

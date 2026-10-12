@@ -10,6 +10,7 @@ var distance := 2.8
 var yaw := 0.0
 var pitch := 0.0
 var move_mode := false
+var input_enabled := true
 var active_button := 0
 var press_position := Vector2.ZERO
 var dragged := false
@@ -70,6 +71,8 @@ func cancel_drag() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if not input_enabled:
+		return
 	if event is InputEventMouseButton:
 		if event.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN] and event.pressed:
 			distance = clampf(distance * (0.88 if event.button_index == MOUSE_BUTTON_WHEEL_UP else 1.12), 0.018, 12.0)

@@ -41,6 +41,20 @@ cache. The project folder must be writable during this development preparation.
 Private packages bundle the prepared scenes read-only; they never import or write
 geometry into the installation folder. Full installer/update handling remains work.
 
+Reference loading checks the pinned source in a file-reading worker and reads prepared
+scenes through Godot's threaded resource loader. The loading row names the current
+step; its bar measures that step only. Selection preparation yields between mesh
+batches. The previous anatomy stays visible while a replacement is checked, with
+anatomy/camera controls paused to preserve the current exploration. A failed read or
+invalid source mapping restores the controls and keeps the existing scene, camera,
+labels, isolation, movement settings, edits and both histories.
+
+Scene instantiation and the final replacement still run on the main thread and can
+cause a short pause. Keeping both references temporarily uses more memory. The first
+raw development import remains expensive and should be run as preparation before
+opening the app; desktop packages include prepared scenes. Loading has no cancel UI.
+[Godot background loading](https://docs.godotengine.org/en/stable/classes/class_resourceloader.html).
+
 The GLBs, compiled scenes and .godot/ directory are excluded from Git. After fetching
 and preparing, exploration and saves work offline. No login or network connection
 is used by the viewer.
@@ -232,13 +246,17 @@ godot --headless --path . --script tests/part_inspection_smoke.gd
 godot --headless --path . --script tests/coverage_smoke.gd
 godot --headless --path . --script tests/study_reference_smoke.gd
 godot --headless --path . --script tests/keyboard_workspace_smoke.gd
+godot --headless --path . --script tests/loading_smoke.gd
 ```
 
 The Python checks cover corrupt inputs, path containment, asset modification,
 catalogue references, both bodies and exclusion of sampling sites. The engine
 integration uses actual geometry to check multi-mesh movement, exact restoration,
 undo/redo, branching history, original-position overlays, saved-state validation and
-hidden/faded picking behaviour. Native archive tests check target architectures,
+hidden/faded picking behaviour. Loading checks use real prepared geometry and verify UI frame processing, source-read
+shutdown, concurrent-request rejection and failure preservation after missing files,
+changed hashes, missing roots and invalid mesh mappings. Input while loading cannot
+undo edits or alter the camera/Move mode. Native archive tests check target architectures,
 Mac executable metadata and extraction containment.
 Exploration checks cover both-body navigation/inspection separation, local label
 context, density, surface ownership, occlusion, layout containment and compatible
@@ -268,6 +286,7 @@ Optional rendered capture on a Linux development display:
 ```sh
 godot --path . --script tests/capture_viewer.gd
 godot --path . --script tests/capture_keyboard_workspace.gd
+godot --path . --script tests/capture_loading.gd
 godot --path . --script tests/capture_screenshot_export.gd
 ```
 
