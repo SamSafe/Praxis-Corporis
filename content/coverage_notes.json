@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "pack_id": "hra-united-v1-1-prototype-1",
+  "source_commit": "f1a3a63f110e27ff0736047d52d04dba5d3087f9",
+  "audit_date": "2026-10-12",
+  "review_status": "technical_inventory",
+  "notice": "Partial atlas. Source meshes and imported names are a technical inventory, not a count of complete or medically reviewed structures. No authored disease views or verified pathways are included.",
+  "evidence": "docs/audit/HRA_SAMPLE_FINDINGS.md",
+  "systems": [
+    {
+      "id": "integumentary",
+      "label": "Skin / exterior",
+      "roots": {"female": "anatomy.system.integumentary", "male": "anatomy.system.integumentary"},
+      "supplied": {"female": "Exterior skin surface.", "male": "Exterior skin surface."},
+      "gaps": "A skin surface does not establish complete skin layers, microscopic tissue or local disease geometry."
+    },
+    {
+      "id": "skeletal",
+      "label": "Skeleton",
+      "roots": {"female": "anatomy.system.skeletal", "male": "anatomy.system.skeletal"},
+      "supplied": {"female": "Pelvis and lower-limb source groups.", "male": "Pelvis, lower-limb source groups and a hyoid mesh."},
+      "gaps": "A comprehensive skull, spine, rib cage and upper-limb skeleton are absent from these samples. Regional completeness and small structures need review."
+    },
+    {
+      "id": "muscular",
+      "label": "Muscles",
+      "roots": {"female": "anatomy.system.muscular", "male": "anatomy.system.muscular"},
+      "supplied": {"female": "Eye and knee muscle groups.", "male": "Eye, knee and laryngeal muscle groups."},
+      "gaps": "No comprehensive superficial/deep whole-body muscle collection."
+    },
+    {
+      "id": "nervous",
+      "label": "Nervous anatomy",
+      "roots": {"female": "anatomy.system.nervous", "male": "anatomy.system.nervous"},
+      "supplied": {"female": "Brain and eye-related source geometry, including an Allen brain contribution.", "male": "Brain and eye-related source geometry, including an Allen brain contribution."},
+      "gaps": "These groups do not establish a whole-body peripheral nerve collection or a reviewed pathway graph."
+    },
+    {
+      "id": "circulatory",
+      "label": "Heart / circulation",
+      "roots": {"female": "anatomy.system.circulatory", "male": "anatomy.system.circulatory"},
+      "supplied": {"female": "Heart component groups and blood-vessel source meshes.", "male": "Heart component groups and blood-vessel source meshes."},
+      "gaps": "Both hearts have 14 supplied component meshes. Cavity surfaces, completeness, clinical cutaways and source labels need review. Vessel proximity does not establish flow direction or connectivity."
+    },
+    {
+      "id": "respiratory",
+      "label": "Lungs / respiratory anatomy",
+      "roots": {"female": "anatomy.system.respiratory", "male": "anatomy.system.respiratory"},
+      "supplied": {"female": "Left/right lung groups, regional meshes and tracheobronchial geometry.", "male": "Left/right lung groups, regional meshes and tracheobronchial geometry."},
+      "gaps": "Regional source meshes are not a complete or reviewed respiratory atlas. No heart–lung route or disease representation has been authored."
+    },
+    {
+      "id": "digestive",
+      "label": "Digestive anatomy",
+      "roots": {"female": "anatomy.system.digestive", "male": "anatomy.system.digestive"},
+      "supplied": {"female": "Colon, small intestine, biliary-tree, liver, pancreas and gallbladder groups.", "male": "Colon, small intestine, biliary-tree, liver, pancreas and gallbladder groups."},
+      "gaps": "Supplied organs do not establish all digestive structures, wall layers, interior surfaces or passage/connection pathways."
+    },
+    {
+      "id": "urinary",
+      "label": "Urinary anatomy",
+      "roots": {"female": "anatomy.system.urinary", "male": "anatomy.system.urinary"},
+      "supplied": {"female": "Kidney, ureter and urinary-bladder groups.", "male": "Kidney, ureter, urinary-bladder and urethra groups."},
+      "gaps": "Substructure completeness, interiors, correspondence and connection pathways remain unreviewed."
+    },
+    {
+      "id": "reproductive",
+      "label": "Reproductive anatomy",
+      "roots": {"female": "source.hra-v1-1.female.n371", "male": "source.hra-v1-1.male.n377"},
+      "supplied": {"female": "Vagina, fallopian-tube, ligament, ovary and uterus source groups.", "male": "Male genital-duct and prostate source groups."},
+      "gaps": "The reference collections differ substantially. Their source groups are not evidence of complete reproductive anatomy or equivalent detail across bodies."
+    },
+    {
+      "id": "lymphatic",
+      "label": "Lymphatic anatomy",
+      "roots": {"female": "anatomy.system.lymphatic", "male": "anatomy.system.lymphatic"},
+      "supplied": {"female": "Spleen, thymus and a Yao lymph-node contribution.", "male": "Spleen, thymus and a Yao lymph-node contribution."},
+      "gaps": "A complete lymphatic vessel/node collection and reviewed routes are not established."
+    },
+    {
+      "id": "unestablished",
+      "label": "Other / unestablished coverage",
+      "roots": {"female": "", "male": ""},
+      "supplied": {"female": "No independent source grouping establishes additional system coverage in this catalogue.", "male": "No independent source grouping establishes additional system coverage in this catalogue."},
+      "gaps": "Independent endocrine coverage, microscopic tissues, complete anatomical layers, disease geometry and reviewed connections remain unestablished. Organs may occur in other source groups; absence of a separate grouping is not proof that every relevant mesh is missing."
+    }
+  ]
+}

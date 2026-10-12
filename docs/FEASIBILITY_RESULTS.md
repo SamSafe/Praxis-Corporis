@@ -73,6 +73,7 @@ smaller collision representations and geometry optimization still need evaluatio
 - [Whole-heart inspection, male](prototype/heart-inspection-male.png).
 - [Supplied mitral valve inspection, male](prototype/valve-inspection-male.png).
 - [Return to male chest context](prototype/inspection-return-male.png).
+- [In-app source coverage comparison](prototype/coverage-skeleton.png).
 
 These are actual app captures, distinct from the earlier schematic wireframes.
 Models are credited under [ATTRIBUTIONS.md](../ATTRIBUTIONS.md); source licences and
@@ -191,3 +192,28 @@ and retained matching licence/attribution files and updated controls instruction
 Exact current artifact and source hashes are in
 [native-build-report.json](audit/native-build-report.json). The Mac check still uses
 the Linux development engine; Windows/Mac device trials remain pending.
+
+## Coverage browser and first native Windows trial — 2026-10-12
+
+Coverage notes now map every supplied system root in both catalogues, with a separate
+unestablished-coverage entry. The app shows recorded gaps before source counts and
+compares both references. Its exploration shortcut resolves the active body's source
+group; unestablished groups have no shortcut. The notes are bound to the pinned pack
+and source commit and distinguish technical inventory from qualified medical review.
+Eight Python checks and both-body coverage UI checks passed. The coverage window was
+rendered at the smaller window setting and its layout inspected.
+
+The actual Windows x64 private executable from source commit `6b99a57` ran on the
+local Windows NT 10.0.26300.0 host through WSL interop. Both bundled samples loaded
+(801 female meshes, 788 male), and the native process passed its inspection/restoration,
+history, isolation/return and offline-content checks with exit code 0. Prepared-scene
+load observations were 2.38 s female / 2.62 s male, beginning after source verification.
+These are uncontrolled single-run observations, not minimum-hardware benchmarks.
+
+The successful trial used a dedicated Windows temporary folder with APPDATA and
+LOCALAPPDATA redirected to isolated test directories; no saved view was accessed.
+An earlier launch from the Linux UNC share did not start the app and produced no
+runtime log. A local Windows staging folder resolved that launch issue. Native Windows
+rendering/input, laptop performance and Mac execution are still separate gate work.
+Evidence and exact artifact identity are in
+[windows-native-qa.json](audit/windows-native-qa.json).

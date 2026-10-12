@@ -252,6 +252,16 @@ func capture() -> void:
 		return
 	print("PASS rendered minimum-window toolbar containment")
 	await save_image("heart-labels-compact")
+	var coverage: Window = viewer.show_coverage()
+	if coverage == null:
+		push_error("Rendered coverage window failed to open")
+		quit(1)
+		return
+	coverage.system_list.select(1)
+	coverage.show_system(1)
+	await save_image("coverage-skeleton")
+	coverage.queue_free()
+	await process_frame
 	viewer.queue_free()
 	await process_frame
 	quit()

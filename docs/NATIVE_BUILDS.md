@@ -79,6 +79,9 @@ The build also inspects actual executable headers: Windows x86_64 and both Mac
 x86_64/arm64 slices. build-report.json records artifact sizes/hashes, anatomy-pack
 hash, source commit/file hashes, engine version and test status. Build success and
 binary inspection do not establish Windows/Mac runtime usability or performance.
+The first actual Windows headless run passed both-body offline and inspection checks;
+[Windows evidence](audit/windows-native-qa.json) records that specific artifact/host.
+Rendered Windows input and Mac device trials remain open.
 The retained [build report](audit/native-build-report.json) includes a source-snapshot
 revision verified against its recorded file hashes.
 

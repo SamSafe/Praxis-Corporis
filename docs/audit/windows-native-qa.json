@@ -1,0 +1,30 @@
+{
+  "test_date": "2026-10-12",
+  "host": "Microsoft Windows NT 10.0.26300.0, invoked through local WSL interop",
+  "mode": "Native Windows release executable, headless, Dummy audio",
+  "source_revision": "6b99a577ead8efd01bc24b9f121d719f395bab5f",
+  "artifact": {
+    "file": "PraxisCorporis-Windows-x64-private.zip",
+    "sha256": "675c1791906a81a7eeb5ba6ea1b330450fdbee4d73bb5eb502bef1bf21fe3def"
+  },
+  "checks": [
+    "female: 801 meshes",
+    "male: 788 meshes",
+    "inspection save-state restoration",
+    "selection/camera history",
+    "temporary part isolation and return to context",
+    "offline bundled content"
+  ],
+  "result": "passed; native process exit code 0",
+  "prepared_scene_load_seconds": {
+    "female": 2.38,
+    "male": 2.62
+  },
+  "timing_scope": "Begins after source hash verification; single uncontrolled trial.",
+  "user_data": "APPDATA and LOCALAPPDATA redirected to the dedicated Windows temporary QA folder; no saved view was accessed.",
+  "limits": [
+    "No rendered/native mouse or trackpad trial in this check.",
+    "No minimum-hardware claim.",
+    "Mac device trial remains pending."
+  ]
+}

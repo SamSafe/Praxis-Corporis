@@ -142,6 +142,7 @@ def build(args: argparse.Namespace) -> dict:
     report["source_hashes"] = {str(path.relative_to(ROOT)): sha256(path) for path in
                                [ROOT / "project.godot", ROOT / "export_presets.cfg", ROOT / "content/sample_pack.json",
                                 ROOT / "content/source_manifest.json", ROOT / "content/toolchain_manifest.json",
+                                ROOT / "content/coverage_notes.json",
                                 ROOT / "addons/private_native_export/plugin.gd",
                                 *sorted((ROOT / "scripts").glob("*.gd"))]}
     with tempfile.TemporaryDirectory(prefix="native-build-", dir=args.output) as workspace:

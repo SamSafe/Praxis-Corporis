@@ -1,6 +1,8 @@
 # Content Pipeline
 
-Status: candidate-source research; no assets imported or model coverage verified.
+Status: two pinned HRA samples imported and technically inventoried; broader source
+coverage and medical review remain open. The original planning-phase source shortlist
+below remains the basis for supplemental audits.
 
 Use [ASSET_AUDIT.md](ASSET_AUDIT.md) for the per-source, per-body, and primary-journey
 evidence checklist. Preparing that checklist does not establish asset coverage.
@@ -75,8 +77,9 @@ a region complete using only its exterior or mesh count.
 9. Validate technical integrity and check anatomy with appropriate review.
 10. Package approved assets with versions, mappings, capability flags, and credits.
 
-Blender is the proposed preparation tool. No full-body files have been downloaded
-or altered during this planning phase.
+Blender is the proposed preparation tool. The planning phase did not download or
+alter models. The subsequently authorised prototype uses pinned HRA GLBs and locally
+compiled Godot scenes, as recorded in [the sample audit](audit/HRA_SAMPLE_FINDINGS.md).
 
 ## Medical explanations
 

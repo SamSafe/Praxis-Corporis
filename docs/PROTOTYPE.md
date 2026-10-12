@@ -69,6 +69,7 @@ is used by the viewer.
 | Leave Move mode | Escape or Whole body returns to navigation and preserves inspection changes. |
 | Body reference | Select Female reference or Male reference; shared canonical selections are retained where mapped. |
 | Save/load | Save view and Load view use one local saved-view slot. |
+| Coverage | Coverage opens the technical inventory for both reference bodies, known gaps and a shortcut to select a supplied group. |
 
 Faded structures are click-through; hidden structures have no active pick collision.
 Choose either in the tree and use Show to make it directly selectable again.
@@ -150,6 +151,13 @@ rejected. Multiple bookmarks, backups and migration recovery remain future work.
 
 ## Actual scope and limitations
 
+Coverage in the top bar lists supplied system groups for both bodies, compares their
+source mesh/group counts and keeps known gaps at the start of each entry. Other /
+unestablished coverage has no exploration shortcut. The inventory does not assign
+completeness percentages or promote draft labels to medical review. Its notes are
+bound to the pinned catalogue/source commit in
+[coverage_notes.json](../content/coverage_notes.json).
+
 - Both samples provide surrounding body context and separately named organ geometry.
 - Full skeleton/muscle/peripheral-nerve coverage is absent from these samples.
 - Source labels, grouping and ontology fields remain draft import metadata.
@@ -172,6 +180,7 @@ python3 -m unittest discover -s tests -v
 godot --headless --path . --script tests/viewer_smoke.gd
 godot --headless --path . --script tests/exploration_smoke.gd
 godot --headless --path . --script tests/part_inspection_smoke.gd
+godot --headless --path . --script tests/coverage_smoke.gd
 ```
 
 The Python checks cover corrupt inputs, path containment, asset modification,

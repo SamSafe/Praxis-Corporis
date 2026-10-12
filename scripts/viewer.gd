@@ -4,9 +4,11 @@ const AnatomyModel = preload("res://scripts/anatomy_model.gd")
 const OrbitCamera = preload("res://scripts/orbit_camera.gd")
 const ContentBundle = preload("res://scripts/content_bundle.gd")
 const AnatomyLabels = preload("res://scripts/anatomy_labels.gd")
+const CoverageBrowser = preload("res://scripts/coverage_browser.gd")
 var save_path := "user://saved_view.json"
 
 var pack: Dictionary
+var coverage_notes: Dictionary = {}
 var model: Node3D
 var orbit: Node3D
 var viewport: SubViewport
@@ -57,6 +59,9 @@ func _ready() -> void:
 		get_tree().quit(1)
 		return
 	pack = parsed
+	var coverage_parsed = JSON.parse_string(FileAccess.get_file_as_string("res://content/coverage_notes.json"))
+	if coverage_parsed is Dictionary and coverage_parsed.get("pack_id") == pack.id and coverage_parsed.get("source_commit") == pack.source_commit:
+		coverage_notes = coverage_parsed
 	build_interface()
 	if not content_error.is_empty():
 		status.text = content_error
@@ -71,6 +76,10 @@ func _ready() -> void:
 
 
 func verify_bundle() -> void:
+	if coverage_notes.is_empty():
+		push_error("Bundled coverage notes are missing or mismatched")
+		get_tree().quit(1)
+		return
 	for reference in pack.bodies:
 		await switch_body(reference.id)
 		if model.body.get("id") != reference.id or model.meshes.size() != (801 if reference.id == "female" else 788):
@@ -192,6 +201,7 @@ func build_interface() -> void:
 	top.add_child(body_choice)
 	make_button("Save view", save_view, top)
 	make_button("Load view", load_view, top)
+	make_button("Coverage", show_coverage, top)
 	make_button("Sources", show_sources, top)
 	var columns := HBoxContainer.new()
 	columns.add_theme_constant_override("separation", 14)
@@ -949,6 +959,23 @@ func show_sources() -> void:
 	dialog.canceled.connect(dialog.queue_free)
 	add_child(dialog)
 	dialog.popup_centered(Vector2i(760, 390))
+
+
+func show_coverage() -> Window:
+	if loading or model.body.is_empty():
+		return null
+	if coverage_notes.is_empty():
+		status.text = "Coverage notes do not match this content pack."
+		return null
+	var browser := CoverageBrowser.new()
+	browser.pack = pack
+	browser.notes = coverage_notes
+	browser.body_id = str(model.body.id)
+	browser.theme = theme
+	browser.explore_requested.connect(select_structure)
+	add_child(browser)
+	browser.popup_centered_clamped(Vector2i(940, 620), 0.9)
+	return browser
 
 
 func _unhandled_key_input(event: InputEvent) -> void:

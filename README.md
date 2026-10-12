@@ -59,6 +59,7 @@ Local part labels have clickable surface leaders and controlled density;
 Back/Forward restores selection and camera views while preserving inspection changes.
 Inspect alone temporarily reveals supplied components; Return to context restores
 the prior body view while preserving inspection edits.
+Coverage compares supplied source groups across both references and states their gaps.
 Disease content, validated cutaways and guided pathways are future work.
 Private Windows/macOS ZIPs are generated locally under dist/. Target-device testing,
 public signing/notarization, and baseline-laptop performance remain open.

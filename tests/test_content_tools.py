@@ -65,6 +65,24 @@ class ContentToolsTests(unittest.TestCase):
             # Shared group visibility must refer to the same physical mesh IDs.
             self.assertTrue(set(by_id["anatomy.heart.valve.mitral"]["mesh_nodes"]) <= set(by_id["anatomy.heart"]["mesh_nodes"]))
 
+    def test_coverage_notes_match_every_source_system_and_reference(self):
+        pack = json.loads((ROOT / "content/sample_pack.json").read_text())
+        notes = json.loads((ROOT / "content/coverage_notes.json").read_text())
+        self.assertEqual(notes["pack_id"], pack["id"])
+        self.assertEqual(notes["source_commit"], pack["source_commit"])
+        self.assertEqual(notes["review_status"], "technical_inventory")
+        self.assertEqual(len({entry["id"] for entry in notes["systems"]}), len(notes["systems"]))
+        for body in pack["bodies"]:
+            by_id = {record["id"]: record for record in body["structures"]}
+            mapped = {entry["roots"][body["id"]] for entry in notes["systems"] if entry["roots"][body["id"]]}
+            self.assertEqual(mapped, set(by_id[body["root_id"]]["children"]))
+            for entry in notes["systems"]:
+                self.assertEqual(set(entry["roots"]), {"female", "male"})
+                self.assertTrue(entry["supplied"][body["id"]].strip())
+                self.assertTrue(entry["gaps"].strip())
+                if entry["roots"][body["id"]]:
+                    self.assertTrue(by_id[entry["roots"][body["id"]]]["mesh_nodes"])
+
 
 if __name__ == "__main__":
     unittest.main()

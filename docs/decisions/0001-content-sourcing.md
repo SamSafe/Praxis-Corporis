@@ -12,7 +12,8 @@ obligations individually. Exclude noncommercial contributions from the core unle
 separate rights are obtained.
 
 BodyParts3D and HRA are candidates; Z-Anatomy requires contribution-level assessment.
-No model has been imported or selected as a complete two-body solution.
+Pinned HRA samples were subsequently imported for the private feasibility prototype.
+No source has been accepted as a complete two-body solution.
 
 ## Consequences
 
