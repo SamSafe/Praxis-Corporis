@@ -397,3 +397,19 @@ inspection checks, with exit code 0. The study's whole-reference native export w
 inspected. [windows-screenshot-qa.json](audit/windows-screenshot-qa.json) records the
 tested archive, image sizes and limits. The OS picker and real Mac execution remain
 human/device acceptance work.
+
+## Paired spinal source inspection — 2026-10-12
+
+The official repository still resolved to the pinned source commit. Separate v1.2
+female/male vertebra and spinal-cord models were found outside the United files,
+downloaded and checked against tree sizes/Git blob identities, then pinned by SHA-256.
+The four candidates contain 108 source meshes. Their unchanged geometry imported with
+matching actual engine mesh/triangle counts and declared world bounds. Source-frame
+previews place them against the corresponding original skin without fitting geometry.
+Display colours and skin transparency are inspection modifications.
+
+One female node named `VH_F_lumbar_vertebra_6` has missing label/ontology fields.
+The preview highlights that actual node, and the audit preserves the gap without
+inferring a clinical interpretation or manufacturing an identifier. Candidates remain
+outside the app/package catalogue. [Candidate findings](audit/HRA_SPINAL_CANDIDATES.md)
+retain verified hashes, metadata, engine evidence, previews and admission work.

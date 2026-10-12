@@ -1,0 +1,84 @@
+{
+	"engine": "4.7.2-stable (official)",
+	"inspection": "Source coordinates preserved; display colours/skin opacity modified. Registration and medical review pending.",
+	"references": [
+		{
+			"candidates": [
+				{
+					"engine_bounds_max": [
+						0.0017260070890188217,
+						0.7107705473899841,
+						-0.06378345936536789
+					],
+					"engine_bounds_min": [
+						-0.016174115240573883,
+						0.30194953083992004,
+						-0.14568373560905457
+					],
+					"meshes": 29,
+					"root": "VH_F_spinal_cord",
+					"sha256": "d9bfc840783a415068e34b8a1a9343fff40ad03d0025fafabf74f9d8664887f8",
+					"triangles": 288912
+				},
+				{
+					"engine_bounds_max": [
+						0.043546609580516815,
+						0.7179116010665894,
+						-0.04123497009277344
+					],
+					"engine_bounds_min": [
+						-0.06101758033037186,
+						0.12445828318595886,
+						-0.17446185648441315
+					],
+					"meshes": 25,
+					"root": "VH_F_vertebrae",
+					"sha256": "bdbea49a40e9e64cac1c8f0d67b6483686a3cc9617f7cae645e58159e4b02984",
+					"triangles": 426468
+				}
+			],
+			"capture": "hra-female-spinal-candidates.png",
+			"context_hash": "149c9dade4a914c02f73eed96cef68079fc98e70019fcf69185cae24050dcfe5",
+			"sex": "female"
+		},
+		{
+			"candidates": [
+				{
+					"engine_bounds_max": [
+						0.007147522643208504,
+						0.7496781945228577,
+						-0.0018885806202888489
+					],
+					"engine_bounds_min": [
+						-0.013561515137553215,
+						0.28449493646621704,
+						-0.0815236046910286
+					],
+					"meshes": 30,
+					"root": "VH_M_spinal_cord",
+					"sha256": "a7858d88c2237aa7d559c4c1d638923d213d2a9f46c575dea03d6ba67a9975c0",
+					"triangles": 16358
+				},
+				{
+					"engine_bounds_max": [
+						0.06013061851263046,
+						0.7618608474731445,
+						0.01825268566608429
+					],
+					"engine_bounds_min": [
+						-0.04951398819684982,
+						0.14710524678230286,
+						-0.11615623533725739
+					],
+					"meshes": 24,
+					"root": "VH_M_vertebrae",
+					"sha256": "981041904438bd74c14d671af8f87b3f407b675294bbf297af673c8df7144451",
+					"triangles": 320442
+				}
+			],
+			"capture": "hra-male-spinal-candidates.png",
+			"context_hash": "f8dce99e28b64109b4419b579f8c53bb3af5b6d7739eb1f0406c34289b4f5863",
+			"sex": "male"
+		}
+	]
+}

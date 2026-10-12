@@ -75,3 +75,29 @@ python3 tools/audit_spinal_candidates.py /path/to/candidates \
 The audit deliberately refuses transformed nodes so source-world bounds cannot be
 silently calculated in the wrong coordinate frame. Geometry registration and clinical
 interpretation are separate follow-up checks.
+
+## Engine source-frame inspection
+
+The development engine imported all four unchanged GLBs. Actual mesh counts,
+triangle counts and world bounds matched the declared inventory. A source-frame
+probe rendered the paired candidates against the original corresponding v1.1 skin,
+without changing source coordinates or fitting geometry. Skin transparency and display
+colours are inspection modifications. The source node with missing female metadata is
+highlighted in gold; this highlights a data-review issue, without interpreting it.
+
+[Female inspection](../prototype/hra-female-spinal-candidates.png) and
+[male inspection](../prototype/hra-male-spinal-candidates.png) retain credits and pending
+registration/review status. [Engine evidence](hra-spinal-candidates-engine.json) records
+source hashes, actual counts and bounds. These checks do not establish anatomical
+placement accuracy, tissue relationships, complete coverage or source-node interpretation.
+The runtime catalogue and packaged body references remain unchanged.
+
+Run the same developer probe after preparing the original HRA reference caches:
+
+```sh
+godot --path . --script tools/render_spinal_candidates.gd -- \
+  --candidates=/path/to/candidates
+```
+
+It writes captures/evidence under `/tmp/medicine-viewer-feasibility/`; create that
+developer output folder first. This is a source-inspection tool, not a shipped mode.

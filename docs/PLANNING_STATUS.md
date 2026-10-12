@@ -44,6 +44,9 @@ Four separate HRA v1.2 spinal candidates are downloaded/hash-verified and techni
 inventoried for both sexes. They are outside the runtime. The female vertebra source
 contains one missing label/ontology record that requires interpretation review.
 [Candidate findings](audit/HRA_SPINAL_CANDIDATES.md) define source-frame/admission work.
+All four also passed actual engine mesh/triangle/bounds checks and were rendered against
+their original source-body context. No source fitting or catalogue admission occurred;
+the unresolved female node is highlighted in the retained inspection preview.
 
 ## Established by the user
 
