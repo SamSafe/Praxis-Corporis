@@ -1,4 +1,5 @@
 extends SceneTree
+const ContentBundle = preload("res://scripts/content_bundle.gd")
 ## Write only the pinned source data and prepared geometry into the content package.
 
 
@@ -12,6 +13,7 @@ func _initialize() -> void:
 		quit(1)
 		return
 	var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://content/source_manifest.json"))
+	manifest.files.append_array(ContentBundle.supplemental_files())
 	var packer := PCKPacker.new()
 	if packer.pck_start(output) != OK:
 		push_error("Could not create anatomy package")

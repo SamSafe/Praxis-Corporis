@@ -60,6 +60,8 @@ Back/Forward restores selection and camera views while preserving inspection cha
 Inspect alone temporarily reveals supplied components; Return to context restores
 the prior body view while preserving inspection edits.
 Coverage compares supplied source groups across both references and states their gaps.
+An optional BodyParts3D male bone study adds separately selectable source bones in
+its own unregistered reference. [Source audit and preparation](docs/audit/BODYPARTS3D_FINDINGS.md).
 Disease content, validated cutaways and guided pathways are future work.
 Private Windows/macOS ZIPs are generated locally under dist/. Target-device testing,
 public signing/notarization, and baseline-laptop performance remain open.

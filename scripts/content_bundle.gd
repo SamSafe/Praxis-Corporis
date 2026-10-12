@@ -1,7 +1,32 @@
 extends RefCounted
-## Mount the bundled, locally prepared anatomy before the viewer reads its assets.
+## Mount locally prepared anatomy and discover the optional separate study reference.
 
 const PACK_NAME := "anatomy.pck"
+
+
+static func study_body() -> Dictionary:
+	if FileAccess.file_exists("res://content/bodyparts3d_bone_study.json"):
+		var study = JSON.parse_string(FileAccess.get_file_as_string("res://content/bodyparts3d_bone_study.json"))
+		if study is Dictionary and study.get("study") == true and FileAccess.file_exists("res://" + str(study.get("asset_path", ""))):
+			return study
+	return {}
+
+
+static func supplemental_files() -> Array[Dictionary]:
+	var study := study_body()
+	if study.is_empty():
+		return []
+	return [{"local_path": study.asset_path, "sha256": study.sha256, "bytes": study.bytes, "body_id": study.id}]
+
+
+static func catalogue() -> Dictionary:
+	var parsed = JSON.parse_string(FileAccess.get_file_as_string("res://content/sample_pack.json"))
+	if not parsed is Dictionary:
+		return {}
+	var study := study_body()
+	if not study.is_empty():
+		parsed.bodies.append(study)
+	return parsed
 
 
 static func mount_if_needed() -> String:

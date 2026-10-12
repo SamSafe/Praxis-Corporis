@@ -11,6 +11,7 @@ candidates remain separate from imported prototype assets.
 |---|---|---|---|---|---|
 | Female United GLB, v1.1 | HuBMAP / Human Reference Atlas 3D Reference Object Library, including its supplied contributor metadata | CC BY 4.0 | Source GLB unchanged; sampling-site roots excluded, Godot cache conversion, temporary selection colours, fading, inspection movements, original-position overlays, source-label annotations and temporary isolated-part rendering | Female reference in private feasibility viewer | Credit the source library, link source/licence, retain notices and identify changes. |
 | Male United GLB, v1.1 | HuBMAP / Human Reference Atlas 3D Reference Object Library, including its supplied contributor metadata | CC BY 4.0 | Same modifications as female sample | Male reference in private feasibility viewer | Same requirements. |
+| BodyParts3D v4.0 bone-organ study | Database Center for Life Science, official LSDB archive | Current official CC BY 4.0 grant; legacy OBJ comments retain CC BY-SA 2.1 Japan | Source archive unchanged. Bone-group subset converted from mm/Z-up to metre/Y-up with source normals; generic display colour and temporary inspection effects | Separate private male bone reference, unregistered to HRA/female anatomy | Required attribution, current source/licence links, original legacy notice and modification description retained. |
 
 Attribution: Anatomy models from the HuBMAP / Human Reference Atlas
 [3D Reference Object Library](https://github.com/hubmapconsortium/ccf-3d-reference-object-library),
@@ -24,6 +25,15 @@ Record original URLs, hashes, relevant licence evidence, and applicability to ex
 views/content. Preserve separate obligations for contributions in derivative atlases.
 
 ## Software
+
+BodyParts3D attribution: BodyParts3D, © The Database Center for Life Science licensed
+under CC Attribution 4.0 International. Its
+[current official grant](https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html),
+[retained current page](third_party/BodyParts3D-CURRENT-LICENSE.html),
+[README](third_party/BodyParts3D-README.html) and
+[legacy mesh notice](third_party/BodyParts3D-LEGACY-OBJ-NOTICE.txt) accompany the private
+study. [Technical findings](docs/audit/BODYPARTS3D_FINDINGS.md) record the limited
+admission scope and both licence records.
 
 The prototype uses Godot 4.7.2 and its built-in UI, materials and default font.
 Godot is independently licensed under MIT; retain the engine's copyright/licence

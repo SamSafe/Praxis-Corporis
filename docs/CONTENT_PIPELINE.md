@@ -29,6 +29,11 @@ Sources inspected 2026-10-11:
 BodyParts3D is a candidate starting collection for male anatomy. HRA is a candidate
 for female and additional regional coverage. These are hypotheses about integration,
 not evidence that the complete two-body requirement is already satisfied.
+The subsequent [BodyParts3D technical audit](audit/BODYPARTS3D_FINDINGS.md) verifies
+the official archive and a separate 203-mesh bone study. The current licence page
+states CC BY 4.0 while original mesh comments retain legacy BY-SA 2.1 Japan text;
+both records are preserved. This is a separate private study, not HRA registration
+or an accepted complete female/male atlas.
 
 Do not silently turn a male model into a female reference by changing the exterior
 or attaching unrelated structures. Every reused or aligned region needs appropriate

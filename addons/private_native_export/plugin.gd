@@ -5,6 +5,7 @@ var anatomy_export: EditorExportPlugin
 
 
 class AnatomyExport extends EditorExportPlugin:
+	const ContentBundle = preload("res://scripts/content_bundle.gd")
 	func _get_name() -> String:
 		return "PraxisPrivateAnatomy"
 
@@ -12,6 +13,7 @@ class AnatomyExport extends EditorExportPlugin:
 		if not features.has("macos"):
 			return
 		var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://content/source_manifest.json"))
+		manifest.files.append_array(ContentBundle.supplemental_files())
 		for record in manifest.files:
 			var source := "res://" + str(record.local_path)
 			if not FileAccess.file_exists(source) or FileAccess.get_sha256(source) != record.sha256:

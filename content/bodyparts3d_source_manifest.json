@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "source": "BodyParts3D, Database Center for Life Science / official LSDB archive",
+  "dataset_version": "4.0 (2013 geometry, official 2025 licence update)",
+  "access_date": "2026-10-12",
+  "audit_status": "technical candidate; not integrated into either HRA reference",
+  "license_url": "https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html",
+  "current_official_grant": "CC BY 4.0",
+  "legacy_obj_comments": "CC BY-SA 2.1 Japan; unchanged and retained as evidence",
+  "files": [
+    {
+      "local_path": "assets/bodyparts3d/raw/isa_parts_list_e.txt",
+      "url": "https://dbarchive.biosciencedbc.jp/data/bodyparts3d/LATEST/isa_parts_list_e.txt",
+      "bytes": 128086,
+      "sha256": "ab7796deedd49205e77f3609a1cb8c53e2bbee14ecb5c9a6ca05227469780513"
+    },
+    {
+      "local_path": "assets/bodyparts3d/raw/isa_element_parts.txt",
+      "url": "https://dbarchive.biosciencedbc.jp/data/bodyparts3d/LATEST/isa_element_parts.txt",
+      "bytes": 1142159,
+      "sha256": "a3de74423f943b0d724ae8f59b3a817f87c423a544f8db98113b1980817cbeaf"
+    },
+    {
+      "local_path": "assets/bodyparts3d/raw/isa_inclusion_relation_list.txt",
+      "url": "https://dbarchive.biosciencedbc.jp/data/bodyparts3d/LATEST/isa_inclusion_relation_list.txt",
+      "bytes": 207664,
+      "sha256": "26e7d818e03a8c909fe09c561f38d0d513423c87681f9450a803bc38f5b07564"
+    },
+    {
+      "local_path": "assets/bodyparts3d/raw/README_e.html",
+      "url": "https://dbarchive.biosciencedbc.jp/data/bodyparts3d/LATEST/README_e.html",
+      "bytes": 19263,
+      "sha256": "f9a90b4d945ad0fe50db45c712e931aa54e52667187b30d7085b6cc394f40107"
+    },
+    {
+      "local_path": "assets/bodyparts3d/raw/license.html",
+      "url": "https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html",
+      "bytes": 14694,
+      "sha256": "b53d18d247405cb8cedac96aa26ae348719381926bc6bd994284fc6b48450181"
+    },
+    {
+      "local_path": "assets/bodyparts3d/raw/isa_BP3D_4.0_obj_99.zip",
+      "url": "https://dbarchive.biosciencedbc.jp/data/bodyparts3d/LATEST/isa_BP3D_4.0_obj_99.zip",
+      "bytes": 142903898,
+      "sha256": "40665852c49f218326590e204db91064a1ecfc3c6f8cbd7bbbcaac62c7cd409e"
+    }
+  ]
+}

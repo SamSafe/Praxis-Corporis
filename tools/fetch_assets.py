@@ -50,8 +50,9 @@ def fetch(record: dict, root: pathlib.Path = ROOT) -> str:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--verify-only", action="store_true", help="Check local files without network access")
+    parser.add_argument("--manifest", type=pathlib.Path, default=ROOT / "content/source_manifest.json", help="Pinned source manifest, defaulting to the HRA prototype sources")
     args = parser.parse_args()
-    manifest = json.loads((ROOT / "content/source_manifest.json").read_text())
+    manifest = json.loads(args.manifest.read_text())
     failures = []
     for record in manifest["files"]:
         try:

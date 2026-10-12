@@ -76,6 +76,11 @@ smaller collision representations and geometry optimization still need evaluatio
 - [In-app source coverage comparison](prototype/coverage-skeleton.png).
 - [Native Windows female chest](prototype/windows-native-chest-female.png).
 - [Native Windows male chest](prototype/windows-native-chest-male.png).
+- [Separate BodyParts3D bone preview](prototype/bodyparts-male-bone-study.png).
+- [Bone study in the full viewer](prototype/study-viewer-bones.png).
+- [Selected source femur](prototype/study-viewer-femur.png).
+- [Femur inspected alone](prototype/study-viewer-femur-alone.png).
+- [Bone study at the smaller window setting](prototype/study-viewer-compact.png).
 
 These are actual app captures, distinct from the earlier schematic wireframes.
 Models are credited under [ATTRIBUTIONS.md](../ATTRIBUTIONS.md); source licences and
@@ -238,3 +243,28 @@ to pass development-engine checks, with Mac hardware execution pending.
 [windows-rendered-qa.json](audit/windows-rendered-qa.json) records the tested artifact
 identity, renderer, captures and limits. The current [build report](audit/native-build-report.json)
 records both refreshed package hashes, including the Coverage window.
+
+## Separate bone-study reference — 2026-10-12
+
+The official BodyParts3D v4.0 archive was downloaded, hash-pinned and CRC-checked.
+The bone-organ definition contains 203 available source mesh files with 505,532
+triangles. The audit includes 552 selected meshes from bone, muscle and nerve groups.
+[Source findings](audit/BODYPARTS3D_FINDINGS.md) record actual bounds, source/licence
+evidence and the restricted admission scope.
+
+A deterministic converter preserves supplied normals, converts declared mm/Z-up
+coordinates to metre/Y-up, and prepares a 12,895,068-byte bone GLB. It is a separate
+male study with no HRA/female registration. The viewer discovers it when its geometry
+is prepared, presents its own source/coverage record, frames the source body without
+requiring skin, and disables absent skin/chest actions. Source IDs remain independent;
+both original HRA catalogues are unchanged.
+
+Study workflow checks passed: actual geometry selection, femur focus, displacement,
+isolation/return, exact restoration, reference switching, hash-bound saved views and
+atomic rejection of an incompatible source hash. Both-body HRA exploration and part
+inspection checks still passed. Twelve Python ingestion/conversion/packaging checks
+passed. The three-reference scripted rendering check passed on the development
+display, and full-viewer captures were inspected at normal/smaller window settings.
+
+The bone source adds useful geometry without closing comprehensive two-body coverage,
+medical review, source registration, authored cutaway/pathway or public-release gates.

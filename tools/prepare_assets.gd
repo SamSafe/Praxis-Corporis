@@ -2,6 +2,7 @@ extends SceneTree
 ## Prepare source geometry once; normal launches reuse the local compiled scenes.
 
 const AnatomyModel = preload("res://scripts/anatomy_model.gd")
+const ContentBundle = preload("res://scripts/content_bundle.gd")
 
 
 func _initialize() -> void:
@@ -9,7 +10,7 @@ func _initialize() -> void:
 
 
 func prepare() -> void:
-	var catalogue: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://content/sample_pack.json"))
+	var catalogue := ContentBundle.catalogue()
 	var model := AnatomyModel.new()
 	root.add_child(model)
 	for body in catalogue.bodies:

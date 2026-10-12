@@ -46,6 +46,9 @@ var syncing_parts := false
 var selection_scroll_pending := false
 var visibility_buttons: Array[Button] = []
 var peel_button: Button
+var chest_button: Button
+var source_credit: Label
+var coverage_hint: Label
 var action_buttons: Array[Button] = []
 var loading := false
 var syncing_tree := false
@@ -53,8 +56,8 @@ var syncing_tree := false
 
 func _ready() -> void:
 	var content_error := ContentBundle.mount_if_needed()
-	var parsed = JSON.parse_string(FileAccess.get_file_as_string("res://content/sample_pack.json"))
-	if not parsed is Dictionary:
+	var parsed := ContentBundle.catalogue()
+	if parsed.is_empty():
 		push_error("Sample catalogue is missing or invalid.")
 		get_tree().quit(1)
 		return
@@ -87,34 +90,45 @@ func verify_bundle() -> void:
 		return
 	for reference in pack.bodies:
 		await switch_body(reference.id)
-		if model.body.get("id") != reference.id or model.meshes.size() != (801 if reference.id == "female" else 788):
+		var expected_meshes := 0
+		for structure in reference.structures:
+			if structure.id == reference.root_id:
+				expected_meshes = structure.mesh_nodes.size()
+		if model.body.get("id") != reference.id or model.meshes.size() != expected_meshes:
 			push_error("Bundled reference failed: " + str(reference.id))
 			get_tree().quit(1)
 			return
-		var baseline_bounds: AABB = model.bounds_for("anatomy.heart")
-		model.select("anatomy.heart")
+		var target := "anatomy.heart" if model.structures.has("anatomy.heart") else "anatomy.system.skeletal"
+		var leaf := "anatomy.heart.valve.mitral"
+		if target != "anatomy.heart":
+			var first_index := int(model.structures[target].mesh_nodes[0])
+			for id in model.structures:
+				if int(model.structures[id].source_node) == first_index:
+					leaf = str(id)
+		var baseline_bounds: AABB = model.bounds_for(target)
+		model.select(target)
 		model.checkpoint()
 		model.offset_selection(Vector3(0.1, 0.02, 0))
 		var saved: Dictionary = model.export_state()
 		model.restore()
-		if not model.bounds_for("anatomy.heart").is_equal_approx(baseline_bounds) or not model.apply_saved_state(saved).is_empty():
+		if not model.bounds_for(target).is_equal_approx(baseline_bounds) or not model.apply_saved_state(saved).is_empty():
 			push_error("Bundled inspection restoration failed")
 			get_tree().quit(1)
 			return
-		select_structure("anatomy.heart")
+		select_structure(target)
 		var previous := current_view()
-		select_structure("anatomy.heart.ventricle.left")
+		select_structure(leaf)
 		navigate_history(true)
-		if current_view() != previous or model.export_state() != saved or anatomy_labels.local_ids().size() != 14:
+		if current_view() != previous or model.export_state() != saved or (target == "anatomy.heart" and anatomy_labels.local_ids().size() != 14):
 			push_error("Bundled exploration navigation failed")
 			get_tree().quit(1)
 			return
 		inspect_alone()
-		select_structure("anatomy.heart.valve.mitral")
+		select_structure(leaf)
 		var visible_count := 0
 		for mesh in model.meshes.values():
 			visible_count += int(mesh.visible)
-		if model.isolated_id != "anatomy.heart.valve.mitral" or visible_count != 1 or model.export_state() != saved:
+		if model.isolated_id != leaf or visible_count != 1 or model.export_state() != saved:
 			push_error("Bundled part inspection failed")
 			get_tree().quit(1)
 			return
@@ -125,19 +139,23 @@ func verify_bundle() -> void:
 			return
 		if rendered:
 			model.restore()
-			chest_view()
+			if target == "anatomy.heart":
+				chest_view()
+			else:
+				whole_body(false)
+				select_structure(target, false)
 			local_labels_button.button_pressed = true
 			await get_tree().physics_frame
 			await get_tree().physics_frame
 			anatomy_labels.update_labels()
 			await RenderingServer.frame_post_draw
 			var captured := get_viewport().get_texture().get_image()
-			var capture_error := captured.save_png("user://native-chest-%s.png" % str(reference.id))
+			var capture_error := captured.save_png("user://native-%s-%s.png" % ["chest" if target == "anatomy.heart" else "bones", str(reference.id)])
 			if capture_error != OK or anatomy_labels.visible_ids.is_empty():
 				push_error("Rendered bundle capture or surface labels failed")
 				get_tree().quit(1)
 				return
-			print("PASS native rendered chest: ", reference.id, " · ", captured.get_width(), " × ", captured.get_height())
+			print("PASS native rendered reference: ", reference.id, " · ", captured.get_width(), " × ", captured.get_height())
 		print("PASS bundled reference: ", reference.id, " · ", model.meshes.size(), " meshes")
 	print("PASS offline native bundle")
 	get_tree().quit()
@@ -214,10 +232,12 @@ func build_interface() -> void:
 	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	top.add_child(spacer)
 	body_choice = OptionButton.new()
-	body_choice.add_item("Female reference")
-	body_choice.add_item("Male reference")
-	body_choice.custom_minimum_size.x = 180
-	body_choice.item_selected.connect(func(index: int): switch_body("female" if index == 0 else "male"))
+	body_choice.fit_to_longest_item = false
+	for body in pack.bodies:
+		body_choice.add_item(str(body.get("short_label", str(body.id).capitalize() + " reference")))
+		body_choice.set_item_metadata(body_choice.item_count - 1, str(body.id))
+	body_choice.custom_minimum_size.x = 250
+	body_choice.item_selected.connect(func(index: int): switch_body(str(body_choice.get_item_metadata(index))))
 	top.add_child(body_choice)
 	make_button("Save view", save_view, top)
 	make_button("Load view", load_view, top)
@@ -245,9 +265,9 @@ func build_interface() -> void:
 	tree.item_selected.connect(on_tree_selected)
 	left.add_child(tree)
 	peel_button = make_button("Peel away skin", peel_skin, left)
-	make_button("Show chest", chest_view, left)
-	var coverage := make_label("PARTIAL ATLAS\nSkeleton, muscles and nerves\ncover selected regions.", 13, Color("879db0"))
-	left.add_child(coverage)
+	chest_button = make_button("Show chest", chest_view, left)
+	coverage_hint = make_label("PARTIAL ATLAS\nSkeleton, muscles and nerves\ncover selected regions.", 13, Color("879db0"))
+	left.add_child(coverage_hint)
 	var center := VBoxContainer.new()
 	center.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	center.custom_minimum_size.x = 380
@@ -387,9 +407,9 @@ func build_interface() -> void:
 	var pending := make_label("Disease views, guided pathways and validated cutaways will be added progressively.", 14, Color("8a9fb2"))
 	pending.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	right.add_child(pending)
-	var source := make_label("Models: HuBMAP / Human Reference Atlas\n3D Reference Object Library v1.1\nCC BY 4.0 · draft catalogue", 12, Color("758ca2"))
-	source.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	right.add_child(source)
+	source_credit = make_label("Models: HuBMAP / Human Reference Atlas\n3D Reference Object Library v1.1\nCC BY 4.0 · draft catalogue", 12, Color("758ca2"))
+	source_credit.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	right.add_child(source_credit)
 	var toolbar := HBoxContainer.new()
 	toolbar.add_theme_constant_override("separation", 12)
 	layout.add_child(toolbar)
@@ -426,7 +446,7 @@ func switch_body(id: String) -> void:
 	anatomy_labels.update_labels()
 	refresh_details()
 	body_choice.disabled = true
-	context.text = "Loading %s reference…" % id
+	context.text = "Loading %s…" % str(record.label)
 	status.text = "Importing geometry and preparing selection…"
 	var previous_selection: String = model.selected_id
 	await get_tree().process_frame
@@ -438,7 +458,7 @@ func switch_body(id: String) -> void:
 	if not error.is_empty():
 		status.text = error
 		context.text = "Reference unavailable"
-		body_choice.select(0 if model.body.get("id", "female") == "female" else 1)
+		select_body_choice(str(model.body.get("id", "female")))
 		refresh_details()
 		return
 	anatomy_labels.clear_labels()
@@ -448,7 +468,7 @@ func switch_body(id: String) -> void:
 	back_views.clear()
 	forward_views.clear()
 	inspection_return = {}
-	body_choice.select(0 if id == "female" else 1)
+	select_body_choice(id)
 	move_button.button_pressed = false
 	orbit.move_mode = false
 	rebuild_tree()
@@ -456,8 +476,15 @@ func switch_body(id: String) -> void:
 		select_structure(previous_selection, false)
 	else:
 		whole_body(false)
-	status.text = "%s reference ready" % id.capitalize()
+	status.text = str(record.get("short_label", record.label)) + " ready"
 	refresh_details()
+
+
+func select_body_choice(id: String) -> void:
+	for index in range(body_choice.item_count):
+		if body_choice.get_item_metadata(index) == id:
+			body_choice.select(index)
+			return
 
 
 func rebuild_tree() -> void:
@@ -661,7 +688,7 @@ func refresh_navigation() -> void:
 	forward_button.disabled = loading or forward_views.is_empty()
 	if not loading and not model.body.is_empty():
 		var region: String = str(model.structures[model.selected_id].label) if model.structures.has(model.selected_id) else "Whole body"
-		context.text = "%s · %s" % [str(model.body.id).capitalize(), region]
+		context.text = "%s · %s" % [str(model.body.get("short_label", model.body.label)), region]
 		if not model.isolated_id.is_empty():
 			context.text += " · inspecting alone"
 
@@ -679,10 +706,16 @@ func refresh_details() -> void:
 		return
 	refresh_navigation()
 	refresh_parts()
+	if coverage_hint:
+		coverage_hint.text = "SEPARATE BONE STUDY\nSource geometry only.\nHRA alignment unreviewed." if model.body.get("study", false) else "PARTIAL ATLAS\nSkeleton, muscles and nerves\ncover selected regions."
+	if source_credit:
+		source_credit.text = "BodyParts3D · Database Center for Life Science\nSeparate male bone study · review pending\nLicence records: Sources" if model.body.get("study", false) else "HuBMAP / Human Reference Atlas\n3D Reference Object Library v1.1\nCC BY 4.0 · draft catalogue"
 	var selected: bool = model.structures.has(model.selected_id)
 	var isolated: bool = not model.isolated_id.is_empty()
 	if peel_button:
-		peel_button.disabled = loading or isolated
+		peel_button.disabled = loading or isolated or not model.structures.has("anatomy.skin")
+	if chest_button:
+		chest_button.disabled = loading or not model.structures.has("anatomy.heart")
 	if inspect_button:
 		inspect_button.disabled = loading or not selected or model.isolated_id == model.selected_id or model.structures[model.selected_id].mesh_nodes.is_empty()
 	if inspection_banner:
@@ -706,6 +739,8 @@ func refresh_details() -> void:
 	if not selected:
 		heading.text = "Explore the body"
 		detail.text = "Peel away the skin, select a structure, and explore its position in the body.\n\nUse Show chest for a first close view.\n\nSource names and geometry are a draft import; anatomical review is pending."
+		if model.body.get("study", false):
+			detail.text = str(model.body.coverage) + "\n\nSeparate source coordinates; no alignment to HRA or female anatomy. Select a source bone in the list or viewer."
 		return
 	var record: Dictionary = model.structures[model.selected_id]
 	heading.text = str(record.label)
@@ -776,7 +811,7 @@ func whole_body(remember: bool = true) -> void:
 	anatomy_labels.set_selection("")
 	orbit.yaw = 0.0
 	orbit.pitch = 0.0
-	orbit.focus(model.bounds_for("anatomy.skin"))
+	orbit.focus(model.bounds_for("anatomy.skin" if model.structures.has("anatomy.skin") else "anatomy.body"))
 	sync_selection_tree()
 	if remember:
 		remember_view(previous)
@@ -840,6 +875,7 @@ func save_view() -> void:
 		"local_labels": local_labels_button.button_pressed, "label_density": int(label_density.value),
 		"label_context": anatomy_labels.context_id,
 		"isolation": model.isolated_id, "inspection_return": inspection_return.duplicate(true),
+		"reference_hash": model.body.sha256,
 		"changes": model.export_state()}
 	var file := FileAccess.open(save_path + ".tmp", FileAccess.WRITE)
 	if file == null:
@@ -868,7 +904,7 @@ func load_view() -> void:
 	if not state.get("camera") is Dictionary or not orbit.valid_state(state.camera) or not state.get("changes") is Dictionary:
 		status.text = "Saved view has invalid camera or anatomy data."
 		return
-	if state.get("body") not in ["male", "female"] or not state.get("selection") is String or not state.get("labels") is bool:
+	if not state.get("body") is String or not state.get("selection") is String or not state.get("labels") is bool:
 		status.text = "Saved view has invalid body, selection or label settings."
 		return
 	if state.has("original_positions") and not state.original_positions is bool:
@@ -886,6 +922,12 @@ func load_view() -> void:
 	for candidate in pack.bodies:
 		if candidate.id == state.body:
 			reference = candidate
+	if reference.is_empty():
+		status.text = "Saved reference is unavailable. Prepare its source content first."
+		return
+	if (state.has("reference_hash") and state.reference_hash != reference.sha256) or (reference.get("study", false) and not state.has("reference_hash")):
+		status.text = "Saved view belongs to a different reference geometry version."
+		return
 	var validation: String = model.validate_saved_changes(state.changes, reference)
 	if not validation.is_empty():
 		status.text = validation
@@ -975,6 +1017,8 @@ func show_sources() -> void:
 	var dialog := AcceptDialog.new()
 	dialog.title = "Sources and prototype status"
 	dialog.dialog_text = "Anatomy: HuBMAP / Human Reference Atlas 3D Reference Object Library, United v1.1.\nCC BY 4.0. Source files unchanged; sampling sites excluded, cache conversion,\nselection colours, fading and temporary inspection movements applied.\n\nhttps://github.com/hubmapconsortium/ccf-3d-reference-object-library\nhttps://creativecommons.org/licenses/by/4.0/\n\nGodot Engine: MIT licence; https://godotengine.org/license/\n\nThis is a private, partial atlas prototype. Anatomy labels and coverage are draft\nimports; qualified medical review is pending. No disease content is included."
+	if model.body.get("study", false):
+		dialog.dialog_text = "BodyParts3D, © The Database Center for Life Science licensed under CC\nAttribution 4.0 International. Official archive v4.0; current grant from the\n2025 licence page. Original OBJ comments retain legacy CC BY-SA 2.1 Japan\nnotices. Both records are retained. Geometry was converted from millimetres\nto metres and Z-up to Y-up, with source normals preserved. Display colour\nand inspection effects are runtime modifications.\n\nhttps://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html\nhttps://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html\n\nSeparate male bone study; no registration to HRA or female anatomy. Geometry\nand labels are unreviewed. No disease content.\nGodot Engine: MIT licence; https://godotengine.org/license/"
 	dialog.confirmed.connect(dialog.queue_free)
 	dialog.canceled.connect(dialog.queue_free)
 	add_child(dialog)
@@ -990,6 +1034,8 @@ func show_coverage() -> Window:
 	var browser := CoverageBrowser.new()
 	browser.pack = pack
 	browser.notes = coverage_notes
+	if model.body.has("coverage_notes"):
+		browser.notes = model.body.coverage_notes
 	browser.body_id = str(model.body.id)
 	browser.theme = theme
 	browser.explore_requested.connect(select_structure)

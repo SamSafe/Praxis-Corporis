@@ -2,6 +2,9 @@
 
 These local ZIPs include the Godot runtime, both pinned HRA reference samples and
 prepared geometry. Users need no Python, Godot editor, login or network connection.
+When prepared at build time, packages also include the separate BodyParts3D male
+bone study and its current/legacy source notices. Its coordinate frame is not
+registered to the HRA bodies; its availability is explicit in the reference selector.
 The atlas is partial and unreviewed; disease content and guided routes are absent.
 
 ## Run a build

@@ -19,6 +19,9 @@ An in-app Coverage window now compares supplied system groups and gaps across bo
 references. A first native Windows headless trial loaded both bodies and passed
 offline inspection checks. Native Windows rendering subsequently passed on AMD Radeon
 graphics; human input, sustained performance and Mac device trials remain open.
+A BodyParts3D v4.0 bone-organ subset is technically audited and available as a
+separate private male study. Source notices, coordinate conversion and remaining
+alignment/review work are recorded in [its audit](audit/BODYPARTS3D_FINDINGS.md).
 
 ## Established by the user
 

@@ -139,6 +139,14 @@ ordinary body view.
 
 ## Saved views
 
+The optional [BodyParts3D bone study](audit/BODYPARTS3D_FINDINGS.md) provides a separate
+male source reference with 203 mesh files. It is available in the reference selector
+when prepared/bundled. It retains its own coordinates, source coverage and notices;
+it is unregistered to either HRA body and does not fill female skeletal gaps. Skin and
+chest controls are disabled for this source. Existing HRA references remain intact.
+Its saved views include a geometry hash, and incompatible/missing study sources are
+rejected before changing the current view. Older HRA schema-1 saves remain compatible.
+
 Body switching restores that body's original inspection state and clears undo/redo
 and navigation history.
 The saved slot records body, selected ID, camera, labels, original-position display,
@@ -181,6 +189,7 @@ godot --headless --path . --script tests/viewer_smoke.gd
 godot --headless --path . --script tests/exploration_smoke.gd
 godot --headless --path . --script tests/part_inspection_smoke.gd
 godot --headless --path . --script tests/coverage_smoke.gd
+godot --headless --path . --script tests/study_reference_smoke.gd
 ```
 
 The Python checks cover corrupt inputs, path containment, asset modification,

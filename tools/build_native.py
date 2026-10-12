@@ -105,6 +105,9 @@ def add_notices(folder: pathlib.Path, platform: str) -> None:
     notices.mkdir()
     for name in ["HRA-LICENSE.txt", "HRA-README.md", "Godot-LICENSE.txt", "Godot-COPYRIGHT.txt"]:
         shutil.copyfile(ROOT / "third_party" / name, notices / name)
+    for name in ["BodyParts3D-README.html", "BodyParts3D-CURRENT-LICENSE.html", "BodyParts3D-LEGACY-OBJ-NOTICE.txt"]:
+        if (ROOT / "third_party" / name).exists():
+            shutil.copyfile(ROOT / "third_party" / name, notices / name)
     shutil.copyfile(ROOT / "ATTRIBUTIONS.md", notices / "ATTRIBUTIONS.md")
     (folder / "START_HERE.txt").write_text(
         "PRAXIS CORPORIS — PRIVATE ANATOMY PROTOTYPE\n\n"
@@ -118,6 +121,7 @@ def add_notices(folder: pathlib.Path, platform: str) -> None:
         "Return to context restores the prior body view and preserves inspection edits.\n"
         "Back/Forward (Alt + Left/Right) restore selections and camera views without resetting inspection.\n"
         "Peel away skin, choose Show chest, or select anatomy in the list.\n"
+        "If included, Male bones / BodyParts3D study is a separate source reference, unregistered to HRA.\n"
         "Move selected enables inspection displacement; blue overlays mark original positions.\n"
         "Undo/Redo reverses or reapplies inspection changes. Restore returns original anatomy.\n"
         "Save view stores a local session outside this folder.\n\n"
@@ -143,6 +147,7 @@ def build(args: argparse.Namespace) -> dict:
                                [ROOT / "project.godot", ROOT / "export_presets.cfg", ROOT / "content/sample_pack.json",
                                 ROOT / "content/source_manifest.json", ROOT / "content/toolchain_manifest.json",
                                 ROOT / "content/coverage_notes.json",
+                                ROOT / "content/bodyparts3d_bone_study.json", ROOT / "content/bodyparts3d_source_manifest.json",
                                 ROOT / "addons/private_native_export/plugin.gd",
                                 *sorted((ROOT / "scripts").glob("*.gd"))]}
     with tempfile.TemporaryDirectory(prefix="native-build-", dir=args.output) as workspace:

@@ -32,7 +32,7 @@ func _ready() -> void:
 	layout.add_theme_constant_override("separation", 14)
 	margin.add_child(layout)
 	var title_label := Label.new()
-	title_label.text = "ATLAS COVERAGE · " + body_id.capitalize() + " reference"
+	title_label.text = "ATLAS COVERAGE · " + reference_label(body_id)
 	title_label.add_theme_font_size_override("font_size", 22)
 	layout.add_child(title_label)
 	var notice := Label.new()
@@ -86,20 +86,30 @@ func structure_for(reference_id: String, id: String) -> Dictionary:
 	return {}
 
 
+func reference_label(id: String) -> String:
+	for body in pack.bodies:
+		if body.id == id:
+			return str(body.get("short_label", body.label))
+	return id.capitalize()
+
+
 func show_system(index: int) -> void:
 	if index < 0 or index >= notes.systems.size():
 		return
 	current_system = notes.systems[index]
-	var sections: Array[String] = ["[b]" + str(current_system.label) + "[/b]", "HRA United v1.1 · technical inventory · anatomy review pending",
+	var sections: Array[String] = ["[b]" + str(current_system.label) + "[/b]", str(notes.get("source_label", "HRA United v1.1")) + " · technical inventory · anatomy review pending",
 		"[b]Gaps and limits[/b]", str(current_system.gaps)]
-	for reference_id in [body_id, "male" if body_id == "female" else "female"]:
+	var references: Array = notes.get("reference_ids", ["female", "male"]).duplicate()
+	references.erase(body_id)
+	references.push_front(body_id)
+	for reference_id in references:
 		var structure := structure_for(reference_id, str(current_system.roots[reference_id]))
-		sections.append("[b]" + str(reference_id).capitalize() + " reference[/b]")
+		sections.append("[b]" + reference_label(reference_id) + "[/b]")
 		sections.append(str(current_system.supplied[reference_id]))
 		if not structure.is_empty():
 			sections.append("%d source meshes · %d immediate source groups/parts" % [structure.mesh_nodes.size(), structure.children.size()])
 	sections.append("[b]Scope of this record[/b]")
-	sections.append("Pinned HRA United v1.1 samples · inventory " + str(notes.audit_date) + ".\nMesh counts do not establish anatomical completeness. No percentage-complete score is assigned.")
+	sections.append(str(notes.get("source_label", "Pinned HRA United v1.1 samples")) + " · inventory " + str(notes.audit_date) + ".\nMesh counts do not establish anatomical completeness. No percentage-complete score is assigned.")
 	information.text = "\n\n".join(sections)
 	explore_button.disabled = structure_for(body_id, str(current_system.roots[body_id])).is_empty()
 	information.scroll_to_line(0)
