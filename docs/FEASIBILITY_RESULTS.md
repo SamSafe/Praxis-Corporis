@@ -509,3 +509,24 @@ anatomy edits; result selection used the existing source-geometry navigation.
 [compact bone lookup](prototype/search-source-bone-compact.png) are retained previews.
 Clipboard access is user-triggered; the developer checks validate its text without
 reading or changing the tester's clipboard. Human clipboard/device acceptance remains open.
+
+
+Packages from source commit `c9019ca` passed exported Linux and Mac embedded-content
+checks, including source-ID selection and preserved inspection state. Both archive
+CRCs, hashes, executable architectures, source snapshots and search instructions
+matched. The actual Windows release passed source-search rendering for both HRA
+mitral valves and the separate source femur on AMD graphics. All three native search
+captures were inspected. Notes, loading/failure preservation, keyboard/panels, offline
+geometry and credited exports also passed with exit code 0.
+[Exact-artifact Windows evidence](audit/windows-source-search-qa.json) retains source
+fingerprints, captured images and whole-process memory observations.
+
+`tools/verify_windows.py` now makes this check reproducible from the repository on
+Windows or through explicit WSL interop. It validates the artifact before running,
+creates isolated native test data, requires every reference's workflow markers and
+pinned engine, retains logs/captures, then removes successful native staging. Both
+rendered and headless WSL-to-Windows runs passed. Sixteen Python tests cover ingestion,
+packaging and verification, including incomplete/failed native evidence, changed
+archives and literal PowerShell path handling. The direct Windows Python caller and
+human device acceptance remain separate work. App sources remain the tested `c9019ca`
+snapshot; this QA tool is excluded from application exports.

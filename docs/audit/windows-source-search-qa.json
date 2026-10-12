@@ -1,0 +1,78 @@
+{
+  "engine_actual": "4.7.2.stable.official.ed1daf0bf",
+  "references": {
+    "female": 801,
+    "male": 788,
+    "bodyparts-male-bones-study": 203
+  },
+  "ui_process_frames_during_successful_load": {
+    "female": 37,
+    "male": 36,
+    "bodyparts-male-bones-study": 11
+  },
+  "renderer": "OpenGL API 3.3.0 Core Profile Context 25.10.37.03.260407 - Compatibility - Using Device: ATI Technologies Inc. - AMD Radeon(TM) Graphics",
+  "process_memory_observations": {
+    "peak_working_set_bytes_observed": 1761775616,
+    "maximum_private_bytes_sampled": 1985671168,
+    "sampling_interval_ms": 500,
+    "scope": "Entire verification process; not per-scene or GPU memory."
+  },
+  "schema_version": 1,
+  "recorded_at_utc": "2026-10-12T17:16:00.381498+00:00",
+  "mode": "rendered",
+  "result": "passed; native exit code 0",
+  "source_revision": "c9019ca771d46706bf8d8e03cc0dce7caabafa9d",
+  "artifact": {
+    "file": "PraxisCorporis-Windows-x64-private.zip",
+    "bytes": 292922476,
+    "sha256": "2508e6a0f27049c0171d2fb2ddf10c36dd58e2c6fe38f46e8c3a28ce67cafa08",
+    "architectures": [
+      "x86_64"
+    ]
+  },
+  "engine_expected": "4.7.2.stable.official.ed1daf0bf",
+  "verifier_sha256": "106111e122812d2b18e379f8a7d34f32ecdeb0dc34434c47553c6c5c5c00e8c8",
+  "archive_crc": "passed during extraction",
+  "user_data": "APPDATA and LOCALAPPDATA isolated in a generated QA session; user libraries untouched.",
+  "limits": [
+    "Scripted actions; human input, clipboard and native OS picker acceptance remain open.",
+    "No sustained-performance or maximum-loading-pause claim.",
+    "This checks actual Windows execution; Mac device validation is separate."
+  ],
+  "captures": {
+    "native-search-female.png": {
+      "file": "docs/prototype/windows-source-search-female.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "70466b78e83b8d3352fb3461700497d0c312943fba4b608a1b6350f87b4ffeaa"
+    },
+    "native-search-male.png": {
+      "file": "docs/prototype/windows-source-search-male.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "e74b264374e5f63abf08f9ce640ca447b58d7f5c678e9bfdd5de10e08e245b73"
+    },
+    "native-search-bodyparts-male-bones-study.png": {
+      "file": "docs/prototype/windows-source-search-bodyparts-male-bones-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "064a45e0d442c56e20f0ae668699b23a3d30617ba240280dbd12a58db4bcc8e7"
+    }
+  },
+  "checks": [
+    "Source-aware ontology lookup selects the actual imported structure for all references",
+    "Source-record text uses the selected reference fingerprint without touching the clipboard",
+    "Inspection geometry/settings remain unchanged by filtering and source selection",
+    "Rendered local notes, write/reopen and saved-view restoration",
+    "Loading frames, failed-replacement preservation and keyboard/panel navigation",
+    "Native credited PNG composition and offline anatomy checks"
+  ],
+  "test_date": "2026-10-12",
+  "host": "Microsoft Windows NT 10.0.26300.0 via WSL interop"
+}

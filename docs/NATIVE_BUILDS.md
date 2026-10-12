@@ -92,7 +92,9 @@ The first actual Windows headless run passed both-body offline and inspection ch
 The subsequent [Windows rendering check](audit/windows-rendered-qa.json) also passed
 on AMD Radeon graphics, with both chest captures inspected. The later [loading check](audit/windows-loading-qa.json) verifies actual UI process
 frames and failed-replacement preservation in the rebuilt Windows package. The latest [study-note check](audit/windows-study-notes-qa.json) also verifies the
-rendered note editor and reopened text for every reference. Human mouse/trackpad,
+rendered note editor and reopened text for every reference. The subsequent
+[source-search check](audit/windows-source-search-qa.json) passed on the native AMD
+host through the repository verifier, including both HRA valves and the source femur. Human mouse/trackpad,
 sustained performance and Mac device trials remain open.
 The retained [build report](audit/native-build-report.json) includes a source-snapshot
 revision verified against its recorded file hashes.
@@ -110,6 +112,45 @@ been published.
 
 [PRIVATE_TRIAL_GUIDE.md](PRIVATE_TRIAL_GUIDE.md) provides concrete tasks and a local
 findings template for the user's first trial and a later invited private group.
+
+## Reproduce Windows verification
+
+Use Python 3.10+ on Windows from the repository folder after a private build:
+
+```powershell
+python tools/verify_windows.py
+```
+
+The verifier matches the Windows ZIP to `dist/build-report.json`, checks extracted
+architecture/content, and runs the actual release executable in a generated Windows
+temporary session. Only the child process receives isolated APPDATA/LOCALAPPDATA;
+the user's saved views/notes remain untouched. It retains logs, capture hashes/images,
+actual engine/renderer, source revision, reference counts and whole-process memory
+observations under a new `dist/windows-qa-.../` folder. Successful native staging is
+removed after those artifacts are copied. Failed sessions are kept for inspection;
+the error prints their location. The process timeout applies only to its own child.
+No execution-policy or system-setting change is performed.
+
+Use `--mode headless` for the offline checks without rendering. Rendered mode requires
+a desktop display. `--output` must name a new folder; existing reports are never
+replaced. `--archive` and `--build-report` select another matching private artifact.
+The verifier rejects missing workflow markers, runtime errors, wrong engine versions,
+missing captures and archive/hash mismatches rather than treating an exit alone as
+complete evidence.
+
+The WSL bridge was exercised on the development host with native Windows PowerShell:
+
+```sh
+python3 tools/verify_windows.py \
+  --powershell /mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/powershell.exe \
+  --output dist/windows-qa-my-trial
+```
+
+The bridge starts the Windows release executable and verifies actual Windows rendering;
+it does not substitute the Linux editor for target execution. Direct Windows Python
+caller setup remains to be exercised on another machine. These are scripted checks,
+with human input, clipboard, native OS picker and sustained-performance acceptance
+still covered by [PRIVATE_TRIAL_GUIDE.md](PRIVATE_TRIAL_GUIDE.md).
 
 ## Developer rendering check
 
