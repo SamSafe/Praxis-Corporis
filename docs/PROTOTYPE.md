@@ -300,6 +300,7 @@ godot --headless --path . --script tests/keyboard_workspace_smoke.gd
 godot --headless --path . --script tests/loading_smoke.gd
 godot --headless --path . --script tests/search_smoke.gd
 godot --headless --path . --script tests/render_profile_smoke.gd
+godot --headless --path . --script tests/export_boundary_smoke.gd
 ```
 
 The Python checks cover corrupt inputs, path containment, asset modification,

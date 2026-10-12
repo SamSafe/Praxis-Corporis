@@ -173,6 +173,10 @@ native mouse/trackpad usability, accessibility acceptance or sustained laptop FP
 
 ## Developer rendering profile
 
+Private exports exclude generated `dist`/`build` output alongside tests, tools, docs
+and editor addons. Both runtime verification and profiling reject exported developer
+resources and print `PASS private export resource boundary` for a clean native pack.
+
 Use the explicit `--profile-rendered-bundle` user argument to sample every bundled
 reference. Defaults are a 1440 × 900 window, one-second warmup, five-second sample and
 one repetition. For example, from the extracted Windows

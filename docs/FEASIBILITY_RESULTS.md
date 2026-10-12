@@ -558,3 +558,12 @@ observes only its own process and retains raw evidence. The sustained native res
 will be recorded after rebuilding this source snapshot. Commands, workload scope and
 interpretation are in [the protocol](PERFORMANCE_PROTOCOL.md) and
 [native build guide](NATIVE_BUILDS.md).
+
+An intermediate package audit found generated `dist` QA captures included by Godot's
+all-resources export. All three presets now explicitly exclude `dist` and `build`.
+Exported-runtime verification and profiling check that generated output, tests, tools,
+docs and editor addons contain no bundled files. Native evidence must include this
+boundary check. The traversal test distinguishes empty/absent directories from nested
+developer files; the native validator additionally requires the exact eight current
+workloads rather than accepting any eight internally consistent scene records.
+The intermediate packages were superseded before recording the sustained baseline.

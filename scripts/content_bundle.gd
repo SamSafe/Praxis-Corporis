@@ -2,6 +2,32 @@ extends RefCounted
 ## Mount locally prepared anatomy and discover the optional separate study reference.
 
 const PACK_NAME := "anatomy.pck"
+const DEVELOPER_DIRECTORIES := ["res://dist", "res://build", "res://tests", "res://tools", "res://docs", "res://addons"]
+
+
+static func developer_files(roots: Array = DEVELOPER_DIRECTORIES) -> Array[String]:
+	var pending := roots.duplicate()
+	var files: Array[String] = []
+	while not pending.is_empty():
+		var path: String = pending.pop_back()
+		var directory := DirAccess.open(path)
+		if directory == null:
+			continue
+		for name in directory.get_files():
+			files.append(path.path_join(name))
+		for name in directory.get_directories():
+			pending.append(path.path_join(name))
+	return files
+
+
+static func verify_export_boundary() -> String:
+	if not OS.has_feature("template") and not "--main-pack" in OS.get_cmdline_args():
+		return "" # Source-project developer checks intentionally have these directories.
+	var unexpected := developer_files()
+	if not unexpected.is_empty():
+		return "Developer resources were included in the private export: " + unexpected[0]
+	print("PASS private export resource boundary")
+	return ""
 
 
 static func study_body() -> Dictionary:

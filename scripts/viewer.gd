@@ -136,6 +136,11 @@ func profile_bundle() -> void:
 
 
 func verify_bundle() -> void:
+	var boundary_error := ContentBundle.verify_export_boundary()
+	if not boundary_error.is_empty():
+		push_error(boundary_error)
+		get_tree().quit(1)
+		return
 	var rendered := "--verify-rendered-bundle" in OS.get_cmdline_user_args()
 	if rendered and DisplayServer.get_name() == "headless":
 		push_error("Rendered bundle verification needs a desktop display")

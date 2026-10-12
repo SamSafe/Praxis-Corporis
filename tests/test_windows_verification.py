@@ -20,7 +20,7 @@ def complete_log(rendered=True):
         for marker in MARKERS + (RENDERED_MARKERS if rendered else []):
             lines.append(f'PASS {marker}: {reference}')
         lines.append(f'PASS bundled reference: {reference} · {count} meshes')
-    lines.extend(['PASS offline native bundle', 'QA observed peak working set bytes: 123456',
+    lines.extend(['PASS private export resource boundary', 'PASS offline native bundle', 'QA observed peak working set bytes: 123456',
                   'QA sampled maximum private bytes: 234567', 'Windows native exit code: 0'])
     return '\n'.join(lines)
 
@@ -38,6 +38,7 @@ class WindowsVerificationTests(unittest.TestCase):
         for broken in [log + '\nSCRIPT ERROR: Failure', log + '\nERROR: Invalid source',
                        log.replace('Windows native exit code: 0', 'Windows native exit code: 1'),
                        log.replace('PASS offline native bundle', ''),
+                       log.replace('PASS private export resource boundary', ''),
                        log.replace('loading: female · 30', 'loading: female · 1'),
                        log.replace('OpenGL API 3.3 core - Compatibility - Using Device: AMD Radeon(TM) Graphics', '')]:
             with self.subTest(broken=broken[-40:]), self.assertRaises(ValueError):

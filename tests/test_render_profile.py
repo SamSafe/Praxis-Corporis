@@ -7,7 +7,7 @@ import unittest
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'tools'))
-from profile_windows import profile_options, validate_native_profile
+from profile_windows import CURRENT_WORKLOADS, profile_options, validate_native_profile
 from summarize_profile import validate_report
 
 
@@ -103,12 +103,12 @@ class RenderProfileTests(unittest.TestCase):
         report = fixture()
         log = '\n'.join(['Godot Engine v4.7.2.stable.official.ed1daf0bf', 'OpenGL API 3.3 core - Compatibility - AMD Radeon',
                          'QA observed peak working set bytes: 123456', 'QA sampled maximum private bytes: 234567',
-                         'PASS rendering profile recorded: user://render-profile.json', 'Windows native exit code: 0'])
+                         'PASS private export resource boundary', 'PASS rendering profile recorded: user://render-profile.json', 'Windows native exit code: 0'])
         build = {'engine': '4.7.2.stable.official.ed1daf0bf', 'content_pack': 'fixture-pack'}
         # Construct all eight current workloads so the native binding check has a complete passing case.
         report['measurement_plan'], report['scenes'], report['loads'] = [], [], []
-        for reference, scene_count in [('female', 3), ('male', 3), ('bodyparts-male-bones-study', 2)]:
-            plan = {'reference': reference, 'reference_hash': 'a' * 64, 'scenes': [f'scene-{n}' for n in range(scene_count)]}
+        for reference, scenes in CURRENT_WORKLOADS.items():
+            plan = {'reference': reference, 'reference_hash': 'a' * 64, 'scenes': scenes.copy()}
             report['measurement_plan'].append(plan)
             load = fixture()['loads'][0]
             load['reference'] = reference
@@ -127,6 +127,14 @@ class RenderProfileTests(unittest.TestCase):
                 validate_native_profile(broken, log, build, report['configuration'])
         with self.assertRaises(ValueError):
             validate_native_profile(report, log.replace('PASS rendering profile recorded:', 'unfinished:'), build, report['configuration'])
+        with self.assertRaises(ValueError):
+            validate_native_profile(report, log.replace('PASS private export resource boundary', ''), build, report['configuration'])
+        broken = copy.deepcopy(report)
+        broken['measurement_plan'][0]['scenes'][0] = 'another workload'
+        broken['scenes'][0]['scene'] = 'another workload'
+        validate_report(broken) # Internally consistent, but not the requested native workload.
+        with self.assertRaises(ValueError):
+            validate_native_profile(broken, log, build, report['configuration'])
 
 
 if __name__ == '__main__':

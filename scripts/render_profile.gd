@@ -1,6 +1,7 @@
 extends RefCounted
 ## Explicit developer-only sampling; no background telemetry or session access.
 
+const ContentBundle = preload("res://scripts/content_bundle.gd")
 const DEFAULTS := {"seconds": 5.0, "warmup_seconds": 1.0, "repetitions": 1, "window_pixels": [1440, 900]}
 
 
@@ -151,6 +152,9 @@ func run(viewer: Control) -> Dictionary:
 		return config
 	if DisplayServer.get_name() == "headless":
 		return {"error": "Rendering profile needs a desktop display; headless timing is not rendering evidence."}
+	var boundary_error := ContentBundle.verify_export_boundary()
+	if not boundary_error.is_empty():
+		return {"error": boundary_error}
 	viewer.get_window().size = Vector2i(config.window_pixels[0], config.window_pixels[1])
 	await viewer.get_tree().process_frame
 	await viewer.get_tree().process_frame

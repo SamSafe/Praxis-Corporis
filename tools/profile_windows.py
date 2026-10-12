@@ -15,6 +15,12 @@ from build_native import binary_architectures, sha256, unpack_zip
 from summarize_profile import validate_configuration, validate_report
 from verify_windows import ROOT, artifact_record, native_session, powershell, process_observations, run_native
 
+CURRENT_WORKLOADS = {
+    'female': ['whole-body orbit', 'chest orbit with faded lungs and local labels', 'isolated supplied-part orbit'],
+    'male': ['whole-body orbit', 'chest orbit with faded lungs and local labels', 'isolated supplied-part orbit'],
+    'bodyparts-male-bones-study': ['whole-body orbit', 'isolated supplied-part orbit'],
+}
+
 
 def profile_options(args: argparse.Namespace) -> tuple[dict, list[str], int]:
     if not re.fullmatch(r'[0-9]+x[0-9]+', args.window):
@@ -34,6 +40,8 @@ def validate_native_profile(report: dict, log: str, build: dict, config: dict) -
     observations = process_observations(log)
     if 'PASS rendering profile recorded: user://render-profile.json' not in log:
         raise ValueError('The native process did not finish writing a profile')
+    if 'PASS private export resource boundary' not in log:
+        raise ValueError('The native profile did not check its exported resource boundary')
     if observations['engine_actual'] != build['engine'] or report.get('platform') != 'Windows':
         raise ValueError('Profile platform/engine differs from the native artifact')
     if report.get('schema_version') != 2 or report.get('configuration') != config or report.get('pack_id') != build['content_pack']:
@@ -41,8 +49,8 @@ def validate_native_profile(report: dict, log: str, build: dict, config: dict) -
     if not report.get('engine_commit') or report['engine_commit'][:9] not in build['engine']:
         raise ValueError('Profile engine commit differs from the native artifact')
     rows = validate_report(report)
-    if {p['reference'] for p in report['measurement_plan']} != {'female', 'male', 'bodyparts-male-bones-study'}:
-        raise ValueError('Profile omitted a current bundled reference')
+    if {p['reference']: p['scenes'] for p in report['measurement_plan']} != CURRENT_WORKLOADS:
+        raise ValueError('Profile plan differs from the eight current bundled workloads')
     if len(rows) != 8 * config['repetitions']:
         raise ValueError('Profile omitted a current bundled workload')
     return observations, rows

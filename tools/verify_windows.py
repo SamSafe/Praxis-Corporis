@@ -29,6 +29,8 @@ def parse_result(log: str, rendered: bool) -> dict:
         raise ValueError("The native runtime reported an error")
     if "PASS offline native bundle" not in log or "Windows native exit code: 0" not in log:
         raise ValueError("Native verification did not finish successfully")
+    if 'PASS private export resource boundary' not in log:
+        raise ValueError('Native verification did not check its exported resource boundary')
     references = {key: int(count) for key, count in re.findall(r"^PASS bundled reference: (\S+) · (\d+) meshes$", log, re.M)}
     if not {"female", "male"}.issubset(references):
         raise ValueError("Native verification omitted a required HRA reference")
