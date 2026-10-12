@@ -438,3 +438,16 @@ replacement pauses. The first raw development import remains a preparation step,
 and staging a second reference temporarily increases memory. These checks establish
 frame processing and failure preservation, not a maximum latency or device-performance
 acceptance result.
+
+
+Packages from source commit `24b300a` passed exported Linux and Mac embedded-content
+checks. Both archive CRCs, executable architectures, hashes and shipped source
+snapshots matched. The actual Windows release on AMD graphics observed 42, 39 and
+10 UI process frames during the respective female, male and bone-study loads.
+All three deliberately rejected replacements preserved the same scene/view and
+inspection/navigation histories. Native rendering, credited PNGs, named saved views
+and keyboard/panel checks also passed, with exit code 0.
+[Windows evidence](audit/windows-loading-qa.json) records the exact artifact and
+process-memory observations; a [native loading capture](prototype/windows-loading-male.png)
+shows the prior male exploration while checking a rejected replacement. No maximum
+pause or sustained-performance claim follows from the frame counts.

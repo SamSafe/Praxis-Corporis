@@ -44,6 +44,8 @@ Prepared reference loading now yields interface frames during source verificatio
 resource reading and batched selection setup. Failed replacements preserve the
 previous scene and exploration histories. Scene instantiation/final replacement can
 still pause; this does not establish bounded loading latency on target hardware.
+The rebuilt native Windows app passed these checks on AMD graphics, alongside the
+existing saved-view, keyboard and credited screenshot workflows.
 Four separate HRA v1.2 spinal candidates are downloaded/hash-verified and technically
 inventoried for both sexes. They are outside the runtime. The female vertebra source
 contains one missing label/ontology record that requires interpretation review.

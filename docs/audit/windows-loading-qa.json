@@ -1,0 +1,70 @@
+{
+  "test_date": "2026-10-12",
+  "host": "Microsoft Windows NT 10.0.26300.0 via WSL interop",
+  "mode": "Actual Windows release executable, native AMD rendering, Dummy audio",
+  "source_revision": "24b300a9560315a4f818a9924a5b2693e232ba4d",
+  "artifact": {
+    "file": "PraxisCorporis-Windows-x64-private.zip",
+    "bytes": 292909249,
+    "sha256": "ffc4a7d006e9e596da171f82886546c0e7d72ebcb136962837f724f748e0a69b",
+    "architectures": [
+      "x86_64"
+    ]
+  },
+  "renderer": "OpenGL 3.3 core, AMD Radeon(TM) Graphics",
+  "result": "passed; exit code 0",
+  "references": {
+    "female": 801,
+    "male": 788,
+    "bodyparts-male-bones-study": 203
+  },
+  "ui_process_frames_during_successful_load": {
+    "female": 42,
+    "male": 39,
+    "bodyparts-male-bones-study": 10
+  },
+  "loading_captures": {
+    "female": {
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "7e4159a4a95aecba6d6b5c4aa98abf7ab12118c3ff6718b50a58c9d9e9fc666b"
+    },
+    "male": {
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "89927a3bc381896408486d990316c75ce5e67e6f172de3bd00c48a27cd88af72",
+      "retained_file": "docs/prototype/windows-loading-male.png"
+    },
+    "bodyparts-male-bones-study": {
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "7646f4bebb9f0993f7d02fe86ba47cd52799d934e4fb68b643507ca8c8d4d52d"
+    }
+  },
+  "checks": [
+    "Interface process frames while real prepared references load",
+    "Rejected invalid mesh mapping preserves the same scene and complete exploration state",
+    "Local saved-view write/reopen/restore",
+    "Focused keyboard navigation and reversible panel collapse",
+    "Native credited PNG output",
+    "Offline source geometry and inspection restoration"
+  ],
+  "process_memory_observations": {
+    "peak_working_set_bytes_observed": 1253937152,
+    "maximum_private_bytes_sampled": 1917054976,
+    "sampling_interval_ms": 500,
+    "scope": "Entire verification process; not per-scene or GPU memory."
+  },
+  "limits": [
+    "Frame processing does not establish a maximum main-thread pause or sustained FPS.",
+    "First raw development import is outside this prepared-runtime check.",
+    "Human input/native picker acceptance and Mac execution remain open."
+  ],
+  "user_data": "APPDATA and LOCALAPPDATA isolated in dedicated QA directories; user saved-view files untouched."
+}
