@@ -112,7 +112,11 @@ The private runtime accepts --verify-rendered-bundle after the engine's -- separ
 This automated developer check needs a desktop display, loads every reference,
 exercises the same offline inspection/saved-view checks and saves native-chest-female.png,
 native-chest-male.png and (when included) native-bones-bodyparts-male-bones-study.png
-to user://. It then exits. Use a dedicated test user-data directory; it does not
+to user://, then exits. It also writes native-export-<reference>.png,
+exercising the screenshot composer/writer with embedded source/status credits. These
+scripted checks do not operate the native OS file picker; that remains a human trial.
+Use a dedicated test user-data directory: repeated runs replace these developer
+capture filenames. The verifier does not
 read or overwrite the user's named library or older quick-save slot. The ordinary
 --verify-bundle check remains headless and does not capture images.
 

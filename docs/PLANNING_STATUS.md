@@ -36,6 +36,10 @@ The workspace now has a focused keyboard camera route and independently collapsi
 side panels. Camera keys preserve inspection data; search and tree arrows retain their
 own behaviour. Teal focus rendering, compact layout and source picking after collapse
 were checked. Complete keyboard manipulation/assistive-technology acceptance remains open.
+Local PNG export now embeds source attribution/licence links, modification notes and
+prototype/review status. Rendered output and unchanged-session checks passed for both
+HRA references and the compact hidden-panel bone study. Native picker acceptance is
+included in the user's [trial guide](PRIVATE_TRIAL_GUIDE.md).
 
 ## Established by the user
 

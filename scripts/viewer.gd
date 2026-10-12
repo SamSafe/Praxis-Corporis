@@ -8,6 +8,7 @@ const CoverageBrowser = preload("res://scripts/coverage_browser.gd")
 const SavedViews = preload("res://scripts/saved_views.gd")
 const SavedViewsBrowser = preload("res://scripts/saved_views_browser.gd")
 const RenderProfile = preload("res://scripts/render_profile.gd")
+const ViewCapture = preload("res://scripts/view_capture.gd")
 var save_path := "user://saved_view.json"
 var views_path := "user://saved_views.json"
 
@@ -61,6 +62,7 @@ var explorer_panel: Control
 var details_panel: Control
 var panels_menu: MenuButton
 var navigation_hint: Label
+var capture_in_progress := false
 
 
 func _ready() -> void:
@@ -194,6 +196,12 @@ func verify_bundle() -> void:
 				push_error("Rendered bundle capture or surface labels failed")
 				get_tree().quit(1)
 				return
+			var credited: Image = await capture_image()
+			if credited == null or credited.get_height() <= captured.get_height() or ViewCapture.write_png(credited, "user://native-export-%s.png" % str(reference.id)) != OK:
+				push_error("Credited native screenshot export failed")
+				get_tree().quit(1)
+				return
+			print("PASS native credited screenshot: ", reference.id, " · ", credited.get_size())
 			print("PASS native rendered reference: ", reference.id, " · ", captured.get_width(), " × ", captured.get_height())
 		print("PASS bundled reference: ", reference.id, " · ", model.meshes.size(), " meshes")
 	print("PASS offline native bundle")
@@ -351,6 +359,7 @@ func build_interface() -> void:
 	panels_menu.get_popup().set_item_checked(1, true)
 	panels_menu.get_popup().id_pressed.connect(on_panel_action)
 	top.add_child(panels_menu)
+	make_button("Screenshot", export_screenshot, top, "Save the current workspace as a PNG with source credits and prototype status.")
 	var columns := HBoxContainer.new()
 	columns.add_theme_constant_override("separation", 14)
 	columns.size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -1033,6 +1042,53 @@ func toggle_move() -> void:
 func _process(_delta: float) -> void:
 	if status:
 		status.tooltip_text = status.text
+
+
+func capture_image() -> Image:
+	if loading or model.body.is_empty() or DisplayServer.get_name() == "headless":
+		return null
+	var before := export_view_state()
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	anatomy_labels.update_labels()
+	await RenderingServer.frame_post_draw
+	if loading or export_view_state() != before:
+		status.text = "The view changed during capture. Try again."
+		return null
+	var workspace := get_viewport().get_texture().get_image()
+	var selected_label := str(model.structures[model.selected_id].label) if model.structures.has(model.selected_id) else "Whole body"
+	var caption := ViewCapture.credits(model.body, selected_label)
+	return await ViewCapture.compose(self, workspace, caption, theme)
+
+
+func export_screenshot() -> void:
+	if capture_in_progress or loading or model.body.is_empty():
+		return
+	capture_in_progress = true
+	var captured: Image = await capture_image()
+	if captured == null:
+		capture_in_progress = false
+		if DisplayServer.get_name() == "headless":
+			status.text = "Screenshot export needs a desktop display."
+		return
+	var dialog := FileDialog.new()
+	dialog.title = "Save anatomy screenshot with credits"
+	dialog.file_mode = FileDialog.FILE_MODE_SAVE_FILE
+	dialog.access = FileDialog.ACCESS_FILESYSTEM
+	dialog.use_native_dialog = true
+	dialog.add_filter("*.png", "PNG image", "image/png")
+	dialog.current_dir = OS.get_system_dir(OS.SYSTEM_DIR_PICTURES)
+	dialog.current_file = "PraxisCorporis-view.png"
+	dialog.file_selected.connect(func(path: String):
+		var error := ViewCapture.write_png(captured, path)
+		status.text = "Screenshot saved with source credits" if error == OK else "Could not save the screenshot (error %d)." % error
+		capture_in_progress = false
+		dialog.queue_free())
+	dialog.canceled.connect(func():
+		capture_in_progress = false
+		dialog.queue_free())
+	add_child(dialog)
+	dialog.popup_file_dialog()
 
 
 func export_view_state() -> Dictionary:

@@ -370,3 +370,21 @@ produced all three native captures and exited with code 0. Archive CRCs, SHA-256
 snapshots and updated keyboard/panel instructions matched. Exact Windows evidence is
 in [windows-keyboard-workspace-qa.json](audit/windows-keyboard-workspace-qa.json).
 Human device acceptance remains distinct from these injected input events.
+
+## Local credited screenshot export — 2026-10-12
+
+The Screenshot action captures the current rendered workspace and adds a source/status
+footer inside the PNG. Source/licence URLs, creator attribution, display modifications
+and review status remain visible even when panels are hidden. The separate study
+retains its required BodyParts3D creator credit and lack of HRA/female alignment.
+The app requests a native PNG save picker; capture is local and leaves view/inspection
+state unchanged. A body/camera change during capture is rejected before export.
+
+Rendered checks produced and reopened both HRA 1440 × 1085 exports and a compact
+1100 × 898 isolated-femur export with both panels hidden. All retained their camera,
+anatomy, labels and undo state. Pixel checks confirmed footer text was actually drawn,
+and invalid image/format inputs left existing files unchanged. The
+[HRA export](prototype/export-female.png) and [study export](prototype/export-bone-study.png)
+were inspected. The developer rendered-bundle check passed the same composer/writer
+for all three references without opening the OS picker. Human native-picker operation
+remains separate work.

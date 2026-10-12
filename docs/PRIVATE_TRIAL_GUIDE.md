@@ -33,6 +33,7 @@ restarting. Repeat the HRA tasks for both female and male references.
 | Revisit anatomy | Select the heart/lung and use Back/Forward. | Were camera and inspection changes retained as expected? |
 | Save two views | Give two different setups distinct names in Saved views. | Are reference and structure easy to distinguish? |
 | Reopen and restore | Close/reopen the app and restore a named isolated part. | Does Return to context still work? |
+| Export a screenshot | Save a PNG through the native picker, reopen it and check the source/status footer. Cancel another export. | Any missing label, clipped credit, unclear overwrite or changed session? |
 | Check a coverage gap | Open Coverage and inspect skeletal coverage for both HRA bodies. | Do counts look like a completeness claim? |
 | Explore the bone study | Choose the separate male study, find Right femur, inspect and restore it. | Is its lack of HRA/female alignment clear? |
 | Use a smaller window | Repeat selection, Save/Restore and inspection return. | Any unreadable text, clipped actions or blocked anatomy? |

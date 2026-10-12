@@ -72,6 +72,7 @@ is used by the viewer.
 | Save/load | Saved views opens named local exploration setups with Save current view, Restore, Rename and Delete. |
 | Coverage | Coverage opens the technical inventory for both reference bodies, known gaps and a shortcut to select a supplied group. |
 | Workspace panels | Panels toggles the anatomy explorer and structure details independently; Keyboard controls opens the shortcut reference. |
+| Screenshot | Screenshot captures the current workspace and opens a PNG save dialog; source credits and prototype status are added below the image. |
 
 Keyboard camera controls work only while the 3D view has focus. Search/list arrows
 and text editing keep their ordinary behaviour. Camera keys leave explicit Move mode
@@ -84,6 +85,15 @@ Hiding panels gives more width to the same scene without changing selection, cam
 labels, isolation or body edits. The top Panels menu remains available to reopen them.
 Panel visibility stays as set while switching references/restoring views; each launch
 starts with both panels visible. Panel layout is separate from saved anatomy snapshots.
+
+Screenshot export includes the current window, visible labels and panels, with a
+source/status footer rendered inside the PNG. Hidden side panels remain hidden, while
+the footer still identifies the source, licence links, display modifications and review
+status. The separate bone study retains its exact creator credit and alignment limits.
+The save dialog prefers the native OS picker, allows PNG only and asks before replacing
+an existing file. Capturing or cancelling does not change anatomy or saved views. If
+the body/camera changes during capture, the app asks you to try again instead of
+attaching the wrong source context. Images remain local.
 
 Faded structures are click-through; hidden structures have no active pick collision.
 Choose either in the tree and use Show to make it directly selectable again.
@@ -258,6 +268,7 @@ Optional rendered capture on a Linux development display:
 ```sh
 godot --path . --script tests/capture_viewer.gd
 godot --path . --script tests/capture_keyboard_workspace.gd
+godot --path . --script tests/capture_screenshot_export.gd
 ```
 
 This developer capture writes images under /tmp/medicine-viewer-feasibility/; create
