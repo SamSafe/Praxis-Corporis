@@ -822,23 +822,23 @@
             969
           ],
           "children": [
-            "source.hra-v1-1.female.n1",
-            "source.hra-v1-1.female.n3",
-            "source.hra-v1-1.female.n346",
+            "anatomy.system.integumentary",
+            "anatomy.system.nervous",
+            "anatomy.system.muscular",
             "source.hra-v1-1.female.n371",
-            "source.hra-v1-1.female.n423",
-            "source.hra-v1-1.female.n499",
-            "source.hra-v1-1.female.n607",
-            "source.hra-v1-1.female.n781",
-            "source.hra-v1-1.female.n866",
-            "source.hra-v1-1.female.n884"
+            "anatomy.system.digestive",
+            "anatomy.system.urinary",
+            "anatomy.system.circulatory",
+            "anatomy.system.respiratory",
+            "anatomy.system.lymphatic",
+            "anatomy.system.skeletal"
           ],
           "parent": "",
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.female.n1",
-          "label": "Integumentary system",
+          "id": "anatomy.system.integumentary",
+          "label": "Skin / integumentary system",
           "source_node": 1,
           "source_name": "VH_F_integumentary_system",
           "ontology": "",
@@ -861,11 +861,11 @@
             2
           ],
           "children": [],
-          "parent": "source.hra-v1-1.female.n1",
+          "parent": "anatomy.system.integumentary",
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.female.n3",
+          "id": "anatomy.system.nervous",
           "label": "Nervous system",
           "source_node": 3,
           "source_name": "VH_F_nervous_system",
@@ -1267,7 +1267,7 @@
             "source.hra-v1-1.female.n5",
             "source.hra-v1-1.female.n29"
           ],
-          "parent": "source.hra-v1-1.female.n3",
+          "parent": "anatomy.system.nervous",
           "review_status": "draft"
         },
         {
@@ -2008,7 +2008,7 @@
             "source.hra-v1-1.female.n54",
             "source.hra-v1-1.female.n57"
           ],
-          "parent": "source.hra-v1-1.female.n3",
+          "parent": "anatomy.system.nervous",
           "review_status": "draft"
         },
         {
@@ -2393,7 +2393,7 @@
             "source.hra-v1-1.female.n62",
             "source.hra-v1-1.female.n198"
           ],
-          "parent": "source.hra-v1-1.female.n3",
+          "parent": "anatomy.system.nervous",
           "review_status": "draft"
         },
         {
@@ -6666,7 +6666,7 @@
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.female.n346",
+          "id": "anatomy.system.muscular",
           "label": "Muscular system",
           "source_node": 346,
           "source_name": "VH_F_muscular_system",
@@ -6724,7 +6724,7 @@
             "source.hra-v1-1.female.n348",
             "source.hra-v1-1.female.n356"
           ],
-          "parent": "source.hra-v1-1.female.n346",
+          "parent": "anatomy.system.muscular",
           "review_status": "draft"
         },
         {
@@ -6979,7 +6979,7 @@
             "source.hra-v1-1.female.n365",
             "source.hra-v1-1.female.n368"
           ],
-          "parent": "source.hra-v1-1.female.n346",
+          "parent": "anatomy.system.muscular",
           "review_status": "draft"
         },
         {
@@ -7906,7 +7906,7 @@
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.female.n423",
+          "id": "anatomy.system.digestive",
           "label": "Digestive system",
           "source_node": 423,
           "source_name": "VH_F_digestive_system",
@@ -8013,7 +8013,7 @@
             "source.hra-v1-1.female.n433",
             "source.hra-v1-1.female.n434"
           ],
-          "parent": "source.hra-v1-1.female.n423",
+          "parent": "anatomy.system.digestive",
           "review_status": "draft"
         },
         {
@@ -8168,7 +8168,7 @@
             "source.hra-v1-1.female.n443",
             "source.hra-v1-1.female.n444"
           ],
-          "parent": "source.hra-v1-1.female.n423",
+          "parent": "anatomy.system.digestive",
           "review_status": "draft"
         },
         {
@@ -8339,7 +8339,7 @@
             "source.hra-v1-1.female.n451",
             "source.hra-v1-1.female.n456"
           ],
-          "parent": "source.hra-v1-1.female.n423",
+          "parent": "anatomy.system.digestive",
           "review_status": "draft"
         },
         {
@@ -8549,7 +8549,7 @@
             "source.hra-v1-1.female.n469",
             "source.hra-v1-1.female.n484"
           ],
-          "parent": "source.hra-v1-1.female.n423",
+          "parent": "anatomy.system.digestive",
           "review_status": "draft"
         },
         {
@@ -9041,7 +9041,7 @@
             "source.hra-v1-1.female.n495",
             "source.hra-v1-1.female.n496"
           ],
-          "parent": "source.hra-v1-1.female.n423",
+          "parent": "anatomy.system.digestive",
           "review_status": "draft"
         },
         {
@@ -9121,7 +9121,7 @@
           "children": [
             "source.hra-v1-1.female.n498"
           ],
-          "parent": "source.hra-v1-1.female.n423",
+          "parent": "anatomy.system.digestive",
           "review_status": "draft"
         },
         {
@@ -9138,7 +9138,7 @@
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.female.n499",
+          "id": "anatomy.system.urinary",
           "label": "Urinary system",
           "source_node": 499,
           "source_name": "VH_F_urinary_system",
@@ -9331,7 +9331,7 @@
             "source.hra-v1-1.female.n501",
             "source.hra-v1-1.female.n550"
           ],
-          "parent": "source.hra-v1-1.female.n499",
+          "parent": "anatomy.system.urinary",
           "review_status": "draft"
         },
         {
@@ -10897,7 +10897,7 @@
             "source.hra-v1-1.female.n597",
             "source.hra-v1-1.female.n598"
           ],
-          "parent": "source.hra-v1-1.female.n499",
+          "parent": "anatomy.system.urinary",
           "review_status": "draft"
         },
         {
@@ -10945,7 +10945,7 @@
             "source.hra-v1-1.female.n601",
             "source.hra-v1-1.female.n602"
           ],
-          "parent": "source.hra-v1-1.female.n499",
+          "parent": "anatomy.system.urinary",
           "review_status": "draft"
         },
         {
@@ -11050,7 +11050,7 @@
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.female.n607",
+          "id": "anatomy.system.circulatory",
           "label": "Circulatory system",
           "source_node": 607,
           "source_name": "VH_F_circulatory_system",
@@ -11209,16 +11209,16 @@
             625
           ],
           "children": [
-            "source.hra-v1-1.female.n609",
-            "source.hra-v1-1.female.n615",
-            "source.hra-v1-1.female.n621"
+            "anatomy.heart.chambers",
+            "anatomy.heart.papillary-muscles",
+            "anatomy.heart.valves"
           ],
-          "parent": "source.hra-v1-1.female.n607",
+          "parent": "anatomy.system.circulatory",
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.female.n609",
-          "label": "Cardiac chamber",
+          "id": "anatomy.heart.chambers",
+          "label": "Cardiac chambers",
           "source_node": 609,
           "source_name": "VH_F_cardiac_chamber",
           "ontology": "",
@@ -11230,17 +11230,17 @@
             614
           ],
           "children": [
-            "source.hra-v1-1.female.n610",
+            "anatomy.heart.septum",
             "anatomy.heart.atrium.left",
-            "source.hra-v1-1.female.n612",
+            "anatomy.heart.ventricle.left",
             "anatomy.heart.atrium.right",
-            "source.hra-v1-1.female.n614"
+            "anatomy.heart.ventricle.right"
           ],
           "parent": "anatomy.heart",
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.female.n610",
+          "id": "anatomy.heart.septum",
           "label": "Interventricular septum",
           "source_node": 610,
           "source_name": "VH_F_interventricular_septum",
@@ -11249,7 +11249,7 @@
             610
           ],
           "children": [],
-          "parent": "source.hra-v1-1.female.n609",
+          "parent": "anatomy.heart.chambers",
           "review_status": "draft"
         },
         {
@@ -11262,12 +11262,12 @@
             611
           ],
           "children": [],
-          "parent": "source.hra-v1-1.female.n609",
+          "parent": "anatomy.heart.chambers",
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.female.n612",
-          "label": "Heart left ventricle",
+          "id": "anatomy.heart.ventricle.left",
+          "label": "Left ventricle",
           "source_node": 612,
           "source_name": "VH_F_left_ventricle",
           "ontology": "UBERON:0002084",
@@ -11275,7 +11275,7 @@
             612
           ],
           "children": [],
-          "parent": "source.hra-v1-1.female.n609",
+          "parent": "anatomy.heart.chambers",
           "review_status": "draft"
         },
         {
@@ -11288,12 +11288,12 @@
             613
           ],
           "children": [],
-          "parent": "source.hra-v1-1.female.n609",
+          "parent": "anatomy.heart.chambers",
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.female.n614",
-          "label": "Heart right ventricle",
+          "id": "anatomy.heart.ventricle.right",
+          "label": "Right ventricle",
           "source_node": 614,
           "source_name": "VH_F_right_ventricle",
           "ontology": "UBERON:0002080",
@@ -11301,12 +11301,12 @@
             614
           ],
           "children": [],
-          "parent": "source.hra-v1-1.female.n609",
+          "parent": "anatomy.heart.chambers",
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.female.n615",
-          "label": "Papillary muscle of heart",
+          "id": "anatomy.heart.papillary-muscles",
+          "label": "Papillary muscles",
           "source_node": 615,
           "source_name": "VH_F_papillary_muscle_of_heart",
           "ontology": "",
@@ -11337,7 +11337,7 @@
             616
           ],
           "children": [],
-          "parent": "source.hra-v1-1.female.n615",
+          "parent": "anatomy.heart.papillary-muscles",
           "review_status": "draft"
         },
         {
@@ -11350,7 +11350,7 @@
             617
           ],
           "children": [],
-          "parent": "source.hra-v1-1.female.n615",
+          "parent": "anatomy.heart.papillary-muscles",
           "review_status": "draft"
         },
         {
@@ -11363,7 +11363,7 @@
             618
           ],
           "children": [],
-          "parent": "source.hra-v1-1.female.n615",
+          "parent": "anatomy.heart.papillary-muscles",
           "review_status": "draft"
         },
         {
@@ -11376,7 +11376,7 @@
             619
           ],
           "children": [],
-          "parent": "source.hra-v1-1.female.n615",
+          "parent": "anatomy.heart.papillary-muscles",
           "review_status": "draft"
         },
         {
@@ -11389,12 +11389,12 @@
             620
           ],
           "children": [],
-          "parent": "source.hra-v1-1.female.n615",
+          "parent": "anatomy.heart.papillary-muscles",
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.female.n621",
-          "label": "Valve",
+          "id": "anatomy.heart.valves",
+          "label": "Heart valves",
           "source_node": 621,
           "source_name": "VH_F_valve",
           "ontology": "",
@@ -11423,7 +11423,7 @@
             622
           ],
           "children": [],
-          "parent": "source.hra-v1-1.female.n621",
+          "parent": "anatomy.heart.valves",
           "review_status": "draft"
         },
         {
@@ -11436,7 +11436,7 @@
             623
           ],
           "children": [],
-          "parent": "source.hra-v1-1.female.n621",
+          "parent": "anatomy.heart.valves",
           "review_status": "draft"
         },
         {
@@ -11449,7 +11449,7 @@
             624
           ],
           "children": [],
-          "parent": "source.hra-v1-1.female.n621",
+          "parent": "anatomy.heart.valves",
           "review_status": "draft"
         },
         {
@@ -11462,7 +11462,7 @@
             625
           ],
           "children": [],
-          "parent": "source.hra-v1-1.female.n621",
+          "parent": "anatomy.heart.valves",
           "review_status": "draft"
         },
         {
@@ -11591,7 +11591,7 @@
             "source.hra-v1-1.female.n716",
             "source.hra-v1-1.female.n732"
           ],
-          "parent": "source.hra-v1-1.female.n607",
+          "parent": "anatomy.system.circulatory",
           "review_status": "draft"
         },
         {
@@ -14026,7 +14026,7 @@
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.female.n781",
+          "id": "anatomy.system.respiratory",
           "label": "Respiratory system",
           "source_node": 781,
           "source_name": "VH_F_respiratory_system",
@@ -14144,7 +14144,7 @@
             "anatomy.lung.left",
             "anatomy.lung.right"
           ],
-          "parent": "source.hra-v1-1.female.n781",
+          "parent": "anatomy.system.respiratory",
           "review_status": "draft"
         },
         {
@@ -14724,7 +14724,7 @@
             "source.hra-v1-1.female.n830",
             "source.hra-v1-1.female.n865"
           ],
-          "parent": "source.hra-v1-1.female.n781",
+          "parent": "anatomy.system.respiratory",
           "review_status": "draft"
         },
         {
@@ -15490,7 +15490,7 @@
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.female.n866",
+          "id": "anatomy.system.lymphatic",
           "label": "Lymphatic system",
           "source_node": 866,
           "source_name": "VH_F_lymphatic_system",
@@ -15539,7 +15539,7 @@
             "source.hra-v1-1.female.n871",
             "source.hra-v1-1.female.n872"
           ],
-          "parent": "source.hra-v1-1.female.n866",
+          "parent": "anatomy.system.lymphatic",
           "review_status": "draft"
         },
         {
@@ -15621,7 +15621,7 @@
             "source.hra-v1-1.female.n874",
             "source.hra-v1-1.female.n875"
           ],
-          "parent": "source.hra-v1-1.female.n866",
+          "parent": "anatomy.system.lymphatic",
           "review_status": "draft"
         },
         {
@@ -15674,7 +15674,7 @@
             "source.hra-v1-1.female.n882",
             "source.hra-v1-1.female.n883"
           ],
-          "parent": "source.hra-v1-1.female.n866",
+          "parent": "anatomy.system.lymphatic",
           "review_status": "draft"
         },
         {
@@ -15769,7 +15769,7 @@
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.female.n884",
+          "id": "anatomy.system.skeletal",
           "label": "Skeletal system",
           "source_node": 884,
           "source_name": "VH_F_skeletal_system",
@@ -15878,7 +15878,7 @@
             "source.hra-v1-1.female.n895",
             "source.hra-v1-1.female.n902"
           ],
-          "parent": "source.hra-v1-1.female.n884",
+          "parent": "anatomy.system.skeletal",
           "review_status": "draft"
         },
         {
@@ -16286,7 +16286,7 @@
             "source.hra-v1-1.female.n910",
             "source.hra-v1-1.female.n940"
           ],
-          "parent": "source.hra-v1-1.female.n884",
+          "parent": "anatomy.system.skeletal",
           "review_status": "draft"
         },
         {
@@ -18130,22 +18130,22 @@
             1075
           ],
           "children": [
-            "source.hra-v1-1.male.n116",
-            "source.hra-v1-1.male.n288",
-            "source.hra-v1-1.male.n290",
+            "anatomy.system.circulatory",
+            "anatomy.system.integumentary",
+            "anatomy.system.skeletal",
             "source.hra-v1-1.male.n377",
-            "source.hra-v1-1.male.n404",
-            "source.hra-v1-1.male.n481",
-            "source.hra-v1-1.male.n585",
-            "source.hra-v1-1.male.n603",
-            "source.hra-v1-1.male.n948",
-            "source.hra-v1-1.male.n989"
+            "anatomy.system.digestive",
+            "anatomy.system.urinary",
+            "anatomy.system.lymphatic",
+            "anatomy.system.nervous",
+            "anatomy.system.muscular",
+            "anatomy.system.respiratory"
           ],
           "parent": "",
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.male.n116",
+          "id": "anatomy.system.circulatory",
           "label": "Circulatory system",
           "source_node": 116,
           "source_name": "VH_M_circulatory_system",
@@ -18300,16 +18300,16 @@
             134
           ],
           "children": [
-            "source.hra-v1-1.male.n118",
-            "source.hra-v1-1.male.n123",
-            "source.hra-v1-1.male.n129"
+            "anatomy.heart.valves",
+            "anatomy.heart.papillary-muscles",
+            "anatomy.heart.chambers"
           ],
-          "parent": "source.hra-v1-1.male.n116",
+          "parent": "anatomy.system.circulatory",
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.male.n118",
-          "label": "Heart valve",
+          "id": "anatomy.heart.valves",
+          "label": "Heart valves",
           "source_node": 118,
           "source_name": "VH_M_heart_valve",
           "ontology": "",
@@ -18338,7 +18338,7 @@
             119
           ],
           "children": [],
-          "parent": "source.hra-v1-1.male.n118",
+          "parent": "anatomy.heart.valves",
           "review_status": "draft"
         },
         {
@@ -18351,7 +18351,7 @@
             120
           ],
           "children": [],
-          "parent": "source.hra-v1-1.male.n118",
+          "parent": "anatomy.heart.valves",
           "review_status": "draft"
         },
         {
@@ -18364,7 +18364,7 @@
             121
           ],
           "children": [],
-          "parent": "source.hra-v1-1.male.n118",
+          "parent": "anatomy.heart.valves",
           "review_status": "draft"
         },
         {
@@ -18377,12 +18377,12 @@
             122
           ],
           "children": [],
-          "parent": "source.hra-v1-1.male.n118",
+          "parent": "anatomy.heart.valves",
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.male.n123",
-          "label": "Papillary muscle of heart",
+          "id": "anatomy.heart.papillary-muscles",
+          "label": "Papillary muscles",
           "source_node": 123,
           "source_name": "VH_M_papillary_muscle_of_heart",
           "ontology": "",
@@ -18413,7 +18413,7 @@
             124
           ],
           "children": [],
-          "parent": "source.hra-v1-1.male.n123",
+          "parent": "anatomy.heart.papillary-muscles",
           "review_status": "draft"
         },
         {
@@ -18426,7 +18426,7 @@
             125
           ],
           "children": [],
-          "parent": "source.hra-v1-1.male.n123",
+          "parent": "anatomy.heart.papillary-muscles",
           "review_status": "draft"
         },
         {
@@ -18439,7 +18439,7 @@
             126
           ],
           "children": [],
-          "parent": "source.hra-v1-1.male.n123",
+          "parent": "anatomy.heart.papillary-muscles",
           "review_status": "draft"
         },
         {
@@ -18452,7 +18452,7 @@
             127
           ],
           "children": [],
-          "parent": "source.hra-v1-1.male.n123",
+          "parent": "anatomy.heart.papillary-muscles",
           "review_status": "draft"
         },
         {
@@ -18465,12 +18465,12 @@
             128
           ],
           "children": [],
-          "parent": "source.hra-v1-1.male.n123",
+          "parent": "anatomy.heart.papillary-muscles",
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.male.n129",
-          "label": "Cardiac chamber",
+          "id": "anatomy.heart.chambers",
+          "label": "Cardiac chambers",
           "source_node": 129,
           "source_name": "VH_M_cardiac_chamber",
           "ontology": "",
@@ -18484,9 +18484,9 @@
           "children": [
             "anatomy.heart.atrium.left",
             "anatomy.heart.atrium.right",
-            "source.hra-v1-1.male.n132",
-            "source.hra-v1-1.male.n133",
-            "source.hra-v1-1.male.n134"
+            "anatomy.heart.ventricle.right",
+            "anatomy.heart.septum",
+            "anatomy.heart.ventricle.left"
           ],
           "parent": "anatomy.heart",
           "review_status": "draft"
@@ -18501,7 +18501,7 @@
             130
           ],
           "children": [],
-          "parent": "source.hra-v1-1.male.n129",
+          "parent": "anatomy.heart.chambers",
           "review_status": "draft"
         },
         {
@@ -18514,12 +18514,12 @@
             131
           ],
           "children": [],
-          "parent": "source.hra-v1-1.male.n129",
+          "parent": "anatomy.heart.chambers",
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.male.n132",
-          "label": "Heart right ventricle",
+          "id": "anatomy.heart.ventricle.right",
+          "label": "Right ventricle",
           "source_node": 132,
           "source_name": "VH_M_heart_right_ventricle",
           "ontology": "UBERON:0002080",
@@ -18527,11 +18527,11 @@
             132
           ],
           "children": [],
-          "parent": "source.hra-v1-1.male.n129",
+          "parent": "anatomy.heart.chambers",
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.male.n133",
+          "id": "anatomy.heart.septum",
           "label": "Interventricular septum",
           "source_node": 133,
           "source_name": "VH_M_interventricular_septum",
@@ -18540,12 +18540,12 @@
             133
           ],
           "children": [],
-          "parent": "source.hra-v1-1.male.n129",
+          "parent": "anatomy.heart.chambers",
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.male.n134",
-          "label": "Heart left ventricle",
+          "id": "anatomy.heart.ventricle.left",
+          "label": "Left ventricle",
           "source_node": 134,
           "source_name": "VH_M_heart_left_ventricle",
           "ontology": "UBERON:0002084",
@@ -18553,7 +18553,7 @@
             134
           ],
           "children": [],
-          "parent": "source.hra-v1-1.male.n129",
+          "parent": "anatomy.heart.chambers",
           "review_status": "draft"
         },
         {
@@ -18677,7 +18677,7 @@
             "source.hra-v1-1.male.n265",
             "source.hra-v1-1.male.n270"
           ],
-          "parent": "source.hra-v1-1.male.n116",
+          "parent": "anatomy.system.circulatory",
           "review_status": "draft"
         },
         {
@@ -21096,8 +21096,8 @@
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.male.n288",
-          "label": "Integumentary system",
+          "id": "anatomy.system.integumentary",
+          "label": "Skin / integumentary system",
           "source_node": 288,
           "source_name": "VH_M_integumentary_system",
           "ontology": "",
@@ -21120,11 +21120,11 @@
             289
           ],
           "children": [],
-          "parent": "source.hra-v1-1.male.n288",
+          "parent": "anatomy.system.integumentary",
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.male.n290",
+          "id": "anatomy.system.skeletal",
           "label": "Skeletal system",
           "source_node": 290,
           "source_name": "VH_M_skeletal_system",
@@ -21216,7 +21216,7 @@
             291
           ],
           "children": [],
-          "parent": "source.hra-v1-1.male.n290",
+          "parent": "anatomy.system.skeletal",
           "review_status": "draft"
         },
         {
@@ -21248,7 +21248,7 @@
             "source.hra-v1-1.male.n302",
             "source.hra-v1-1.male.n309"
           ],
-          "parent": "source.hra-v1-1.male.n290",
+          "parent": "anatomy.system.skeletal",
           "review_status": "draft"
         },
         {
@@ -21656,7 +21656,7 @@
             "source.hra-v1-1.male.n317",
             "source.hra-v1-1.male.n347"
           ],
-          "parent": "source.hra-v1-1.male.n290",
+          "parent": "anatomy.system.skeletal",
           "review_status": "draft"
         },
         {
@@ -23103,7 +23103,7 @@
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.male.n404",
+          "id": "anatomy.system.digestive",
           "label": "Digestive system",
           "source_node": 404,
           "source_name": "VH_M_digestive_system",
@@ -23229,7 +23229,7 @@
             "source.hra-v1-1.male.n416",
             "source.hra-v1-1.male.n431"
           ],
-          "parent": "source.hra-v1-1.male.n404",
+          "parent": "anatomy.system.digestive",
           "review_status": "draft"
         },
         {
@@ -23720,7 +23720,7 @@
             "source.hra-v1-1.male.n442",
             "source.hra-v1-1.male.n443"
           ],
-          "parent": "source.hra-v1-1.male.n404",
+          "parent": "anatomy.system.digestive",
           "review_status": "draft"
         },
         {
@@ -23809,7 +23809,7 @@
             "source.hra-v1-1.male.n450",
             "source.hra-v1-1.male.n454"
           ],
-          "parent": "source.hra-v1-1.male.n404",
+          "parent": "anatomy.system.digestive",
           "review_status": "draft"
         },
         {
@@ -23994,7 +23994,7 @@
             "source.hra-v1-1.male.n459",
             "source.hra-v1-1.male.n460"
           ],
-          "parent": "source.hra-v1-1.male.n404",
+          "parent": "anatomy.system.digestive",
           "review_status": "draft"
         },
         {
@@ -24189,7 +24189,7 @@
             "source.hra-v1-1.male.n477",
             "source.hra-v1-1.male.n478"
           ],
-          "parent": "source.hra-v1-1.male.n404",
+          "parent": "anatomy.system.digestive",
           "review_status": "draft"
         },
         {
@@ -24334,7 +24334,7 @@
           "children": [
             "source.hra-v1-1.male.n480"
           ],
-          "parent": "source.hra-v1-1.male.n404",
+          "parent": "anatomy.system.digestive",
           "review_status": "draft"
         },
         {
@@ -24351,7 +24351,7 @@
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.male.n481",
+          "id": "anatomy.system.urinary",
           "label": "Urinary system",
           "source_node": 481,
           "source_name": "VH_M_urinary_system",
@@ -24531,7 +24531,7 @@
             "source.hra-v1-1.male.n483",
             "source.hra-v1-1.male.n526"
           ],
-          "parent": "source.hra-v1-1.male.n481",
+          "parent": "anatomy.system.urinary",
           "review_status": "draft"
         },
         {
@@ -25978,7 +25978,7 @@
             "source.hra-v1-1.male.n572",
             "source.hra-v1-1.male.n573"
           ],
-          "parent": "source.hra-v1-1.male.n481",
+          "parent": "anatomy.system.urinary",
           "review_status": "draft"
         },
         {
@@ -26112,7 +26112,7 @@
             "source.hra-v1-1.male.n580",
             "source.hra-v1-1.male.n581"
           ],
-          "parent": "source.hra-v1-1.male.n481",
+          "parent": "anatomy.system.urinary",
           "review_status": "draft"
         },
         {
@@ -26155,7 +26155,7 @@
             "source.hra-v1-1.male.n583",
             "source.hra-v1-1.male.n584"
           ],
-          "parent": "source.hra-v1-1.male.n481",
+          "parent": "anatomy.system.urinary",
           "review_status": "draft"
         },
         {
@@ -26185,7 +26185,7 @@
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.male.n585",
+          "id": "anatomy.system.lymphatic",
           "label": "Lymphatic system",
           "source_node": 585,
           "source_name": "VH_M_lymphatic_system",
@@ -26234,7 +26234,7 @@
             "source.hra-v1-1.male.n590",
             "source.hra-v1-1.male.n591"
           ],
-          "parent": "source.hra-v1-1.male.n585",
+          "parent": "anatomy.system.lymphatic",
           "review_status": "draft"
         },
         {
@@ -26326,7 +26326,7 @@
             "source.hra-v1-1.male.n598",
             "source.hra-v1-1.male.n599"
           ],
-          "parent": "source.hra-v1-1.male.n585",
+          "parent": "anatomy.system.lymphatic",
           "review_status": "draft"
         },
         {
@@ -26434,7 +26434,7 @@
             "source.hra-v1-1.male.n601",
             "source.hra-v1-1.male.n602"
           ],
-          "parent": "source.hra-v1-1.male.n585",
+          "parent": "anatomy.system.lymphatic",
           "review_status": "draft"
         },
         {
@@ -26464,7 +26464,7 @@
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.male.n603",
+          "id": "anatomy.system.nervous",
           "label": "Nervous system",
           "source_node": 603,
           "source_name": "VH_M_nervous_system",
@@ -27108,7 +27108,7 @@
             "source.hra-v1-1.male.n741",
             "source.hra-v1-1.male.n889"
           ],
-          "parent": "source.hra-v1-1.male.n603",
+          "parent": "anatomy.system.nervous",
           "review_status": "draft"
         },
         {
@@ -31396,7 +31396,7 @@
             "source.hra-v1-1.male.n891",
             "source.hra-v1-1.male.n894"
           ],
-          "parent": "source.hra-v1-1.male.n603",
+          "parent": "anatomy.system.nervous",
           "review_status": "draft"
         },
         {
@@ -31543,7 +31543,7 @@
             "source.hra-v1-1.male.n898",
             "source.hra-v1-1.male.n923"
           ],
-          "parent": "source.hra-v1-1.male.n603",
+          "parent": "anatomy.system.nervous",
           "review_status": "draft"
         },
         {
@@ -32307,7 +32307,7 @@
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.male.n948",
+          "id": "anatomy.system.muscular",
           "label": "Muscular system",
           "source_node": 948,
           "source_name": "VH_M_muscular_system",
@@ -32377,7 +32377,7 @@
             "source.hra-v1-1.male.n950",
             "source.hra-v1-1.male.n958"
           ],
-          "parent": "source.hra-v1-1.male.n948",
+          "parent": "anatomy.system.muscular",
           "review_status": "draft"
         },
         {
@@ -32632,7 +32632,7 @@
             "source.hra-v1-1.male.n967",
             "source.hra-v1-1.male.n970"
           ],
-          "parent": "source.hra-v1-1.male.n948",
+          "parent": "anatomy.system.muscular",
           "review_status": "draft"
         },
         {
@@ -32753,7 +32753,7 @@
             "source.hra-v1-1.male.n985",
             "source.hra-v1-1.male.n988"
           ],
-          "parent": "source.hra-v1-1.male.n948",
+          "parent": "anatomy.system.muscular",
           "review_status": "draft"
         },
         {
@@ -32968,7 +32968,7 @@
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.male.n989",
+          "id": "anatomy.system.respiratory",
           "label": "Respiratory system",
           "source_node": 989,
           "source_name": "VH_M_respiratory_system",
@@ -33088,7 +33088,7 @@
             "anatomy.lung.left",
             "anatomy.lung.right"
           ],
-          "parent": "source.hra-v1-1.male.n989",
+          "parent": "anatomy.system.respiratory",
           "review_status": "draft"
         },
         {
@@ -33670,7 +33670,7 @@
             "source.hra-v1-1.male.n1027",
             "source.hra-v1-1.male.n1040"
           ],
-          "parent": "source.hra-v1-1.male.n989",
+          "parent": "anatomy.system.respiratory",
           "review_status": "draft"
         },
         {
