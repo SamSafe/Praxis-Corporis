@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "source_commit": "f1a3a63f110e27ff0736047d52d04dba5d3087f9",
+  "access_date": "2026-10-11",
+  "source": "HuBMAP / Human Reference Atlas 3D Reference Object Library",
+  "version": "United source files v1.1 (deliberately pinned; not a latest-release claim)",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "modifications": "GLB files unchanged. The draft catalogue excludes extraction-site roots; display materials and inspection displacement are runtime changes.",
+  "files": [
+    {
+      "local_path": "assets/hra/female.glb",
+      "bytes": 76147432,
+      "sha256": "149c9dade4a914c02f73eed96cef68079fc98e70019fcf69185cae24050dcfe5",
+      "url": "https://raw.githubusercontent.com/hubmapconsortium/ccf-3d-reference-object-library/f1a3a63f110e27ff0736047d52d04dba5d3087f9/VH_Female/v1.1/VH_F_United.glb",
+      "body_id": "female",
+      "label": "Female reference (HRA v1.1)",
+      "anatomy_root": "VH_F"
+    },
+    {
+      "local_path": "assets/hra/male.glb",
+      "bytes": 78514500,
+      "sha256": "f8dce99e28b64109b4419b579f8c53bb3af5b6d7739eb1f0406c34289b4f5863",
+      "url": "https://raw.githubusercontent.com/hubmapconsortium/ccf-3d-reference-object-library/f1a3a63f110e27ff0736047d52d04dba5d3087f9/VH_Male/v1.1/VH_M_United.glb",
+      "body_id": "male",
+      "label": "Male reference (HRA v1.1)",
+      "anatomy_root": "VH_M"
+    },
+    {
+      "local_path": "third_party/HRA-LICENSE.txt",
+      "bytes": 18657,
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+      "url": "https://raw.githubusercontent.com/hubmapconsortium/ccf-3d-reference-object-library/f1a3a63f110e27ff0736047d52d04dba5d3087f9/LICENSE"
+    },
+    {
+      "local_path": "third_party/HRA-README.md",
+      "bytes": 761,
+      "sha256": "57519f4cfbb2b12b8bf75654231b28b44802b611e85092b1044701fa640179f6",
+      "url": "https://raw.githubusercontent.com/hubmapconsortium/ccf-3d-reference-object-library/f1a3a63f110e27ff0736047d52d04dba5d3087f9/README.md"
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "female": {
+    "sha256": "149c9dade4a914c02f73eed96cef68079fc98e70019fcf69185cae24050dcfe5",
+    "bytes": 76147432,
+    "generator": "babylon.js glTF exporter for Autodesk MAYA 2022.2 v20211115.1",
+    "anatomy_root": 0,
+    "total_nodes": 1085,
+    "anatomy_nodes": 970,
+    "anatomy_mesh_nodes": 801,
+    "anatomy_triangles": 3523547,
+    "excluded_nodes": 115,
+    "systems": [
+      {
+        "source_name": "VH_F_integumentary_system",
+        "mesh_nodes": 1,
+        "triangles": 124348
+      },
+      {
+        "source_name": "VH_F_nervous_system",
+        "mesh_nodes": 331,
+        "triangles": 1543756
+      },
+      {
+        "source_name": "VH_F_muscular_system",
+        "mesh_nodes": 18,
+        "triangles": 43724
+      },
+      {
+        "source_name": "VH_F_reproductive_system",
+        "mesh_nodes": 38,
+        "triangles": 162437
+      },
+      {
+        "source_name": "VH_F_digestive_system",
+        "mesh_nodes": 59,
+        "triangles": 182188
+      },
+      {
+        "source_name": "VH_F_urinary_system",
+        "mesh_nodes": 87,
+        "triangles": 258496
+      },
+      {
+        "source_name": "VH_F_circulatory_system",
+        "mesh_nodes": 122,
+        "triangles": 423188
+      },
+      {
+        "source_name": "VH_F_respiratory_system",
+        "mesh_nodes": 65,
+        "triangles": 378963
+      },
+      {
+        "source_name": "VH_F_lymphatic_system",
+        "mesh_nodes": 14,
+        "triangles": 267071
+      },
+      {
+        "source_name": "VH_F_skeletal_system",
+        "mesh_nodes": 66,
+        "triangles": 139376
+      }
+    ],
+    "note": "Source node counts are not verified anatomical coverage or clinical review."
+  },
+  "male": {
+    "sha256": "f8dce99e28b64109b4419b579f8c53bb3af5b6d7739eb1f0406c34289b4f5863",
+    "bytes": 78514500,
+    "generator": "babylon.js glTF exporter for Autodesk MAYA 2022.2 v20211115.1",
+    "anatomy_root": 115,
+    "total_nodes": 1076,
+    "anatomy_nodes": 961,
+    "anatomy_mesh_nodes": 788,
+    "anatomy_triangles": 3612750,
+    "excluded_nodes": 115,
+    "systems": [
+      {
+        "source_name": "VH_M_circulatory_system",
+        "mesh_nodes": 118,
+        "triangles": 523717
+      },
+      {
+        "source_name": "VH_M_integumentary_system",
+        "mesh_nodes": 1,
+        "triangles": 107334
+      },
+      {
+        "source_name": "VH_M_skeletal_system",
+        "mesh_nodes": 67,
+        "triangles": 133076
+      },
+      {
+        "source_name": "VH_M_male_reproductive_system",
+        "mesh_nodes": 18,
+        "triangles": 230590
+      },
+      {
+        "source_name": "VH_M_digestive_system",
+        "mesh_nodes": 60,
+        "triangles": 175153
+      },
+      {
+        "source_name": "VH_M_urinary_system",
+        "mesh_nodes": 81,
+        "triangles": 241845
+      },
+      {
+        "source_name": "VH_M_lymphatic_system",
+        "mesh_nodes": 14,
+        "triangles": 274265
+      },
+      {
+        "source_name": "VH_M_nervous_system",
+        "mesh_nodes": 333,
+        "triangles": 1594826
+      },
+      {
+        "source_name": "VH_M_muscular_system",
+        "mesh_nodes": 29,
+        "triangles": 43481
+      },
+      {
+        "source_name": "VH_M_respiratory_system",
+        "mesh_nodes": 67,
+        "triangles": 288463
+      }
+    ],
+    "note": "Source node counts are not verified anatomical coverage or clinical review."
+  }
+}

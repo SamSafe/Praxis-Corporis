@@ -1,7 +1,8 @@
 # Anatomy Asset Audit Plan
 
-Status: audit method prepared; source documentation researched, binary anatomy assets
-not downloaded, imported, or validated. Do not mark the inventory complete from this plan.
+Status: audit method prepared; two pinned HRA v1.1 United GLB samples downloaded
+and inventoried. See [sample findings](audit/HRA_SAMPLE_FINDINGS.md) for measured
+source counts and gaps. Engine trials are in progress; the complete inventory remains open.
 
 ## Purpose
 
@@ -15,8 +16,9 @@ as a complete two-body solution.
 
 ## Initial system inventory
 
-Every cell below is unresolved until the relevant source geometry and metadata are
-examined. A source's existence does not mean a system is sufficiently represented.
+This table remains the comprehensive-release audit checklist. The narrower sample
+findings identify supplied geometry, but do not establish sufficient system coverage.
+A source's existence does not mean a system is sufficiently represented.
 
 | System / region | Male geometry | Female geometry | Internal detail | Connections | Planned priority |
 |---|---|---|---|---|---|
@@ -99,10 +101,11 @@ For each candidate or proposed combination, record:
 Avoid introducing reconstructed imaging as an effortless replacement for missing
 models; segmentation and anatomical validation are separate work.
 
-## Later feasibility trial
+## Authorised feasibility trial
 
-After implementation is authorised, import a small representative set before a full
-atlas. Test actual structure picking, hidden/faded geometry, nested parts, label
+The user authorised the first feasibility prototype on 2026-10-11. The selected
+samples contain partial whole-body context and separately grouped organs. Test
+actual structure picking, hidden/faded geometry, nested parts, label
 anchors, local separation, clipping, restoration, content mapping, and platform exports.
 
 Use models from both bodies and a shared task. Record engine/content versions and

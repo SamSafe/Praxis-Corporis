@@ -39,3 +39,7 @@ __pycache__/
 *.py[cod]
 *.blend1
 *.blend2
+
+# Reproducible atlas downloads; provenance and hashes are versioned in content/.
+assets/hra/*.glb
+assets/prepared/*.scn
