@@ -9,9 +9,6 @@ static func mount_if_needed() -> String:
 		return ""
 	var directory := OS.get_executable_path().get_base_dir()
 	var candidates: Array[String] = [directory.path_join(PACK_NAME)]
-	if OS.get_name() == "macOS":
-		# Private ZIPs keep the anatomy next to the .app, preserving its ad-hoc seal.
-		candidates.append(directory.get_base_dir().get_base_dir().get_base_dir().path_join(PACK_NAME))
 	for path in candidates:
 		if FileAccess.file_exists(path):
 			if not ProjectSettings.load_resource_pack(path, false):
@@ -20,5 +17,7 @@ static func mount_if_needed() -> String:
 				return ""
 			return "The anatomy package is incomplete. Re-extract the complete private build."
 	if OS.has_feature("template"):
+		if OS.get_name() == "macOS":
+			return "Anatomy is missing from this application. Re-extract the complete private Mac build."
 		return "Anatomy is missing. Keep anatomy.pck beside the application and re-extract the complete private build."
 	return ""

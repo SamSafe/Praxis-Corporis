@@ -109,11 +109,13 @@ def add_notices(folder: pathlib.Path, platform: str) -> None:
     (folder / "START_HERE.txt").write_text(
         "PRAXIS CORPORIS — PRIVATE ANATOMY PROTOTYPE\n\n"
         + ("Open PraxisCorporis.exe.\n" if platform == "windows" else "Open PraxisCorporis.app.\n")
-        + "Extract this complete folder first. Keep anatomy.pck beside the application.\n"
-        "Python and the Godot editor are not required; exploration works offline.\n\n"
+        + ("Extract this complete folder first. Keep anatomy.pck beside the executable.\n" if platform == "windows" else
+           "Extract the ZIP first. Anatomy is included inside the application bundle.\n")
+        + "Python and the Godot editor are not required; exploration works offline.\n\n"
         "Drag to orbit; Shift/right-drag to pan; scroll or pinch to zoom.\n"
         "Peel away skin, choose Show chest, or select anatomy in the list.\n"
-        "Move selected enables inspection displacement. Restore returns original anatomy.\n"
+        "Move selected enables inspection displacement; blue overlays mark original positions.\n"
+        "Undo/Redo reverses or reapplies inspection changes. Restore returns original anatomy.\n"
         "Save view stores a local session outside this folder.\n\n"
         "Both reference bodies are included. This is a partial, unreviewed atlas.\n"
         "There is no disease content, guided pathway, or public-release claim.\n"
@@ -136,6 +138,7 @@ def build(args: argparse.Namespace) -> dict:
     report["source_hashes"] = {str(path.relative_to(ROOT)): sha256(path) for path in
                                [ROOT / "project.godot", ROOT / "export_presets.cfg", ROOT / "content/sample_pack.json",
                                 ROOT / "content/source_manifest.json", ROOT / "content/toolchain_manifest.json",
+                                ROOT / "addons/private_native_export/plugin.gd",
                                 *sorted((ROOT / "scripts").glob("*.gd"))]}
     with tempfile.TemporaryDirectory(prefix="native-build-", dir=args.output) as workspace:
         temporary = pathlib.Path(workspace)
@@ -192,7 +195,18 @@ def build(args: argparse.Namespace) -> dict:
                 if len(executables) != 1 or not modes.get(executables[0].relative_to(folder).as_posix(), 0) & 0o111:
                     raise ValueError("Mac bundle must have one executable with execute permissions")
                 architectures = binary_architectures(executables[0])
-            shutil.copyfile(data_pack, folder / "anatomy.pck")
+                core_packs = list(folder.glob("*.app/Contents/Resources/*.pck"))
+                if len(core_packs) != 1 or core_packs[0].stat().st_size < data_pack.stat().st_size:
+                    raise ValueError("Mac application must contain its anatomy inside the core resource pack")
+                if not list(folder.glob("*.app/Contents/_CodeSignature/CodeResources")):
+                    raise ValueError("Mac application must retain its ad-hoc resource seal")
+                if args.qa_linux:
+                    print("Checking the embedded Mac content using the development engine…", flush=True)
+                    run([args.godot, "--headless", "--audio-driver", "Dummy", "--main-pack", str(core_packs[0]),
+                         "--", "--verify-bundle"], cwd=folder, env=qa_environment)
+                    report["mac_content_qa"] = "passed two-body embedded-content check on the development engine; Mac device testing pending"
+            if platform == "windows":
+                shutil.copyfile(data_pack, folder / "anatomy.pck")
             add_notices(folder, platform)
             name = "PraxisCorporis-Windows-x64-private.zip" if platform == "windows" else "PraxisCorporis-macOS-universal-private.zip"
             archive = temporary / name
