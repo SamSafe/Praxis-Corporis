@@ -329,3 +329,18 @@ frame-cadence FPS, faded-lung chest views 3.2–3.4, isolated parts about 42, an
 whole bone study 9.2. These verify measurement behaviour on software rendering,
 not AMD performance or a student-laptop baseline. The target Windows graphics
 measurement and representative sustained 1080p acceptance remain separate work.
+
+The package from source commit `5770d1d` then completed the actual Windows AMD trial
+on an AMD Ryzen 5 PRO 6650U host with 15,859,003,392 bytes of reported physical RAM
+and 12 logical processors. All eight short scenes observed 59.7–59.9 frame-cadence
+FPS; p95 frame intervals were 17.24–17.60 ms with VSync enabled. These results describe
+the measured renderer/window setup, not unbounded GPU throughput. Raw samples,
+source/viewport/driver identity, artifact hash and separately sampled process-memory
+observations are retained in [windows-render-profile.json](audit/windows-render-profile.json).
+The independent summary validator passed every raw scene measurement.
+
+Both packages' source snapshots, CRCs and hashes matched. Exported Linux/Mac embedded
+content and temporary saved-view checks passed. The [performance protocol](PERFORMANCE_PROTOCOL.md)
+specifies longer 1080p repeated trials and distinguishes memory, load, cadence and
+hardware acceptance. The native short trial leaves representative laptop/Mac,
+human-input and sustained-performance gates open.

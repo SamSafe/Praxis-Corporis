@@ -28,6 +28,10 @@ duplicate names, stale edits, damaged-file recovery and failed writes. The rende
 Save/Restore actions were exercised at the compact desktop size. The older quick-save
 slot remains compatible. Native builds also verify write/reopen/restore in temporary
 test files without accessing the user's library.
+Short native rendering profiles on the Windows Ryzen 5 PRO 6650U / AMD Radeon host
+observed about 60 frame-cadence FPS across eight scenes. Raw intervals and hardware
+identity are retained; repeated sustained 1080p trials and a representative Mac are
+still required by [the measurement protocol](PERFORMANCE_PROTOCOL.md).
 
 ## Established by the user
 
@@ -69,7 +73,7 @@ implementation. Local commits preserve progress; no remote publication is implie
 | Male/female coverage | Two HRA v1.1 samples inventoried; substantial system gaps remain. | Supplement missing anatomy and validate actual coverage/interiors. |
 | Exterior and deeper layers | Skin reveal and chest selection work in the prototype; complete layers absent. | Enrich both bodies and validate the complete journey. |
 | Engine suitability | Godot 4.7.2 passes initial import, picking, movement, restore and saved-view trials. | Complete clipping, renderer/device benchmarks, accessibility and platform exports. |
-| Baseline hardware | No measured test matrix. | Test representative Windows and Mac laptops. |
+| Baseline hardware | One actual Windows AMD host has short rendering/memory observations; no acceptance matrix. | Run repeated sustained 1080p trials and test a representative Mac. |
 | Pathway content | Grouping is not verified connectivity. | Source/author and review explicit routes. |
 | Medical review | No access. | Arrange review before the planned public content release. |
 | Application licence | Undecided; private prototype code now exists. | Decide before implementation distribution. |

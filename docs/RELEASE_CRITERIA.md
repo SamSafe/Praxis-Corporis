@@ -60,6 +60,10 @@ memory budgets during feasibility. Measure cold/warm loads, opacity-heavy views,
 label density, region changes, disassembly, and condition toggling. Preserve useful
 selection and detail when adapting quality.
 
+[PERFORMANCE_PROTOCOL.md](PERFORMANCE_PROTOCOL.md) defines version identity, workloads,
+raw measurements, memory interpretation and sustained/repeated trials. Short developer
+profiles are diagnostic evidence, distinct from the proposed acceptance baseline.
+
 ## Public release
 
 - Both adult bodies meet the declared core tasks and anatomical scope.
