@@ -451,3 +451,24 @@ and keyboard/panel checks also passed, with exit code 0.
 process-memory observations; a [native loading capture](prototype/windows-loading-male.png)
 shows the prior male exploration while checking a rejected replacement. No maximum
 pause or sustained-performance claim follows from the frame counts.
+
+
+## Local notes attached to saved views — 2026-10-12
+
+The saved-view library now retains optional multiline personal study notes. It accepts
+10,000 characters per view, including Unicode and line breaks. The two-column window
+keeps view context and note editing together. Changing selection retains typed drafts;
+Save notes explicitly persists them. Closing/restoring or a normal application-close
+request protects drafts with save, discard and keep-editing choices. Saving before
+continuing writes all drafts in one library update. A failed/stale write leaves the
+drafts and decision dialog open. Force-stop/crash recovery of unsaved notes is not
+implemented. Personal text stays distinct from anatomy snapshots and authored content.
+
+Storage/UI integration checks cover earlier note-free libraries without opening-time
+rewrites, exact multiline Unicode reopening, batch rejection without partial writes,
+stale readers, oversized/invalid note records, backup recovery, retained drafts,
+normal window-close routing and restoration after a save decision. Existing multi-body
+named-view checks still pass. Rendered compact-layout checks exercise actual Save notes
+and Restore clicks, text undo without anatomy changes, and unsaved-choice rendering.
+[Saved-note window](prototype/saved-view-study-notes.png) and
+[draft protection](prototype/unsaved-study-notes.png) are retained inspection captures.

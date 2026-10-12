@@ -73,7 +73,7 @@ This exports a temporary Linux runtime solely for bundle verification. It runs
 outside the source project with isolated user data, loads every bundled reference from the
 packed anatomy, tests inspection restoration and selection/camera history, confirms
 the supplied heart component catalogue, tests isolated-part inspection and return
-without changing stored anatomy settings, verifies local saved-view write/reopen/restore
+without changing stored anatomy settings, verifies local saved-view and multiline-note write/reopen/restore
 using temporary random filenames, and checks that removing anatomy.pck produces a
 clear failure. Loading checks observe interface frames and deliberately reject a bad cached mesh
 mapping while preserving the prior exploration. Focused keyboard navigation and panel collapse are checked without
@@ -116,7 +116,8 @@ exercises the same offline inspection/saved-view checks and saves native-chest-f
 native-chest-male.png and (when included) native-bones-bodyparts-male-bones-study.png
 to user://, then exits. It also writes native-export-<reference>.png,
 exercising the screenshot composer/writer with embedded source/status credits. These
-scripted checks also save native-loading-<reference>.png while retaining the prior
+scripted checks also save native-study-notes-<reference>.png after editing, saving
+and reopening notes through the local editor, alongside native-loading-<reference>.png while retaining the prior
 scene during a deliberately rejected replacement. They do not operate the native OS file picker; that remains a human trial.
 Use a dedicated test user-data directory: repeated runs replace these developer
 capture filenames. The verifier does not

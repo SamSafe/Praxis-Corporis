@@ -127,7 +127,7 @@ def add_notices(folder: pathlib.Path, platform: str) -> None:
         "If included, Male bones / BodyParts3D study is a separate source reference, unregistered to HRA.\n"
         "Move selected enables inspection displacement; blue overlays mark original positions.\n"
         "Undo/Redo reverses or reapplies inspection changes. Restore returns original anatomy.\n"
-        "Saved views keeps named local exploration setups outside this folder.\n\n"
+        "Saved views keeps named local exploration setups and your study notes outside this folder.\n\n"
         "Both reference bodies are included. This is a partial, unreviewed atlas.\n"
         "There is no disease content, guided pathway, or public-release claim.\n"
         "Human input/performance acceptance and Mac hardware execution remain open.\n"

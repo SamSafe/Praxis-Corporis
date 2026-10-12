@@ -84,6 +84,7 @@ is used by the viewer.
 | Leave Move mode | Escape or Whole body returns to navigation and preserves inspection changes. |
 | Body reference | Select Female reference or Male reference; shared canonical selections are retained where mapped. |
 | Save/load | Saved views opens named local exploration setups with Save current view, Restore, Rename and Delete. |
+| Study notes | Select a saved view, type your observations/questions, then Save notes. |
 | Coverage | Coverage opens the technical inventory for both reference bodies, known gaps and a shortcut to select a supplied group. |
 | Workspace panels | Panels toggles the anatomy explorer and structure details independently; Keyboard controls opens the shortcut reference. |
 | Screenshot | Screenshot captures the current workspace and opens a PNG save dialog; source credits and prototype status are added below the image. |
@@ -185,6 +186,21 @@ including when only letter case differs. Saving creates a new view rather than
 overwriting an existing one. Restore validates the complete snapshot before changing
 the body. Missing content or a different geometry hash leaves the session untouched.
 
+Each saved view can hold your own multiline study notes. Save the view first, select
+it in the library, type observations or questions under **Your study notes**, then
+choose **Save notes**. Notes are plain local text, up to 10,000 characters per view;
+they do not modify the body snapshot or provide authored disease information.
+Creating another view starts with empty notes. Selecting a different view preserves
+any unsaved drafts until you return to them.
+
+Closing Saved views, restoring a view/older quick save, or normally closing the app
+protects unsaved drafts with **Save notes**, **Discard notes**, or **Keep editing**.
+Save writes every pending draft in one library update before continuing. A failed
+write leaves the dialog and typed text open. Drafts live in memory until saved; a
+forced process stop or crash cannot recover them. Deleting a view also deletes its
+notes after the existing explicit confirmation. Older libraries without notes
+remain readable without being rewritten just by opening them.
+
 The optional [BodyParts3D bone study](audit/BODYPARTS3D_FINDINGS.md) provides a separate
 male source reference with 203 mesh files. It is available in the reference selector
 when prepared/bundled. It retains its own coordinates, source coverage and notices;
@@ -210,7 +226,9 @@ storage, without cloud sync or a cross-process transaction service.
 
 The older `user://saved_view.json` quick-save slot is kept intact. When present,
 **Restore previous quick save** appears in the window. Older HRA schema-1 views retain
-their compatible defaults. General schema migration/import/export remain future work.
+their compatible defaults. General schema migration/import/export remain future work. Saved notes use the same
+backup and stale-file protections as the views. Text editing undo belongs to the
+note field and leaves anatomy edits untouched.
 
 ## Actual scope and limitations
 
@@ -272,6 +290,7 @@ Named-view storage and restore checks:
 
 ```sh
 godot --headless --path . --script tests/saved_views_smoke.gd
+godot --headless --path . --script tests/study_notes_smoke.gd
 godot --path . --script tests/capture_saved_views.gd
 ```
 

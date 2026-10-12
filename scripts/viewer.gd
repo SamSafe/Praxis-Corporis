@@ -71,6 +71,8 @@ var capture_in_progress := false
 
 
 func _ready() -> void:
+	get_tree().auto_accept_quit = false
+	get_window().close_requested.connect(request_exit)
 	var content_error := ContentBundle.mount_if_needed()
 	var parsed := ContentBundle.catalogue()
 	if parsed.is_empty():
@@ -94,6 +96,14 @@ func _ready() -> void:
 		call_deferred("verify_bundle")
 	else:
 		call_deferred("switch_body", "female")
+
+
+func request_exit() -> void:
+	for child in get_children():
+		if child is SavedViewsBrowser and child.visible:
+			child.request_action(get_tree().quit)
+			return
+	get_tree().quit()
 
 
 func profile_bundle() -> void:
@@ -182,7 +192,7 @@ func verify_bundle() -> void:
 			push_error("Bundled return to context failed")
 			get_tree().quit(1)
 			return
-		if not await verify_saved_view():
+		if not await verify_saved_view(rendered):
 			get_tree().quit(1)
 			return
 		if not await verify_failed_replacement(reference, rendered):
@@ -253,7 +263,7 @@ func verify_failed_replacement(reference: Dictionary, rendered: bool) -> bool:
 	return preserved
 
 
-func verify_saved_view() -> bool:
+func verify_saved_view(rendered: bool) -> bool:
 	# Developer verification uses its own random filename; user libraries/legacy
 	# slots are never read or written, including when running a packaged build.
 	var library := SavedViews.new()
@@ -261,24 +271,62 @@ func verify_saved_view() -> bool:
 	library.load_library()
 	var snapshot := export_view_state()
 	var error := library.add_view("Bundle verification", snapshot)
+	if error.is_empty():
+		error = library.set_notes(library.entries[0].id, "Developer verification notes.\nRevisit this saved source view.")
 	var reopened := SavedViews.new()
 	reopened.path = library.path
 	if error.is_empty():
 		error = reopened.load_library()
-	if error.is_empty() and (reopened.entries.size() != 1 or not validate_view_state(reopened.entries[0].state).is_empty()):
+	if error.is_empty() and (reopened.entries.size() != 1 or reopened.entries[0].get("notes", "") != "Developer verification notes.\nRevisit this saved source view." or not validate_view_state(reopened.entries[0].state).is_empty()):
 		error = "Saved view did not survive reopening"
 	if error.is_empty():
 		model.restore()
 		if not await restore_view_state(reopened.entries[0].state) or model.export_state() != snapshot.changes or model.selected_id != snapshot.selection:
 			error = "Saved view did not restore bundled anatomy"
+	if error.is_empty() and rendered and not await verify_note_editor(library.path, snapshot):
+		error = "Rendered study-note editing failed"
 	for suffix in ["", ".tmp", ".bak", ".bak.tmp"]:
 		if FileAccess.file_exists(library.path + suffix):
 			DirAccess.remove_absolute(library.path + suffix)
 	if not error.is_empty():
 		push_error(error)
 		return false
-	print("PASS bundled local saved view: ", model.body.id)
+	print("PASS bundled local saved view and study notes: ", model.body.id)
 	return true
+
+
+func verify_note_editor(library_path: String, snapshot: Dictionary) -> bool:
+	var before := export_view_state()
+	var library := SavedViews.new()
+	library.path = library_path
+	var browser := SavedViewsBrowser.new()
+	browser.library = library
+	browser.pack = pack
+	browser.current_state = snapshot
+	browser.validate_state = validate_view_state
+	browser.theme = theme
+	add_child(browser)
+	browser.popup_centered_clamped(Vector2i(820, 620), 0.9)
+	await get_tree().process_frame
+	await get_tree().process_frame
+	browser.view_list.select(0)
+	browser.select_entry(0)
+	browser.notes_input.insert_text_at_caret("Saved from the local note editor.\n")
+	await get_tree().process_frame
+	await get_tree().process_frame
+	browser.notes_button.pressed.emit()
+	var expected: String = browser.notes_input.text
+	var reopened := SavedViews.new()
+	reopened.path = library_path
+	var valid: bool = reopened.load_library().is_empty() and reopened.entries.size() == 1 and reopened.entries[0].get("notes", "") == expected and browser.draft_notes.is_empty() and export_view_state() == before
+	await RenderingServer.frame_post_draw
+	var capture := get_viewport().get_texture().get_image()
+	valid = valid and capture.save_png("user://native-study-notes-%s.png" % str(model.body.id)) == OK
+	browser.queue_free()
+	await get_tree().process_frame
+	if valid:
+		print("PASS native rendered study notes: ", model.body.id)
+	return valid
 
 
 func verify_keyboard_workspace() -> bool:

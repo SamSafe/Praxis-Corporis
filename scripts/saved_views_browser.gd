@@ -18,6 +18,14 @@ var rename_button: Button
 var delete_button: Button
 var recovery_button: Button
 var delete_pending := ""
+var notes_input: TextEdit
+var notes_button: Button
+var notes_status: Label
+var draft_notes: Dictionary = {}
+var editing_id := ""
+var syncing_notes := false
+var pending_action: Callable
+var unsaved_dialog: ConfirmationDialog
 
 
 func button(text: String, callback: Callable, parent: Node) -> Button:
@@ -35,7 +43,7 @@ func _ready() -> void:
 	transient = true
 	exclusive = true
 	min_size = Vector2i(720, 500)
-	close_requested.connect(queue_free)
+	close_requested.connect(request_close)
 	var background := ColorRect.new()
 	background.color = Color("0e1926")
 	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -53,7 +61,7 @@ func _ready() -> void:
 	title_label.add_theme_font_size_override("font_size", 22)
 	layout.add_child(title_label)
 	var hint := Label.new()
-	hint.text = "Keep your camera, labels and inspection setup. Stored on this computer."
+	hint.text = "Keep your camera, labels and inspection setup. Add your study notes. Stored on this computer."
 	hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	layout.add_child(hint)
 	var new_view := HBoxContainer.new()
@@ -66,16 +74,47 @@ func _ready() -> void:
 	name_input.text_submitted.connect(func(_text: String): save_current())
 	new_view.add_child(name_input)
 	save_button = button("Save current view", save_current, new_view)
+	var content := HBoxContainer.new()
+	content.add_theme_constant_override("separation", 18)
+	content.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	layout.add_child(content)
+	var saved_column := VBoxContainer.new()
+	saved_column.custom_minimum_size.x = 240
+	saved_column.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	content.add_child(saved_column)
 	view_list = ItemList.new()
 	view_list.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	view_list.custom_minimum_size.y = 160
 	view_list.item_selected.connect(select_entry)
 	view_list.item_activated.connect(func(_index: int): restore_selected())
-	layout.add_child(view_list)
+	saved_column.add_child(view_list)
 	information = Label.new()
 	information.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	information.custom_minimum_size.y = 50
-	layout.add_child(information)
+	saved_column.add_child(information)
+	var notes_column := VBoxContainer.new()
+	notes_column.custom_minimum_size.x = 320
+	notes_column.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	content.add_child(notes_column)
+	var notes_header := HBoxContainer.new()
+	notes_column.add_child(notes_header)
+	var notes_title := Label.new()
+	notes_title.text = "YOUR STUDY NOTES"
+	notes_title.add_theme_font_size_override("font_size", 13)
+	notes_title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	notes_header.add_child(notes_title)
+	notes_button = button("Save notes", save_notes, notes_header)
+	notes_input = TextEdit.new()
+	notes_input.placeholder_text = "Select a saved view to add observations or questions."
+	notes_input.wrap_mode = TextEdit.LINE_WRAPPING_BOUNDARY
+	notes_input.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	notes_input.custom_minimum_size.y = 160
+	notes_input.text_changed.connect(on_notes_changed)
+	notes_column.add_child(notes_input)
+	notes_status = Label.new()
+	notes_status.add_theme_font_size_override("font_size", 13)
+	notes_status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	notes_column.add_child(notes_status)
 	message = Label.new()
 	message.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	message.add_theme_color_override("font_color", Color("83cfc9"))
@@ -89,9 +128,9 @@ func _ready() -> void:
 	var spacer := Control.new()
 	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	actions.add_child(spacer)
-	button("Close", queue_free, actions)
+	button("Close", request_close, actions)
 	if legacy_available:
-		button("Restore previous quick save", func(): legacy_requested.emit(); queue_free(), layout)
+		button("Restore previous quick save", restore_legacy, layout)
 	library.load_library()
 	refresh_list()
 	message.text = library.read_error
@@ -133,12 +172,19 @@ func cancel_delete() -> void:
 
 func select_entry(_index: int) -> void:
 	cancel_delete()
+	remember_notes_draft()
 	var entry := selected_entry()
 	var unavailable: bool = entry.is_empty() or not library.read_error.is_empty()
 	restore_button.disabled = unavailable
 	rename_button.disabled = unavailable
 	delete_button.disabled = unavailable
 	information.text = ""
+	editing_id = str(entry.get("id", ""))
+	syncing_notes = true
+	notes_input.text = str(draft_notes.get(editing_id, entry.get("notes", ""))) if not entry.is_empty() else ""
+	syncing_notes = false
+	notes_input.editable = not unavailable
+	refresh_notes_status()
 	if entry.is_empty():
 		return
 	var body_label := str(entry.state.get("body", "Unavailable reference"))
@@ -170,8 +216,9 @@ func restore_selected() -> void:
 	var entry := selected_entry()
 	if entry.is_empty() or restore_button.disabled:
 		return
-	restore_requested.emit(entry.state.duplicate(true), entry.name)
-	queue_free()
+	var state: Dictionary = entry.state.duplicate(true)
+	var view_name: String = entry.name
+	request_action(func(): restore_requested.emit(state, view_name); queue_free())
 
 
 func rename_selected() -> void:
@@ -196,6 +243,8 @@ func delete_selected() -> void:
 	var error: String = library.delete_view(entry.id)
 	message.text = error if not error.is_empty() else "View deleted."
 	if error.is_empty():
+		draft_notes.erase(entry.id)
+		editing_id = ""
 		refresh_list()
 
 
@@ -205,7 +254,99 @@ func recover_library() -> void:
 	refresh_list()
 
 
+func remember_notes_draft() -> void:
+	if syncing_notes or editing_id.is_empty():
+		return
+	for entry in library.entries:
+		if entry.id == editing_id:
+			if notes_input.text == str(entry.get("notes", "")):
+				draft_notes.erase(editing_id)
+			else:
+				draft_notes[editing_id] = notes_input.text
+			return
+
+
+func on_notes_changed() -> void:
+	if syncing_notes:
+		return
+	remember_notes_draft()
+	refresh_notes_status()
+
+
+func refresh_notes_status() -> void:
+	var error: String = library.notes_format(notes_input.text)
+	notes_button.disabled = editing_id.is_empty() or not draft_notes.has(editing_id) or not library.read_error.is_empty() or not error.is_empty()
+	if editing_id.is_empty():
+		notes_status.text = "Notes are attached to a saved view."
+	else:
+		notes_status.text = "%s · %d / 10,000 characters" % ["Unsaved" if draft_notes.has(editing_id) else "Saved", notes_input.text.length()]
+		if not error.is_empty():
+			notes_status.text += "\n" + error
+
+
+func save_notes() -> void:
+	remember_notes_draft()
+	if editing_id.is_empty() or not draft_notes.has(editing_id):
+		return
+	var error: String = library.set_notes(editing_id, draft_notes[editing_id])
+	message.text = error if not error.is_empty() else "Study notes saved on this computer."
+	if error.is_empty():
+		draft_notes.erase(editing_id)
+	refresh_notes_status()
+
+
+func request_close() -> void:
+	request_action(queue_free)
+
+
+func restore_legacy() -> void:
+	request_action(func(): legacy_requested.emit(); queue_free())
+
+
+func request_action(action: Callable) -> void:
+	remember_notes_draft()
+	if draft_notes.is_empty():
+		action.call()
+		return
+	if is_instance_valid(unsaved_dialog) and unsaved_dialog.visible:
+		return
+	pending_action = action
+	if not is_instance_valid(unsaved_dialog):
+		unsaved_dialog = ConfirmationDialog.new()
+		unsaved_dialog.title = "Unsaved study notes"
+		unsaved_dialog.dialog_autowrap = true
+		unsaved_dialog.dialog_hide_on_ok = false
+		unsaved_dialog.ok_button_text = "Save notes"
+		unsaved_dialog.cancel_button_text = "Keep editing"
+		unsaved_dialog.add_button("Discard notes", false, "discard")
+		unsaved_dialog.confirmed.connect(finish_pending_action.bind(true))
+		unsaved_dialog.custom_action.connect(func(choice: StringName):
+			if choice == "discard":
+				finish_pending_action(false))
+		unsaved_dialog.canceled.connect(func(): pending_action = Callable())
+		add_child(unsaved_dialog)
+	unsaved_dialog.dialog_text = "You have unsaved study notes for %d view%s. Save them before continuing?" % [draft_notes.size(), "s" if draft_notes.size() != 1 else ""]
+	unsaved_dialog.popup_centered_clamped(Vector2i(510, 170), 0.9)
+
+
+func finish_pending_action(save: bool) -> void:
+	if not pending_action.is_valid():
+		return
+	if save:
+		var error: String = library.update_notes(draft_notes)
+		if not error.is_empty():
+			message.text = error
+			unsaved_dialog.dialog_text = error + "\nYour draft notes are still open."
+			return
+	draft_notes.clear()
+	var action := pending_action
+	pending_action = Callable()
+	unsaved_dialog.hide()
+	refresh_notes_status()
+	action.call()
+
+
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
-		queue_free()
+		request_close()
 		set_input_as_handled()

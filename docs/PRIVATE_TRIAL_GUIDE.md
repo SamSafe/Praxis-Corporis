@@ -33,6 +33,7 @@ restarting. Repeat the HRA tasks for both female and male references.
 | Move and recover | Enable Move, displace a part, use Undo/Redo and Restore selected. | Is original placement clear? Did navigation ever move anatomy? |
 | Revisit anatomy | Select the heart/lung and use Back/Forward. | Were camera and inspection changes retained as expected? |
 | Save two views | Give two different setups distinct names in Saved views. | Are reference and structure easy to distinguish? |
+| Add study notes | Select each saved view, save different notes, and reopen them. Try Keep editing after closing an unsaved draft. | Did text stay attached to the right view? Were the choices clear? |
 | Reopen and restore | Close/reopen the app and restore a named isolated part. | Does Return to context still work? |
 | Export a screenshot | Save a PNG through the native picker, reopen it and check the source/status footer. Cancel another export. | Any missing label, clipped credit, unclear overwrite or changed session? |
 | Check a coverage gap | Open Coverage and inspect skeletal coverage for both HRA bodies. | Do counts look like a completeness claim? |

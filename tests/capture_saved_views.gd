@@ -51,6 +51,8 @@ func capture() -> void:
 	await viewer.switch_body("bodyparts-male-bones-study")
 	viewer.select_structure("source.bodyparts3d-v4-male.FJ3365")
 	viewer.inspect_alone()
+	viewer.model.checkpoint()
+	viewer.model.offset_selection(Vector3(0.03, 0.01, 0))
 	root.size = Vector2i(1100, 720)
 	await process_frame
 	browser = viewer.show_saved_views()
@@ -63,10 +65,46 @@ func capture() -> void:
 		push_error("Native bookmark save did not retain both references")
 		quit(1)
 		return
+	var anatomy_before: Dictionary = viewer.model.export_state()
+	await click(browser, browser.notes_input)
+	browser.notes_input.text = "Revisit this source bone view.\nQuestions for my next study session:\n• Which source structures are absent?\n• Compare my observations with course material."
+	await process_frame
+	var note: String = browser.notes_input.text
+	browser.notes_input.insert_text_at_caret("Temporary text")
+	await process_frame
+	var undo := InputEventKey.new()
+	undo.pressed = true
+	undo.keycode = KEY_Z
+	undo.ctrl_pressed = true
+	root.push_input(undo)
+	await process_frame
+	if browser.notes_input.text != note or viewer.model.export_state() != anatomy_before:
+		push_error("Text editing undo changed anatomy or failed to restore the note")
+		quit(1)
+		return
+	await click(browser, browser.notes_button)
+	if browser.library.entries[0].get("notes", "") != note or not browser.draft_notes.is_empty():
+		push_error("Native Save notes click failed to preserve the study note")
+		quit(1)
+		return
+	browser.notes_input.insert_text_at_caret("\nAnother draft to protect.")
+	await process_frame
+	browser.close_requested.emit()
+	await process_frame
+	await process_frame
+	await RenderingServer.frame_post_draw
+	if not browser.unsaved_dialog.visible or root.get_texture().get_image().save_png("/tmp/medicine-viewer-feasibility/saved-views-unsaved-notes.png") != OK:
+		push_error("Unsaved-notes protection failed to render")
+		quit(1)
+		return
+	browser.unsaved_dialog.get_cancel_button().pressed.emit()
+	await process_frame
+	browser.notes_input.text = note
+	browser.on_notes_changed()
 	await process_frame
 	await RenderingServer.frame_post_draw
 	var result := root.get_texture().get_image().save_png("/tmp/medicine-viewer-feasibility/saved-views-library.png")
-	for control in [browser.name_input, browser.save_button, browser.restore_button, browser.rename_button, browser.delete_button, browser.information]:
+	for control in [browser.name_input, browser.save_button, browser.restore_button, browser.rename_button, browser.delete_button, browser.information, browser.notes_input, browser.notes_button, browser.notes_status]:
 		if not Rect2(Vector2.ZERO, Vector2(browser.size)).encloses(control.get_global_rect()):
 			push_error("A saved-view action overflows the compact window")
 			quit(1)
@@ -86,5 +124,5 @@ func capture() -> void:
 			DirAccess.remove_absolute(viewer.views_path + suffix)
 	viewer.queue_free()
 	await process_frame
-	print("PASS rendered named views, native save/restore input and compact layout" if result == OK else "Named-view capture failed")
+	print("PASS rendered named views, study notes, text undo, native save/restore input and compact layout" if result == OK else "Named-view capture failed")
 	quit(0 if result == OK else 1)

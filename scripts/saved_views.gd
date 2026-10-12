@@ -3,6 +3,7 @@ extends RefCounted
 
 const MAX_VIEWS := 200
 const MAX_BYTES := 32 * 1024 * 1024
+const MAX_NOTE_CHARACTERS := 10000
 var path := "user://saved_views.json"
 var entries: Array[Dictionary] = []
 var read_error := ""
@@ -26,6 +27,8 @@ func read_file(file_path: String) -> Dictionary:
 			return {"error": "Saved views contain invalid names or view data. The file has been kept unchanged."}
 		if not (entry.get("created_unix") is int or entry.get("created_unix") is float) or not is_finite(float(entry.created_unix)) or entry.created_unix < 0 or entry.created_unix > 253402300799 or floorf(float(entry.created_unix)) != entry.created_unix:
 			return {"error": "Saved views contain an invalid date. The file has been kept unchanged."}
+		if not notes_format(entry.get("notes", "")).is_empty():
+			return {"error": "Saved views contain invalid study notes. The file has been kept unchanged."}
 		if ids.has(entry.id) or names.has(entry.name.to_lower()):
 			return {"error": "Saved views contain duplicate names or identifiers. The file has been kept unchanged."}
 		ids[entry.id] = true
@@ -107,7 +110,7 @@ func add_view(name: String, state: Dictionary) -> String:
 		return "This library holds up to 200 views. Delete a view before saving another."
 	var next := entries.duplicate(true)
 	next.push_front({"id": Crypto.new().generate_random_bytes(16).hex_encode(), "name": name,
-		"created_unix": int(Time.get_unix_time_from_system()), "state": state.duplicate(true)})
+		"created_unix": int(Time.get_unix_time_from_system()), "state": state.duplicate(true), "notes": ""})
 	return persist(next)
 
 
@@ -123,6 +126,41 @@ func rename_view(id: String, name: String) -> String:
 			entry.name = name
 			return persist(next)
 	return "That saved view is no longer available."
+
+
+func notes_format(value: Variant) -> String:
+	if not value is String or value.length() > MAX_NOTE_CHARACTERS:
+		return "Study notes can contain up to 10,000 characters."
+	for character in value:
+		var code: int = character.unicode_at(0)
+		if (code < 32 and code not in [9, 10, 13]) or code == 127:
+			return "Study notes contain an unsupported control character."
+	return ""
+
+
+func set_notes(id: String, notes: String) -> String:
+	return update_notes({id: notes})
+
+
+func update_notes(updates: Dictionary) -> String:
+	# All draft notes are written together; view snapshots and names remain intact.
+	if not read_error.is_empty():
+		return read_error
+	var next := entries.duplicate(true)
+	for id in updates:
+		var error := notes_format(updates[id])
+		if not error.is_empty():
+			return error
+		var found := false
+		for entry in next:
+			if entry.id == id:
+				entry.notes = updates[id]
+				found = true
+		if not found:
+			return "That saved view is no longer available."
+	if updates.is_empty():
+		return ""
+	return persist(next)
 
 
 func delete_view(id: String) -> String:

@@ -28,6 +28,10 @@ duplicate names, stale edits, damaged-file recovery and failed writes. The rende
 Save/Restore actions were exercised at the compact desktop size. The older quick-save
 slot remains compatible. Native builds also verify write/reopen/restore in temporary
 test files without accessing the user's library.
+Saved views now include optional local multiline study notes. Drafts survive selection
+changes; closing/restoring offers save/discard/keep-editing choices, with a failed write
+retaining the draft. Prior note-free libraries remain compatible. Personal notes are
+separate from authored/reviewed content and never alter anatomy snapshots.
 Short native rendering profiles on the Windows Ryzen 5 PRO 6650U / AMD Radeon host
 observed about 60 frame-cadence FPS across eight scenes. Raw intervals and hardware
 identity are retained; repeated sustained 1080p trials and a representative Mac are
