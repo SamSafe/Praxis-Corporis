@@ -79,6 +79,43 @@ func capture() -> void:
 	await save_image("whole-body-female")
 	viewer.chest_view()
 	await save_image("chest-female")
+	viewer.local_labels_button.button_pressed = true
+	await physics_frame
+	await physics_frame
+	viewer.anatomy_labels.update_labels()
+	await save_image("heart-labels-female")
+	var labelled_part := ""
+	for id in viewer.anatomy_labels.visible_ids:
+		if id != "anatomy.heart":
+			labelled_part = id
+			break
+	if labelled_part.is_empty():
+		push_error("Rendered heart has no selectable component label")
+		quit(1)
+		return
+	# Exercise the overlay through native desktop input, including its layering.
+	var pill: Button = viewer.anatomy_labels.buttons[labelled_part]
+	var label_click := InputEventMouseButton.new()
+	label_click.button_index = MOUSE_BUTTON_LEFT
+	label_click.position = pill.global_position + pill.size / 2.0
+	label_click.global_position = label_click.position
+	label_click.pressed = true
+	root.push_input(label_click)
+	label_click = label_click.duplicate()
+	label_click.pressed = false
+	root.push_input(label_click)
+	await process_frame
+	if viewer.model.selected_id != labelled_part or viewer.anatomy_labels.context_id != "anatomy.heart":
+		push_error("Rendered label click did not select its component")
+		quit(1)
+		return
+	viewer.navigate_history(true)
+	if viewer.model.selected_id != "anatomy.heart":
+		push_error("Back did not restore the labelled heart view")
+		quit(1)
+		return
+	print("PASS rendered label selection and navigation")
+	viewer.local_labels_button.button_pressed = false
 	var previous_yaw: float = viewer.orbit.yaw
 	await drag_in_viewport(viewer, Vector2(90, 30))
 	if is_equal_approx(previous_yaw, viewer.orbit.yaw):
@@ -130,6 +167,20 @@ func capture() -> void:
 		await viewer.switch_body("male")
 		viewer.chest_view()
 		await save_image("chest-male")
+		viewer.local_labels_button.button_pressed = true
+		await physics_frame
+		await physics_frame
+		viewer.anatomy_labels.update_labels()
+		await save_image("heart-labels-male")
+	root.size = Vector2i(1100, 720)
+	await process_frame
+	await process_frame
+	if not root.get_visible_rect().encloses(viewer.move_button.get_global_rect()):
+		push_error("Viewer controls overflow at the minimum window size")
+		quit(1)
+		return
+	print("PASS rendered minimum-window toolbar containment")
+	await save_image("heart-labels-compact")
 	viewer.queue_free()
 	await process_frame
 	quit()

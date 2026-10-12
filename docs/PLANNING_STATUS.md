@@ -10,6 +10,8 @@ the exported Linux QA runtime reads both bodies from the offline bundle. Medical
 review, comprehensive anatomy coverage, target-device performance and public
 Windows/macOS distribution remain open.
 See [prototype guide](PROTOTYPE.md) and [measured results](FEASIBILITY_RESULTS.md).
+Local part labels and camera/selection history now work in both samples; label
+surface ownership, occlusion and saved-view compatibility have been checked.
 
 ## Established by the user
 

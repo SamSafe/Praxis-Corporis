@@ -81,8 +81,10 @@ The retained [build report](audit/native-build-report.json) includes a source-sn
 revision verified against its recorded file hashes.
 
 The first target-device trial should exercise both bodies, skin reveal, chest
-selection, orbit/pan/zoom, movement, original-position display, undo/redo, restoration,
-and save/reopen. Record OS, machine, graphics device, loading times and failures.
+selection, local labels and label clicks, Back/Forward, orbit/pan/zoom, movement,
+original-position display, undo/redo, restoration, and save/reopen. Confirm that
+navigation preserves moved/hidden parts and that covered components stay available
+in the tree. Record OS, machine, graphics device, loading times and failures.
 Trackpad gestures, smaller displays, larger text and sustained frame rate remain
 unverified on target hardware. No testers have been contacted and no archives have
 been published.

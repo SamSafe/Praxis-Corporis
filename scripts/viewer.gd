@@ -3,6 +3,7 @@ extends Control
 const AnatomyModel = preload("res://scripts/anatomy_model.gd")
 const OrbitCamera = preload("res://scripts/orbit_camera.gd")
 const ContentBundle = preload("res://scripts/content_bundle.gd")
+const AnatomyLabels = preload("res://scripts/anatomy_labels.gd")
 var save_path := "user://saved_view.json"
 
 var pack: Dictionary
@@ -17,8 +18,14 @@ var heading: Label
 var detail: Label
 var context: Label
 var status: Label
-var selection_label: Label
+var anatomy_labels: Control
 var labels_button: CheckButton
+var local_labels_button: CheckButton
+var label_density: SpinBox
+var back_button: Button
+var forward_button: Button
+var back_views: Array[Dictionary] = []
+var forward_views: Array[Dictionary] = []
 var move_button: Button
 var undo_button: Button
 var redo_button: Button
@@ -64,6 +71,14 @@ func verify_bundle() -> void:
 		model.restore()
 		if not model.bounds_for("anatomy.heart").is_equal_approx(baseline_bounds) or not model.apply_saved_state(saved).is_empty():
 			push_error("Bundled inspection restoration failed")
+			get_tree().quit(1)
+			return
+		select_structure("anatomy.heart")
+		var previous := current_view()
+		select_structure("anatomy.heart.ventricle.left")
+		navigate_history(true)
+		if current_view() != previous or model.export_state() != saved or anatomy_labels.local_ids().size() != 14:
+			push_error("Bundled exploration navigation failed")
 			get_tree().quit(1)
 			return
 		print("PASS bundled reference: ", reference.id, " · ", model.meshes.size(), " meshes")
@@ -180,8 +195,14 @@ func build_interface() -> void:
 	center.custom_minimum_size.x = 380
 	center.add_theme_constant_override("separation", 8)
 	columns.add_child(center)
-	context = make_label("Loading reference anatomy…", 15, Color("b5c7d8"))
-	center.add_child(context)
+	var navigation := HBoxContainer.new()
+	center.add_child(navigation)
+	back_button = make_button("Back", func(): navigate_history(true), navigation, "Return to the previous selection and camera view. Alt + Left.")
+	forward_button = make_button("Forward", func(): navigate_history(false), navigation, "Return to the next selection and camera view. Alt + Right.")
+	context = make_label("Loading reference anatomy…", 14, Color("b5c7d8"))
+	context.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	context.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	navigation.add_child(context)
 	var frame := PanelContainer.new()
 	frame.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	center.add_child(frame)
@@ -223,22 +244,24 @@ func build_interface() -> void:
 	orbit.clicked.connect(on_viewport_clicked)
 	orbit.move_started.connect(func(): model.checkpoint())
 	orbit.moved.connect(func(delta: Vector3): model.offset_selection(delta))
-	var overlay := Control.new()
-	overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	frame.add_child(overlay)
-	selection_label = make_label("", 15, Color("ffe0b6"))
-	selection_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	selection_label.add_theme_stylebox_override("normal", panel_style(Color("172433"), Color("c28c52")))
-	selection_label.visible = false
-	overlay.add_child(selection_label)
+	anatomy_labels = AnatomyLabels.new()
+	anatomy_labels.model = model
+	anatomy_labels.camera = orbit.camera
+	anatomy_labels.selected.connect(select_structure)
+	# Match the SubViewport's content rectangle, including the panel's margins.
+	container.add_child(anatomy_labels)
+	anatomy_labels.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	center.add_child(make_label("Drag to orbit · Shift/right-drag to pan · Scroll/pinch to zoom", 13, Color("7891a7")))
 	var right_panel := PanelContainer.new()
 	right_panel.custom_minimum_size.x = 265
 	columns.add_child(right_panel)
+	var right_scroll := ScrollContainer.new()
+	right_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	right_panel.add_child(right_scroll)
 	var right := VBoxContainer.new()
+	right.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	right.add_theme_constant_override("separation", 12)
-	right_panel.add_child(right)
+	right_scroll.add_child(right)
 	right.add_child(make_label("SELECTED STRUCTURE", 13, Color("83cfc9")))
 	heading = make_label("Explore the body", 23, Color("f2f6fa"))
 	heading.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -264,6 +287,20 @@ func build_interface() -> void:
 		model.show_original_positions = enabled
 		model.refresh_appearance())
 	right.add_child(original_positions_button)
+	local_labels_button = CheckButton.new()
+	local_labels_button.text = "Local part labels"
+	local_labels_button.tooltip_text = "Label supplied opaque parts with visible surfaces. Covered parts remain in the anatomy tree."
+	local_labels_button.toggled.connect(func(enabled: bool): anatomy_labels.local_enabled = enabled)
+	right.add_child(local_labels_button)
+	var density_row := HBoxContainer.new()
+	density_row.add_child(make_label("Maximum labels", 13))
+	label_density = SpinBox.new()
+	label_density.min_value = 1
+	label_density.max_value = 12
+	label_density.value = 8
+	label_density.value_changed.connect(func(value: float): anatomy_labels.density = int(value))
+	density_row.add_child(label_density)
+	right.add_child(density_row)
 	right.add_child(make_label("CONTENT IN DEVELOPMENT", 12, Color("8a9fb2")))
 	var pending := make_label("Disease views, guided pathways and validated cutaways will be added progressively.", 14, Color("8a9fb2"))
 	pending.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -280,6 +317,7 @@ func build_interface() -> void:
 	labels_button = CheckButton.new()
 	labels_button.text = "Selection label"
 	labels_button.button_pressed = true
+	labels_button.toggled.connect(func(enabled: bool): anatomy_labels.selection_enabled = enabled)
 	toolbar.add_child(labels_button)
 	undo_button = make_button("Undo", func(): model.undo(), toolbar)
 	redo_button = make_button("Redo", func(): model.redo(), toolbar)
@@ -287,6 +325,7 @@ func build_interface() -> void:
 	status = make_label("Preparing the local anatomy sample…", 13, Color("7891a7"))
 	status.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	status.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	status.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	toolbar.add_child(status)
 	refresh_details()
 
@@ -301,6 +340,9 @@ func switch_body(id: String) -> void:
 	if record.is_empty():
 		return
 	loading = true
+	anatomy_labels.suspended = true
+	anatomy_labels.update_labels()
+	refresh_details()
 	body_choice.disabled = true
 	context.text = "Loading %s reference…" % id
 	status.text = "Importing geometry and preparing selection…"
@@ -309,21 +351,25 @@ func switch_body(id: String) -> void:
 	await get_tree().process_frame
 	var error: String = model.load_body(record)
 	loading = false
+	anatomy_labels.suspended = false
 	body_choice.disabled = false
 	if not error.is_empty():
 		status.text = error
 		context.text = "Reference unavailable"
 		body_choice.select(0 if model.body.get("id", "female") == "female" else 1)
+		refresh_details()
 		return
+	anatomy_labels.clear_labels()
+	back_views.clear()
+	forward_views.clear()
 	body_choice.select(0 if id == "female" else 1)
 	move_button.button_pressed = false
 	orbit.move_mode = false
 	rebuild_tree()
 	if model.structures.has(previous_selection) and previous_selection != "anatomy.body":
-		select_structure(previous_selection)
+		select_structure(previous_selection, false)
 	else:
-		whole_body()
-	context.text = "%s reference · continuous body view" % id.capitalize()
+		whole_body(false)
 	status.text = "%s reference ready" % id.capitalize()
 	refresh_details()
 
@@ -373,20 +419,73 @@ func on_tree_selected() -> void:
 		select_structure(str(tree.get_selected().get_metadata(0)))
 
 
-func select_structure(id: String) -> void:
+func select_structure(id: String, remember: bool = true) -> void:
 	if loading or not model.structures.has(id):
 		return
+	var previous := current_view()
 	model.select(id)
-	focus_selection()
-	if tree_items.has(id):
-		syncing_tree = true
+	anatomy_labels.set_selection(id)
+	focus_selection(false)
+	sync_selection_tree()
+	if remember:
+		remember_view(previous)
+	refresh_navigation()
+
+
+func sync_selection_tree() -> void:
+	syncing_tree = true
+	tree.deselect_all()
+	if tree_items.has(model.selected_id):
+		var id: String = model.selected_id
 		tree_items[id].select(0)
 		var parent: TreeItem = tree_items[id].get_parent()
 		while parent != null:
 			parent.collapsed = false
 			parent = parent.get_parent()
-		tree.scroll_to_item(tree_items[id])
-		syncing_tree = false
+		tree.scroll_to_item.call_deferred(tree_items[id])
+	syncing_tree = false
+
+
+func current_view() -> Dictionary:
+	return {"selection": model.selected_id, "camera": orbit.export_state(), "label_context": anatomy_labels.context_id}
+
+
+func remember_view(previous: Dictionary) -> void:
+	if previous == current_view():
+		return
+	back_views.append(previous)
+	if back_views.size() > 40:
+		back_views.pop_front()
+	forward_views.clear()
+	refresh_navigation()
+
+
+func navigate_history(backward: bool) -> void:
+	if loading:
+		return
+	var source: Array[Dictionary] = back_views if backward else forward_views
+	var destination: Array[Dictionary] = forward_views if backward else back_views
+	if source.is_empty():
+		return
+	destination.append(current_view())
+	var view: Dictionary = source.pop_back()
+	orbit.cancel_drag()
+	model.select(view.selection)
+	orbit.apply_state(view.camera)
+	anatomy_labels.context_id = view.label_context
+	sync_selection_tree()
+	refresh_navigation()
+	status.text = "Earlier view restored" if backward else "Next view restored"
+
+
+func refresh_navigation() -> void:
+	if back_button == null:
+		return
+	back_button.disabled = loading or back_views.is_empty()
+	forward_button.disabled = loading or forward_views.is_empty()
+	if not loading and not model.body.is_empty():
+		var region: String = str(model.structures[model.selected_id].label) if model.structures.has(model.selected_id) else "Whole body"
+		context.text = "%s · %s" % [str(model.body.id).capitalize(), region]
 
 
 func on_viewport_clicked(position: Vector2) -> void:
@@ -400,6 +499,7 @@ func on_viewport_clicked(position: Vector2) -> void:
 func refresh_details() -> void:
 	if heading == null:
 		return
+	refresh_navigation()
 	var selected: bool = model.structures.has(model.selected_id)
 	if move_button:
 		move_button.disabled = not selected or loading
@@ -430,29 +530,40 @@ func refresh_details() -> void:
 		record.label, str(record.ontology)]
 
 
-func focus_selection() -> void:
+func focus_selection(remember: bool = true) -> void:
 	if model.structures.has(model.selected_id):
+		var previous := current_view()
 		orbit.focus(model.bounds_for(model.selected_id))
+		if remember:
+			remember_view(previous)
 
 
-func whole_body() -> void:
-	if not model.structures.has("anatomy.body"):
+func whole_body(remember: bool = true) -> void:
+	if loading or not model.structures.has("anatomy.body"):
 		return
+	var previous := current_view()
 	model.select("")
+	anatomy_labels.set_selection("")
 	orbit.yaw = 0.0
 	orbit.pitch = 0.0
 	orbit.focus(model.bounds_for("anatomy.skin"))
+	sync_selection_tree()
+	if remember:
+		remember_view(previous)
+	refresh_navigation()
 
 
 func chest_view() -> void:
 	if loading or not model.structures.has("anatomy.heart"):
 		return
+	var previous := current_view()
 	model.set_visibility("anatomy.skin", "hidden")
 	model.set_visibility("anatomy.lungs", "faded")
-	select_structure("anatomy.heart")
+	select_structure("anatomy.heart", false)
 	# Keep enough surrounding chest context after selection focus.
 	orbit.distance *= 2.0
 	orbit.update_camera()
+	remember_view(previous)
 
 
 func change_visibility(visibility: String) -> void:
@@ -469,26 +580,8 @@ func toggle_move() -> void:
 
 
 func _process(_delta: float) -> void:
-	if selection_label == null:
-		return
-	selection_label.visible = false
-	if loading or not labels_button.button_pressed or not model.structures.has(model.selected_id):
-		return
-	var any_visible := false
-	for index in model.structures[model.selected_id].mesh_nodes:
-		any_visible = any_visible or model.states[int(index)].visibility != "hidden"
-	if not any_visible:
-		return
-	var center: Vector3 = model.bounds_for(model.selected_id).get_center()
-	if orbit.camera.is_position_behind(center):
-		return
-	var point: Vector2 = orbit.camera.unproject_position(center)
-	if not Rect2(Vector2.ZERO, Vector2(viewport.size)).has_point(point):
-		return
-	selection_label.text = str(model.structures[model.selected_id].label)
-	selection_label.reset_size()
-	selection_label.position = Vector2(clampf(point.x + 18, 0, maxf(viewport.size.x - selection_label.size.x, 0)), clampf(point.y - 36, 0, maxf(viewport.size.y - selection_label.size.y, 0)))
-	selection_label.visible = true
+	if status:
+		status.tooltip_text = status.text
 
 
 func save_view() -> void:
@@ -497,6 +590,8 @@ func save_view() -> void:
 	var state := {"schema_version": 1, "pack_id": pack.id, "body": model.body.id,
 		"selection": model.selected_id, "camera": orbit.export_state(),
 		"labels": labels_button.button_pressed, "original_positions": original_positions_button.button_pressed,
+		"local_labels": local_labels_button.button_pressed, "label_density": int(label_density.value),
+		"label_context": anatomy_labels.context_id,
 		"changes": model.export_state()}
 	var file := FileAccess.open(save_path + ".tmp", FileAccess.WRITE)
 	if file == null:
@@ -531,6 +626,14 @@ func load_view() -> void:
 	if state.has("original_positions") and not state.original_positions is bool:
 		status.text = "Saved view has an invalid original-position setting."
 		return
+	if (state.has("local_labels") and not state.local_labels is bool) or (state.has("label_density") and
+		(not (state.label_density is float or state.label_density is int) or not is_finite(float(state.label_density)) or
+		float(state.label_density) != floorf(float(state.label_density)) or state.label_density < 1 or state.label_density > 12)):
+		status.text = "Saved view has invalid local-label settings."
+		return
+	if state.has("label_context") and not state.label_context is String:
+		status.text = "Saved view has an invalid label context."
+		return
 	var reference: Dictionary = {}
 	for candidate in pack.bodies:
 		if candidate.id == state.body:
@@ -545,21 +648,49 @@ func load_view() -> void:
 	if not selection_exists:
 		status.text = "Saved selection is missing from this sample pack."
 		return
+	if not valid_label_context(state.selection, state.get("label_context", ""), reference):
+		status.text = "Saved label context does not match the selected anatomy."
+		return
 	if model.body.get("id") != state.body:
 		await switch_body(state.body)
 	if model.body.get("id") != state.body:
 		return
+	var previous := current_view()
 	var error: String = model.apply_saved_state(state.changes)
 	if not error.is_empty():
 		status.text = error
 		return
 	model.select(state.selection)
+	anatomy_labels.context_id = ""
+	anatomy_labels.set_selection(state.selection)
+	if state.has("label_context"):
+		anatomy_labels.context_id = state.label_context
 	orbit.apply_state(state.camera)
 	labels_button.button_pressed = state.labels
+	local_labels_button.button_pressed = state.get("local_labels", false)
+	label_density.value = state.get("label_density", 8)
 	original_positions_button.button_pressed = state.get("original_positions", true)
 	model.show_original_positions = original_positions_button.button_pressed
 	model.refresh_appearance()
+	sync_selection_tree()
+	remember_view(previous)
+	refresh_navigation()
 	status.text = "Saved view restored"
+
+
+func valid_label_context(selection: String, label_context: String, reference: Dictionary) -> bool:
+	if label_context.is_empty():
+		return true
+	var available := {}
+	for structure in reference.structures:
+		available[str(structure.id)] = structure
+	if not available.has(label_context) or available[label_context].mesh_nodes.size() <= 1 or available[label_context].mesh_nodes.size() > AnatomyLabels.MAX_CANDIDATES:
+		return false
+	while available.has(selection):
+		if selection == label_context:
+			return true
+		selection = str(available[selection].parent)
+	return false
 
 
 func show_sources() -> void:
@@ -588,4 +719,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			orbit.move_mode = false
 			orbit.cancel_drag()
 			status.text = "Navigate mode · selection preserved"
+			get_viewport().set_input_as_handled()
+		elif event.alt_pressed and event.keycode in [KEY_LEFT, KEY_RIGHT]:
+			navigate_history(event.keycode == KEY_LEFT)
 			get_viewport().set_input_as_handled()

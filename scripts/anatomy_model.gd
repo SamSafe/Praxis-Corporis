@@ -289,9 +289,7 @@ func redo() -> void:
 
 
 func pick(camera: Camera3D, position: Vector2) -> String:
-	var origin := camera.project_ray_origin(position)
-	var query := PhysicsRayQueryParameters3D.create(origin, origin + camera.project_ray_normal(position) * 30.0, 1)
-	var hit := get_world_3d().direct_space_state.intersect_ray(query)
+	var hit := ray_hit(camera, position)
 	if hit.is_empty():
 		return ""
 	var index: int = hit.collider.get_meta("mesh_index")
@@ -299,6 +297,12 @@ func pick(camera: Camera3D, position: Vector2) -> String:
 		if int(structures[id].source_node) == index:
 			return id
 	return ""
+
+
+func ray_hit(camera: Camera3D, position: Vector2) -> Dictionary:
+	var origin := camera.project_ray_origin(position)
+	var query := PhysicsRayQueryParameters3D.create(origin, origin + camera.project_ray_normal(position) * 30.0, 1)
+	return get_world_3d().direct_space_state.intersect_ray(query)
 
 
 func export_state() -> Dictionary:

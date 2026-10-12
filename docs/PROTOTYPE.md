@@ -52,11 +52,12 @@ is used by the viewer.
 | Orbit | Primary-button drag in the 3D view. |
 | Pan | Shift + primary drag, right/middle drag, or supported trackpad pan gesture. |
 | Zoom | Scroll wheel or supported pinch gesture. |
-| Select and focus | Click visible geometry, choose a tree item, or select a search result. |
+| Select and focus | Click visible geometry or a surface label, choose a tree item, or select a search result. |
 | Browse systems and parts | Expand the anatomy tree; parent groups select their descendant meshes. |
 | Reveal deeper anatomy | Peel away skin; Hide/Fade/Show apply to the current selection. |
 | First chest view | Show chest hides skin and fades lungs around the selected heart. |
-| Labels | Toggle the current selection label; the tree lists supplied components. |
+| Labels | Selection label is on by default. Enable Local part labels; Maximum labels controls density from 1 to 12. |
+| Previous/next view | Back/Forward or Alt + Left/Right outside text entry. |
 | Move anatomy | Enable Move selected, then primary-drag in the viewer's camera plane. Shift-drag still pans. |
 | Restore | Restore selected or Restore all recovers original transforms and visibility. |
 | Undo | Undo button or Ctrl/Cmd + Z outside text entry. |
@@ -73,9 +74,34 @@ New inspection edits discard redo history. Original-position overlays are separa
 from anatomy and do not intercept clicks; restoring a part hides its overlay.
 Selecting a hidden structure focuses its position without silently revealing it.
 
-Body switching restores that body's original inspection state and clears undo/redo.
+Back/Forward restores selection, camera position and the relevant local label set.
+It preserves current visibility, displacements and inspection undo/redo. Manual orbit
+and pan are captured when leaving a view. Choosing another structure after going
+back discards the old forward branch. History holds up to 40 previous views per body
+and is not saved across launches. Whole body records a return point while preserving
+inspection changes.
+
+Local sets use the current source hierarchy, retaining an organ's context when you
+select one of its components. Both hearts have 14 supplied component meshes. Labels
+are clickable, use leader lines and avoid overlapping each other or leaving the
+viewport. Leaders end at actual first-hit opaque surfaces belonging to the named
+structure. Covered, hidden and faded components are omitted; the tree remains the
+parallel route to select them. Faded layers are transparent to label ray queries as
+well as clicks. Whole body clears the local context; changing organs replaces it.
+Thin parts may remain unlabelled if the bounded surface search cannot find a hit.
+Broad system label sets are not implemented.
+
+Surface searches run at most ten times per second, with a 160-ray budget per update
+and at most 64 supplied parts in a local set. These limits bound work but do not
+establish a target-device performance result. Long names are shortened in pills and
+available in their tooltips and the details panel. The details panel scrolls when
+needed so the viewport and bottom controls remain available.
+
+Body switching restores that body's original inspection state and clears undo/redo
+and navigation history.
 The saved slot records body, selected ID, camera, labels, original-position display,
-visibility and displacements.
+local label context/density, visibility and displacements. Earlier schema-1 saves
+remain compatible through defaults for the optional new label fields.
 Saves use Godot's user:// location, outside the project, with a temporary-file rename.
 Invalid schemas, content versions, missing structures and malformed transforms are
 rejected. Multiple bookmarks, backups and migration recovery remain future work.
@@ -89,10 +115,10 @@ rejected. Multiple bookmarks, backups and migration recovery remain future work.
   explanations are not implemented.
 - There is no authored disease list, comparison, injury simulation, animation or
   reviewed heart–lung pathway. Vessel geometry alone is not a route graph.
-- Labels currently follow the selected structure's bounds; local-part label sets,
-  leader lines, overlap resolution and occlusion handling are later work.
+- Source labels remain unreviewed. Broader system sets, authored label anchors,
+  comprehensive visibility sampling and fully stable layout during motion remain work.
 - Movement is a camera-plane inspection displacement with optional original-position
-  overlays. Handles, guided exploded views and navigation history remain future work.
+  overlays. Handles and guided exploded views remain future work.
 - No signed Windows or Mac installer, minimum-hardware claim, qualified medical
   review, accessibility acceptance or public-release readiness is established.
 
@@ -102,6 +128,7 @@ rejected. Multiple bookmarks, backups and migration recovery remain future work.
 python3 tools/fetch_assets.py --verify-only
 python3 -m unittest discover -s tests -v
 godot --headless --path . --script tests/viewer_smoke.gd
+godot --headless --path . --script tests/exploration_smoke.gd
 ```
 
 The Python checks cover corrupt inputs, path containment, asset modification,
@@ -110,6 +137,10 @@ integration uses actual geometry to check multi-mesh movement, exact restoration
 undo/redo, branching history, original-position overlays, saved-state validation and
 hidden/faded picking behaviour. Native archive tests check target architectures,
 Mac executable metadata and extraction containment.
+Exploration checks cover both-body navigation/inspection separation, local label
+context, density, surface ownership, occlusion, layout containment and compatible
+saved-view settings. The rendered capture also clicks a real label through the
+desktop UI and checks toolbar containment at a 1100 × 720 window size.
 
 Optional rendered capture on a Linux development display:
 

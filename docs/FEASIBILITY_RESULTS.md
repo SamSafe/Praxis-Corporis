@@ -64,6 +64,9 @@ smaller collision representations and geometry optimization still need evaluatio
 - [Female chest after orbit](prototype/chest-female-orbit.png).
 - [Female heart moved for inspection](prototype/heart-moved-female.png).
 - [Male chest selection](prototype/chest-male.png).
+- [Female heart with local labels](prototype/heart-labels-female.png).
+- [Male heart with local labels](prototype/heart-labels-male.png).
+- [Smaller-window label view](prototype/heart-labels-compact.png).
 
 These are actual app captures, distinct from the earlier schematic wireframes.
 Models are credited under [ATTRIBUTIONS.md](../ATTRIBUTIONS.md); source licences and
@@ -101,3 +104,33 @@ engine. Anatomy is embedded before the Mac app is ad-hoc signed, preserving acce
 when the app location changes. This is content verification, not a Mac device run.
 Windows/Mac hardware, performance, trackpad behaviour and public signing/notarization
 remain unverified. See [NATIVE_BUILDS.md](NATIVE_BUILDS.md) for setup and limits.
+
+## Local labels and view history trial
+
+Both-body exploration checks passed with zero failures. Heart sets use the 14
+supplied physical component meshes; only parts with a found, exposed opaque surface
+receive a label. Each tested leader terminates on the named structure's actual
+first-hit geometry. Opaque skin suppresses heart labels; hidden and faded anatomy
+has no surface labels. Pills stay inside the viewport without overlapping, respect
+density limits and prioritize the selected local component. Covered components
+remain selectable through the tree. These technical checks do not validate the
+source's anatomical names.
+
+Back/Forward recovered selected structures and camera states, including an orbit
+performed before leaving the view. Navigation preserved current moved/hidden anatomy
+and inspection undo history. New navigation discarded the old forward branch, body
+switching cleared history, and component selection retained its heart label context.
+Saved views recovered local label context/density; earlier schema-1 views remained
+compatible. Malformed density and unrelated organ contexts were rejected before
+altering the current view.
+
+The rendered desktop check clicked a component label through the actual UI and
+returned to the heart with Back. A scrolling details panel fixed toolbar overflow;
+the toolbar containment check also passed at the smaller 1100 × 720 window setting.
+Long status messages no longer expand the toolbar; their full text is in tooltips.
+The captures above were refreshed. This trial uses the same Linux software renderer
+and does not establish Windows/Mac accessibility or performance.
+
+Checks are in [exploration_smoke.gd](../tests/exploration_smoke.gd) and
+[capture_viewer.gd](../tests/capture_viewer.gd). Existing both-body geometry integration
+and all seven Python checks passed, and editor import reported no script errors.

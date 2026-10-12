@@ -55,6 +55,8 @@ Open [project.godot](project.godot) with Godot 4.7.2 after the setup in the
 [prototype guide](docs/PROTOTYPE.md). The app has selection, search, camera focus,
 hide/fade controls, inspection movement with original-position overlays, restoration,
 undo/redo and local saved views.
+Local part labels have clickable surface leaders and controlled density;
+Back/Forward restores selection and camera views while preserving inspection changes.
 Disease content, validated cutaways and guided pathways are future work.
 Private Windows/macOS ZIPs are generated locally under dist/. Target-device testing,
 public signing/notarization, and baseline-laptop performance remain open.
