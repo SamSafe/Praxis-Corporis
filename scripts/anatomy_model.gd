@@ -9,11 +9,16 @@ var body: Dictionary = {}
 var structures: Dictionary = {}
 var meshes: Dictionary = {}
 var baseline: Dictionary = {}
+var baseline_world: Dictionary = {}
 var states: Dictionary = {}
 var materials: Dictionary = {}
 var colliders: Dictionary = {}
 var selected_id := ""
 var undo_stack: Array[Dictionary] = []
+var redo_stack: Array[Dictionary] = []
+var original_ghosts: Dictionary = {}
+var show_original_positions := true
+var ghost_material: StandardMaterial3D
 var source_scene: Node3D
 var load_seconds := 0.0
 
@@ -21,6 +26,8 @@ var load_seconds := 0.0
 func load_body(record: Dictionary) -> String:
 	var path := "res://" + str(record.asset_path)
 	if not FileAccess.file_exists(path):
+		if OS.has_feature("template"):
+			return "Anatomy is missing from this build. Re-extract the application together with anatomy.pck."
 		return "Anatomy files are missing. Run python3 tools/fetch_assets.py, then reopen the viewer."
 	if FileAccess.get_sha256(path) != str(record.sha256):
 		return "The anatomy file differs from the pinned sample. Run the asset verification tool."
@@ -41,6 +48,8 @@ func load_body(record: Dictionary) -> String:
 				next_scene.free()
 				next_scene = null
 	if not from_cache:
+		if OS.has_feature("template"):
+			return "Prepared anatomy does not match this application version. Re-extract the complete private build."
 		var extension := SourceIndexExtension.new()
 		GLTFDocument.register_gltf_document_extension(extension, true)
 		var document := GLTFDocument.new()
@@ -84,6 +93,7 @@ func load_body(record: Dictionary) -> String:
 			return "A declared mesh is missing from the imported scene."
 		meshes[int(index)] = mesh
 		baseline[int(index)] = mesh.transform
+		baseline_world[int(index)] = mesh.global_transform
 		states[int(index)] = {"visibility": "visible", "offset": Vector3.ZERO}
 		var overrides: Array[StandardMaterial3D] = []
 		for surface in mesh.mesh.get_surface_count():
@@ -141,10 +151,15 @@ func clear_body() -> void:
 	structures.clear()
 	meshes.clear()
 	baseline.clear()
+	baseline_world.clear()
 	states.clear()
 	materials.clear()
 	colliders.clear()
 	undo_stack.clear()
+	redo_stack.clear()
+	for ghost in original_ghosts.values():
+		ghost.free()
+	original_ghosts.clear()
 	selected_id = ""
 	body = {}
 
@@ -195,9 +210,32 @@ func refresh_appearance() -> void:
 				material.albedo_color = Color(0.97, 0.63, 0.29, material.albedo_color.a)
 				material.emission = Color(0.18, 0.075, 0.015)
 			mesh.set_surface_override_material(surface, material)
+		refresh_original_ghost(index)
+
+
+func refresh_original_ghost(index: int) -> void:
+	var show: bool = show_original_positions and states[index].offset != Vector3.ZERO and states[index].visibility != "hidden"
+	if show and not original_ghosts.has(index):
+		if ghost_material == null:
+			ghost_material = StandardMaterial3D.new()
+			ghost_material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+			ghost_material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+			ghost_material.albedo_color = Color(0.24, 0.76, 0.84, 0.18)
+		var ghost := MeshInstance3D.new()
+		ghost.name = "OriginalPosition_%d" % index
+		ghost.mesh = meshes[index].mesh
+		ghost.material_override = ghost_material
+		ghost.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		# No collision or source index: an inspection overlay is never anatomy to pick.
+		add_child(ghost)
+		ghost.global_transform = baseline_world[index]
+		original_ghosts[index] = ghost
+	if original_ghosts.has(index):
+		original_ghosts[index].visible = show
 
 
 func checkpoint() -> void:
+	redo_stack.clear()
 	undo_stack.append(states.duplicate(true))
 	if undo_stack.size() > 40:
 		undo_stack.pop_front()
@@ -235,7 +273,17 @@ func restore(id: String = "anatomy.body") -> void:
 func undo() -> void:
 	if undo_stack.is_empty():
 		return
+	redo_stack.append(states.duplicate(true))
 	states = undo_stack.pop_back()
+	refresh_appearance()
+	state_changed.emit()
+
+
+func redo() -> void:
+	if redo_stack.is_empty():
+		return
+	undo_stack.append(states.duplicate(true))
+	states = redo_stack.pop_back()
 	refresh_appearance()
 	state_changed.emit()
 

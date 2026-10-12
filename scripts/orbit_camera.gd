@@ -47,6 +47,12 @@ func pixel_scale() -> float:
 	return 2.0 * distance * tan(deg_to_rad(camera.fov * 0.5)) / maxf(get_viewport().get_visible_rect().size.y, 1.0)
 
 
+func cancel_drag() -> void:
+	active_button = 0
+	dragged = false
+	move_checkpoint = false
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN] and event.pressed:

@@ -2,6 +2,7 @@ extends Control
 
 const AnatomyModel = preload("res://scripts/anatomy_model.gd")
 const OrbitCamera = preload("res://scripts/orbit_camera.gd")
+const ContentBundle = preload("res://scripts/content_bundle.gd")
 var save_path := "user://saved_view.json"
 
 var pack: Dictionary
@@ -19,19 +20,55 @@ var status: Label
 var selection_label: Label
 var labels_button: CheckButton
 var move_button: Button
+var undo_button: Button
+var redo_button: Button
+var original_positions_button: CheckButton
 var action_buttons: Array[Button] = []
 var loading := false
 var syncing_tree := false
 
 
 func _ready() -> void:
+	var content_error := ContentBundle.mount_if_needed()
 	var parsed = JSON.parse_string(FileAccess.get_file_as_string("res://content/sample_pack.json"))
 	if not parsed is Dictionary:
 		push_error("Sample catalogue is missing or invalid.")
+		get_tree().quit(1)
 		return
 	pack = parsed
 	build_interface()
-	call_deferred("switch_body", "female")
+	if not content_error.is_empty():
+		status.text = content_error
+		context.text = "Anatomy unavailable"
+		if "--verify-bundle" in OS.get_cmdline_user_args():
+			push_error(content_error)
+			get_tree().quit(1)
+	elif "--verify-bundle" in OS.get_cmdline_user_args():
+		call_deferred("verify_bundle")
+	else:
+		call_deferred("switch_body", "female")
+
+
+func verify_bundle() -> void:
+	for reference in pack.bodies:
+		await switch_body(reference.id)
+		if model.body.get("id") != reference.id or model.meshes.size() != (801 if reference.id == "female" else 788):
+			push_error("Bundled reference failed: " + str(reference.id))
+			get_tree().quit(1)
+			return
+		var baseline_bounds: AABB = model.bounds_for("anatomy.heart")
+		model.select("anatomy.heart")
+		model.checkpoint()
+		model.offset_selection(Vector3(0.1, 0.02, 0))
+		var saved: Dictionary = model.export_state()
+		model.restore()
+		if not model.bounds_for("anatomy.heart").is_equal_approx(baseline_bounds) or not model.apply_saved_state(saved).is_empty():
+			push_error("Bundled inspection restoration failed")
+			get_tree().quit(1)
+			return
+		print("PASS bundled reference: ", reference.id, " · ", model.meshes.size(), " meshes")
+	print("PASS offline native bundle")
+	get_tree().quit()
 
 
 func make_label(text: String, size: int = 15, color: Color = Color("c6d2df")) -> Label:
@@ -219,6 +256,14 @@ func build_interface() -> void:
 	action_buttons.append(make_button("Hide", func(): change_visibility("hidden"), visibility_row))
 	action_buttons.append(make_button("Fade", func(): change_visibility("faded"), visibility_row, "Faded anatomy is click-through."))
 	action_buttons.append(make_button("Restore selected", restore_selected, right))
+	original_positions_button = CheckButton.new()
+	original_positions_button.text = "Show original positions"
+	original_positions_button.button_pressed = true
+	original_positions_button.tooltip_text = "A faint blue copy marks the original position of moved anatomy. It cannot be selected."
+	original_positions_button.toggled.connect(func(enabled: bool):
+		model.show_original_positions = enabled
+		model.refresh_appearance())
+	right.add_child(original_positions_button)
 	right.add_child(make_label("CONTENT IN DEVELOPMENT", 12, Color("8a9fb2")))
 	var pending := make_label("Disease views, guided pathways and validated cutaways will be added progressively.", 14, Color("8a9fb2"))
 	pending.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -236,7 +281,8 @@ func build_interface() -> void:
 	labels_button.text = "Selection label"
 	labels_button.button_pressed = true
 	toolbar.add_child(labels_button)
-	make_button("Undo", func(): model.undo(), toolbar)
+	undo_button = make_button("Undo", func(): model.undo(), toolbar)
+	redo_button = make_button("Redo", func(): model.redo(), toolbar)
 	make_button("Restore all", func(): model.restore(), toolbar)
 	status = make_label("Preparing the local anatomy sample…", 13, Color("7891a7"))
 	status.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -278,7 +324,7 @@ func switch_body(id: String) -> void:
 	else:
 		whole_body()
 	context.text = "%s reference · continuous body view" % id.capitalize()
-	status.text = "%d mesh nodes · loaded in %.1fs" % [model.meshes.size(), model.load_seconds]
+	status.text = "%s reference ready" % id.capitalize()
 	refresh_details()
 
 
@@ -355,6 +401,15 @@ func refresh_details() -> void:
 	if heading == null:
 		return
 	var selected: bool = model.structures.has(model.selected_id)
+	if move_button:
+		move_button.disabled = not selected or loading
+		if not selected:
+			move_button.button_pressed = false
+			orbit.move_mode = false
+	if undo_button:
+		undo_button.disabled = model.undo_stack.is_empty() or loading
+	if redo_button:
+		redo_button.disabled = model.redo_stack.is_empty() or loading
 	for button in action_buttons:
 		button.disabled = not selected or loading
 	if not selected:
@@ -441,7 +496,8 @@ func save_view() -> void:
 		return
 	var state := {"schema_version": 1, "pack_id": pack.id, "body": model.body.id,
 		"selection": model.selected_id, "camera": orbit.export_state(),
-		"labels": labels_button.button_pressed, "changes": model.export_state()}
+		"labels": labels_button.button_pressed, "original_positions": original_positions_button.button_pressed,
+		"changes": model.export_state()}
 	var file := FileAccess.open(save_path + ".tmp", FileAccess.WRITE)
 	if file == null:
 		status.text = "Could not write the saved view."
@@ -472,6 +528,9 @@ func load_view() -> void:
 	if state.get("body") not in ["male", "female"] or not state.get("selection") is String or not state.get("labels") is bool:
 		status.text = "Saved view has invalid body, selection or label settings."
 		return
+	if state.has("original_positions") and not state.original_positions is bool:
+		status.text = "Saved view has an invalid original-position setting."
+		return
 	var reference: Dictionary = {}
 	for candidate in pack.bodies:
 		if candidate.id == state.body:
@@ -497,6 +556,9 @@ func load_view() -> void:
 	model.select(state.selection)
 	orbit.apply_state(state.camera)
 	labels_button.button_pressed = state.labels
+	original_positions_button.button_pressed = state.get("original_positions", true)
+	model.show_original_positions = original_positions_button.button_pressed
+	model.refresh_appearance()
 	status.text = "Saved view restored"
 
 
@@ -516,5 +578,14 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		if focused is LineEdit or focused is TextEdit:
 			return
 		if event.keycode == KEY_Z and (event.ctrl_pressed or event.meta_pressed):
-			model.undo()
+			if event.shift_pressed:
+				model.redo()
+			else:
+				model.undo()
+			get_viewport().set_input_as_handled()
+		elif event.keycode == KEY_ESCAPE:
+			move_button.button_pressed = false
+			orbit.move_mode = false
+			orbit.cancel_drag()
+			status.text = "Navigate mode · selection preserved"
 			get_viewport().set_input_as_handled()

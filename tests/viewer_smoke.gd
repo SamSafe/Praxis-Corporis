@@ -44,6 +44,14 @@ func run() -> void:
 		model.checkpoint()
 		model.offset_selection(Vector3(0.12, 0.03, 0.0))
 		check(model.bounds_for("anatomy.heart").get_center().is_equal_approx(original.get_center() + Vector3(0.12, 0.03, 0.0)), "Multi-mesh heart must move as one selection")
+		var ghost_bounds := AABB()
+		var first_ghost := true
+		for index in model.structures["anatomy.heart"].mesh_nodes:
+			var ghost: MeshInstance3D = model.original_ghosts[int(index)]
+			var box: AABB = ghost.global_transform * ghost.get_aabb()
+			ghost_bounds = box if first_ghost else ghost_bounds.merge(box)
+			first_ghost = false
+		check(ghost_bounds.is_equal_approx(original), "Inspection ghosts must retain original anatomical placement")
 		model.set_visibility("anatomy.heart.valve.mitral", "faded")
 		var saved: Dictionary = model.export_state()
 		model.restore()
@@ -53,6 +61,14 @@ func run() -> void:
 		model.restore("anatomy.heart")
 		model.undo()
 		check(model.export_state() == saved, "Undo must recover both geometry and visibility")
+		model.redo()
+		check(model.bounds_for("anatomy.heart").is_equal_approx(original), "Redo must reapply the restored heart placement")
+		model.undo()
+		check(model.export_state() == saved, "Redo followed by undo must recover the same inspection")
+		model.set_visibility("anatomy.skin", "hidden")
+		var branched: Dictionary = model.export_state()
+		model.redo()
+		check(model.export_state() == branched, "A new inspection edit must discard stale redo history")
 		var before: Dictionary = model.export_state()
 		check(not model.apply_saved_state({"missing.structure": {"visibility": "hidden", "offset": [0, 0, 0]}}).is_empty(), "Missing content must be rejected")
 		check(model.export_state() == before, "An invalid save must leave the current body unchanged")
@@ -85,6 +101,14 @@ func run() -> void:
 		await physics_frame
 		await physics_frame
 		check(model.pick(orbit.camera, click_position).is_empty(), "Faded anatomy must be click-through in actual ray picking")
+		model.set_visibility("anatomy.heart", "visible")
+		model.offset_selection(Vector3(0.8, 0, 0))
+		await physics_frame
+		await physics_frame
+		check(model.pick(orbit.camera, click_position).is_empty(), "Original-position ghosts must not intercept anatomy picking")
+		model.restore("anatomy.heart")
+		for ghost in model.original_ghosts.values():
+			check(not ghost.visible, "Restored anatomy must not retain a visible inspection ghost")
 		print("PASS real-body integration: ", body.id, " · load %.2fs" % model.load_seconds)
 	check(not orbit.valid_state({"target": [0, 0, 0], "distance": -5, "yaw": 0, "pitch": 0}), "Invalid camera distance must be rejected")
 	check(orbit.valid_state(orbit.export_state()), "Camera state must round-trip")

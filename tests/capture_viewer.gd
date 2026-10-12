@@ -96,6 +96,16 @@ func capture() -> void:
 		quit(1)
 		return
 	var moved: Dictionary = viewer.model.export_state()
+	viewer.model.undo()
+	if not viewer.model.bounds_for("anatomy.heart").is_equal_approx(original):
+		push_error("Undo did not restore the original heart")
+		quit(1)
+		return
+	viewer.model.redo()
+	if viewer.model.export_state() != moved:
+		push_error("Redo did not reapply the inspection")
+		quit(1)
+		return
 	viewer.save_path = "user://capture_test_view.json"
 	viewer.save_view()
 	viewer.model.restore()
@@ -107,6 +117,12 @@ func capture() -> void:
 	DirAccess.remove_absolute(viewer.save_path)
 	print("PASS rendered move and saved-view workflow")
 	await save_image("heart-moved-female")
+	viewer.whole_body()
+	if viewer.orbit.move_mode or viewer.move_button.button_pressed:
+		push_error("Whole-body navigation must leave Move mode")
+		quit(1)
+		return
+	viewer.select_structure("anatomy.heart")
 	viewer.model.restore("anatomy.heart")
 	viewer.move_button.button_pressed = false
 	viewer.toggle_move()
