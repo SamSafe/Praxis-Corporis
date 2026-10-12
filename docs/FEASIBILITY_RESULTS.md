@@ -67,6 +67,12 @@ smaller collision representations and geometry optimization still need evaluatio
 - [Female heart with local labels](prototype/heart-labels-female.png).
 - [Male heart with local labels](prototype/heart-labels-male.png).
 - [Smaller-window label view](prototype/heart-labels-compact.png).
+- [Whole-heart inspection, female](prototype/heart-inspection-female.png).
+- [Supplied mitral valve inspection, female](prototype/valve-inspection-female.png).
+- [Return to female chest context](prototype/inspection-return-female.png).
+- [Whole-heart inspection, male](prototype/heart-inspection-male.png).
+- [Supplied mitral valve inspection, male](prototype/valve-inspection-male.png).
+- [Return to male chest context](prototype/inspection-return-male.png).
 
 These are actual app captures, distinct from the earlier schematic wireframes.
 Models are credited under [ATTRIBUTIONS.md](../ATTRIBUTIONS.md); source licences and
@@ -143,3 +149,38 @@ contained the current notices and new control instructions, and matched the reta
 source file hashes. See [the build report](audit/native-build-report.json).
 Mac resource verification still uses the Linux development engine, rather than a
 Mac device; both target-platform hardware trials remain pending.
+
+## Supplied-part inspection trial — 2026-10-12
+
+The source-based local parts list and Inspect alone/Return to context workflow passed
+on both reference samples with zero part-inspection failures. Isolation reveals only
+the chosen supplied meshes at their existing body coordinates, including parts whose
+ordinary view is hidden or faded. It changes no stored visibility or displacements
+and adds no inspection undo checkpoint. Labels, active pick collisions and baseline
+overlays agree with the temporary mask.
+
+Tests selected the otherwise hidden mitral valve through the part-list signal, picked
+it using actual mesh collision, moved it, undid/redid that move, and returned to the
+exact prior camera/selection. The original hidden setting returned and movement edits
+remained. History restored the isolated view with its return action. Saves recovered
+the mask, return context and stored body edits; malformed return anatomy/cameras and
+mismatched selections were rejected before mutating or switching the body. Older
+saves loaded with no temporary mask. Whole body, Show chest, Restore all and body
+switching left isolation according to their documented scopes.
+
+The rendered workflow clicked Inspect alone, selected the supplied valve in the
+scrollable parts tree, moved it through viewport input, and clicked Return to context
+for both bodies. The smaller-window toolbar check also passed. Captures above show
+the actual source geometry, with no generated interior or clinical-function claim.
+
+The expanded tests exposed and fixed two implementation issues: an untyped empty
+array in the selection-label path when local labels were off, and a crash from a
+deferred scroll holding a TreeItem that rapid navigation had freed. Label initialization
+now uses a typed array; scrolling resolves the current selection after layout, without
+queuing item pointers. Both-body exploration and geometry integration checks passed,
+all seven Python checks passed, and final editor import reported no script errors.
+
+The new workflow checks are in
+[part_inspection_smoke.gd](../tests/part_inspection_smoke.gd). Desktop input verification
+is in [capture_viewer.gd](../tests/capture_viewer.gd). Qualified anatomy review,
+target-device testing, authored cutaways/separation and verified pathways remain open.

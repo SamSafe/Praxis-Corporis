@@ -39,6 +39,71 @@ func drag_in_viewport(viewer: Control, delta: Vector2) -> void:
 	await process_frame
 
 
+func click_point(point: Vector2) -> void:
+	var event := InputEventMouseButton.new()
+	event.button_index = MOUSE_BUTTON_LEFT
+	event.position = point
+	event.global_position = point
+	event.pressed = true
+	root.push_input(event)
+	event = event.duplicate()
+	event.pressed = false
+	root.push_input(event)
+	await process_frame
+
+
+func capture_part_flow(viewer: Control, body: String) -> bool:
+	viewer.chest_view()
+	var previous: Dictionary = viewer.current_view()
+	var scroll: ScrollContainer = viewer.parts_tree.get_parent().get_parent().get_parent()
+	await process_frame
+	scroll.ensure_control_visible(viewer.inspect_button)
+	await process_frame
+	await click_point(viewer.inspect_button.global_position + viewer.inspect_button.size / 2.0)
+	if viewer.model.isolated_id != "anatomy.heart":
+		push_error("Rendered Inspect alone button failed")
+		return false
+	await physics_frame
+	await physics_frame
+	viewer.anatomy_labels.update_labels()
+	await save_image("heart-inspection-" + body)
+	scroll.ensure_control_visible(viewer.parts_tree)
+	await process_frame
+	var item: TreeItem = viewer.parts_items["anatomy.heart.valve.mitral"]
+	viewer.parts_tree.scroll_to_item(item)
+	await process_frame
+	var rect: Rect2 = viewer.parts_tree.get_item_area_rect(item, 0)
+	var point: Vector2 = rect.get_center()
+	if viewer.parts_tree.get_item_at_position(point) != item:
+		push_error("Part-list item coordinates do not identify the valve")
+		return false
+	await click_point(viewer.parts_tree.global_position + point)
+	if viewer.model.isolated_id != "anatomy.heart.valve.mitral" or viewer.model.selected_id != viewer.model.isolated_id:
+		push_error("Rendered part-list click failed to inspect the valve")
+		return false
+	await physics_frame
+	await physics_frame
+	viewer.anatomy_labels.update_labels()
+	await save_image("valve-inspection-" + body)
+	viewer.move_button.button_pressed = true
+	viewer.toggle_move()
+	var original: AABB = viewer.model.bounds_for(viewer.model.selected_id)
+	await drag_in_viewport(viewer, Vector2(40, 0))
+	if viewer.model.bounds_for(viewer.model.selected_id).is_equal_approx(original):
+		push_error("Rendered valve movement failed during inspection")
+		return false
+	var changed: Dictionary = viewer.model.export_state()
+	await click_point(viewer.return_button.global_position + viewer.return_button.size / 2.0)
+	if viewer.current_view() != previous or viewer.model.export_state() != changed or viewer.orbit.move_mode:
+		push_error("Rendered Return to context failed to preserve edits and restore the prior view")
+		return false
+	await save_image("inspection-return-" + body)
+	print("PASS rendered supplied-part inspection: ", body)
+	viewer.model.restore("anatomy.heart")
+	scroll.scroll_vertical = 0
+	return true
+
+
 func capture() -> void:
 	var viewer = load("res://scenes/main.tscn").instantiate()
 	root.add_child(viewer)
@@ -163,6 +228,9 @@ func capture() -> void:
 	viewer.model.restore("anatomy.heart")
 	viewer.move_button.button_pressed = false
 	viewer.toggle_move()
+	if not await capture_part_flow(viewer, "female"):
+		quit(1)
+		return
 	if "--female-only" not in OS.get_cmdline_user_args():
 		await viewer.switch_body("male")
 		viewer.chest_view()
@@ -172,6 +240,9 @@ func capture() -> void:
 		await physics_frame
 		viewer.anatomy_labels.update_labels()
 		await save_image("heart-labels-male")
+		if not await capture_part_flow(viewer, "male"):
+			quit(1)
+			return
 	root.size = Vector2i(1100, 720)
 	await process_frame
 	await process_frame

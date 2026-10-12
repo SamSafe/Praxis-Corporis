@@ -1,6 +1,6 @@
 # Planning Status
 
-Updated: 2026-10-11, using the America/Edmonton client date.
+Updated: 2026-10-12, using the America/Edmonton client date.
 
 Planning established the product direction, and the user authorised the first
 private feasibility prototype. Both pinned HRA samples have been downloaded,
@@ -12,6 +12,9 @@ Windows/macOS distribution remain open.
 See [prototype guide](PROTOTYPE.md) and [measured results](FEASIBILITY_RESULTS.md).
 Local part labels and camera/selection history now work in both samples; label
 surface ownership, occlusion and saved-view compatibility have been checked.
+The supplied-part browser and reversible Inspect alone view now expose covered
+meshes while preserving their body coordinates, ordinary visibility and edits.
+This is a rendering mask, not authored cutaway or guided-separation content.
 
 ## Established by the user
 

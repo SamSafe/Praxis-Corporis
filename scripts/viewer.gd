@@ -30,6 +30,20 @@ var move_button: Button
 var undo_button: Button
 var redo_button: Button
 var original_positions_button: CheckButton
+var inspect_button: Button
+var return_button: Button
+var inspection_banner: HBoxContainer
+var inspection_note: Label
+var inspection_return: Dictionary = {}
+var parts_section: VBoxContainer
+var parts_heading: Label
+var parts_tree: Tree
+var parts_items: Dictionary = {}
+var parts_scope := ""
+var syncing_parts := false
+var selection_scroll_pending := false
+var visibility_buttons: Array[Button] = []
+var peel_button: Button
 var action_buttons: Array[Button] = []
 var loading := false
 var syncing_tree := false
@@ -79,6 +93,20 @@ func verify_bundle() -> void:
 		navigate_history(true)
 		if current_view() != previous or model.export_state() != saved or anatomy_labels.local_ids().size() != 14:
 			push_error("Bundled exploration navigation failed")
+			get_tree().quit(1)
+			return
+		inspect_alone()
+		select_structure("anatomy.heart.valve.mitral")
+		var visible_count := 0
+		for mesh in model.meshes.values():
+			visible_count += int(mesh.visible)
+		if model.isolated_id != "anatomy.heart.valve.mitral" or visible_count != 1 or model.export_state() != saved:
+			push_error("Bundled part inspection failed")
+			get_tree().quit(1)
+			return
+		return_to_context()
+		if current_view() != previous or model.export_state() != saved:
+			push_error("Bundled return to context failed")
 			get_tree().quit(1)
 			return
 		print("PASS bundled reference: ", reference.id, " · ", model.meshes.size(), " meshes")
@@ -186,7 +214,7 @@ func build_interface() -> void:
 	tree.custom_minimum_size.x = 255
 	tree.item_selected.connect(on_tree_selected)
 	left.add_child(tree)
-	make_button("Peel away skin", func(): model.set_visibility("anatomy.skin", "hidden"), left)
+	peel_button = make_button("Peel away skin", peel_skin, left)
 	make_button("Show chest", chest_view, left)
 	var coverage := make_label("PARTIAL ATLAS\nSkeleton, muscles and nerves\ncover selected regions.", 13, Color("879db0"))
 	left.add_child(coverage)
@@ -203,6 +231,14 @@ func build_interface() -> void:
 	context.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	context.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	navigation.add_child(context)
+	inspection_banner = HBoxContainer.new()
+	center.add_child(inspection_banner)
+	return_button = make_button("Return to context", return_to_context, inspection_banner, "Restore the selection and camera from before Inspect alone; preserve current inspection changes.")
+	inspection_note = make_label("", 13, Color("83cfc9"))
+	inspection_note.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	inspection_note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	inspection_banner.add_child(inspection_note)
+	inspection_banner.visible = false
 	var frame := PanelContainer.new()
 	frame.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	center.add_child(frame)
@@ -257,6 +293,7 @@ func build_interface() -> void:
 	columns.add_child(right_panel)
 	var right_scroll := ScrollContainer.new()
 	right_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	right_scroll.follow_focus = true
 	right_panel.add_child(right_scroll)
 	var right := VBoxContainer.new()
 	right.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -273,12 +310,27 @@ func build_interface() -> void:
 	var action_row := HBoxContainer.new()
 	right.add_child(action_row)
 	action_buttons.append(make_button("Focus", focus_selection, action_row))
-	action_buttons.append(make_button("Show", func(): change_visibility("visible"), action_row))
+	visibility_buttons.append(make_button("Show", func(): change_visibility("visible"), action_row))
 	var visibility_row := HBoxContainer.new()
 	right.add_child(visibility_row)
-	action_buttons.append(make_button("Hide", func(): change_visibility("hidden"), visibility_row))
-	action_buttons.append(make_button("Fade", func(): change_visibility("faded"), visibility_row, "Faded anatomy is click-through."))
+	visibility_buttons.append(make_button("Hide", func(): change_visibility("hidden"), visibility_row))
+	visibility_buttons.append(make_button("Fade", func(): change_visibility("faded"), visibility_row, "Faded anatomy is click-through."))
+	inspect_button = make_button("Inspect alone", inspect_alone, right, "Temporarily reveal only the selected supplied geometry at its current position.")
 	action_buttons.append(make_button("Restore selected", restore_selected, right))
+	parts_section = VBoxContainer.new()
+	parts_section.add_theme_constant_override("separation", 8)
+	right.add_child(parts_section)
+	parts_heading = make_label("SUPPLIED PARTS", 13, Color("83cfc9"))
+	parts_heading.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	parts_section.add_child(parts_heading)
+	parts_tree = Tree.new()
+	parts_tree.hide_root = true
+	parts_tree.custom_minimum_size.y = 180
+	parts_tree.item_selected.connect(on_part_selected)
+	parts_section.add_child(parts_tree)
+	var parts_hint := make_label("Select a part, then Inspect alone to see covered geometry.", 12, Color("879db0"))
+	parts_hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	parts_section.add_child(parts_hint)
 	original_positions_button = CheckButton.new()
 	original_positions_button.text = "Show original positions"
 	original_positions_button.button_pressed = true
@@ -321,7 +373,7 @@ func build_interface() -> void:
 	toolbar.add_child(labels_button)
 	undo_button = make_button("Undo", func(): model.undo(), toolbar)
 	redo_button = make_button("Redo", func(): model.redo(), toolbar)
-	make_button("Restore all", func(): model.restore(), toolbar)
+	make_button("Restore all", restore_all, toolbar)
 	status = make_label("Preparing the local anatomy sample…", 13, Color("7891a7"))
 	status.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	status.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
@@ -360,8 +412,12 @@ func switch_body(id: String) -> void:
 		refresh_details()
 		return
 	anatomy_labels.clear_labels()
+	parts_scope = ""
+	parts_items.clear()
+	parts_tree.clear()
 	back_views.clear()
 	forward_views.clear()
+	inspection_return = {}
 	body_choice.select(0 if id == "female" else 1)
 	move_button.button_pressed = false
 	orbit.move_mode = false
@@ -423,8 +479,11 @@ func select_structure(id: String, remember: bool = true) -> void:
 	if loading or not model.structures.has(id):
 		return
 	var previous := current_view()
-	model.select(id)
 	anatomy_labels.set_selection(id)
+	if not model.isolated_id.is_empty():
+		if not model.set_isolation(id):
+			end_isolation()
+	model.select(id)
 	focus_selection(false)
 	sync_selection_tree()
 	if remember:
@@ -437,17 +496,107 @@ func sync_selection_tree() -> void:
 	tree.deselect_all()
 	if tree_items.has(model.selected_id):
 		var id: String = model.selected_id
-		tree_items[id].select(0)
 		var parent: TreeItem = tree_items[id].get_parent()
 		while parent != null:
 			parent.collapsed = false
 			parent = parent.get_parent()
-		tree.scroll_to_item.call_deferred(tree_items[id])
+		tree_items[id].select(0)
+		queue_selection_scroll()
 	syncing_tree = false
+	sync_parts_selection()
+
+
+func refresh_parts() -> void:
+	if parts_tree == null:
+		return
+	var scope: String = anatomy_labels.context_id
+	parts_section.visible = model.structures.has(scope)
+	if not parts_section.visible:
+		parts_scope = ""
+		parts_items.clear()
+		parts_tree.clear()
+		return
+	if scope != parts_scope:
+		syncing_parts = true
+		parts_tree.clear()
+		parts_items.clear()
+		parts_scope = scope
+		parts_heading.text = "SUPPLIED PARTS · " + str(model.structures[scope].label)
+		var root := parts_tree.create_item()
+		for child in model.structures[scope].children:
+			append_part_branch(str(child), root)
+		syncing_parts = false
+	sync_parts_selection()
+
+
+func append_part_branch(id: String, parent: TreeItem) -> void:
+	var record: Dictionary = model.structures[id]
+	var item := parts_tree.create_item(parent)
+	item.set_text(0, str(record.label))
+	item.set_tooltip_text(0, str(record.label))
+	item.set_metadata(0, id)
+	parts_items[id] = item
+	for child in record.children:
+		append_part_branch(str(child), item)
+
+
+func sync_parts_selection() -> void:
+	if parts_tree == null:
+		return
+	syncing_parts = true
+	parts_tree.deselect_all()
+	if parts_items.has(model.selected_id):
+		var parent: TreeItem = parts_items[model.selected_id].get_parent()
+		while parent != null:
+			parent.collapsed = false
+			parent = parent.get_parent()
+		parts_items[model.selected_id].select(0)
+		queue_selection_scroll()
+	syncing_parts = false
+
+
+func queue_selection_scroll() -> void:
+	if not selection_scroll_pending:
+		selection_scroll_pending = true
+		scroll_current_selection.call_deferred()
+
+
+func scroll_current_selection() -> void:
+	selection_scroll_pending = false
+	# Resolve current items after layout. Queuing a TreeItem directly can leave a
+	# freed pointer when rapid navigation replaces a local tree before the callback.
+	if not is_inside_tree():
+		return
+	if tree_items.has(model.selected_id):
+		tree.scroll_to_item(tree_items[model.selected_id])
+	if parts_items.has(model.selected_id):
+		parts_tree.scroll_to_item(parts_items[model.selected_id])
+
+
+func on_part_selected() -> void:
+	if not syncing_parts and parts_tree.get_selected() != null:
+		select_structure(str(parts_tree.get_selected().get_metadata(0)))
+
+
+func camera_view() -> Dictionary:
+	return {"selection": model.selected_id, "camera": orbit.export_state(), "label_context": anatomy_labels.context_id}
 
 
 func current_view() -> Dictionary:
-	return {"selection": model.selected_id, "camera": orbit.export_state(), "label_context": anatomy_labels.context_id}
+	var view := camera_view()
+	view["isolation"] = model.isolated_id
+	view["inspection_return"] = inspection_return.duplicate(true)
+	return view
+
+
+func apply_view(view: Dictionary) -> void:
+	inspection_return = view.get("inspection_return", {}).duplicate(true)
+	anatomy_labels.context_id = view.label_context
+	model.set_isolation(view.get("isolation", ""))
+	model.select(view.selection)
+	orbit.apply_state(view.camera)
+	sync_selection_tree()
+	refresh_details()
 
 
 func remember_view(previous: Dictionary) -> void:
@@ -469,11 +618,8 @@ func navigate_history(backward: bool) -> void:
 		return
 	destination.append(current_view())
 	var view: Dictionary = source.pop_back()
-	orbit.cancel_drag()
-	model.select(view.selection)
-	orbit.apply_state(view.camera)
-	anatomy_labels.context_id = view.label_context
-	sync_selection_tree()
+	leave_move_mode()
+	apply_view(view)
 	refresh_navigation()
 	status.text = "Earlier view restored" if backward else "Next view restored"
 
@@ -486,6 +632,8 @@ func refresh_navigation() -> void:
 	if not loading and not model.body.is_empty():
 		var region: String = str(model.structures[model.selected_id].label) if model.structures.has(model.selected_id) else "Whole body"
 		context.text = "%s · %s" % [str(model.body.id).capitalize(), region]
+		if not model.isolated_id.is_empty():
+			context.text += " · inspecting alone"
 
 
 func on_viewport_clicked(position: Vector2) -> void:
@@ -500,7 +648,20 @@ func refresh_details() -> void:
 	if heading == null:
 		return
 	refresh_navigation()
+	refresh_parts()
 	var selected: bool = model.structures.has(model.selected_id)
+	var isolated: bool = not model.isolated_id.is_empty()
+	if peel_button:
+		peel_button.disabled = loading or isolated
+	if inspect_button:
+		inspect_button.disabled = loading or not selected or model.isolated_id == model.selected_id or model.structures[model.selected_id].mesh_nodes.is_empty()
+	if inspection_banner:
+		inspection_banner.visible = isolated
+		return_button.disabled = loading
+		inspection_note.text = "Inspecting supplied geometry · surroundings temporarily hidden"
+	for button in visibility_buttons:
+		button.disabled = loading or not selected or isolated
+		button.tooltip_text = "Return to context to edit visibility." if isolated else "Change the selected anatomy's visibility; faded parts are click-through."
 	if move_button:
 		move_button.disabled = not selected or loading
 		if not selected:
@@ -528,6 +689,44 @@ func refresh_details() -> void:
 		visibility_counts.visible, visibility_counts.faded, visibility_counts.hidden,
 		"Moved for inspection. Restore returns the original anatomy." if displaced else "In its original atlas position.",
 		record.label, str(record.ontology)]
+	if isolated:
+		detail.text = "INSPECTING ALONE\nSupplied geometry temporarily revealed.\n\nContext settings:\n" + detail.text
+
+
+func leave_move_mode() -> void:
+	move_button.button_pressed = false
+	orbit.move_mode = false
+	orbit.cancel_drag()
+
+
+func inspect_alone() -> void:
+	if loading or not model.structures.has(model.selected_id) or model.structures[model.selected_id].mesh_nodes.is_empty():
+		return
+	var previous := current_view()
+	if model.isolated_id.is_empty():
+		inspection_return = camera_view()
+	leave_move_mode()
+	model.set_isolation(model.selected_id)
+	focus_selection(false)
+	remember_view(previous)
+	status.text = "Temporary inspection view · Return to context preserves your changes"
+
+
+func end_isolation() -> void:
+	inspection_return = {}
+	if not model.isolated_id.is_empty():
+		model.set_isolation("")
+
+
+func return_to_context() -> void:
+	if loading or model.isolated_id.is_empty() or inspection_return.is_empty():
+		return
+	var previous := current_view()
+	var view := inspection_return.duplicate(true)
+	leave_move_mode()
+	apply_view(view)
+	remember_view(previous)
+	status.text = "Body context restored · inspection changes preserved"
 
 
 func focus_selection(remember: bool = true) -> void:
@@ -542,6 +741,7 @@ func whole_body(remember: bool = true) -> void:
 	if loading or not model.structures.has("anatomy.body"):
 		return
 	var previous := current_view()
+	end_isolation()
 	model.select("")
 	anatomy_labels.set_selection("")
 	orbit.yaw = 0.0
@@ -557,6 +757,7 @@ func chest_view() -> void:
 	if loading or not model.structures.has("anatomy.heart"):
 		return
 	var previous := current_view()
+	end_isolation()
 	model.set_visibility("anatomy.skin", "hidden")
 	model.set_visibility("anatomy.lungs", "faded")
 	select_structure("anatomy.heart", false)
@@ -567,11 +768,27 @@ func chest_view() -> void:
 
 
 func change_visibility(visibility: String) -> void:
+	if loading or not model.isolated_id.is_empty():
+		return
 	model.set_visibility(model.selected_id, visibility)
+
+
+func peel_skin() -> void:
+	if not loading and model.isolated_id.is_empty():
+		model.set_visibility("anatomy.skin", "hidden")
 
 
 func restore_selected() -> void:
 	model.restore(model.selected_id)
+
+
+func restore_all() -> void:
+	if loading:
+		return
+	var previous := current_view()
+	end_isolation()
+	model.restore()
+	remember_view(previous)
 
 
 func toggle_move() -> void:
@@ -592,6 +809,7 @@ func save_view() -> void:
 		"labels": labels_button.button_pressed, "original_positions": original_positions_button.button_pressed,
 		"local_labels": local_labels_button.button_pressed, "label_density": int(label_density.value),
 		"label_context": anatomy_labels.context_id,
+		"isolation": model.isolated_id, "inspection_return": inspection_return.duplicate(true),
 		"changes": model.export_state()}
 	var file := FileAccess.open(save_path + ".tmp", FileAccess.WRITE)
 	if file == null:
@@ -651,6 +869,9 @@ func load_view() -> void:
 	if not valid_label_context(state.selection, state.get("label_context", ""), reference):
 		status.text = "Saved label context does not match the selected anatomy."
 		return
+	if not valid_inspection_view(state, reference):
+		status.text = "Saved inspection view has invalid anatomy or return context."
+		return
 	if model.body.get("id") != state.body:
 		await switch_body(state.body)
 	if model.body.get("id") != state.body:
@@ -660,11 +881,13 @@ func load_view() -> void:
 	if not error.is_empty():
 		status.text = error
 		return
-	model.select(state.selection)
 	anatomy_labels.context_id = ""
 	anatomy_labels.set_selection(state.selection)
 	if state.has("label_context"):
 		anatomy_labels.context_id = state.label_context
+	inspection_return = state.get("inspection_return", {}).duplicate(true)
+	model.set_isolation(state.get("isolation", ""))
+	model.select(state.selection)
 	orbit.apply_state(state.camera)
 	labels_button.button_pressed = state.labels
 	local_labels_button.button_pressed = state.get("local_labels", false)
@@ -673,9 +896,34 @@ func load_view() -> void:
 	model.show_original_positions = original_positions_button.button_pressed
 	model.refresh_appearance()
 	sync_selection_tree()
+	refresh_details()
 	remember_view(previous)
 	refresh_navigation()
 	status.text = "Saved view restored"
+
+
+func valid_inspection_view(state: Dictionary, reference: Dictionary) -> bool:
+	var isolated = state.get("isolation", "")
+	var return_view = state.get("inspection_return", {})
+	if not isolated is String or not return_view is Dictionary:
+		return false
+	if isolated.is_empty():
+		return return_view.is_empty()
+	if isolated != state.selection:
+		return false
+	var available := {}
+	for structure in reference.structures:
+		available[str(structure.id)] = structure
+	if not available.has(isolated) or available[isolated].mesh_nodes.is_empty():
+		return false
+	for key in return_view:
+		if key not in ["selection", "camera", "label_context"]:
+			return false
+	if not return_view.get("selection") is String or not return_view.get("label_context") is String or not return_view.get("camera") is Dictionary:
+		return false
+	if not return_view.selection.is_empty() and not available.has(return_view.selection):
+		return false
+	return orbit.valid_state(return_view.camera) and valid_label_context(return_view.selection, return_view.label_context, reference)
 
 
 func valid_label_context(selection: String, label_context: String, reference: Dictionary) -> bool:

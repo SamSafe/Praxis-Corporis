@@ -14,6 +14,8 @@ var states: Dictionary = {}
 var materials: Dictionary = {}
 var colliders: Dictionary = {}
 var selected_id := ""
+var isolated_id := ""
+var isolated_meshes: Dictionary = {}
 var undo_stack: Array[Dictionary] = []
 var redo_stack: Array[Dictionary] = []
 var original_ghosts: Dictionary = {}
@@ -161,6 +163,8 @@ func clear_body() -> void:
 		ghost.free()
 	original_ghosts.clear()
 	selected_id = ""
+	isolated_id = ""
+	isolated_meshes.clear()
 	body = {}
 
 
@@ -183,6 +187,27 @@ func select(id: String) -> void:
 	state_changed.emit()
 
 
+func set_isolation(id: String) -> bool:
+	if not id.is_empty() and (not structures.has(id) or structures[id].mesh_nodes.is_empty()):
+		return false
+	isolated_id = id
+	isolated_meshes.clear()
+	if not id.is_empty():
+		for index in structures[id].mesh_nodes:
+			isolated_meshes[int(index)] = true
+	refresh_appearance()
+	state_changed.emit()
+	return true
+
+
+func effective_visibility(index: int) -> String:
+	# A temporary view mask reveals a supplied selection without editing inspection
+	# states. Baseline geometry, saved displacements and undo history are untouched.
+	if not isolated_id.is_empty():
+		return "visible" if isolated_meshes.has(index) else "hidden"
+	return states[index].visibility
+
+
 func refresh_appearance() -> void:
 	var highlighted := {}
 	if structures.has(selected_id):
@@ -190,7 +215,7 @@ func refresh_appearance() -> void:
 			highlighted[int(index)] = true
 	for index in meshes:
 		var mesh: MeshInstance3D = meshes[index]
-		var visibility: String = states[index].visibility
+		var visibility := effective_visibility(index)
 		mesh.visible = visibility != "hidden"
 		# Faded anatomy is intentionally click-through, to reach structures behind it.
 		colliders[index].collision_layer = 1 if visibility == "visible" else 0
@@ -214,7 +239,7 @@ func refresh_appearance() -> void:
 
 
 func refresh_original_ghost(index: int) -> void:
-	var show: bool = show_original_positions and states[index].offset != Vector3.ZERO and states[index].visibility != "hidden"
+	var show: bool = show_original_positions and states[index].offset != Vector3.ZERO and effective_visibility(index) != "hidden"
 	if show and not original_ghosts.has(index):
 		if ghost_material == null:
 			ghost_material = StandardMaterial3D.new()

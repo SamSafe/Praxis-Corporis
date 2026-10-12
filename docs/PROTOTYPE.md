@@ -54,6 +54,9 @@ is used by the viewer.
 | Zoom | Scroll wheel or supported pinch gesture. |
 | Select and focus | Click visible geometry or a surface label, choose a tree item, or select a search result. |
 | Browse systems and parts | Expand the anatomy tree; parent groups select their descendant meshes. |
+| Browse local components | The Supplied parts list follows the current organ/group and uses the same selection as the main tree. |
+| Inspect a covered part | Select it, then Inspect alone. Further selections follow this temporary view. |
+| Return to surroundings | Return to context restores the selection/camera from before inspection and preserves current body edits. |
 | Reveal deeper anatomy | Peel away skin; Hide/Fade/Show apply to the current selection. |
 | First chest view | Show chest hides skin and fades lungs around the selected heart. |
 | Labels | Selection label is on by default. Enable Local part labels; Maximum labels controls density from 1 to 12. |
@@ -72,9 +75,11 @@ Choose either in the tree and use Show to make it directly selectable again.
 Viewer undo/redo restores visibility and inspection displacements, not camera navigation.
 New inspection edits discard redo history. Original-position overlays are separate
 from anatomy and do not intercept clicks; restoring a part hides its overlay.
-Selecting a hidden structure focuses its position without silently revealing it.
+Ordinary selection of a hidden structure focuses its position without revealing it.
+Inspect alone explicitly reveals supplied geometry temporarily, as described below.
 
-Back/Forward restores selection, camera position and the relevant local label set.
+Back/Forward restores selection, camera position, the relevant local label set and
+temporary inspection mode, including its return action. It exits Move mode.
 It preserves current visibility, displacements and inspection undo/redo. Manual orbit
 and pan are captured when leaving a view. Choosing another structure after going
 back discards the old forward branch. History holds up to 40 previous views per body
@@ -85,7 +90,7 @@ Local sets use the current source hierarchy, retaining an organ's context when y
 select one of its components. Both hearts have 14 supplied component meshes. Labels
 are clickable, use leader lines and avoid overlapping each other or leaving the
 viewport. Leaders end at actual first-hit opaque surfaces belonging to the named
-structure. Covered, hidden and faded components are omitted; the tree remains the
+structure. In the ordinary body view, covered, hidden and faded components are omitted; the tree remains the
 parallel route to select them. Faded layers are transparent to label ray queries as
 well as clicks. Whole body clears the local context; changing organs replaces it.
 Thin parts may remain unlabelled if the bounded surface search cannot find a hit.
@@ -95,13 +100,50 @@ Surface searches run at most ten times per second, with a 160-ray budget per upd
 and at most 64 supplied parts in a local set. These limits bound work but do not
 establish a target-device performance result. Long names are shortened in pills and
 available in their tooltips and the details panel. The details panel scrolls when
-needed so the viewport and bottom controls remain available.
+needed so the viewport and bottom controls remain available. Keyboard focus follows
+the scrollable panel's controls using
+[Godot's ScrollContainer](https://docs.godotengine.org/en/stable/classes/class_scrollcontainer.html).
+
+## Inspect supplied parts
+
+Select Heart in the tree or use Show chest. The Supplied parts panel lists the
+source's grouped chambers, papillary muscles and valves. Select a component in
+either list, then choose Inspect alone. You can also inspect the whole heart first
+and select individual parts while that view is active.
+
+Inspect alone hides surroundings and temporarily renders the selected supplied
+meshes opaque, including meshes currently hidden/faded in your ordinary view. They
+remain in the same scene at their current body coordinates. It does not create
+new interior surfaces, tissue, caps, a cutaway or a separation layout. Source labels
+and geometry remain draft imports pending review.
+
+The temporary mask is separate from the stored visibility and displacement state.
+Labels, picking and original-position overlays follow the mask. The organ's local
+part list stays available when selecting its components. Show/Hide/Fade and skin
+reveal are disabled while inspecting alone; Return to context exposes those ordinary
+controls again. Movement, undo/redo and Restore selected still work during inspection.
+
+Return to context is above the viewport and remains accessible while the details
+panel scrolls. It restores the prior selection, camera and label context, preserves
+edits made during inspection, and leaves Move mode. Whole body and Show chest remove
+the mask; Restore all removes it and resets visibility/displacements. Selecting
+another structure during inspection makes the mask follow that selection, retaining
+the initial return view. Body switching clears temporary inspection.
+
+Save/load retains the mask and a validated return view, so reopening an isolated
+part keeps a working Return to context action. Missing parts, a mismatched isolated
+selection or malformed return camera/context are rejected before switching bodies
+or changing the session. Older saves without these optional fields load in the
+ordinary body view.
+
+## Saved views
 
 Body switching restores that body's original inspection state and clears undo/redo
 and navigation history.
 The saved slot records body, selected ID, camera, labels, original-position display,
-local label context/density, visibility and displacements. Earlier schema-1 saves
-remain compatible through defaults for the optional new label fields.
+local label context/density, temporary inspection/return view, visibility and
+displacements. Earlier schema-1 saves remain compatible through defaults for optional
+fields. General Back/Forward history is not saved across launches.
 Saves use Godot's user:// location, outside the project, with a temporary-file rename.
 Invalid schemas, content versions, missing structures and malformed transforms are
 rejected. Multiple bookmarks, backups and migration recovery remain future work.
@@ -129,6 +171,7 @@ python3 tools/fetch_assets.py --verify-only
 python3 -m unittest discover -s tests -v
 godot --headless --path . --script tests/viewer_smoke.gd
 godot --headless --path . --script tests/exploration_smoke.gd
+godot --headless --path . --script tests/part_inspection_smoke.gd
 ```
 
 The Python checks cover corrupt inputs, path containment, asset modification,
@@ -141,6 +184,11 @@ Exploration checks cover both-body navigation/inspection separation, local label
 context, density, surface ownership, occlusion, layout containment and compatible
 saved-view settings. The rendered capture also clicks a real label through the
 desktop UI and checks toolbar containment at a 1100 × 720 window size.
+Part inspection checks cover both bodies, covered-part selection, temporary reveal,
+mask/label/picking agreement, exact return framing, edits made while inspecting,
+undo/redo, body switching, compatible saves and atomic rejection of invalid returns.
+Rendered checks click Inspect alone, a supplied part and Return to context through
+native input, and move the part while inspecting it.
 
 Optional rendered capture on a Linux development display:
 

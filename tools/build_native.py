@@ -114,6 +114,8 @@ def add_notices(folder: pathlib.Path, platform: str) -> None:
         + "Python and the Godot editor are not required; exploration works offline.\n\n"
         "Drag to orbit; Shift/right-drag to pan; scroll or pinch to zoom.\n"
         "Enable Local part labels to identify exposed supplied parts; click a label to focus.\n"
+        "Inspect alone temporarily reveals selected geometry; choose supplied parts in the panel.\n"
+        "Return to context restores the prior body view and preserves inspection edits.\n"
         "Back/Forward (Alt + Left/Right) restore selections and camera views without resetting inspection.\n"
         "Peel away skin, choose Show chest, or select anatomy in the list.\n"
         "Move selected enables inspection displacement; blue overlays mark original positions.\n"

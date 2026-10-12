@@ -9,7 +9,7 @@ candidates remain separate from imported prototype assets.
 
 | Asset and version | Creator/source | Licence | Changes | Used for | Required credits |
 |---|---|---|---|---|---|
-| Female United GLB, v1.1 | HuBMAP / Human Reference Atlas 3D Reference Object Library, including its supplied contributor metadata | CC BY 4.0 | Source GLB unchanged; sampling-site roots excluded, Godot cache conversion, temporary selection colours, fading, inspection movements, original-position overlays and source-label annotations | Female reference in private feasibility viewer | Credit the source library, link source/licence, retain notices and identify changes. |
+| Female United GLB, v1.1 | HuBMAP / Human Reference Atlas 3D Reference Object Library, including its supplied contributor metadata | CC BY 4.0 | Source GLB unchanged; sampling-site roots excluded, Godot cache conversion, temporary selection colours, fading, inspection movements, original-position overlays, source-label annotations and temporary isolated-part rendering | Female reference in private feasibility viewer | Credit the source library, link source/licence, retain notices and identify changes. |
 | Male United GLB, v1.1 | HuBMAP / Human Reference Atlas 3D Reference Object Library, including its supplied contributor metadata | CC BY 4.0 | Same modifications as female sample | Male reference in private feasibility viewer | Same requirements. |
 
 Attribution: Anatomy models from the HuBMAP / Human Reference Atlas

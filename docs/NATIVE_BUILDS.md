@@ -69,7 +69,8 @@ python3 tools/build_native.py --godot /path/to/godot --qa-linux
 This exports a temporary Linux runtime solely for bundle verification. It runs
 outside the source project with isolated user data, loads both bodies from the
 packed anatomy, tests inspection restoration and selection/camera history, confirms
-the supplied heart component catalogue, and checks that removing anatomy.pck
+the supplied heart component catalogue, tests isolated-part inspection and return
+without changing stored anatomy settings, and checks that removing anatomy.pck
 produces a clear failure. It also loads both bodies from the Mac core resource pack
 using the development engine; this verifies embedded content, not Mac OS execution.
 Linux is not a release target.
@@ -83,9 +84,11 @@ revision verified against its recorded file hashes.
 
 The first target-device trial should exercise both bodies, skin reveal, chest
 selection, local labels and label clicks, Back/Forward, orbit/pan/zoom, movement,
-original-position display, undo/redo, restoration, and save/reopen. Confirm that
+supplied-part browsing, Inspect alone/Return to context, original-position display,
+undo/redo, restoration, and save/reopen. Confirm that
 navigation preserves moved/hidden parts and that covered components stay available
 in the tree. Record OS, machine, graphics device, loading times and failures.
+Save and reopen an isolated part and confirm that its Return to context action works.
 Trackpad gestures, smaller displays, larger text and sustained frame rate remain
 unverified on target hardware. No testers have been contacted and no archives have
 been published.

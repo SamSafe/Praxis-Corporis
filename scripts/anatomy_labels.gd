@@ -81,7 +81,7 @@ func surface_anchor(id: String) -> Dictionary:
 	var record: Dictionary = model.structures[id]
 	var allowed := {}
 	for index in record.mesh_nodes:
-		if model.states[int(index)].visibility == "visible":
+		if model.effective_visibility(int(index)) == "visible":
 			allowed[int(index)] = true
 	if allowed.is_empty():
 		return {}
@@ -139,7 +139,9 @@ func update_labels() -> void:
 		queue_redraw()
 		return
 	var candidates: Array[String] = []
-	var parts: Array[String] = local_ids() if local_enabled else []
+	var parts: Array[String] = []
+	if local_enabled:
+		parts = local_ids()
 	if selection_enabled and model.structures.has(model.selected_id):
 		candidates.append(model.selected_id)
 	elif parts.has(model.selected_id):
