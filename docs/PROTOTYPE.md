@@ -6,6 +6,10 @@ review. Detailed findings are in [the sample audit](audit/HRA_SAMPLE_FINDINGS.md
 
 ## Requirements and setup
 
+For the generated Windows/Mac packages, use [NATIVE_BUILDS.md](NATIVE_BUILDS.md).
+They include the runtime and anatomy and require no development tools.
+The instructions below are for running/editing the source project.
+
 Use Python 3.10 or newer and
 [Godot 4.7.2 Standard](https://godotengine.org/download/archive/4.7.2-stable/).
 The .NET edition is unnecessary for this GDScript project. Windows and macOS are
@@ -34,7 +38,8 @@ mesh collision shapes, and writes local compiled scenes in assets/prepared/.
 The first raw import is expensive; preparation can take several minutes. Subsequent
 launches reuse the scenes. A source-hash or engine-version change invalidates the
 cache. The project folder must be writable during this development preparation.
-Bundled content and installed-application cache handling remain packaging work.
+Private packages bundle the prepared scenes read-only; they never import or write
+geometry into the installation folder. Full installer/update handling remains work.
 
 The GLBs, compiled scenes and .godot/ directory are excluded from Git. After fetching
 and preparing, exploration and saves work offline. No login or network connection
@@ -55,16 +60,22 @@ is used by the viewer.
 | Move anatomy | Enable Move selected, then primary-drag in the viewer's camera plane. Shift-drag still pans. |
 | Restore | Restore selected or Restore all recovers original transforms and visibility. |
 | Undo | Undo button or Ctrl/Cmd + Z outside text entry. |
+| Redo | Redo button or Ctrl/Cmd + Shift + Z outside text entry. |
+| Original position | Show original positions toggles faint blue, non-selectable copies of moved anatomy at its baseline location. |
+| Leave Move mode | Escape or Whole body returns to navigation and preserves inspection changes. |
 | Body reference | Select Female reference or Male reference; shared canonical selections are retained where mapped. |
 | Save/load | Save view and Load view use one local saved-view slot. |
 
 Faded structures are click-through; hidden structures have no active pick collision.
 Choose either in the tree and use Show to make it directly selectable again.
-Viewer undo restores visibility and inspection displacements, not camera navigation.
+Viewer undo/redo restores visibility and inspection displacements, not camera navigation.
+New inspection edits discard redo history. Original-position overlays are separate
+from anatomy and do not intercept clicks; restoring a part hides its overlay.
 Selecting a hidden structure focuses its position without silently revealing it.
 
-Body switching restores that body's original inspection state and clears undo.
-The saved slot records body, selected ID, camera, labels, visibility and displacements.
+Body switching restores that body's original inspection state and clears undo/redo.
+The saved slot records body, selected ID, camera, labels, original-position display,
+visibility and displacements.
 Saves use Godot's user:// location, outside the project, with a temporary-file rename.
 Invalid schemas, content versions, missing structures and malformed transforms are
 rejected. Multiple bookmarks, backups and migration recovery remain future work.
@@ -80,8 +91,8 @@ rejected. Multiple bookmarks, backups and migration recovery remain future work.
   reviewed heart–lung pathway. Vessel geometry alone is not a route graph.
 - Labels currently follow the selected structure's bounds; local-part label sets,
   leader lines, overlap resolution and occlusion handling are later work.
-- Movement is a camera-plane inspection displacement. Handles, original-position
-  ghosts, guided exploded views, redo and navigation history remain future work.
+- Movement is a camera-plane inspection displacement with optional original-position
+  overlays. Handles, guided exploded views and navigation history remain future work.
 - No signed Windows or Mac installer, minimum-hardware claim, qualified medical
   review, accessibility acceptance or public-release readiness is established.
 
@@ -96,7 +107,9 @@ godot --headless --path . --script tests/viewer_smoke.gd
 The Python checks cover corrupt inputs, path containment, asset modification,
 catalogue references, both bodies and exclusion of sampling sites. The engine
 integration uses actual geometry to check multi-mesh movement, exact restoration,
-undo, saved-state validation and hidden/faded picking behaviour.
+undo/redo, branching history, original-position overlays, saved-state validation and
+hidden/faded picking behaviour. Native archive tests check target architectures,
+Mac executable metadata and extraction containment.
 
 Optional rendered capture on a Linux development display:
 

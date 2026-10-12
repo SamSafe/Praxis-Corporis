@@ -1,6 +1,7 @@
 # Interaction Design
 
-Status: proposed desktop experience for review before implementation.
+Status: target desktop experience. The current control subset and evidence are in
+[PROTOTYPE.md](PROTOTYPE.md) and [FEASIBILITY_RESULTS.md](FEASIBILITY_RESULTS.md).
 
 See [Interface specification](INTERFACE_SPEC.md) for static screen studies and
 the exact selection, restore, pathway, and loading behaviours proposed for review.

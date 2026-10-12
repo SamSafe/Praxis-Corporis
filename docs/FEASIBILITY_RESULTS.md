@@ -74,5 +74,30 @@ modification notices apply to these views. Screenshots are not medical review ev
 Comprehensive geometry for both reference bodies, reviewed source labels/interiors,
 qualified medical review, guided routes/separation, prepared cutaways, condition
 content, larger-text/accessibility checks, trackpad hardware trials, representative
-Windows/Mac performance, native exports/signing and save migration/recovery remain
+Windows/Mac performance, public signing/distribution and save migration/recovery remain
 open. There is no public-release claim or complete-atlas claim.
+
+## Follow-up inspection and packaging trial
+
+The updated viewer adds redo, branching inspection history, Escape/Whole body exit
+from Move mode, and optional original-position overlays. Both-body integration
+passed: overlays retain baseline bounds, do not intercept actual physics picking,
+and disappear on restoration. Rendered mouse movement, undo/redo and saved-view
+checks passed. The captures above now show these controls and the blue overlays.
+
+Seven Python checks passed, including archive path containment, target architecture
+inspection and preservation of Mac executable metadata. The local Godot editor
+import completed without script errors.
+
+Private Windows x64 and Mac Universal archives were generated from the verified
+source snapshot. Both include runtime, anatomy and notices. The Windows ZIP is
+275,630,203 bytes; the Mac ZIP is 298,075,792 bytes. Exact artifact/source hashes are
+retained in [native-build-report.json](audit/native-build-report.json).
+
+The exported Linux QA runtime loaded both bodies from the companion content package
+outside the source project, verified inspection restoration, and rejected a missing
+package. The Mac core resource pack also loaded both bodies using the development
+engine. Anatomy is embedded before the Mac app is ad-hoc signed, preserving access
+when the app location changes. This is content verification, not a Mac device run.
+Windows/Mac hardware, performance, trackpad behaviour and public signing/notarization
+remain unverified. See [NATIVE_BUILDS.md](NATIVE_BUILDS.md) for setup and limits.

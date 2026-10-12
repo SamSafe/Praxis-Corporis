@@ -1,0 +1,46 @@
+{
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "content_pack": "hra-united-v1-1-prototype-1",
+  "artifacts": [
+    {
+      "file": "PraxisCorporis-Windows-x64-private.zip",
+      "bytes": 275630203,
+      "sha256": "109fd8e0b3ce31f4836262edc8ce689ed354a29fd659794e528790b357a9eb4c",
+      "architectures": [
+        "x86_64"
+      ]
+    },
+    {
+      "file": "PraxisCorporis-macOS-universal-private.zip",
+      "bytes": 298075792,
+      "sha256": "6aba5a4c629f88e0e1ed4bd1c7b8019c804ae7afc7965e2972143a63d64dec26",
+      "architectures": [
+        "x86_64",
+        "arm64"
+      ]
+    }
+  ],
+  "target_device_testing": "pending",
+  "publication": "local private artifacts only",
+  "source_revision": "b25dd822b5991e034cf556c8b1bffecef925ed9f",
+  "source_hashes": {
+    "project.godot": "0f521b6466837dde12c1c0430ba80b25e1b031591cca04b23f0bbf1dd69a7269",
+    "export_presets.cfg": "0cd01dab56261fe929c3cccc7f23b9b0810e03c433f2e936fafdfc845234cd6b",
+    "content/sample_pack.json": "7766d1c3fb63ba526a1a5a36f4c25c4024da7e9237bd212c224ab9080af7207c",
+    "content/source_manifest.json": "15a940b6de53461975446187bcd651f806327fb1bf9c8be10ee5f64d655a1385",
+    "content/toolchain_manifest.json": "2697648889696238ca23c3a240b25791a775e57fedf525a4dc998690a0256f55",
+    "addons/private_native_export/plugin.gd": "1e64469ac78d10f76bd159a913b9e95c214a05f00ca74c8b81ded7e70db1baee",
+    "scripts/anatomy_model.gd": "429bdf5b464e6d7efd081b0c6da577168e68db73526646067038ecc1547e07ba",
+    "scripts/content_bundle.gd": "0bbfdf7f61c5552e598882a73beb3617c08ea51e4d5036e9bc255e3970a7304a",
+    "scripts/orbit_camera.gd": "ccba32a5f16a9d49d27cf20d6c9d2711f17affa10a8750e0518f0f47ecc7f224",
+    "scripts/source_index_extension.gd": "090d8c7f9346889a43980f0854e0bca2e588138447d86628f76b8ab87b94d84c",
+    "scripts/viewer.gd": "93565d241e90a2cb5a2bd5315493015253779d7edca20b95e5128930e2a30d64"
+  },
+  "anatomy_package": {
+    "bytes": 505499784,
+    "sha256": "80b3b8e0d26492b833156c003c27dd31a8213a1125ed0f2d51b252fe0cbb439a"
+  },
+  "linux_qa": "passed exported-runtime two-body restoration and missing-content checks",
+  "mac_content_qa": "passed two-body embedded-content check on the development engine; Mac device testing pending",
+  "source_snapshot_verified_against_revision": "d36d675a86309cc5908ddd63deb292b48b0fe45b"
+}

@@ -5,8 +5,10 @@ Updated: 2026-10-11, using the America/Edmonton client date.
 Planning established the product direction, and the user authorised the first
 private feasibility prototype. Both pinned HRA samples have been downloaded,
 inventoried, prepared in Godot and exercised in engine tests. Rendered views were
-inspected on the Linux development host. Medical review, comprehensive anatomy
-coverage, target-device performance and Windows/macOS packaging remain open.
+inspected on the Linux development host. Private Windows/Mac packages are generated;
+the exported Linux QA runtime reads both bodies from the offline bundle. Medical
+review, comprehensive anatomy coverage, target-device performance and public
+Windows/macOS distribution remain open.
 See [prototype guide](PROTOTYPE.md) and [measured results](FEASIBILITY_RESULTS.md).
 
 ## Established by the user
@@ -54,7 +56,7 @@ implementation. Local commits preserve progress; no remote publication is implie
 | Medical review | No access. | Arrange review before the planned public content release. |
 | Application licence | Undecided; private prototype code now exists. | Decide before implementation distribution. |
 | Name | Existing working name: Praxis Corporis. | Confirm later. |
-| Distribution | Direct downloads proposed. | Arrange packaging, signing, notarization, and platform testing. |
+| Distribution | Private Windows x64 and Mac Universal ZIPs generated locally. | Test on target devices and arrange public signing/notarization and distribution. |
 
 ## Planning completion
 

@@ -10,6 +10,7 @@ follow connections, and explore related diseases within one continuous body scen
 The user authorised work after the planning/documentation stage. Both reference
 samples are imported; coverage is partial and anatomical review is pending.
 [Prototype guide](docs/PROTOTYPE.md) explains setup, controls, checks and limitations.
+[Private desktop builds](docs/NATIVE_BUILDS.md) describes the Windows/Mac archives.
 [Planning status](docs/PLANNING_STATUS.md) separates decisions from unverified evidence.
 
 ## Agreed direction
@@ -52,6 +53,8 @@ open-source licence. Third-party content retains its applicable licences.
 
 Open [project.godot](project.godot) with Godot 4.7.2 after the setup in the
 [prototype guide](docs/PROTOTYPE.md). The app has selection, search, camera focus,
-hide/fade controls, inspection movement, restoration, undo and local saved views.
+hide/fade controls, inspection movement with original-position overlays, restoration,
+undo/redo and local saved views.
 Disease content, validated cutaways and guided pathways are future work.
-Windows/macOS packaging and baseline-laptop testing remain open.
+Private Windows/macOS ZIPs are generated locally under dist/. Target-device testing,
+public signing/notarization, and baseline-laptop performance remain open.
