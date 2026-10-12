@@ -1,0 +1,1556 @@
+{
+  "audit_date": "2026-10-12",
+  "source_commit": "f1a3a63f110e27ff0736047d52d04dba5d3087f9",
+  "status": "Technical candidate inventory only; not installed in the viewer or qualified medical review.",
+  "records": [
+    {
+      "source_path": "VH_Female/v1.2/VH_F_Spinal_Cord.glb",
+      "url": "https://raw.githubusercontent.com/hubmapconsortium/ccf-3d-reference-object-library/f1a3a63f110e27ff0736047d52d04dba5d3087f9/VH_Female/v1.2/VH_F_Spinal_Cord.glb",
+      "bytes": 7656588,
+      "sha256": "d9bfc840783a415068e34b8a1a9343fff40ad03d0025fafabf74f9d8664887f8",
+      "git_blob_sha1": "b7fe688162b02c9023f7de4ca2a78636282d404c",
+      "generator": "babylon.js glTF exporter for Autodesk MAYA 2022.2 v20211115.1",
+      "anatomy_root": 0,
+      "total_nodes": 30,
+      "anatomy_nodes": 30,
+      "anatomy_mesh_nodes": 29,
+      "anatomy_triangles": 288912,
+      "excluded_nodes": 0,
+      "systems": [
+        {
+          "source_name": "VH_F_C1_segment_of_cervical_spinal_cord",
+          "mesh_nodes": 1,
+          "triangles": 9996
+        },
+        {
+          "source_name": "VH_F_C2_segment_of_cervical_spinal_cord",
+          "mesh_nodes": 1,
+          "triangles": 10032
+        },
+        {
+          "source_name": "VH_F_C3_segment_of_cervical_spinal_cord",
+          "mesh_nodes": 1,
+          "triangles": 9996
+        },
+        {
+          "source_name": "VH_F_C4_segment_of_cervical_spinal_cord",
+          "mesh_nodes": 1,
+          "triangles": 9964
+        },
+        {
+          "source_name": "VH_F_C5_segment_of_cervical_spinal_cord",
+          "mesh_nodes": 1,
+          "triangles": 9984
+        },
+        {
+          "source_name": "VH_F_C6_segment_of_cervical_spinal_cord",
+          "mesh_nodes": 1,
+          "triangles": 9964
+        },
+        {
+          "source_name": "VH_F_C7_segment_of_cervical_spinal_cord",
+          "mesh_nodes": 1,
+          "triangles": 9856
+        },
+        {
+          "source_name": "VH_F_C8_segment_of_cervical_spinal_cord",
+          "mesh_nodes": 1,
+          "triangles": 10044
+        },
+        {
+          "source_name": "VH_F_first_thoracic_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 10004
+        },
+        {
+          "source_name": "VH_F_second_thoracic_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 10030
+        },
+        {
+          "source_name": "VH_F_third_thoracic_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 9882
+        },
+        {
+          "source_name": "VH_F_fourth_thoracic_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 10032
+        },
+        {
+          "source_name": "VH_F_fifth_thoracic_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 9984
+        },
+        {
+          "source_name": "VH_F_seventh_thoracic_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 9984
+        },
+        {
+          "source_name": "VH_F_eigth_thoracic_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 10092
+        },
+        {
+          "source_name": "VH_F_sixth_thoracic_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 9940
+        },
+        {
+          "source_name": "VH_F_ninth_thoracic_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 10010
+        },
+        {
+          "source_name": "VH_F_tenth_thoracic_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 10030
+        },
+        {
+          "source_name": "VH_F_eleventh_thoracic_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 9936
+        },
+        {
+          "source_name": "VH_F_twelfth_thoracic_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 9964
+        },
+        {
+          "source_name": "VH_F_first_lumbar_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 9870
+        },
+        {
+          "source_name": "VH_F_second_lumbar_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 9990
+        },
+        {
+          "source_name": "VH_F_third_lumbar_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 9828
+        },
+        {
+          "source_name": "VH_F_fourth_lumbar_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 9840
+        },
+        {
+          "source_name": "VH_F_fifth_lumbar_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 10008
+        },
+        {
+          "source_name": "VH_F_first_sacral_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 9906
+        },
+        {
+          "source_name": "VH_F_second_sacral_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 10080
+        },
+        {
+          "source_name": "VH_F_third_sacral_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 9976
+        },
+        {
+          "source_name": "VH_F_fourth_sacral_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 9690
+        }
+      ],
+      "note": "Source node counts are not verified anatomical coverage or clinical review.",
+      "root_name": "VH_F_spinal_cord",
+      "declared_position_bounds": {
+        "min": [
+          -0.0161741152,
+          0.301949531,
+          -0.145683736
+        ],
+        "max": [
+          0.00172600744,
+          0.710770547,
+          -0.06378346
+        ],
+        "scope": "Accessor declarations; no node transforms. Not a clinical registration or interior validation."
+      },
+      "structures": [
+        {
+          "source_node": 1,
+          "source_name": "VH_F_C1_segment_of_cervical_spinal_cord",
+          "source_label": "C1 segment of cervical spinal cord",
+          "ontologyid": "UBERON:0006469",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006469",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 2,
+          "source_name": "VH_F_C2_segment_of_cervical_spinal_cord",
+          "source_label": "C2 segment of cervical spinal cord",
+          "ontologyid": "UBERON:0006489",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006489",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 3,
+          "source_name": "VH_F_C3_segment_of_cervical_spinal_cord",
+          "source_label": "C3 segment of cervical spinal cord",
+          "ontologyid": "UBERON:0006488",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006488",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 4,
+          "source_name": "VH_F_C4_segment_of_cervical_spinal_cord",
+          "source_label": "C4 segment of cervical spinal cord",
+          "ontologyid": "UBERON:0006490",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006490",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 5,
+          "source_name": "VH_F_C5_segment_of_cervical_spinal_cord",
+          "source_label": "C5 segment of cervical spinal cord",
+          "ontologyid": "UBERON:0006491",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006491",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 6,
+          "source_name": "VH_F_C6_segment_of_cervical_spinal_cord",
+          "source_label": "C6 segment of cervical spinal cord",
+          "ontologyid": "UBERON:0006492",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006492",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 7,
+          "source_name": "VH_F_C7_segment_of_cervical_spinal_cord",
+          "source_label": "C7 segment of cervical spinal cord",
+          "ontologyid": "UBERON:0006493",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006493",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 8,
+          "source_name": "VH_F_C8_segment_of_cervical_spinal_cord",
+          "source_label": "C8 segment of cervical spinal cord",
+          "ontologyid": "UBERON:0006470",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006470",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 9,
+          "source_name": "VH_F_first_thoracic_spinal_cord_segment",
+          "source_label": "first thoracic spinal cord segment",
+          "ontologyid": "UBERON:0006457",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006457",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 10,
+          "source_name": "VH_F_second_thoracic_spinal_cord_segment",
+          "source_label": "second thoracic spinal cord segment",
+          "ontologyid": "UBERON:0006458",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006458",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 11,
+          "source_name": "VH_F_third_thoracic_spinal_cord_segment",
+          "source_label": "third thoracic spinal cord segment",
+          "ontologyid": "UBERON:0006459",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006459",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 12,
+          "source_name": "VH_F_fourth_thoracic_spinal_cord_segment",
+          "source_label": "fourth thoracic spinal cord segment",
+          "ontologyid": "UBERON:0006452",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006452",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 13,
+          "source_name": "VH_F_fifth_thoracic_spinal_cord_segment",
+          "source_label": "fifth thoracic spinal cord segment",
+          "ontologyid": "UBERON:0006453",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006453",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 14,
+          "source_name": "VH_F_seventh_thoracic_spinal_cord_segment",
+          "source_label": "seventh thoracic spinal cord segment",
+          "ontologyid": "UBERON:0006455",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006455",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 15,
+          "source_name": "VH_F_eigth_thoracic_spinal_cord_segment",
+          "source_label": "eighth thoracic spinal cord segment",
+          "ontologyid": "UBERON:0006456",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006456",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 16,
+          "source_name": "VH_F_sixth_thoracic_spinal_cord_segment",
+          "source_label": "sixth thoracic spinal cord segment",
+          "ontologyid": "UBERON:0006454",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006454",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 17,
+          "source_name": "VH_F_ninth_thoracic_spinal_cord_segment",
+          "source_label": "ninth thoracic spinal cord segment",
+          "ontologyid": "UBERON:0006465",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006465",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 18,
+          "source_name": "VH_F_tenth_thoracic_spinal_cord_segment",
+          "source_label": "tenth thoracic spinal cord segment",
+          "ontologyid": "UBERON:0006466",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006466",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 19,
+          "source_name": "VH_F_eleventh_thoracic_spinal_cord_segment",
+          "source_label": "eleventh thoracic spinal cord segment",
+          "ontologyid": "UBERON:0006467",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006467",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 20,
+          "source_name": "VH_F_twelfth_thoracic_spinal_cord_segment",
+          "source_label": "twelfth thoracic spinal cord segment",
+          "ontologyid": "UBERON:0006468",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006468",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 21,
+          "source_name": "VH_F_first_lumbar_spinal_cord_segment",
+          "source_label": "first lumbar spinal cord segment",
+          "ontologyid": "UBERON:0006448",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006448",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 22,
+          "source_name": "VH_F_second_lumbar_spinal_cord_segment",
+          "source_label": "second lumbar spinal cord segment",
+          "ontologyid": "UBERON:0006450",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006450",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 23,
+          "source_name": "VH_F_third_lumbar_spinal_cord_segment",
+          "source_label": "third lumbar spinal cord segment",
+          "ontologyid": "UBERON:0006449",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006449",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 24,
+          "source_name": "VH_F_fourth_lumbar_spinal_cord_segment",
+          "source_label": "fourth lumbar spinal cord segment",
+          "ontologyid": "UBERON:0006451",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006451",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 25,
+          "source_name": "VH_F_fifth_lumbar_spinal_cord_segment",
+          "source_label": "fifth lumbar spinal cord segment",
+          "ontologyid": "UBERON:0006447",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006447",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 26,
+          "source_name": "VH_F_first_sacral_spinal_cord_segment",
+          "source_label": "first sacral spinal cord segment",
+          "ontologyid": "UBERON:0006460",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006460",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 27,
+          "source_name": "VH_F_second_sacral_spinal_cord_segment",
+          "source_label": "second sacral spinal cord segment",
+          "ontologyid": "UBERON:0006461",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006461",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 28,
+          "source_name": "VH_F_third_sacral_spinal_cord_segment",
+          "source_label": "third sacral spinal cord segment",
+          "ontologyid": "UBERON:0006462",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006462",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 29,
+          "source_name": "VH_F_fourth_sacral_spinal_cord_segment",
+          "source_label": "fourth sacral spinal cord segment",
+          "ontologyid": "UBERON:0006463",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006463",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        }
+      ],
+      "metadata_gaps": []
+    },
+    {
+      "source_path": "VH_Female/v1.2/VH_F_Vertebrae.glb",
+      "url": "https://raw.githubusercontent.com/hubmapconsortium/ccf-3d-reference-object-library/f1a3a63f110e27ff0736047d52d04dba5d3087f9/VH_Female/v1.2/VH_F_Vertebrae.glb",
+      "bytes": 7700856,
+      "sha256": "bdbea49a40e9e64cac1c8f0d67b6483686a3cc9617f7cae645e58159e4b02984",
+      "git_blob_sha1": "69a586b82bed63fabf69ba1445a137ccc562bade",
+      "generator": "babylon.js glTF exporter for Autodesk MAYA 2022.2 v20211115.1",
+      "anatomy_root": 0,
+      "total_nodes": 26,
+      "anatomy_nodes": 26,
+      "anatomy_mesh_nodes": 25,
+      "anatomy_triangles": 426468,
+      "excluded_nodes": 0,
+      "systems": [
+        {
+          "source_name": "VH_F_lumbar_vertebra_1",
+          "mesh_nodes": 1,
+          "triangles": 18208
+        },
+        {
+          "source_name": "VH_F_lumbar_vertebra_2",
+          "mesh_nodes": 1,
+          "triangles": 17612
+        },
+        {
+          "source_name": "VH_F_lumbar_vertebra_3",
+          "mesh_nodes": 1,
+          "triangles": 18540
+        },
+        {
+          "source_name": "VH_F_lumbar_vertebra_4",
+          "mesh_nodes": 1,
+          "triangles": 19238
+        },
+        {
+          "source_name": "VH_F_lumbar_vertebra_5",
+          "mesh_nodes": 1,
+          "triangles": 18002
+        },
+        {
+          "source_name": "VH_F_lumbar_vertebra_6",
+          "mesh_nodes": 1,
+          "triangles": 17860
+        },
+        {
+          "source_name": "VH_F_thoracic_vertebra_1",
+          "mesh_nodes": 1,
+          "triangles": 15084
+        },
+        {
+          "source_name": "VH_F_thoracic_vertebra_2",
+          "mesh_nodes": 1,
+          "triangles": 15536
+        },
+        {
+          "source_name": "VH_F_thoracic_vertebra_3",
+          "mesh_nodes": 1,
+          "triangles": 16232
+        },
+        {
+          "source_name": "VH_F_thoracic_vertebra_4",
+          "mesh_nodes": 1,
+          "triangles": 15292
+        },
+        {
+          "source_name": "VH_F_thoracic_vertebra_5",
+          "mesh_nodes": 1,
+          "triangles": 15846
+        },
+        {
+          "source_name": "VH_F_thoracic_vertebra_6",
+          "mesh_nodes": 1,
+          "triangles": 16030
+        },
+        {
+          "source_name": "VH_F_thoracic_vertebra_7",
+          "mesh_nodes": 1,
+          "triangles": 15848
+        },
+        {
+          "source_name": "VH_F_thoracic_vertebra_8",
+          "mesh_nodes": 1,
+          "triangles": 16830
+        },
+        {
+          "source_name": "VH_F_thoracic_vertebra_9",
+          "mesh_nodes": 1,
+          "triangles": 16486
+        },
+        {
+          "source_name": "VH_F_thoracic_vertebra_10",
+          "mesh_nodes": 1,
+          "triangles": 16402
+        },
+        {
+          "source_name": "VH_F_thoracic_vertebra_11",
+          "mesh_nodes": 1,
+          "triangles": 15614
+        },
+        {
+          "source_name": "VH_F_thoracic_vertebra_12",
+          "mesh_nodes": 1,
+          "triangles": 17736
+        },
+        {
+          "source_name": "VH_F_cervical_vertebra_1",
+          "mesh_nodes": 1,
+          "triangles": 15952
+        },
+        {
+          "source_name": "VH_F_cervical_vertebra_2",
+          "mesh_nodes": 1,
+          "triangles": 15426
+        },
+        {
+          "source_name": "VH_F_cervical_vertebra_3",
+          "mesh_nodes": 1,
+          "triangles": 17926
+        },
+        {
+          "source_name": "VH_F_cervical_vertebra_4",
+          "mesh_nodes": 1,
+          "triangles": 19724
+        },
+        {
+          "source_name": "VH_F_cervical_vertebra_5",
+          "mesh_nodes": 1,
+          "triangles": 19472
+        },
+        {
+          "source_name": "VH_F_cervical_vertebra_6",
+          "mesh_nodes": 1,
+          "triangles": 18848
+        },
+        {
+          "source_name": "VH_F_cervical_vertebra_7",
+          "mesh_nodes": 1,
+          "triangles": 16724
+        }
+      ],
+      "note": "Source node counts are not verified anatomical coverage or clinical review.",
+      "root_name": "VH_F_vertebrae",
+      "declared_position_bounds": {
+        "min": [
+          -0.06101758,
+          0.124458283,
+          -0.174461856
+        ],
+        "max": [
+          0.04354661,
+          0.7179116,
+          -0.04123497
+        ],
+        "scope": "Accessor declarations; no node transforms. Not a clinical registration or interior validation."
+      },
+      "structures": [
+        {
+          "source_node": 1,
+          "source_name": "VH_F_lumbar_vertebra_1",
+          "source_label": "lumbar vertebra 1",
+          "ontologyid": "UBERON:0004617",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004617",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 2,
+          "source_name": "VH_F_lumbar_vertebra_2",
+          "source_label": "lumbar vertebra 2",
+          "ontologyid": "UBERON:0004618",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004618",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 3,
+          "source_name": "VH_F_lumbar_vertebra_3",
+          "source_label": "lumbar vertebra 3",
+          "ontologyid": "UBERON:0004619",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004619",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 4,
+          "source_name": "VH_F_lumbar_vertebra_4",
+          "source_label": "lumbar vertebra 4",
+          "ontologyid": "UBERON:0004620",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004620",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 5,
+          "source_name": "VH_F_lumbar_vertebra_5",
+          "source_label": "lumbar vertebra 5",
+          "ontologyid": "UBERON:0004621",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004621",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 6,
+          "source_name": "VH_F_lumbar_vertebra_6",
+          "source_label": "-",
+          "ontologyid": "-",
+          "representation_of": "-",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 7,
+          "source_name": "VH_F_thoracic_vertebra_1",
+          "source_label": "thoracic vertebra 1",
+          "ontologyid": "UBERON:0004626",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004626",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 8,
+          "source_name": "VH_F_thoracic_vertebra_2",
+          "source_label": "thoracic vertebra 2",
+          "ontologyid": "UBERON:0004627",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004627",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 9,
+          "source_name": "VH_F_thoracic_vertebra_3",
+          "source_label": "thoracic vertebra 3",
+          "ontologyid": "UBERON:0004628",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004628",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 10,
+          "source_name": "VH_F_thoracic_vertebra_4",
+          "source_label": "thoracic vertebra 4",
+          "ontologyid": "UBERON:0004629",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004629",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 11,
+          "source_name": "VH_F_thoracic_vertebra_5",
+          "source_label": "thoracic vertebra 5",
+          "ontologyid": "UBERON:0004630",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004630",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 12,
+          "source_name": "VH_F_thoracic_vertebra_6",
+          "source_label": "thoracic vertebra 6",
+          "ontologyid": "UBERON:0004631",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004631",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 13,
+          "source_name": "VH_F_thoracic_vertebra_7",
+          "source_label": "thoracic vertebra 7",
+          "ontologyid": "UBERON:0004632",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004632",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 14,
+          "source_name": "VH_F_thoracic_vertebra_8",
+          "source_label": "thoracic vertebra 8",
+          "ontologyid": "UBERON:0011050",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0011050",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 15,
+          "source_name": "VH_F_thoracic_vertebra_9",
+          "source_label": "thoracic vertebra 9",
+          "ontologyid": "UBERON:0004633",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004633",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 16,
+          "source_name": "VH_F_thoracic_vertebra_10",
+          "source_label": "thoracic vertebra 10",
+          "ontologyid": "UBERON:0004634",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004634",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 17,
+          "source_name": "VH_F_thoracic_vertebra_11",
+          "source_label": "thoracic vertebra 11",
+          "ontologyid": "UBERON:0004635",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004635",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 18,
+          "source_name": "VH_F_thoracic_vertebra_12",
+          "source_label": "thoracic vertebra 12",
+          "ontologyid": "UBERON:0004636",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004636",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 19,
+          "source_name": "VH_F_cervical_vertebra_1",
+          "source_label": "vertebral bone 1",
+          "ontologyid": "UBERON:0001092",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0001092",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 20,
+          "source_name": "VH_F_cervical_vertebra_2",
+          "source_label": "vertebral bone 2",
+          "ontologyid": "UBERON:0001093",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0001093",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 21,
+          "source_name": "VH_F_cervical_vertebra_3",
+          "source_label": "mammalian cervical vertebra 3",
+          "ontologyid": "UBERON:0004612",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004612",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 22,
+          "source_name": "VH_F_cervical_vertebra_4",
+          "source_label": "mammalian cervical vertebra 4",
+          "ontologyid": "UBERON:0004613",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004613",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 23,
+          "source_name": "VH_F_cervical_vertebra_5",
+          "source_label": "mammalian cervical vertebra 5",
+          "ontologyid": "UBERON:0004614",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004614",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 24,
+          "source_name": "VH_F_cervical_vertebra_6",
+          "source_label": "mammalian cervical vertebra 6",
+          "ontologyid": "UBERON:0004615",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004615",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        },
+        {
+          "source_node": 25,
+          "source_name": "VH_F_cervical_vertebra_7",
+          "source_label": "mammalian cervical vertebra 7",
+          "ontologyid": "UBERON:0004616",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004616",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        }
+      ],
+      "metadata_gaps": [
+        {
+          "source_node": 6,
+          "source_name": "VH_F_lumbar_vertebra_6",
+          "source_label": "-",
+          "ontologyid": "-",
+          "representation_of": "-",
+          "source_spatial_entity": "#VHFemaleOrgans"
+        }
+      ]
+    },
+    {
+      "source_path": "VH_Male/v1.2/VH_M_Spinal_Cord.glb",
+      "url": "https://raw.githubusercontent.com/hubmapconsortium/ccf-3d-reference-object-library/f1a3a63f110e27ff0736047d52d04dba5d3087f9/VH_Male/v1.2/VH_M_Spinal_Cord.glb",
+      "bytes": 489992,
+      "sha256": "a7858d88c2237aa7d559c4c1d638923d213d2a9f46c575dea03d6ba67a9975c0",
+      "git_blob_sha1": "70ae7aaff86cf529df3da67600acac42bd5e82a7",
+      "generator": "babylon.js glTF exporter for Autodesk MAYA 2022.2 v20211115.1",
+      "anatomy_root": 0,
+      "total_nodes": 31,
+      "anatomy_nodes": 31,
+      "anatomy_mesh_nodes": 30,
+      "anatomy_triangles": 16358,
+      "excluded_nodes": 0,
+      "systems": [
+        {
+          "source_name": "VH_M_C1_segment_of_cervical_spinal_cord",
+          "mesh_nodes": 1,
+          "triangles": 718
+        },
+        {
+          "source_name": "VH_M_C2_segment_of_cervical_spinal_cord",
+          "mesh_nodes": 1,
+          "triangles": 210
+        },
+        {
+          "source_name": "VH_M_C3_segment_of_cervical_spinal_cord",
+          "mesh_nodes": 1,
+          "triangles": 534
+        },
+        {
+          "source_name": "VH_M_C4_segment_of_cervical_spinal_cord",
+          "mesh_nodes": 1,
+          "triangles": 460
+        },
+        {
+          "source_name": "VH_M_C5_segment_of_cervical_spinal_cord",
+          "mesh_nodes": 1,
+          "triangles": 586
+        },
+        {
+          "source_name": "VH_M_C6_segment_of_cervical_spinal_cord",
+          "mesh_nodes": 1,
+          "triangles": 516
+        },
+        {
+          "source_name": "VH_M_C7_segment_of_cervical_spinal_cord",
+          "mesh_nodes": 1,
+          "triangles": 416
+        },
+        {
+          "source_name": "VH_M_C8_segment_of_cervical_spinal_cord",
+          "mesh_nodes": 1,
+          "triangles": 520
+        },
+        {
+          "source_name": "VH_M_first_thoracic_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 524
+        },
+        {
+          "source_name": "VH_M_second_thoracic_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 828
+        },
+        {
+          "source_name": "VH_M_third_thoracic_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 624
+        },
+        {
+          "source_name": "VH_M_fourth_thoracic_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 934
+        },
+        {
+          "source_name": "VH_M_fifth_thoracic_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 706
+        },
+        {
+          "source_name": "VH_M_sixth_thoracic_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 920
+        },
+        {
+          "source_name": "VH_M_seventh_thoracic_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 876
+        },
+        {
+          "source_name": "VH_M_eighth_thoracic_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 826
+        },
+        {
+          "source_name": "VH_M_ninth_thoracic_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 624
+        },
+        {
+          "source_name": "VH_M_tenth_thoracic_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 832
+        },
+        {
+          "source_name": "VH_M_eleventh_thoracic_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 522
+        },
+        {
+          "source_name": "VH_M_twelfth_thoracic_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 520
+        },
+        {
+          "source_name": "VH_M_first_lumbar_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 524
+        },
+        {
+          "source_name": "VH_M_second_lumbar_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 502
+        },
+        {
+          "source_name": "VH_M_third_lumbar_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 324
+        },
+        {
+          "source_name": "VH_M_fourth_lumbar_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 312
+        },
+        {
+          "source_name": "VH_M_fifth_lumbar_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 318
+        },
+        {
+          "source_name": "VH_M_first_sacral_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 204
+        },
+        {
+          "source_name": "VH_M_second_sacral_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 310
+        },
+        {
+          "source_name": "VH_M_third_sacral_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 314
+        },
+        {
+          "source_name": "VH_M_fourth_sacral_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 312
+        },
+        {
+          "source_name": "VH_M_fifth_sacral_spinal_cord_segment",
+          "mesh_nodes": 1,
+          "triangles": 542
+        }
+      ],
+      "note": "Source node counts are not verified anatomical coverage or clinical review.",
+      "root_name": "VH_M_spinal_cord",
+      "declared_position_bounds": {
+        "min": [
+          -0.0135615151,
+          0.284494936,
+          -0.0815236047
+        ],
+        "max": [
+          0.00714752171,
+          0.7496782,
+          -0.00188858027
+        ],
+        "scope": "Accessor declarations; no node transforms. Not a clinical registration or interior validation."
+      },
+      "structures": [
+        {
+          "source_node": 1,
+          "source_name": "VH_M_C1_segment_of_cervical_spinal_cord",
+          "source_label": "C1 segment of cervical spinal cord",
+          "ontologyid": "UBERON:0006469",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006469",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 2,
+          "source_name": "VH_M_C2_segment_of_cervical_spinal_cord",
+          "source_label": "C2 segment of cervical spinal cord",
+          "ontologyid": "UBERON:0006489",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006489",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 3,
+          "source_name": "VH_M_C3_segment_of_cervical_spinal_cord",
+          "source_label": "C3 segment of cervical spinal cord",
+          "ontologyid": "UBERON:0006488",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006488",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 4,
+          "source_name": "VH_M_C4_segment_of_cervical_spinal_cord",
+          "source_label": "C4 segment of cervical spinal cord",
+          "ontologyid": "UBERON:0006490",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006490",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 5,
+          "source_name": "VH_M_C5_segment_of_cervical_spinal_cord",
+          "source_label": "C5 segment of cervical spinal cord",
+          "ontologyid": "UBERON:0006491",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006491",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 6,
+          "source_name": "VH_M_C6_segment_of_cervical_spinal_cord",
+          "source_label": "C6 segment of cervical spinal cord",
+          "ontologyid": "UBERON:0006492",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006492",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 7,
+          "source_name": "VH_M_C7_segment_of_cervical_spinal_cord",
+          "source_label": "C7 segment of cervical spinal cord",
+          "ontologyid": "UBERON:0006493",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006493",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 8,
+          "source_name": "VH_M_C8_segment_of_cervical_spinal_cord",
+          "source_label": "C8 segment of cervical spinal cord",
+          "ontologyid": "UBERON:0006470",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006470",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 9,
+          "source_name": "VH_M_first_thoracic_spinal_cord_segment",
+          "source_label": "first thoracic spinal cord segment",
+          "ontologyid": "UBERON:0006457",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006457",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 10,
+          "source_name": "VH_M_second_thoracic_spinal_cord_segment",
+          "source_label": "second thoracic spinal cord segment",
+          "ontologyid": "UBERON:0006458",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006458",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 11,
+          "source_name": "VH_M_third_thoracic_spinal_cord_segment",
+          "source_label": "third thoracic spinal cord segment",
+          "ontologyid": "UBERON:0006459",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006459",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 12,
+          "source_name": "VH_M_fourth_thoracic_spinal_cord_segment",
+          "source_label": "fourth thoracic spinal cord segment",
+          "ontologyid": "UBERON:0006452",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006452",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 13,
+          "source_name": "VH_M_fifth_thoracic_spinal_cord_segment",
+          "source_label": "fifth thoracic spinal cord segment",
+          "ontologyid": "UBERON:0006453",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006453",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 14,
+          "source_name": "VH_M_sixth_thoracic_spinal_cord_segment",
+          "source_label": "sixth thoracic spinal cord segment",
+          "ontologyid": "UBERON:0006454",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006454",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 15,
+          "source_name": "VH_M_seventh_thoracic_spinal_cord_segment",
+          "source_label": "seventh thoracic spinal cord segment",
+          "ontologyid": "UBERON:0006455",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006455",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 16,
+          "source_name": "VH_M_eighth_thoracic_spinal_cord_segment",
+          "source_label": "eighth thoracic spinal cord segment",
+          "ontologyid": "UBERON:0006456",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006456",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 17,
+          "source_name": "VH_M_ninth_thoracic_spinal_cord_segment",
+          "source_label": "ninth thoracic spinal cord segment",
+          "ontologyid": "UBERON:0006465",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006465",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 18,
+          "source_name": "VH_M_tenth_thoracic_spinal_cord_segment",
+          "source_label": "tenth thoracic spinal cord segment",
+          "ontologyid": "UBERON:0006466",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006466",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 19,
+          "source_name": "VH_M_eleventh_thoracic_spinal_cord_segment",
+          "source_label": "eleventh thoracic spinal cord segment",
+          "ontologyid": "UBERON:0006467",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006467",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 20,
+          "source_name": "VH_M_twelfth_thoracic_spinal_cord_segment",
+          "source_label": "twelfth thoracic spinal cord segment",
+          "ontologyid": "UBERON:0006468",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006468",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 21,
+          "source_name": "VH_M_first_lumbar_spinal_cord_segment",
+          "source_label": "first lumbar spinal cord segment",
+          "ontologyid": "UBERON:0006448",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006448",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 22,
+          "source_name": "VH_M_second_lumbar_spinal_cord_segment",
+          "source_label": "second lumbar spinal cord segment",
+          "ontologyid": "UBERON:0006450",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006450",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 23,
+          "source_name": "VH_M_third_lumbar_spinal_cord_segment",
+          "source_label": "third lumbar spinal cord segment",
+          "ontologyid": "UBERON:0006449",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006449",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 24,
+          "source_name": "VH_M_fourth_lumbar_spinal_cord_segment",
+          "source_label": "fourth lumbar spinal cord segment",
+          "ontologyid": "UBERON:0006451",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006451",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 25,
+          "source_name": "VH_M_fifth_lumbar_spinal_cord_segment",
+          "source_label": "fifth lumbar spinal cord segment",
+          "ontologyid": "UBERON:0006447",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006447",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 26,
+          "source_name": "VH_M_first_sacral_spinal_cord_segment",
+          "source_label": "first sacral spinal cord segment",
+          "ontologyid": "UBERON:0006460",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006460",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 27,
+          "source_name": "VH_M_second_sacral_spinal_cord_segment",
+          "source_label": "second sacral spinal cord segment",
+          "ontologyid": "UBERON:0006461",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006461",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 28,
+          "source_name": "VH_M_third_sacral_spinal_cord_segment",
+          "source_label": "third sacral spinal cord segment",
+          "ontologyid": "UBERON:0006462",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006462",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 29,
+          "source_name": "VH_M_fourth_sacral_spinal_cord_segment",
+          "source_label": "fourth sacral spinal cord segment",
+          "ontologyid": "UBERON:0006463",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006463",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 30,
+          "source_name": "VH_M_fifth_sacral_spinal_cord_segment",
+          "source_label": "fifth sacral spinal cord segment",
+          "ontologyid": "UBERON:0006464",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0006464",
+          "source_spatial_entity": "#VHMaleOrgans"
+        }
+      ],
+      "metadata_gaps": []
+    },
+    {
+      "source_path": "VH_Male/v1.2/VH_M_Vertebrae.glb",
+      "url": "https://raw.githubusercontent.com/hubmapconsortium/ccf-3d-reference-object-library/f1a3a63f110e27ff0736047d52d04dba5d3087f9/VH_Male/v1.2/VH_M_Vertebrae.glb",
+      "bytes": 12578172,
+      "sha256": "981041904438bd74c14d671af8f87b3f407b675294bbf297af673c8df7144451",
+      "git_blob_sha1": "c1e72ec815bad4754d702c9d0cd2324f87e6e566",
+      "generator": "babylon.js glTF exporter for Autodesk MAYA 2022.2 v20211115.1",
+      "anatomy_root": 0,
+      "total_nodes": 25,
+      "anatomy_nodes": 25,
+      "anatomy_mesh_nodes": 24,
+      "anatomy_triangles": 320442,
+      "excluded_nodes": 0,
+      "systems": [
+        {
+          "source_name": "VH_M_cervical_vertebra_1",
+          "mesh_nodes": 1,
+          "triangles": 16080
+        },
+        {
+          "source_name": "VH_M_cervical_vertebra_2",
+          "mesh_nodes": 1,
+          "triangles": 16024
+        },
+        {
+          "source_name": "VH_M_cervical_vertebra_3",
+          "mesh_nodes": 1,
+          "triangles": 16936
+        },
+        {
+          "source_name": "VH_M_cervical_vertebra_4",
+          "mesh_nodes": 1,
+          "triangles": 16872
+        },
+        {
+          "source_name": "VH_M_cervical_vertebra_5",
+          "mesh_nodes": 1,
+          "triangles": 18088
+        },
+        {
+          "source_name": "VH_M_cervical_vertebra_6",
+          "mesh_nodes": 1,
+          "triangles": 17952
+        },
+        {
+          "source_name": "VH_M_cervical_vertebra_7",
+          "mesh_nodes": 1,
+          "triangles": 8824
+        },
+        {
+          "source_name": "VH_M_thoracic_vertebra_1",
+          "mesh_nodes": 1,
+          "triangles": 15000
+        },
+        {
+          "source_name": "VH_M_thoracic_vertebra_2",
+          "mesh_nodes": 1,
+          "triangles": 16232
+        },
+        {
+          "source_name": "VH_M_thoracic_vertebra_3",
+          "mesh_nodes": 1,
+          "triangles": 16224
+        },
+        {
+          "source_name": "VH_M_thoracic_vertebra_4",
+          "mesh_nodes": 1,
+          "triangles": 15584
+        },
+        {
+          "source_name": "VH_M_thoracic_vertebra_5",
+          "mesh_nodes": 1,
+          "triangles": 16360
+        },
+        {
+          "source_name": "VH_M_thoracic_vertebra_6",
+          "mesh_nodes": 1,
+          "triangles": 15224
+        },
+        {
+          "source_name": "VH_M_thoracic_vertebra_7",
+          "mesh_nodes": 1,
+          "triangles": 15392
+        },
+        {
+          "source_name": "VH_M_thoracic_vertebra_8",
+          "mesh_nodes": 1,
+          "triangles": 15800
+        },
+        {
+          "source_name": "VH_M_thoracic_vertebra_9",
+          "mesh_nodes": 1,
+          "triangles": 15200
+        },
+        {
+          "source_name": "VH_M_thoracic_vertebra_10",
+          "mesh_nodes": 1,
+          "triangles": 15520
+        },
+        {
+          "source_name": "VH_M_thoracic_vertebra_11",
+          "mesh_nodes": 1,
+          "triangles": 16392
+        },
+        {
+          "source_name": "VH_M_thoracic_vertebra_12",
+          "mesh_nodes": 1,
+          "triangles": 16280
+        },
+        {
+          "source_name": "VH_M_lumbar_vertebra_1",
+          "mesh_nodes": 1,
+          "triangles": 4176
+        },
+        {
+          "source_name": "VH_M_lumbar_vertebra_2",
+          "mesh_nodes": 1,
+          "triangles": 4020
+        },
+        {
+          "source_name": "VH_M_lumbar_vertebra_3",
+          "mesh_nodes": 1,
+          "triangles": 4054
+        },
+        {
+          "source_name": "VH_M_lumbar_vertebra_4",
+          "mesh_nodes": 1,
+          "triangles": 4162
+        },
+        {
+          "source_name": "VH_M_lumbar_vertebra_5",
+          "mesh_nodes": 1,
+          "triangles": 4046
+        }
+      ],
+      "note": "Source node counts are not verified anatomical coverage or clinical review.",
+      "root_name": "VH_M_vertebrae",
+      "declared_position_bounds": {
+        "min": [
+          -0.04951399,
+          0.147105247,
+          -0.116156235
+        ],
+        "max": [
+          0.0601306148,
+          0.761860847,
+          0.0182526689
+        ],
+        "scope": "Accessor declarations; no node transforms. Not a clinical registration or interior validation."
+      },
+      "structures": [
+        {
+          "source_node": 1,
+          "source_name": "VH_M_cervical_vertebra_1",
+          "source_label": "vertebral bone 1",
+          "ontologyid": "UBERON:0001092",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0001092",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 2,
+          "source_name": "VH_M_cervical_vertebra_2",
+          "source_label": "vertebral bone 2",
+          "ontologyid": "UBERON:0001093",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0001093",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 3,
+          "source_name": "VH_M_cervical_vertebra_3",
+          "source_label": "mammalian cervical vertebra 3",
+          "ontologyid": "UBERON:0004612",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004612",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 4,
+          "source_name": "VH_M_cervical_vertebra_4",
+          "source_label": "mammalian cervical vertebra 4",
+          "ontologyid": "UBERON:0004613",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004613",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 5,
+          "source_name": "VH_M_cervical_vertebra_5",
+          "source_label": "mammalian cervical vertebra 5",
+          "ontologyid": "UBERON:0004614",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004614",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 6,
+          "source_name": "VH_M_cervical_vertebra_6",
+          "source_label": "mammalian cervical vertebra 6",
+          "ontologyid": "UBERON:0004615",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004615",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 7,
+          "source_name": "VH_M_cervical_vertebra_7",
+          "source_label": "mammalian cervical vertebra 7",
+          "ontologyid": "UBERON:0004616",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004616",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 8,
+          "source_name": "VH_M_thoracic_vertebra_1",
+          "source_label": "thoracic vertebra 1",
+          "ontologyid": "UBERON:0004626",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004626",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 9,
+          "source_name": "VH_M_thoracic_vertebra_2",
+          "source_label": "thoracic vertebra 2",
+          "ontologyid": "UBERON:0004627",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004627",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 10,
+          "source_name": "VH_M_thoracic_vertebra_3",
+          "source_label": "thoracic vertebra 3",
+          "ontologyid": "UBERON:0004628",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004628",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 11,
+          "source_name": "VH_M_thoracic_vertebra_4",
+          "source_label": "thoracic vertebra 4",
+          "ontologyid": "UBERON:0004629",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004629",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 12,
+          "source_name": "VH_M_thoracic_vertebra_5",
+          "source_label": "thoracic vertebra 5",
+          "ontologyid": "UBERON:0004630",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004630",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 13,
+          "source_name": "VH_M_thoracic_vertebra_6",
+          "source_label": "thoracic vertebra 6",
+          "ontologyid": "UBERON:0004631",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004631",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 14,
+          "source_name": "VH_M_thoracic_vertebra_7",
+          "source_label": "thoracic vertebra 7",
+          "ontologyid": "UBERON:0004632",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004632",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 15,
+          "source_name": "VH_M_thoracic_vertebra_8",
+          "source_label": "thoracic vertebra 8",
+          "ontologyid": "UBERON:0011050",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0011050",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 16,
+          "source_name": "VH_M_thoracic_vertebra_9",
+          "source_label": "thoracic vertebra 9",
+          "ontologyid": "UBERON:0004633",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004633",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 17,
+          "source_name": "VH_M_thoracic_vertebra_10",
+          "source_label": "thoracic vertebra 10",
+          "ontologyid": "UBERON:0004634",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004634",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 18,
+          "source_name": "VH_M_thoracic_vertebra_11",
+          "source_label": "thoracic vertebra 11",
+          "ontologyid": "UBERON:0004635",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004635",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 19,
+          "source_name": "VH_M_thoracic_vertebra_12",
+          "source_label": "thoracic vertebra 12",
+          "ontologyid": "UBERON:0004636",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004636",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 20,
+          "source_name": "VH_M_lumbar_vertebra_1",
+          "source_label": "lumbar vertebra 1",
+          "ontologyid": "UBERON:0004617",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004617",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 21,
+          "source_name": "VH_M_lumbar_vertebra_2",
+          "source_label": "lumbar vertebra 2",
+          "ontologyid": "UBERON:0004618",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004618",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 22,
+          "source_name": "VH_M_lumbar_vertebra_3",
+          "source_label": "lumbar vertebra 3",
+          "ontologyid": "UBERON:0004619",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004619",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 23,
+          "source_name": "VH_M_lumbar_vertebra_4",
+          "source_label": "lumbar vertebra 4",
+          "ontologyid": "UBERON:0004620",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004620",
+          "source_spatial_entity": "#VHMaleOrgans"
+        },
+        {
+          "source_node": 24,
+          "source_name": "VH_M_lumbar_vertebra_5",
+          "source_label": "lumbar vertebra 5",
+          "ontologyid": "UBERON:0004621",
+          "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004621",
+          "source_spatial_entity": "#VHMaleOrgans"
+        }
+      ],
+      "metadata_gaps": []
+    }
+  ]
+}

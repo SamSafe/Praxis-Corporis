@@ -40,6 +40,10 @@ Local PNG export now embeds source attribution/licence links, modification notes
 prototype/review status. Rendered output and unchanged-session checks passed for both
 HRA references and the compact hidden-panel bone study. Native picker acceptance is
 included in the user's [trial guide](PRIVATE_TRIAL_GUIDE.md).
+Four separate HRA v1.2 spinal candidates are downloaded/hash-verified and technically
+inventoried for both sexes. They are outside the runtime. The female vertebra source
+contains one missing label/ontology record that requires interpretation review.
+[Candidate findings](audit/HRA_SPINAL_CANDIDATES.md) define source-frame/admission work.
 
 ## Established by the user
 
