@@ -39,6 +39,14 @@ def parse_result(log: str, rendered: bool) -> dict:
         for marker in MARKERS + (RENDERED_MARKERS if rendered else []):
             if not re.search(r"^PASS " + re.escape(marker) + ": " + re.escape(reference) + r"(?: · .*|)$", log, re.M):
                 raise ValueError("Native check missing: " + marker + " / " + reference)
+    result = process_observations(log, rendered)
+    result.update(references=references, ui_process_frames_during_successful_load=frames)
+    return result
+
+
+def process_observations(log: str, rendered: bool = True) -> dict:
+    if 'SCRIPT ERROR:' in log or re.search(r'^ERROR:', log, re.M) or 'Windows native exit code: 0' not in log:
+        raise ValueError('Native process did not finish without errors')
     memory = {}
     for field, label in [("peak_working_set_bytes_observed", "QA observed peak working set bytes"),
                          ("maximum_private_bytes_sampled", "QA sampled maximum private bytes")]:
@@ -46,15 +54,14 @@ def parse_result(log: str, rendered: bool) -> dict:
         if not match:
             raise ValueError("Native process memory observations are missing")
         memory[field] = int(match[1])
-    memory.update(sampling_interval_ms=500, scope="Entire verification process; not per-scene or GPU memory.")
+    memory.update(sampling_interval_ms=500, scope="Entire native process; not per-scene or GPU memory.")
     renderer = next((line for line in log.splitlines() if line.startswith("OpenGL API ")), None)
     if rendered and not renderer:
         raise ValueError("Native rendering identity is missing")
     version = re.search(r"^Godot Engine v([^\s]+)", log, re.M)
     if not version:
         raise ValueError("The native engine version is missing")
-    return {"engine_actual": version[1], "references": references, "ui_process_frames_during_successful_load": frames,
-            "renderer": renderer, "process_memory_observations": memory}
+    return {"engine_actual": version[1], "renderer": renderer, "process_memory_observations": memory}
 
 
 def artifact_record(archive: pathlib.Path, build_report: dict) -> dict:
@@ -90,7 +97,8 @@ def native_session(args: argparse.Namespace) -> tuple[pathlib.Path, str]:
     return local_path, windows_path
 
 
-def run_native(args: argparse.Namespace, folder: str, executable: str) -> str:
+def run_native(args: argparse.Namespace, folder: str, executable: str,
+               user_arguments: list[str] | None = None, process_timeout: int = 180) -> str:
     mode = "--verify-rendered-bundle" if args.mode == "rendered" else "--verify-bundle"
     engine_args = ("" if args.mode == "rendered" else "--headless ") + "--audio-driver Dummy --log-file "
     command = """$ErrorActionPreference = 'Stop'
@@ -103,7 +111,7 @@ $p.StartInfo.RedirectStandardOutput = $true
 $p.StartInfo.RedirectStandardError = $true
 $p.StartInfo.EnvironmentVariables['APPDATA'] = Join-Path $folder 'user-data'
 $p.StartInfo.EnvironmentVariables['LOCALAPPDATA'] = Join-Path $folder 'cache'
-$p.StartInfo.Arguments = ENGINE_ARGS + '"' + (Join-Path $folder 'engine.log') + '" -- MODE'
+$p.StartInfo.Arguments = ENGINE_ARGS + '"' + (Join-Path $folder 'engine.log') + '" -- ' + USER_ARGS
 $started = $false
 try {
     $started = $p.Start()
@@ -113,7 +121,7 @@ try {
     $peakWorking = 0L
     $peakPrivate = 0L
     while (-not $p.WaitForExit(500)) {
-        if ($watch.ElapsedMilliseconds -gt 180000) { throw 'Own Windows QA process timed out' }
+        if ($watch.ElapsedMilliseconds -gt TIMEOUT_MS) { throw 'Own Windows QA process timed out' }
         $p.Refresh()
         $peakWorking = [Math]::Max($peakWorking, $p.PeakWorkingSet64)
         $peakPrivate = [Math]::Max($peakPrivate, $p.PrivateMemorySize64)
@@ -127,8 +135,8 @@ try {
 } finally {
     if ($started -and -not $p.HasExited) { $p.Kill(); [void]$p.WaitForExit(10000) }
 }
-""".replace("FOLDER", ps_literal(folder)).replace("EXECUTABLE", ps_literal(executable)).replace("ENGINE_ARGS", ps_literal(engine_args)).replace("MODE", mode)
-    result = powershell(args, command, timeout=215)
+""".replace("FOLDER", ps_literal(folder)).replace("EXECUTABLE", ps_literal(executable)).replace("ENGINE_ARGS", ps_literal(engine_args)).replace("USER_ARGS", ps_literal(' '.join(user_arguments or [mode]))).replace("TIMEOUT_MS", str(process_timeout * 1000))
+    result = powershell(args, command, timeout=process_timeout + 35)
     log = result.stdout + result.stderr
     (args.output / "native-runtime.log").write_text(log, encoding="utf-8")
     if result.returncode:

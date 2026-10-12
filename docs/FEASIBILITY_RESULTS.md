@@ -530,3 +530,31 @@ packaging and verification, including incomplete/failed native evidence, changed
 archives and literal PowerShell path handling. The direct Windows Python caller and
 human device acceptance remain separate work. App sources remain the tested `c9019ca`
 snapshot; this QA tool is excluded from application exports.
+
+
+## Configurable sustained measurements — 2026-10-12
+
+Developer profiling now accepts explicit sample/warmup durations, repetitions and
+window dimensions. Each repetition reconstructs the eight existing workloads after
+loading the three source references. Reports retain all rendered intervals, counts
+above 33.33/100 ms, actual window/viewport sizes, focus, MSAA and VSync. Load reports
+retain process-frame intervals across the entire reference switch, stage timestamps
+and the next post-draw delay. Partial start/end intervals are identified in the
+method; neither these stage times nor post-draw callbacks measure GPU execution or
+presentation latency.
+
+The independent validator requires complete planned scenes, loads and repetitions;
+it recomputes durations, cadence, nearest-rank percentiles and stall counts from raw
+intervals. Historical short profiles remain readable. Twenty-two Python checks and
+the headless configuration test pass, including invalid/duplicate options, modified
+statistics, omitted workloads and source/configuration mismatches. A rendered Linux
+development run passed raw validation for two repetitions (16 scenes and six loads),
+using one-second samples at 1100 × 720. Its renderer was Mesa llvmpipe software;
+these checks demonstrate the measurement workflow, not native hardware performance.
+
+`tools/profile_windows.py` binds a new native measurement to its exact archive,
+source revision and engine, isolates test data, records host/driver/power identity,
+observes only its own process and retains raw evidence. The sustained native result
+will be recorded after rebuilding this source snapshot. Commands, workload scope and
+interpretation are in [the protocol](PERFORMANCE_PROTOCOL.md) and
+[native build guide](NATIVE_BUILDS.md).

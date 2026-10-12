@@ -1,7 +1,7 @@
 # Desktop performance protocol
 
-Status: repeatable measurement plan. The developer profiler supplies short diagnostic
-observations; it does not by itself pass the sustained laptop gate. Target performance
+Status: repeatable measurement plan. The developer profiler supplies configurable
+diagnostic observations; it does not by itself pass the sustained laptop gate. Target performance
 remains 30 sustained FPS at 1080p, with 60 FPS as a higher-quality goal, as proposed in
 [RELEASE_CRITERIA.md](RELEASE_CRITERIA.md).
 
@@ -43,7 +43,12 @@ Do not infer sustained performance from an isolated peak FPS value. Report frame
 actual duration, average frame cadence, p50/p95/p99/maximum interval, and counts over
 33.33 ms and 100 ms. Retain the raw intervals and percentile convention.
 
-The current profiler measures eight five-second scenes after one-second warmups.
+The profiler defaults to eight five-second scenes after one-second warmups. Explicit
+options can request 60 seconds, two-second warmups, three repetitions and a
+1920 × 1080 window. Each repetition reloads all three references before reconstructing
+the same workloads; later loads may reuse resources and OS caches. This initial suite
+uses label density 8; densities 1/12, moved-organ overlays and saved-view transitions
+remain additional acceptance workloads.
 It samples intervals between rendered `frame_post_draw` callbacks during scripted
 orbit. This reflects application frame cadence, including scheduling and VSync;
 it is not GPU execution time or display presentation latency. Its interval percentiles
@@ -59,6 +64,22 @@ Do not label Godot debug-only counters as release process memory.
 For loads, distinguish process startup, source verification, scene preparation and
 first visible frame. A newly started process can still have warm OS file caches.
 Do not call it a cold-cache trial without controlling/documenting the cache state.
+The profiler records the complete `switch_body` wall time, raw intervals between
+process callbacks with partial opening/closing boundaries, stage transitions and
+the delay to the next post-draw callback after loading completes. Intervals sum to
+the wall time; the maximum reveals stalls even when other portions yield UI frames.
+Stage timestamps include scheduling and adjacent work, not isolated CPU execution
+costs. The post-draw delay is separate from startup and is not an independently
+verified first-visible-frame or presentation timestamp.
+
+The repository Windows runner binds the profile to the archive hash, build/source
+revision and actual pinned engine. It retains raw intervals, validates every planned
+scene/repetition and reference load, and records the native OS, RAM, CPU, graphics
+driver and active power scheme without changing host settings. Scene reports record
+window focus throughout sampling, actual window/viewport dimensions, MSAA and VSync.
+An active power scheme does not establish AC/battery or thermal state. The window
+includes side panels, so its 3D viewport is smaller than 1920 × 1080. Unfocused scenes
+must be interpreted accordingly. See the commands in [NATIVE_BUILDS.md](NATIVE_BUILDS.md).
 
 ## Optimization evidence
 

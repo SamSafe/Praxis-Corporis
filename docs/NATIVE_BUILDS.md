@@ -174,7 +174,8 @@ native mouse/trackpad usability, accessibility acceptance or sustained laptop FP
 ## Developer rendering profile
 
 Use the explicit `--profile-rendered-bundle` user argument to sample every bundled
-reference at the current window resolution. For example, from the extracted Windows
+reference. Defaults are a 1440 × 900 window, one-second warmup, five-second sample and
+one repetition. For example, from the extracted Windows
 folder:
 
 ```powershell
@@ -185,13 +186,15 @@ Use a dedicated test user-data directory. Profiling writes `user://render-profil
 then exits; it never accesses the named-view library or quick-save slot. Ordinary
 launches do not profile or collect telemetry. Headless mode is rejected.
 
-Each scene has a one-second warmup and five-second scripted orbit at 0.5 rad/s.
+Each scene has a stationary warmup and scripted orbit at 0.5 rad/s.
 HRA scenes are whole body, chest with faded lungs/local labels, and an isolated supplied
 valve. The separate study measures whole bones and an isolated source femur. The report
 retains raw frame intervals, counts/duration, average cadence, nearest-rank interval
-percentiles, slow-frame counts, viewport size, source hashes and graphics/CPU identity.
+percentiles, counts above 33.33/100 ms, viewport size, source hashes and graphics/CPU identity.
 Load observations include source verification in both the outer wall-time figure and
 `verified_prepared_scene_seconds`; UI process frames and loader yields are recorded.
+Raw load process intervals include partial start/end boundaries and sum to the outer
+wall time. Stage events and the next post-draw delay make loading stalls inspectable.
 Earlier profile artifacts used `prepared_scene_seconds` for the post-verification
 preparation interval. Compare measurements with their recorded source revision.
 
@@ -201,8 +204,47 @@ Validate the raw measurements and print their summary with:
 python3 tools/summarize_profile.py /path/to/render-profile.json
 ```
 
-These short frame-callback observations include scheduling/VSync and do not measure
+Request longer repeated measurements directly with:
+
+```powershell
+.\PraxisCorporis.exe --audio-driver Dummy -- --profile-rendered-bundle --profile-seconds=60 --profile-warmup=2 --profile-repetitions=3 --profile-window=1920x1080
+```
+
+Options accept 1–120 sample seconds, 0.25–10 warmup seconds, 1–3 repetitions and
+1100 × 720 through 3840 × 2160 windows. Unknown, duplicate or invalid profile options
+fail before loading anatomy. Actual window dimensions must match the request.
+Every repetition reloads each reference and reconstructs the ordinary scene before
+profiling. The 3D viewport dimensions are recorded separately from the entire window.
+
+The repository runner extracts an exact matching archive into generated native staging,
+isolates user data, records host/driver/power identity, observes its own process memory,
+validates all raw measurements and retains logs/reports before removing successful
+staging. It requires Python 3.10+ for QA; the application itself does not require Python.
+Run on Windows with native Python:
+
+```powershell
+python tools/profile_windows.py --seconds 60 --warmup 2 --repetitions 3 --window 1920x1080
+```
+
+From this WSL development environment, supply the native PowerShell path:
+
+```sh
+python3 tools/profile_windows.py --seconds 60 --warmup 2 --repetitions 3 --window 1920x1080 \
+  --powershell /mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/powershell.exe \
+  --output dist/windows-profile-sustained
+```
+
+Use a new output folder; existing evidence is never replaced. `--context` can record
+operator observations about power source, foreground use and background work. The
+runner changes no execution policy, power settings or unrelated processes. Long runs
+allow time for the requested samples and loading, with an own-process timeout.
+Raw schema 2 profiles require every declared scene/repetition and load; the independent
+summary tool also accepts the earlier schema 1 diagnostic evidence.
+
+These frame-callback observations include scheduling/VSync and do not measure
 GPU timestamps or presentation latency. Cache, power state and background load are
-uncontrolled. They do not close the representative 1080p laptop acceptance gate.
+uncontrolled. Even a longer run on one host leaves the representative laptop and Mac
+acceptance gates open. The current eight-scene suite omits the additional label-density,
+moved-organ and saved-view workloads in [the protocol](PERFORMANCE_PROTOCOL.md).
 Process working-set/private-memory observations must be recorded by the host separately;
 they are neither GPU memory nor Godot's optional debug memory counters.
