@@ -68,7 +68,8 @@ python3 tools/build_native.py --godot /path/to/godot --qa-linux
 
 This exports a temporary Linux runtime solely for bundle verification. It runs
 outside the source project with isolated user data, loads both bodies from the
-packed anatomy, tests inspection restoration, and checks that removing anatomy.pck
+packed anatomy, tests inspection restoration and selection/camera history, confirms
+the supplied heart component catalogue, and checks that removing anatomy.pck
 produces a clear failure. It also loads both bodies from the Mac core resource pack
 using the development engine; this verifies embedded content, not Mac OS execution.
 Linux is not a release target.

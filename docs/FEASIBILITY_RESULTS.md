@@ -94,7 +94,8 @@ import completed without script errors.
 
 Private Windows x64 and Mac Universal archives were generated from the verified
 source snapshot. Both include runtime, anatomy and notices. The Windows ZIP is
-275,630,203 bytes; the Mac ZIP is 298,075,792 bytes. Exact artifact/source hashes are
+275,640,926 bytes; the Mac ZIP is 298,085,922 bytes after the local-label update.
+Current artifact/source hashes are
 retained in [native-build-report.json](audit/native-build-report.json).
 
 The exported Linux QA runtime loaded both bodies from the companion content package
@@ -134,3 +135,11 @@ and does not establish Windows/Mac accessibility or performance.
 Checks are in [exploration_smoke.gd](../tests/exploration_smoke.gd) and
 [capture_viewer.gd](../tests/capture_viewer.gd). Existing both-body geometry integration
 and all seven Python checks passed, and editor import reported no script errors.
+
+The private desktop packages were rebuilt from source commit `a093b91`. The exported
+Linux QA runtime and embedded Mac resource pack passed both-body restoration,
+selection/camera history and heart-catalogue checks. Both ZIPs passed CRC validation,
+contained the current notices and new control instructions, and matched the retained
+source file hashes. See [the build report](audit/native-build-report.json).
+Mac resource verification still uses the Linux development engine, rather than a
+Mac device; both target-platform hardware trials remain pending.
