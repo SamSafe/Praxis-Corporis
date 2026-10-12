@@ -344,3 +344,21 @@ content and temporary saved-view checks passed. The [performance protocol](PERFO
 specifies longer 1080p repeated trials and distinguishes memory, load, cadence and
 hardware acceptance. The native short trial leaves representative laptop/Mac,
 human-input and sustained-performance gates open.
+
+## Keyboard camera and workspace panels — 2026-10-12
+
+The 3D view can receive Tab/click focus, indicated by a teal border and keyboard hint.
+Arrows orbit, Shift-arrows pan, +/- zoom, F fits selection and Home returns body context.
+Camera keys leave Move mode and preserve inspection edits/undo. Text fields and the
+anatomy tree retain their ordinary arrows; Alt-history still works from the scene.
+The Panels menu independently collapses/reopens either side without resetting
+camera, selection, source reference, isolation or body edits.
+
+Workflow checks passed for HRA and the separate study, including keyboard routing,
+history, source-frame fitting, inspection preservation and actual viewport expansion.
+Rendered checks exercised keyboard input, compact collapsed layout and source femur
+selection after resizing. Both-body exploration/label checks still passed. The native
+bundle verifier now also checks keyboard navigation and panel collapse for each
+reference. [Keyboard focus](prototype/workspace-keyboard-focus.png) and
+[expanded scene](prototype/workspace-open-scene.png) captures were inspected. Actual
+target-device evidence remains tied to the packaged revisions.

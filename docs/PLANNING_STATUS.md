@@ -32,6 +32,10 @@ Short native rendering profiles on the Windows Ryzen 5 PRO 6650U / AMD Radeon ho
 observed about 60 frame-cadence FPS across eight scenes. Raw intervals and hardware
 identity are retained; repeated sustained 1080p trials and a representative Mac are
 still required by [the measurement protocol](PERFORMANCE_PROTOCOL.md).
+The workspace now has a focused keyboard camera route and independently collapsible
+side panels. Camera keys preserve inspection data; search and tree arrows retain their
+own behaviour. Teal focus rendering, compact layout and source picking after collapse
+were checked. Complete keyboard manipulation/assistive-technology acceptance remains open.
 
 ## Established by the user
 

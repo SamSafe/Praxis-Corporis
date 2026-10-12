@@ -36,7 +36,7 @@ restarting. Repeat the HRA tasks for both female and male references.
 | Check a coverage gap | Open Coverage and inspect skeletal coverage for both HRA bodies. | Do counts look like a completeness claim? |
 | Explore the bone study | Choose the separate male study, find Right femur, inspect and restore it. | Is its lack of HRA/female alignment clear? |
 | Use a smaller window | Repeat selection, Save/Restore and inspection return. | Any unreadable text, clipped actions or blocked anatomy? |
-| Use keyboard alternatives | Tab through actions and operate the tree/search without clicking. | Which core action still requires a pointer? |
+| Use keyboard alternatives | Tab through actions; focus the teal-bordered 3D view and orbit/pan/zoom with keys; operate tree/search. | Is focus clear? Which action still requires a pointer? |
 
 The app currently has no disease visuals, reviewed routes, authored cutaways or
 registered whole female skeleton. Record expectations for these as missing coverage;

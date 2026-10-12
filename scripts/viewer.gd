@@ -56,6 +56,11 @@ var coverage_hint: Label
 var action_buttons: Array[Button] = []
 var loading := false
 var syncing_tree := false
+var scene_container: SubViewportContainer
+var explorer_panel: Control
+var details_panel: Control
+var panels_menu: MenuButton
+var navigation_hint: Label
 
 
 func _ready() -> void:
@@ -168,6 +173,9 @@ func verify_bundle() -> void:
 		if not await verify_saved_view():
 			get_tree().quit(1)
 			return
+		if not await verify_keyboard_workspace():
+			get_tree().quit(1)
+			return
 		if rendered:
 			model.restore()
 			if target == "anatomy.heart":
@@ -217,6 +225,35 @@ func verify_saved_view() -> bool:
 		push_error(error)
 		return false
 	print("PASS bundled local saved view: ", model.body.id)
+	return true
+
+
+func verify_keyboard_workspace() -> bool:
+	var before := current_view()
+	var anatomy: Dictionary = model.export_state()
+	scene_container.grab_focus()
+	var event := InputEventKey.new()
+	event.keycode = KEY_RIGHT
+	event.pressed = true
+	get_viewport().push_input(event)
+	await get_tree().process_frame
+	if orbit.yaw == before.camera.yaw or model.export_state() != anatomy:
+		push_error("Bundled keyboard camera navigation failed")
+		return false
+	apply_view(before)
+	var original_width := viewport.size.x
+	on_panel_action(0)
+	on_panel_action(1)
+	await get_tree().process_frame
+	await get_tree().process_frame
+	if viewport.size.x <= original_width or current_view() != before or model.export_state() != anatomy:
+		push_error("Bundled panel collapse changed the anatomy view")
+		return false
+	on_panel_action(0)
+	on_panel_action(1)
+	await get_tree().process_frame
+	await get_tree().process_frame
+	print("PASS bundled keyboard workspace: ", model.body.id)
 	return true
 
 
@@ -301,11 +338,25 @@ func build_interface() -> void:
 	make_button("Saved views", show_saved_views, top, "Keep multiple named exploration setups on this computer.")
 	make_button("Coverage", show_coverage, top)
 	make_button("Sources", show_sources, top)
+	panels_menu = MenuButton.new()
+	panels_menu.text = "Panels"
+	panels_menu.flat = false
+	panels_menu.custom_minimum_size.y = 38
+	panels_menu.tooltip_text = "Show or hide side panels without changing the anatomy view."
+	panels_menu.get_popup().add_check_item("Anatomy explorer", 0)
+	panels_menu.get_popup().add_check_item("Structure details", 1)
+	panels_menu.get_popup().add_separator()
+	panels_menu.get_popup().add_item("Keyboard controls…", 2)
+	panels_menu.get_popup().set_item_checked(0, true)
+	panels_menu.get_popup().set_item_checked(1, true)
+	panels_menu.get_popup().id_pressed.connect(on_panel_action)
+	top.add_child(panels_menu)
 	var columns := HBoxContainer.new()
 	columns.add_theme_constant_override("separation", 14)
 	columns.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	layout.add_child(columns)
 	var left := VBoxContainer.new()
+	explorer_panel = left
 	left.custom_minimum_size.x = 255
 	left.add_theme_constant_override("separation", 10)
 	columns.add_child(left)
@@ -351,7 +402,17 @@ func build_interface() -> void:
 	frame.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	center.add_child(frame)
 	var container := SubViewportContainer.new()
+	scene_container = container
 	container.stretch = true
+	container.focus_mode = Control.FOCUS_ALL
+	container.tooltip_text = "Focus the 3D view with Tab or a click. Arrows orbit; Shift-arrows pan; +/- zoom; F focuses selection; Home shows the body."
+	container.gui_input.connect(on_scene_input)
+	container.focus_entered.connect(func():
+		frame.add_theme_stylebox_override("panel", panel_style(Color("0e1926"), Color("83d9d2")))
+		navigation_hint.text = "Arrows orbit · Shift-arrows pan · +/- zoom · F focus · Home body")
+	container.focus_exited.connect(func():
+		frame.remove_theme_stylebox_override("panel")
+		navigation_hint.text = "Drag to orbit · Shift/right-drag to pan · Scroll/pinch to zoom")
 	container.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	container.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	frame.add_child(container)
@@ -395,8 +456,11 @@ func build_interface() -> void:
 	# Match the SubViewport's content rectangle, including the panel's margins.
 	container.add_child(anatomy_labels)
 	anatomy_labels.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	center.add_child(make_label("Drag to orbit · Shift/right-drag to pan · Scroll/pinch to zoom", 13, Color("7891a7")))
+	navigation_hint = make_label("Drag to orbit · Shift/right-drag to pan · Scroll/pinch to zoom", 13, Color("7891a7"))
+	navigation_hint.tooltip_text = container.tooltip_text
+	center.add_child(navigation_hint)
 	var right_panel := PanelContainer.new()
+	details_panel = right_panel
 	right_panel.custom_minimum_size.x = 265
 	columns.add_child(right_panel)
 	var right_scroll := ScrollContainer.new()
@@ -754,9 +818,56 @@ func refresh_navigation() -> void:
 func on_viewport_clicked(position: Vector2) -> void:
 	if loading:
 		return
+	scene_container.grab_focus()
 	var id: String = model.pick(orbit.camera, position)
 	if not id.is_empty():
 		select_structure(id)
+
+
+func on_panel_action(id: int) -> void:
+	if id in [0, 1]:
+		var panel: Control = explorer_panel if id == 0 else details_panel
+		panel.visible = not panel.visible
+		panels_menu.get_popup().set_item_checked(id, panel.visible)
+		# Keep a keyboard route back to the workspace when hiding a focused control.
+		scene_container.grab_focus()
+	elif id == 2:
+		var dialog := AcceptDialog.new()
+		dialog.title = "Keyboard controls"
+		dialog.dialog_text = "Tab / Shift-Tab moves between controls.\nSearch and anatomy lists provide a text selection route.\n\nWith the 3D view focused (teal border):\nArrow keys orbit · Shift + arrows pan\n+ / - zoom · F focuses selection · Home shows the body\nCamera keys leave Move mode and preserve inspection edits.\n\nAlt + Left/Right revisits views.\nCtrl/Cmd + Z undoes inspection; add Shift to redo.\nText fields keep their ordinary editing shortcuts.\nEscape leaves Move mode or closes the active dialog."
+		dialog.confirmed.connect(dialog.queue_free)
+		dialog.canceled.connect(dialog.queue_free)
+		add_child(dialog)
+		dialog.popup_centered_clamped(Vector2i(650, 430), 0.9)
+
+
+func on_scene_input(event: InputEvent) -> void:
+	if not event is InputEventKey or not event.pressed or loading or not scene_container.has_focus():
+		return
+	if event.alt_pressed or event.ctrl_pressed or event.meta_pressed:
+		return
+	var direction := Vector2.ZERO
+	match event.keycode:
+		KEY_LEFT: direction = Vector2.LEFT
+		KEY_RIGHT: direction = Vector2.RIGHT
+		KEY_UP: direction = Vector2.UP
+		KEY_DOWN: direction = Vector2.DOWN
+	var recognized: bool = direction != Vector2.ZERO or event.keycode in [KEY_PLUS, KEY_EQUAL, KEY_KP_ADD, KEY_MINUS, KEY_KP_SUBTRACT, KEY_F, KEY_HOME]
+	if not recognized:
+		return
+	leave_move_mode()
+	if direction != Vector2.ZERO:
+		if event.shift_pressed:
+			orbit.keyboard_pan(direction)
+		else:
+			orbit.keyboard_orbit(direction)
+	elif event.keycode in [KEY_PLUS, KEY_EQUAL, KEY_KP_ADD, KEY_MINUS, KEY_KP_SUBTRACT]:
+		orbit.keyboard_zoom(event.keycode in [KEY_PLUS, KEY_EQUAL, KEY_KP_ADD])
+	elif event.keycode == KEY_F:
+		focus_selection()
+	elif event.keycode == KEY_HOME:
+		whole_body()
+	scene_container.accept_event()
 
 
 func refresh_details() -> void:

@@ -52,6 +52,7 @@ is used by the viewer.
 | Orbit | Primary-button drag in the 3D view. |
 | Pan | Shift + primary drag, right/middle drag, or supported trackpad pan gesture. |
 | Zoom | Scroll wheel or supported pinch gesture. |
+| Keyboard camera | Tab/click to focus the 3D view (teal border). Arrows orbit; Shift-arrows pan; +/- zoom; F fits selection; Home shows the body. |
 | Select and focus | Click visible geometry or a surface label, choose a tree item, or select a search result. |
 | Browse systems and parts | Expand the anatomy tree; parent groups select their descendant meshes. |
 | Browse local components | The Supplied parts list follows the current organ/group and uses the same selection as the main tree. |
@@ -70,6 +71,19 @@ is used by the viewer.
 | Body reference | Select Female reference or Male reference; shared canonical selections are retained where mapped. |
 | Save/load | Saved views opens named local exploration setups with Save current view, Restore, Rename and Delete. |
 | Coverage | Coverage opens the technical inventory for both reference bodies, known gaps and a shortcut to select a supplied group. |
+| Workspace panels | Panels toggles the anatomy explorer and structure details independently; Keyboard controls opens the shortcut reference. |
+
+Keyboard camera controls work only while the 3D view has focus. Search/list arrows
+and text editing keep their ordinary behaviour. Camera keys leave explicit Move mode
+and preserve inspection changes. The focused scene has a teal border and a keyboard
+hint below it. Alt-history and inspection undo/redo remain available. This supplies a
+keyboard camera route, without claiming complete keyboard movement or assistive-tech
+acceptance.
+
+Hiding panels gives more width to the same scene without changing selection, camera,
+labels, isolation or body edits. The top Panels menu remains available to reopen them.
+Panel visibility stays as set while switching references/restoring views; each launch
+starts with both panels visible. Panel layout is separate from saved anatomy snapshots.
 
 Faded structures are click-through; hidden structures have no active pick collision.
 Choose either in the tree and use Show to make it directly selectable again.
@@ -207,6 +221,7 @@ godot --headless --path . --script tests/exploration_smoke.gd
 godot --headless --path . --script tests/part_inspection_smoke.gd
 godot --headless --path . --script tests/coverage_smoke.gd
 godot --headless --path . --script tests/study_reference_smoke.gd
+godot --headless --path . --script tests/keyboard_workspace_smoke.gd
 ```
 
 The Python checks cover corrupt inputs, path containment, asset modification,
@@ -242,6 +257,7 @@ Optional rendered capture on a Linux development display:
 
 ```sh
 godot --path . --script tests/capture_viewer.gd
+godot --path . --script tests/capture_keyboard_workspace.gd
 ```
 
 This developer capture writes images under /tmp/medicine-viewer-feasibility/; create

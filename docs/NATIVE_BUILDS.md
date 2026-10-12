@@ -75,7 +75,8 @@ packed anatomy, tests inspection restoration and selection/camera history, confi
 the supplied heart component catalogue, tests isolated-part inspection and return
 without changing stored anatomy settings, verifies local saved-view write/reopen/restore
 using temporary random filenames, and checks that removing anatomy.pck produces a
-clear failure. It also loads every reference from the Mac core resource pack
+clear failure. Focused keyboard navigation and panel collapse are checked without
+changing anatomy state. It also loads every reference from the Mac core resource pack
 using the development engine; this verifies embedded content, not Mac OS execution.
 Linux is not a release target.
 

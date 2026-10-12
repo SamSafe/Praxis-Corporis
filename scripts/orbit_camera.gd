@@ -47,6 +47,22 @@ func pixel_scale() -> float:
 	return 2.0 * distance * tan(deg_to_rad(camera.fov * 0.5)) / maxf(get_viewport().get_visible_rect().size.y, 1.0)
 
 
+func keyboard_orbit(direction: Vector2) -> void:
+	yaw += direction.x * 0.08
+	pitch = clampf(pitch - direction.y * 0.08, -1.45, 1.45)
+	update_camera()
+
+
+func keyboard_pan(direction: Vector2) -> void:
+	target += (camera.global_basis.x * direction.x - camera.global_basis.y * direction.y) * pixel_scale() * 30.0
+	update_camera()
+
+
+func keyboard_zoom(closer: bool) -> void:
+	distance = clampf(distance * (0.88 if closer else 1.12), 0.018, 12.0)
+	update_camera()
+
+
 func cancel_drag() -> void:
 	active_button = 0
 	dragged = false
