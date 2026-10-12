@@ -74,6 +74,8 @@ smaller collision representations and geometry optimization still need evaluatio
 - [Supplied mitral valve inspection, male](prototype/valve-inspection-male.png).
 - [Return to male chest context](prototype/inspection-return-male.png).
 - [In-app source coverage comparison](prototype/coverage-skeleton.png).
+- [Native Windows female chest](prototype/windows-native-chest-female.png).
+- [Native Windows male chest](prototype/windows-native-chest-male.png).
 
 These are actual app captures, distinct from the earlier schematic wireframes.
 Models are credited under [ATTRIBUTIONS.md](../ATTRIBUTIONS.md); source licences and
@@ -217,3 +219,22 @@ runtime log. A local Windows staging folder resolved that launch issue. Native W
 rendering/input, laptop performance and Mac execution are still separate gate work.
 Evidence and exact artifact identity are in
 [windows-native-qa.json](audit/windows-native-qa.json).
+
+## Native Windows rendering trial — 2026-10-12
+
+The current exported Windows application, from source commit `018c586`, passed its
+desktop rendering check on the local Windows NT 10.0.26300.0 host. The Compatibility
+renderer used OpenGL 3.3 core and AMD Radeon(TM) Graphics; the observed driver string
+was 25.10.37.03.260407. Both 1440 × 900 chest captures were inspected. Surface labels
+had real physics hits, and the scripted offline/inspection checks passed with process
+exit code 0. APPDATA/LOCALAPPDATA remained isolated in the temporary QA folder.
+
+Prepared-scene loading observations were 4.80 s female / 4.79 s male after source
+verification. This was one uncontrolled trial and measures neither sustained FPS
+nor peak memory. Native human mouse/trackpad testing, accessibility acceptance and
+representative student-laptop benchmarks remain open. The Mac core pack continues
+to pass development-engine checks, with Mac hardware execution pending.
+
+[windows-rendered-qa.json](audit/windows-rendered-qa.json) records the tested artifact
+identity, renderer, captures and limits. The current [build report](audit/native-build-report.json)
+records both refreshed package hashes, including the Coverage window.

@@ -1,0 +1,35 @@
+{
+  "test_date": "2026-10-12",
+  "host": "Microsoft Windows NT 10.0.26300.0 via WSL interop",
+  "mode": "Actual Windows release executable with native desktop rendering and Dummy audio",
+  "renderer": "OpenGL 3.3 core, Godot Compatibility, AMD Radeon(TM) Graphics",
+  "driver_observed": "25.10.37.03.260407",
+  "source_revision": "018c586953a55a28093ae671084e4ad7b9f6e1ac",
+  "artifact": {
+    "file": "PraxisCorporis-Windows-x64-private.zip",
+    "bytes": 275656378,
+    "sha256": "fe43566f94f3a314ffe7c2be355c670460e7b9e43bff77e49b4de794bf07b0bb",
+    "architectures": [
+      "x86_64"
+    ]
+  },
+  "result": "passed; native process exit code 0",
+  "captures": [
+    "windows-native-chest-female.png",
+    "windows-native-chest-male.png"
+  ],
+  "capture_size": [
+    1440,
+    900
+  ],
+  "prepared_scene_load_seconds": {
+    "female": 4.8,
+    "male": 4.79
+  },
+  "limits": [
+    "Single uncontrolled trial; not an FPS or minimum-hardware benchmark.",
+    "Scripted actions and surface-label ray queries; native human mouse/trackpad trial remains open.",
+    "Mac hardware execution remains open."
+  ],
+  "user_data": "APPDATA and LOCALAPPDATA isolated in the dedicated Windows temporary QA folder; saved-view slot untouched."
+}

@@ -17,7 +17,8 @@ meshes while preserving their body coordinates, ordinary visibility and edits.
 This is a rendering mask, not authored cutaway or guided-separation content.
 An in-app Coverage window now compares supplied system groups and gaps across both
 references. A first native Windows headless trial loaded both bodies and passed
-offline inspection checks; rendering/input and Mac device trials remain open.
+offline inspection checks. Native Windows rendering subsequently passed on AMD Radeon
+graphics; human input, sustained performance and Mac device trials remain open.
 
 ## Established by the user
 
