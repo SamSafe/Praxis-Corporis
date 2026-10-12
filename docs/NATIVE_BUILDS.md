@@ -102,6 +102,9 @@ Trackpad gestures, smaller displays, larger text and sustained frame rate remain
 unverified on target hardware. No testers have been contacted and no archives have
 been published.
 
+[PRIVATE_TRIAL_GUIDE.md](PRIVATE_TRIAL_GUIDE.md) provides concrete tasks and a local
+findings template for the user's first trial and a later invited private group.
+
 ## Developer rendering check
 
 The private runtime accepts --verify-rendered-bundle after the engine's -- separator.

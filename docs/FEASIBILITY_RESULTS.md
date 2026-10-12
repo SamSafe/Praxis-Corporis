@@ -304,3 +304,12 @@ The developer bundle verifier additionally exercises local write/reopen/restore 
 random temporary filenames. It passed all three prepared references on the development
 engine. Native package evidence remains tied to the source revisions recorded in the
 build reports; package refresh is separate from these source-workflow checks.
+
+The packages from source commit `03f0369` subsequently passed exported Linux and
+Mac embedded-content checks, including local write/reopen/restore for every bundled
+reference. Archive hashes, CRCs, source snapshots and updated instructions matched.
+The actual Windows release executable also passed all three native AMD rendering
+and local persistence checks with exit code 0. The QA process kept the user's library
+and quick-save slot untouched. Its 500 ms process observations are recorded separately
+from any scene benchmark in [windows-saved-views-qa.json](audit/windows-saved-views-qa.json).
+The [private trial guide](PRIVATE_TRIAL_GUIDE.md) provides the next human-input tasks.

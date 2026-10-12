@@ -1,0 +1,42 @@
+{
+  "test_date": "2026-10-12",
+  "host": "Microsoft Windows NT 10.0.26300.0 via WSL interop",
+  "mode": "Actual release executable, AMD native rendering, Dummy audio",
+  "source_revision": "03f03695c0f4bde485da691cea3a6882d914b9c0",
+  "artifact": {
+    "file": "PraxisCorporis-Windows-x64-private.zip",
+    "bytes": 292894358,
+    "sha256": "72c794ffdf77062799ae3e967317e1d06f6b4d22325a03b7cb7eeced8462a5d9",
+    "architectures": [
+      "x86_64"
+    ]
+  },
+  "renderer": "OpenGL 3.3 core, AMD Radeon(TM) Graphics",
+  "result": "passed; exit code 0",
+  "references": {
+    "female": 801,
+    "male": 788,
+    "bodyparts-male-bones-study": 203
+  },
+  "local_saved_view_checks": "write/reopen/restore passed per reference using separate random filenames; user library and quick-save slot untouched",
+  "captures": [
+    "windows-named-views-female.png",
+    "windows-named-views-male.png",
+    "windows-named-views-bones.png"
+  ],
+  "capture_size": [
+    1440,
+    900
+  ],
+  "process_memory_observations": {
+    "peak_working_set_bytes_observed": 988831744,
+    "maximum_private_bytes_sampled": 1754361856,
+    "sampling_interval_ms": 500,
+    "scope": "Entire uncontrolled verification process, including three reference loads; not per-scene or GPU memory."
+  },
+  "limits": [
+    "Scripted trial; human input/accessibility acceptance remains open.",
+    "No sustained FPS, representative-laptop or minimum-hardware claim.",
+    "Mac embedded content checked on development engine; Mac hardware execution pending."
+  ]
+}

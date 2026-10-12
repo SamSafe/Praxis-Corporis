@@ -4,16 +4,16 @@
   "artifacts": [
     {
       "file": "PraxisCorporis-Windows-x64-private.zip",
-      "bytes": 292879809,
-      "sha256": "a994ecdce033a7b9d53dadd14e69e9dfacb02e5c07ed9a182102d38adfbb3922",
+      "bytes": 292894358,
+      "sha256": "72c794ffdf77062799ae3e967317e1d06f6b4d22325a03b7cb7eeced8462a5d9",
       "architectures": [
         "x86_64"
       ]
     },
     {
       "file": "PraxisCorporis-macOS-universal-private.zip",
-      "bytes": 315324376,
-      "sha256": "fd6262394597d9805355e22df5b4839ff173498f7e4f168d9eec9d21a7fa05f4",
+      "bytes": 315339238,
+      "sha256": "39992bd300727e686f602d96487a8f54176757ab9c396831b9352ec375989eaa",
       "architectures": [
         "x86_64",
         "arm64"
@@ -22,7 +22,7 @@
   ],
   "target_device_testing": "pending",
   "publication": "local private artifacts only",
-  "source_revision": "18750284772c0f879ac44304367a6ebef9bbae83",
+  "source_revision": "03f03695c0f4bde485da691cea3a6882d914b9c0",
   "source_hashes": {
     "project.godot": "0f521b6466837dde12c1c0430ba80b25e1b031591cca04b23f0bbf1dd69a7269",
     "export_presets.cfg": "c686ec6dfd0b2a9008455832373193ddab03847aef184fc5a077c1a71a4ca0fc",
@@ -38,14 +38,16 @@
     "scripts/content_bundle.gd": "db2218ea92b5139afd355c819ea8a0750063a97b732304a86993c709deaf8236",
     "scripts/coverage_browser.gd": "5906cb9ff0d527efbc8439ec1a0cb3a8e8e1f68fa250349555a61552e54d2aff",
     "scripts/orbit_camera.gd": "ccba32a5f16a9d49d27cf20d6c9d2711f17affa10a8750e0518f0f47ecc7f224",
+    "scripts/saved_views.gd": "f0f4af6cf1a5547f17683f4301409a30ca949a05fe3a235ce0e3b67007bcf580",
+    "scripts/saved_views_browser.gd": "a3e16c0a4292081e5c885fdc28c9edab2c9a5821673c2427d25aa79988420d6c",
     "scripts/source_index_extension.gd": "090d8c7f9346889a43980f0854e0bca2e588138447d86628f76b8ab87b94d84c",
-    "scripts/viewer.gd": "696fade4bfd9262a8221ebee754375ddc466b9bcb4429fde5354d492500d1111"
+    "scripts/viewer.gd": "1db505c84f6e6cce1477b0671e76a6479dd8dfd642212e7ec4bf6649c8464692"
   },
   "anatomy_package": {
     "bytes": 543142680,
     "sha256": "ea75cbce814950bed5df4e7096e450ad5cccd930b6fec21455fb818543dba545"
   },
-  "linux_qa": "passed exported-runtime two-body restoration and missing-content checks",
-  "mac_content_qa": "passed two-body embedded-content check on the development engine; Mac device testing pending",
-  "source_snapshot_verified_against_revision": "18750284772c0f879ac44304367a6ebef9bbae83"
+  "linux_qa": "passed exported-runtime checks for every bundled reference and missing-content handling",
+  "mac_content_qa": "passed every bundled reference in embedded content on the development engine; Mac device testing pending",
+  "source_snapshot_verified_against_revision": "03f03695c0f4bde485da691cea3a6882d914b9c0"
 }
