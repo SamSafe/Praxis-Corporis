@@ -68,7 +68,7 @@ is used by the viewer.
 | Original position | Show original positions toggles faint blue, non-selectable copies of moved anatomy at its baseline location. |
 | Leave Move mode | Escape or Whole body returns to navigation and preserves inspection changes. |
 | Body reference | Select Female reference or Male reference; shared canonical selections are retained where mapped. |
-| Save/load | Save view and Load view use one local saved-view slot. |
+| Save/load | Saved views opens named local exploration setups with Save current view, Restore, Rename and Delete. |
 | Coverage | Coverage opens the technical inventory for both reference bodies, known gaps and a shortcut to select a supplied group. |
 
 Faded structures are click-through; hidden structures have no active pick collision.
@@ -139,6 +139,14 @@ ordinary body view.
 
 ## Saved views
 
+Open **Saved views**, enter a name, and choose **Save current view**. The library
+keeps up to 200 named setups on this computer. Select a view to see its reference
+and structure, then **Restore**. Change its name in the field and choose **Rename**;
+deletion requires a second click on **Confirm delete**. Names must be distinct,
+including when only letter case differs. Saving creates a new view rather than
+overwriting an existing one. Restore validates the complete snapshot before changing
+the body. Missing content or a different geometry hash leaves the session untouched.
+
 The optional [BodyParts3D bone study](audit/BODYPARTS3D_FINDINGS.md) provides a separate
 male source reference with 203 mesh files. It is available in the reference selector
 when prepared/bundled. It retains its own coordinates, source coverage and notices;
@@ -149,13 +157,22 @@ rejected before changing the current view. Older HRA schema-1 saves remain compa
 
 Body switching restores that body's original inspection state and clears undo/redo
 and navigation history.
-The saved slot records body, selected ID, camera, labels, original-position display,
+Each view records body, selected ID, camera, labels, original-position display,
 local label context/density, temporary inspection/return view, visibility and
 displacements. Earlier schema-1 saves remain compatible through defaults for optional
 fields. General Back/Forward history is not saved across launches.
-Saves use Godot's user:// location, outside the project, with a temporary-file rename.
-Invalid schemas, content versions, missing structures and malformed transforms are
-rejected. Multiple bookmarks, backups and migration recovery remain future work.
+The local library is `user://saved_views.json`, outside the installation/project.
+Numbers use full precision, and writes use a temporary file plus one previous-library
+backup (`.bak`). Invalid formats or failed writes preserve the known library. If the
+main file is damaged/missing and the backup is valid, **Recover previous library**
+restores it; a damaged original is retained as `.damaged`. Recovery returns the
+previous version, which may omit the most recent edit. A stale open library detects
+external file changes and asks you to close/reopen before editing. This is local
+storage, without cloud sync or a cross-process transaction service.
+
+The older `user://saved_view.json` quick-save slot is kept intact. When present,
+**Restore previous quick save** appears in the window. Older HRA schema-1 views retain
+their compatible defaults. General schema migration/import/export remain future work.
 
 ## Actual scope and limitations
 
@@ -207,6 +224,19 @@ mask/label/picking agreement, exact return framing, edits made while inspecting,
 undo/redo, body switching, compatible saves and atomic rejection of invalid returns.
 Rendered checks click Inspect alone, a supplied part and Return to context through
 native input, and move the part while inspecting it.
+
+Named-view storage and restore checks:
+
+```sh
+godot --headless --path . --script tests/saved_views_smoke.gd
+godot --path . --script tests/capture_saved_views.gd
+```
+
+These use separate test filenames. They cover all three prepared references,
+inspection return after reopening, full geometry displacement precision, rename/delete,
+invalid/missing sources, duplicate names, stale edits, damaged-file recovery and write
+failures. The rendered check clicks Save/Restore through native input at the compact
+window size. It writes a developer capture under /tmp/medicine-viewer-feasibility/.
 
 Optional rendered capture on a Linux development display:
 

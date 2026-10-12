@@ -124,10 +124,10 @@ def add_notices(folder: pathlib.Path, platform: str) -> None:
         "If included, Male bones / BodyParts3D study is a separate source reference, unregistered to HRA.\n"
         "Move selected enables inspection displacement; blue overlays mark original positions.\n"
         "Undo/Redo reverses or reapplies inspection changes. Restore returns original anatomy.\n"
-        "Save view stores a local session outside this folder.\n\n"
+        "Saved views keeps named local exploration setups outside this folder.\n\n"
         "Both reference bodies are included. This is a partial, unreviewed atlas.\n"
         "There is no disease content, guided pathway, or public-release claim.\n"
-        "These builds still need testing on Windows and Mac hardware.\n"
+        "Human input/performance acceptance and Mac hardware execution remain open.\n"
         + ("The Windows executable is unsigned.\n" if platform == "windows" else
            "The Mac app has an ad-hoc signature and is not notarized.\n")
         + "Credits, source licences and engine notices are in NOTICES/.\n",
@@ -178,7 +178,7 @@ def build(args: argparse.Namespace) -> dict:
                                      stderr=subprocess.STDOUT, timeout=30)
             if missing.returncode != 1 or "Anatomy is missing" not in missing.stdout:
                 raise ValueError("Missing anatomy bundle must produce a clear failure")
-            report["linux_qa"] = "passed exported-runtime two-body restoration and missing-content checks"
+            report["linux_qa"] = "passed exported-runtime checks for every bundled reference and missing-content handling"
         for platform in args.platform:
             modes = {}
             folder = temporary / "PraxisCorporis"
@@ -214,7 +214,7 @@ def build(args: argparse.Namespace) -> dict:
                     print("Checking the embedded Mac content using the development engine…", flush=True)
                     run([args.godot, "--headless", "--audio-driver", "Dummy", "--main-pack", str(core_packs[0]),
                          "--", "--verify-bundle"], cwd=folder, env=qa_environment)
-                    report["mac_content_qa"] = "passed two-body embedded-content check on the development engine; Mac device testing pending"
+                    report["mac_content_qa"] = "passed every bundled reference in embedded content on the development engine; Mac device testing pending"
             if platform == "windows":
                 shutil.copyfile(data_pack, folder / "anatomy.pck")
             add_notices(folder, platform)

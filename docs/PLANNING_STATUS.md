@@ -22,6 +22,12 @@ graphics; human input, sustained performance and Mac device trials remain open.
 A BodyParts3D v4.0 bone-organ subset is technically audited and available as a
 separate private male study. Source notices, coordinate conversion and remaining
 alignment/review work are recorded in [its audit](audit/BODYPARTS3D_FINDINGS.md).
+Named local views now retain camera/labels and inspection settings across all three
+prepared references, including a working return from isolation. Storage checks cover
+duplicate names, stale edits, damaged-file recovery and failed writes. The rendered
+Save/Restore actions were exercised at the compact desktop size. The older quick-save
+slot remains compatible. Native builds also verify write/reopen/restore in temporary
+test files without accessing the user's library.
 
 ## Established by the user
 

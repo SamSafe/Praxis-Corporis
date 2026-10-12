@@ -5,7 +5,10 @@ const OrbitCamera = preload("res://scripts/orbit_camera.gd")
 const ContentBundle = preload("res://scripts/content_bundle.gd")
 const AnatomyLabels = preload("res://scripts/anatomy_labels.gd")
 const CoverageBrowser = preload("res://scripts/coverage_browser.gd")
+const SavedViews = preload("res://scripts/saved_views.gd")
+const SavedViewsBrowser = preload("res://scripts/saved_views_browser.gd")
 var save_path := "user://saved_view.json"
+var views_path := "user://saved_views.json"
 
 var pack: Dictionary
 var coverage_notes: Dictionary = {}
@@ -137,6 +140,9 @@ func verify_bundle() -> void:
 			push_error("Bundled return to context failed")
 			get_tree().quit(1)
 			return
+		if not await verify_saved_view():
+			get_tree().quit(1)
+			return
 		if rendered:
 			model.restore()
 			if target == "anatomy.heart":
@@ -159,6 +165,34 @@ func verify_bundle() -> void:
 		print("PASS bundled reference: ", reference.id, " · ", model.meshes.size(), " meshes")
 	print("PASS offline native bundle")
 	get_tree().quit()
+
+
+func verify_saved_view() -> bool:
+	# Developer verification uses its own random filename; user libraries/legacy
+	# slots are never read or written, including when running a packaged build.
+	var library := SavedViews.new()
+	library.path = "user://bundle-check-%s.json" % Crypto.new().generate_random_bytes(16).hex_encode()
+	library.load_library()
+	var snapshot := export_view_state()
+	var error := library.add_view("Bundle verification", snapshot)
+	var reopened := SavedViews.new()
+	reopened.path = library.path
+	if error.is_empty():
+		error = reopened.load_library()
+	if error.is_empty() and (reopened.entries.size() != 1 or not validate_view_state(reopened.entries[0].state).is_empty()):
+		error = "Saved view did not survive reopening"
+	if error.is_empty():
+		model.restore()
+		if not await restore_view_state(reopened.entries[0].state) or model.export_state() != snapshot.changes or model.selected_id != snapshot.selection:
+			error = "Saved view did not restore bundled anatomy"
+	for suffix in ["", ".tmp", ".bak", ".bak.tmp"]:
+		if FileAccess.file_exists(library.path + suffix):
+			DirAccess.remove_absolute(library.path + suffix)
+	if not error.is_empty():
+		push_error(error)
+		return false
+	print("PASS bundled local saved view: ", model.body.id)
+	return true
 
 
 func make_label(text: String, size: int = 15, color: Color = Color("c6d2df")) -> Label:
@@ -239,8 +273,7 @@ func build_interface() -> void:
 	body_choice.custom_minimum_size.x = 250
 	body_choice.item_selected.connect(func(index: int): switch_body(str(body_choice.get_item_metadata(index))))
 	top.add_child(body_choice)
-	make_button("Save view", save_view, top)
-	make_button("Load view", load_view, top)
+	make_button("Saved views", show_saved_views, top, "Keep multiple named exploration setups on this computer.")
 	make_button("Coverage", show_coverage, top)
 	make_button("Sources", show_sources, top)
 	var columns := HBoxContainer.new()
@@ -866,10 +899,10 @@ func _process(_delta: float) -> void:
 		status.tooltip_text = status.text
 
 
-func save_view() -> void:
+func export_view_state() -> Dictionary:
 	if loading or model.body.is_empty():
-		return
-	var state := {"schema_version": 1, "pack_id": pack.id, "body": model.body.id,
+		return {}
+	return {"schema_version": 1, "pack_id": pack.id, "body": model.body.id,
 		"selection": model.selected_id, "camera": orbit.export_state(),
 		"labels": labels_button.button_pressed, "original_positions": original_positions_button.button_pressed,
 		"local_labels": local_labels_button.button_pressed, "label_density": int(label_density.value),
@@ -877,11 +910,17 @@ func save_view() -> void:
 		"isolation": model.isolated_id, "inspection_return": inspection_return.duplicate(true),
 		"reference_hash": model.body.sha256,
 		"changes": model.export_state()}
+
+
+func save_view() -> void:
+	var state := export_view_state()
+	if state.is_empty():
+		return
 	var file := FileAccess.open(save_path + ".tmp", FileAccess.WRITE)
 	if file == null:
 		status.text = "Could not write the saved view."
 		return
-	file.store_string(JSON.stringify(state, "\t"))
+	file.store_string(JSON.stringify(state, "\t", true, true))
 	file.close()
 	var error := DirAccess.rename_absolute(save_path + ".tmp", save_path)
 	status.text = "View saved on this computer" if error == OK else "Could not replace the saved view."
@@ -897,62 +936,64 @@ func load_view() -> void:
 	if not parsed is Dictionary:
 		status.text = "Saved view is not valid JSON."
 		return
-	var state: Dictionary = parsed
+	await restore_view_state(parsed)
+
+
+func validate_view_state(state: Dictionary) -> String:
 	if state.get("schema_version") != 1 or state.get("pack_id") != pack.id:
-		status.text = "Saved view uses a different content or save version."
-		return
+		return "Saved view uses a different content or save version."
 	if not state.get("camera") is Dictionary or not orbit.valid_state(state.camera) or not state.get("changes") is Dictionary:
-		status.text = "Saved view has invalid camera or anatomy data."
-		return
+		return "Saved view has invalid camera or anatomy data."
 	if not state.get("body") is String or not state.get("selection") is String or not state.get("labels") is bool:
-		status.text = "Saved view has invalid body, selection or label settings."
-		return
+		return "Saved view has invalid body, selection or label settings."
 	if state.has("original_positions") and not state.original_positions is bool:
-		status.text = "Saved view has an invalid original-position setting."
-		return
+		return "Saved view has an invalid original-position setting."
 	if (state.has("local_labels") and not state.local_labels is bool) or (state.has("label_density") and
 		(not (state.label_density is float or state.label_density is int) or not is_finite(float(state.label_density)) or
 		float(state.label_density) != floorf(float(state.label_density)) or state.label_density < 1 or state.label_density > 12)):
-		status.text = "Saved view has invalid local-label settings."
-		return
+		return "Saved view has invalid local-label settings."
 	if state.has("label_context") and not state.label_context is String:
-		status.text = "Saved view has an invalid label context."
-		return
+		return "Saved view has an invalid label context."
 	var reference: Dictionary = {}
 	for candidate in pack.bodies:
 		if candidate.id == state.body:
 			reference = candidate
 	if reference.is_empty():
-		status.text = "Saved reference is unavailable. Prepare its source content first."
-		return
+		return "Saved reference is unavailable. Prepare its source content first."
 	if (state.has("reference_hash") and state.reference_hash != reference.sha256) or (reference.get("study", false) and not state.has("reference_hash")):
-		status.text = "Saved view belongs to a different reference geometry version."
-		return
+		return "Saved view belongs to a different reference geometry version."
 	var validation: String = model.validate_saved_changes(state.changes, reference)
 	if not validation.is_empty():
-		status.text = validation
-		return
+		return validation
 	var selection_exists: bool = state.selection.is_empty()
 	for structure in reference.structures:
 		selection_exists = selection_exists or structure.id == state.selection
 	if not selection_exists:
-		status.text = "Saved selection is missing from this sample pack."
-		return
+		return "Saved selection is missing from this sample pack."
 	if not valid_label_context(state.selection, state.get("label_context", ""), reference):
-		status.text = "Saved label context does not match the selected anatomy."
-		return
+		return "Saved label context does not match the selected anatomy."
 	if not valid_inspection_view(state, reference):
-		status.text = "Saved inspection view has invalid anatomy or return context."
-		return
+		return "Saved inspection view has invalid anatomy or return context."
+	return ""
+
+
+func restore_view_state(state: Dictionary) -> bool:
+	if loading:
+		return false
+	var validation := validate_view_state(state)
+	if not validation.is_empty():
+		status.text = validation
+		return false
 	if model.body.get("id") != state.body:
 		await switch_body(state.body)
 	if model.body.get("id") != state.body:
-		return
+		return false
 	var previous := current_view()
+	leave_move_mode()
 	var error: String = model.apply_saved_state(state.changes)
 	if not error.is_empty():
 		status.text = error
-		return
+		return false
 	anatomy_labels.context_id = ""
 	anatomy_labels.set_selection(state.selection)
 	if state.has("label_context"):
@@ -972,6 +1013,28 @@ func load_view() -> void:
 	remember_view(previous)
 	refresh_navigation()
 	status.text = "Saved view restored"
+	return true
+
+
+func show_saved_views() -> Window:
+	if loading or model.body.is_empty():
+		return null
+	var browser := SavedViewsBrowser.new()
+	var library := SavedViews.new()
+	library.path = views_path
+	browser.library = library
+	browser.pack = pack
+	browser.current_state = export_view_state()
+	browser.theme = theme
+	browser.validate_state = validate_view_state
+	browser.legacy_available = FileAccess.file_exists(save_path)
+	browser.restore_requested.connect(func(state: Dictionary, view_name: String):
+		if await restore_view_state(state):
+			status.text = "Restored “" + view_name + "”")
+	browser.legacy_requested.connect(load_view)
+	add_child(browser)
+	browser.popup_centered_clamped(Vector2i(780, 560), 0.9)
+	return browser
 
 
 func valid_inspection_view(state: Dictionary, reference: Dictionary) -> bool:

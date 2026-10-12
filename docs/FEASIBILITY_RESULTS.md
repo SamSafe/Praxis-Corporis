@@ -279,3 +279,28 @@ or human-input acceptance claim. The Mac embedded content passed on the developm
 engine; Mac device execution is still open. Exact evidence is recorded in
 [windows-study-rendered-qa.json](audit/windows-study-rendered-qa.json) and
 [native-build-report.json](audit/native-build-report.json).
+
+## Named local exploration views — 2026-10-12
+
+The app now retains multiple named setups in a local library. Each snapshot binds
+its reference geometry and preserves selection, camera, label settings, visibility,
+displacement, isolation and the prior context. Restore leaves explicit Move mode.
+The previous quick-save slot remains accessible. Rename and confirmed deletion are
+available, with full-precision JSON output and a prior-library backup. Invalid reads
+block writes; explicit backup recovery retains the damaged original. Open libraries
+detect external changes before writing.
+
+Workflow checks passed across both HRA bodies and the separate bone study, including
+reopen/restore, original float32 displacement precision, isolated-part return,
+invalid/unavailable geometry rejection, duplicates, stale edits, deletion, corrupted
+metadata recovery and write failure. The earlier both-body quick-save/inspection
+suite still passed. Twelve Python source/packaging checks passed. The rendering/input
+check saved both a chest view and an isolated femur, restored the chest through the
+button, and verified compact popup bounds. Its [capture](prototype/saved-views-library.png)
+was inspected. The capture test accounts for Godot's logical viewport coordinates
+when the desktop window is scaled; this corrected a test-input routing error.
+
+The developer bundle verifier additionally exercises local write/reopen/restore with
+random temporary filenames. It passed all three prepared references on the development
+engine. Native package evidence remains tied to the source revisions recorded in the
+build reports; package refresh is separate from these source-workflow checks.

@@ -70,11 +70,12 @@ python3 tools/build_native.py --godot /path/to/godot --qa-linux
 ```
 
 This exports a temporary Linux runtime solely for bundle verification. It runs
-outside the source project with isolated user data, loads both bodies from the
+outside the source project with isolated user data, loads every bundled reference from the
 packed anatomy, tests inspection restoration and selection/camera history, confirms
 the supplied heart component catalogue, tests isolated-part inspection and return
-without changing stored anatomy settings, and checks that removing anatomy.pck
-produces a clear failure. It also loads both bodies from the Mac core resource pack
+without changing stored anatomy settings, verifies local saved-view write/reopen/restore
+using temporary random filenames, and checks that removing anatomy.pck produces a
+clear failure. It also loads every reference from the Mac core resource pack
 using the development engine; this verifies embedded content, not Mac OS execution.
 Linux is not a release target.
 
@@ -104,10 +105,11 @@ been published.
 ## Developer rendering check
 
 The private runtime accepts --verify-rendered-bundle after the engine's -- separator.
-This automated developer check needs a desktop display, loads both references,
-exercises the same offline inspection checks and saves native-chest-female.png and
-native-chest-male.png to user://. It then exits. Use a dedicated test user-data
-directory; it does not read or overwrite the saved-view slot. The ordinary
+This automated developer check needs a desktop display, loads every reference,
+exercises the same offline inspection/saved-view checks and saves native-chest-female.png,
+native-chest-male.png and (when included) native-bones-bodyparts-male-bones-study.png
+to user://. It then exits. Use a dedicated test user-data directory; it does not
+read or overwrite the user's named library or older quick-save slot. The ordinary
 --verify-bundle check remains headless and does not capture images.
 
 These checks verify startup, rendering and scripted actions. They do not establish

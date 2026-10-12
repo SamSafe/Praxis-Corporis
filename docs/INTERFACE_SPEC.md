@@ -161,6 +161,14 @@ Technical internals belong in diagnostics, not ordinary anatomy menus.
 
 ## Review tasks
 
+The private prototype implements a **Saved views** window with named snapshots,
+reference/structure context, save, restore, rename and confirmed deletion. It preserves
+inspection return state and validates content identity before scene changes. An older
+quick save remains accessible. Local backup recovery is exposed only when the library
+cannot be read; source mismatch cannot trigger a partial or invented anatomy restore.
+See [the prototype controls](PROTOTYPE.md) for current behaviour. Broader schema
+migration and the proposed partial-restore design above remain unimplemented.
+
 Evaluate the three sketches against the primary journey. Confirm that:
 selection is readable; labels/menu do not block anatomy; reveal is understandable;
 camera/move modes are distinct; pathways retain context; restore scopes make sense;
