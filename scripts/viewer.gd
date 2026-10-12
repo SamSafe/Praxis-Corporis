@@ -66,16 +66,21 @@ func _ready() -> void:
 	if not content_error.is_empty():
 		status.text = content_error
 		context.text = "Anatomy unavailable"
-		if "--verify-bundle" in OS.get_cmdline_user_args():
+		if "--verify-bundle" in OS.get_cmdline_user_args() or "--verify-rendered-bundle" in OS.get_cmdline_user_args():
 			push_error(content_error)
 			get_tree().quit(1)
-	elif "--verify-bundle" in OS.get_cmdline_user_args():
+	elif "--verify-bundle" in OS.get_cmdline_user_args() or "--verify-rendered-bundle" in OS.get_cmdline_user_args():
 		call_deferred("verify_bundle")
 	else:
 		call_deferred("switch_body", "female")
 
 
 func verify_bundle() -> void:
+	var rendered := "--verify-rendered-bundle" in OS.get_cmdline_user_args()
+	if rendered and DisplayServer.get_name() == "headless":
+		push_error("Rendered bundle verification needs a desktop display")
+		get_tree().quit(1)
+		return
 	if coverage_notes.is_empty():
 		push_error("Bundled coverage notes are missing or mismatched")
 		get_tree().quit(1)
@@ -118,6 +123,21 @@ func verify_bundle() -> void:
 			push_error("Bundled return to context failed")
 			get_tree().quit(1)
 			return
+		if rendered:
+			model.restore()
+			chest_view()
+			local_labels_button.button_pressed = true
+			await get_tree().physics_frame
+			await get_tree().physics_frame
+			anatomy_labels.update_labels()
+			await RenderingServer.frame_post_draw
+			var captured := get_viewport().get_texture().get_image()
+			var capture_error := captured.save_png("user://native-chest-%s.png" % str(reference.id))
+			if capture_error != OK or anatomy_labels.visible_ids.is_empty():
+				push_error("Rendered bundle capture or surface labels failed")
+				get_tree().quit(1)
+				return
+			print("PASS native rendered chest: ", reference.id, " · ", captured.get_width(), " × ", captured.get_height())
 		print("PASS bundled reference: ", reference.id, " · ", model.meshes.size(), " meshes")
 	print("PASS offline native bundle")
 	get_tree().quit()

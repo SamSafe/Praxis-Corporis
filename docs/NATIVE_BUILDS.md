@@ -95,3 +95,15 @@ Save and reopen an isolated part and confirm that its Return to context action w
 Trackpad gestures, smaller displays, larger text and sustained frame rate remain
 unverified on target hardware. No testers have been contacted and no archives have
 been published.
+
+## Developer rendering check
+
+The private runtime accepts --verify-rendered-bundle after the engine's -- separator.
+This automated developer check needs a desktop display, loads both references,
+exercises the same offline inspection checks and saves native-chest-female.png and
+native-chest-male.png to user://. It then exits. Use a dedicated test user-data
+directory; it does not read or overwrite the saved-view slot. The ordinary
+--verify-bundle check remains headless and does not capture images.
+
+These checks verify startup, rendering and scripted actions. They do not establish
+native mouse/trackpad usability, accessibility acceptance or sustained laptop FPS.
