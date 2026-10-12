@@ -1,0 +1,49 @@
+{
+  "test_date": "2026-10-12",
+  "host": "Microsoft Windows NT 10.0.26300.0 via WSL interop",
+  "mode": "Actual Windows release executable, AMD rendering, scripted key input",
+  "source_revision": "78dde16bfaa36894831f307ddb4f0e2c3f2f23f6",
+  "artifact": {
+    "file": "PraxisCorporis-Windows-x64-private.zip",
+    "bytes": 292903532,
+    "sha256": "89d6a88dd24518db5738cb69d5e727412405763499abac45863303ddcdf45b9f",
+    "architectures": [
+      "x86_64"
+    ]
+  },
+  "renderer": "OpenGL 3.3 core, AMD Radeon(TM) Graphics",
+  "result": "passed; exit code 0",
+  "references": {
+    "female": 801,
+    "male": 788,
+    "bodyparts-male-bones-study": 203
+  },
+  "checks": [
+    "Focused keyboard orbit preserves anatomy state",
+    "Panel collapse expands viewport and preserves camera/selection/inspection",
+    "Local saved-view write/reopen/restore",
+    "Offline source loading, source part selection, isolation and return",
+    "Native rendering and truthful surface labels"
+  ],
+  "captures": [
+    "windows-keyboard-female.png",
+    "windows-keyboard-male.png",
+    "windows-keyboard-bones.png"
+  ],
+  "capture_size": [
+    1440,
+    900
+  ],
+  "process_memory_observations": {
+    "peak_working_set_bytes_observed": 1674584064,
+    "maximum_private_bytes_sampled": 1750212608,
+    "sampling_interval_ms": 500,
+    "scope": "Entire verification process across references; not per-scene or GPU memory."
+  },
+  "limits": [
+    "Scripted keyboard events; actual human keyboard/mouse/trackpad acceptance remains open.",
+    "The recorded frame profile is a separate artifact/version trial.",
+    "Mac embedded content passes on development engine; Mac device execution pending."
+  ],
+  "user_data": "Dedicated temporary APPDATA and LOCALAPPDATA; user view files untouched."
+}

@@ -362,3 +362,11 @@ bundle verifier now also checks keyboard navigation and panel collapse for each
 reference. [Keyboard focus](prototype/workspace-keyboard-focus.png) and
 [expanded scene](prototype/workspace-open-scene.png) captures were inspected. Actual
 target-device evidence remains tied to the packaged revisions.
+
+The packages from source commit `78dde16` passed exported Linux and Mac embedded
+content, saved-view and keyboard/panel checks for all three references. The actual
+Windows release executable passed the same scripted workspace checks on AMD graphics,
+produced all three native captures and exited with code 0. Archive CRCs, SHA-256/source
+snapshots and updated keyboard/panel instructions matched. Exact Windows evidence is
+in [windows-keyboard-workspace-qa.json](audit/windows-keyboard-workspace-qa.json).
+Human device acceptance remains distinct from these injected input events.
