@@ -75,7 +75,9 @@ packed anatomy, tests inspection restoration and selection/camera history, confi
 the supplied heart component catalogue, tests isolated-part inspection and return
 without changing stored anatomy settings, verifies local saved-view and multiline-note write/reopen/restore
 using temporary random filenames, and checks that removing anatomy.pck produces a
-clear failure. Loading checks observe interface frames and deliberately reject a bad cached mesh
+clear failure. Source-search checks resolve actual ontology IDs, select the matching geometry and
+preserve inspection state; rendered verification also saves native-search-<reference>.png.
+Developer checks do not read or change the system clipboard. Loading checks observe interface frames and deliberately reject a bad cached mesh
 mapping while preserving the prior exploration. Focused keyboard navigation and panel collapse are checked without
 changing anatomy state. It also loads every reference from the Mac core resource pack
 using the development engine; this verifies embedded content, not Mac OS execution.

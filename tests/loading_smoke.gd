@@ -44,6 +44,14 @@ func watch_load(viewer, id: String, inject_input: bool = false) -> void:
 			viewer.viewport.push_input(wheel, true)
 			viewer.restore_selected()
 			viewer.focus_selection()
+			viewer.tree_items["anatomy.lungs"].select(0)
+			viewer.on_tree_selected()
+			check(viewer.tree.get_selected().get_metadata(0) == viewer.model.selected_id,
+				"A paused tree selection stays aligned with the retained body")
+			viewer.parts_items["anatomy.heart.valve.aortic"].select(0)
+			viewer.on_part_selected()
+			check(viewer.parts_tree.get_selected().get_metadata(0) == viewer.model.selected_id,
+				"A paused part selection stays aligned with the retained body")
 		await process_frame
 	check(not viewer.model.loading and not viewer.loading_row.visible and viewer.orbit.input_enabled,
 		"Loading controls return to normal after success or failure")

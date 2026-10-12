@@ -52,6 +52,11 @@ previous scene and exploration histories. Scene instantiation/final replacement 
 still pause; this does not establish bounded loading latency on target hardware.
 The rebuilt native Windows app passed these checks on AMD graphics, alongside the
 existing saved-view, keyboard and credited screenshot workflows.
+Ranked source-aware search now covers names and original/ontology/catalogue IDs in
+all three references. Two-line source rows preserve repeated labels; filtering leaves
+inspection/history unchanged. Source details and an explicit copy action retain
+reference fingerprints and coverage/review status. Keyboard selection, duplicate-row
+clicking and compact rendering passed development checks.
 Four separate HRA v1.2 spinal candidates are downloaded/hash-verified and technically
 inventoried for both sexes. They are outside the runtime. The female vertebra source
 contains one missing label/ontology record that requires interpretation review.

@@ -9,6 +9,8 @@ const SavedViews = preload("res://scripts/saved_views.gd")
 const SavedViewsBrowser = preload("res://scripts/saved_views_browser.gd")
 const RenderProfile = preload("res://scripts/render_profile.gd")
 const ViewCapture = preload("res://scripts/view_capture.gd")
+const AnatomySearch = preload("res://scripts/anatomy_search.gd")
+const SourceRecord = preload("res://scripts/source_record.gd")
 var save_path := "user://saved_view.json"
 var views_path := "user://saved_views.json"
 
@@ -19,6 +21,11 @@ var orbit: Node3D
 var viewport: SubViewport
 var body_choice: OptionButton
 var search: LineEdit
+var search_index := AnatomySearch.new()
+var search_results: ItemList
+var search_summary: Label
+var search_items: Dictionary = {}
+var search_total := 0
 var tree: Tree
 var tree_items: Dictionary = {}
 var heading: Label
@@ -202,6 +209,10 @@ func verify_bundle() -> void:
 		if not await verify_keyboard_workspace():
 			get_tree().quit(1)
 			return
+		if not await verify_search(rendered):
+			push_error("Bundled search or source-record identification failed")
+			get_tree().quit(1)
+			return
 		if rendered:
 			model.restore()
 			if target == "anatomy.heart":
@@ -230,6 +241,30 @@ func verify_bundle() -> void:
 		print("PASS bundled reference: ", reference.id, " · ", model.meshes.size(), " meshes")
 	print("PASS offline native bundle")
 	get_tree().quit()
+
+
+func verify_search(rendered: bool) -> bool:
+	var before := export_view_state()
+	var query := "UBERON0002135" if model.structures.has("anatomy.heart") else "FMA24474"
+	var expected := "anatomy.heart.valve.mitral" if model.structures.has("anatomy.heart") else "source.bodyparts3d-v4-male.FJ3365"
+	search.text = query
+	rebuild_tree()
+	var valid: bool = search_total == 1 and search_results.get_item_metadata(0) == expected and export_view_state() == before
+	activate_first_search_result()
+	valid = valid and model.selected_id == expected and model.export_state() == before.changes and str(model.body.sha256) in source_record_text()
+	if rendered and valid:
+		inspect_alone()
+		await get_tree().physics_frame
+		await get_tree().physics_frame
+		anatomy_labels.update_labels()
+		await RenderingServer.frame_post_draw
+		valid = get_viewport().get_texture().get_image().save_png("user://native-search-%s.png" % str(model.body.id)) == OK
+	search.text = ""
+	rebuild_tree()
+	valid = valid and await restore_view_state(before)
+	if valid:
+		print("PASS bundled source search: ", model.body.id)
+	return valid
 
 
 func verify_failed_replacement(reference: Dictionary, rendered: bool) -> bool:
@@ -401,6 +436,8 @@ func build_interface() -> void:
 	palette.set_stylebox("panel", "PanelContainer", panel_style(Color("0e1926"), Color("263447")))
 	palette.set_stylebox("panel", "Tree", panel_style(Color("0e1926"), Color("263447")))
 	palette.set_color("font_color", "Tree", Color("c8d6e3"))
+	palette.set_stylebox("panel", "ItemList", panel_style(Color("0e1926"), Color("263447")))
+	palette.set_color("font_color", "ItemList", Color("c8d6e3"))
 	palette.set_constant("v_separation", "Tree", 8)
 	palette.set_stylebox("normal", "LineEdit", panel_style(Color("172433"), Color("2b3c50")))
 	palette.set_color("font_color", "LineEdit", Color("e3edf5"))
@@ -464,11 +501,34 @@ func build_interface() -> void:
 	columns.add_child(left)
 	left.add_child(make_label("EXPLORE ANATOMY", 13, Color("83cfc9")))
 	search = LineEdit.new()
-	search.placeholder_text = "Search structures…"
+	search.placeholder_text = "Name or source ID…"
+	search.max_length = 256
+	search.tooltip_text = "Find structures in this reference by name, source name, ontology ID or catalogue ID. Enter selects the first result."
 	search.clear_button_enabled = true
 	search.custom_minimum_size.y = 40
 	search.text_changed.connect(func(_text: String): rebuild_tree())
+	search.text_submitted.connect(func(_text: String): activate_first_search_result())
 	left.add_child(search)
+	search_summary = make_label("", 12, Color("83cfc9"))
+	search_summary.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	search_summary.visible = false
+	left.add_child(search_summary)
+	search_results = ItemList.new()
+	search_results.visible = false
+	search_results.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	search_results.custom_minimum_size = Vector2(255, 160)
+	search_results.icon_mode = ItemList.ICON_MODE_TOP
+	search_results.max_text_lines = 2
+	search_results.fixed_column_width = 235
+	search_results.allow_reselect = true
+	search_results.add_theme_constant_override("v_separation", 10)
+	search_results.item_selected.connect(on_search_selected)
+	search_results.item_activated.connect(on_search_selected)
+	search_results.resized.connect(func():
+		search_results.fixed_column_width = maxi(int(search_results.size.x) - 18, 1)
+		if not search.text.strip_edges().is_empty():
+			rebuild_tree())
+	left.add_child(search_results)
 	tree = Tree.new()
 	tree.hide_root = true
 	tree.size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -603,6 +663,7 @@ func build_interface() -> void:
 	visibility_buttons.append(make_button("Fade", func(): change_visibility("faded"), visibility_row, "Faded anatomy is click-through."))
 	inspect_button = make_button("Inspect alone", inspect_alone, right, "Temporarily reveal only the selected supplied geometry at its current position.")
 	action_buttons.append(make_button("Restore selected", restore_selected, right))
+	action_buttons.append(make_button("Copy source record", copy_source_record, right, "Copy this structure’s source identity and reference fingerprint. Study notes are excluded."))
 	parts_section = VBoxContainer.new()
 	parts_section.add_theme_constant_override("separation", 8)
 	right.add_child(parts_section)
@@ -715,6 +776,7 @@ func switch_body(id: String) -> void:
 	select_body_choice(id)
 	move_button.button_pressed = false
 	orbit.move_mode = false
+	search_index.build(model.structures)
 	rebuild_tree()
 	if model.structures.has(previous_selection) and previous_selection != "anatomy.body":
 		select_structure(previous_selection, false)
@@ -745,26 +807,71 @@ func rebuild_tree() -> void:
 	syncing_tree = true
 	tree.clear()
 	tree_items.clear()
-	var root := tree.create_item()
-	var query := search.text.strip_edges().to_lower()
+	search_results.clear()
+	search_items.clear()
+	var query := search.text.strip_edges()
+	tree.visible = query.is_empty()
+	search_results.visible = not query.is_empty()
+	search_summary.visible = not query.is_empty()
 	if query.is_empty() and model.structures.has("anatomy.body"):
+		var root := tree.create_item()
 		for id in model.structures["anatomy.body"].children:
 			append_tree_branch(id, root, 0)
+		search_total = 0
 	elif not query.is_empty():
-		var count := 0
-		for id in model.structures:
-			var record: Dictionary = model.structures[id]
-			if query in str(record.label).to_lower() or query in str(record.source_name).to_lower():
-				var item := tree.create_item(root)
-				item.set_text(0, str(record.label))
-				item.set_metadata(0, id)
-				item.set_tooltip_text(0, str(record.label))
-				tree_items[id] = item
-				count += 1
-				if count >= 100:
-					break
-		status.text = "%d search results%s" % [count, " (first 100)" if count == 100 else ""]
+		var result := search_index.find(query)
+		search_total = result.total
+		for match_record in result.results:
+			var record: Dictionary = model.structures[match_record.id]
+			var text := search_line(str(record.label), false) + "\n" + search_line(str(record.source_name), true)
+			var index := search_results.add_item(text)
+			search_results.set_item_metadata(index, match_record.id)
+			search_results.set_item_tooltip(index, SourceRecord.tooltip(model.structures, match_record.id))
+			search_items[match_record.id] = index
+		var reference := str(model.body.get("short_label", model.body.get("label", "Current reference")))
+		if search_total == 0:
+			search_summary.text = "No matches · " + reference + "\nTry another name or source ID."
+		elif search_total > AnatomySearch.RESULT_LIMIT:
+			search_summary.text = "First %d of %d matches · %s\nRefine your search for more specific results." % [AnatomySearch.RESULT_LIMIT, search_total, reference]
+		else:
+			search_summary.text = "%d match%s · %s" % [search_total, "es" if search_total != 1 else "", reference]
 	syncing_tree = false
+	sync_selection_tree()
+
+
+func search_line(value: String, keep_suffix: bool) -> String:
+	# Elide display text by actual font width; complete source text stays in the tooltip/details.
+	var font := search_results.get_theme_font("font")
+	var font_size := search_results.get_theme_font_size("font_size")
+	var width := maxf(float(search_results.fixed_column_width) - 8.0, 1.0)
+	if font.get_string_size(value, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x <= width:
+		return value
+	var left := value.left(8) if keep_suffix else ""
+	var shortened := value.substr(8) if keep_suffix else value
+	while not shortened.is_empty():
+		var candidate := left + "…" + shortened if keep_suffix else shortened + "…"
+		if font.get_string_size(candidate, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x <= width:
+			return candidate
+		shortened = shortened.substr(1) if keep_suffix else shortened.left(shortened.length() - 1)
+	return "…"
+
+
+func activate_first_search_result() -> void:
+	if loading or search.text.strip_edges().is_empty() or search_results.item_count == 0:
+		return
+	search_results.select(0)
+	on_search_selected(0)
+	search_results.grab_focus()
+
+
+func on_search_selected(index: int) -> void:
+	if syncing_tree:
+		return
+	if loading:
+		sync_selection_tree()
+		return
+	if index >= 0 and index < search_results.item_count:
+		select_structure(str(search_results.get_item_metadata(index)))
 
 
 func append_tree_branch(id: String, parent: TreeItem, depth: int) -> void:
@@ -772,7 +879,7 @@ func append_tree_branch(id: String, parent: TreeItem, depth: int) -> void:
 	var item := tree.create_item(parent)
 	item.set_text(0, str(record.label))
 	item.set_metadata(0, id)
-	item.set_tooltip_text(0, str(record.label))
+	item.set_tooltip_text(0, SourceRecord.tooltip(model.structures, id))
 	item.collapsed = depth >= 1
 	tree_items[id] = item
 	for child in record.children:
@@ -780,7 +887,12 @@ func append_tree_branch(id: String, parent: TreeItem, depth: int) -> void:
 
 
 func on_tree_selected() -> void:
-	if not syncing_tree and tree.get_selected() != null:
+	if syncing_tree:
+		return
+	if loading:
+		sync_selection_tree()
+		return
+	if tree.get_selected() != null:
 		select_structure(str(tree.get_selected().get_metadata(0)))
 
 
@@ -803,6 +915,10 @@ func select_structure(id: String, remember: bool = true) -> void:
 func sync_selection_tree() -> void:
 	syncing_tree = true
 	tree.deselect_all()
+	search_results.deselect_all()
+	if search_items.has(model.selected_id):
+		search_results.select(int(search_items[model.selected_id]))
+		queue_selection_scroll()
 	if tree_items.has(model.selected_id):
 		var id: String = model.selected_id
 		var parent: TreeItem = tree_items[id].get_parent()
@@ -842,7 +958,7 @@ func append_part_branch(id: String, parent: TreeItem) -> void:
 	var record: Dictionary = model.structures[id]
 	var item := parts_tree.create_item(parent)
 	item.set_text(0, str(record.label))
-	item.set_tooltip_text(0, str(record.label))
+	item.set_tooltip_text(0, SourceRecord.tooltip(model.structures, id))
 	item.set_metadata(0, id)
 	parts_items[id] = item
 	for child in record.children:
@@ -876,6 +992,8 @@ func scroll_current_selection() -> void:
 	# freed pointer when rapid navigation replaces a local tree before the callback.
 	if not is_inside_tree():
 		return
+	if search_items.has(model.selected_id):
+		search_results.ensure_current_is_visible()
 	if tree_items.has(model.selected_id):
 		tree.scroll_to_item(tree_items[model.selected_id])
 	if parts_items.has(model.selected_id):
@@ -883,7 +1001,12 @@ func scroll_current_selection() -> void:
 
 
 func on_part_selected() -> void:
-	if not syncing_parts and parts_tree.get_selected() != null:
+	if syncing_parts:
+		return
+	if loading:
+		sync_parts_selection()
+		return
+	if parts_tree.get_selected() != null:
 		select_structure(str(parts_tree.get_selected().get_metadata(0)))
 
 
@@ -1016,6 +1139,8 @@ func refresh_details() -> void:
 			control.disabled = loading
 	if label_density:
 		label_density.editable = not loading
+	if search:
+		search.editable = not loading
 	var selected: bool = model.structures.has(model.selected_id)
 	var isolated: bool = not model.isolated_id.is_empty()
 	if peel_button:
@@ -1055,13 +1180,30 @@ func refresh_details() -> void:
 	for index in record.mesh_nodes:
 		visibility_counts[model.states[int(index)].visibility] += 1
 		displaced = displaced or model.states[int(index)].offset != Vector3.ZERO
-	detail.text = "%d source mesh%s\n%d visible · %d faded · %d hidden\n\n%s\n\nSource label: %s\n%s\nDraft import · review pending" % [
+	detail.text = "%d source mesh%s\n%d visible · %d faded · %d hidden\n\n%s\n\nSource name: %s\nOntology: %s\nCatalogue ID: %s\nDraft import · review pending" % [
 		record.mesh_nodes.size(), "es" if record.mesh_nodes.size() != 1 else "",
 		visibility_counts.visible, visibility_counts.faded, visibility_counts.hidden,
 		"Moved for inspection. Restore returns the original anatomy." if displaced else "In its original atlas position.",
-		record.label, str(record.ontology)]
+		record.source_name, str(record.ontology) if not str(record.ontology).is_empty() else "Not supplied", record.id]
 	if isolated:
 		detail.text = "INSPECTING ALONE\nSupplied geometry temporarily revealed.\n\nContext settings:\n" + detail.text
+
+
+func source_record_text() -> String:
+	if loading or not model.structures.has(model.selected_id):
+		return ""
+	return SourceRecord.text_for(model.body, model.structures[model.selected_id], str(pack.id))
+
+
+func copy_source_record() -> void:
+	var text := source_record_text()
+	if text.is_empty():
+		return
+	if DisplayServer.get_name() == "headless":
+		status.text = "Copying a source record needs a desktop display."
+		return
+	DisplayServer.clipboard_set(text)
+	status.text = "Source record copied"
 
 
 func leave_move_mode() -> void:

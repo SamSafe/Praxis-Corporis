@@ -124,6 +124,7 @@ def add_notices(folder: pathlib.Path, platform: str) -> None:
         "Return to context restores the prior body view and preserves inspection edits.\n"
         "Back/Forward (Alt + Left/Right) restore selections and camera views without resetting inspection.\n"
         "Peel away skin, choose Show chest, or select anatomy in the list.\n"
+        "Search names/source IDs; Enter selects the first ranked result. Copy source record retains the reference identity.\n"
         "If included, Male bones / BodyParts3D study is a separate source reference, unregistered to HRA.\n"
         "Move selected enables inspection displacement; blue overlays mark original positions.\n"
         "Undo/Redo reverses or reapplies inspection changes. Restore returns original anatomy.\n"

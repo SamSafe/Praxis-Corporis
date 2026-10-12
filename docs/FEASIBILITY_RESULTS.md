@@ -484,3 +484,28 @@ offline geometry and credited screenshot checks also passed with exit code 0.
 [Windows study-note evidence](audit/windows-study-notes-qa.json) records the exact
 archive, captures and whole-process memory observations. Human note input/OS-close
 acceptance and real Mac execution remain open.
+
+
+## Search and trace supplied source records — 2026-10-12
+
+The HRA catalogues contain 378 female and 382 male display labels beyond the first
+occurrence of each label. Those records now remain distinct in two-line search rows
+with original source names. Exact labels/identifiers rank ahead of prefix and other
+multiword matches; ordering is stable. Search checks the active reference's supplied
+names, source names and ontology/catalogue IDs, with identifier separator normalization.
+A separate summary reports the complete match count when the displayed list caps at
+100. Details now show original source names and IDs; Copy source record offers a
+reference fingerprint, coverage notice and draft/review status without study notes.
+
+Real-data checks passed on both HRA bodies and the separate bone study: canonical
+mitral selection, ontology/filename lookup for Right femur, repeated-label/ontology
+records, word-order/whitespace variations, stable limits, explicit empty states,
+clearing to the hierarchy, isolation/history preservation and retained search after
+a failed replacement. Rendered checks typed identifiers, pressed Enter, clicked a
+repeated-label row and checked a compact 1100 × 720 layout. Filtering preserved
+anatomy edits; result selection used the existing source-geometry navigation.
+[Valve lookup](prototype/search-ontology-valve.png),
+[distinct source names](prototype/search-duplicate-source-names.png) and
+[compact bone lookup](prototype/search-source-bone-compact.png) are retained previews.
+Clipboard access is user-triggered; the developer checks validate its text without
+reading or changing the tester's clipboard. Human clipboard/device acceptance remains open.

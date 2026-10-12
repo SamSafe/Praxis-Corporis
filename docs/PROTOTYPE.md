@@ -67,6 +67,8 @@ is used by the viewer.
 | Pan | Shift + primary drag, right/middle drag, or supported trackpad pan gesture. |
 | Zoom | Scroll wheel or supported pinch gesture. |
 | Keyboard camera | Tab/click to focus the 3D view (teal border). Arrows orbit; Shift-arrows pan; +/- zoom; F fits selection; Home shows the body. |
+| Find a source record | Search names, source names, ontology IDs or catalogue IDs. Enter selects the first ranked result. |
+| Trace source identity | Copy source record in the details panel copies the selected record and reference fingerprint. |
 | Select and focus | Click visible geometry or a surface label, choose a tree item, or select a search result. |
 | Browse systems and parts | Expand the anatomy tree; parent groups select their descendant meshes. |
 | Browse local components | The Supplied parts list follows the current organ/group and uses the same selection as the main tree. |
@@ -143,6 +145,37 @@ available in their tooltips and the details panel. The details panel scrolls whe
 needed so the viewport and bottom controls remain available. Keyboard focus follows
 the scrollable panel's controls using
 [Godot's ScrollContainer](https://docs.godotengine.org/en/stable/classes/class_scrollcontainer.html).
+
+## Find structures and source records
+
+Search applies to the current reference. It checks display names, original source
+names, ontology IDs and catalogue IDs. Name searches accept multiple words in any
+order. Exact names/identifiers rank ahead of prefixes and other text matches. For
+example, `UBERON:0002135` or `UBERON0002135` finds the supplied mitral valve in either
+HRA body; `FMA24474` or `FJ3365` finds Right femur in the separate bone study. Case,
+whitespace and common identifier separators are normalized for lookup. Search uses
+only names and identifiers present in the catalogue.
+
+Results show the display label and source name on separate lines. Repeated labels
+remain distinct records; their original left/right names or file IDs stay visible.
+Long source names retain their suffix when shortened, and the tooltip contains the
+complete name, ontology, catalogue ID and recorded hierarchy. The details panel also
+shows the complete source identity. This hierarchy is the source's grouping information.
+
+Click a result to select/focus the actual geometry, or press Enter in the search field
+to select the first result and move keyboard focus to the list. Filtering leaves
+camera, selection and inspection history unchanged until you select a result. Search
+selection uses the same isolation, labels and Back/Forward behaviour as the tree.
+Clearing the query restores the hierarchy and current selection. The list caps at
+100 results and reports the full match count; the empty state identifies the reference
+and suggests another name/source ID. Switching references searches that body's records.
+A failed body load retains the prior index/results.
+
+**Copy source record** copies the selected label, original source name, ontology,
+catalogue ID, reference identity/hash, supplied mesh count, coverage notice and draft
+review status as plain text. Copying happens only when you press the button. It
+includes no study notes or anatomy changes and does not contact a service. Native
+clipboard acceptance remains part of the private device trial.
 
 ## Inspect supplied parts
 
@@ -265,6 +298,7 @@ godot --headless --path . --script tests/coverage_smoke.gd
 godot --headless --path . --script tests/study_reference_smoke.gd
 godot --headless --path . --script tests/keyboard_workspace_smoke.gd
 godot --headless --path . --script tests/loading_smoke.gd
+godot --headless --path . --script tests/search_smoke.gd
 ```
 
 The Python checks cover corrupt inputs, path containment, asset modification,
@@ -306,6 +340,7 @@ Optional rendered capture on a Linux development display:
 godot --path . --script tests/capture_viewer.gd
 godot --path . --script tests/capture_keyboard_workspace.gd
 godot --path . --script tests/capture_loading.gd
+godot --path . --script tests/capture_search.gd
 godot --path . --script tests/capture_screenshot_export.gd
 ```
 

@@ -28,6 +28,8 @@ restarting. Repeat the HRA tasks for both female and male references.
 | Identify the current reference | Recognise its body/source and that coverage is partial. | What did you assume was included? |
 | Explore the body | Orbit, pan and zoom using the available input device. | Any jump, accidental selection or lost orientation? |
 | Reveal and select the heart | Peel skin or use Show chest; selection focuses on its actual body position. | Is surrounding context useful? |
+| Find a source ID | Search UBERON0002135 in HRA or FMA24474 in the bone study; press Enter. Check repeated names such as Dura mater. | Are source names readable and distinct? |
+| Copy a source record | Copy the selected source record and paste it into a local text editor. | Are the reference, ID, coverage and review status clear? |
 | Identify a supplied part | Enable local labels or choose a component in the list. | Can you reach a small/covered part without a direct click? |
 | Inspect and return | Inspect alone, choose a component, then Return to context. | Does the temporary view and return action make sense? |
 | Move and recover | Enable Move, displace a part, use Undo/Redo and Restore selected. | Is original placement clear? Did navigation ever move anatomy? |
