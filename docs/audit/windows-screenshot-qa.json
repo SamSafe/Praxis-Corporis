@@ -1,0 +1,59 @@
+{
+  "test_date": "2026-10-12",
+  "host": "Microsoft Windows NT 10.0.26300.0 via WSL interop",
+  "mode": "Actual Windows release executable, AMD native rendering, Dummy audio",
+  "source_revision": "ab566b7fac586a012af6dee7d1ec160854d8adde",
+  "artifact": {
+    "file": "PraxisCorporis-Windows-x64-private.zip",
+    "bytes": 292903898,
+    "sha256": "9440ac22d88f363449a1c214f7c5267607357d406ed1e1ce47ace63ce24b402a",
+    "architectures": [
+      "x86_64"
+    ]
+  },
+  "renderer": "OpenGL 3.3 core, AMD Radeon(TM) Graphics",
+  "result": "passed; exit code 0",
+  "references": {
+    "female": 801,
+    "male": 788,
+    "bodyparts-male-bones-study": 203
+  },
+  "credited_captures": [
+    "windows-export-female.png",
+    "windows-export-male.png",
+    "windows-export-bodyparts-male-bones-study.png"
+  ],
+  "capture_sizes": {
+    "female": [
+      1440,
+      1085
+    ],
+    "male": [
+      1440,
+      1085
+    ],
+    "bodyparts-male-bones-study": [
+      1440,
+      1111
+    ]
+  },
+  "checks": [
+    "Credited PNG composition and local write",
+    "Real geometry/surface-label rendering",
+    "Local saved-view write/reopen/restore",
+    "Keyboard navigation and reversible panel collapse",
+    "Offline content, inspection and restoration"
+  ],
+  "process_memory_observations": {
+    "peak_working_set_bytes_observed": 1643098112,
+    "maximum_private_bytes_sampled": 1819533312,
+    "sampling_interval_ms": 500,
+    "scope": "Entire verification process, not per-scene or GPU memory."
+  },
+  "limits": [
+    "Native OS picker not operated by this scripted trial.",
+    "Human input/accessibility acceptance and Mac execution remain open.",
+    "Short frame profiling is separate evidence tied to its own artifact."
+  ],
+  "user_data": "APPDATA and LOCALAPPDATA isolated in dedicated QA directories; user saved-view files untouched."
+}

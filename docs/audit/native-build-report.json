@@ -4,16 +4,16 @@
   "artifacts": [
     {
       "file": "PraxisCorporis-Windows-x64-private.zip",
-      "bytes": 292903532,
-      "sha256": "89d6a88dd24518db5738cb69d5e727412405763499abac45863303ddcdf45b9f",
+      "bytes": 292903898,
+      "sha256": "9440ac22d88f363449a1c214f7c5267607357d406ed1e1ce47ace63ce24b402a",
       "architectures": [
         "x86_64"
       ]
     },
     {
       "file": "PraxisCorporis-macOS-universal-private.zip",
-      "bytes": 315349198,
-      "sha256": "56c671ba02c8c1507d4c120398c67c5feb5db0bed8b3acc97b8ebf063a0ddee8",
+      "bytes": 315349480,
+      "sha256": "07550d2fd6609e34f5a08f02724342d964ba461ef75c86b6e01fb8e3a4084696",
       "architectures": [
         "x86_64",
         "arm64"
@@ -22,7 +22,7 @@
   ],
   "target_device_testing": "pending",
   "publication": "local private artifacts only",
-  "source_revision": "78dde16bfaa36894831f307ddb4f0e2c3f2f23f6",
+  "source_revision": "ab566b7fac586a012af6dee7d1ec160854d8adde",
   "source_hashes": {
     "project.godot": "0f521b6466837dde12c1c0430ba80b25e1b031591cca04b23f0bbf1dd69a7269",
     "export_presets.cfg": "c686ec6dfd0b2a9008455832373193ddab03847aef184fc5a077c1a71a4ca0fc",
@@ -42,7 +42,8 @@
     "scripts/saved_views.gd": "f0f4af6cf1a5547f17683f4301409a30ca949a05fe3a235ce0e3b67007bcf580",
     "scripts/saved_views_browser.gd": "a3e16c0a4292081e5c885fdc28c9edab2c9a5821673c2427d25aa79988420d6c",
     "scripts/source_index_extension.gd": "090d8c7f9346889a43980f0854e0bca2e588138447d86628f76b8ab87b94d84c",
-    "scripts/viewer.gd": "cbbf509dfe7bc8c7cfd071cdbf7bf5326a0eb1c0578077411f7570d5e1db0096"
+    "scripts/view_capture.gd": "c6baeaf7e81efc42bcaa4a75efc0eba9326042b3c95144ce8c4296101c18f79d",
+    "scripts/viewer.gd": "9299cf1e4d80c26ba74035e0880048065ad0d16f60cc80c19c24a677d8967015"
   },
   "anatomy_package": {
     "bytes": 543142680,
@@ -50,5 +51,5 @@
   },
   "linux_qa": "passed exported-runtime checks for every bundled reference and missing-content handling",
   "mac_content_qa": "passed every bundled reference in embedded content on the development engine; Mac device testing pending",
-  "source_snapshot_verified_against_revision": "78dde16bfaa36894831f307ddb4f0e2c3f2f23f6"
+  "source_snapshot_verified_against_revision": "ab566b7fac586a012af6dee7d1ec160854d8adde"
 }

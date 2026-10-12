@@ -388,3 +388,12 @@ and invalid image/format inputs left existing files unchanged. The
 were inspected. The developer rendered-bundle check passed the same composer/writer
 for all three references without opening the OS picker. Human native-picker operation
 remains separate work.
+
+The packages from source commit `ab566b7` passed exported Linux and Mac embedded
+content/workflow checks. Their archive CRCs, source snapshots, hashes and screenshot
+instructions matched. The actual Windows release executable passed all three native
+credited PNG exports on AMD graphics, alongside saved-view, keyboard/panel and source
+inspection checks, with exit code 0. The study's whole-reference native export was
+inspected. [windows-screenshot-qa.json](audit/windows-screenshot-qa.json) records the
+tested archive, image sizes and limits. The OS picker and real Mac execution remain
+human/device acceptance work.
