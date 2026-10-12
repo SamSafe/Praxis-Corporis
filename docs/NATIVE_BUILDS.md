@@ -55,13 +55,28 @@ The Mac bundle identifier is a private placeholder, local.praxiscorporis.prototy
 choose an owned, appropriate identifier before public distribution.
 
 The presets use all project resources with explicit exclusions for anatomy,
-documentation and tools. This reliably includes GDScript preload dependencies;
+documentation, tools and generated `dist`/`build` output. This reliably includes GDScript preload dependencies;
 the bundle check caught their omission during the first selected-scene export.
 The project enables ETC2/ASTC import support required by the Universal Mac exporter.
 [Godot export options](https://docs.godotengine.org/en/stable/tutorials/export/exporting_projects.html),
 [Mac export requirements](https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_macos.html).
 
 ## Verification and limits
+
+Audit the recorded archives against their sizes/hashes, all ZIP-entry CRCs,
+executable architectures and source commit. The audit compares each retained notice
+with that commit, requires the complete recorded runtime source set, checks the Windows
+companion anatomy fingerprint, and checks Mac execute modes, embedded-pack size and
+resource-seal presence. It reads committed Git objects, so later working-copy changes
+do not silently redefine an earlier package:
+
+```sh
+python3 tools/audit_native.py --output dist/native-artifact-audit.json
+```
+
+Use a new evidence path. `--build-report` and `--artifact-dir` can select another
+recorded build. This command does not run the app, verify a public signature or prove
+the contents of the Mac resource pack; runtime/content checks remain separate.
 
 On the Linux development host, add --qa-linux:
 
@@ -244,6 +259,17 @@ runner changes no execution policy, power settings or unrelated processes. Long 
 allow time for the requested samples and loading, with an own-process timeout.
 Raw schema 2 profiles require every declared scene/repetition and load; the independent
 summary tool also accepts the earlier schema 1 diagnostic evidence.
+
+Create a reviewable Markdown baseline from the raw profile and its matching native
+evidence. This checks the raw-file fingerprint and independently recomputed scene
+summary, retains outliers, and reports ranges across repetitions without pooling
+percentiles. Choose a new destination:
+
+```sh
+python3 tools/report_profile.py dist/windows-profile-sustained/render-profile.json \
+  --evidence dist/windows-profile-sustained/report.json \
+  --output dist/windows-profile-sustained/observations.md
+```
 
 These frame-callback observations include scheduling/VSync and do not measure
 GPU timestamps or presentation latency. Cache, power state and background load are
