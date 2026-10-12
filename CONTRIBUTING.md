@@ -1,7 +1,7 @@
 # Contributing
 
-The present team is the user and assistant. This repository currently contains
-planning documentation; implementation waits until the plan is settled.
+The present team is the user and assistant. Planning established the product
+direction; the user authorised the first private feasibility prototype on 2026-10-11.
 
 ## Version control
 
@@ -18,7 +18,7 @@ Keep user-established scope distinct from proposed technical defaults and unveri
 evidence. Record significant choices in [docs/decisions/](docs/decisions/).
 Do not reinstate a browser/quiz-first scope without a new product decision.
 
-## Content work, after implementation is authorised
+## Content work
 
 - Keep medical content separate from viewer/UI code.
 - Record asset provenance, exact licences, versions, modifications, and credits.
@@ -31,11 +31,16 @@ Do not reinstate a browser/quiz-first scope without a new product decision.
 - Validate capabilities and references before activating or publishing content.
 - Invalidate affected review evidence when medical claims or geometry materially change.
 
-## Code work, after implementation is authorised
+## Code work
 
-Godot/GDScript and offline preparation tools are proposed, not committed scaffolding.
+The current feasibility prototype uses Godot 4.7.2/GDScript and Python content tools.
 Keep native viewer modules separate from portable anatomy data. Small, reviewable
 changes should include validation appropriate to their behaviour.
+
+Use the checks and setup in [docs/PROTOTYPE.md](docs/PROTOTYPE.md). Downloaded GLBs,
+prepared scenes and engine caches are reproducible local artifacts, excluded from
+Git. Preserve the pinned source manifest and draft-review status when regenerating
+the sample catalogue. Keep documentation about actual capabilities current.
 
 Application code licensing remains open. A public source repository or free app does
 not automatically grant reuse rights. Resolve licensing before distributing code.

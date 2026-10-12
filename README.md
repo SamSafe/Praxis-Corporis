@@ -6,9 +6,11 @@ A desktop anatomy explorer for aspiring doctors and medical students. Reveal bod
 layers, select and label structures, move parts aside, inspect internal anatomy,
 follow connections, and explore related diseases within one continuous body scene.
 
-**Status: documentation draft, 2026-10-11. No application implementation yet.**
-The plan must be settled before coding, scaffolding, or importing anatomy assets.
-[Planning status](docs/PLANNING_STATUS.md) separates user decisions from proposals.
+**Status: private Godot feasibility prototype, 2026-10-11.**
+The user authorised work after the planning/documentation stage. Both reference
+samples are imported; coverage is partial and anatomical review is pending.
+[Prototype guide](docs/PROTOTYPE.md) explains setup, controls, checks and limitations.
+[Planning status](docs/PLANNING_STATUS.md) separates decisions from unverified evidence.
 
 ## Agreed direction
 
@@ -46,7 +48,10 @@ without opening a disconnected organ scene.
 
 Application code licensing is undecided. A free launch does not establish an
 open-source licence. Third-party content retains its applicable licences.
-[ATTRIBUTIONS.md](ATTRIBUTIONS.md) lists imported assets; currently there are none.
+[ATTRIBUTIONS.md](ATTRIBUTIONS.md) lists the pinned prototype assets and notices.
 
-There is no app to run. Godot is a proposed engine, subject to later asset,
-interaction, export, and performance evaluation.
+Open [project.godot](project.godot) with Godot 4.7.2 after the setup in the
+[prototype guide](docs/PROTOTYPE.md). The app has selection, search, camera focus,
+hide/fade controls, inspection movement, restoration, undo and local saved views.
+Disease content, validated cutaways and guided pathways are future work.
+Windows/macOS packaging and baseline-laptop testing remain open.

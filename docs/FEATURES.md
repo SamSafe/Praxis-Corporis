@@ -1,6 +1,9 @@
 # Feature Catalogue
 
-Priorities below are planned, not implemented or validated.
+This is the target capability catalogue. The first private prototype implements
+the viewer-control subset described in [PROTOTYPE.md](PROTOTYPE.md); its validation
+is recorded in [FEASIBILITY_RESULTS.md](FEASIBILITY_RESULTS.md). A listed priority
+does not mean the complete capability or medical content is available.
 
 | Capability | Priority | Expected behaviour |
 |---|---|---|

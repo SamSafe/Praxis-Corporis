@@ -7,11 +7,12 @@
 ## Context
 
 Free launch and potential paid features are established. Neither establishes an
-open-source or proprietary application licence. There is no application code yet.
+open-source or proprietary application licence. Private prototype code now exists;
+the application licence remains undecided.
 
 ## Proposed handling
 
-Keep application licensing explicitly undecided while planning. Evaluate the desired
+Keep application licensing explicitly undecided during private development. Evaluate the desired
 contribution/reuse model before distributing implementation. Do not silently apply
 MIT, AGPL, or another licence.
 

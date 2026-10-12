@@ -2,9 +2,12 @@
 
 Updated: 2026-10-11, using the America/Edmonton client date.
 
-This is a documentation draft. No application, asset import, medical review,
-performance measurement, or platform build has been completed. Research consists
-of source-document inspection, not downloaded-model evaluation.
+Planning established the product direction, and the user authorised the first
+private feasibility prototype. Both pinned HRA samples have been downloaded,
+inventoried, prepared in Godot and exercised in engine tests. Rendered views were
+inspected on the Linux development host. Medical review, comprehensive anatomy
+coverage, target-device performance and Windows/macOS packaging remain open.
+See [prototype guide](PROTOTYPE.md) and [measured results](FEASIBILITY_RESULTS.md).
 
 ## Established by the user
 
@@ -25,8 +28,8 @@ of source-document inspection, not downloaded-model evaluation.
 | Testing | User, small private group, public. |
 | Review access | No qualified medical reviewer available. |
 
-The user delegated routine design decisions. That supports draft recommendations;
-implementation remains deferred until the plan is settled.
+The user delegated routine design decisions and subsequently authorised continued
+implementation. Local commits preserve progress; no remote publication is implied.
 
 ## Proposed defaults
 
@@ -43,21 +46,21 @@ implementation remains deferred until the plan is settled.
 
 | Item | Current state | How to resolve |
 |---|---|---|
-| Male/female coverage | Sources identified; geometry uninspected. | Audit separate structures, registration, interiors, layers, and gaps. |
-| Exterior and deeper layers | Completeness unknown. | Audit the reveal-to-heart journey for both bodies. |
-| Engine suitability | Godot proposed, not benchmarked. | Later asset, label, clipping, picking, export, and performance trial. |
+| Male/female coverage | Two HRA v1.1 samples inventoried; substantial system gaps remain. | Supplement missing anatomy and validate actual coverage/interiors. |
+| Exterior and deeper layers | Skin reveal and chest selection work in the prototype; complete layers absent. | Enrich both bodies and validate the complete journey. |
+| Engine suitability | Godot 4.7.2 passes initial import, picking, movement, restore and saved-view trials. | Complete clipping, renderer/device benchmarks, accessibility and platform exports. |
 | Baseline hardware | No measured test matrix. | Test representative Windows and Mac laptops. |
 | Pathway content | Grouping is not verified connectivity. | Source/author and review explicit routes. |
 | Medical review | No access. | Arrange review before the planned public content release. |
-| Application licence | Undecided; no code exists. | Decide before implementation distribution. |
+| Application licence | Undecided; private prototype code now exists. | Decide before implementation distribution. |
 | Name | Existing working name: Praxis Corporis. | Confirm later. |
 | Distribution | Direct downloads proposed. | Arrange packaging, signing, notarization, and platform testing. |
 
 ## Planning completion
 
-Settle scope, interaction, content method, architecture, quality gates, release stages,
-and remaining dependencies before implementation. Later feasibility trials are
-acceptance work, not completed evidence at the planning stage.
+Initial scope, interaction, content method, target architecture, quality gates and
+release stages are documented. The project is in Stage 1 feasibility work. Initial
+working controls do not close the source-completeness or public-release gates.
 
 The earlier browser/quiz-centred proposal is superseded by this draft.
 
@@ -67,3 +70,7 @@ The earlier browser/quiz-centred proposal is superseded by this draft.
 pathway wireframes. They contain schematic placeholders, not evaluated anatomy.
 [Asset audit](ASSET_AUDIT.md) defines the evidence and per-body inventory needed
 before a complete anatomy source can be selected. Neither artifact is implementation.
+
+[Rendered prototype captures](FEASIBILITY_RESULTS.md) now complement the schematic
+wireframes. The app implements a subset of the interface specification, with future
+medical capabilities identified as pending rather than offered as working controls.

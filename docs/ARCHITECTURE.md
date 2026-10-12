@@ -1,6 +1,8 @@
 # Architecture — Proposed
 
-Status: technical recommendation, not an implemented or benchmarked stack.
+Status: target architecture with an initial Godot 4.7.2 feasibility implementation.
+The prototype implements a subset; complete engine acceptance and platform testing
+remain open. See [PROTOTYPE.md](PROTOTYPE.md).
 
 ## Engine recommendation
 
@@ -19,7 +21,8 @@ The proposed stack is Godot with GDScript, native Godot UI controls, Blender for
 offline asset preparation, GLB for portable geometry, JSON for metadata and saved
 state, and small Python tools for content processing and validation.
 
-Pin supported versions after the later feasibility trial. Do not scaffold now.
+The first trial pins Godot 4.7.2 and uses its Compatibility renderer. These are
+prototype defaults, not a completed renderer comparison or minimum-hardware claim.
 Application licence selection remains separate and open.
 
 ## Responsibilities

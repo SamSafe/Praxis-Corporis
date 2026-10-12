@@ -1,6 +1,8 @@
 # Acceptance Criteria
 
-These are proposed future checks, not checks already passed.
+These are acceptance gates. Initial prototype checks and their limits are recorded
+in [FEASIBILITY_RESULTS.md](FEASIBILITY_RESULTS.md); gates involving device usability,
+medical review, full content or public distribution remain open.
 
 ## Plan review
 
@@ -9,7 +11,8 @@ These are proposed future checks, not checks already passed.
   assets, potential monetization, and staged testing appear consistently.
 - Model coverage, medical review, application licensing, and hardware/distribution
   evidence remain explicit dependencies.
-- No implementation or asset-import milestone is described as complete.
+- Claims of completed import/implementation checks cite specific evidence, while
+  proposed and unverified milestones remain distinguishable.
 
 ## Personal prototype
 

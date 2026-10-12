@@ -11,10 +11,15 @@ assistant. Planning precedes implementation.
 - Understand medical-review and distribution dependencies.
 - Keep application licence and working name explicitly open.
 
-Deliverable: coherent reviewable documentation. **Current stage.**
-Documentation completion does not authorise coding automatically.
+Deliverable: coherent reviewable documentation. Initial documentation is complete;
+the user subsequently authorised the feasibility prototype on 2026-10-11.
 
-## Stage 1 — Feasibility and asset audit, after implementation is authorised
+## Stage 1 — Feasibility and asset audit — current stage
+
+The pinned HRA sample inventory and private viewer are the first trial. See
+[sample findings](audit/HRA_SAMPLE_FINDINGS.md) and [prototype guide](PROTOTYPE.md).
+Some Stage 2 interactions are included to test the engine; this does not close
+Stage 1 or establish comprehensive body coverage.
 
 - Inspect selected free-source model files and record actual licences/versions.
 - Audit both adult reference bodies and their coverage gaps.

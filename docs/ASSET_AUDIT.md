@@ -2,7 +2,8 @@
 
 Status: audit method prepared; two pinned HRA v1.1 United GLB samples downloaded
 and inventoried. See [sample findings](audit/HRA_SAMPLE_FINDINGS.md) for measured
-source counts and gaps. Engine trials are in progress; the complete inventory remains open.
+source counts and gaps. Initial engine trials are recorded in
+[FEASIBILITY_RESULTS.md](FEASIBILITY_RESULTS.md); the complete inventory remains open.
 
 ## Purpose
 

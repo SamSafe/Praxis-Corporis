@@ -90,6 +90,9 @@ independent dimensions. Never promote all of them because one check passed.
 - Licences, attribution, and modification records exist per imported asset.
 - Saved states recover when content is missing, removed, or upgraded.
 
-Proposed source layout: content/catalogue, content/bodies, content/representations,
+Target source layout: content/catalogue, content/bodies, content/representations,
 content/connections, content/conditions, content/scenarios, content/references, and
-content/assets. Do not create these implementation directories during planning.
+content/assets. The initial prototype uses a compact generated sample_pack.json and
+source_manifest.json. Most imported source IDs are deliberately body-specific;
+explicit shared mappings cover selected systems, skin, heart components and lungs.
+This draft catalogue does not replace the full clinical content schema above.

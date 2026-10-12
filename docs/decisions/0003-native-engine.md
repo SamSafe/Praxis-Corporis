@@ -1,7 +1,7 @@
 # ADR 0003 — Godot as Initial Engine Candidate
 
 - Date: 2026-10-11
-- Status: proposed; requires later feasibility evidence.
+- Status: adopted for private prototype; full acceptance remains conditional.
 - Deciders: assistant recommendation under delegated design decisions.
 
 ## Context and proposal
@@ -16,5 +16,7 @@ Test real atlas import, small-part picking, labels, transparency, prepared cutaw
 restoration, accessible controls, performance, and both platform exports before
 committing. Keep source data independent of engine nodes.
 
-No application has been scaffolded. See [Architecture](../ARCHITECTURE.md) for official
-capability sources and the proposed module design.
+The user authorised a feasibility prototype on 2026-10-11. It uses Godot 4.7.2,
+GDScript, the Compatibility renderer and source-derived local scene caches.
+See [Architecture](../ARCHITECTURE.md) for the target design and
+[prototype guide](../PROTOTYPE.md) for actual capabilities and remaining evidence.
