@@ -139,6 +139,12 @@ func run() -> void:
 		"Expanded anatomy has a visible return route and hides the workspace")
 	check(viewer.export_view_state() == before and viewer.model.source_scene == source_scene,
 		"Expanding the display keeps the live 3D world and exact exploration setup")
+	check(not viewer.anatomy_labels.visible_ids.is_empty(), "Resize updates visible labels immediately")
+	for visible_id in viewer.anatomy_labels.visible_ids:
+		var anchor_point: Vector2 = viewer.anatomy_labels.anchors[visible_id]
+		var hit: Dictionary = viewer.model.ray_hit(viewer.orbit.camera, viewer.anatomy_labels.viewport_point(anchor_point))
+		check(not hit.is_empty() and viewer.model.structures[visible_id].mesh_nodes.has(float(hit.collider.get_meta("mesh_index"))),
+			"Expanded labels immediately point to their own first-hit source surface")
 	var event := InputEventKey.new()
 	event.keycode = KEY_ESCAPE
 	event.pressed = true

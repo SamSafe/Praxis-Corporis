@@ -686,7 +686,7 @@ func build_interface() -> void:
 	model.load_progress.connect(on_load_progress)
 	orbit = OrbitCamera.new()
 	world.add_child(orbit)
-	container.display_changed.connect(func(): orbit.display_size = container.size)
+	container.display_changed.connect(on_scene_display_changed)
 	orbit.display_size = container.size
 	orbit.clicked.connect(on_viewport_clicked)
 	orbit.move_started.connect(func(): model.checkpoint())
@@ -1192,6 +1192,12 @@ func set_scene_resolution(fraction: float) -> void:
 		popup.set_item_checked(popup.get_item_index(100 + i), fraction == [1.0, 0.75, 0.5][i])
 	# Rendering preferences stay separate from the saved anatomy/camera setup.
 	anatomy_labels.update_labels()
+
+
+func on_scene_display_changed() -> void:
+	orbit.display_size = scene_container.size
+	if anatomy_labels != null:
+		anatomy_labels.update_labels()
 
 
 func set_scene_expanded(enabled: bool) -> void:
