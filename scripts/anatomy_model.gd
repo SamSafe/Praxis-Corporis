@@ -6,6 +6,7 @@ signal load_progress(stage: String, fraction: float)
 
 const SourceIndexExtension = preload("res://scripts/source_index_extension.gd")
 const ContentBundle = preload("res://scripts/content_bundle.gd")
+const PreparedSelection = preload("res://scripts/prepared_selection.gd")
 
 var body: Dictionary = {}
 var structures: Dictionary = {}
@@ -28,6 +29,8 @@ var load_seconds := 0.0
 var loading := false
 var load_wait_frames := 0
 var resource_operation_intervals_ms: Dictionary = {}
+var prepared_selection_batches := 0
+var preparing_cache := false # Explicit offline preparation; ordinary launches require compiled picking shapes.
 var hash_worker: Thread
 var staged_scene: Node3D
 
@@ -57,6 +60,7 @@ func load_body(record: Dictionary) -> String:
 func prepare_body(record: Dictionary) -> String:
 	var started := Time.get_ticks_msec()
 	resource_operation_intervals_ms.clear()
+	prepared_selection_batches = 0
 	var wait_frames := 0
 	var path := "res://" + str(record.asset_path)
 	if not FileAccess.file_exists(path):
@@ -165,6 +169,15 @@ func prepare_body(record: Dictionary) -> String:
 			child.free()
 	var next_materials := {}
 	var next_colliders := {}
+	var next_shapes := {}
+	if not preparing_cache:
+		var selection: Dictionary = await load_prepared_selection(record, root_record)
+		if selection.has("error"):
+			next_scene.free()
+			staged_scene = null
+			return selection.error
+		next_shapes = selection.shapes
+		wait_frames += selection.yield_frames
 	load_progress.emit("Preparing selection", 0.0)
 	var selection_batch_started := Time.get_ticks_usec()
 	for index in root_record.mesh_nodes:
@@ -184,7 +197,7 @@ func prepare_body(record: Dictionary) -> String:
 			collider.collision_mask = 0
 			collider.set_meta("mesh_index", int(index))
 			var shape := CollisionShape3D.new()
-			shape.shape = mesh.mesh.create_trimesh_shape()
+			shape.shape = mesh.mesh.create_trimesh_shape() if preparing_cache else next_shapes[int(index)]
 			collider.add_child(shape)
 			mesh.add_child(collider)
 		next_colliders[int(index)] = collider
@@ -232,6 +245,51 @@ func record_resource_operation(operation: String, started_usec: int) -> void:
 	if not resource_operation_intervals_ms.has(operation):
 		resource_operation_intervals_ms[operation] = []
 	resource_operation_intervals_ms[operation].append((Time.get_ticks_usec() - started_usec) / 1000.0)
+
+
+func load_prepared_selection(record: Dictionary, root_record: Dictionary) -> Dictionary:
+	var count := ContentBundle.selection_batch_count(record.id, record.sha256)
+	if count == 0 or count > root_record.mesh_nodes.size():
+		return {"error": "Prepared picking shapes are missing or incompatible. Re-extract the complete private build or run the source preparation tool."}
+	var expected := {}
+	for index in root_record.mesh_nodes:
+		expected[int(index)] = true
+	var shapes := {}
+	var yield_frames := 0
+	for batch_index in count:
+		load_progress.emit("Loading selection", float(batch_index) / count)
+		var path := ContentBundle.selection_batch_path(record.id, record.sha256, batch_index)
+		if not FileAccess.file_exists(path):
+			return {"error": "Prepared picking shapes are missing. Re-extract the complete private build or run the source preparation tool."}
+		var started := Time.get_ticks_usec()
+		var error := ResourceLoader.load_threaded_request(path, "Resource", false)
+		record_resource_operation("request", started)
+		if error != OK:
+			return {"error": "Could not read prepared picking shapes. Re-extract the complete private build or run the source preparation tool."}
+		var status := ResourceLoader.THREAD_LOAD_IN_PROGRESS
+		while status == ResourceLoader.THREAD_LOAD_IN_PROGRESS:
+			# Yield before each poll so queued shape initialization is spread across groups.
+			await get_tree().process_frame
+			yield_frames += 1
+			started = Time.get_ticks_usec()
+			status = ResourceLoader.load_threaded_get_status(path)
+			record_resource_operation("status", started)
+		if status != ResourceLoader.THREAD_LOAD_LOADED:
+			return {"error": "Prepared picking shapes could not be read. Re-extract the complete private build or run the source preparation tool."}
+		started = Time.get_ticks_usec()
+		var batch := ResourceLoader.load_threaded_get(path) as PreparedSelection
+		record_resource_operation("collect", started)
+		if batch == null or batch.source_sha256 != record.sha256 or batch.engine != Engine.get_version_info().string or batch.mesh_nodes.is_empty() or batch.mesh_nodes.size() != batch.shapes.size():
+			return {"error": "Prepared picking shapes do not match the source reference."}
+		for i in batch.mesh_nodes.size():
+			var index: int = batch.mesh_nodes[i]
+			if not expected.has(index) or shapes.has(index) or not batch.shapes[i] is ConcavePolygonShape3D:
+				return {"error": "Prepared picking shapes do not match the source mesh catalogue."}
+			shapes[index] = batch.shapes[i]
+		prepared_selection_batches += 1
+	if shapes.size() != expected.size():
+		return {"error": "Prepared picking shapes omit source meshes."}
+	return {"shapes": shapes, "yield_frames": yield_frames}
 
 
 func validate_scene(record: Dictionary, mapping: Dictionary, scene: Node3D) -> String:

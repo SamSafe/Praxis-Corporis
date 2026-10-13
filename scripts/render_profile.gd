@@ -158,6 +158,7 @@ func measure_load(viewer: Control, reference: Dictionary, repetition: int) -> Di
 	var result := {"reference": reference.id, "reference_hash": reference.sha256, "repetition": repetition,
 		"wall_seconds": wall, "verified_prepared_scene_seconds": viewer.model.load_seconds,
 		"resource_operation_intervals_ms": viewer.model.resource_operation_intervals_ms.duplicate(true),
+		"prepared_selection_batches": viewer.model.prepared_selection_batches,
 		"ui_process_frames_during_load": viewer.load_frame_count, "loader_yield_frames": viewer.model.load_wait_frames,
 		"raw_process_intervals_ms": trace.intervals, "interval_count": trace.intervals.size(),
 		"maximum_process_gap_ms": largest, "intervals_over_33_33_ms": slow, "intervals_over_100_ms": stalled,

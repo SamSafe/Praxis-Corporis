@@ -114,6 +114,22 @@ class RenderProfileTests(unittest.TestCase):
             with self.subTest(broken=broken), self.assertRaises(ValueError):
                 validate_report(broken)
 
+    def test_grouped_selection_timings_require_matching_request_and_collection_counts(self):
+        report = fixture()
+        load = report['loads'][0]
+        load['prepared_selection_batches'] = 2
+        load['resource_operation_intervals_ms'] = {'request': [1, 2, 3], 'status': [0, 1, 2],
+                                                  'collect': [2, 3, 4], 'instantiate': [5], 'index': [1]}
+        self.assertEqual(len(validate_report(report)), 1)
+        for mutate in [lambda d: d.update(prepared_selection_batches=3),
+                       lambda d: d.update(prepared_selection_batches=True),
+                       lambda d: d['resource_operation_intervals_ms']['collect'].pop(),
+                       lambda d: d['resource_operation_intervals_ms'].update(status=[1])]:
+            broken = copy.deepcopy(report)
+            mutate(broken['loads'][0])
+            with self.subTest(broken=broken), self.assertRaises(ValueError):
+                validate_report(broken)
+
     def test_native_runner_bounds_duration_and_never_interpolates_free_text_arguments(self):
         args = argparse.Namespace(seconds=60, warmup=2, repetitions=3, window='1920x1080')
         config, arguments, timeout = profile_options(args)

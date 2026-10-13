@@ -30,11 +30,16 @@ func _initialize() -> void:
 			quit(1)
 			return
 		if record.has("body_id"):
-			var prepared := ContentBundle.prepared_scene_path(record.body_id, record.sha256)
-			if not FileAccess.file_exists(prepared) or packer.add_file(prepared, prepared) != OK:
-				push_error("Prepared geometry missing; run tools/prepare_assets.gd first: " + prepared)
+			var prepared := ContentBundle.prepared_files(record.body_id, record.sha256)
+			if prepared.is_empty():
+				push_error("Prepared picking groups missing; run tools/prepare_assets.gd first.")
 				quit(1)
 				return
+			for file in prepared:
+				if not FileAccess.file_exists(file) or packer.add_file(file, file) != OK:
+					push_error("Prepared anatomy missing; run tools/prepare_assets.gd first: " + file)
+					quit(1)
+					return
 	if packer.flush() != OK:
 		push_error("Could not finish anatomy package")
 		quit(1)

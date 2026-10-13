@@ -10,6 +10,37 @@ static func prepared_scene_path(reference_id: String, digest: String) -> String:
 	return "res://assets/prepared/%s-%s-geometry-v%d.scn" % [reference_id, digest.left(12), PREPARED_GEOMETRY_VERSION]
 
 
+static func selection_manifest_path(reference_id: String, digest: String) -> String:
+	return prepared_scene_path(reference_id, digest).trim_suffix(".scn") + "-selection.json"
+
+
+static func selection_batch_path(reference_id: String, digest: String, batch: int) -> String:
+	return prepared_scene_path(reference_id, digest).trim_suffix(".scn") + "-selection-%04d.res" % batch
+
+
+static func selection_batch_count(reference_id: String, digest: String) -> int:
+	var path := selection_manifest_path(reference_id, digest)
+	if not FileAccess.file_exists(path):
+		return 0
+	var manifest = JSON.parse_string(FileAccess.get_file_as_string(path))
+	if not manifest is Dictionary or manifest.get("schema_version") != 1 or manifest.get("reference_id") != reference_id or manifest.get("source_sha256") != digest or manifest.get("engine") != Engine.get_version_info().string:
+		return 0
+	var count = manifest.get("batch_count", 0)
+	if not (count is int or count is float) or not is_finite(float(count)) or count < 1 or count > 2000 or float(count) != int(count):
+		return 0
+	return int(count)
+
+
+static func prepared_files(reference_id: String, digest: String) -> Array[String]:
+	var count := selection_batch_count(reference_id, digest)
+	if count == 0:
+		return []
+	var files: Array[String] = [prepared_scene_path(reference_id, digest), selection_manifest_path(reference_id, digest)]
+	for batch in count:
+		files.append(selection_batch_path(reference_id, digest, batch))
+	return files
+
+
 static func developer_files(roots: Array = DEVELOPER_DIRECTORIES) -> Array[String]:
 	var pending := roots.duplicate()
 	var files: Array[String] = []

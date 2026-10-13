@@ -21,11 +21,15 @@ class AnatomyExport extends EditorExportPlugin:
 				return
 			add_file(source, FileAccess.get_file_as_bytes(source), false)
 			if record.has("body_id"):
-				var prepared := ContentBundle.prepared_scene_path(record.body_id, record.sha256)
-				if not FileAccess.file_exists(prepared):
-					push_error("Prepared anatomy unavailable during Mac export: " + prepared)
+				var prepared := ContentBundle.prepared_files(record.body_id, record.sha256)
+				if prepared.is_empty():
+					push_error("Prepared picking groups unavailable during Mac export.")
 					return
-				add_file(prepared, FileAccess.get_file_as_bytes(prepared), false)
+				for file in prepared:
+					if not FileAccess.file_exists(file):
+						push_error("Prepared anatomy unavailable during Mac export: " + file)
+						return
+					add_file(file, FileAccess.get_file_as_bytes(file), false)
 
 
 func _enter_tree() -> void:

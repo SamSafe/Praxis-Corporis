@@ -72,9 +72,13 @@ def validate_load(load: dict) -> None:
         operations = load['resource_operation_intervals_ms']
         if not isinstance(operations, dict) or set(operations) != {'request', 'status', 'collect', 'instantiate', 'index'}:
             raise ValueError('Prepared resource operation timings are incomplete')
+        batches = integer(load.get('prepared_selection_batches', 0), 'prepared selection batches')
+        if batches > 2000:
+            raise ValueError('Prepared selection batch count is outside supported bounds')
         total = 0.0
         for operation, intervals in operations.items():
-            if not isinstance(intervals, list) or not intervals or (operation != 'status' and len(intervals) != 1):
+            expected_count = 1 + batches if operation in {'request', 'collect'} else 1
+            if not isinstance(intervals, list) or not intervals or (operation != 'status' and len(intervals) != expected_count) or (operation == 'status' and len(intervals) < 1 + batches):
                 raise ValueError('Prepared resource operation call count is invalid')
             for value in intervals:
                 duration = finite_number(value, 'resource operation duration')

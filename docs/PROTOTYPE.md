@@ -36,7 +36,9 @@ or user data to the source repository.
 Preparation imports both sources, excludes sampling-site roots, and writes local
 compiled geometry scenes in assets/prepared/. Version-2 caches retain the source
 mesh data and omit picking colliders; the viewer builds exact triangle picking
-shapes during selection preparation, yielding after about 8 ms of work or 40 meshes.
+nodes from precomputed shapes loaded in small groups. Offline preparation stores
+these shapes separately with an 80,000-triangle/32-mesh budget per group. Loading
+yields between groups, and node/material setup yields after about 8 ms or 40 meshes.
 One mesh is an indivisible operation, so this budget is not a maximum-pause guarantee.
 The preparation tool can migrate the previous pinned cache without a fresh GLB import.
 The first raw import is expensive; preparation can take several minutes. Subsequent

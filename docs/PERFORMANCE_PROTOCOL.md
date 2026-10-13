@@ -111,8 +111,10 @@ matched before/after investigation of that stage; the timestamps alone do not
 identify a specific blocking engine operation. Preserve source geometry, selection,
 labels and restore fidelity in any loading change.
 
-New profiles retain individual durations for prepared-resource request, status polls,
+New profiles retain individual durations for prepared-resource requests, status polls,
 collection, instantiation and node indexing. These measure time inside each call,
 including synchronization and scheduling, rather than isolated CPU or GPU cost.
 They occupy only part of the outer load wall time; process intervals still capture
 pauses outside those calls. Historical profiles remain valid without this extension.
+Grouped picking data adds one request/collection per group; the independently checked
+batch count distinguishes those calls from the single geometry-scene request.
