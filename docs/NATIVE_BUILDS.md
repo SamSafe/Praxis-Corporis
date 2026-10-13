@@ -241,6 +241,26 @@ Request longer repeated measurements directly with:
 Options accept 1–120 sample seconds, 0.25–10 warmup seconds, 1–3 repetitions and
 1100 × 720 through 3840 × 2160 windows. Unknown, duplicate or invalid profile options
 fail before loading anatomy. Actual window dimensions must match the request.
+
+`--profile-view=expanded` measures the full client-window anatomy view;
+`--profile-view=workspace` retains panels. `--profile-resolution=native`, `75` or `50`
+selects the rendered pixel fraction. Defaults are workspace/native. Schema-3 evidence
+requires actual display and buffer dimensions to match those choices; expanded/native
+at a 1920 × 1080 window must render exactly 1920 × 1080 pixels. Historical schema-1/2
+profiles remain independently readable. A small developer progress file records the
+last completed sample; full raw evidence is written at completion or interruption.
+
+```sh
+python3 tools/profile_windows.py \
+  --powershell /mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/powershell.exe \
+  --seconds 60 --warmup 2 --repetitions 3 --window 1920x1080 \
+  --view expanded --resolution native --output dist/windows-full-resolution-trial
+```
+
+The normal native verifier now checks Native/75%/50% display mapping and expanded-view
+restoration for every reference. Rendered verification additionally reads the actual
+3D texture dimensions and retains `native-expanded-<reference>.png` alongside the
+existing workflow captures. Human input and Mac hardware checks remain separate.
 Every repetition reloads each reference and reconstructs the ordinary scene before
 profiling. The 3D viewport dimensions are recorded separately from the entire window.
 Developer profiling fixes its own window's bounds and disables its resize controls.

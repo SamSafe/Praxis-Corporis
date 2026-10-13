@@ -7,6 +7,7 @@ const MAX_CANDIDATES := 64
 const MAX_RAYS := 160
 var model: Node3D
 var camera: Camera3D
+var scene_surface: Control
 var context_id := ""
 var selection_enabled := true
 var local_enabled := false
@@ -95,10 +96,10 @@ func surface_anchor(id: String) -> Dictionary:
 		var point := bounds.get_endpoint(corner)
 		if camera.is_position_behind(point):
 			return {}
-		var projected := camera.unproject_position(point)
+		var projected := control_point(camera.unproject_position(point))
 		minimum = minimum.min(projected)
 		maximum = maximum.max(projected)
-	var samples: Array[Vector2] = [camera.unproject_position(center)]
+	var samples: Array[Vector2] = [control_point(camera.unproject_position(center))]
 	for y in [0.25, 0.5, 0.75]:
 		for x in [0.25, 0.5, 0.75]:
 			samples.append(minimum + (maximum - minimum) * Vector2(x, y))
@@ -108,11 +109,19 @@ func surface_anchor(id: String) -> Dictionary:
 		if rays_left == 0:
 			return {}
 		rays_left -= 1
-		var hit: Dictionary = model.ray_hit(camera, point)
+		var hit: Dictionary = model.ray_hit(camera, viewport_point(point))
 		if not hit.is_empty() and allowed.has(int(hit.collider.get_meta("mesh_index"))):
 			# Use the actual visible triangle hit, never the bounds centre behind it.
-			return {"screen": camera.unproject_position(hit.position), "world": hit.position}
+			return {"screen": control_point(camera.unproject_position(hit.position)), "world": hit.position}
 	return {}
+
+
+func viewport_point(point: Vector2) -> Vector2:
+	return scene_surface.viewport_point(point) if scene_surface != null else point
+
+
+func control_point(point: Vector2) -> Vector2:
+	return scene_surface.control_point(point) if scene_surface != null else point
 
 
 func make_button(id: String) -> Button:

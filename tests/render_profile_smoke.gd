@@ -17,7 +17,11 @@ func _initialize() -> void:
 func run() -> void:
 	var profiler := RenderProfile.new()
 	var config: Dictionary = profiler.configuration(PackedStringArray(["--profile-rendered-bundle", "--profile-seconds=60", "--profile-warmup=2", "--profile-repetitions=3", "--profile-window=1920x1080"]))
-	check(config == {"seconds": 60.0, "warmup_seconds": 2.0, "repetitions": 3, "window_pixels": [1920, 1080]}, "Sustained configuration preserves exact values")
+	check(config == {"seconds": 60.0, "warmup_seconds": 2.0, "repetitions": 3, "window_pixels": [1920, 1080], "scene_view": "workspace", "render_fraction": 1.0}, "Sustained configuration preserves exact values")
+	var expanded: Dictionary = profiler.configuration(PackedStringArray(["--profile-view=expanded", "--profile-resolution=75"]))
+	check(expanded.scene_view == "expanded" and expanded.render_fraction == 0.75, "Explicit full-window/resolution choices are preserved")
+	for invalid in ["--profile-view=wrong", "--profile-resolution=100", "--profile-resolution=0"]:
+		check(profiler.configuration(PackedStringArray([invalid])).has("error"), "Invalid display option is rejected")
 	check(profiler.configuration(PackedStringArray()) == profiler.DEFAULTS, "Ordinary diagnostic defaults remain explicit")
 	for invalid in ["--profile-seconds=0", "--profile-seconds=121", "--profile-seconds=NaN", "--profile-seconds=inf", "--profile-warmup=0", "--profile-warmup=11", "--profile-repetitions=1.5", "--profile-repetitions=4", "--profile-window=1099x720", "--profile-window=1920x719", "--profile-window=3841x2160", "--profile-window=1920x1080x1", "--profile-window=wrong", "--profile-seconds", "--profile-unknown=1"]:
 		check(profiler.configuration(PackedStringArray([invalid])).has("error"), "Invalid configuration is rejected: " + invalid)

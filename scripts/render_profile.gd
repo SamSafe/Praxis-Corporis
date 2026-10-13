@@ -2,7 +2,7 @@ extends RefCounted
 ## Explicit developer-only sampling; no background telemetry or session access.
 
 const ContentBundle = preload("res://scripts/content_bundle.gd")
-const DEFAULTS := {"seconds": 5.0, "warmup_seconds": 1.0, "repetitions": 1, "window_pixels": [1440, 900]}
+const DEFAULTS := {"seconds": 5.0, "warmup_seconds": 1.0, "repetitions": 1, "window_pixels": [1440, 900], "scene_view": "workspace", "render_fraction": 1.0}
 
 
 func configuration(arguments: PackedStringArray) -> Dictionary:
@@ -16,6 +16,14 @@ func configuration(arguments: PackedStringArray) -> Dictionary:
 			return {"error": "Profile options require one unique --profile-option=value argument."}
 		seen[pair[0]] = true
 		match pair[0]:
+			"--profile-view":
+				if pair[1] not in ["workspace", "expanded"]:
+					return {"error": "Profile view must be workspace or expanded."}
+				config.scene_view = pair[1]
+			"--profile-resolution":
+				if pair[1] not in ["native", "75", "50"]:
+					return {"error": "Profile resolution must be native, 75 or 50."}
+				config.render_fraction = {"native": 1.0, "75": 0.75, "50": 0.5}[pair[1]]
 			"--profile-seconds", "--profile-warmup":
 				if not pair[1].is_valid_float():
 					return {"error": "Profile duration must be a finite number."}
@@ -55,6 +63,13 @@ func sample(viewer: Control, name: String, config: Dictionary, repetition: int) 
 	if viewer.get_window().size != expected:
 		return {"error": "Profile window changed before sampling: " + name}
 	var initial_viewport: Vector2i = viewer.viewport.size
+	var initial_display: Vector2i = viewer.scene_container.displayed_pixels
+	var expected_view: String = config.get("scene_view", "workspace")
+	var expected_fraction: float = config.get("render_fraction", 1.0)
+	if viewer.scene_expanded != (expected_view == "expanded") or viewer.scene_container.resolution_fraction != expected_fraction:
+		return {"error": "Scene view or resolution differs from the requested profile."}
+	if expected_view == "expanded" and initial_display != expected:
+		return {"error": "Expanded scene does not cover the requested window pixels."}
 	var samples: Array[float] = []
 	var draw_calls: Array[int] = []
 	var started := Time.get_ticks_usec()
@@ -66,10 +81,11 @@ func sample(viewer: Control, name: String, config: Dictionary, repetition: int) 
 		var interval := (now - previous) / 1000.0
 		previous = now
 		samples.append(interval)
-		if viewer.get_window().size != expected or viewer.viewport.size != initial_viewport:
+		if viewer.get_window().size != expected or viewer.viewport.size != initial_viewport or viewer.scene_container.displayed_pixels != initial_display or viewer.scene_expanded != (expected_view == "expanded") or viewer.scene_container.resolution_fraction != expected_fraction:
 			return {"error": "Window or 3D viewport changed during sampling: " + name,
 				"reference": viewer.model.body.id, "repetition": repetition,
 				"observed_window_pixels": [viewer.get_window().size.x, viewer.get_window().size.y],
+				"observed_viewport_pixels": [viewer.viewport.size.x, viewer.viewport.size.y],
 				"raw_frame_intervals_ms": samples}
 		all_focused = all_focused and viewer.get_window().has_focus()
 		draw_calls.append(RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_TOTAL_DRAW_CALLS_IN_FRAME))
@@ -92,6 +108,10 @@ func sample(viewer: Control, name: String, config: Dictionary, repetition: int) 
 	var result := {"reference": viewer.model.body.id, "reference_hash": viewer.model.body.sha256,
 		"scene": name, "repetition": repetition, "window_pixels": [viewer.get_window().size.x, viewer.get_window().size.y],
 		"scene_viewport_pixels": [viewer.viewport.size.x, viewer.viewport.size.y],
+		"scene_display_pixels": [initial_display.x, initial_display.y],
+		"scene_view": expected_view, "render_fraction": expected_fraction,
+		"scene_resolution_limited": viewer.scene_container.resolution_limited,
+		"window_mode": viewer.get_window().mode,
 		"visible_source_meshes": visible_meshes, "isolation": viewer.model.isolated_id,
 		"local_labels": viewer.local_labels_button.button_pressed,
 		"label_density": int(viewer.label_density.value), "warmup_seconds": config.warmup_seconds,
@@ -114,6 +134,16 @@ func append_sample(report: Dictionary, viewer: Control, name: String, config: Di
 		report.interrupted_scene = result
 		return false
 	report.scenes.append(result)
+	if "--profile-rendered-bundle" in OS.get_cmdline_user_args():
+		var progress := {"completed_samples": report.scenes.size(), "planned_samples": 8 * config.repetitions,
+			"reference": result.reference, "scene": result.scene, "repetition": repetition,
+			"last_sample_seconds": result.elapsed_seconds, "viewport_pixels": result.scene_viewport_pixels,
+			"last_sample_focused": result.window_focused_throughout_sample}
+		var file := FileAccess.open("user://render-profile-progress.json.tmp", FileAccess.WRITE)
+		if file != null:
+			file.store_string(JSON.stringify(progress, "\t", true, true))
+			file.close()
+			DirAccess.rename_absolute("user://render-profile-progress.json.tmp", "user://render-profile-progress.json")
 	return true
 
 
@@ -189,7 +219,8 @@ func run(viewer: Control) -> Dictionary:
 	await viewer.get_tree().process_frame
 	if viewer.get_window().size != Vector2i(config.window_pixels[0], config.window_pixels[1]):
 		return {"error": "The desktop did not provide the requested profile window dimensions."}
-	var report := {"schema_version": 2, "engine": Engine.get_version_info().string,
+	viewer.set_scene_resolution(config.render_fraction)
+	var report := {"schema_version": 3, "engine": Engine.get_version_info().string,
 		"engine_commit": Engine.get_version_info().hash, "configuration": config,
 		"platform": OS.get_name(), "cpu": OS.get_processor_name(),
 		"renderer": RenderingServer.get_current_rendering_method(),
@@ -215,6 +246,9 @@ func run(viewer: Control) -> Dictionary:
 			if load_result.has("error"):
 				return load_result
 			report.loads.append(load_result)
+			viewer.set_scene_expanded(config.scene_view == "expanded")
+			await viewer.get_tree().process_frame
+			await viewer.get_tree().process_frame
 			viewer.orbit.input_enabled = false
 			viewer.local_labels_button.button_pressed = false
 			viewer.labels_button.button_pressed = true

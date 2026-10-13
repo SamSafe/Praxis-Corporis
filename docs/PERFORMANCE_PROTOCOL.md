@@ -11,6 +11,14 @@ window used 832 × 611/657 3D buffers; only one of 24 samples remained focused
 throughout. The measurements validate the pipeline and describe that host/context.
 They do not pass a foreground trial at the intended 1080p 3D resolution.
 
+The current display implementation offers an expanded Native view with a 3D buffer
+matching the full client window. Schema-3 trials record view mode, displayed pixels,
+rendering fraction and buffer pixels independently. Workspace/native renders only
+the physical scene area beside the panels. Expanded/native at 1920 × 1080 must render
+exactly 1920 × 1080; 75%/50% trials are explicit lower-resolution observations.
+Window size alone still cannot establish a full-resolution result. A new sustained
+native trial is required; historical measurements are retained unchanged.
+
 ## Identify the test
 
 Record the actual archive/hash and source revision, source geometry hashes, engine,

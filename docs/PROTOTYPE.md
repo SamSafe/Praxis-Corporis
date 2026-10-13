@@ -95,7 +95,9 @@ is used by the viewer.
 | Save/load | Saved views opens named local exploration setups with Save current view, Restore, Rename and Delete. |
 | Study notes | Select a saved view, type your observations/questions, then Save notes. |
 | Coverage | Coverage opens the technical inventory for both reference bodies, known gaps and a shortcut to select a supplied group. |
-| Workspace panels | Panels toggles the anatomy explorer and structure details independently; Keyboard controls opens the shortcut reference. |
+| Workspace panels | View toggles the anatomy explorer and structure details independently; Keyboard controls opens the shortcut reference. |
+| Expanded anatomy | View > Expand anatomy or F11 fills the window with the live anatomy view. Escape or Return to workspace brings the panels back. |
+| Rendering resolution | View chooses Native, 75% or 50% screen-pixel resolution. Lower settings reduce graphics load while keeping all geometry and sharp UI labels. This is a session preference, separate from saved anatomy views. |
 | Screenshot | Screenshot captures the current workspace and opens a PNG save dialog; source credits and prototype status are added below the image. |
 
 Keyboard camera controls work only while the 3D view has focus. Search/list arrows
@@ -106,7 +108,15 @@ keyboard camera route, without claiming complete keyboard movement or assistive-
 acceptance.
 
 Hiding panels gives more width to the same scene without changing selection, camera,
-labels, isolation or body edits. The top Panels menu remains available to reopen them.
+labels, isolation or body edits. The top View menu remains available to reopen them.
+
+The 3D buffer follows the display's actual pixel area, including window scaling,
+while labels and controls remain in UI coordinates. Camera picking and drag input
+convert between those coordinate systems. Expanded Native view covers the full
+client window; a 1920 × 1080 window produces a 1920 × 1080 3D buffer. Very large
+buffers are limited to 8192 pixels per dimension, with their aspect ratio retained.
+Anatomy, camera state, inspection history and the live 3D world survive display-mode
+changes. Window aspect expansion uses available space without letterbox borders.
 Panel visibility stays as set while switching references/restoring views; each launch
 starts with both panels visible. Panel layout is separate from saved anatomy snapshots.
 

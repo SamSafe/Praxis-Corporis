@@ -100,6 +100,28 @@ class RenderProfileTests(unittest.TestCase):
         report = json.loads((ROOT / 'docs/audit/windows-render-profile.json').read_text())
         self.assertEqual(len(validate_report(report)), 8)
 
+    def test_full_resolution_evidence_requires_actual_display_and_buffer_pixels(self):
+        report = fixture()
+        report['schema_version'] = 3
+        report['configuration'].update(scene_view='expanded', render_fraction=1.0)
+        report['scenes'][0].update(scene_view='expanded', render_fraction=1.0,
+                                 scene_display_pixels=[1920, 1080], scene_viewport_pixels=[1920, 1080],
+                                 scene_resolution_limited=False)
+        self.assertEqual(len(validate_report(report)), 1)
+        for key, value in [('scene_viewport_pixels', [960, 540]), ('scene_display_pixels', [1800, 1080]),
+                           ('scene_view', 'workspace'), ('render_fraction', .75),
+                           ('scene_resolution_limited', True), ('scene_resolution_limited', 0)]:
+            broken = copy.deepcopy(report)
+            broken['scenes'][0][key] = value
+            with self.subTest(key=key), self.assertRaises(ValueError):
+                validate_report(broken)
+        report['configuration']['render_fraction'] = .5
+        report['scenes'][0].update(render_fraction=.5, scene_viewport_pixels=[960, 540])
+        self.assertEqual(len(validate_report(report)), 1)
+        report['configuration'].pop('scene_view')
+        with self.assertRaises(ValueError):
+            validate_report(report)
+
     def test_resource_call_timings_reject_incomplete_or_impossible_observations(self):
         report = fixture()
         operations = {'request': [1], 'status': [0, 2], 'collect': [100], 'instantiate': [5], 'index': [1]}
@@ -135,9 +157,16 @@ class RenderProfileTests(unittest.TestCase):
         config, arguments, timeout = profile_options(args)
         self.assertEqual(config['repetitions'], 3)
         self.assertIn('--profile-window=1920x1080', arguments)
+        self.assertIn('--profile-view=workspace', arguments)
+        self.assertIn('--profile-resolution=native', arguments)
         self.assertGreater(timeout, 8 * 62 * 3)
         for key, value in [('seconds', float('inf')), ('seconds', 0), ('warmup', -1), ('repetitions', 4),
                            ('window', '1920x1080 --headless'), ('window', '1920x1080`whoami'), ('window', '1099x720')]:
+            broken = copy.copy(args)
+            setattr(broken, key, value)
+            with self.subTest(key=key), self.assertRaises(ValueError):
+                profile_options(broken)
+        for key, value in [('view', 'expanded --headless'), ('resolution', '50`whoami')]:
             broken = copy.copy(args)
             setattr(broken, key, value)
             with self.subTest(key=key), self.assertRaises(ValueError):

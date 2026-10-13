@@ -39,6 +39,9 @@ def validate_configuration(config: dict) -> None:
     width, height = (integer(p, 'window pixels', 1) for p in pixels)
     if not 1100 <= width <= 3840 or not 720 <= height <= 2160:
         raise ValueError('Window dimensions are outside supported ranges')
+    if 'scene_view' in config or 'render_fraction' in config:
+        if config.get('scene_view') not in ['workspace', 'expanded'] or finite_number(config.get('render_fraction'), 'render fraction') not in [1.0, .75, .5]:
+            raise ValueError('Unsupported scene view or render fraction')
 
 
 def validate_load(load: dict) -> None:
@@ -92,6 +95,8 @@ def validate_load(load: dict) -> None:
 def validate_plan(report: dict, allow_window_variation: bool = False) -> None:
     config = report['configuration']
     validate_configuration(config)
+    if report['schema_version'] == 3 and ('scene_view' not in config or 'render_fraction' not in config):
+        raise ValueError('Pixel-aware profiles require view and resolution configuration')
     references, expected = {}, set()
     for item in report['measurement_plan']:
         reference, digest, scenes = item['reference'], item['reference_hash'], item['scenes']
@@ -122,6 +127,19 @@ def validate_plan(report: dict, allow_window_variation: bool = False) -> None:
             raise ValueError('Scene viewport dimensions are invalid')
         if not isinstance(scene['window_focused_throughout_sample'], bool):
             raise ValueError('Scene focus observation must be boolean')
+        if report['schema_version'] == 3:
+            display = scene.get('scene_display_pixels')
+            if not isinstance(display, list) or len(display) != 2 or any(integer(p, 'display pixels', 2) > bound for p, bound in zip(display, config['window_pixels'])):
+                raise ValueError('Scene display dimensions exceed the requested window')
+            if scene.get('scene_view') != config['scene_view'] or finite_number(scene.get('render_fraction'), 'scene render fraction') != config['render_fraction']:
+                raise ValueError('Scene view/resolution differs from the requested configuration')
+            if scene.get('scene_resolution_limited') is not False:
+                raise ValueError('Profile render resolution was capped or not recorded')
+            if config['scene_view'] == 'expanded' and display != config['window_pixels']:
+                raise ValueError('Expanded scene does not cover the requested window pixels')
+            expected_pixels = [max(2, math.floor(p * config['render_fraction'] + .5)) for p in display]
+            if pixels != expected_pixels:
+                raise ValueError('3D buffers differ from the displayed pixels/render fraction')
     if observed != expected:
         raise ValueError('Profile omits a planned scene/repetition')
     expected_loads = {(reference, r) for reference in references for r in range(1, config['repetitions'] + 1)}
@@ -139,7 +157,7 @@ def validate_plan(report: dict, allow_window_variation: bool = False) -> None:
 def validate_report(report: dict, allow_window_variation: bool = False) -> list[dict]:
     if report.get('error'):
         raise ValueError('Runtime profile was interrupted: ' + str(report['error']))
-    if isinstance(report.get('schema_version'), bool) or report.get("schema_version") not in [1, 2] or not report.get("scenes"):
+    if isinstance(report.get('schema_version'), bool) or report.get("schema_version") not in [1, 2, 3] or not report.get("scenes"):
         raise ValueError("Unsupported or empty rendering profile")
     if not report.get("gpu") or not report.get("renderer"):
         raise ValueError("Profile must identify its actual renderer and GPU")
@@ -164,14 +182,14 @@ def validate_report(report: dict, allow_window_variation: bool = False) -> list[
         if integer(scene["frames_over_33_33_ms"], 'slow frame count') != slow:
             raise ValueError("Slow-frame count differs from raw intervals")
         stalled = sum(value > 100 for value in samples)
-        if report['schema_version'] == 2 and integer(scene['frames_over_100_ms'], 'stalled frame count') != stalled:
+        if report['schema_version'] >= 2 and integer(scene['frames_over_100_ms'], 'stalled frame count') != stalled:
             raise ValueError('Stalled-frame count differs from raw intervals')
         rows.append({"reference": scene["reference"], "scene": scene["scene"], "frames": len(samples),
                      "seconds": elapsed, "fps": fps, "p95_ms": scene["frame_interval_ms"]["p95"],
                      "p99_ms": scene['frame_interval_ms']['p99'], 'maximum_ms': max(samples),
                      'repetition': scene.get('repetition', 1), 'frames_over_100_ms': stalled,
                      "slow_percent": slow / len(samples) * 100})
-    if report['schema_version'] == 2:
+    if report['schema_version'] >= 2:
         validate_plan(report, allow_window_variation)
     return rows
 
@@ -187,7 +205,7 @@ def main() -> None:
     print("Repeat | Reference | Scene | Seconds | Cadence FPS | p95 ms | Frames >33.33ms | >100ms")
     for row in rows:
         print(f"{row['repetition']} | {row['reference']} | {row['scene']} | {row['seconds']:.1f} | {row['fps']:.1f} | {row['p95_ms']:.2f} | {row['slow_percent']:.1f}% | {row['frames_over_100_ms']}")
-    if report['schema_version'] == 2:
+    if report['schema_version'] >= 2:
         print('Repeat | Reference | Load seconds | Maximum process gap ms | Gaps >100ms')
         for load in report['loads']:
             print(f"{load['repetition']} | {load['reference']} | {load['wall_seconds']:.2f} | {load['maximum_process_gap_ms']:.2f} | {load['intervals_over_100_ms']}")

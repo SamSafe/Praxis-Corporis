@@ -11,6 +11,7 @@ const RenderProfile = preload("res://scripts/render_profile.gd")
 const ViewCapture = preload("res://scripts/view_capture.gd")
 const AnatomySearch = preload("res://scripts/anatomy_search.gd")
 const SourceRecord = preload("res://scripts/source_record.gd")
+const SceneSurface = preload("res://scripts/scene_surface.gd")
 var save_path := "user://saved_view.json"
 var views_path := "user://saved_views.json"
 
@@ -69,7 +70,12 @@ var loading_stage: Label
 var loading_bar: ProgressBar
 var load_frame_count := 0
 var syncing_tree := false
-var scene_container: SubViewportContainer
+var scene_container: SceneSurface
+var scene_frame: PanelContainer
+var workspace: Control
+var expanded_scene: Control
+var expanded_caption: Label
+var scene_expanded := false
 var explorer_panel: Control
 var details_panel: Control
 var panels_menu: MenuButton
@@ -245,6 +251,10 @@ func verify_bundle() -> void:
 				return
 			print("PASS native credited screenshot: ", reference.id, " · ", credited.get_size())
 			print("PASS native rendered reference: ", reference.id, " · ", captured.get_width(), " × ", captured.get_height())
+		if not await verify_scene_display(rendered):
+			push_error("Bundled scene resolution or expanded view verification failed")
+			get_tree().quit(1)
+			return
 		print("PASS bundled reference: ", reference.id, " · ", model.meshes.size(), " meshes")
 	print("PASS offline native bundle")
 	get_tree().quit()
@@ -408,6 +418,46 @@ func make_label(text: String, size: int = 15, color: Color = Color("c6d2df")) ->
 	return label
 
 
+func verify_scene_display(rendered: bool) -> bool:
+	var before := export_view_state()
+	var source_scene: Node3D = model.source_scene
+	var valid := true
+	for fraction in [1.0, 0.75, 0.5]:
+		set_scene_resolution(fraction)
+		await get_tree().process_frame
+		await get_tree().process_frame
+		scene_container.update_resolution()
+		valid = valid and viewport.size == Vector2i((Vector2(scene_container.displayed_pixels) * fraction).round()) and export_view_state() == before
+		anatomy_labels.rays_left = AnatomyLabels.MAX_RAYS
+		var anchor: Dictionary = anatomy_labels.surface_anchor(model.selected_id)
+		if not anchor.is_empty():
+			var hit: Dictionary = model.ray_hit(orbit.camera, scene_container.viewport_point(anchor.screen))
+			valid = valid and not hit.is_empty() and model.structures[model.selected_id].mesh_nodes.has(float(hit.collider.get_meta("mesh_index")))
+		else:
+			valid = valid and not rendered # Headless workflow can retain a covered selection.
+	set_scene_resolution(1.0)
+	set_scene_expanded(true)
+	await get_tree().process_frame
+	await get_tree().process_frame
+	scene_container.update_resolution()
+	valid = valid and viewport.size == get_window().size and scene_container.displayed_pixels == get_window().size
+	valid = valid and export_view_state() == before and model.source_scene == source_scene
+	if rendered and valid:
+		await RenderingServer.frame_post_draw
+		var image := viewport.get_texture().get_image()
+		valid = image.get_size() == viewport.size
+		valid = valid and get_viewport().get_texture().get_image().save_png("user://native-expanded-%s.png" % str(model.body.id)) == OK
+		if valid:
+			print("PASS native expanded anatomy: ", model.body.id, " · ", viewport.size)
+	set_scene_expanded(false)
+	await get_tree().process_frame
+	await get_tree().process_frame
+	valid = valid and export_view_state() == before and model.source_scene == source_scene
+	if valid:
+		print("PASS bundled scene display: ", model.body.id)
+	return valid
+
+
 func make_button(text: String, callback: Callable, parent: Node, hint: String = "") -> Button:
 	var button := Button.new()
 	button.text = text
@@ -455,6 +505,7 @@ func build_interface() -> void:
 	background.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(background)
 	var margin := MarginContainer.new()
+	workspace = margin
 	margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	for side in ["left", "right", "top", "bottom"]:
 		margin.add_theme_constant_override("margin_" + side, 18)
@@ -484,14 +535,20 @@ func build_interface() -> void:
 	reference_buttons.append(make_button("Coverage", show_coverage, top))
 	make_button("Sources", show_sources, top)
 	panels_menu = MenuButton.new()
-	panels_menu.text = "Panels"
+	panels_menu.text = "View"
 	panels_menu.flat = false
 	panels_menu.custom_minimum_size.y = 38
-	panels_menu.tooltip_text = "Show or hide side panels without changing the anatomy view."
+	panels_menu.tooltip_text = "Expand anatomy, choose its resolution, or show and hide side panels."
 	panels_menu.get_popup().add_check_item("Anatomy explorer", 0)
 	panels_menu.get_popup().add_check_item("Structure details", 1)
+	panels_menu.get_popup().add_check_item("Expand anatomy · F11", 3)
 	panels_menu.get_popup().add_separator()
 	panels_menu.get_popup().add_item("Keyboard controls…", 2)
+	panels_menu.get_popup().add_separator("3D resolution")
+	panels_menu.get_popup().add_radio_check_item("Native · sharpest", 100)
+	panels_menu.get_popup().add_radio_check_item("75% · balanced", 101)
+	panels_menu.get_popup().add_radio_check_item("50% · lower graphics load", 102)
+	panels_menu.get_popup().set_item_checked(panels_menu.get_popup().get_item_index(100), true)
 	panels_menu.get_popup().set_item_checked(0, true)
 	panels_menu.get_popup().set_item_checked(1, true)
 	panels_menu.get_popup().id_pressed.connect(on_panel_action)
@@ -581,9 +638,9 @@ func build_interface() -> void:
 	var frame := PanelContainer.new()
 	frame.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	center.add_child(frame)
-	var container := SubViewportContainer.new()
+	scene_frame = frame
+	var container := SceneSurface.new()
 	scene_container = container
-	container.stretch = true
 	container.focus_mode = Control.FOCUS_ALL
 	container.tooltip_text = "Focus the 3D view with Tab or a click. Arrows orbit; Shift-arrows pan; +/- zoom; F focuses selection; Home shows the body."
 	container.gui_input.connect(on_scene_input)
@@ -601,7 +658,9 @@ func build_interface() -> void:
 	viewport.own_world_3d = true
 	viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	viewport.msaa_3d = Viewport.MSAA_2X
-	container.add_child(viewport)
+	# Keep the 3D world attached while its display moves between workspace and expanded view.
+	add_child(viewport)
+	container.bind_viewport(viewport)
 	var world := Node3D.new()
 	viewport.add_child(world)
 	var environment := WorldEnvironment.new()
@@ -627,12 +686,15 @@ func build_interface() -> void:
 	model.load_progress.connect(on_load_progress)
 	orbit = OrbitCamera.new()
 	world.add_child(orbit)
+	container.display_changed.connect(func(): orbit.display_size = container.size)
+	orbit.display_size = container.size
 	orbit.clicked.connect(on_viewport_clicked)
 	orbit.move_started.connect(func(): model.checkpoint())
 	orbit.moved.connect(func(delta: Vector3): model.offset_selection(delta))
 	anatomy_labels = AnatomyLabels.new()
 	anatomy_labels.model = model
 	anatomy_labels.camera = orbit.camera
+	anatomy_labels.scene_surface = container
 	anatomy_labels.selected.connect(select_structure)
 	# Match the SubViewport's content rectangle, including the panel's margins.
 	container.add_child(anatomy_labels)
@@ -733,6 +795,21 @@ func build_interface() -> void:
 	status.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	status.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	toolbar.add_child(status)
+	expanded_scene = Control.new()
+	expanded_scene.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	expanded_scene.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(expanded_scene)
+	expanded_caption = make_label("Anatomy exploration · private prototype", 14, Color("b5c7d8"))
+	expanded_caption.position = Vector2(18, 18)
+	expanded_caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	expanded_scene.add_child(expanded_caption)
+	var exit_expanded := make_button("Return to workspace · Esc", func(): set_scene_expanded(false), expanded_scene)
+	exit_expanded.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT)
+	exit_expanded.offset_left = -270
+	exit_expanded.offset_top = 12
+	exit_expanded.offset_right = -18
+	exit_expanded.offset_bottom = 50
+	expanded_scene.visible = false
 	refresh_details()
 
 
@@ -1091,14 +1168,50 @@ func on_panel_action(id: int) -> void:
 		panels_menu.get_popup().set_item_checked(id, panel.visible)
 		# Keep a keyboard route back to the workspace when hiding a focused control.
 		scene_container.grab_focus()
+	elif id == 3:
+		set_scene_expanded(not scene_expanded)
+	elif id in [100, 101, 102]:
+		set_scene_resolution([1.0, 0.75, 0.5][id - 100])
 	elif id == 2:
 		var dialog := AcceptDialog.new()
 		dialog.title = "Keyboard controls"
-		dialog.dialog_text = "Tab / Shift-Tab moves between controls.\nSearch and anatomy lists provide a text selection route.\n\nWith the 3D view focused (teal border):\nArrow keys orbit · Shift + arrows pan\n+ / - zoom · F focuses selection · Home shows the body\nCamera keys leave Move mode and preserve inspection edits.\n\nAlt + Left/Right revisits views.\nCtrl/Cmd + Z undoes inspection; add Shift to redo.\nText fields keep their ordinary editing shortcuts.\nEscape leaves Move mode or closes the active dialog."
+		dialog.dialog_text = "Tab / Shift-Tab moves between controls.\nSearch and anatomy lists provide a text selection route.\n\nWith the 3D view focused (teal border):\nArrow keys orbit · Shift + arrows pan\n+ / - zoom · F focuses selection · Home shows the body\nCamera keys leave Move mode and preserve inspection edits.\n\nF11 expands anatomy; Escape returns to the workspace.\nView chooses Native, 75% or 50% 3D resolution.\nAlt + Left/Right revisits views.\nCtrl/Cmd + Z undoes inspection; add Shift to redo.\nText fields keep their ordinary editing shortcuts.\nEscape leaves Move mode or closes the active dialog."
 		dialog.confirmed.connect(dialog.queue_free)
 		dialog.canceled.connect(dialog.queue_free)
 		add_child(dialog)
 		dialog.popup_centered_clamped(Vector2i(650, 430), 0.9)
+
+
+func set_scene_resolution(fraction: float) -> void:
+	if fraction not in [1.0, 0.75, 0.5]:
+		return
+	scene_container.resolution_fraction = fraction
+	scene_container.update_resolution()
+	for i in 3:
+		var popup := panels_menu.get_popup()
+		popup.set_item_checked(popup.get_item_index(100 + i), fraction == [1.0, 0.75, 0.5][i])
+	# Rendering preferences stay separate from the saved anatomy/camera setup.
+	anatomy_labels.update_labels()
+
+
+func set_scene_expanded(enabled: bool) -> void:
+	if enabled == scene_expanded or (enabled and (loading or model.body.is_empty())):
+		return
+	orbit.cancel_drag()
+	scene_expanded = enabled
+	if enabled:
+		scene_container.reparent(expanded_scene, false)
+		scene_container.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		expanded_scene.move_child(scene_container, 0)
+		expanded_scene.visible = true
+		workspace.visible = false
+	else:
+		scene_container.reparent(scene_frame, false)
+		scene_container.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		workspace.visible = true
+		expanded_scene.visible = false
+	panels_menu.get_popup().set_item_checked(panels_menu.get_popup().get_item_index(3), enabled)
+	scene_container.grab_focus()
 
 
 func on_scene_input(event: InputEvent) -> void:
@@ -1327,6 +1440,8 @@ func _process(_delta: float) -> void:
 		load_frame_count += 1
 	if status:
 		status.tooltip_text = status.text
+	if scene_expanded:
+		expanded_caption.text = loading_stage.text if loading else str(model.body.get("short_label", model.body.get("label", "Anatomy"))) + " · private prototype"
 
 
 func capture_image() -> Image:
@@ -1585,6 +1700,15 @@ func show_coverage() -> Window:
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo:
+		if scene_expanded and event.keycode == KEY_ESCAPE:
+			set_scene_expanded(false)
+			get_viewport().set_input_as_handled()
+			return
+		if event.keycode == KEY_F11:
+			set_scene_expanded(not scene_expanded)
+			get_viewport().set_input_as_handled()
+			return
 	if loading:
 		return
 	if event is InputEventKey and event.pressed and not event.echo:

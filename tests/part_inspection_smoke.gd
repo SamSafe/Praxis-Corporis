@@ -74,7 +74,7 @@ func run() -> void:
 		viewer.anatomy_labels.update_labels()
 		check(viewer.anatomy_labels.visible_ids == [viewer.model.selected_id], "The temporarily revealed hidden part gets a truthful surface label")
 		if viewer.anatomy_labels.anchors.has(viewer.model.selected_id):
-			check(viewer.model.pick(viewer.orbit.camera, viewer.anatomy_labels.anchors[viewer.model.selected_id]) == viewer.model.selected_id,
+			check(viewer.model.pick(viewer.orbit.camera, viewer.anatomy_labels.viewport_point(viewer.anatomy_labels.anchors[viewer.model.selected_id])) == viewer.model.selected_id,
 				"Actual ray picking selects the isolated valve")
 		for ghost_index in viewer.model.original_ghosts:
 			check(viewer.model.original_ghosts[ghost_index].visible == (int(ghost_index) == index), "Original-position overlays obey the same inspection scope")

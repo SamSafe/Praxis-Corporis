@@ -76,7 +76,7 @@ func run() -> void:
 		check(labels.rays_left >= 0, "Label searches stay within their ray-query budget")
 		var rectangles: Array[Rect2] = []
 		for id in labels.visible_ids:
-			var hit: Dictionary = viewer.model.ray_hit(viewer.orbit.camera, labels.anchors[id])
+			var hit: Dictionary = viewer.model.ray_hit(viewer.orbit.camera, labels.viewport_point(labels.anchors[id]))
 			check(not hit.is_empty() and viewer.model.structures[id].mesh_nodes.has(float(hit.collider.get_meta("mesh_index"))),
 				"Each label points to its own first-hit anatomy surface")
 			var button: Button = labels.buttons[id]

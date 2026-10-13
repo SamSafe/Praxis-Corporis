@@ -47,6 +47,8 @@ def markdown(report: dict, evidence: dict) -> str:
              f"graphics API/driver {text(report['graphics_api'])}.", '',
              f"Configuration: {config['seconds']:g}-second samples, {config['warmup_seconds']:g}-second stationary "
              f"warmups, {config['repetitions']} repetitions at a {config['window_pixels'][0]} × {config['window_pixels'][1]} window.",
+             (f"Scene view: {text(config['scene_view'])}; 3D rendering resolution: {config['render_fraction'] * 100:g}% of displayed pixels."
+              if report['schema_version'] >= 3 else 'Historical profile without explicit display-density metadata.'),
              'Each sample orbits at 0.5 rad/s. Frame intervals use post-draw callbacks and nearest-rank percentiles.',
              f"Operator context: {text(evidence['context'])}", '',
              '## Navigation cadence', '',
@@ -99,7 +101,7 @@ def markdown(report: dict, evidence: dict) -> str:
               'brief spikes may be missed. These values do not measure GPU or per-scene memory.', '',
               f"Recorded active power scheme: {text(host['active_power_scheme'])}. "
               'This does not establish AC/battery or thermal state.', '',
-              'The 1080p window includes controls and panels; its 3D viewport is recorded above. '
+              'Workspace views include controls and panels; expanded native views cover the requested window pixels. '
               'These are frame-callback cadence and process-gap observations, not GPU execution or display latency.',
               'The eight-scene suite uses label density 8; additional densities, moved-organ overlays and saved-view '
               'transitions remain outside this run. One Windows host leaves representative hardware, Mac, '

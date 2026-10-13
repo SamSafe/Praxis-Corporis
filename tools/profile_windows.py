@@ -27,10 +27,16 @@ def profile_options(args: argparse.Namespace) -> tuple[dict, list[str], int]:
         raise ValueError('Window must be WIDTHxHEIGHT in pixels')
     config = {'seconds': args.seconds, 'warmup_seconds': args.warmup,
               'repetitions': args.repetitions, 'window_pixels': [int(v) for v in args.window.split('x')]}
+    view = getattr(args, 'view', 'workspace')
+    resolution = getattr(args, 'resolution', 'native')
+    fractions = {'native': 1.0, '75': .75, '50': .5}
+    if view not in {'workspace', 'expanded'} or resolution not in fractions:
+        raise ValueError('Unsupported scene view or resolution')
+    config.update(scene_view=view, render_fraction=fractions[resolution])
     validate_configuration(config)
     arguments = ['--profile-rendered-bundle', f'--profile-seconds={args.seconds}',
                  f'--profile-warmup={args.warmup}', f'--profile-repetitions={args.repetitions}',
-                 f'--profile-window={args.window}']
+                 f'--profile-window={args.window}', f'--profile-view={view}', f'--profile-resolution={resolution}']
     # Eight current scenes; allow loading/setup time for every repetition.
     timeout = math.ceil(8 * (args.seconds + args.warmup) * args.repetitions) + 180 * args.repetitions + 60
     return config, arguments, timeout
@@ -44,7 +50,7 @@ def validate_native_profile(report: dict, log: str, build: dict, config: dict) -
         raise ValueError('The native profile did not check its exported resource boundary')
     if observations['engine_actual'] != build['engine'] or report.get('platform') != 'Windows':
         raise ValueError('Profile platform/engine differs from the native artifact')
-    if report.get('schema_version') != 2 or report.get('configuration') != config or report.get('pack_id') != build['content_pack']:
+    if report.get('schema_version') not in [2, 3] or report.get('configuration') != config or report.get('pack_id') != build['content_pack']:
         raise ValueError('Profile did not use the requested measurement configuration/content pack')
     if not report.get('engine_commit') or report['engine_commit'][:9] not in build['engine']:
         raise ValueError('Profile engine commit differs from the native artifact')
@@ -99,6 +105,9 @@ def profile(args: argparse.Namespace) -> dict:
         report = json.loads(raw_path.read_text(encoding='utf-8'))
         observations, rows = validate_native_profile(report, log, build, config)
         shutil.copyfile(raw_path, args.output / 'render-profile.json')
+        progress_path = raw_path.parent / 'render-profile-progress.json'
+        if progress_path.exists():
+            shutil.copyfile(progress_path, args.output / progress_path.name)
         if (session / 'engine.log').exists():
             shutil.copyfile(session / 'engine.log', args.output / 'engine.log')
         result = dict(observations, schema_version=1, result='passed raw measurement/complete workload validation; native exit code 0',
@@ -110,13 +119,13 @@ def profile(args: argparse.Namespace) -> dict:
             context=args.context or 'No operator context supplied; background work, power source and thermal state uncontrolled.',
             limits=['Repeated runs in one process; later references/repetitions can reuse resources and OS file caches.',
                     'Process memory sampled every 500ms across the full run; not GPU or per-scene memory.',
-                    '1080p window includes side panels; the actual 3D viewport is recorded separately.',
+                    'Workspace windows include side panels; expanded native scenes are checked against the full requested window pixels.',
                     'Frame-callback cadence and load gaps are observations, not GPU timestamps or presentation latency.',
                     'One Windows host does not close Mac, representative-hardware, human-input or anatomy-review gates.'])
         (args.output / 'report.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8')
     except BaseException:
         # Failed/incomplete runs still retain unmodified measurements and the startup binding.
-        for name in ['render-profile.json', 'render-profile-rejected.json']:
+        for name in ['render-profile.json', 'render-profile-rejected.json', 'render-profile-progress.json']:
             raw = session / 'user-data/PraxisCorporisPrototype' / name
             if raw.is_file():
                 shutil.copyfile(raw, args.output / name)
@@ -138,6 +147,8 @@ def main() -> None:
     parser.add_argument('--warmup', type=float, default=1)
     parser.add_argument('--repetitions', type=int, default=1)
     parser.add_argument('--window', default='1440x900')
+    parser.add_argument('--view', choices=['workspace', 'expanded'], default='workspace')
+    parser.add_argument('--resolution', choices=['native', '75', '50'], default='native')
     parser.add_argument('--context', help='Operator observations about power source, foreground use and background work')
     parser.add_argument('--powershell', help='Native Windows PowerShell executable; required on WSL')
     args = parser.parse_args()

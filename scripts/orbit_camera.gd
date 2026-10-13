@@ -15,6 +15,7 @@ var active_button := 0
 var press_position := Vector2.ZERO
 var dragged := false
 var move_checkpoint := false
+var display_size := Vector2.ZERO
 
 
 func _ready() -> void:
@@ -45,7 +46,8 @@ func focus(bounds: AABB) -> void:
 
 
 func pixel_scale() -> float:
-	return 2.0 * distance * tan(deg_to_rad(camera.fov * 0.5)) / maxf(get_viewport().get_visible_rect().size.y, 1.0)
+	var height := display_size.y if display_size.y > 0 else get_viewport().get_visible_rect().size.y
+	return 2.0 * distance * tan(deg_to_rad(camera.fov * 0.5)) / maxf(height, 1.0)
 
 
 func keyboard_orbit(direction: Vector2) -> void:
@@ -73,6 +75,9 @@ func cancel_drag() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if not input_enabled:
 		return
+	var ratio := Vector2.ONE
+	if display_size.x > 0 and display_size.y > 0:
+		ratio = get_viewport().get_visible_rect().size / display_size
 	if event is InputEventMouseButton:
 		if event.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN] and event.pressed:
 			distance = clampf(distance * (0.88 if event.button_index == MOUSE_BUTTON_WHEEL_UP else 1.12), 0.018, 12.0)
@@ -80,7 +85,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif event.button_index in [MOUSE_BUTTON_LEFT, MOUSE_BUTTON_RIGHT, MOUSE_BUTTON_MIDDLE]:
 			if event.pressed:
 				active_button = event.button_index
-				press_position = event.position
+				press_position = event.position / ratio
 				dragged = false
 				move_checkpoint = false
 			elif active_button == event.button_index:
@@ -88,10 +93,11 @@ func _unhandled_input(event: InputEvent) -> void:
 					clicked.emit(event.position)
 				active_button = 0
 	elif event is InputEventMouseMotion and active_button != 0:
-		if not dragged and event.position.distance_to(press_position) < 4.0:
+		if not dragged and (event.position / ratio).distance_to(press_position) < 4.0:
 			return
 		dragged = true
-		var lateral: Vector3 = -camera.global_basis.x * event.relative.x + camera.global_basis.y * event.relative.y
+		var relative: Vector2 = event.relative / ratio
+		var lateral: Vector3 = -camera.global_basis.x * relative.x + camera.global_basis.y * relative.y
 		if move_mode and active_button == MOUSE_BUTTON_LEFT and not event.shift_pressed:
 			if not move_checkpoint:
 				move_started.emit()
@@ -101,8 +107,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			target += lateral * pixel_scale()
 			update_camera()
 		else:
-			yaw -= event.relative.x * 0.006
-			pitch = clampf(pitch + event.relative.y * 0.006, -1.45, 1.45)
+			yaw -= relative.x * 0.006
+			pitch = clampf(pitch + relative.y * 0.006, -1.45, 1.45)
 			update_camera()
 	elif event is InputEventPanGesture:
 		target += (-camera.global_basis.x * event.delta.x + camera.global_basis.y * event.delta.y) * pixel_scale() * 12.0
