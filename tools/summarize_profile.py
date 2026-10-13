@@ -67,6 +67,22 @@ def validate_load(load: dict) -> None:
             raise ValueError('Load stage timestamps must be ordered within the load')
         previous = at
     same_number(previous, wall, 'last load stage timestamp')
+    # Optional extension: historical schema-2 runs predate call-level instrumentation.
+    if 'resource_operation_intervals_ms' in load:
+        operations = load['resource_operation_intervals_ms']
+        if not isinstance(operations, dict) or set(operations) != {'request', 'status', 'collect', 'instantiate', 'index'}:
+            raise ValueError('Prepared resource operation timings are incomplete')
+        total = 0.0
+        for operation, intervals in operations.items():
+            if not isinstance(intervals, list) or not intervals or (operation != 'status' and len(intervals) != 1):
+                raise ValueError('Prepared resource operation call count is invalid')
+            for value in intervals:
+                duration = finite_number(value, 'resource operation duration')
+                if duration < 0:
+                    raise ValueError('Resource operation duration cannot be negative')
+                total += duration
+        if total > wall * 1000:
+            raise ValueError('Resource operation durations exceed outer load time')
 
 
 def validate_plan(report: dict, allow_window_variation: bool = False) -> None:

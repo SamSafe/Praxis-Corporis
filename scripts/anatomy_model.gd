@@ -26,6 +26,7 @@ var source_scene: Node3D
 var load_seconds := 0.0
 var loading := false
 var load_wait_frames := 0
+var resource_operation_intervals_ms: Dictionary = {}
 var hash_worker: Thread
 var staged_scene: Node3D
 
@@ -54,6 +55,7 @@ func load_body(record: Dictionary) -> String:
 
 func prepare_body(record: Dictionary) -> String:
 	var started := Time.get_ticks_msec()
+	resource_operation_intervals_ms.clear()
 	var wait_frames := 0
 	var path := "res://" + str(record.asset_path)
 	if not FileAccess.file_exists(path):
@@ -81,31 +83,43 @@ func prepare_body(record: Dictionary) -> String:
 	var from_cache := false
 	if FileAccess.file_exists(cache_path):
 		load_progress.emit("Loading anatomy", 0.0)
+		var operation_started := Time.get_ticks_usec()
 		var request_error := ResourceLoader.load_threaded_request(cache_path, "PackedScene", false)
+		record_resource_operation("request", operation_started)
 		if request_error != OK:
 			return "Could not start reading prepared anatomy (Godot error %d)." % request_error
 		var progress := []
+		operation_started = Time.get_ticks_usec()
 		var resource_status := ResourceLoader.load_threaded_get_status(cache_path, progress)
+		record_resource_operation("status", operation_started)
 		while resource_status == ResourceLoader.THREAD_LOAD_IN_PROGRESS:
 			load_progress.emit("Loading anatomy", float(progress[0]) if not progress.is_empty() else 0.0)
 			await get_tree().process_frame
 			wait_frames += 1
+			operation_started = Time.get_ticks_usec()
 			resource_status = ResourceLoader.load_threaded_get_status(cache_path, progress)
+			record_resource_operation("status", operation_started)
 		if resource_status != ResourceLoader.THREAD_LOAD_LOADED:
 			return "Prepared anatomy could not be read. Re-prepare the source or re-extract the complete private build."
 		# This call is nonblocking only after THREAD_LOAD_LOADED.
+		operation_started = Time.get_ticks_usec()
 		var cached := ResourceLoader.load_threaded_get(cache_path) as PackedScene
+		record_resource_operation("collect", operation_started)
 		load_progress.emit("Preparing view", -1.0)
 		await get_tree().process_frame
 		wait_frames += 1
 		if cached:
+			operation_started = Time.get_ticks_usec()
 			var instance := cached.instantiate()
+			record_resource_operation("instantiate", operation_started)
 			next_scene = instance as Node3D
 			if next_scene == null:
 				instance.free()
 			elif next_scene.get_meta("source_sha256", "") == record.sha256 and next_scene.get_meta("engine", "") == Engine.get_version_info().string:
 				staged_scene = next_scene
+				operation_started = Time.get_ticks_usec()
 				index_cached_nodes(next_scene, node_map)
+				record_resource_operation("index", operation_started)
 				from_cache = true
 			else:
 				next_scene.free()
@@ -205,6 +219,13 @@ func prepare_body(record: Dictionary) -> String:
 	print("Prepared %d meshes in %.2fs; %d frames while loading" % [meshes.size(), load_seconds, wait_frames])
 	state_changed.emit()
 	return ""
+
+
+func record_resource_operation(operation: String, started_usec: int) -> void:
+	# Measures time inside each call, including synchronization; not isolated CPU/GPU cost.
+	if not resource_operation_intervals_ms.has(operation):
+		resource_operation_intervals_ms[operation] = []
+	resource_operation_intervals_ms[operation].append((Time.get_ticks_usec() - started_usec) / 1000.0)
 
 
 func validate_scene(record: Dictionary, mapping: Dictionary, scene: Node3D) -> String:

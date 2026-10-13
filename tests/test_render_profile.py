@@ -100,6 +100,20 @@ class RenderProfileTests(unittest.TestCase):
         report = json.loads((ROOT / 'docs/audit/windows-render-profile.json').read_text())
         self.assertEqual(len(validate_report(report)), 8)
 
+    def test_resource_call_timings_reject_incomplete_or_impossible_observations(self):
+        report = fixture()
+        operations = {'request': [1], 'status': [0, 2], 'collect': [100], 'instantiate': [5], 'index': [1]}
+        report['loads'][0]['resource_operation_intervals_ms'] = operations
+        self.assertEqual(len(validate_report(report)), 1)
+        for mutate in [lambda d: d.pop('collect'), lambda d: d.update(status=[]),
+                       lambda d: d.update(request=[1, 2]), lambda d: d.update(index=[-1]),
+                       lambda d: d.update(status=[True]), lambda d: d.update(status=[float('nan')]),
+                       lambda d: d.update(collect=[300])]:
+            broken = copy.deepcopy(report)
+            mutate(broken['loads'][0]['resource_operation_intervals_ms'])
+            with self.subTest(broken=broken), self.assertRaises(ValueError):
+                validate_report(broken)
+
     def test_native_runner_bounds_duration_and_never_interpolates_free_text_arguments(self):
         args = argparse.Namespace(seconds=60, warmup=2, repetitions=3, window='1920x1080')
         config, arguments, timeout = profile_options(args)
