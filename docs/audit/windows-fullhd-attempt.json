@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "started_at_utc": "2026-10-13T17:18:51.263850+00:00",
+  "source_revision": "ae600197fd48730fa50d497b5243fc0acc7e419b",
+  "artifact": {
+    "file": "PraxisCorporis-Windows-x64-private.zip",
+    "bytes": 290838547,
+    "sha256": "ac1f3326b5a5e2be9a505074275b376131dbc5b522b03a1b0c84084256ee0c5e",
+    "architectures": [
+      "x86_64"
+    ]
+  },
+  "host": {
+    "os_caption": "Microsoft Windows 11 Home",
+    "cpus": [
+      {
+        "Name": "AMD Ryzen 5 PRO 6650U with Radeon Graphics     ",
+        "NumberOfLogicalProcessors": 12
+      }
+    ],
+    "total_physical_ram_bytes": 15859003392,
+    "active_power_scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)",
+    "os_build": "26300",
+    "reported_graphics_adapters": [
+      {
+        "Name": "AMD Radeon(TM) Graphics",
+        "DriverVersion": "32.0.21037.3009"
+      }
+    ],
+    "os_version": "10.0.26300"
+  },
+  "configuration": {
+    "seconds": 60.0,
+    "warmup_seconds": 2.0,
+    "repetitions": 3,
+    "window_pixels": [
+      1920,
+      1080
+    ],
+    "scene_view": "expanded",
+    "render_fraction": 1.0
+  },
+  "profiler_sha256": "dc5a4b430ad0e04ef46f726fb27cbdaac46871969dd0f09baee8b3ebd3120322",
+  "verifier_sha256": "706d19710f5f4e9b6c0647902cf447766ee462029ade0acd4c227b521dc7ef36",
+  "validator_sha256": "bf85f5992659d0238370a5df4004961e6876db65bcd74a07744adfaef690165d",
+  "context": "First sustained full-client-window Native 1920x1080 diagnostic on the development Windows host. No other build/test workloads during sampling; background applications, power source and thermal state uncontrolled. Actual focus is recorded per sample."
+}

@@ -1,0 +1,13 @@
+{
+	"completed_samples": 24,
+	"last_sample_focused": true,
+	"last_sample_seconds": 60.008474,
+	"planned_samples": 24,
+	"reference": "bodyparts-male-bones-study",
+	"repetition": 3,
+	"scene": "isolated supplied-part orbit",
+	"viewport_pixels": [
+		1920,
+		1080
+	]
+}

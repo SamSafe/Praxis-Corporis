@@ -693,3 +693,31 @@ exports. All eighteen native captures were inspected and retained with
 The anatomy pack remains 543,019,684 bytes with SHA-256
 `d0ac48d536a2ff02c55d4416c366441160977c9d881f634ab7978bcd395d013b`.
 Actual Mac execution, human input/assistive technology and medical review remain open.
+
+The corrected `ae60019` Windows artifact subsequently completed the expanded Native
+trial: three repetitions of all eight 60-second scenes with two-second stationary
+warmups. Independent validation passed 24 samples, 86,226 rendered intervals over
+1,440.19 measured seconds, and nine reference loads. Every scene rendered at an
+actual 1920 × 1080 3D buffer, with focus held throughout all 24 samples. Per-sample
+average frame cadence ranged from 59.526 to 59.910 FPS. The highest scene p95 was
+17.717 ms; 22 intervals exceeded 33.33 ms, the largest was 50.798 ms, and none exceeded
+100 ms. Process peak working set was 1,757,601,792 bytes; maximum sampled private
+memory was 1,951,006,720 bytes, scoped to the entire process and excluding GPU memory.
+
+Female HRA switches took 2.857–2.887 seconds and male switches 2.914–2.928 seconds.
+Largest load process gaps remained 231.163–256.815 ms for female and
+109.257–112.472 ms for male. Bone-study loads took 0.531–0.549 seconds, with
+83.037–85.864 ms gaps. The rendering result does not establish a maximum loading-pause
+guarantee. Source verification, preparation and complete raw load intervals remain
+in the retained report. [Readable full-HD report](audit/WINDOWS_FULLHD_PROFILE.md),
+[native binding](audit/windows-fullhd-profile-qa.json),
+[unmodified raw intervals](audit/windows-fullhd-profile.json).
+
+This meets the proposed 30 sustained frame-cadence FPS baseline for the measured
+eight-scene suite on the Windows Ryzen 5 PRO 6650U / AMD Radeon host. It is a
+single-host observation with uncontrolled background applications, power source,
+thermal state and OS caches; it does not establish representative/minimum hardware,
+actual Mac performance or human-input acceptance. Labels use density 8; other
+densities, moved-organ overlays, saved-view transitions and future condition content
+remain outside this trial. No anatomy coverage, clinical review or public-release
+gate was changed by the rendering result.

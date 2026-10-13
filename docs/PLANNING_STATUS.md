@@ -73,8 +73,12 @@ Display changes preserve the live world and saved exploration setup. Resize anch
 update immediately. Both exports pass offline/content checks; the actual Windows
 release passes the new display checks and existing workflows, with all eighteen
 captures inspected. [Native display evidence](audit/windows-display-density-viewer-qa.json).
-The new sustained 1920 × 1080 3D trial is being recorded; this functionality alone
-does not close performance, Mac-device, human-input or medical-review acceptance.
+The first sustained expanded/native Windows trial passed independent validation of
+24 one-minute samples and nine loads at an actual 1920 × 1080 3D buffer. All samples
+held focus; average frame cadence ranged from 59.5 to 59.9 FPS. It meets the proposed
+30-FPS baseline for the eight measured workloads on this host. Representative devices,
+Mac execution, additional workloads, human input and medical review remain open.
+[Full-resolution results](audit/WINDOWS_FULLHD_PROFILE.md).
 The workspace now has a focused keyboard camera route and independently collapsible
 side panels. Camera keys preserve inspection data; search and tree arrows retain their
 own behaviour. Teal focus rendering, compact layout and source picking after collapse

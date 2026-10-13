@@ -1,0 +1,58 @@
+{
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "content_pack": "hra-united-v1-1-prototype-1",
+  "artifacts": [
+    {
+      "file": "PraxisCorporis-Windows-x64-private.zip",
+      "bytes": 290838547,
+      "sha256": "ac1f3326b5a5e2be9a505074275b376131dbc5b522b03a1b0c84084256ee0c5e",
+      "architectures": [
+        "x86_64"
+      ]
+    },
+    {
+      "file": "PraxisCorporis-macOS-universal-private.zip",
+      "bytes": 313282793,
+      "sha256": "87fbaa6f382cda6241177997ac27629af6df307c9b37b7f710377944ce052caf",
+      "architectures": [
+        "x86_64",
+        "arm64"
+      ]
+    }
+  ],
+  "target_device_testing": "pending",
+  "publication": "local private artifacts only",
+  "source_revision": "ae600197fd48730fa50d497b5243fc0acc7e419b",
+  "source_hashes": {
+    "project.godot": "42fb2623bd409f69e02411ffae312411087e7610d480c03132366aff43465b35",
+    "export_presets.cfg": "b1da4a176835b1d8caafa025671137f6da1bf97e6ffa04a26a62fc13c4b9a347",
+    "content/sample_pack.json": "7766d1c3fb63ba526a1a5a36f4c25c4024da7e9237bd212c224ab9080af7207c",
+    "content/source_manifest.json": "15a940b6de53461975446187bcd651f806327fb1bf9c8be10ee5f64d655a1385",
+    "content/toolchain_manifest.json": "2697648889696238ca23c3a240b25791a775e57fedf525a4dc998690a0256f55",
+    "content/coverage_notes.json": "94024f61ee793f1342ccf9f1550e03a6c0b49d11220143f14eca63bbbe49883c",
+    "content/bodyparts3d_bone_study.json": "988b7dced7c0742d4d56c05829401d99e90ae5aa8139a9382b58e9d16b0605db",
+    "content/bodyparts3d_source_manifest.json": "c2653fdd1a580228766666187707344b88989177b169f7a01bc0c514937a61a9",
+    "addons/private_native_export/plugin.gd": "60315cec1189c41bc6a11e0caa66ae7dcf4cc95c4acc171ada4f134ee53f0916",
+    "scripts/anatomy_labels.gd": "2e9b5742d07bd6678deed5046244c5914ebfa64edf7110dc693ca0d5bb72a157",
+    "scripts/anatomy_model.gd": "0d1c85b8035e38c62b77d5dc5fa4073d986f91fdbfc55972794da40b90b1dd36",
+    "scripts/anatomy_search.gd": "cf70522a940dcefc239485b100031f497dc8d6e1f801c46a346a9ab019ffcc98",
+    "scripts/content_bundle.gd": "5abdcc6f9da15bf86472ef2fc57b6d844875fe5ea89f4780ebed1a3d25dbc408",
+    "scripts/coverage_browser.gd": "5906cb9ff0d527efbc8439ec1a0cb3a8e8e1f68fa250349555a61552e54d2aff",
+    "scripts/orbit_camera.gd": "b018ce8e8ff5be639ac611368f0afc227d0318f8700bbcfcce14f46b449496e3",
+    "scripts/prepared_selection.gd": "bbf1294f432e9a4db82fefea06701f360fa9730b32e33459d56ff0a5e5b151f8",
+    "scripts/render_profile.gd": "5a1d17c208573d35e07fffdbf2673f9545c954eb56913efb988c9a23ad06acb6",
+    "scripts/saved_views.gd": "0bf596edc68a2fb1c4b0c27c662e484074c09d10e0890e5e78d195b6b48edf81",
+    "scripts/saved_views_browser.gd": "3c5c29f36e11984816c95c3dc05002e22e47425c4ae3fecabc64590c494bf936",
+    "scripts/scene_surface.gd": "b5ba22e8602bb3bf89eb8c734a1678d863bd563add489bdc73ceff0d780dbd41",
+    "scripts/source_index_extension.gd": "090d8c7f9346889a43980f0854e0bca2e588138447d86628f76b8ab87b94d84c",
+    "scripts/source_record.gd": "94af7e7697dca85d83c160553efe55d1a450723237a0c29b814ba9e0328af78e",
+    "scripts/view_capture.gd": "c6baeaf7e81efc42bcaa4a75efc0eba9326042b3c95144ce8c4296101c18f79d",
+    "scripts/viewer.gd": "aee154566f951601fe471bd129c0f8e5642f668bd4d90f9b5ec2e1e895462b8b"
+  },
+  "anatomy_package": {
+    "bytes": 543019684,
+    "sha256": "d0ac48d536a2ff02c55d4416c366441160977c9d881f634ab7978bcd395d013b"
+  },
+  "linux_qa": "passed exported-runtime checks for every bundled reference and missing-content handling",
+  "mac_content_qa": "passed every bundled reference in embedded content on the development engine; Mac device testing pending"
+}

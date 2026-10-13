@@ -16,8 +16,12 @@ matching the full client window. Schema-3 trials record view mode, displayed pix
 rendering fraction and buffer pixels independently. Workspace/native renders only
 the physical scene area beside the panels. Expanded/native at 1920 × 1080 must render
 exactly 1920 × 1080; 75%/50% trials are explicit lower-resolution observations.
-Window size alone still cannot establish a full-resolution result. A new sustained
-native trial is required; historical measurements are retained unchanged.
+Window size alone still cannot establish a full-resolution result. The first
+[full-resolution Windows trial](audit/WINDOWS_FULLHD_PROFILE.md) passed 24 one-minute
+samples at actual 1920 × 1080, all focused throughout, observing 59.5–59.9 average
+frame-cadence FPS. It meets the proposed 30-FPS baseline for the eight measured scenes
+on that host. Representative Windows/Mac devices and the additional workloads below
+remain required; historical measurements are retained unchanged.
 
 ## Identify the test
 

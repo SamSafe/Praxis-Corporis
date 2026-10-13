@@ -261,6 +261,12 @@ The normal native verifier now checks Native/75%/50% display mapping and expande
 restoration for every reference. Rendered verification additionally reads the actual
 3D texture dimensions and retains `native-expanded-<reference>.png` alongside the
 existing workflow captures. Human input and Mac hardware checks remain separate.
+
+The retained [first full-HD sustained trial](audit/WINDOWS_FULLHD_PROFILE.md) completed
+all 24 one-minute samples at actual 1920 × 1080 3D resolution with focus held throughout.
+Average frame cadence ranged from 59.5 to 59.9 FPS on the native Ryzen/Radeon host.
+This meets the proposed 30-FPS baseline for the eight measured scenes on that machine;
+representative devices, additional workloads and Mac execution remain open.
 Every repetition reloads each reference and reconstructs the ordinary scene before
 profiling. The 3D viewport dimensions are recorded separately from the entire window.
 Developer profiling fixes its own window's bounds and disables its resize controls.
