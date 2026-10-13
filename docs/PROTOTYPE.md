@@ -33,11 +33,16 @@ Sources, hashes and licence records are in
 [source_manifest.json](../content/source_manifest.json). It sends no project files
 or user data to the source repository.
 
-Preparation imports both sources, excludes sampling-site roots, creates accurate
-mesh collision shapes, and writes local compiled scenes in assets/prepared/.
+Preparation imports both sources, excludes sampling-site roots, and writes local
+compiled geometry scenes in assets/prepared/. Version-2 caches retain the source
+mesh data and omit picking colliders; the viewer builds exact triangle picking
+shapes during selection preparation, yielding after about 8 ms of work or 40 meshes.
+One mesh is an indivisible operation, so this budget is not a maximum-pause guarantee.
+The preparation tool can migrate the previous pinned cache without a fresh GLB import.
 The first raw import is expensive; preparation can take several minutes. Subsequent
 launches reuse the scenes. A source-hash or engine-version change invalidates the
-cache. The project folder must be writable during this development preparation.
+cache. Cache filenames include the geometry format version. The project folder must
+be writable during this development preparation.
 Private packages bundle the prepared scenes read-only; they never import or write
 geometry into the installation folder. Full installer/update handling remains work.
 

@@ -2,7 +2,12 @@ extends RefCounted
 ## Mount locally prepared anatomy and discover the optional separate study reference.
 
 const PACK_NAME := "anatomy.pck"
+const PREPARED_GEOMETRY_VERSION := 2
 const DEVELOPER_DIRECTORIES := ["res://dist", "res://build", "res://tests", "res://tools", "res://docs", "res://addons"]
+
+
+static func prepared_scene_path(reference_id: String, digest: String) -> String:
+	return "res://assets/prepared/%s-%s-geometry-v%d.scn" % [reference_id, digest.left(12), PREPARED_GEOMETRY_VERSION]
 
 
 static func developer_files(roots: Array = DEVELOPER_DIRECTORIES) -> Array[String]:

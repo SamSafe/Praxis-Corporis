@@ -30,7 +30,7 @@ func _initialize() -> void:
 			quit(1)
 			return
 		if record.has("body_id"):
-			var prepared := "res://assets/prepared/%s-%s.scn" % [record.body_id, str(record.sha256).left(12)]
+			var prepared := ContentBundle.prepared_scene_path(record.body_id, record.sha256)
 			if not FileAccess.file_exists(prepared) or packer.add_file(prepared, prepared) != OK:
 				push_error("Prepared geometry missing; run tools/prepare_assets.gd first: " + prepared)
 				quit(1)

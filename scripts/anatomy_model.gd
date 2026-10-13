@@ -5,6 +5,7 @@ signal state_changed
 signal load_progress(stage: String, fraction: float)
 
 const SourceIndexExtension = preload("res://scripts/source_index_extension.gd")
+const ContentBundle = preload("res://scripts/content_bundle.gd")
 
 var body: Dictionary = {}
 var structures: Dictionary = {}
@@ -77,7 +78,7 @@ func prepare_body(record: Dictionary) -> String:
 			return "Anatomy differs from the expected reference. Re-extract the complete private build."
 		return "The anatomy file differs from the pinned sample. Run the asset verification tool."
 	print("Loading ", record.id, " reference")
-	var cache_path := "res://assets/prepared/%s-%s.scn" % [record.id, str(record.sha256).left(12)]
+	var cache_path := ContentBundle.prepared_scene_path(record.id, record.sha256)
 	var next_scene: Node3D
 	var node_map := {}
 	var from_cache := false
@@ -115,7 +116,7 @@ func prepare_body(record: Dictionary) -> String:
 			next_scene = instance as Node3D
 			if next_scene == null:
 				instance.free()
-			elif next_scene.get_meta("source_sha256", "") == record.sha256 and next_scene.get_meta("engine", "") == Engine.get_version_info().string:
+			elif next_scene.get_meta("source_sha256", "") == record.sha256 and next_scene.get_meta("engine", "") == Engine.get_version_info().string and next_scene.get_meta("prepared_geometry_version", 0) == ContentBundle.PREPARED_GEOMETRY_VERSION:
 				staged_scene = next_scene
 				operation_started = Time.get_ticks_usec()
 				index_cached_nodes(next_scene, node_map)
@@ -164,6 +165,8 @@ func prepare_body(record: Dictionary) -> String:
 			child.free()
 	var next_materials := {}
 	var next_colliders := {}
+	load_progress.emit("Preparing selection", 0.0)
+	var selection_batch_started := Time.get_ticks_usec()
 	for index in root_record.mesh_nodes:
 		var mesh: MeshInstance3D = node_map[int(index)]
 		var overrides: Array[StandardMaterial3D] = []
@@ -185,10 +188,12 @@ func prepare_body(record: Dictionary) -> String:
 			collider.add_child(shape)
 			mesh.add_child(collider)
 		next_colliders[int(index)] = collider
-		if next_materials.size() % 40 == 0:
+		# Bound work between yields; one mesh remains an indivisible geometry operation.
+		if Time.get_ticks_usec() - selection_batch_started >= 8000 or next_materials.size() % 40 == 0:
 			load_progress.emit("Preparing selection", float(next_materials.size()) / root_record.mesh_nodes.size())
 			await get_tree().process_frame
 			wait_frames += 1
+			selection_batch_started = Time.get_ticks_usec()
 	# No fallible mapping or preparation step remains before replacing the old scene.
 	load_progress.emit("Opening reference", -1.0)
 	clear_body()
@@ -208,6 +213,7 @@ func prepare_body(record: Dictionary) -> String:
 	if not from_cache:
 		source_scene.set_meta("source_sha256", record.sha256)
 		source_scene.set_meta("engine", Engine.get_version_info().string)
+		source_scene.set_meta("prepared_geometry_version", ContentBundle.PREPARED_GEOMETRY_VERSION)
 		assign_cache_owners(source_scene)
 		var packed := PackedScene.new()
 		if packed.pack(source_scene) == OK:
@@ -262,8 +268,14 @@ func index_cached_nodes(node: Node, mapping: Dictionary) -> void:
 
 func assign_cache_owners(node: Node) -> void:
 	for child in node.get_children():
-		child.owner = source_scene
-		assign_cache_owners(child)
+		if child.name == "InspectionCollider":
+			# Runtime picking shapes are rebuilt in batches instead of loaded as one resource burst.
+			child.owner = null
+			for shape in child.get_children():
+				shape.owner = null
+		else:
+			child.owner = source_scene
+			assign_cache_owners(child)
 
 
 func clear_body() -> void:

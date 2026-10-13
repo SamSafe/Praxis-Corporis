@@ -21,7 +21,7 @@ class AnatomyExport extends EditorExportPlugin:
 				return
 			add_file(source, FileAccess.get_file_as_bytes(source), false)
 			if record.has("body_id"):
-				var prepared := "res://assets/prepared/%s-%s.scn" % [record.body_id, str(record.sha256).left(12)]
+				var prepared := ContentBundle.prepared_scene_path(record.body_id, record.sha256)
 				if not FileAccess.file_exists(prepared):
 					push_error("Prepared anatomy unavailable during Mac export: " + prepared)
 					return
