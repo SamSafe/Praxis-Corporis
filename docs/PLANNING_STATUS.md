@@ -56,7 +56,7 @@ now require an independent resource boundary check on the development host.
 The earlier guarded archives match the committed `640cf57` application snapshot. Native
 Windows source search, saved notes, loading/failure preservation, keyboard workspace
 and credited exports passed again; all fifteen retained captures were inspected.
-Current archives use the `e85e638` application snapshot. Prepared picking shapes now
+The grouped-loading archives use the `e85e638` application snapshot. Prepared picking shapes now
 load in small groups, preserving every source surface and exact picking face. A
 matched three-repetition Windows diagnostic reduced median peak HRA loading gaps by
 88.7–94.4%, with 2.8–2.9-second wall loads and a 1.75 GB process peak working set.
@@ -65,6 +65,16 @@ the baseline and final measurements. Quarter-second pauses and full-resolution/h
 acceptance remain open; see [the comparison](audit/LOADING_OPTIMIZATION.md).
 The final native Windows rendered workflows passed again, and all fifteen captures
 were inspected; [workflow evidence](audit/windows-grouped-selection-viewer-qa.json).
+Current archives use `ae60019` and retain the same anatomy pack. The 3D image now
+renders at the displayed pixel density, with Native/75%/50% choices and an expanded
+anatomy view that can cover the entire client window. Root GUI picking, labels,
+orbit/pan/Move drag and undo have been checked across sizes and rendering fractions.
+Display changes preserve the live world and saved exploration setup. Resize anchors
+update immediately. Both exports pass offline/content checks; the actual Windows
+release passes the new display checks and existing workflows, with all eighteen
+captures inspected. [Native display evidence](audit/windows-display-density-viewer-qa.json).
+The new sustained 1920 × 1080 3D trial is being recorded; this functionality alone
+does not close performance, Mac-device, human-input or medical-review acceptance.
 The workspace now has a focused keyboard camera route and independently collapsible
 side panels. Camera keys preserve inspection data; search and tree arrows retain their
 own behaviour. Teal focus rendering, compact layout and source picking after collapse

@@ -664,3 +664,32 @@ samples and 832 × 611/657 3D buffers. All 24 held focus; background/power/therm
 conditions remain uncontrolled. It neither replaces the earlier sustained result
 nor establishes intended 1080p 3D, representative hardware or actual Mac execution.
 Large individual picking shapes and final replacement still cause shorter pauses.
+
+## Display-pixel rendering and expanded anatomy
+
+The `ae60019` viewer displays its 3D texture at the actual pixel density of the scene
+area, with explicit Native/75%/50% choices. Controls and labels stay in logical UI
+coordinates; picking, orbit, pan and Move drags convert between those coordinates
+and the rendered buffer. F11 or View > Expand anatomy fills the client window while
+retaining the live world, camera, inspection changes and saved-view compatibility.
+Escape or the visible return button restores the workspace. Window aspect expansion
+uses the available area without letterbox borders.
+
+Real source-femur tests at 1440 × 900, 1920 × 1080 and 1100 × 720 verify root GUI
+clicks, label-surface ownership, orbit sensitivity, pan/Move displacement and undo
+at every rendering fraction. Expanded Native at a 1920 × 1080 client window renders
+an actual 1920 × 1080 3D buffer. Display changes refresh labels immediately; visual
+inspection caught stale workspace anchors in the initial expanded captures, which
+were corrected and checked before recording performance. Both actual heart references
+also pass their existing label, navigation and isolated-inspection tests.
+
+Thirty-two Python checks pass, including schema-3 evidence that rejects mismatched
+view/display/buffer dimensions. Both archives pass source/CRC/architecture audits,
+exported Linux workflows and Mac embedded-content/resource-boundary checks. The
+actual Windows release passes Native/75%/50% and expanded-view restoration alongside
+saved views/notes, source search, loading/failure preservation, keyboard and credited
+exports. All eighteen native captures were inspected and retained with
+[the workflow evidence](audit/windows-display-density-viewer-qa.json).
+The anatomy pack remains 543,019,684 bytes with SHA-256
+`d0ac48d536a2ff02c55d4416c366441160977c9d881f634ab7978bcd395d013b`.
+Actual Mac execution, human input/assistive technology and medical review remain open.
