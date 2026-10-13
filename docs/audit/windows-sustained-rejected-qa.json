@@ -31,6 +31,12 @@
     "file": "windows-render-profile-rejected.json",
     "sha256": "7a91158449c1193db587c6d1f158082255e27ca6648818a77a94604fdc05d44a"
   },
+  "operator_followup": {
+    "recorded_client_date": "2026-10-13",
+    "question": "During the first Windows profiling run, did you resize or minimize the Praxis Corporis window, or lock/suspend the computer? It recorded a window-size change and a 107-second frame gap; I’ve retained it as a rejected trial.",
+    "answer": "Not sure",
+    "conclusion": "The cause remains unknown; the operator reply does not establish resizing, minimization, locking or suspension as the cause. The trial remains rejected."
+  },
   "scene_summary": [
     {
       "reference": "female",

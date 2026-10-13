@@ -580,6 +580,9 @@ larger window did not establish a 1080p 3D render buffer. Process peak working s
 was 1,765,928,960 bytes; maximum sampled private memory was 1,930,596,352 bytes.
 [Rejected-run evidence](audit/windows-sustained-rejected-qa.json) and
 [raw measurements](audit/windows-render-profile-rejected.json) retain the outlier.
+On 2026-10-13, the operator answered “Not sure” when asked about resizing or
+minimizing the window or locking/suspending the computer. The cause remains unknown;
+the reply does not change the rejection or the raw measurements.
 
 Profiling now fixes its own window bounds and checks dimensions throughout sampling.
 An interruption saves partial evidence and stops before further workloads. The runner
