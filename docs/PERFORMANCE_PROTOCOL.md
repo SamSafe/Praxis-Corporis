@@ -118,3 +118,9 @@ They occupy only part of the outer load wall time; process intervals still captu
 pauses outside those calls. Historical profiles remain valid without this extension.
 Grouped picking data adds one request/collection per group; the independently checked
 batch count distinguishes those calls from the single geometry-scene request.
+
+The [matched loading comparison](audit/LOADING_OPTIMIZATION.md) retains the instrumented
+baseline, runtime-rebuilding experiment and final precomputed-group trial. Median
+peak HRA process gaps fell by 88.7–94.4%, while total loads stayed around 2.8–2.9 seconds
+and observed peak working set stayed near the baseline. The final short profile
+still does not pass the sustained or intended-render-resolution gates.

@@ -1,0 +1,61 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 Core Profile Context 25.10.37.03.260407 - Compatibility - Using Device: ATI Technologies Inc. - AMD Radeon(TM) Graphics
+
+PASS private export resource boundary
+Loading female reference
+Prepared 801 meshes in 2.82s; 85 frames while loading
+PROFILE LOAD 1 / female: 2.88 s · largest process gap 253.82 ms
+PROFILE 1 / female / whole-body orbit: 59.9 frame-cadence FPS · p95 17.21 ms
+PROFILE 1 / female / chest orbit with faded lungs and local labels: 59.8 frame-cadence FPS · p95 17.52 ms
+PROFILE 1 / female / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 17.59 ms
+Loading male reference
+Prepared 788 meshes in 2.83s; 88 frames while loading
+PROFILE LOAD 1 / male: 2.88 s · largest process gap 113.20 ms
+PROFILE 1 / male / whole-body orbit: 59.9 frame-cadence FPS · p95 17.38 ms
+PROFILE 1 / male / chest orbit with faded lungs and local labels: 59.4 frame-cadence FPS · p95 17.43 ms
+PROFILE 1 / male / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 17.39 ms
+Loading bodyparts-male-bones-study reference
+Prepared 203 meshes in 0.50s; 18 frames while loading
+PROFILE LOAD 1 / bodyparts-male-bones-study: 0.53 s · largest process gap 79.69 ms
+PROFILE 1 / bodyparts-male-bones-study / whole-body orbit: 59.9 frame-cadence FPS · p95 17.64 ms
+PROFILE 1 / bodyparts-male-bones-study / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 17.63 ms
+Loading female reference
+Prepared 801 meshes in 2.79s; 86 frames while loading
+PROFILE LOAD 2 / female: 2.84 s · largest process gap 233.50 ms
+PROFILE 2 / female / whole-body orbit: 59.9 frame-cadence FPS · p95 17.41 ms
+PROFILE 2 / female / chest orbit with faded lungs and local labels: 59.9 frame-cadence FPS · p95 17.26 ms
+PROFILE 2 / female / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 17.53 ms
+Loading male reference
+Prepared 788 meshes in 2.84s; 89 frames while loading
+PROFILE LOAD 2 / male: 2.90 s · largest process gap 110.02 ms
+PROFILE 2 / male / whole-body orbit: 59.9 frame-cadence FPS · p95 17.38 ms
+PROFILE 2 / male / chest orbit with faded lungs and local labels: 59.9 frame-cadence FPS · p95 17.41 ms
+PROFILE 2 / male / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 17.56 ms
+Loading bodyparts-male-bones-study reference
+Prepared 203 meshes in 0.52s; 18 frames while loading
+PROFILE LOAD 2 / bodyparts-male-bones-study: 0.55 s · largest process gap 82.07 ms
+PROFILE 2 / bodyparts-male-bones-study / whole-body orbit: 59.9 frame-cadence FPS · p95 17.31 ms
+PROFILE 2 / bodyparts-male-bones-study / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 17.45 ms
+Loading female reference
+Prepared 801 meshes in 2.79s; 86 frames while loading
+PROFILE LOAD 3 / female: 2.84 s · largest process gap 234.41 ms
+PROFILE 3 / female / whole-body orbit: 59.9 frame-cadence FPS · p95 17.42 ms
+PROFILE 3 / female / chest orbit with faded lungs and local labels: 59.9 frame-cadence FPS · p95 17.40 ms
+PROFILE 3 / female / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 17.48 ms
+Loading male reference
+Prepared 788 meshes in 2.81s; 88 frames while loading
+PROFILE LOAD 3 / male: 2.87 s · largest process gap 113.07 ms
+PROFILE 3 / male / whole-body orbit: 59.9 frame-cadence FPS · p95 17.46 ms
+PROFILE 3 / male / chest orbit with faded lungs and local labels: 59.9 frame-cadence FPS · p95 17.40 ms
+PROFILE 3 / male / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 17.59 ms
+Loading bodyparts-male-bones-study reference
+Prepared 203 meshes in 0.51s; 18 frames while loading
+PROFILE LOAD 3 / bodyparts-male-bones-study: 0.54 s · largest process gap 86.39 ms
+PROFILE 3 / bodyparts-male-bones-study / whole-body orbit: 59.9 frame-cadence FPS · p95 17.31 ms
+PROFILE 3 / bodyparts-male-bones-study / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 17.74 ms
+PASS rendering profile recorded: user://render-profile.json
+
+
+QA observed peak working set bytes: 1746427904
+QA sampled maximum private bytes: 1904308224
+Windows native exit code: 0

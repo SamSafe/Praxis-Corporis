@@ -627,3 +627,40 @@ with [their exact-artifact evidence](audit/windows-guarded-viewer-qa.json).
 The QA scripts were exercised through WSL into native Windows; direct Windows Python,
 Mac hardware, human input/picker/clipboard, representative performance and anatomy
 review acceptance remain separate work.
+
+## Loading optimization with exact picking geometry
+
+Call-level instrumentation in `a2ee90f` reproduced the roughly two-second HRA
+process gap while showing fast resource request/status/collection calls and
+millisecond-scale scene instantiation/indexing. The gap occurred between those calls;
+the measurements do not identify a precise CPU, physics or GPU operation.
+
+The `d8771b1` experiment removed picking colliders from compiled geometry and rebuilt
+them in runtime batches. Gaps shrank, but HRA loads took 5.668–6.269 seconds and process
+peak working set reached 3,049,803,776 bytes. The final `e85e638` implementation instead
+prepares the exact triangle shapes offline and loads bounded groups separately from
+geometry: 48 female, 52 male and eight bone-study groups. No anatomy is simplified.
+
+A matched Windows diagnostic retained three repetitions, nine loads and all 24 short
+navigation samples for each implementation. Final HRA switches took 2.837–2.897
+seconds, with female maximum process gaps of 233.495–253.818 ms and male gaps of
+110.022–113.198 ms. Median peak gaps fell by 88.7% and 94.4%, respectively, against
+the instrumented baseline. Bone-study gaps fell to 79.687–86.390 ms. Final peak working
+set was 1,746,427,904 bytes; sampled private maximum was 1,904,308,224 bytes. This
+preserves the responsiveness gain with memory near the baseline and slightly longer
+total loads. [Full comparison and retained trial evidence](audit/LOADING_OPTIMIZATION.md).
+
+Engine checks compare all 1,792 meshes, exact surface arrays, transforms, hierarchy,
+material settings and picking faces with the previous caches. Seven separate bad
+picking-cache cases preserve the current real anatomy and inspection state. The
+existing asynchronous loading tests and 31 Python checks pass. Both current packages
+match `e85e638` and pass archive/source audits, exported Linux checks and Mac embedded
+content/boundary checks. Normal rendered Windows search, notes, inspection, loading,
+keyboard and credited exports also passed; all fifteen retained captures were
+inspected. [Native workflow evidence](audit/windows-grouped-selection-viewer-qa.json).
+
+The new profile measured 59.4–59.9 average frame-cadence FPS, but used only two-second
+samples and 832 × 611/657 3D buffers. All 24 held focus; background/power/thermal
+conditions remain uncontrolled. It neither replaces the earlier sustained result
+nor establishes intended 1080p 3D, representative hardware or actual Mac execution.
+Large individual picking shapes and final replacement still cause shorter pauses.

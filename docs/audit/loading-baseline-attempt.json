@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "started_at_utc": "2026-10-13T06:30:49.706621+00:00",
+  "source_revision": "a2ee90f93998cec79d22d34742965e2bedcc6947",
+  "artifact": {
+    "file": "PraxisCorporis-Windows-x64-private.zip",
+    "bytes": 292927798,
+    "sha256": "f726a880894c0379b5bbcf5f58c4cfeedf7814a590de224e340947ab93f10ebb",
+    "architectures": [
+      "x86_64"
+    ]
+  },
+  "host": {
+    "os_caption": "Microsoft Windows 11 Home",
+    "cpus": [
+      {
+        "Name": "AMD Ryzen 5 PRO 6650U with Radeon Graphics     ",
+        "NumberOfLogicalProcessors": 12
+      }
+    ],
+    "total_physical_ram_bytes": 15859003392,
+    "active_power_scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)",
+    "os_build": "26300",
+    "reported_graphics_adapters": [
+      {
+        "Name": "AMD Radeon(TM) Graphics",
+        "DriverVersion": "32.0.21037.3009"
+      }
+    ],
+    "os_version": "10.0.26300"
+  },
+  "configuration": {
+    "seconds": 2.0,
+    "warmup_seconds": 0.5,
+    "repetitions": 3,
+    "window_pixels": [
+      1920,
+      1080
+    ]
+  },
+  "profiler_sha256": "e5ea018d48caca38d13cfe31cee79bf417c14606b4a5a1702de1f042fdec5934",
+  "verifier_sha256": "319077a6e1c9c9a11d19f6a1181a5335d991522a3f99d62507de060e789a9e26",
+  "validator_sha256": "d00b0384046c9ad9565942ce66b7f8387f1b489ec83cc054a25c6eef530b7d1c",
+  "context": "Matched loading diagnostic on the development Windows host; two-second navigation samples are not sustained acceptance. Background workload, power source, focus and thermal state uncontrolled."
+}

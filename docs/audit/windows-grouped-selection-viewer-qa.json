@@ -1,0 +1,169 @@
+{
+  "engine_actual": "4.7.2.stable.official.ed1daf0bf",
+  "renderer": "OpenGL API 3.3.0 Core Profile Context 25.10.37.03.260407 - Compatibility - Using Device: ATI Technologies Inc. - AMD Radeon(TM) Graphics",
+  "process_memory_observations": {
+    "peak_working_set_bytes_observed": 1726271488,
+    "maximum_private_bytes_sampled": 1936072704,
+    "sampling_interval_ms": 500,
+    "scope": "Entire native process; not per-scene or GPU memory."
+  },
+  "references": {
+    "female": 801,
+    "male": 788,
+    "bodyparts-male-bones-study": 203
+  },
+  "ui_process_frames_during_successful_load": {
+    "female": 88,
+    "male": 89,
+    "bodyparts-male-bones-study": 19
+  },
+  "schema_version": 1,
+  "recorded_at_utc": "2026-10-13T07:01:10.441813+00:00",
+  "mode": "rendered",
+  "result": "passed; native exit code 0",
+  "source_revision": "e85e638db88a77ec821c17bdf890d607e20af4ba",
+  "artifact": {
+    "file": "PraxisCorporis-Windows-x64-private.zip",
+    "bytes": 290831020,
+    "sha256": "7d48b589c0b255f24b37f74110eead9b86de276099614430576aba32048a95d8",
+    "architectures": [
+      "x86_64"
+    ]
+  },
+  "engine_expected": "4.7.2.stable.official.ed1daf0bf",
+  "verifier_sha256": "319077a6e1c9c9a11d19f6a1181a5335d991522a3f99d62507de060e789a9e26",
+  "archive_crc": "passed during extraction",
+  "user_data": "APPDATA and LOCALAPPDATA isolated in a generated QA session; user libraries untouched.",
+  "limits": [
+    "Scripted actions; human input, clipboard and native OS picker acceptance remain open.",
+    "No sustained-performance or maximum-loading-pause claim.",
+    "This checks actual Windows execution; Mac device validation is separate."
+  ],
+  "captures": {
+    "native-search-female.png": {
+      "file": "../prototype/windows-grouped-native-search-female.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "70466b78e83b8d3352fb3461700497d0c312943fba4b608a1b6350f87b4ffeaa"
+    },
+    "native-study-notes-female.png": {
+      "file": "../prototype/windows-grouped-native-study-notes-female.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "59d42c8bc8f72f17d494bc0d6325b1f66f13552c51428e16c77c5ed650a53be8"
+    },
+    "native-loading-female.png": {
+      "file": "../prototype/windows-grouped-native-loading-female.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "c25a6645e16dfb72155f611328e62b25ebebf5db27dbebbb99c30050433b82d4"
+    },
+    "native-export-female.png": {
+      "file": "../prototype/windows-grouped-native-export-female.png",
+      "pixels": [
+        1440,
+        1085
+      ],
+      "sha256": "11138c0e1846c2a3025fc4fa2060233a9e078c766a52578de11a7e3022a9bf7a"
+    },
+    "native-chest-female.png": {
+      "file": "../prototype/windows-grouped-native-chest-female.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "21514afe92efcd29045d51c69f74ea7bea1754e1391f85e187a111a125cfbd0d"
+    },
+    "native-search-male.png": {
+      "file": "../prototype/windows-grouped-native-search-male.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "e74b264374e5f63abf08f9ce640ca447b58d7f5c678e9bfdd5de10e08e245b73"
+    },
+    "native-study-notes-male.png": {
+      "file": "../prototype/windows-grouped-native-study-notes-male.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "cd703a95b4214292c2c1313d59c3a22e3b657b0dc6cf3b2a02008f8ad37f6095"
+    },
+    "native-loading-male.png": {
+      "file": "../prototype/windows-grouped-native-loading-male.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "de340fc71064b96d3a55fb0275124ccb44425b95e32137d584090a5805d1f211"
+    },
+    "native-export-male.png": {
+      "file": "../prototype/windows-grouped-native-export-male.png",
+      "pixels": [
+        1440,
+        1085
+      ],
+      "sha256": "93af591a11b0f00c09f5416421b0be90fbc00c1ead0eb38d4842142798226152"
+    },
+    "native-chest-male.png": {
+      "file": "../prototype/windows-grouped-native-chest-male.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "121649f4c46e34fa9e829a8508122ee0211f47248b7ff310a10e8a63eb33dee0"
+    },
+    "native-search-bodyparts-male-bones-study.png": {
+      "file": "../prototype/windows-grouped-native-search-bodyparts-male-bones-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "064a45e0d442c56e20f0ae668699b23a3d30617ba240280dbd12a58db4bcc8e7"
+    },
+    "native-study-notes-bodyparts-male-bones-study.png": {
+      "file": "../prototype/windows-grouped-native-study-notes-bodyparts-male-bones-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "7bada4f87e700353d2b75ec1f90a365a225e9db9a5d309f3a169feab9364a3a9"
+    },
+    "native-loading-bodyparts-male-bones-study.png": {
+      "file": "../prototype/windows-grouped-native-loading-bodyparts-male-bones-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "9ffb8858e38be24f7962cf025e2ca93e1a000682dcca652478ed24627d263745"
+    },
+    "native-export-bodyparts-male-bones-study.png": {
+      "file": "../prototype/windows-grouped-native-export-bodyparts-male-bones-study.png",
+      "pixels": [
+        1440,
+        1111
+      ],
+      "sha256": "7ce20f2c87ae083a456e754075b5b844521eca2c4f8c312ee75dbc539d31c18a"
+    },
+    "native-bones-bodyparts-male-bones-study.png": {
+      "file": "../prototype/windows-grouped-native-bones-bodyparts-male-bones-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "ca9af100d6064c5b3afbf7bf1d5a19804ce8de69f332bdf2d05b0f7e1168b41c"
+    }
+  },
+  "visual_review": {
+    "recorded_client_date": "2026-10-13",
+    "reviewed_capture_count": 15,
+    "scope": "All retained chest, bone, loading, source-search, study-note and credited-export captures inspected; no loading-change visual regression observed. Interface/geometry display inspection only; medical review and human-input acceptance remain separate."
+  }
+}

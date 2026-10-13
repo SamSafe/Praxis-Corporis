@@ -1,6 +1,6 @@
 # Planning Status
 
-Updated: 2026-10-12, using the America/Edmonton client date.
+Updated: 2026-10-13, using the America/Edmonton client date.
 
 Planning established the product direction, and the user authorised the first
 private feasibility prototype. Both pinned HRA samples have been downloaded,
@@ -53,9 +53,18 @@ Repository tools also audit ZIP CRCs, architectures, committed notices and runti
 source snapshots, then produce a validated Markdown measurement report. Generated QA
 output is excluded from exports and checked at runtime; Mac embedded-content checks
 now require an independent resource boundary check on the development host.
-Both current archives match the committed `640cf57` application snapshot. Native
+The earlier guarded archives match the committed `640cf57` application snapshot. Native
 Windows source search, saved notes, loading/failure preservation, keyboard workspace
 and credited exports passed again; all fifteen retained captures were inspected.
+Current archives use the `e85e638` application snapshot. Prepared picking shapes now
+load in small groups, preserving every source surface and exact picking face. A
+matched three-repetition Windows diagnostic reduced median peak HRA loading gaps by
+88.7–94.4%, with 2.8–2.9-second wall loads and a 1.75 GB process peak working set.
+The runtime-rebuilding experiment that increased time/memory is retained alongside
+the baseline and final measurements. Quarter-second pauses and full-resolution/hardware
+acceptance remain open; see [the comparison](audit/LOADING_OPTIMIZATION.md).
+The final native Windows rendered workflows passed again, and all fifteen captures
+were inspected; [workflow evidence](audit/windows-grouped-selection-viewer-qa.json).
 The workspace now has a focused keyboard camera route and independently collapsible
 side panels. Camera keys preserve inspection data; search and tree arrows retain their
 own behaviour. Teal focus rendering, compact layout and source picking after collapse

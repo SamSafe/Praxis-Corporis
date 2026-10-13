@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-10-13T06:44:42.417436+00:00",
+  "source_snapshot_verified_against_revision": "a2ee90f93998cec79d22d34742965e2bedcc6947",
+  "runtime_source_files": 22,
+  "auditor_sha256": "6f056c408035fc75b01ea5602d91e52af9599d83589806cf6a1d75139b67a942",
+  "artifacts": [
+    {
+      "file": "PraxisCorporis-Windows-x64-private.zip",
+      "bytes": 292927798,
+      "sha256": "f726a880894c0379b5bbcf5f58c4cfeedf7814a590de224e340947ab93f10ebb",
+      "architectures": [
+        "x86_64"
+      ],
+      "crc": "passed every extracted entry",
+      "notices": "all match committed source",
+      "content": "Companion anatomy package bytes/SHA-256 match the build record."
+    }
+  ],
+  "scope": "Archive/source audit only; native execution, resource-boundary checks, content fidelity and device performance have separate evidence."
+}

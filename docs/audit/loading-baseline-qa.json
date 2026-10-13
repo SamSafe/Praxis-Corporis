@@ -1,0 +1,445 @@
+{
+  "engine_actual": "4.7.2.stable.official.ed1daf0bf",
+  "renderer": "OpenGL API 3.3.0 Core Profile Context 25.10.37.03.260407 - Compatibility - Using Device: ATI Technologies Inc. - AMD Radeon(TM) Graphics",
+  "process_memory_observations": {
+    "peak_working_set_bytes_observed": 1781235712,
+    "maximum_private_bytes_sampled": 1908994048,
+    "sampling_interval_ms": 500,
+    "scope": "Entire native process; not per-scene or GPU memory."
+  },
+  "schema_version": 1,
+  "result": "passed raw measurement/complete workload validation; native exit code 0",
+  "recorded_at_utc": "2026-10-13T06:32:19.730556+00:00",
+  "source_revision": "a2ee90f93998cec79d22d34742965e2bedcc6947",
+  "artifact": {
+    "file": "PraxisCorporis-Windows-x64-private.zip",
+    "bytes": 292927798,
+    "sha256": "f726a880894c0379b5bbcf5f58c4cfeedf7814a590de224e340947ab93f10ebb",
+    "architectures": [
+      "x86_64"
+    ]
+  },
+  "host": {
+    "os_caption": "Microsoft Windows 11 Home",
+    "cpus": [
+      {
+        "Name": "AMD Ryzen 5 PRO 6650U with Radeon Graphics     ",
+        "NumberOfLogicalProcessors": 12
+      }
+    ],
+    "total_physical_ram_bytes": 15859003392,
+    "active_power_scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)",
+    "os_build": "26300",
+    "reported_graphics_adapters": [
+      {
+        "Name": "AMD Radeon(TM) Graphics",
+        "DriverVersion": "32.0.21037.3009"
+      }
+    ],
+    "os_version": "10.0.26300"
+  },
+  "configuration": {
+    "seconds": 2.0,
+    "warmup_seconds": 0.5,
+    "repetitions": 3,
+    "window_pixels": [
+      1920,
+      1080
+    ]
+  },
+  "started_at_utc": "2026-10-13T06:30:49.706621+00:00",
+  "profiler_sha256": "e5ea018d48caca38d13cfe31cee79bf417c14606b4a5a1702de1f042fdec5934",
+  "verifier_sha256": "319077a6e1c9c9a11d19f6a1181a5335d991522a3f99d62507de060e789a9e26",
+  "validator_sha256": "d00b0384046c9ad9565942ce66b7f8387f1b489ec83cc054a25c6eef530b7d1c",
+  "raw_profile": {
+    "file": "loading-baseline-profile.json",
+    "sha256": "3833b7f2171eeebf5abd843615cb111db3f559ee32ef6664b05cde2361d305cd"
+  },
+  "scene_summary": [
+    {
+      "reference": "female",
+      "scene": "whole-body orbit",
+      "frames": 120,
+      "seconds": 2.003005,
+      "fps": 59.909985247166134,
+      "p95_ms": 17.427,
+      "p99_ms": 17.835,
+      "maximum_ms": 17.841,
+      "repetition": 1,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "female",
+      "scene": "chest orbit with faded lungs and local labels",
+      "frames": 120,
+      "seconds": 2.004028,
+      "fps": 59.879402882594455,
+      "p95_ms": 17.434,
+      "p99_ms": 17.957,
+      "maximum_ms": 30.42,
+      "repetition": 1,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "female",
+      "scene": "isolated supplied-part orbit",
+      "frames": 120,
+      "seconds": 2.003362,
+      "fps": 59.89930926113203,
+      "p95_ms": 17.415,
+      "p99_ms": 18.08,
+      "maximum_ms": 18.173,
+      "repetition": 1,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "male",
+      "scene": "whole-body orbit",
+      "frames": 120,
+      "seconds": 2.003175,
+      "fps": 59.90490096971058,
+      "p95_ms": 17.358,
+      "p99_ms": 17.593,
+      "maximum_ms": 17.677,
+      "repetition": 1,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "male",
+      "scene": "chest orbit with faded lungs and local labels",
+      "frames": 119,
+      "seconds": 2.002958,
+      "fps": 59.41212946052788,
+      "p95_ms": 17.574,
+      "p99_ms": 27.574,
+      "maximum_ms": 28.274,
+      "repetition": 1,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "male",
+      "scene": "isolated supplied-part orbit",
+      "frames": 120,
+      "seconds": 2.002878,
+      "fps": 59.913784064730855,
+      "p95_ms": 17.51,
+      "p99_ms": 17.964,
+      "maximum_ms": 18.244,
+      "repetition": 1,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "bodyparts-male-bones-study",
+      "scene": "whole-body orbit",
+      "frames": 120,
+      "seconds": 2.00293,
+      "fps": 59.91222858512279,
+      "p95_ms": 17.26,
+      "p99_ms": 17.438,
+      "maximum_ms": 17.723,
+      "repetition": 1,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "bodyparts-male-bones-study",
+      "scene": "isolated supplied-part orbit",
+      "frames": 120,
+      "seconds": 2.003341,
+      "fps": 59.89993715498261,
+      "p95_ms": 17.403,
+      "p99_ms": 17.573,
+      "maximum_ms": 17.625,
+      "repetition": 1,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "female",
+      "scene": "whole-body orbit",
+      "frames": 116,
+      "seconds": 2.003235,
+      "fps": 57.9063365007101,
+      "p95_ms": 24.699,
+      "p99_ms": 28.586,
+      "maximum_ms": 33.824,
+      "repetition": 2,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.8620689655172413
+    },
+    {
+      "reference": "female",
+      "scene": "chest orbit with faded lungs and local labels",
+      "frames": 120,
+      "seconds": 2.002574,
+      "fps": 59.92287925439958,
+      "p95_ms": 17.291,
+      "p99_ms": 23.579,
+      "maximum_ms": 25.455,
+      "repetition": 2,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "female",
+      "scene": "isolated supplied-part orbit",
+      "frames": 120,
+      "seconds": 2.003303,
+      "fps": 59.90107337731737,
+      "p95_ms": 17.212,
+      "p99_ms": 17.386,
+      "maximum_ms": 17.712,
+      "repetition": 2,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "male",
+      "scene": "whole-body orbit",
+      "frames": 120,
+      "seconds": 2.002921,
+      "fps": 59.91249779696752,
+      "p95_ms": 17.265,
+      "p99_ms": 17.508,
+      "maximum_ms": 17.644,
+      "repetition": 2,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "male",
+      "scene": "chest orbit with faded lungs and local labels",
+      "frames": 120,
+      "seconds": 2.002472,
+      "fps": 59.925931548605924,
+      "p95_ms": 17.462,
+      "p99_ms": 17.884,
+      "maximum_ms": 18.052,
+      "repetition": 2,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "male",
+      "scene": "isolated supplied-part orbit",
+      "frames": 120,
+      "seconds": 2.00247,
+      "fps": 59.92599140062023,
+      "p95_ms": 17.507,
+      "p99_ms": 18.02,
+      "maximum_ms": 18.197,
+      "repetition": 2,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "bodyparts-male-bones-study",
+      "scene": "whole-body orbit",
+      "frames": 120,
+      "seconds": 2.002692,
+      "fps": 59.919348556842486,
+      "p95_ms": 17.555,
+      "p99_ms": 18.064,
+      "maximum_ms": 18.089,
+      "repetition": 2,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "bodyparts-male-bones-study",
+      "scene": "isolated supplied-part orbit",
+      "frames": 120,
+      "seconds": 2.002781,
+      "fps": 59.916685848327894,
+      "p95_ms": 17.828,
+      "p99_ms": 18.08,
+      "maximum_ms": 18.335,
+      "repetition": 2,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "female",
+      "scene": "whole-body orbit",
+      "frames": 120,
+      "seconds": 2.002379,
+      "fps": 59.92871479375283,
+      "p95_ms": 17.325,
+      "p99_ms": 17.56,
+      "maximum_ms": 17.597,
+      "repetition": 3,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "female",
+      "scene": "chest orbit with faded lungs and local labels",
+      "frames": 120,
+      "seconds": 2.003003,
+      "fps": 59.910045067331396,
+      "p95_ms": 17.404,
+      "p99_ms": 18.027,
+      "maximum_ms": 22.798,
+      "repetition": 3,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "female",
+      "scene": "isolated supplied-part orbit",
+      "frames": 120,
+      "seconds": 2.003058,
+      "fps": 59.9084000563139,
+      "p95_ms": 17.265,
+      "p99_ms": 17.618,
+      "maximum_ms": 17.882,
+      "repetition": 3,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "male",
+      "scene": "whole-body orbit",
+      "frames": 120,
+      "seconds": 2.003025,
+      "fps": 59.90938705208372,
+      "p95_ms": 17.446,
+      "p99_ms": 17.684,
+      "maximum_ms": 17.7,
+      "repetition": 3,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "male",
+      "scene": "chest orbit with faded lungs and local labels",
+      "frames": 120,
+      "seconds": 2.002486,
+      "fps": 59.92551258785329,
+      "p95_ms": 17.65,
+      "p99_ms": 20.34,
+      "maximum_ms": 25.855,
+      "repetition": 3,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "male",
+      "scene": "isolated supplied-part orbit",
+      "frames": 120,
+      "seconds": 2.002962,
+      "fps": 59.91127140704616,
+      "p95_ms": 17.365,
+      "p99_ms": 17.626,
+      "maximum_ms": 18.012,
+      "repetition": 3,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "bodyparts-male-bones-study",
+      "scene": "whole-body orbit",
+      "frames": 120,
+      "seconds": 2.002426,
+      "fps": 59.927308175183505,
+      "p95_ms": 17.391,
+      "p99_ms": 17.654,
+      "maximum_ms": 17.932,
+      "repetition": 3,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "bodyparts-male-bones-study",
+      "scene": "isolated supplied-part orbit",
+      "frames": 120,
+      "seconds": 2.00299,
+      "fps": 59.91043390131753,
+      "p95_ms": 17.644,
+      "p99_ms": 18.19,
+      "maximum_ms": 18.385,
+      "repetition": 3,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    }
+  ],
+  "load_summary": [
+    {
+      "reference": "female",
+      "repetition": 1,
+      "wall_seconds": 2.797747,
+      "maximum_process_gap_ms": 2070.816,
+      "intervals_over_100_ms": 1
+    },
+    {
+      "reference": "male",
+      "repetition": 1,
+      "wall_seconds": 2.783595,
+      "maximum_process_gap_ms": 2006.724,
+      "intervals_over_100_ms": 2
+    },
+    {
+      "reference": "bodyparts-male-bones-study",
+      "repetition": 1,
+      "wall_seconds": 0.498517,
+      "maximum_process_gap_ms": 253.202,
+      "intervals_over_100_ms": 1
+    },
+    {
+      "reference": "female",
+      "repetition": 2,
+      "wall_seconds": 2.814996,
+      "maximum_process_gap_ms": 2095.575,
+      "intervals_over_100_ms": 1
+    },
+    {
+      "reference": "male",
+      "repetition": 2,
+      "wall_seconds": 2.782919,
+      "maximum_process_gap_ms": 2009.385,
+      "intervals_over_100_ms": 2
+    },
+    {
+      "reference": "bodyparts-male-bones-study",
+      "repetition": 2,
+      "wall_seconds": 0.525741,
+      "maximum_process_gap_ms": 267.196,
+      "intervals_over_100_ms": 1
+    },
+    {
+      "reference": "female",
+      "repetition": 3,
+      "wall_seconds": 2.62771,
+      "maximum_process_gap_ms": 1940.128,
+      "intervals_over_100_ms": 1
+    },
+    {
+      "reference": "male",
+      "repetition": 3,
+      "wall_seconds": 2.67776,
+      "maximum_process_gap_ms": 1936.766,
+      "intervals_over_100_ms": 2
+    },
+    {
+      "reference": "bodyparts-male-bones-study",
+      "repetition": 3,
+      "wall_seconds": 0.509408,
+      "maximum_process_gap_ms": 263.034,
+      "intervals_over_100_ms": 1
+    }
+  ],
+  "context": "Matched loading diagnostic on the development Windows host; two-second navigation samples are not sustained acceptance. Background workload, power source, focus and thermal state uncontrolled.",
+  "limits": [
+    "Repeated runs in one process; later references/repetitions can reuse resources and OS file caches.",
+    "Process memory sampled every 500ms across the full run; not GPU or per-scene memory.",
+    "1080p window includes side panels; the actual 3D viewport is recorded separately.",
+    "Frame-callback cadence and load gaps are observations, not GPU timestamps or presentation latency.",
+    "One Windows host does not close Mac, representative-hardware, human-input or anatomy-review gates."
+  ]
+}

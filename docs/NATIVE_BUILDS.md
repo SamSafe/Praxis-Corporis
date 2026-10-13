@@ -49,6 +49,10 @@ The builder packages pinned original GLBs, prepared scenes and retained atlas
 notices into anatomy.pck for Windows. A local editor export plugin inserts these
 files into the Mac core resource pack before Godot signs the app. This avoids
 dependence on neighbouring files when Gatekeeper relocates a downloaded app.
+Prepared geometry and small groups of exact picking shapes are separate resources;
+their manifest, source hash, engine version and complete mesh mapping must agree.
+The preparation tool builds these groups offline, and both exporters require the
+complete set. [Loading comparison](audit/LOADING_OPTIMIZATION.md).
 [Mac path guidance](https://docs.godotengine.org/en/stable/tutorials/export/running_on_macos.html).
 The archive builder retains Unix executable metadata even when the build host lacks those bits.
 The Mac bundle identifier is a private placeholder, local.praxiscorporis.prototype;
@@ -113,6 +117,11 @@ host through the repository verifier, including both HRA valves and the source f
 sustained performance and Mac device trials remain open.
 The retained [build report](audit/native-build-report.json) includes a source-snapshot
 revision verified against its recorded file hashes.
+The current grouped-picking packages passed the same actual Windows rendered
+workflows with [retained captures](audit/windows-grouped-selection-viewer-qa.json).
+Their matched loading diagnostic is documented in the
+[loading comparison](audit/LOADING_OPTIMIZATION.md); full-resolution sustained and
+Mac hardware acceptance remain open.
 
 The first target-device trial should exercise both bodies, skin reveal, chest
 selection, local labels and label clicks, Back/Forward, orbit/pan/zoom, movement,
