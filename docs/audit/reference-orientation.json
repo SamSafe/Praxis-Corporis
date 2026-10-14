@@ -1,0 +1,483 @@
+{
+  "schema_version": 1,
+  "client_date": "2026-10-13",
+  "method": "AABB centres computed from actual float32 POSITION vertices; signed source-labelled landmark differences exceed 5 mm.",
+  "references": {
+    "female": {
+      "source_sha256": "149c9dade4a914c02f73eed96cef68079fc98e70019fcf69185cae24050dcfe5",
+      "source_bytes": 76147432,
+      "left": [
+        1,
+        0,
+        0
+      ],
+      "superior": [
+        0,
+        1,
+        0
+      ],
+      "anterior": [
+        0,
+        0,
+        1
+      ],
+      "landmarks": {
+        "source.hra-v1-1.female.n951": {
+          "source_name": "VH_F_femur_L",
+          "center_metres": [
+            0.11685021966695786,
+            -0.17367083206772804,
+            -0.07155357860028744
+          ]
+        },
+        "source.hra-v1-1.female.n921": {
+          "source_name": "VH_F_femur_R",
+          "center_metres": [
+            -0.13772639632225037,
+            -0.17367083206772804,
+            -0.06782133877277374
+          ]
+        },
+        "source.hra-v1-1.female.n967": {
+          "source_name": "VH_F_patella_L",
+          "center_metres": [
+            0.12619805708527565,
+            -0.3538505733013153,
+            -0.025871826335787773
+          ]
+        },
+        "source.hra-v1-1.female.n939": {
+          "source_name": "VH_F_patella_R",
+          "center_metres": [
+            -0.14707423374056816,
+            -0.3538505733013153,
+            -0.022139593493193388
+          ]
+        },
+        "anatomy.lung.left": {
+          "source_name": "VH_F_left_lungs_L",
+          "center_metres": [
+            0.06524679996073246,
+            0.4785911738872528,
+            -0.0801189293852076
+          ]
+        },
+        "anatomy.lung.right": {
+          "source_name": "VH_F_lungs_R",
+          "center_metres": [
+            -0.0649016669485718,
+            0.4846182018518448,
+            -0.07971973507665098
+          ]
+        },
+        "source.hra-v1-1.female.n501": {
+          "source_name": "VH_F_left_kidney",
+          "center_metres": [
+            0.07660692743957043,
+            0.23820432275533676,
+            -0.10059661231935024
+          ]
+        },
+        "source.hra-v1-1.female.n550": {
+          "source_name": "VH_F_right_kidney",
+          "center_metres": [
+            -0.07202617637813091,
+            0.24752311408519745,
+            -0.0996679738163948
+          ]
+        },
+        "source.hra-v1-1.female.n5": {
+          "source_name": "VH_F_eye_L",
+          "center_metres": [
+            0.032371449284255505,
+            0.7640681266784668,
+            0.019657001364976168
+          ]
+        },
+        "source.hra-v1-1.female.n29": {
+          "source_name": "VH_F_eye_R",
+          "center_metres": [
+            -0.0414620004594326,
+            0.7657153904438019,
+            0.02058888366445899
+          ]
+        },
+        "source.hra-v1-1.female.n151": {
+          "source_name": "Allen_occipital_pole_L",
+          "center_metres": [
+            -0.025237330701202154,
+            0.7602417171001434,
+            -0.13742169737815857
+          ]
+        },
+        "source.hra-v1-1.female.n285": {
+          "source_name": "Allen_occipital_pole_R",
+          "center_metres": [
+            0.006660217419266701,
+            0.7593444287776947,
+            -0.138433575630188
+          ]
+        }
+      },
+      "checks": [
+        {
+          "check": "left/right femurs",
+          "axis": "X",
+          "positive": "source.hra-v1-1.female.n951",
+          "negative": "source.hra-v1-1.female.n921",
+          "gap_metres": 0.2545766159892082
+        },
+        {
+          "check": "left patella ahead of femur centre",
+          "axis": "Z",
+          "positive": "source.hra-v1-1.female.n967",
+          "negative": "source.hra-v1-1.female.n951",
+          "gap_metres": 0.045681752264499664
+        },
+        {
+          "check": "right patella ahead of femur centre",
+          "axis": "Z",
+          "positive": "source.hra-v1-1.female.n939",
+          "negative": "source.hra-v1-1.female.n921",
+          "gap_metres": 0.045681745279580355
+        },
+        {
+          "check": "left/right lungs",
+          "axis": "X",
+          "positive": "anatomy.lung.left",
+          "negative": "anatomy.lung.right",
+          "gap_metres": 0.13014846690930426
+        },
+        {
+          "check": "left/right kidneys",
+          "axis": "X",
+          "positive": "source.hra-v1-1.female.n501",
+          "negative": "source.hra-v1-1.female.n550",
+          "gap_metres": 0.14863310381770134
+        },
+        {
+          "check": "left/right eyes",
+          "axis": "X",
+          "positive": "source.hra-v1-1.female.n5",
+          "negative": "source.hra-v1-1.female.n29",
+          "gap_metres": 0.0738334497436881
+        },
+        {
+          "check": "eye/occipital pole L",
+          "axis": "Z",
+          "positive": "source.hra-v1-1.female.n5",
+          "negative": "source.hra-v1-1.female.n151",
+          "gap_metres": 0.15707869874313474
+        },
+        {
+          "check": "eye/occipital pole R",
+          "axis": "Z",
+          "positive": "source.hra-v1-1.female.n29",
+          "negative": "source.hra-v1-1.female.n285",
+          "gap_metres": 0.15902245929464698
+        },
+        {
+          "check": "head above femur",
+          "axis": "Y",
+          "positive": "source.hra-v1-1.female.n5",
+          "negative": "source.hra-v1-1.female.n951",
+          "gap_metres": 0.9377389587461948
+        }
+      ]
+    },
+    "male": {
+      "source_sha256": "f8dce99e28b64109b4419b579f8c53bb3af5b6d7739eb1f0406c34289b4f5863",
+      "source_bytes": 78514500,
+      "left": [
+        1,
+        0,
+        0
+      ],
+      "superior": [
+        0,
+        1,
+        0
+      ],
+      "anterior": [
+        0,
+        0,
+        1
+      ],
+      "landmarks": {
+        "source.hra-v1-1.male.n359": {
+          "source_name": "VH_M_femur_L",
+          "center_metres": [
+            0.1259654201567173,
+            -0.1887095347046852,
+            -0.02038791961967945
+          ]
+        },
+        "source.hra-v1-1.male.n330": {
+          "source_name": "VH_M_femur_R",
+          "center_metres": [
+            -0.12070886418223381,
+            -0.18756254203617573,
+            -0.016613486222922802
+          ]
+        },
+        "source.hra-v1-1.male.n376": {
+          "source_name": "VH_M_patella_L",
+          "center_metres": [
+            0.1516583040356636,
+            -0.3843262940645218,
+            0.03814102243632078
+          ]
+        },
+        "source.hra-v1-1.male.n329": {
+          "source_name": "VH_M_patella_R",
+          "center_metres": [
+            -0.1464017517864704,
+            -0.38317929208278656,
+            0.041915454901754856
+          ]
+        },
+        "anatomy.lung.left": {
+          "source_name": "VH_M_lungs_L",
+          "center_metres": [
+            0.06943445024080575,
+            0.5044107139110565,
+            0.003235459327697754
+          ]
+        },
+        "anatomy.lung.right": {
+          "source_name": "VH_M_lungs_R",
+          "center_metres": [
+            -0.06319014384644106,
+            0.49935610592365265,
+            0.00252615287899971
+          ]
+        },
+        "source.hra-v1-1.male.n483": {
+          "source_name": "VH_M_left_kidney",
+          "center_metres": [
+            0.07158091850578785,
+            0.30310167372226715,
+            -0.027435027062892914
+          ]
+        },
+        "source.hra-v1-1.male.n526": {
+          "source_name": "VH_M_right_kidney",
+          "center_metres": [
+            -0.06418347544968128,
+            0.28527987748384476,
+            -0.013197080232203007
+          ]
+        },
+        "source.hra-v1-1.male.n898": {
+          "source_name": "VH_M_eye_L",
+          "center_metres": [
+            0.03877317812293768,
+            0.8095649182796478,
+            0.08307448029518127
+          ]
+        },
+        "source.hra-v1-1.male.n923": {
+          "source_name": "VH_M_eye_R",
+          "center_metres": [
+            -0.03506027068942785,
+            0.8112121820449829,
+            0.08400636166334152
+          ]
+        },
+        "source.hra-v1-1.male.n694": {
+          "source_name": "Allen_occipital_pole_L",
+          "center_metres": [
+            -0.018835591850802302,
+            0.8057385087013245,
+            -0.07400422170758247
+          ]
+        },
+        "source.hra-v1-1.male.n828": {
+          "source_name": "Allen_occipital_pole_R",
+          "center_metres": [
+            0.013061962323263288,
+            0.8048412203788757,
+            -0.0750160925090313
+          ]
+        }
+      },
+      "checks": [
+        {
+          "check": "left/right femurs",
+          "axis": "X",
+          "positive": "source.hra-v1-1.male.n359",
+          "negative": "source.hra-v1-1.male.n330",
+          "gap_metres": 0.2466742843389511
+        },
+        {
+          "check": "left patella ahead of femur centre",
+          "axis": "Z",
+          "positive": "source.hra-v1-1.male.n376",
+          "negative": "source.hra-v1-1.male.n359",
+          "gap_metres": 0.05852894205600023
+        },
+        {
+          "check": "right patella ahead of femur centre",
+          "axis": "Z",
+          "positive": "source.hra-v1-1.male.n329",
+          "negative": "source.hra-v1-1.male.n330",
+          "gap_metres": 0.05852894112467766
+        },
+        {
+          "check": "left/right lungs",
+          "axis": "X",
+          "positive": "anatomy.lung.left",
+          "negative": "anatomy.lung.right",
+          "gap_metres": 0.1326245940872468
+        },
+        {
+          "check": "left/right kidneys",
+          "axis": "X",
+          "positive": "source.hra-v1-1.male.n483",
+          "negative": "source.hra-v1-1.male.n526",
+          "gap_metres": 0.13576439395546913
+        },
+        {
+          "check": "left/right eyes",
+          "axis": "X",
+          "positive": "source.hra-v1-1.male.n898",
+          "negative": "source.hra-v1-1.male.n923",
+          "gap_metres": 0.07383344881236553
+        },
+        {
+          "check": "eye/occipital pole L",
+          "axis": "Z",
+          "positive": "source.hra-v1-1.male.n898",
+          "negative": "source.hra-v1-1.male.n694",
+          "gap_metres": 0.15707870200276375
+        },
+        {
+          "check": "eye/occipital pole R",
+          "axis": "Z",
+          "positive": "source.hra-v1-1.male.n923",
+          "negative": "source.hra-v1-1.male.n828",
+          "gap_metres": 0.15902245417237282
+        },
+        {
+          "check": "head above femur",
+          "axis": "Y",
+          "positive": "source.hra-v1-1.male.n898",
+          "negative": "source.hra-v1-1.male.n359",
+          "gap_metres": 0.998274452984333
+        }
+      ]
+    },
+    "bodyparts-male-bones-study": {
+      "source_sha256": "30f8982452c0b4091652d14b523d7063a59aa0443e5ae766e79eb95112514c27",
+      "source_bytes": 12895068,
+      "left": [
+        1,
+        0,
+        0
+      ],
+      "superior": [
+        0,
+        1,
+        0
+      ],
+      "anterior": [
+        0,
+        0,
+        1
+      ],
+      "landmarks": {
+        "source.bodyparts3d-v4-male.FJ3259": {
+          "source_name": "FJ3259",
+          "center_metres": [
+            0.09110159613192081,
+            0.6011475026607513,
+            0.08087910152971745
+          ]
+        },
+        "source.bodyparts3d-v4-male.FJ3365": {
+          "source_name": "FJ3365",
+          "center_metres": [
+            -0.09101414866745472,
+            0.6012009978294373,
+            0.08086109906435013
+          ]
+        },
+        "source.bodyparts3d-v4-male.FJ3275": {
+          "source_name": "FJ3275",
+          "center_metres": [
+            0.08140824921429157,
+            0.38113000988960266,
+            0.11182599887251854
+          ]
+        },
+        "source.bodyparts3d-v4-male.FJ3381": {
+          "source_name": "FJ3381",
+          "center_metres": [
+            -0.08145439997315407,
+            0.3811409920454025,
+            0.11185950040817261
+          ]
+        },
+        "source.bodyparts3d-v4-male.FJ3200": {
+          "source_name": "FJ3200",
+          "center_metres": [
+            -0.000655200332403183,
+            1.575415015220642,
+            0.14201200008392334
+          ]
+        },
+        "source.bodyparts3d-v4-male.FJ3309": {
+          "source_name": "FJ3309",
+          "center_metres": [
+            -0.0006279498338699341,
+            1.5311399698257446,
+            0.04147900175303221
+          ]
+        }
+      },
+      "checks": [
+        {
+          "check": "left/right femurs",
+          "axis": "X",
+          "positive": "source.bodyparts3d-v4-male.FJ3259",
+          "negative": "source.bodyparts3d-v4-male.FJ3365",
+          "gap_metres": 0.18211574479937553
+        },
+        {
+          "check": "left patella ahead of femur centre",
+          "axis": "Z",
+          "positive": "source.bodyparts3d-v4-male.FJ3275",
+          "negative": "source.bodyparts3d-v4-male.FJ3259",
+          "gap_metres": 0.030946897342801094
+        },
+        {
+          "check": "right patella ahead of femur centre",
+          "axis": "Z",
+          "positive": "source.bodyparts3d-v4-male.FJ3381",
+          "negative": "source.bodyparts3d-v4-male.FJ3365",
+          "gap_metres": 0.03099840134382248
+        },
+        {
+          "check": "frontal/occipital bones",
+          "axis": "Z",
+          "positive": "source.bodyparts3d-v4-male.FJ3200",
+          "negative": "source.bodyparts3d-v4-male.FJ3309",
+          "gap_metres": 0.10053299833089113
+        },
+        {
+          "check": "head above femur",
+          "axis": "Y",
+          "positive": "source.bodyparts3d-v4-male.FJ3200",
+          "negative": "source.bodyparts3d-v4-male.FJ3259",
+          "gap_metres": 0.9742675125598907
+        }
+      ]
+    }
+  },
+  "limits": "Technical direction corroboration only; no medical review, inter-body registration or completeness claim.",
+  "bodyparts3d_coordinate_diagram": {
+    "url": "https://dbarchive.biosciencedbc.jp/data/bodyparts3d/20130619/coordinate_system.png",
+    "sha256": "338736275c11eac8c89531fdc14193c9a8adf5baab674033d9d89259f152a5f6",
+    "interpretation": "Original +X left, +Y posterior, +Z superior. Existing [x,z,-y]*0.001 conversion gives displayed +X left, +Y superior, +Z anterior."
+  }
+}
