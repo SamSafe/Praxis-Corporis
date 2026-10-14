@@ -567,6 +567,7 @@ func same_verified_snapshot(actual: Variant, expected: Variant) -> bool:
 
 func verify_orientation(rendered: bool) -> bool:
 	var before := export_view_state()
+	var previous_status := status.text
 	var undo: Array = model.undo_stack.duplicate(true)
 	orientation.refresh_reference()
 	if orientation.frame.is_empty():
@@ -586,6 +587,7 @@ func verify_orientation(rendered: bool) -> bool:
 				return false
 			print("PASS native orientation: ", model.body.id)
 	apply_view(before)
+	status.text = previous_status
 	if export_view_state() != before:
 		return false
 	print("PASS bundled orientation: ", model.body.id)
