@@ -97,6 +97,7 @@ is used by the viewer.
 | Coverage | Coverage opens the technical inventory for both reference bodies, known gaps and a shortcut to select a supplied group. |
 | Workspace panels | View toggles the anatomy explorer and structure details independently; Keyboard controls opens the shortcut reference. |
 | Expanded anatomy | View > Expand anatomy or F11 fills the window with the live anatomy view. Escape or Return to workspace brings the panels back. |
+| Expanded controls | Explore keeps labels, focus/whole body, Inspect alone/Return to context, Move, Undo/Redo, Saved views, Screenshot and keyboard help available. Selection, Move mode and action feedback remain visible. |
 | Rendering resolution | View chooses Native, 75% or 50% screen-pixel resolution. Lower settings reduce graphics load while keeping all geometry and sharp UI labels. This is a session preference, separate from saved anatomy views. |
 | Screenshot | Screenshot captures the current workspace and opens a PNG save dialog; source credits and prototype status are added below the image. |
 
@@ -109,6 +110,10 @@ acceptance.
 
 Hiding panels gives more width to the same scene without changing selection, camera,
 labels, isolation or body edits. The top View menu remains available to reopen them.
+Both View and expanded Explore can receive Tab focus and open with Enter. Escape
+dismisses an open menu first. The expanded feedback panel has a teal border while
+the anatomy view has keyboard focus. Explore and workspace controls share the same
+label and resolution settings; inspection actions pause while another reference loads.
 
 The 3D buffer follows the display's actual pixel area, including window scaling,
 while labels and controls remain in UI coordinates. Camera picking and drag input
@@ -314,6 +319,7 @@ godot --headless --path . --script tests/part_inspection_smoke.gd
 godot --headless --path . --script tests/coverage_smoke.gd
 godot --headless --path . --script tests/study_reference_smoke.gd
 godot --headless --path . --script tests/keyboard_workspace_smoke.gd
+godot --headless --path . --script tests/scene_display_smoke.gd
 godot --headless --path . --script tests/loading_smoke.gd
 godot --headless --path . --script tests/search_smoke.gd
 godot --headless --path . --script tests/render_profile_smoke.gd

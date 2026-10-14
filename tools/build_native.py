@@ -118,6 +118,8 @@ def add_notices(folder: pathlib.Path, platform: str) -> None:
         "Drag to orbit; Shift/right-drag to pan; scroll or pinch to zoom.\n"
         "Tab/click to focus the 3D view: arrows orbit, Shift-arrows pan, +/- zoom, F focuses, Home shows the body.\n"
         "View toggles either side panel; Expand anatomy or F11 fills the window, and Escape returns.\n"
+        "Expanded Explore keeps labels, inspection, Move/Undo/Redo, saved views and Screenshot available.\n"
+        "Tab focuses View or Explore; Enter opens its menu and Escape closes it before returning.\n"
         "View selects Native, 75% or 50% 3D resolution; geometry and UI labels remain intact.\n"
         "Screenshot saves a PNG of the workspace with source credits and prototype status inside the image.\n"
         "Enable Local part labels to identify exposed supplied parts; click a label to focus.\n"

@@ -41,6 +41,8 @@ restarting. Repeat the HRA tasks for both female and male references.
 | Check a coverage gap | Open Coverage and inspect skeletal coverage for both HRA bodies. | Do counts look like a completeness claim? |
 | Explore the bone study | Choose the separate male study, find Right femur, inspect and restore it. | Is its lack of HRA/female alignment clear? |
 | Use a smaller window | Repeat selection, Save/Restore and inspection return. | Any unreadable text, clipped actions or blocked anatomy? |
+| Explore with the panels away | Expand anatomy with View or F11. Use Explore to toggle labels, inspect/return, save/restore a view and export a credited PNG. Escape dismisses an open menu before returning to the workspace. | Are selection, Move mode and action feedback clear? Can you keep exploring without reopening panels? |
+| Choose rendering quality | In workspace View or expanded Explore, try Native, 75% and 50%, then return to Native. | Does navigation stay consistent? Are UI labels readable, and which setting is comfortable on this device? |
 | Use keyboard alternatives | Tab through actions; focus the teal-bordered 3D view and orbit/pan/zoom with keys; operate tree/search. | Is focus clear? Which action still requires a pointer? |
 
 The app currently has no disease visuals, reviewed routes, authored cutaways or

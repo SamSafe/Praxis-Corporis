@@ -145,6 +145,77 @@ func run() -> void:
 		var hit: Dictionary = viewer.model.ray_hit(viewer.orbit.camera, viewer.anatomy_labels.viewport_point(anchor_point))
 		check(not hit.is_empty() and viewer.model.structures[visible_id].mesh_nodes.has(float(hit.collider.get_meta("mesh_index"))),
 			"Expanded labels immediately point to their own first-hit source surface")
+	check(await viewer.verify_expanded_actions(), "Expanded labels, quality and save/reopen/restore routes preserve the exploration setup")
+	var popup: PopupMenu = viewer.expanded_menu.get_popup()
+	viewer.on_expanded_action(viewer.ExpandedAction.RETURN_CONTEXT)
+	check(viewer.model.isolated_id.is_empty() and viewer.scene_expanded, "Expanded Return to context retains the expanded display")
+	viewer.select_structure(id)
+	viewer.on_expanded_action(viewer.ExpandedAction.INSPECT)
+	check(viewer.model.isolated_id == id and viewer.scene_expanded, "Expanded Inspect alone uses the selected real source part")
+	viewer.on_expanded_action(viewer.ExpandedAction.MOVE)
+	await process_frame
+	check(viewer.orbit.move_mode and "MOVE MODE" in viewer.expanded_selection.text,
+		"Expanded inspection movement remains explicit and visibly labelled")
+	viewer.model.checkpoint()
+	viewer.model.offset_selection(Vector3(0.01, 0, 0))
+	var moved: Dictionary = viewer.model.export_state()
+	popup.id_pressed.emit(viewer.ExpandedAction.UNDO)
+	check(viewer.model.export_state() == before.changes, "Expanded Undo returns exact source positions")
+	popup.id_pressed.emit(viewer.ExpandedAction.REDO)
+	check(viewer.model.export_state() == moved, "Expanded Redo reapplies inspection movement")
+	popup.id_pressed.emit(viewer.ExpandedAction.UNDO)
+	viewer.leave_move_mode()
+	check("move the selected" not in viewer.status.text, "Leaving Move mode clears its drag instruction")
+	viewer.apply_view(before)
+	# A visible menu owns its keyboard events; Escape dismisses it before the display.
+	viewer.expanded_menu.grab_focus()
+	var open := InputEventKey.new()
+	open.keycode = KEY_ENTER
+	open.pressed = true
+	root.push_input(open, true)
+	await process_frame
+	check(popup.visible and viewer.scene_expanded, "Keyboard Enter opens the expanded Explore menu")
+	var dismiss := InputEventKey.new()
+	dismiss.keycode = KEY_ESCAPE
+	dismiss.pressed = true
+	root.push_input(dismiss, true)
+	await process_frame
+	check(not popup.visible and viewer.scene_expanded, "Escape dismisses the menu and retains expanded anatomy")
+	viewer.loading = true
+	viewer.refresh_details()
+	viewer.refresh_expanded_menu()
+	var guarded: Dictionary = viewer.model.export_state()
+	popup.id_pressed.emit(viewer.ExpandedAction.MOVE)
+	popup.id_pressed.emit(viewer.ExpandedAction.UNDO)
+	check(popup.is_item_disabled(popup.get_item_index(viewer.ExpandedAction.SAVED_VIEWS))
+		and popup.is_item_disabled(popup.get_item_index(viewer.ExpandedAction.SCREENSHOT))
+		and not viewer.orbit.move_mode and viewer.model.export_state() == guarded,
+		"Expanded actions pause safely during replacement loading")
+	viewer.loading = false
+	viewer.refresh_details()
+	# Headless export exercises dispatch without opening a desktop picker.
+	if DisplayServer.get_name() == "headless":
+		popup.id_pressed.emit(viewer.ExpandedAction.SCREENSHOT)
+		await process_frame
+		check(not viewer.capture_in_progress and "desktop display" in viewer.status.text, "Expanded screenshot handles an unavailable display")
+	else:
+		root.size = Vector2i(1100, 720)
+		await settle(viewer)
+		var image: Image = await viewer.capture_image()
+		check(image != null and image.get_width() == 1100 and image.get_height() > 720,
+			"Expanded screenshot includes the full compact window and source footer")
+		if image:
+			check(viewer.ViewCapture.write_png(image, "/tmp/medicine-viewer-feasibility/expanded-controls-compact-export.png") == OK,
+				"Compact expanded screenshot writes with attribution")
+		viewer.expanded_menu.show_popup()
+		await process_frame
+		await RenderingServer.frame_post_draw
+		check(root.get_texture().get_image().save_png("/tmp/medicine-viewer-feasibility/expanded-controls-compact-menu.png") == OK,
+			"Compact expanded menu is captured for visual inspection")
+		popup.hide()
+		root.size = Vector2i(1920, 1080)
+		await settle(viewer)
+		viewer.scene_container.grab_focus()
 	var event := InputEventKey.new()
 	event.keycode = KEY_ESCAPE
 	event.pressed = true

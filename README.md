@@ -6,7 +6,7 @@ A desktop anatomy explorer for aspiring doctors and medical students. Reveal bod
 layers, select and label structures, move parts aside, inspect internal anatomy,
 follow connections, and explore related diseases within one continuous body scene.
 
-**Status: private Godot feasibility prototype, 2026-10-12.**
+**Status: private Godot feasibility prototype, 2026-10-13.**
 The user authorised work after the planning/documentation stage. Both reference
 samples are imported; coverage is partial and anatomical review is pending.
 [Prototype guide](docs/PROTOTYPE.md) explains setup, controls, checks and limitations.
@@ -65,6 +65,7 @@ its own unregistered reference. [Source audit and preparation](docs/audit/BODYPA
 Disease content, validated cutaways and guided pathways are future work.
 Private Windows/macOS ZIPs are generated locally under dist/. Target-device testing,
 public signing/notarization, and baseline-laptop performance remain open.
-The [repeated Windows measurement report](docs/audit/WINDOWS_SUSTAINED_PROFILE.md)
-records actual frame intervals, render-buffer sizes, loading pauses and memory;
-it retains the limits of this single-host observation.
+The [full-resolution Windows measurement report](docs/audit/WINDOWS_FULLHD_PROFILE.md)
+records 24 focused one-minute samples at an actual 1920 × 1080 3D buffer,
+with 59.5–59.9 average frame-cadence FPS. Representative hardware and Mac trials
+remain open; the report retains loading pauses, memory and single-host limits.

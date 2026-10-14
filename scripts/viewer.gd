@@ -12,6 +12,8 @@ const ViewCapture = preload("res://scripts/view_capture.gd")
 const AnatomySearch = preload("res://scripts/anatomy_search.gd")
 const SourceRecord = preload("res://scripts/source_record.gd")
 const SceneSurface = preload("res://scripts/scene_surface.gd")
+enum ExpandedAction { FOCUS, WHOLE_BODY, INSPECT, RETURN_CONTEXT, SELECTION_LABELS,
+	LOCAL_LABELS, MOVE, UNDO, REDO, SAVED_VIEWS, SCREENSHOT, KEYBOARD_HELP }
 var save_path := "user://saved_view.json"
 var views_path := "user://saved_views.json"
 
@@ -75,6 +77,10 @@ var scene_frame: PanelContainer
 var workspace: Control
 var expanded_scene: Control
 var expanded_caption: Label
+var expanded_menu: MenuButton
+var expanded_selection: Label
+var expanded_status: Label
+var expanded_feedback: PanelContainer
 var scene_expanded := false
 var explorer_panel: Control
 var details_panel: Control
@@ -442,6 +448,7 @@ func verify_scene_display(rendered: bool) -> bool:
 	scene_container.update_resolution()
 	valid = valid and viewport.size == get_window().size and scene_container.displayed_pixels == get_window().size
 	valid = valid and export_view_state() == before and model.source_scene == source_scene
+	valid = valid and await verify_expanded_actions()
 	if rendered and valid:
 		await RenderingServer.frame_post_draw
 		var image := viewport.get_texture().get_image()
@@ -449,6 +456,18 @@ func verify_scene_display(rendered: bool) -> bool:
 		valid = valid and get_viewport().get_texture().get_image().save_png("user://native-expanded-%s.png" % str(model.body.id)) == OK
 		if valid:
 			print("PASS native expanded anatomy: ", model.body.id, " · ", viewport.size)
+		var credited: Image = await capture_image()
+		valid = valid and credited != null and credited.get_width() == get_window().size.x and credited.get_height() > get_window().size.y
+		if valid:
+			valid = ViewCapture.write_png(credited, "user://native-expanded-export-%s.png" % str(model.body.id)) == OK
+			if valid:
+				print("PASS native expanded screenshot: ", model.body.id, " · ", credited.get_size())
+		expanded_menu.show_popup()
+		await get_tree().process_frame
+		await RenderingServer.frame_post_draw
+		valid = valid and expanded_menu.get_popup().visible and get_viewport().get_texture().get_image().save_png("user://native-expanded-menu-%s.png" % str(model.body.id)) == OK
+		expanded_menu.get_popup().hide()
+		scene_container.grab_focus()
 	set_scene_expanded(false)
 	await get_tree().process_frame
 	await get_tree().process_frame
@@ -456,6 +475,91 @@ func verify_scene_display(rendered: bool) -> bool:
 	if valid:
 		print("PASS bundled scene display: ", model.body.id)
 	return valid
+
+
+func verify_expanded_actions() -> bool:
+	var before := export_view_state()
+	var popup := expanded_menu.get_popup()
+	for action in [ExpandedAction.SELECTION_LABELS, ExpandedAction.LOCAL_LABELS]:
+		var control: CheckButton = labels_button if action == ExpandedAction.SELECTION_LABELS else local_labels_button
+		var original: bool = control.button_pressed
+		popup.id_pressed.emit(action)
+		if control.button_pressed == original or popup.is_item_checked(popup.get_item_index(action)) != control.button_pressed:
+			return false
+		popup.id_pressed.emit(action)
+	for i in [2, 1, 0]:
+		popup.id_pressed.emit(100 + i)
+		await get_tree().process_frame
+		await get_tree().process_frame
+		if viewport.size != Vector2i((Vector2(scene_container.displayed_pixels) * [1.0, 0.75, 0.5][i]).round()) or not panels_menu.get_popup().is_item_checked(panels_menu.get_popup().get_item_index(100 + i)):
+			return false
+	# Developer actions use fresh filenames and never read the user's library or legacy slot.
+	var previous_path := views_path
+	var previous_legacy := save_path
+	views_path = "user://expanded-check-%s.json" % Crypto.new().generate_random_bytes(16).hex_encode()
+	save_path = views_path + ".legacy"
+	popup.id_pressed.emit(ExpandedAction.SAVED_VIEWS)
+	var browser: SavedViewsBrowser
+	for child in get_children():
+		if child is SavedViewsBrowser:
+			browser = child
+	var valid: bool = browser != null and browser.visible and browser.current_state == before and scene_expanded
+	if not valid:
+		push_error("Expanded saved-view browser did not open with the current setup")
+	if valid:
+		browser.name_input.text = "Expanded exploration"
+		browser.save_button.pressed.emit()
+		var reopened := SavedViews.new()
+		reopened.path = views_path
+		valid = reopened.load_library().is_empty() and reopened.entries.size() == 1 and same_verified_snapshot(reopened.entries[0].state, before)
+		if not valid:
+			push_error("Expanded view did not survive save/reopen: " + browser.message.text)
+		if valid:
+			orbit.keyboard_pan(Vector2.RIGHT)
+			browser.restore_button.pressed.emit()
+			await get_tree().process_frame
+			await get_tree().process_frame
+			valid = same_verified_snapshot(export_view_state(), before) and model.export_state() == before.changes and scene_expanded and not workspace.visible
+			if not valid:
+				push_error("Expanded saved view did not restore its setup")
+			# Restore original double precision after checking the disk round trip.
+			orbit.apply_state(before.camera)
+			inspection_return = before.inspection_return.duplicate(true)
+	if is_instance_valid(browser):
+		browser.queue_free()
+		await get_tree().process_frame
+	for suffix in ["", ".tmp", ".bak", ".bak.tmp"]:
+		if FileAccess.file_exists(views_path + suffix):
+			DirAccess.remove_absolute(views_path + suffix)
+	views_path = previous_path
+	save_path = previous_legacy
+	scene_container.grab_focus()
+	valid = valid and export_view_state() == before
+	if valid:
+		print("PASS bundled expanded controls: ", model.body.id)
+	return valid
+
+
+func same_verified_snapshot(actual: Variant, expected: Variant) -> bool:
+	# JSON parsing may differ by one double-precision ULP. Restored geometry is
+	# checked separately against the exact float32 inspection state.
+	if (actual is float or actual is int) and (expected is float or expected is int):
+		return absf(float(actual) - float(expected)) <= 1e-12
+	if actual is Dictionary and expected is Dictionary:
+		if actual.size() != expected.size():
+			return false
+		for key in expected:
+			if not actual.has(key) or not same_verified_snapshot(actual[key], expected[key]):
+				return false
+		return true
+	if actual is Array and expected is Array:
+		if actual.size() != expected.size():
+			return false
+		for index in expected.size():
+			if not same_verified_snapshot(actual[index], expected[index]):
+				return false
+		return true
+	return actual == expected
 
 
 func make_button(text: String, callback: Callable, parent: Node, hint: String = "") -> Button:
@@ -495,6 +599,13 @@ func build_interface() -> void:
 	palette.set_color("font_color", "Tree", Color("c8d6e3"))
 	palette.set_stylebox("panel", "ItemList", panel_style(Color("0e1926"), Color("263447")))
 	palette.set_color("font_color", "ItemList", Color("c8d6e3"))
+	palette.set_stylebox("panel", "PopupMenu", panel_style(Color("0e1926"), Color("6db9c2")))
+	palette.set_stylebox("hover", "PopupMenu", panel_style(Color("23394a"), Color("6db9c2"), 4))
+	palette.set_color("font_color", "PopupMenu", Color("e3edf5"))
+	palette.set_color("font_disabled_color", "PopupMenu", Color("758ca2"))
+	palette.set_color("font_hover_color", "PopupMenu", Color("e3edf5"))
+	palette.set_color("font_separator_color", "PopupMenu", Color("83cfc9"))
+	palette.set_constant("v_separation", "PopupMenu", 6)
 	palette.set_constant("v_separation", "Tree", 8)
 	palette.set_stylebox("normal", "LineEdit", panel_style(Color("172433"), Color("2b3c50")))
 	palette.set_color("font_color", "LineEdit", Color("e3edf5"))
@@ -537,6 +648,7 @@ func build_interface() -> void:
 	panels_menu = MenuButton.new()
 	panels_menu.text = "View"
 	panels_menu.flat = false
+	panels_menu.focus_mode = Control.FOCUS_ALL
 	panels_menu.custom_minimum_size.y = 38
 	panels_menu.tooltip_text = "Expand anatomy, choose its resolution, or show and hide side panels."
 	panels_menu.get_popup().add_check_item("Anatomy explorer", 0)
@@ -646,9 +758,13 @@ func build_interface() -> void:
 	container.gui_input.connect(on_scene_input)
 	container.focus_entered.connect(func():
 		frame.add_theme_stylebox_override("panel", panel_style(Color("0e1926"), Color("83d9d2")))
+		if expanded_feedback:
+			expanded_feedback.add_theme_stylebox_override("panel", panel_style(Color("0e1926"), Color("83d9d2")))
 		navigation_hint.text = "Opening reference… exploration controls resume when ready" if loading else "Arrows orbit · Shift-arrows pan · +/- zoom · F focus · Home body")
 	container.focus_exited.connect(func():
 		frame.remove_theme_stylebox_override("panel")
+		if expanded_feedback:
+			expanded_feedback.remove_theme_stylebox_override("panel")
 		navigation_hint.text = "Opening reference… exploration controls resume when ready" if loading else "Drag to orbit · Shift/right-drag to pan · Scroll/pinch to zoom")
 	container.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	container.size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -799,16 +915,65 @@ func build_interface() -> void:
 	expanded_scene.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	expanded_scene.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(expanded_scene)
+	var expanded_toolbar := HBoxContainer.new()
+	expanded_toolbar.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
+	expanded_toolbar.offset_left = 18
+	expanded_toolbar.offset_top = 12
+	expanded_toolbar.offset_right = -18
+	expanded_toolbar.add_theme_constant_override("separation", 12)
+	expanded_toolbar.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	expanded_scene.add_child(expanded_toolbar)
 	expanded_caption = make_label("Anatomy exploration · private prototype", 14, Color("b5c7d8"))
-	expanded_caption.position = Vector2(18, 18)
+	expanded_caption.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	expanded_caption.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	expanded_caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	expanded_scene.add_child(expanded_caption)
-	var exit_expanded := make_button("Return to workspace · Esc", func(): set_scene_expanded(false), expanded_scene)
-	exit_expanded.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT)
-	exit_expanded.offset_left = -270
-	exit_expanded.offset_top = 12
-	exit_expanded.offset_right = -18
-	exit_expanded.offset_bottom = 50
+	expanded_toolbar.add_child(expanded_caption)
+	expanded_menu = MenuButton.new()
+	expanded_menu.text = "Explore"
+	expanded_menu.flat = false
+	expanded_menu.focus_mode = Control.FOCUS_ALL
+	expanded_menu.custom_minimum_size = Vector2(100, 38)
+	expanded_menu.tooltip_text = "Labels, inspection, saved views, screenshots and rendering quality."
+	expanded_toolbar.add_child(expanded_menu)
+	var expanded_popup := expanded_menu.get_popup()
+	expanded_popup.add_item("Focus selection", ExpandedAction.FOCUS)
+	expanded_popup.add_item("Whole body", ExpandedAction.WHOLE_BODY)
+	expanded_popup.add_item("Inspect alone", ExpandedAction.INSPECT)
+	expanded_popup.add_item("Return to context", ExpandedAction.RETURN_CONTEXT)
+	expanded_popup.add_separator()
+	expanded_popup.add_check_item("Selection label", ExpandedAction.SELECTION_LABELS)
+	expanded_popup.add_check_item("Local part labels", ExpandedAction.LOCAL_LABELS)
+	expanded_popup.add_check_item("Move selected", ExpandedAction.MOVE)
+	expanded_popup.add_item("Undo inspection", ExpandedAction.UNDO)
+	expanded_popup.add_item("Redo inspection", ExpandedAction.REDO)
+	expanded_popup.add_separator()
+	expanded_popup.add_item("Saved views…", ExpandedAction.SAVED_VIEWS)
+	expanded_popup.add_item("Screenshot…", ExpandedAction.SCREENSHOT)
+	expanded_popup.add_item("Keyboard controls…", ExpandedAction.KEYBOARD_HELP)
+	expanded_popup.add_separator("3D resolution")
+	expanded_popup.add_radio_check_item("Native · sharpest", 100)
+	expanded_popup.add_radio_check_item("75% · balanced", 101)
+	expanded_popup.add_radio_check_item("50% · lower graphics load", 102)
+	expanded_menu.about_to_popup.connect(refresh_expanded_menu)
+	expanded_popup.id_pressed.connect(on_expanded_action)
+	make_button("Return to workspace · Esc", func(): set_scene_expanded(false), expanded_toolbar)
+	expanded_feedback = PanelContainer.new()
+	expanded_feedback.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
+	expanded_feedback.offset_left = 18
+	expanded_feedback.offset_top = -76
+	expanded_feedback.offset_right = -18
+	expanded_feedback.offset_bottom = -12
+	expanded_feedback.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	expanded_scene.add_child(expanded_feedback)
+	var feedback_lines := VBoxContainer.new()
+	feedback_lines.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	expanded_feedback.add_child(feedback_lines)
+	expanded_selection = make_label("", 14, Color("83cfc9"))
+	expanded_status = make_label("", 13, Color("b5c7d8"))
+	for line in [expanded_selection, expanded_status]:
+		line.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+		line.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		feedback_lines.add_child(line)
 	expanded_scene.visible = false
 	refresh_details()
 
@@ -1190,8 +1355,57 @@ func set_scene_resolution(fraction: float) -> void:
 	for i in 3:
 		var popup := panels_menu.get_popup()
 		popup.set_item_checked(popup.get_item_index(100 + i), fraction == [1.0, 0.75, 0.5][i])
+	refresh_expanded_menu()
 	# Rendering preferences stay separate from the saved anatomy/camera setup.
 	anatomy_labels.update_labels()
+
+
+func refresh_expanded_menu() -> void:
+	var popup := expanded_menu.get_popup()
+	var unavailable: bool = loading or model.body.is_empty()
+	var selected: bool = model.structures.has(model.selected_id)
+	for id in ExpandedAction.values():
+		popup.set_item_disabled(popup.get_item_index(id), unavailable)
+	popup.set_item_disabled(popup.get_item_index(ExpandedAction.KEYBOARD_HELP), false)
+	popup.set_item_disabled(popup.get_item_index(ExpandedAction.FOCUS), unavailable or not selected)
+	popup.set_item_disabled(popup.get_item_index(ExpandedAction.INSPECT), inspect_button.disabled)
+	popup.set_item_disabled(popup.get_item_index(ExpandedAction.RETURN_CONTEXT), unavailable or model.isolated_id.is_empty())
+	popup.set_item_disabled(popup.get_item_index(ExpandedAction.MOVE), move_button.disabled)
+	popup.set_item_disabled(popup.get_item_index(ExpandedAction.UNDO), undo_button.disabled)
+	popup.set_item_disabled(popup.get_item_index(ExpandedAction.REDO), redo_button.disabled)
+	popup.set_item_disabled(popup.get_item_index(ExpandedAction.SCREENSHOT), unavailable or capture_in_progress)
+	popup.set_item_checked(popup.get_item_index(ExpandedAction.SELECTION_LABELS), labels_button.button_pressed)
+	popup.set_item_checked(popup.get_item_index(ExpandedAction.LOCAL_LABELS), local_labels_button.button_pressed)
+	popup.set_item_checked(popup.get_item_index(ExpandedAction.MOVE), orbit.move_mode)
+	for i in 3:
+		popup.set_item_checked(popup.get_item_index(100 + i), scene_container.resolution_fraction == [1.0, 0.75, 0.5][i])
+
+
+func on_expanded_action(id: int) -> void:
+	# These routes reuse workspace actions and their state guards.
+	if id in [100, 101, 102]:
+		on_panel_action(id)
+	elif id == ExpandedAction.KEYBOARD_HELP:
+		on_panel_action(2)
+	elif not loading and not model.body.is_empty():
+		match id:
+			ExpandedAction.FOCUS: focus_selection()
+			ExpandedAction.WHOLE_BODY: whole_body()
+			ExpandedAction.INSPECT: inspect_alone()
+			ExpandedAction.RETURN_CONTEXT: return_to_context()
+			ExpandedAction.SELECTION_LABELS: labels_button.button_pressed = not labels_button.button_pressed
+			ExpandedAction.LOCAL_LABELS: local_labels_button.button_pressed = not local_labels_button.button_pressed
+			ExpandedAction.MOVE:
+				if not move_button.disabled:
+					move_button.button_pressed = not move_button.button_pressed
+					toggle_move()
+			ExpandedAction.UNDO: model.undo()
+			ExpandedAction.REDO: model.redo()
+			ExpandedAction.SAVED_VIEWS: show_saved_views()
+			ExpandedAction.SCREENSHOT: export_screenshot()
+	refresh_expanded_menu()
+	if id not in [ExpandedAction.SAVED_VIEWS, ExpandedAction.SCREENSHOT, ExpandedAction.KEYBOARD_HELP]:
+		scene_container.grab_focus()
 
 
 func on_scene_display_changed() -> void:
@@ -1217,6 +1431,7 @@ func set_scene_expanded(enabled: bool) -> void:
 		workspace.visible = true
 		expanded_scene.visible = false
 	panels_menu.get_popup().set_item_checked(panels_menu.get_popup().get_item_index(3), enabled)
+	refresh_expanded_menu()
 	scene_container.grab_focus()
 
 
@@ -1285,8 +1500,7 @@ func refresh_details() -> void:
 	if move_button:
 		move_button.disabled = not selected or loading
 		if not selected:
-			move_button.button_pressed = false
-			orbit.move_mode = false
+			leave_move_mode()
 	if undo_button:
 		undo_button.disabled = model.undo_stack.is_empty() or loading
 	if redo_button:
@@ -1333,9 +1547,12 @@ func copy_source_record() -> void:
 
 
 func leave_move_mode() -> void:
+	var was_moving: bool = orbit.move_mode
 	move_button.button_pressed = false
 	orbit.move_mode = false
 	orbit.cancel_drag()
+	if was_moving:
+		status.text = "Drag to orbit · click to select"
 
 
 func inspect_alone() -> void:
@@ -1448,6 +1665,10 @@ func _process(_delta: float) -> void:
 		status.tooltip_text = status.text
 	if scene_expanded:
 		expanded_caption.text = loading_stage.text if loading else str(model.body.get("short_label", model.body.get("label", "Anatomy"))) + " · private prototype"
+		expanded_selection.text = heading.text + (" · Inspecting alone" if not model.isolated_id.is_empty() else "") + (" · MOVE MODE" if orbit.move_mode else "")
+		expanded_selection.tooltip_text = expanded_selection.text
+		expanded_status.text = status.text
+		expanded_status.tooltip_text = status.text
 
 
 func capture_image() -> Image:

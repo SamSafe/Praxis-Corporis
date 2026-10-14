@@ -150,7 +150,7 @@ implementation. Local commits preserve progress; no remote publication is implie
 | Male/female coverage | Two HRA v1.1 samples inventoried; substantial system gaps remain. | Supplement missing anatomy and validate actual coverage/interiors. |
 | Exterior and deeper layers | Skin reveal and chest selection work in the prototype; complete layers absent. | Enrich both bodies and validate the complete journey. |
 | Engine suitability | Godot 4.7.2 passes initial import, picking, movement, restore and saved-view trials. | Complete clipping, renderer/device benchmarks, accessibility and platform exports. |
-| Baseline hardware | One Windows AMD host has validated repeated one-minute observations; low-resolution 3D buffers, mostly unfocused and no acceptance matrix. | Repeat foreground trials at the intended 3D resolution and test a representative Mac. |
+| Baseline hardware | One Windows AMD host passes the proposed 30-FPS baseline for eight measured scenes: 24 focused one-minute samples at an actual 1920 × 1080 3D buffer. No representative-device matrix. | Test representative Windows/Mac devices and remaining workloads; retain single-host and loading-pause limits. |
 | Pathway content | Grouping is not verified connectivity. | Source/author and review explicit routes. |
 | Medical review | No access. | Arrange review before the planned public content release. |
 | Application licence | Undecided; private prototype code now exists. | Decide before implementation distribution. |

@@ -113,15 +113,17 @@ on AMD Radeon graphics, with both chest captures inspected. The later [loading c
 frames and failed-replacement preservation in the rebuilt Windows package. The latest [study-note check](audit/windows-study-notes-qa.json) also verifies the
 rendered note editor and reopened text for every reference. The subsequent
 [source-search check](audit/windows-source-search-qa.json) passed on the native AMD
-host through the repository verifier, including both HRA valves and the source femur. Human mouse/trackpad,
-sustained performance and Mac device trials remain open.
+host through the repository verifier, including both HRA valves and the source femur.
+Human mouse/trackpad and Mac device trials remain open. Subsequent display-pixel
+checks and the [focused full-HD trial](audit/WINDOWS_FULLHD_PROFILE.md) establish
+full-resolution rendering for the measured eight scenes on this Windows host only.
 The retained [build report](audit/native-build-report.json) includes a source-snapshot
 revision verified against its recorded file hashes.
-The current grouped-picking packages passed the same actual Windows rendered
+The earlier grouped-picking packages passed the same actual Windows rendered
 workflows with [retained captures](audit/windows-grouped-selection-viewer-qa.json).
 Their matched loading diagnostic is documented in the
-[loading comparison](audit/LOADING_OPTIMIZATION.md); full-resolution sustained and
-Mac hardware acceptance remain open.
+[loading comparison](audit/LOADING_OPTIMIZATION.md). Representative Windows/Mac
+hardware and additional workload acceptance remain open.
 
 The first target-device trial should exercise both bodies, skin reveal, chest
 selection, local labels and label clicks, Back/Forward, orbit/pan/zoom, movement,
@@ -130,8 +132,9 @@ undo/redo, restoration, and save/reopen. Confirm that
 navigation preserves moved/hidden parts and that covered components stay available
 in the tree. Record OS, machine, graphics device, loading times and failures.
 Save and reopen an isolated part and confirm that its Return to context action works.
-Trackpad gestures, smaller displays, larger text and sustained frame rate remain
-unverified on target hardware. No testers have been contacted and no archives have
+Trackpad gestures, larger text and human usability remain unverified on target
+hardware. Scripted checks include compact layouts and repeated full-resolution
+Windows frame cadence; they do not supply that human evidence. No testers have been contacted and no archives have
 been published.
 
 [PRIVATE_TRIAL_GUIDE.md](PRIVATE_TRIAL_GUIDE.md) provides concrete tasks and a local
@@ -184,7 +187,11 @@ exercises the same offline inspection/saved-view checks and saves native-chest-f
 native-chest-male.png and (when included) native-bones-bodyparts-male-bones-study.png
 to user://, then exits. It also writes native-export-<reference>.png,
 exercising the screenshot composer/writer with embedded source/status credits. These
-scripted checks also save native-study-notes-<reference>.png after editing, saving
+scripted checks also save native-expanded-<reference>.png, native-expanded-menu-<reference>.png
+and native-expanded-export-<reference>.png. Expanded controls toggle labels/quality
+and save/reopen/restore through the local browser with fresh temporary filenames;
+the credited expanded export uses the same screenshot composer/writer.
+The checks save native-study-notes-<reference>.png after editing, saving
 and reopening notes through the local editor, alongside native-loading-<reference>.png while retaining the prior
 scene during a deliberately rejected replacement. They do not operate the native OS file picker; that remains a human trial.
 Use a dedicated test user-data directory: repeated runs replace these developer
