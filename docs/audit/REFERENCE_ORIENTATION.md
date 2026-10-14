@@ -22,6 +22,8 @@ python3 tools/audit_orientation.py
 `--write` regenerates both the measurements and
 [runtime reference frames](../../content/reference_frames.json). A changed source
 fingerprint requires a fresh audit before orientation is offered.
+Use `--client-date YYYY-MM-DD` with `--write` when the executing machine's local
+date differs from the client's date. Retained measurements keep their original date.
 
 BodyParts3D's official [coordinate diagram](https://dbarchive.biosciencedbc.jp/data/bodyparts3d/20130619/coordinate_system.png)
 places its original left, posterior and superior directions along positive X, Y

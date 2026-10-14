@@ -1,0 +1,70 @@
+{
+  "source_revision": "0f5997e82c597cf62a846c80e4a0864734536eca",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "result": "passed development functional checks",
+  "scope": [
+    "36 Python checks",
+    "All six source-frame camera views around moved/isolated real anatomy in all three references, in both workspace modes at Native and 50%",
+    "Focus/distance, selection, isolation, edits and undo preserved; camera history, loading guard and keyboard popup dismissal checked",
+    "Invalid source fingerprints, reflected/nonunit/nonfinite/missing axes rejected; real label pills avoid orientation controls",
+    "Existing display picking, density changes, expanded actions and saved-view recovery pass",
+    "Both exported Linux workflows and Mac embedded-content/boundary checks pass with orientation metadata"
+  ],
+  "evidence": {
+    "orientation-smoke-final.log.txt": {
+      "file": "orientation-smoke-final.log.txt",
+      "sha256": "5801aba73ffc12593501ddee6fdc4b8429fad03a343f033b3e5761d39c43227d"
+    },
+    "orientation-rendered-final.log.txt": {
+      "file": "orientation-rendered-final.log.txt",
+      "sha256": "7752d4b774efb7b9cda1ee2522bfedb6cb92e1d216c2be2c5a05e07134c2011c"
+    },
+    "orientation-display-regression.log.txt": {
+      "file": "orientation-display-regression.log.txt",
+      "sha256": "32760d415e733443ca49bc686acd3692f95e1d6f8bfbc9e86fc475e701ec74eb"
+    },
+    "orientation-python.log.txt": {
+      "file": "orientation-python.log.txt",
+      "sha256": "a1501e8b313f6f2016c67a2df5e795c21d67dd4ee9ebbb09deba02091b0a4a6b"
+    },
+    "orientation-native-build.log.txt": {
+      "file": "orientation-native-build.log.txt",
+      "sha256": "52fb501775e493d41bb1f0b7c94633ce08609d1f0c10eea888f0ff46d4bae70d"
+    },
+    "orientation-compact-female.png": {
+      "file": "../prototype/orientation-compact-female.png",
+      "sha256": "2a791aa71a14633af68b0e67d46b5dd912a33ef478174d459bfc86c9f22e1bd1"
+    },
+    "orientation-compact-menu-female.png": {
+      "file": "../prototype/orientation-compact-menu-female.png",
+      "sha256": "4b1f8a0e1bcbc1af231bac249759a2fc1e8d7463ad1db303b13a6a1aae416122"
+    },
+    "orientation-compact-male.png": {
+      "file": "../prototype/orientation-compact-male.png",
+      "sha256": "6887201268bf619297a513972e783ed08cf0323d9e083ecca72692c284b6bbe3"
+    },
+    "orientation-compact-menu-male.png": {
+      "file": "../prototype/orientation-compact-menu-male.png",
+      "sha256": "bf9bfd24f21d066141b9e5b43f0a126164df6e08bec7f74daff35e02287e678f"
+    },
+    "orientation-compact-bodyparts-male-bones-study.png": {
+      "file": "../prototype/orientation-compact-bodyparts-male-bones-study.png",
+      "sha256": "ff4c1b276fe1385abb23f74cf094e5b32ee2c225850f14c26306e38a63ae4451"
+    },
+    "orientation-compact-menu-bodyparts-male-bones-study.png": {
+      "file": "../prototype/orientation-compact-menu-bodyparts-male-bones-study.png",
+      "sha256": "1e0ce435aaed97b7cd089f5a5ea486eb8a141a27cd5f1dfaa1c95d6a73bd539b"
+    }
+  },
+  "visual_review": {
+    "images_inspected": 6,
+    "client_date": "2026-10-13",
+    "scope": "Compact direction cues and camera menus; no medical review"
+  },
+  "limits": [
+    "Scripted actions; no human input or accessibility acceptance.",
+    "Mesa llvmpipe development rendering; load times are not native performance evidence.",
+    "Rendered orientation run overlapped a headless functional test initially; background and caches uncontrolled.",
+    "The headless geometry run preceded the final test-only changes to skip redundant same-body reloads and capture unobscured cues; the final rendered run includes those changes."
+  ]
+}

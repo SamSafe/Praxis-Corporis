@@ -1,6 +1,6 @@
 # Planning Status
 
-Updated: 2026-10-13, using the America/Edmonton client date.
+Updated: 2026-10-14, using the America/Edmonton client date.
 
 Planning established the product direction, and the user authorised the first
 private feasibility prototype. Both pinned HRA samples have been downloaded,
@@ -79,7 +79,7 @@ held focus; average frame cadence ranged from 59.5 to 59.9 FPS. It meets the pro
 30-FPS baseline for the eight measured workloads on this host. Representative devices,
 Mac execution, additional workloads, human input and medical review remain open.
 [Full-resolution results](audit/WINDOWS_FULLHD_PROFILE.md).
-Current archives use `33071c1`. Expanded Explore keeps labels, inspection/return,
+The expanded-control archives use `33071c1`. Expanded Explore keeps labels, inspection/return,
 explicit Move and Undo/Redo, saved views, credited screenshots, keyboard help and
 quality controls available. Selection and action feedback remain visible; keyboard
 menus and loading guards are checked. Both packages pass offline/content and archive
@@ -87,6 +87,14 @@ audits. Native Windows workflows pass for all three references, with all 24 capt
 inspected, alongside two compact development captures. The prior sustained profile
 remains bound to `ae60019`; human input and actual Mac trials remain open.
 [Expanded controls and package evidence](audit/EXPANDED_CONTROLS_VERIFICATION.md).
+Current archives use `cc705b8`. Camera views and a persistent body-direction cue
+use fingerprint-matched source frames corroborated by 23 landmark comparisons.
+Six presets preserve focus/distance, isolation, anatomy edits and undo; history,
+keyboard menus, loading guards, invalid frames and label clearance are checked.
+Thirty-six Python checks pass. Both packages pass offline/content and archive audits;
+native Windows workflows pass for all three references, with all 27 captures inspected.
+Six compact development captures were also inspected. Actual Mac, human input,
+medical review and broader content remain open. [Orientation evidence](audit/ORIENTATION_VERIFICATION.md).
 The workspace now has a focused keyboard camera route and independently collapsible
 side panels. Camera keys preserve inspection data; search and tree arrows retain their
 own behaviour. Teal focus rendering, compact layout and source picking after collapse

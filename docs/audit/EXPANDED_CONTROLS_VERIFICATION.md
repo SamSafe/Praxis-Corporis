@@ -23,7 +23,7 @@ returning to the workspace. Loading guards preserve the existing anatomy.
 | Exported offline runtime | All three references pass in the isolated Linux QA executable, including missing-content handling. The Mac embedded pack passes content and resource-boundary checks on the development engine. These checks do not execute macOS. |
 | Actual Windows rendering | The rebuilt Windows release passes the new controls, resolution/display checks and existing search, notes, keyboard, inspection, failed-replacement preservation and credited exports for female, male and the separate bone study. [Native record](windows-expanded-controls-viewer-qa.json), [runtime log](windows-expanded-controls-viewer-runtime.log.txt). |
 | Native visual review | All 24 recorded Windows captures were inspected, including three expanded menus and three expanded credited exports. Review covers interface/geometry display, not medical accuracy. |
-| Package identity | ZIP CRCs, architectures, retained notices, anatomy fingerprint and all recorded runtime hashes match the committed snapshot. [Build report](native-build-report.json), [independent artifact audit](native-artifact-audit.json). |
+| Package identity | ZIP CRCs, architectures, retained notices, anatomy fingerprint and all recorded runtime hashes match the committed snapshot. [Build report](windows-expanded-controls-build-report.json), [independent artifact audit](windows-expanded-controls-artifact-audit.json). |
 
 The Windows run uses native AMD Radeon graphics, OpenGL 3.3 Compatibility.
 Its generated APPDATA/LOCALAPPDATA directory was isolated and removed after success;
@@ -39,7 +39,7 @@ composer/writer; human native-picker acceptance remains open.
 - [Bone-study expanded export](../prototype/windows-expanded-controls-native-expanded-export-bodyparts-male-bones-study.png)
 - [Compact menu](../prototype/expanded-controls-compact-menu.png) and [compact export](../prototype/expanded-controls-compact-export.png)
 
-## Current packages
+## Recorded packages
 
 | Archive | Bytes | SHA-256 |
 |---|---:|---|

@@ -6,7 +6,7 @@ exploration journeys and source coverage alongside engineering checks.
 
 | Next work | Concrete outcome | Dependencies and acceptance |
 |---|---|---|
-| Source orientation and camera views | Persistent body-direction cue and repeatable front/back/side/angled views around the current focus. | Fingerprint-matched source directions; preserve selection, anatomy edits, isolation and camera history. Implementation underway; source measurements are retained in [the audit](audit/REFERENCE_ORIENTATION.md). |
+| Source orientation and camera views | Implemented: persistent direction cue and six camera presets around the current focus. | Source/geometry and native Windows checks pass; [verification](audit/ORIENTATION_VERIFICATION.md). Human understanding and actual Mac trials remain open. |
 | Part-level action menu | Reach supported inspection, label, visibility, Move and restoration actions beside a selected part in either workspace mode. | Reuse existing actions; keep menus within the window, preserve selection on dismissal and avoid intercepting navigation drags. |
 | Portable saved views | Export/import named views and optional notes between local installations. | Preview reference/version compatibility, handle duplicates and invalid data, preserve the existing library on failure. No account or upload service required. |
 | Progressive anatomy coverage | Admit additional clearly identified source geometry with explicit body/region coverage. | Source hashes, licences, coordinate evidence, exact geometry/picking, provenance and recoverable loading. [Spinal candidates](audit/HRA_SPINAL_CANDIDATES.md) still need admission decisions and unresolved source-identity handling. |

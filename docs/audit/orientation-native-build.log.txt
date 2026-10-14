@@ -1,0 +1,67 @@
+Packing prepared anatomy…
+Anatomy package complete: /home/king-/projects/3d_medicine_viewer/dist/native-build-sx9nns16/anatomy.pck
+Exporting and checking the Linux QA runtime…
+PASS private export resource boundary
+PASS interface frames while loading: female · 190
+PASS bundled local saved view and study notes: female
+PASS failed replacement preserves exploration: female
+PASS bundled keyboard workspace: female
+PASS bundled source search: female
+PASS bundled expanded controls: female
+PASS bundled orientation: female
+PASS bundled scene display: female
+PASS bundled reference: female · 801 meshes
+PASS interface frames while loading: male · 190
+PASS bundled local saved view and study notes: male
+PASS failed replacement preserves exploration: male
+PASS bundled keyboard workspace: male
+PASS bundled source search: male
+PASS bundled expanded controls: male
+PASS bundled orientation: male
+PASS bundled scene display: male
+PASS bundled reference: male · 788 meshes
+PASS interface frames while loading: bodyparts-male-bones-study · 33
+PASS bundled local saved view and study notes: bodyparts-male-bones-study
+PASS failed replacement preserves exploration: bodyparts-male-bones-study
+PASS bundled keyboard workspace: bodyparts-male-bones-study
+PASS bundled source search: bodyparts-male-bones-study
+PASS bundled expanded controls: bodyparts-male-bones-study
+PASS bundled orientation: bodyparts-male-bones-study
+PASS bundled scene display: bodyparts-male-bones-study
+PASS bundled reference: bodyparts-male-bones-study · 203 meshes
+PASS offline native bundle
+Exporting windows…
+Built /home/king-/projects/3d_medicine_viewer/dist/PraxisCorporis-Windows-x64-private.zip
+Exporting macos…
+Checking the embedded Mac content using the development engine…
+PASS standalone packed resource boundary
+PASS private export resource boundary
+PASS interface frames while loading: female · 293
+PASS bundled local saved view and study notes: female
+PASS failed replacement preserves exploration: female
+PASS bundled keyboard workspace: female
+PASS bundled source search: female
+PASS bundled expanded controls: female
+PASS bundled orientation: female
+PASS bundled scene display: female
+PASS bundled reference: female · 801 meshes
+PASS interface frames while loading: male · 326
+PASS bundled local saved view and study notes: male
+PASS failed replacement preserves exploration: male
+PASS bundled keyboard workspace: male
+PASS bundled source search: male
+PASS bundled expanded controls: male
+PASS bundled orientation: male
+PASS bundled scene display: male
+PASS bundled reference: male · 788 meshes
+PASS interface frames while loading: bodyparts-male-bones-study · 58
+PASS bundled local saved view and study notes: bodyparts-male-bones-study
+PASS failed replacement preserves exploration: bodyparts-male-bones-study
+PASS bundled keyboard workspace: bodyparts-male-bones-study
+PASS bundled source search: bodyparts-male-bones-study
+PASS bundled expanded controls: bodyparts-male-bones-study
+PASS bundled orientation: bodyparts-male-bones-study
+PASS bundled scene display: bodyparts-male-bones-study
+PASS bundled reference: bodyparts-male-bones-study · 203 meshes
+PASS offline native bundle
+Built /home/king-/projects/3d_medicine_viewer/dist/PraxisCorporis-macOS-universal-private.zip

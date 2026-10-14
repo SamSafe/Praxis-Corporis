@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "recorded_at_utc": "2026-10-14T04:52:20.834612+00:00",
-  "source_snapshot_verified_against_revision": "33071c11a3e5d7017a61f9f68003917810e5717e",
-  "runtime_source_files": 24,
-  "auditor_sha256": "6f056c408035fc75b01ea5602d91e52af9599d83589806cf6a1d75139b67a942",
+  "recorded_at_utc": "2026-10-14T05:57:25.773168+00:00",
+  "source_snapshot_verified_against_revision": "cc705b82e65de49bf3418d8403c2d0a05990ff87",
+  "runtime_source_files": 26,
+  "auditor_sha256": "beb432ecf6e4f9f0ae93a70e75cafe37a069babd6613ed50714365ba0d35cf80",
   "artifacts": [
     {
       "file": "PraxisCorporis-Windows-x64-private.zip",
-      "bytes": 290843994,
-      "sha256": "f54ff9ff2b46e86b07d07a3c91a867d0a5c813c58645a4c249acecf7189d3613",
+      "bytes": 290849928,
+      "sha256": "1c2e8e2bb2dcba5c839b6fed35f961fee32fab23152eab6a27223543f37674a8",
       "architectures": [
         "x86_64"
       ],
@@ -18,8 +18,8 @@
     },
     {
       "file": "PraxisCorporis-macOS-universal-private.zip",
-      "bytes": 313289134,
-      "sha256": "561c921b910fa6454bbd0897316af5328c167f38f537d3ff5c46fd2b161581c4",
+      "bytes": 313296087,
+      "sha256": "5440d1239fb9b7a9c2711de6da6bd42c567eacee044a70011a73f4dd7a6f909b",
       "architectures": [
         "x86_64",
         "arm64"

@@ -6,7 +6,7 @@ A desktop anatomy explorer for aspiring doctors and medical students. Reveal bod
 layers, select and label structures, move parts aside, inspect internal anatomy,
 follow connections, and explore related diseases within one continuous body scene.
 
-**Status: private Godot feasibility prototype, 2026-10-13.**
+**Status: private Godot feasibility prototype, 2026-10-14.**
 The user authorised work after the planning/documentation stage. Both reference
 samples are imported; coverage is partial and anatomical review is pending.
 [Prototype guide](docs/PROTOTYPE.md) explains setup, controls, checks and limitations.
@@ -57,6 +57,8 @@ hide/fade controls, inspection movement with original-position overlays, restora
 undo/redo and local saved views with personal study notes.
 Local part labels have clickable surface leaders and controlled density;
 Back/Forward restores selection and camera views while preserving inspection changes.
+Camera views provides six source-backed orientations around the current focus,
+with a persistent direction cue and body-side labels.
 Inspect alone temporarily reveals supplied components; Return to context restores
 the prior body view while preserving inspection edits.
 Coverage compares supplied source groups across both references and states their gaps.

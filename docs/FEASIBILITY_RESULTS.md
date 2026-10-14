@@ -724,7 +724,7 @@ gate was changed by the rendering result.
 
 ## Controls retained in expanded anatomy
 
-The current `33071c1` packages add Explore in the expanded view, keeping labels,
+The `33071c1` expanded-control packages add Explore in the expanded view, keeping labels,
 inspection/return, explicit Move and Undo/Redo, saved views, credited screenshots,
 keyboard help and rendering quality available while the side panels are away.
 Selection, inspection/Move mode and action feedback remain visible. View and Explore
@@ -741,3 +741,25 @@ were also inspected. [Expanded-control evidence](audit/EXPANDED_CONTROLS_VERIFIC
 The previous full-HD sustained profile stays bound to `ae60019`; this menu change has
 no new sustained-performance claim. Actual Mac execution, human input, accessibility,
 coverage expansion and qualified medical review remain open.
+
+## Source direction cues and camera presets
+
+The current `cc705b8` packages add a persistent camera-relative direction cue and
+six named views around the current focus. Left/right refer to the body's sides.
+The metadata matches exact reference fingerprints and is corroborated by 23 actual
+source-vertex landmark comparisons; unsupported frames disable the controls.
+Preset changes retain distance, focus, selection, isolation, anatomy edits and undo,
+and provide camera history. Label pills avoid the orientation controls.
+
+Thirty-six Python checks, real-source orientation tests and existing display/picking
+regressions pass. Six compact captures were inspected. Both packages pass exported
+offline/content and archive/source checks; actual Windows workflows pass for every
+reference and all six presets. All 27 native captures were inspected. Visual review
+caught stale developer-verifier feedback after camera restoration; it was corrected
+before recording the final captures. [Retained orientation evidence](audit/ORIENTATION_VERIFICATION.md).
+
+The preceding full-HD profile retains its original `ae60019` identity; this change
+has no new sustained-performance claim. These checks do not supply medical review,
+inter-body registration, human usability, accessibility or actual Mac execution.
+[Implementation backlog](IMPLEMENTATION_BACKLOG.md) identifies substantial remaining
+work that can proceed alongside those external acceptance trials.

@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import datetime
 import hashlib
 import json
 import math
@@ -103,13 +104,15 @@ def audit_reference(reference: dict, root: pathlib.Path = ROOT) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--write', action='store_true', help='Write audited runtime metadata and retained measurements')
+    parser.add_argument('--client-date', type=datetime.date.fromisoformat, default=datetime.date.today(),
+                        help='Client-local audit date (YYYY-MM-DD); defaults to the executing machine date')
     args = parser.parse_args()
     references = json.loads((ROOT / 'content/sample_pack.json').read_text())['bodies']
     references.append(json.loads((ROOT / 'content/bodyparts3d_bone_study.json').read_text()))
     results = {reference['id']: audit_reference(reference) for reference in references}
     runtime = {'schema_version': 1, 'review_status': 'source geometry checked; medical review pending',
                'references': {key: {field: value for field, value in record.items() if field in ['source_sha256', 'left', 'superior', 'anterior']} for key, record in results.items()}}
-    audit = {'schema_version': 1, 'client_date': '2026-10-13', 'method': 'AABB centres computed from actual float32 POSITION vertices; signed source-labelled landmark differences exceed 5 mm.',
+    audit = {'schema_version': 1, 'client_date': args.client_date.isoformat(), 'method': 'AABB centres computed from actual float32 POSITION vertices; signed source-labelled landmark differences exceed 5 mm.',
              'references': results, 'limits': 'Technical direction corroboration only; no medical review, inter-body registration or completeness claim.',
              'bodyparts3d_coordinate_diagram': {'url': 'https://dbarchive.biosciencedbc.jp/data/bodyparts3d/20130619/coordinate_system.png',
                  'sha256': '338736275c11eac8c89531fdc14193c9a8adf5baab674033d9d89259f152a5f6',
