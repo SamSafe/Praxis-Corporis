@@ -16,8 +16,8 @@ from build_native import binary_architectures, sha256, unpack_zip
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 MARKERS = ["bundled local saved view and study notes", "failed replacement preserves exploration",
-           "bundled keyboard workspace", "bundled source search", "bundled scene display", "bundled expanded controls"]
-RENDERED_MARKERS = ["native rendered study notes", "native credited screenshot", "native rendered reference", "native expanded anatomy", "native expanded screenshot"]
+           "bundled keyboard workspace", "bundled source search", "bundled scene display", "bundled expanded controls", "bundled orientation"]
+RENDERED_MARKERS = ["native rendered study notes", "native credited screenshot", "native rendered reference", "native expanded anatomy", "native expanded screenshot", "native orientation"]
 
 
 def ps_literal(value: str) -> str:
@@ -154,6 +154,7 @@ def captures(folder: pathlib.Path, output: pathlib.Path, references: dict) -> di
     for reference in references:
         for prefix in ["native-search", "native-study-notes", "native-loading", "native-export", "native-expanded",
                        "native-expanded-export", "native-expanded-menu",
+                       "native-orientation",
                        "native-chest" if reference in ["female", "male"] else "native-bones"]:
             name = f"{prefix}-{reference}.png"
             path = source / name

@@ -87,6 +87,19 @@ class NativeAuditTests(unittest.TestCase):
             (repository / 'project.godot').write_text('Later uncommitted edit')
             self.assertEqual(source_snapshot(report, repository), report['source_revision'])
 
+    def test_orientation_metadata_is_required_for_snapshots_that_contain_it(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            repository, _, _, report, _ = fixture(pathlib.Path(temporary))
+            path = repository / 'content/reference_frames.json'
+            path.write_text('Fixture orientation metadata')
+            subprocess.run(['git', 'add', str(path)], cwd=repository, check=True)
+            subprocess.run(['git', '-c', 'user.name=Archive Fixture', '-c', 'user.email=fixture@invalid', 'commit', '-qm', 'Orientation fixture'], cwd=repository, check=True)
+            report['source_revision'] = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=repository, text=True).strip()
+            with self.assertRaisesRegex(ValueError, 'required runtime files'):
+                source_snapshot(report, repository)
+            report['source_hashes']['content/reference_frames.json'] = sha256(path)
+            self.assertEqual(source_snapshot(report, repository), report['source_revision'])
+
     def test_matching_hashes_do_not_hide_changed_notices_or_anatomy(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = pathlib.Path(temporary)

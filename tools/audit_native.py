@@ -39,7 +39,10 @@ def source_snapshot(report: dict, repository: pathlib.Path = ROOT) -> str:
     tracked = subprocess.check_output(['git', 'ls-tree', '-r', '--name-only', revision], cwd=repository,
                                       text=True, stderr=subprocess.PIPE, timeout=15).splitlines()
     scripts = {p for p in tracked if re.fullmatch(r'scripts/[^/]+\.gd', p)}
-    if not scripts or set(report['source_hashes']) != FIXED_SOURCES | scripts:
+    # Earlier recorded snapshots predate orientation metadata; require it when
+    # present in that commit without silently redefining historical packages.
+    additional = {'content/reference_frames.json'} if 'content/reference_frames.json' in tracked else set()
+    if not scripts or set(report['source_hashes']) != FIXED_SOURCES | scripts | additional:
         raise ValueError('Source snapshot omits or changes the set of required runtime files')
     for relative, expected in report['source_hashes'].items():
         if hashlib.sha256(git_bytes(repository, revision, relative)).hexdigest() != expected:

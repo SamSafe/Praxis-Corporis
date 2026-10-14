@@ -121,6 +121,7 @@ def add_notices(folder: pathlib.Path, platform: str) -> None:
         "Expanded Explore keeps labels, inspection, Move/Undo/Redo, saved views and Screenshot available.\n"
         "Tab focuses View or Explore; Enter opens its menu and Escape closes it before returning.\n"
         "View selects Native, 75% or 50% 3D resolution; geometry and UI labels remain intact.\n"
+        "Camera views rotates around the current focus; the direction cue uses the body's left/right sides.\n"
         "Screenshot saves a PNG of the workspace with source credits and prototype status inside the image.\n"
         "Enable Local part labels to identify exposed supplied parts; click a label to focus.\n"
         "Inspect alone temporarily reveals selected geometry; choose supplied parts in the panel.\n"
@@ -154,6 +155,7 @@ def build(args: argparse.Namespace) -> dict:
                                [ROOT / "project.godot", ROOT / "export_presets.cfg", ROOT / "content/sample_pack.json",
                                 ROOT / "content/source_manifest.json", ROOT / "content/toolchain_manifest.json",
                                 ROOT / "content/coverage_notes.json",
+                                ROOT / "content/reference_frames.json",
                                 ROOT / "content/bodyparts3d_bone_study.json", ROOT / "content/bodyparts3d_source_manifest.json",
                                 ROOT / "addons/private_native_export/plugin.gd",
                                 *sorted((ROOT / "scripts").glob("*.gd"))]}

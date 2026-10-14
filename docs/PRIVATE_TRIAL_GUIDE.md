@@ -27,6 +27,7 @@ restarting. Repeat the HRA tasks for both female and male references.
 | Switch references | Watch the loading steps; wait for the new body before manipulating it. | Did the progress update, and was there a noticeable pause? |
 | Identify the current reference | Recognise its body/source and that coverage is partial. | What did you assume was included? |
 | Explore the body | Orbit, pan and zoom using the available input device. | Any jump, accidental selection or lost orientation? |
+| Recover orientation | Choose Camera views > Front, Back and From body left/right. Read the direction cue, then use Back. Try this with an isolated or moved part. | Is it clear that left/right belong to the body? Did camera rotation preserve your focus and anatomy edits? |
 | Reveal and select the heart | Peel skin or use Show chest; selection focuses on its actual body position. | Is surrounding context useful? |
 | Find a source ID | Search UBERON0002135 in HRA or FMA24474 in the bone study; press Enter. Check repeated names such as Dura mater. | Are source names readable and distinct? |
 | Copy a source record | Copy the selected source record and paste it into a local text editor. | Are the reference, ID, coverage and review status clear? |

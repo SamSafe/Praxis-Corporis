@@ -12,6 +12,7 @@ const ViewCapture = preload("res://scripts/view_capture.gd")
 const AnatomySearch = preload("res://scripts/anatomy_search.gd")
 const SourceRecord = preload("res://scripts/source_record.gd")
 const SceneSurface = preload("res://scripts/scene_surface.gd")
+const ReferenceOrientation = preload("res://scripts/reference_orientation.gd")
 enum ExpandedAction { FOCUS, WHOLE_BODY, INSPECT, RETURN_CONTEXT, SELECTION_LABELS,
 	LOCAL_LABELS, MOVE, UNDO, REDO, SAVED_VIEWS, SCREENSHOT, KEYBOARD_HELP }
 var save_path := "user://saved_view.json"
@@ -73,6 +74,7 @@ var loading_bar: ProgressBar
 var load_frame_count := 0
 var syncing_tree := false
 var scene_container: SceneSurface
+var orientation: ReferenceOrientation
 var scene_frame: PanelContainer
 var workspace: Control
 var expanded_scene: Control
@@ -449,6 +451,7 @@ func verify_scene_display(rendered: bool) -> bool:
 	valid = valid and viewport.size == get_window().size and scene_container.displayed_pixels == get_window().size
 	valid = valid and export_view_state() == before and model.source_scene == source_scene
 	valid = valid and await verify_expanded_actions()
+	valid = valid and await verify_orientation(rendered)
 	if rendered and valid:
 		await RenderingServer.frame_post_draw
 		var image := viewport.get_texture().get_image()
@@ -560,6 +563,33 @@ func same_verified_snapshot(actual: Variant, expected: Variant) -> bool:
 				return false
 		return true
 	return actual == expected
+
+
+func verify_orientation(rendered: bool) -> bool:
+	var before := export_view_state()
+	var undo: Array = model.undo_stack.duplicate(true)
+	orientation.refresh_reference()
+	if orientation.frame.is_empty():
+		return false
+	for index in ReferenceOrientation.VIEW_NAMES.size():
+		orientation.menu.get_popup().id_pressed.emit(index)
+		var direction: Vector3 = (orbit.camera.position - orbit.target).normalized()
+		var expected := ReferenceOrientation.view_direction(orientation.frame, index)
+		if not direction.is_equal_approx(expected) or orbit.distance != before.camera.distance or model.export_state() != before.changes or model.undo_stack != undo or model.selected_id != before.selection or model.isolated_id != before.isolation:
+			return false
+		if rendered and index == 2:
+			await get_tree().physics_frame
+			await get_tree().physics_frame
+			anatomy_labels.update_labels()
+			await RenderingServer.frame_post_draw
+			if get_viewport().get_texture().get_image().save_png("user://native-orientation-%s.png" % str(model.body.id)) != OK:
+				return false
+			print("PASS native orientation: ", model.body.id)
+	apply_view(before)
+	if export_view_state() != before:
+		return false
+	print("PASS bundled orientation: ", model.body.id)
+	return true
 
 
 func make_button(text: String, callback: Callable, parent: Node, hint: String = "") -> Button:
@@ -815,6 +845,12 @@ func build_interface() -> void:
 	# Match the SubViewport's content rectangle, including the panel's margins.
 	container.add_child(anatomy_labels)
 	anatomy_labels.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	orientation = ReferenceOrientation.new()
+	orientation.model = model
+	orientation.orbit = orbit
+	orientation.view_requested.connect(orient_camera)
+	container.add_child(orientation)
+	anatomy_labels.exclusion_controls.append(orientation)
 	navigation_hint = make_label("Drag to orbit · Shift/right-drag to pan · Scroll/pinch to zoom", 13, Color("7891a7"))
 	navigation_hint.tooltip_text = container.tooltip_text
 	center.add_child(navigation_hint)
@@ -1360,6 +1396,24 @@ func set_scene_resolution(fraction: float) -> void:
 	anatomy_labels.update_labels()
 
 
+func orient_camera(index: int) -> void:
+	if loading or model.body.is_empty():
+		return
+	orientation.refresh_reference()
+	var direction := ReferenceOrientation.view_direction(orientation.frame, index)
+	if direction == Vector3.ZERO:
+		return
+	var previous := current_view()
+	leave_move_mode()
+	orbit.yaw = atan2(direction.x, direction.z)
+	orbit.pitch = clampf(asin(direction.y), -1.45, 1.45)
+	orbit.update_camera()
+	remember_view(previous)
+	anatomy_labels.update_labels()
+	status.text = "Camera view: " + ReferenceOrientation.VIEW_NAMES[index] + " · body directions"
+	scene_container.grab_focus()
+
+
 func refresh_expanded_menu() -> void:
 	var popup := expanded_menu.get_popup()
 	var unavailable: bool = loading or model.body.is_empty()
@@ -1431,6 +1485,7 @@ func set_scene_expanded(enabled: bool) -> void:
 		workspace.visible = true
 		expanded_scene.visible = false
 	panels_menu.get_popup().set_item_checked(panels_menu.get_popup().get_item_index(3), enabled)
+	orientation.set_padding(92.0 if enabled else 12.0)
 	refresh_expanded_menu()
 	scene_container.grab_focus()
 
@@ -1467,6 +1522,8 @@ func on_scene_input(event: InputEvent) -> void:
 func refresh_details() -> void:
 	if heading == null:
 		return
+	if orientation:
+		orientation.active = not loading
 	refresh_navigation()
 	refresh_parts()
 	if coverage_hint:

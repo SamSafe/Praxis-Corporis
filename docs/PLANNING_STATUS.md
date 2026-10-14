@@ -167,6 +167,9 @@ implementation. Local commits preserve progress; no remote publication is implie
 
 ## Planning completion
 
+[Implementation backlog](IMPLEMENTATION_BACKLOG.md) records useful work that can
+continue locally alongside the outstanding platform, human-input and review trials.
+
 Initial scope, interaction, content method, target architecture, quality gates and
 release stages are documented. The project is in Stage 1 feasibility work. Initial
 working controls do not close the source-completeness or public-release gates.

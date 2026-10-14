@@ -74,6 +74,7 @@ is used by the viewer.
 | Pan | Shift + primary drag, right/middle drag, or supported trackpad pan gesture. |
 | Zoom | Scroll wheel or supported pinch gesture. |
 | Keyboard camera | Tab/click to focus the 3D view (teal border). Arrows orbit; Shift-arrows pan; +/- zoom; F fits selection; Home shows the body. |
+| Orient the camera | Camera views offers Front, Back, From body left/right and angled Above/Below around the current focus. The direction cue rotates with the camera; L/R refer to the body's sides. |
 | Find a source record | Search names, source names, ontology IDs or catalogue IDs. Enter selects the first ranked result. |
 | Trace source identity | Copy source record in the details panel copies the selected record and reference fingerprint. |
 | Select and focus | Click visible geometry or a surface label, choose a tree item, or select a search result. |
@@ -107,6 +108,15 @@ and preserve inspection changes. The focused scene has a teal border and a keybo
 hint below it. Alt-history and inspection undo/redo remain available. This supplies a
 keyboard camera route, without claiming complete keyboard movement or assistive-tech
 acceptance.
+
+Named camera views retain the focus point, distance, selection, labels, isolation
+and anatomy edits. They leave explicit Move mode and participate in Back/Forward
+history. Above/Below stay slightly angled. The source-direction cue is fixed to the
+reference frame, so moving anatomy aside does not change it. Labels avoid this
+control's rectangle. Direction metadata must match the actual reference fingerprint;
+otherwise the cue explains that orientation is unavailable and named views are disabled.
+[Source checks and limits](audit/REFERENCE_ORIENTATION.md) document the geometry evidence;
+this does not establish qualified anatomical review or alignment between bodies.
 
 Hiding panels gives more width to the same scene without changing selection, camera,
 labels, isolation or body edits. The top View menu remains available to reopen them.
@@ -320,6 +330,7 @@ godot --headless --path . --script tests/coverage_smoke.gd
 godot --headless --path . --script tests/study_reference_smoke.gd
 godot --headless --path . --script tests/keyboard_workspace_smoke.gd
 godot --headless --path . --script tests/scene_display_smoke.gd
+godot --headless --path . --script tests/orientation_smoke.gd
 godot --headless --path . --script tests/loading_smoke.gd
 godot --headless --path . --script tests/search_smoke.gd
 godot --headless --path . --script tests/render_profile_smoke.gd

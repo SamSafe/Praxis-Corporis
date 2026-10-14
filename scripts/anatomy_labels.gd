@@ -18,6 +18,7 @@ var anchors: Dictionary = {}
 var visible_ids: Array[String] = []
 var elapsed := 0.0
 var rays_left := 0
+var exclusion_controls: Array[Control] = []
 
 
 func _ready() -> void:
@@ -160,6 +161,10 @@ func update_labels() -> void:
 			if not candidates.has(id):
 				candidates.append(id)
 	var occupied: Array[Rect2] = []
+	# These overlays share the same scene-surface parent and logical coordinates.
+	for control in exclusion_controls:
+		if is_instance_valid(control) and control.is_visible_in_tree():
+			occupied.append(Rect2(control.position, control.size))
 	for id in candidates:
 		if visible_ids.size() >= density:
 			break
