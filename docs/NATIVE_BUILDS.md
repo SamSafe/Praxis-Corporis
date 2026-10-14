@@ -119,6 +119,11 @@ checks and the [focused full-HD trial](audit/WINDOWS_FULLHD_PROFILE.md) establis
 full-resolution rendering for the measured eight scenes on this Windows host only.
 The retained [build report](audit/native-build-report.json) includes a source-snapshot
 revision verified against its recorded file hashes.
+Current `33071c1` packages retain expanded Explore actions, including labels,
+inspection, saved views, credited export and rendering quality. Their actual Windows
+workflows pass with all 24 captures inspected; see the
+[expanded-controls evidence](audit/EXPANDED_CONTROLS_VERIFICATION.md). Actual Mac
+execution and human picker/input acceptance remain open.
 The earlier grouped-picking packages passed the same actual Windows rendered
 workflows with [retained captures](audit/windows-grouped-selection-viewer-qa.json).
 Their matched loading diagnostic is documented in the

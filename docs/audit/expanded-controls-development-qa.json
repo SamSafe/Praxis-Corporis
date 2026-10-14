@@ -1,0 +1,49 @@
+{
+  "source_revision": "33071c11a3e5d7017a61f9f68003917810e5717e",
+  "result": "passed development functional checks",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "rendering_host": "Linux development engine, Mesa llvmpipe; no target-performance claim",
+  "scope": [
+    "Screen-density root GUI picking/orbit/pan/Move/undo at 1440x900, 1920x1080 and 1100x720",
+    "Expanded labels/quality, local save/reopen/restore, inspection/context, movement feedback, loading guards and keyboard menu dismissal",
+    "Existing keyboard camera/history across HRA female and the separate bone study",
+    "Exported Linux offline workflows for all three references, missing-pack handling and Mac embedded-content/boundary checks on the development engine",
+    "32 Python checks"
+  ],
+  "evidence": {
+    "expanded-controls-compact-menu.png": {
+      "file": "../prototype/expanded-controls-compact-menu.png",
+      "sha256": "f00555ecfdc596c5a82063c81f0d0a4d7b3ff7fd4cbd469ee153f0e28801217a"
+    },
+    "expanded-controls-compact-export.png": {
+      "file": "../prototype/expanded-controls-compact-export.png",
+      "sha256": "7b3f4b39ca5cb0dac6cd8f8dfaf5826748ebbbeb786b800ca94403bf217a68e2"
+    },
+    "expanded-controls-rendered.log.txt": {
+      "file": "expanded-controls-rendered.log.txt",
+      "sha256": "5de49548dbecc1b5b33b13ac7201871d5ac962229813c91f7508c3eb8346617d"
+    },
+    "expanded-controls-keyboard.log.txt": {
+      "file": "expanded-controls-keyboard.log.txt",
+      "sha256": "24a560aff5b188affef0c6ad1c0332c301578dea36fa268722671225c81ec6dc"
+    },
+    "expanded-controls-python.log.txt": {
+      "file": "expanded-controls-python.log.txt",
+      "sha256": "af25c48a25e2d160fba109aba52dcb438c792ea1fc8b3ddfb69e9f18e91164cc"
+    },
+    "expanded-controls-native-build.log.txt": {
+      "file": "expanded-controls-native-build.log.txt",
+      "sha256": "b64fb4267c75b3e57111b2b1e401a67e35056dfab8782bd062174640b8bbe630"
+    }
+  },
+  "visual_review": {
+    "images_inspected": 2,
+    "client_date": "2026-10-13",
+    "scope": "Compact menu, visible selection/navigation feedback and rendered source footer; no medical review"
+  },
+  "limits": [
+    "Scripted development actions; human input and accessibility acceptance remain open.",
+    "Final rendered run overlapped a headless functional check; its load timings are not performance evidence.",
+    "Development rendering does not establish Windows or Mac execution."
+  ]
+}

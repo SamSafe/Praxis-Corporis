@@ -721,3 +721,23 @@ actual Mac performance or human-input acceptance. Labels use density 8; other
 densities, moved-organ overlays, saved-view transitions and future condition content
 remain outside this trial. No anatomy coverage, clinical review or public-release
 gate was changed by the rendering result.
+
+## Controls retained in expanded anatomy
+
+The current `33071c1` packages add Explore in the expanded view, keeping labels,
+inspection/return, explicit Move and Undo/Redo, saved views, credited screenshots,
+keyboard help and rendering quality available while the side panels are away.
+Selection, inspection/Move mode and action feedback remain visible. View and Explore
+now accept keyboard focus; Escape closes their menus before leaving expanded anatomy.
+Leaving Move also clears a stale drag instruction found during visual inspection.
+
+Real root-input and geometry tests pass across three desktop sizes and all rendering
+fractions. The expanded save/reopen/restore route preserves the anatomy and display;
+all 32 Python checks pass. Both private archives pass offline/content and independent
+source/CRC/architecture/notice checks. Actual Windows rendering passes for all three
+references, with all 24 native captures inspected. Two compact development captures
+were also inspected. [Expanded-control evidence](audit/EXPANDED_CONTROLS_VERIFICATION.md).
+
+The previous full-HD sustained profile stays bound to `ae60019`; this menu change has
+no new sustained-performance claim. Actual Mac execution, human input, accessibility,
+coverage expansion and qualified medical review remain open.

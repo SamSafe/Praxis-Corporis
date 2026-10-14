@@ -65,7 +65,7 @@ the baseline and final measurements. Quarter-second pauses and full-resolution/h
 acceptance remain open; see [the comparison](audit/LOADING_OPTIMIZATION.md).
 The final native Windows rendered workflows passed again, and all fifteen captures
 were inspected; [workflow evidence](audit/windows-grouped-selection-viewer-qa.json).
-Current archives use `ae60019` and retain the same anatomy pack. The 3D image now
+The display-density archives use `ae60019` and retain the same anatomy pack. The 3D image now
 renders at the displayed pixel density, with Native/75%/50% choices and an expanded
 anatomy view that can cover the entire client window. Root GUI picking, labels,
 orbit/pan/Move drag and undo have been checked across sizes and rendering fractions.
@@ -79,6 +79,14 @@ held focus; average frame cadence ranged from 59.5 to 59.9 FPS. It meets the pro
 30-FPS baseline for the eight measured workloads on this host. Representative devices,
 Mac execution, additional workloads, human input and medical review remain open.
 [Full-resolution results](audit/WINDOWS_FULLHD_PROFILE.md).
+Current archives use `33071c1`. Expanded Explore keeps labels, inspection/return,
+explicit Move and Undo/Redo, saved views, credited screenshots, keyboard help and
+quality controls available. Selection and action feedback remain visible; keyboard
+menus and loading guards are checked. Both packages pass offline/content and archive
+audits. Native Windows workflows pass for all three references, with all 24 captures
+inspected, alongside two compact development captures. The prior sustained profile
+remains bound to `ae60019`; human input and actual Mac trials remain open.
+[Expanded controls and package evidence](audit/EXPANDED_CONTROLS_VERIFICATION.md).
 The workspace now has a focused keyboard camera route and independently collapsible
 side panels. Camera keys preserve inspection data; search and tree arrows retain their
 own behaviour. Teal focus rendering, compact layout and source picking after collapse

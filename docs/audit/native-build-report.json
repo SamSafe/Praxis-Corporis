@@ -4,16 +4,16 @@
   "artifacts": [
     {
       "file": "PraxisCorporis-Windows-x64-private.zip",
-      "bytes": 290838547,
-      "sha256": "ac1f3326b5a5e2be9a505074275b376131dbc5b522b03a1b0c84084256ee0c5e",
+      "bytes": 290843994,
+      "sha256": "f54ff9ff2b46e86b07d07a3c91a867d0a5c813c58645a4c249acecf7189d3613",
       "architectures": [
         "x86_64"
       ]
     },
     {
       "file": "PraxisCorporis-macOS-universal-private.zip",
-      "bytes": 313282793,
-      "sha256": "87fbaa6f382cda6241177997ac27629af6df307c9b37b7f710377944ce052caf",
+      "bytes": 313289134,
+      "sha256": "561c921b910fa6454bbd0897316af5328c167f38f537d3ff5c46fd2b161581c4",
       "architectures": [
         "x86_64",
         "arm64"
@@ -22,7 +22,7 @@
   ],
   "target_device_testing": "pending",
   "publication": "local private artifacts only",
-  "source_revision": "ae600197fd48730fa50d497b5243fc0acc7e419b",
+  "source_revision": "33071c11a3e5d7017a61f9f68003917810e5717e",
   "source_hashes": {
     "project.godot": "42fb2623bd409f69e02411ffae312411087e7610d480c03132366aff43465b35",
     "export_presets.cfg": "b1da4a176835b1d8caafa025671137f6da1bf97e6ffa04a26a62fc13c4b9a347",
@@ -47,7 +47,7 @@
     "scripts/source_index_extension.gd": "090d8c7f9346889a43980f0854e0bca2e588138447d86628f76b8ab87b94d84c",
     "scripts/source_record.gd": "94af7e7697dca85d83c160553efe55d1a450723237a0c29b814ba9e0328af78e",
     "scripts/view_capture.gd": "c6baeaf7e81efc42bcaa4a75efc0eba9326042b3c95144ce8c4296101c18f79d",
-    "scripts/viewer.gd": "aee154566f951601fe471bd129c0f8e5642f668bd4d90f9b5ec2e1e895462b8b"
+    "scripts/viewer.gd": "86d050ce94ceb7e64c074af965f9c0934038a9a83974836093cb3b1300a97e12"
   },
   "anatomy_package": {
     "bytes": 543019684,
