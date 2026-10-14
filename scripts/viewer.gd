@@ -13,6 +13,7 @@ const AnatomySearch = preload("res://scripts/anatomy_search.gd")
 const SourceRecord = preload("res://scripts/source_record.gd")
 const SceneSurface = preload("res://scripts/scene_surface.gd")
 const ReferenceOrientation = preload("res://scripts/reference_orientation.gd")
+const PartActions = preload("res://scripts/part_actions.gd")
 enum ExpandedAction { FOCUS, WHOLE_BODY, INSPECT, RETURN_CONTEXT, SELECTION_LABELS,
 	LOCAL_LABELS, MOVE, UNDO, REDO, SAVED_VIEWS, SCREENSHOT, KEYBOARD_HELP }
 var save_path := "user://saved_view.json"
@@ -75,6 +76,7 @@ var load_frame_count := 0
 var syncing_tree := false
 var scene_container: SceneSurface
 var orientation: ReferenceOrientation
+var part_actions: PartActions
 var scene_frame: PanelContainer
 var workspace: Control
 var expanded_scene: Control
@@ -452,6 +454,7 @@ func verify_scene_display(rendered: bool) -> bool:
 	valid = valid and export_view_state() == before and model.source_scene == source_scene
 	valid = valid and await verify_expanded_actions()
 	valid = valid and await verify_orientation(rendered)
+	valid = valid and await verify_part_actions(rendered)
 	if rendered and valid:
 		await RenderingServer.frame_post_draw
 		var image := viewport.get_texture().get_image()
@@ -592,6 +595,96 @@ func verify_orientation(rendered: bool) -> bool:
 		return false
 	print("PASS bundled orientation: ", model.body.id)
 	return true
+
+
+func verify_part_actions(rendered: bool) -> bool:
+	var before := export_view_state()
+	var previous_status := status.text
+	var undo: Array = model.undo_stack.duplicate(true)
+	var redo: Array = model.redo_stack.duplicate(true)
+	var back := back_views.duplicate(true)
+	var forward := forward_views.duplicate(true)
+	var window_size := get_window().size
+	var expanded := scene_expanded
+	var id := "anatomy.heart" if model.structures.has("anatomy.heart") else "source.bodyparts3d-v4-male.FJ3365"
+	select_structure(id, false)
+	inspect_alone()
+	var isolated := export_view_state()
+	open_part_actions()
+	var popup := part_actions.get_popup()
+	var valid := popup.visible and part_actions.action_disabled(PartActions.Action.HIDE)
+	part_actions.visibility_menu.id_pressed.emit(PartActions.Action.HIDE)
+	valid = valid and export_view_state() == isolated
+	part_actions.close_menu()
+	for action in [PartActions.Action.SELECTION_LABELS, PartActions.Action.LOCAL_LABELS, PartActions.Action.MOVE]:
+		for repeat in 2:
+			open_part_actions()
+			popup.id_pressed.emit(action)
+	valid = valid and export_view_state() == isolated and not orbit.move_mode
+	open_part_actions()
+	popup.id_pressed.emit(PartActions.Action.RETURN_CONTEXT)
+	var context_changes: Dictionary = model.export_state()
+	open_part_actions()
+	part_actions.visibility_menu.id_pressed.emit(PartActions.Action.HIDE)
+	anatomy_labels.update_labels()
+	var hidden: Dictionary = model.export_state()
+	valid = valid and hidden != context_changes and part_actions.visible and not part_actions.anchored
+	open_part_actions()
+	part_actions.history_menu.id_pressed.emit(PartActions.Action.UNDO)
+	valid = valid and model.export_state() == context_changes
+	open_part_actions()
+	part_actions.history_menu.id_pressed.emit(PartActions.Action.REDO)
+	valid = valid and model.export_state() == hidden
+	open_part_actions()
+	popup.id_pressed.emit(PartActions.Action.RESTORE)
+	valid = valid and model.selected_id == id
+	if rendered and valid:
+		for compact in [true, false]:
+			part_actions.close_menu()
+			set_scene_expanded(not compact)
+			get_window().size = Vector2i(1100, 720) if compact else window_size
+			await get_tree().process_frame
+			await get_tree().process_frame
+			scene_container.update_resolution()
+			if compact:
+				inspect_alone()
+			else:
+				return_to_context()
+			open_part_actions()
+			await get_tree().process_frame
+			await RenderingServer.frame_post_draw
+			valid = valid and popup.visible and Rect2(Vector2.ZERO, get_viewport().get_visible_rect().size).encloses(Rect2(popup.position, popup.size))
+			var path := "user://native-part-actions-%s-%s.png" % ["compact" if compact else "expanded", str(model.body.id)]
+			valid = valid and get_viewport().get_texture().get_image().save_png(path) == OK
+			if not compact:
+				popup.set_focused_item(popup.get_item_index(PartActions.VISIBILITY))
+				var key := InputEventKey.new()
+				key.keycode = KEY_RIGHT
+				key.pressed = true
+				get_viewport().push_input(key, true)
+				await get_tree().process_frame
+				await RenderingServer.frame_post_draw
+				valid = valid and part_actions.visibility_menu.visible
+				valid = valid and get_viewport().get_texture().get_image().save_png("user://native-part-visibility-%s.png" % str(model.body.id)) == OK
+			part_actions.close_menu()
+		if valid:
+			print("PASS native part actions: ", model.body.id)
+	part_actions.close_menu()
+	get_window().size = window_size
+	set_scene_expanded(expanded)
+	model.apply_saved_state(before.changes)
+	model.undo_stack.assign(undo)
+	model.redo_stack.assign(redo)
+	apply_view(before)
+	back_views.assign(back)
+	forward_views.assign(forward)
+	status.text = previous_status
+	refresh_details()
+	anatomy_labels.update_labels()
+	valid = valid and export_view_state() == before and model.undo_stack == undo and model.redo_stack == redo
+	if valid:
+		print("PASS bundled part actions: ", model.body.id)
+	return valid
 
 
 func make_button(text: String, callback: Callable, parent: Node, hint: String = "") -> Button:
@@ -792,7 +885,7 @@ func build_interface() -> void:
 		frame.add_theme_stylebox_override("panel", panel_style(Color("0e1926"), Color("83d9d2")))
 		if expanded_feedback:
 			expanded_feedback.add_theme_stylebox_override("panel", panel_style(Color("0e1926"), Color("83d9d2")))
-		navigation_hint.text = "Opening reference… exploration controls resume when ready" if loading else "Arrows orbit · Shift-arrows pan · +/- zoom · F focus · Home body")
+		navigation_hint.text = "Opening reference… exploration controls resume when ready" if loading else "Arrows orbit · Shift-arrows pan · +/- zoom · F focus · Shift+F10 actions")
 	container.focus_exited.connect(func():
 		frame.remove_theme_stylebox_override("panel")
 		if expanded_feedback:
@@ -847,6 +940,14 @@ func build_interface() -> void:
 	# Match the SubViewport's content rectangle, including the panel's margins.
 	container.add_child(anatomy_labels)
 	anatomy_labels.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	part_actions = PartActions.new()
+	anatomy_labels.add_child(part_actions)
+	anatomy_labels.selection_actions = part_actions
+	part_actions.refresh_requested.connect(refresh_part_actions)
+	part_actions.action_requested.connect(on_part_action)
+	part_actions.get_popup().popup_hide.connect(func():
+		if not loading:
+			scene_container.grab_focus())
 	orientation = ReferenceOrientation.new()
 	orientation.model = model
 	orientation.orbit = orbit
@@ -1013,6 +1114,8 @@ func build_interface() -> void:
 		line.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		feedback_lines.add_child(line)
 	expanded_scene.visible = false
+	anatomy_labels.exclusion_controls.append(expanded_toolbar)
+	anatomy_labels.exclusion_controls.append(expanded_feedback)
 	refresh_details()
 
 
@@ -1044,7 +1147,7 @@ func switch_body(id: String) -> void:
 	loading = false
 	orbit.input_enabled = true
 	loading_row.visible = false
-	navigation_hint.text = "Arrows orbit · Shift-arrows pan · +/- zoom · F focus · Home body" if scene_container.has_focus() else "Drag to orbit · Shift/right-drag to pan · Scroll/pinch to zoom"
+	navigation_hint.text = "Arrows orbit · Shift-arrows pan · +/- zoom · F focus · Shift+F10 actions" if scene_container.has_focus() else "Drag to orbit · Shift/right-drag to pan · Scroll/pinch to zoom"
 	anatomy_labels.suspended = false
 	body_choice.disabled = false
 	if not error.is_empty():
@@ -1378,7 +1481,7 @@ func on_panel_action(id: int) -> void:
 	elif id == 2:
 		var dialog := AcceptDialog.new()
 		dialog.title = "Keyboard controls"
-		dialog.dialog_text = "Tab / Shift-Tab moves between controls.\nSearch and anatomy lists provide a text selection route.\n\nWith the 3D view focused (teal border):\nArrow keys orbit · Shift + arrows pan\n+ / - zoom · F focuses selection · Home shows the body\nCamera keys leave Move mode and preserve inspection edits.\n\nF11 expands anatomy; Escape returns to the workspace.\nView chooses Native, 75% or 50% 3D resolution.\nAlt + Left/Right revisits views.\nCtrl/Cmd + Z undoes inspection; add Shift to redo.\nText fields keep their ordinary editing shortcuts.\nEscape leaves Move mode or closes the active dialog."
+		dialog.dialog_text = "Tab / Shift-Tab moves between controls.\nSearch and anatomy lists provide a text selection route.\n\nWith the 3D view focused (teal border):\nArrow keys orbit · Shift + arrows pan\n+ / - zoom · F focuses selection · Home shows the body\nShift+F10 / Menu opens selected-part actions\nCamera keys leave Move mode and preserve inspection edits.\n\nF11 expands anatomy; Escape returns to the workspace.\nView chooses Native, 75% or 50% 3D resolution.\nAlt + Left/Right revisits views.\nCtrl/Cmd + Z undoes inspection; add Shift to redo.\nText fields keep their ordinary editing shortcuts.\nEscape leaves Move mode or closes the active dialog."
 		dialog.confirmed.connect(dialog.queue_free)
 		dialog.canceled.connect(dialog.queue_free)
 		add_child(dialog)
@@ -1437,6 +1540,73 @@ func refresh_expanded_menu() -> void:
 		popup.set_item_checked(popup.get_item_index(100 + i), scene_container.resolution_fraction == [1.0, 0.75, 0.5][i])
 
 
+func refresh_part_actions() -> void:
+	if part_actions == null:
+		return
+	var selected: bool = model.structures.has(model.selected_id)
+	var available: bool = not loading and selected and not model.structures[model.selected_id].mesh_nodes.is_empty()
+	var label: String = str(model.structures[model.selected_id].label) if selected else "Selected anatomy"
+	part_actions.sync_selection(model.selected_id, label, available)
+	for id in PartActions.Action.values():
+		part_actions.set_action_disabled(id, not available)
+	part_actions.set_action_disabled(PartActions.Action.INSPECT, not available or inspect_button.disabled)
+	part_actions.set_action_disabled(PartActions.Action.RETURN_CONTEXT, not available or model.isolated_id.is_empty())
+	var isolated: bool = not model.isolated_id.is_empty()
+	part_actions.set_action_disabled(PartActions.VISIBILITY, not available or isolated)
+	for id in [PartActions.Action.SHOW, PartActions.Action.HIDE, PartActions.Action.FADE]:
+		part_actions.set_action_disabled(id, not available or isolated)
+	part_actions.get_popup().set_item_tooltip(part_actions.get_popup().get_item_index(PartActions.VISIBILITY),
+		"Return to context to edit visibility." if isolated else "Faded anatomy is click-through.")
+	part_actions.set_action_disabled(PartActions.Action.UNDO, not available or undo_button.disabled)
+	part_actions.set_action_disabled(PartActions.Action.REDO, not available or redo_button.disabled)
+	part_actions.set_action_disabled(PartActions.HISTORY, not available or (undo_button.disabled and redo_button.disabled))
+	part_actions.set_checked(PartActions.Action.SELECTION_LABELS, labels_button.button_pressed)
+	part_actions.set_checked(PartActions.Action.LOCAL_LABELS, local_labels_button.button_pressed)
+	part_actions.set_checked(PartActions.Action.MOVE, orbit.move_mode)
+
+
+func open_part_actions() -> void:
+	refresh_part_actions()
+	if part_actions.disabled:
+		return
+	orbit.cancel_drag()
+	anatomy_labels.update_labels()
+	part_actions.grab_focus()
+	part_actions.show_popup()
+
+
+func on_part_action(id: int, selection: String) -> void:
+	# A popup can outlive a programmatic selection change. Never act on another part.
+	if loading or selection != model.selected_id or id not in PartActions.Action.values():
+		return
+	refresh_part_actions()
+	if part_actions.disabled or part_actions.action_disabled(id):
+		return
+	part_actions.close_menu()
+	var shared := {
+		PartActions.Action.FOCUS: ExpandedAction.FOCUS,
+		PartActions.Action.INSPECT: ExpandedAction.INSPECT,
+		PartActions.Action.RETURN_CONTEXT: ExpandedAction.RETURN_CONTEXT,
+		PartActions.Action.SELECTION_LABELS: ExpandedAction.SELECTION_LABELS,
+		PartActions.Action.LOCAL_LABELS: ExpandedAction.LOCAL_LABELS,
+		PartActions.Action.MOVE: ExpandedAction.MOVE,
+		PartActions.Action.UNDO: ExpandedAction.UNDO,
+		PartActions.Action.REDO: ExpandedAction.REDO}
+	if shared.has(id):
+		on_expanded_action(int(shared[id]))
+	elif id in [PartActions.Action.SHOW, PartActions.Action.HIDE, PartActions.Action.FADE]:
+		leave_move_mode()
+		change_visibility({PartActions.Action.SHOW: "visible", PartActions.Action.HIDE: "hidden", PartActions.Action.FADE: "faded"}[id])
+	elif id == PartActions.Action.RESTORE:
+		leave_move_mode()
+		restore_selected()
+	elif id == PartActions.Action.COPY_SOURCE:
+		copy_source_record()
+	refresh_part_actions()
+	anatomy_labels.update_labels()
+	scene_container.grab_focus()
+
+
 func on_expanded_action(id: int) -> void:
 	# These routes reuse workspace actions and their state guards.
 	if id in [100, 101, 102]:
@@ -1466,6 +1636,8 @@ func on_expanded_action(id: int) -> void:
 
 func on_scene_display_changed() -> void:
 	orbit.display_size = scene_container.size
+	if part_actions:
+		part_actions.close_menu()
 	if anatomy_labels != null:
 		anatomy_labels.update_labels()
 
@@ -1474,6 +1646,7 @@ func set_scene_expanded(enabled: bool) -> void:
 	if enabled == scene_expanded or (enabled and (loading or model.body.is_empty())):
 		return
 	orbit.cancel_drag()
+	part_actions.close_menu()
 	scene_expanded = enabled
 	if enabled:
 		scene_container.reparent(expanded_scene, false)
@@ -1488,6 +1661,7 @@ func set_scene_expanded(enabled: bool) -> void:
 		expanded_scene.visible = false
 	panels_menu.get_popup().set_item_checked(panels_menu.get_popup().get_item_index(3), enabled)
 	orientation.set_padding(92.0 if enabled else 12.0)
+	part_actions.fallback = Vector2(12, 60 if enabled else 12)
 	refresh_expanded_menu()
 	scene_container.grab_focus()
 
@@ -1496,6 +1670,10 @@ func on_scene_input(event: InputEvent) -> void:
 	if not event is InputEventKey or not event.pressed or loading or not scene_container.has_focus():
 		return
 	if event.alt_pressed or event.ctrl_pressed or event.meta_pressed:
+		return
+	if event.keycode == KEY_MENU or (event.keycode == KEY_F10 and event.shift_pressed):
+		open_part_actions()
+		scene_container.accept_event()
 		return
 	var direction := Vector2.ZERO
 	match event.keycode:
@@ -1566,6 +1744,7 @@ func refresh_details() -> void:
 		redo_button.disabled = model.redo_stack.is_empty() or loading
 	for button in action_buttons:
 		button.disabled = not selected or loading
+	refresh_part_actions()
 	if not selected:
 		heading.text = "Explore the body"
 		detail.text = "Peel away the skin, select a structure, and explore its position in the body.\n\nUse Show chest for a first close view.\n\nSource names and geometry are a draft import; anatomical review is pending."

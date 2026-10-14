@@ -75,6 +75,12 @@ Supported actions: Inspect anatomy, Show labels, Show connections, Related condi
 Explore changes, Hide/fade, Move, Separate, Restore. Group secondary inspection
 actions behind a small submenu if the menu becomes crowded.
 
+The private prototype currently implements Actions beside a selected surface label,
+with a corner fallback for hidden/faded, covered or off-screen selections. It exposes
+focus, inspect/return, label toggles, visibility, explicit Move, selected restoration,
+inspection undo/redo and source-record copying. Connection, condition and separation
+content is pending. Shift+F10/Menu supplements the visible button; right-drag pans.
+
 ## Details panel
 
 Use Overview, Parts, Connections, Conditions, and Sources sections. Overview gives

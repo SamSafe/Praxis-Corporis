@@ -19,6 +19,8 @@ var visible_ids: Array[String] = []
 var elapsed := 0.0
 var rays_left := 0
 var exclusion_controls: Array[Control] = []
+var selection_actions
+var action_anchor := Vector2(INF, INF)
 
 
 func _ready() -> void:
@@ -70,6 +72,7 @@ func local_ids() -> Array[String]:
 
 
 func clear_labels() -> void:
+	action_anchor = Vector2(INF, INF)
 	for button in buttons.values():
 		button.free()
 	buttons.clear()
@@ -143,6 +146,7 @@ func update_labels() -> void:
 	rays_left = MAX_RAYS
 	visible_ids.clear()
 	anchors.clear()
+	action_anchor = Vector2(INF, INF)
 	for button in buttons.values():
 		button.visible = false
 	if suspended or model == null or camera == null or size.x < 80 or size.y < 80:
@@ -152,7 +156,12 @@ func update_labels() -> void:
 	var parts: Array[String] = []
 	if local_enabled:
 		parts = local_ids()
-	if selection_enabled and model.structures.has(model.selected_id):
+	var actions_visible: bool = selection_actions != null and selection_actions.visible
+	if actions_visible:
+		selection_actions.anchored = false
+		selection_actions.position = selection_actions.fallback
+		selection_actions.size = selection_actions.custom_minimum_size
+	if (selection_enabled or actions_visible) and model.structures.has(model.selected_id):
 		candidates.append(model.selected_id)
 	elif parts.has(model.selected_id):
 		candidates.append(model.selected_id)
@@ -161,12 +170,18 @@ func update_labels() -> void:
 			if not candidates.has(id):
 				candidates.append(id)
 	var occupied: Array[Rect2] = []
-	# These overlays share the same scene-surface parent and logical coordinates.
+	# Convert each overlay's position into scene-surface logical coordinates.
 	for control in exclusion_controls:
 		if is_instance_valid(control) and control.is_visible_in_tree():
-			occupied.append(Rect2(control.position, control.size))
+			var local_position := get_global_transform().affine_inverse() * control.global_position
+			occupied.append(Rect2(local_position, control.size))
+	var fallback_rect := Rect2()
+	if actions_visible:
+		fallback_rect = Rect2(selection_actions.position, selection_actions.size)
+		occupied.append(fallback_rect)
 	for id in candidates:
-		if visible_ids.size() >= density:
+		var selected_actions: bool = actions_visible and id == model.selected_id
+		if visible_ids.size() >= density and not selected_actions:
 			break
 		var anchor := surface_anchor(id)
 		if anchor.is_empty():
@@ -174,32 +189,52 @@ func update_labels() -> void:
 		var button: Button = buttons[id] if buttons.has(id) else make_button(id)
 		var font := button.get_theme_font("font")
 		var width := clampf(font.get_string_size(button.text, HORIZONTAL_ALIGNMENT_LEFT, -1, 14).x + 28, 100, minf(220, size.x - 16))
-		var extent := Vector2(width, 34)
+		var label_wanted: bool = id != model.selected_id or selection_enabled or parts.has(id)
+		var extent := Vector2(width, 34) if label_wanted else Vector2.ZERO
+		var label_extent := extent
+		if selected_actions:
+			occupied.erase(fallback_rect)
+			extent = Vector2(extent.x + (6 if label_wanted else 0) + selection_actions.size.x, 34)
 		var point: Vector2 = anchor.screen
-		var placed := false
-		# Try both sides, then increasingly distant rows, without overlapping pills.
-		for row in [0, -1, 1, -2, 2, -3, 3, -4, 4]:
-			for side in [1, -1]:
-				var position := point + Vector2(22 if side == 1 else -width - 22, -17 + row * 40)
-				position = position.clamp(Vector2(8, 8), size - extent - Vector2(8, 8))
-				var rect := Rect2(position, extent)
-				var overlaps := false
-				for other in occupied:
-					overlaps = overlaps or rect.grow(4).intersects(other)
-				if overlaps or rect.grow(6).has_point(point):
-					continue
-				button.position = position
-				button.size = extent
-				button.add_theme_color_override("font_color", Color("ffe0b6") if id == model.selected_id else Color("bce5e0"))
-				button.visible = true
-				anchors[id] = point
-				visible_ids.append(id)
-				occupied.append(rect)
-				placed = true
-				break
-			if placed:
-				break
+		var placed := place_rect(point, extent, occupied)
+		if selected_actions:
+			if placed.is_finite():
+				selection_actions.position = placed + Vector2(label_extent.x + (6 if label_wanted else 0), 0)
+				selection_actions.anchored = true
+				action_anchor = point
+			else:
+				occupied.append(fallback_rect)
+				if label_wanted:
+					extent = label_extent
+					placed = place_rect(point, extent, occupied)
+		if not placed.is_finite():
+			continue
+		occupied.append(Rect2(placed, extent))
+		if label_wanted:
+			button.position = placed
+			button.size = label_extent
+			button.add_theme_color_override("font_color", Color("ffe0b6") if id == model.selected_id else Color("bce5e0"))
+			button.visible = true
+			anchors[id] = point
+			visible_ids.append(id)
 	queue_redraw()
+
+
+func place_rect(point: Vector2, extent: Vector2, occupied: Array[Rect2]) -> Vector2:
+	if extent.x <= 0 or extent.x > size.x - 16 or extent.y > size.y - 16:
+		return Vector2(INF, INF)
+	# Try both sides, then increasingly distant rows, without overlapping controls.
+	for row in [0, -1, 1, -2, 2, -3, 3, -4, 4]:
+		for side in [1, -1]:
+			var position := point + Vector2(22 if side == 1 else -extent.x - 22, -17 + row * 40)
+			position = position.clamp(Vector2(8, 8), size - extent - Vector2(8, 8))
+			var rect := Rect2(position, extent)
+			var overlaps := rect.grow(6).has_point(point)
+			for other in occupied:
+				overlaps = overlaps or rect.grow(4).intersects(other)
+			if not overlaps:
+				return position
+	return Vector2(INF, INF)
 
 
 func _physics_process(delta: float) -> void:
@@ -211,6 +246,10 @@ func _physics_process(delta: float) -> void:
 
 
 func _draw() -> void:
+	if action_anchor.is_finite() and not anchors.has(model.selected_id):
+		var end := action_anchor.clamp(selection_actions.position, selection_actions.position + selection_actions.size)
+		draw_line(action_anchor, end, Color("edb877"), 1.5, true)
+		draw_circle(action_anchor, 3, Color("edb877"), true, -1, true)
 	for id in visible_ids:
 		var button: Button = buttons[id]
 		var point: Vector2 = anchors[id]

@@ -4,6 +4,13 @@ The first viewer uses real, separate HRA male and female reference samples insid
 one continuous scene. It is a partial atlas and has no disease content or medical
 review. Detailed findings are in [the sample audit](audit/HRA_SAMPLE_FINDINGS.md).
 
+The selected-part Actions menu shares the workspace inspection, label, visibility,
+Move, restore and undo/redo controls. Visibility and history use smaller submenus;
+visibility changes are unavailable while inspecting alone. Opening or dismissing
+the menu preserves selection and camera. The menu closes when reference loading,
+selection or display layout changes. Right-drag continues to pan. Disease, pathway
+and separation actions remain pending.
+
 ## Requirements and setup
 
 For the generated Windows/Mac packages, use [NATIVE_BUILDS.md](NATIVE_BUILDS.md).
@@ -78,6 +85,7 @@ is used by the viewer.
 | Find a source record | Search names, source names, ontology IDs or catalogue IDs. Enter selects the first ranked result. |
 | Trace source identity | Copy source record in the details panel copies the selected record and reference fingerprint. |
 | Select and focus | Click visible geometry or a surface label, choose a tree item, or select a search result. |
+| Actions beside anatomy | Select a part, then choose Actions beside its label. Shift+F10 or the Menu key opens it from the focused 3D view. Hidden/faded/off-screen selections keep a corner button. |
 | Browse systems and parts | Expand the anatomy tree; parent groups select their descendant meshes. |
 | Browse local components | The Supplied parts list follows the current organ/group and uses the same selection as the main tree. |
 | Inspect a covered part | Select it, then Inspect alone. Further selections follow this temporary view. |
@@ -331,6 +339,7 @@ godot --headless --path . --script tests/study_reference_smoke.gd
 godot --headless --path . --script tests/keyboard_workspace_smoke.gd
 godot --headless --path . --script tests/scene_display_smoke.gd
 godot --headless --path . --script tests/orientation_smoke.gd
+godot --headless --path . --script tests/part_actions_smoke.gd
 godot --headless --path . --script tests/loading_smoke.gd
 godot --headless --path . --script tests/search_smoke.gd
 godot --headless --path . --script tests/render_profile_smoke.gd
