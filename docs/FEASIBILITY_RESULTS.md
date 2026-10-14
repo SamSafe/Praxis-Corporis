@@ -744,7 +744,7 @@ coverage expansion and qualified medical review remain open.
 
 ## Source direction cues and camera presets
 
-The current `cc705b8` packages add a persistent camera-relative direction cue and
+The `cc705b8` packages add a persistent camera-relative direction cue and
 six named views around the current focus. Left/right refer to the body's sides.
 The metadata matches exact reference fingerprints and is corroborated by 23 actual
 source-vertex landmark comparisons; unsupported frames disable the controls.
@@ -763,3 +763,20 @@ has no new sustained-performance claim. These checks do not supply medical revie
 inter-body registration, human usability, accessibility or actual Mac execution.
 [Implementation backlog](IMPLEMENTATION_BACKLOG.md) identifies substantial remaining
 work that can proceed alongside those external acceptance trials.
+
+## Actions beside selected anatomy
+
+The current `b9c23b4` packages add a selection-bound Actions menu beside an opaque
+selected surface, with corner access for hidden/faded or off-screen parts. It shares
+existing inspection, label, visibility, Move, restore, history and source-copy routes.
+Real root input passes 24 size/layout/density combinations across all three references.
+Existing picking/inspection regressions and 36 Python checks pass. Both archives pass
+exported offline/content and source/CRC/architecture checks. Actual native Windows
+workflows pass for all references; all 36 captures were reviewed through contact
+sheets, with the nine new menu captures also inspected individually at full size.
+
+The initial native QA failure and its corrected layout timing are retained separately
+in [part-action evidence](audit/PART_ACTIONS_VERIFICATION.md). The earlier sustained
+profile keeps its original snapshot. Actual Mac, human acceptance, wider anatomy and
+medical/public-release review remain open. Portable saved views are next in the
+[implementation backlog](IMPLEMENTATION_BACKLOG.md).

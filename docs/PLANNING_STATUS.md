@@ -87,8 +87,8 @@ audits. Native Windows workflows pass for all three references, with all 24 capt
 inspected, alongside two compact development captures. The prior sustained profile
 remains bound to `ae60019`; human input and actual Mac trials remain open.
 [Expanded controls and package evidence](audit/EXPANDED_CONTROLS_VERIFICATION.md).
-Current archives use `cc705b8`. Camera views and a persistent body-direction cue
-use fingerprint-matched source frames corroborated by 23 landmark comparisons.
+The `cc705b8` archives add orientation controls. Camera views and a persistent
+body-direction cue use fingerprint-matched source frames corroborated by 23 landmark comparisons.
 Six presets preserve focus/distance, isolation, anatomy edits and undo; history,
 keyboard menus, loading guards, invalid frames and label clearance are checked.
 Thirty-six Python checks pass. Both packages pass offline/content and archive audits;
@@ -125,6 +125,14 @@ contains one missing label/ontology record that requires interpretation review.
 All four also passed actual engine mesh/triangle/bounds checks and were rendered against
 their original source-body context. No source fitting or catalogue admission occurred;
 the unresolved female node is highlighted in the retained inspection preview.
+
+Current private archives use `b9c23b4`. Selection-bound Actions now expose supported
+inspection tools beside anatomy, with hidden/off-screen corner access. Real-input
+checks and native Windows workflows pass; 36 captures were reviewed, including
+individual inspection of nine new menus. The initial failed QA trial is retained.
+[Part-action verification](audit/PART_ACTIONS_VERIFICATION.md). Actual Mac execution
+and human acceptance remain open. Portable saved-view import/export is the next
+local implementation priority.
 
 ## Established by the user
 

@@ -124,10 +124,16 @@ inspection, saved views, credited export and rendering quality. Their actual Win
 workflows pass with all 24 captures inspected; see the
 [expanded-controls evidence](audit/EXPANDED_CONTROLS_VERIFICATION.md). Actual Mac
 execution and human picker/input acceptance remain open.
-Current `cc705b8` packages also offer six camera presets and source direction cues.
+The `cc705b8` packages also offer six camera presets and source direction cues.
 Every reference passes the presets on native Windows; all 27 captures were inspected.
 [Orientation verification](audit/ORIENTATION_VERIFICATION.md) binds the result to the
 new ZIPs and source metadata. Actual Mac and human acceptance remain open.
+Current `b9c23b4` packages add selection-bound Actions beside anatomy in both
+workspace modes, including corner access for hidden/off-screen parts. All native
+Windows workflows pass for every reference; 36 captures were inspected (the nine
+new menu captures also individually at full size). [Part-action evidence](audit/PART_ACTIONS_VERIFICATION.md)
+records the final artifacts and retained initial failed QA attempt. Actual Mac and
+human usability/input acceptance remain open.
 The earlier grouped-picking packages passed the same actual Windows rendered
 workflows with [retained captures](audit/windows-grouped-selection-viewer-qa.json).
 Their matched loading diagnostic is documented in the

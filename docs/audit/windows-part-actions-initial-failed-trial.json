@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "client_date": "2026-10-14",
+  "source_revision": "8f671b10fdc61bdc3c0c3a8a539e27a52445c781",
+  "result": "failed; retained, not accepted as native menu evidence",
+  "artifact": {
+    "file": "PraxisCorporis-Windows-x64-private.zip",
+    "bytes": 290858130,
+    "sha256": "9e84ed2be35c93bb0c9923ee73e970b3fc0f345ee91c59d2d3383b7abd2e6f2e",
+    "architectures": [
+      "x86_64"
+    ]
+  },
+  "observed_failure": "The native runtime exited 1 during bundled scene-display verification, before part-action captures or pass markers.",
+  "local_reproduction": "Rendered Linux QA identified menu closure caused by an unfinished inspection-banner layout. The helper now settles that layout before opening the popup.",
+  "files": {
+    "runtime_log": "windows-part-actions-initial-failed-runtime.log.txt",
+    "build": "windows-part-actions-initial-build-report.json",
+    "artifact_audit": "windows-part-actions-initial-artifact-audit.json"
+  }
+}

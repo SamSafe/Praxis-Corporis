@@ -4,16 +4,16 @@
   "artifacts": [
     {
       "file": "PraxisCorporis-Windows-x64-private.zip",
-      "bytes": 290849928,
-      "sha256": "1c2e8e2bb2dcba5c839b6fed35f961fee32fab23152eab6a27223543f37674a8",
+      "bytes": 290858519,
+      "sha256": "b3b4b7240560d5105767f1963587fa628872d0dfb579bbf0b7616e60853c859f",
       "architectures": [
         "x86_64"
       ]
     },
     {
       "file": "PraxisCorporis-macOS-universal-private.zip",
-      "bytes": 313296087,
-      "sha256": "5440d1239fb9b7a9c2711de6da6bd42c567eacee044a70011a73f4dd7a6f909b",
+      "bytes": 313305108,
+      "sha256": "7f943d70522340ccc0f13f3bd7ff18570c7a64eaba94bbcd7e4855855398249b",
       "architectures": [
         "x86_64",
         "arm64"
@@ -22,7 +22,7 @@
   ],
   "target_device_testing": "pending",
   "publication": "local private artifacts only",
-  "source_revision": "cc705b82e65de49bf3418d8403c2d0a05990ff87",
+  "source_revision": "b9c23b479efe6ae73acc1e79a671769ba6906bd2",
   "source_hashes": {
     "project.godot": "42fb2623bd409f69e02411ffae312411087e7610d480c03132366aff43465b35",
     "export_presets.cfg": "489f29254aa1c6b6ea2a8f1bb388078f067ada1f1ec84982b50b09ef87913559",
@@ -34,12 +34,13 @@
     "content/bodyparts3d_bone_study.json": "988b7dced7c0742d4d56c05829401d99e90ae5aa8139a9382b58e9d16b0605db",
     "content/bodyparts3d_source_manifest.json": "c2653fdd1a580228766666187707344b88989177b169f7a01bc0c514937a61a9",
     "addons/private_native_export/plugin.gd": "60315cec1189c41bc6a11e0caa66ae7dcf4cc95c4acc171ada4f134ee53f0916",
-    "scripts/anatomy_labels.gd": "01851d4b11a396bc6cd881a05d23e66aaf714860e1a98da60e4014ef2ee47a9a",
+    "scripts/anatomy_labels.gd": "189496cfa687a395937518a28d5c73a6ed6c1c0e79234285abcaa6c16ac6ef84",
     "scripts/anatomy_model.gd": "0d1c85b8035e38c62b77d5dc5fa4073d986f91fdbfc55972794da40b90b1dd36",
     "scripts/anatomy_search.gd": "cf70522a940dcefc239485b100031f497dc8d6e1f801c46a346a9ab019ffcc98",
     "scripts/content_bundle.gd": "5abdcc6f9da15bf86472ef2fc57b6d844875fe5ea89f4780ebed1a3d25dbc408",
     "scripts/coverage_browser.gd": "5906cb9ff0d527efbc8439ec1a0cb3a8e8e1f68fa250349555a61552e54d2aff",
     "scripts/orbit_camera.gd": "b018ce8e8ff5be639ac611368f0afc227d0318f8700bbcfcce14f46b449496e3",
+    "scripts/part_actions.gd": "d7a22bd054d8618cc0acad55e28aff53dd531fbe4722f678c3deea8b1c91011e",
     "scripts/prepared_selection.gd": "bbf1294f432e9a4db82fefea06701f360fa9730b32e33459d56ff0a5e5b151f8",
     "scripts/reference_orientation.gd": "4f510b74357d7a7020710f514559be36354bb52d0e72bea7a4ccf0123274b802",
     "scripts/render_profile.gd": "5a1d17c208573d35e07fffdbf2673f9545c954eb56913efb988c9a23ad06acb6",
@@ -49,7 +50,7 @@
     "scripts/source_index_extension.gd": "090d8c7f9346889a43980f0854e0bca2e588138447d86628f76b8ab87b94d84c",
     "scripts/source_record.gd": "94af7e7697dca85d83c160553efe55d1a450723237a0c29b814ba9e0328af78e",
     "scripts/view_capture.gd": "c6baeaf7e81efc42bcaa4a75efc0eba9326042b3c95144ce8c4296101c18f79d",
-    "scripts/viewer.gd": "9da6928a3748b43cebf63a7692e5ed56cf810bf0ece5250364b89975e17a5cd8"
+    "scripts/viewer.gd": "3989e7728f206a06cf03ab8b7ce13255b4ef7f5c040ee99f4f595541c5ed5889"
   },
   "anatomy_package": {
     "bytes": 543019684,

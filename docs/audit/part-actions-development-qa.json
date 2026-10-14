@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "client_date": "2026-10-14",
+  "runtime_snapshot": "b9c23b479efe6ae73acc1e79a671769ba6906bd2",
+  "headless_menu_test_snapshot": "8f671b10fdc61bdc3c0c3a8a539e27a52445c781",
+  "version_note": "b9c23b4 changes only developer-verification timing/diagnostics. The action UI and real-input test remain the 8f671b1 implementation. Older display/inspection regression runs precede the final equivalent label-condition simplification. Both final exported resource packs rerun all bundled workflows.",
+  "result": "passed",
+  "headless_menu_checks": {
+    "references": [
+      "female",
+      "male",
+      "bodyparts-male-bones-study"
+    ],
+    "workspace_modes": 2,
+    "window_sizes": [
+      [
+        1100,
+        720
+      ],
+      [
+        1920,
+        1080
+      ]
+    ],
+    "resolution_fractions": [
+      1.0,
+      0.5
+    ],
+    "size_layout_density_cases": 24,
+    "real_gui_mouse_and_keyboard": true,
+    "hidden_faded_offscreen_fallback": true,
+    "stale_selection_and_loading_guards": true,
+    "exact_restore_undo_redo": true
+  },
+  "python_checks_passed": 36,
+  "logs_sha256": {
+    "part-actions-smoke.log.txt": "1048110a86172b94178bfeb40841926307081a8c51113fd715fa1cbd580547a7",
+    "part-actions-display-regression.log.txt": "b7830769b27ae844cae1c23e8ee244ef6a9737af68277a9852975b209407dec0",
+    "part-actions-inspection-regression.log.txt": "7ce8dd71f01d7e9bd94fd11896dc15015f8aa75c6c57de71912d04db3588dc6b",
+    "part-actions-python.log.txt": "980fe4a931ce0fa903c85e5f7f31344ffec68a35bcad0f6f95a142d084852a62",
+    "part-actions-native-build.log.txt": "fa4df2743a7bd8356e3e2a24ecc260716f03add3febf9269345c6f18863c783c",
+    "part-actions-rendered-helper.log.txt": "077e10f0e0d4c2ceeb13d3750b46c1933107c7c441c622a31c9f3efacde0711a"
+  },
+  "rendered_development_captures": {
+    "native-part-actions-expanded-female.png": {
+      "file": "../prototype/part-actions-development-native-part-actions-expanded-female.png",
+      "sha256": "1f616c6e64283d34e9e8f4059603e0a26ec0a15d50462832099dad29a9aae9e2"
+    },
+    "native-part-actions-compact-female.png": {
+      "file": "../prototype/part-actions-development-native-part-actions-compact-female.png",
+      "sha256": "5f94a9be23fb3df37ee237e578e82cba540014c18761e304840d6dd3b6db5359"
+    },
+    "native-part-visibility-female.png": {
+      "file": "../prototype/part-actions-development-native-part-visibility-female.png",
+      "sha256": "8d9247cdd0fdc3d859c783fd2f40b3246f644ce60ec1ae3fc83e8aeb13cbb138"
+    }
+  },
+  "visual_review": {
+    "captures_inspected": 3,
+    "method": "All three female development menu captures inspected individually."
+  },
+  "limits": "Linux software rendering supplies functional/visual evidence only; not target-device performance or Mac execution."
+}

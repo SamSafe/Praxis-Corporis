@@ -1,0 +1,340 @@
+{
+  "engine_actual": "4.7.2.stable.official.ed1daf0bf",
+  "renderer": "OpenGL API 3.3.0 Core Profile Context 25.10.37.03.260407 - Compatibility - Using Device: ATI Technologies Inc. - AMD Radeon(TM) Graphics",
+  "process_memory_observations": {
+    "peak_working_set_bytes_observed": 1190588416,
+    "maximum_private_bytes_sampled": 2030526464,
+    "sampling_interval_ms": 500,
+    "scope": "Entire native process; not per-scene or GPU memory."
+  },
+  "references": {
+    "female": 801,
+    "male": 788,
+    "bodyparts-male-bones-study": 203
+  },
+  "ui_process_frames_during_successful_load": {
+    "female": 90,
+    "male": 90,
+    "bodyparts-male-bones-study": 20
+  },
+  "schema_version": 1,
+  "recorded_at_utc": "2026-10-14T07:20:33.589271+00:00",
+  "mode": "rendered",
+  "result": "passed; native exit code 0",
+  "source_revision": "b9c23b479efe6ae73acc1e79a671769ba6906bd2",
+  "artifact": {
+    "file": "PraxisCorporis-Windows-x64-private.zip",
+    "bytes": 290858519,
+    "sha256": "b3b4b7240560d5105767f1963587fa628872d0dfb579bbf0b7616e60853c859f",
+    "architectures": [
+      "x86_64"
+    ]
+  },
+  "engine_expected": "4.7.2.stable.official.ed1daf0bf",
+  "verifier_sha256": "40f522ed2ec210fe47e3e7c6849858501bbe6cbf0734f451fa6d14fd301c13b2",
+  "archive_crc": "passed during extraction",
+  "user_data": "APPDATA and LOCALAPPDATA isolated in a generated QA session; user libraries untouched.",
+  "limits": [
+    "Scripted actions; human input, clipboard and native OS picker acceptance remain open.",
+    "No sustained-performance or maximum-loading-pause claim.",
+    "This checks actual Windows execution; Mac device validation is separate."
+  ],
+  "captures": {
+    "native-search-female.png": {
+      "file": "../prototype/windows-part-actions-native-search-female.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "5812a0ecf85c3d9025e117d742c0258c1f4aaefad7da89190ef44546d32eb0bc"
+    },
+    "native-study-notes-female.png": {
+      "file": "../prototype/windows-part-actions-native-study-notes-female.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "40fe2bfff743f238f458f3d3a7c46eb977e7d51d550545dd436855183a4c88ef"
+    },
+    "native-loading-female.png": {
+      "file": "../prototype/windows-part-actions-native-loading-female.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "7345b8389774dc2ce6fd3f47c716bea0e71c7d32e749699ee5a2b5d417a069ff"
+    },
+    "native-export-female.png": {
+      "file": "../prototype/windows-part-actions-native-export-female.png",
+      "pixels": [
+        1440,
+        1085
+      ],
+      "sha256": "283b9b51771de91e38f4295e7934a44202702774ebf4711a258206827fa7cb15"
+    },
+    "native-expanded-female.png": {
+      "file": "../prototype/windows-part-actions-native-expanded-female.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "5a8325520b52305f41abe0cf012347b7e8ca2938b002376224a6c7cdbd5955cb"
+    },
+    "native-expanded-export-female.png": {
+      "file": "../prototype/windows-part-actions-native-expanded-export-female.png",
+      "pixels": [
+        1440,
+        1085
+      ],
+      "sha256": "d265778c95d2a420378c8755e0a98059dce4a7d1e224328d436e19a602afb22a"
+    },
+    "native-expanded-menu-female.png": {
+      "file": "../prototype/windows-part-actions-native-expanded-menu-female.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "603eb220d438446fb2e8c4644f499d4dfe08cbefd78b6987817885a7991c9db1"
+    },
+    "native-orientation-female.png": {
+      "file": "../prototype/windows-part-actions-native-orientation-female.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "318c308c0e878c598136a3f1f07fce75f411c671dd0fcd970f47a06068c23b5f"
+    },
+    "native-part-actions-compact-female.png": {
+      "file": "../prototype/windows-part-actions-native-part-actions-compact-female.png",
+      "pixels": [
+        1100,
+        720
+      ],
+      "sha256": "688549193341897a288e0f344c73be45aa1d0697d1e65c2f91b6276ee292cd13"
+    },
+    "native-part-actions-expanded-female.png": {
+      "file": "../prototype/windows-part-actions-native-part-actions-expanded-female.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "6c8c0ff05880050ee4c88b6299bad05b8d2b06582e9dc7c9e506f78a108cb0e6"
+    },
+    "native-part-visibility-female.png": {
+      "file": "../prototype/windows-part-actions-native-part-visibility-female.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "96028f81f6053bd3c3fedd5461c2a813887cb2598bcfdc84bda4817bc6efc976"
+    },
+    "native-chest-female.png": {
+      "file": "../prototype/windows-part-actions-native-chest-female.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "73ffcdb51e23119ec285427695216b502bd7d387aa5847257319de3d7d827ad5"
+    },
+    "native-search-male.png": {
+      "file": "../prototype/windows-part-actions-native-search-male.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "dd58516e01e6237706f14fbecb3f2a1defa0cbd4404a231a94e9f61d934e3f11"
+    },
+    "native-study-notes-male.png": {
+      "file": "../prototype/windows-part-actions-native-study-notes-male.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "9787e6a2deb80f9828033ac01c4076cd3d48c08bbc43564ab0c84599ef3d5dc2"
+    },
+    "native-loading-male.png": {
+      "file": "../prototype/windows-part-actions-native-loading-male.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "8430df75c1106d793725fd5fdb1fa6d6811735fc5603b6ec07bb6cebe1845163"
+    },
+    "native-export-male.png": {
+      "file": "../prototype/windows-part-actions-native-export-male.png",
+      "pixels": [
+        1440,
+        1085
+      ],
+      "sha256": "11ff81f97c1abb42b8be856f45684d306084a784cf196853688ba6c1a43c43f6"
+    },
+    "native-expanded-male.png": {
+      "file": "../prototype/windows-part-actions-native-expanded-male.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "c6f2e6aeda9f97d1d0ffce8c8524dcf1a0cc8e0998ebed5a388a405da3187ed2"
+    },
+    "native-expanded-export-male.png": {
+      "file": "../prototype/windows-part-actions-native-expanded-export-male.png",
+      "pixels": [
+        1440,
+        1085
+      ],
+      "sha256": "ac6c3b2ea4e1c337ac5b92dd82b4760456bab61d39c39a32e38e3f26f3ee4196"
+    },
+    "native-expanded-menu-male.png": {
+      "file": "../prototype/windows-part-actions-native-expanded-menu-male.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "b0df9823577152690f2d25bf42f35c17fb380000c7c42987633030b967e26c93"
+    },
+    "native-orientation-male.png": {
+      "file": "../prototype/windows-part-actions-native-orientation-male.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "c652027d31fe22e4eb407fc82bd96ca7b0960dae1b9f336aaa8c72e4c60469d7"
+    },
+    "native-part-actions-compact-male.png": {
+      "file": "../prototype/windows-part-actions-native-part-actions-compact-male.png",
+      "pixels": [
+        1100,
+        720
+      ],
+      "sha256": "12fb217116be9fa96b50a413b2fa7c818bc22a97ced1477523b496e9a0c695ac"
+    },
+    "native-part-actions-expanded-male.png": {
+      "file": "../prototype/windows-part-actions-native-part-actions-expanded-male.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "c77709f17879796e434424146656b749537a1a6bd2e2d8ef2402a7986a5ed01e"
+    },
+    "native-part-visibility-male.png": {
+      "file": "../prototype/windows-part-actions-native-part-visibility-male.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "91c6068a7751f7d61095e4cc3055fc844d0cfdcd69c4bc7035eb00f9dd37db20"
+    },
+    "native-chest-male.png": {
+      "file": "../prototype/windows-part-actions-native-chest-male.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "3697f2ecf18236ccb9a29d362452f949b8f74a81939de138007bdd0824fae9a2"
+    },
+    "native-search-bodyparts-male-bones-study.png": {
+      "file": "../prototype/windows-part-actions-native-search-bodyparts-male-bones-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "902cc5b731d28670a8964dacb88356868cc188ef49e7107aff10eee42927e788"
+    },
+    "native-study-notes-bodyparts-male-bones-study.png": {
+      "file": "../prototype/windows-part-actions-native-study-notes-bodyparts-male-bones-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "268723d30e95bd1cbc4c111a69c361949625e0abf4570ae82fe777fae667338a"
+    },
+    "native-loading-bodyparts-male-bones-study.png": {
+      "file": "../prototype/windows-part-actions-native-loading-bodyparts-male-bones-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "0126bb312be52c9c4f56243b5ceda506bffcb4001d83a1af3295a869bb378a2d"
+    },
+    "native-export-bodyparts-male-bones-study.png": {
+      "file": "../prototype/windows-part-actions-native-export-bodyparts-male-bones-study.png",
+      "pixels": [
+        1440,
+        1111
+      ],
+      "sha256": "610fa3a4a3a646c45c102596b96243fc9d5b3200f74961f8fe59c0f64cde2102"
+    },
+    "native-expanded-bodyparts-male-bones-study.png": {
+      "file": "../prototype/windows-part-actions-native-expanded-bodyparts-male-bones-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "d118ca4b23db1edfaad312eeab91e42bae276d92f179c55ad4d1b3a4d6fb4f12"
+    },
+    "native-expanded-export-bodyparts-male-bones-study.png": {
+      "file": "../prototype/windows-part-actions-native-expanded-export-bodyparts-male-bones-study.png",
+      "pixels": [
+        1440,
+        1111
+      ],
+      "sha256": "3c52ad931984d218dfc60c20d03b8f7363bbf11eaa7c7063af31b79f51f2f91a"
+    },
+    "native-expanded-menu-bodyparts-male-bones-study.png": {
+      "file": "../prototype/windows-part-actions-native-expanded-menu-bodyparts-male-bones-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "e1557e533272406bafdd96768394362c0c7e4bf83c79b594c88825274107545f"
+    },
+    "native-orientation-bodyparts-male-bones-study.png": {
+      "file": "../prototype/windows-part-actions-native-orientation-bodyparts-male-bones-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "9b02ae2696102d17179e8e407e6495e8e5259d18bf1994361cada111b225b85d"
+    },
+    "native-part-actions-compact-bodyparts-male-bones-study.png": {
+      "file": "../prototype/windows-part-actions-native-part-actions-compact-bodyparts-male-bones-study.png",
+      "pixels": [
+        1100,
+        720
+      ],
+      "sha256": "924be56a1be79d20a86f95968d8be232a53c49b5147210b9d107d3aa8a87407a"
+    },
+    "native-part-actions-expanded-bodyparts-male-bones-study.png": {
+      "file": "../prototype/windows-part-actions-native-part-actions-expanded-bodyparts-male-bones-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "683fd0b3a494c42789753bd6badf171442a4df55ea70493eabf8a7217152ca04"
+    },
+    "native-part-visibility-bodyparts-male-bones-study.png": {
+      "file": "../prototype/windows-part-actions-native-part-visibility-bodyparts-male-bones-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "b5a428d8722931bc5af6b963d9cab0b5c68d15b892c783e05ecb7a77fd3c5654"
+    },
+    "native-bones-bodyparts-male-bones-study.png": {
+      "file": "../prototype/windows-part-actions-native-bones-bodyparts-male-bones-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "b7ac3b740b7f97740a702205ff6477f5941639790b7f8e52e5666510061af4ea"
+    }
+  },
+  "visual_review": {
+    "client_date": "2026-10-14",
+    "all_captures_inspected": true,
+    "captures_inspected": 36,
+    "method": "All 36 captures viewed in nine temporary contact sheets. The nine new part-action/visibility captures were also inspected individually at full size. Original screenshots remain unchanged.",
+    "full_size_menu_captures_inspected": 9,
+    "limits": "Visual engineering review; not clinical review, human input/accessibility acceptance or actual Mac execution."
+  }
+}

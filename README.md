@@ -57,6 +57,8 @@ hide/fade controls, inspection movement with original-position overlays, restora
 undo/redo and local saved views with personal study notes.
 A selected part has an Actions menu beside its surface, with a corner fallback
 for hidden or off-screen anatomy. Shift+F10 opens it from the focused 3D view.
+[Menu verification](docs/audit/PART_ACTIONS_VERIFICATION.md) records the private
+packages, native Windows workflows and inspected captures.
 Local part labels have clickable surface leaders and controlled density;
 Back/Forward restores selection and camera views while preserving inspection changes.
 Camera views provides six source-backed orientations around the current focus,
