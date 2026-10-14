@@ -612,15 +612,15 @@ func verify_part_actions(rendered: bool) -> bool:
 	var isolated := export_view_state()
 	open_part_actions()
 	var popup := part_actions.get_popup()
-	var valid := popup.visible and part_actions.action_disabled(PartActions.Action.HIDE)
+	var valid := verify_part_check(popup.visible and part_actions.action_disabled(PartActions.Action.HIDE), "isolated menu availability")
 	part_actions.visibility_menu.id_pressed.emit(PartActions.Action.HIDE)
-	valid = valid and export_view_state() == isolated
+	valid = verify_part_check(export_view_state() == isolated, "blocked isolation visibility") and valid
 	part_actions.close_menu()
 	for action in [PartActions.Action.SELECTION_LABELS, PartActions.Action.LOCAL_LABELS, PartActions.Action.MOVE]:
 		for repeat in 2:
 			open_part_actions()
 			popup.id_pressed.emit(action)
-	valid = valid and export_view_state() == isolated and not orbit.move_mode
+	valid = verify_part_check(export_view_state() == isolated and not orbit.move_mode, "paired label/Move toggles") and valid
 	open_part_actions()
 	popup.id_pressed.emit(PartActions.Action.RETURN_CONTEXT)
 	var context_changes: Dictionary = model.export_state()
@@ -628,16 +628,16 @@ func verify_part_actions(rendered: bool) -> bool:
 	part_actions.visibility_menu.id_pressed.emit(PartActions.Action.HIDE)
 	anatomy_labels.update_labels()
 	var hidden: Dictionary = model.export_state()
-	valid = valid and hidden != context_changes and part_actions.visible and not part_actions.anchored
+	valid = verify_part_check(hidden != context_changes and part_actions.visible and not part_actions.anchored, "hide and corner fallback") and valid
 	open_part_actions()
 	part_actions.history_menu.id_pressed.emit(PartActions.Action.UNDO)
-	valid = valid and model.export_state() == context_changes
+	valid = verify_part_check(model.export_state() == context_changes, "visibility undo") and valid
 	open_part_actions()
 	part_actions.history_menu.id_pressed.emit(PartActions.Action.REDO)
-	valid = valid and model.export_state() == hidden
+	valid = verify_part_check(model.export_state() == hidden, "visibility redo") and valid
 	open_part_actions()
 	popup.id_pressed.emit(PartActions.Action.RESTORE)
-	valid = valid and model.selected_id == id
+	valid = verify_part_check(model.selected_id == id, "selection restoration") and valid
 	if rendered and valid:
 		for compact in [true, false]:
 			part_actions.close_menu()
@@ -650,10 +650,15 @@ func verify_part_actions(rendered: bool) -> bool:
 				inspect_alone()
 			else:
 				return_to_context()
+			# Inspection changes the workspace banner and therefore the scene layout.
+			# Present the menu after that layout settles; resizing intentionally closes it.
+			await get_tree().process_frame
+			await get_tree().process_frame
+			scene_container.update_resolution()
 			open_part_actions()
 			await get_tree().process_frame
 			await RenderingServer.frame_post_draw
-			valid = valid and popup.visible and Rect2(Vector2.ZERO, get_viewport().get_visible_rect().size).encloses(Rect2(popup.position, popup.size))
+			valid = verify_part_check(popup.visible and Rect2(Vector2.ZERO, get_viewport().get_visible_rect().size).encloses(Rect2(popup.position, popup.size)), "rendered popup visibility/bounds") and valid
 			var path := "user://native-part-actions-%s-%s.png" % ["compact" if compact else "expanded", str(model.body.id)]
 			valid = valid and get_viewport().get_texture().get_image().save_png(path) == OK
 			if not compact:
@@ -664,7 +669,7 @@ func verify_part_actions(rendered: bool) -> bool:
 				get_viewport().push_input(key, true)
 				await get_tree().process_frame
 				await RenderingServer.frame_post_draw
-				valid = valid and part_actions.visibility_menu.visible
+				valid = verify_part_check(part_actions.visibility_menu.visible, "rendered visibility submenu") and valid
 				valid = valid and get_viewport().get_texture().get_image().save_png("user://native-part-visibility-%s.png" % str(model.body.id)) == OK
 			part_actions.close_menu()
 		if valid:
@@ -681,10 +686,16 @@ func verify_part_actions(rendered: bool) -> bool:
 	status.text = previous_status
 	refresh_details()
 	anatomy_labels.update_labels()
-	valid = valid and export_view_state() == before and model.undo_stack == undo and model.redo_stack == redo
+	valid = verify_part_check(export_view_state() == before and model.undo_stack == undo and model.redo_stack == redo, "original setup and history restoration") and valid
 	if valid:
 		print("PASS bundled part actions: ", model.body.id)
 	return valid
+
+
+func verify_part_check(condition: bool, stage: String) -> bool:
+	if not condition:
+		push_error("Part-action verification failed: " + stage)
+	return condition
 
 
 func make_button(text: String, callback: Callable, parent: Node, hint: String = "") -> Button:
