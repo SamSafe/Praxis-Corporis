@@ -105,6 +105,11 @@ disposable preference paths and does not read or alter the user's preferences.
 Text sizing and keyboard manipulation improve access; assistive-technology and
 human accessibility acceptance remain open.
 
+Keyboard help and **Sources** use bounded, scrollable windows. Their text follows
+the selected size and can be selected for copying. Tab changes focus; Page Up/Down
+scrolls focused text, and Escape closes the window. Sources also lists the authored
+study-text references and remains available while the first body is loading.
+
 ## Added anatomy studies
 
 The reference selector adds four independent HRA v1.2 source studies:
@@ -155,6 +160,7 @@ godot --headless --path . --script tests/spinal_picking_smoke.gd
 godot --headless --path . --script tests/study_content_smoke.gd
 godot --headless --path . --script tests/circulation_route_smoke.gd
 godot --headless --path . --script tests/keyboard_movement_smoke.gd
+godot --headless --path . --script tests/information_dialog_smoke.gd
 ```
 
 The workspace check exercises real geometry in both bodies and all four spinal studies,
