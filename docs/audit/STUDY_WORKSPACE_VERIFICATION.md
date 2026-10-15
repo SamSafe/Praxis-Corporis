@@ -1,5 +1,8 @@
 # Study workspace verification
 
+This records the `8a44cdb` package checkpoint. Later circulation and keyboard work
+has [its own exact-artifact verification](CIRCULATION_ROUTE_VERIFICATION.md).
+
 Recorded on the America/Edmonton client date 2026-10-15. Final private runtime:
 `8a44cdb861e044b23b8fa73f2cd5ca6ba8f597e5`, Godot
 `4.7.2.stable.official.ed1daf0bf`. Usage and scope are in the

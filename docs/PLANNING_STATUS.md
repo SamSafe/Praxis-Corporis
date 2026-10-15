@@ -146,6 +146,15 @@ profiler diagnostic also passes, without a sustained-performance claim.
 [the study workspace guide](STUDY_WORKSPACE.md) record behavior and limits. Qualified review, real Mac execution, broader
 whole-body anatomy and human acceptance remain open.
 
+The `03cf80c` private runtime adds an explicitly sourced heart/lung circulation
+graph with both lung branches and coverage gaps, plus precise keyboard movement
+in every reference. Content citations, review stages, route connectivity and exact
+source mappings are validated before use. Forty-three Python checks and 21 engine
+smoke scripts pass. Exported offline workflows and the exact Windows archive pass
+across all seven references; 90 capture identities and seven inspected contact
+sheets are retained. [Circulation verification](audit/CIRCULATION_ROUTE_VERIFICATION.md)
+records these packages without expanding medical, Mac or human acceptance claims.
+
 ## Established by the user
 
 | Decision | Direction |

@@ -164,5 +164,5 @@ preview. Running it with a desktop display also captures the new screens under
 reconstructed collision vertices with source mesh faces. The exported runtime checks
 portable views/notes, preferences and reversible guide state in disposable files.
 Device trials and qualified medical review remain separate from scripted verification.
-[Verification and current private packages](audit/STUDY_WORKSPACE_VERIFICATION.md)
+[Verification and current private packages](audit/CIRCULATION_ROUTE_VERIFICATION.md)
 retain the exact build identities and native Windows evidence.

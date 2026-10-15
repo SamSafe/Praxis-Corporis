@@ -1,0 +1,46 @@
+[
+  {
+    "file": "docs/prototype/circulation-contact-female.png",
+    "sha256": "3732d612cd65e4ddd7fa6047759eef5f584edcd23f3adf9ecdc94fd78108550a"
+  },
+  {
+    "file": "docs/prototype/circulation-contact-male.png",
+    "sha256": "3e7867d32398a60a7dd3fc5b3c0a8e30a05b6b3383127331e985090fbdf5605a"
+  },
+  {
+    "file": "docs/prototype/circulation-contact-bodyparts-male-bones-study.png",
+    "sha256": "121f4e24f0dfcc04c039a58b45490234045a92ed4104fd5e455645e257d3413b"
+  },
+  {
+    "file": "docs/prototype/circulation-contact-hra-v1-2-female-cord-study.png",
+    "sha256": "0c23e065b1c75e90a5193e84feaf8a371ecded94129b0b18ddf5bfc2a9f78d0b"
+  },
+  {
+    "file": "docs/prototype/circulation-contact-hra-v1-2-female-vertebrae-study.png",
+    "sha256": "dc1f61f61cb80e7d192f7038d243b6c8165cd1e42caa524d2a9d01a6883d7fc5"
+  },
+  {
+    "file": "docs/prototype/circulation-contact-hra-v1-2-male-cord-study.png",
+    "sha256": "643c60e76ebda9afc1a7eb0503985aa4774ba49eff08232e5c3d49c458f0e1bb"
+  },
+  {
+    "file": "docs/prototype/circulation-contact-hra-v1-2-male-vertebrae-study.png",
+    "sha256": "c34255a55f2081503fb16ac39863aad5f7e1325ceddeecdba79ffa849088db7c"
+  },
+  {
+    "file": "docs/prototype/circulation-route-compact-female.png",
+    "sha256": "ff9260dfac15019f9d44738fa31359a609b3a48cc7a87aa30daa81a5014d61f1"
+  },
+  {
+    "file": "docs/prototype/circulation-route-compact-male.png",
+    "sha256": "243e8ae66deb69802d0770956cb8adaf336526f2534bfc3f04097a86a2ba6a2d"
+  },
+  {
+    "file": "docs/prototype/circulation-route-female.png",
+    "sha256": "f67da24e108cc356153d77d85ed889b5b7841f3bd99552ce48b2b49178d62c23"
+  },
+  {
+    "file": "docs/prototype/circulation-route-male.png",
+    "sha256": "7c3434ff24d7e7770dde5f301d3085878a844c527f1be1e66f4405739335fa93"
+  }
+]

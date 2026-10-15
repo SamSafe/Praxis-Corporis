@@ -14,12 +14,12 @@ portable views and four independent spinal source studies.
 
 The generated archives are excluded from Git:
 
-- Windows x64: dist/study-improvements/PraxisCorporis-Windows-x64-private.zip
-- Mac Intel/Apple Silicon: dist/study-improvements/PraxisCorporis-macOS-universal-private.zip
+- Windows x64: dist/circulation-improvements/PraxisCorporis-Windows-x64-private.zip
+- Mac Intel/Apple Silicon: dist/circulation-improvements/PraxisCorporis-macOS-universal-private.zip
 
-The older root `dist/` archives retain their previous source identities. Use the
-study-improvements build report when verifying the new archives.
-[Fixed package and native verification](audit/STUDY_WORKSPACE_VERIFICATION.md) records
+The older root `dist/` and study-improvements archives retain their previous source identities. Use the
+circulation-improvements build report when verifying the new archives.
+[Fixed package and native verification](audit/CIRCULATION_ROUTE_VERIFICATION.md) records
 their exact hashes, seven-reference Windows checks and remaining Mac/human limits.
 
 Extract the complete ZIP. In its PraxisCorporis folder, open PraxisCorporis.exe

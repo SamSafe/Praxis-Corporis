@@ -1,0 +1,15 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Loading hra-v1-2-female-cord-study reference
+Prepared 29 meshes in 0.35s; 33 frames while loading
+PASS normalized spinal picking: hra-v1-2-female-cord-study · maximum sampled source-face error 0.00000006007572 m
+Loading hra-v1-2-female-vertebrae-study reference
+Prepared 25 meshes in 0.59s; 44 frames while loading
+PASS normalized spinal picking: hra-v1-2-female-vertebrae-study · maximum sampled source-face error 0.00000006009737 m
+Loading hra-v1-2-male-cord-study reference
+Prepared 30 meshes in 0.04s; 6 frames while loading
+PASS normalized spinal picking: hra-v1-2-male-cord-study · maximum sampled source-face error 0.00000005972277 m
+Loading hra-v1-2-male-vertebrae-study reference
+Prepared 24 meshes in 0.42s; 32 frames while loading
+PASS normalized spinal picking: hra-v1-2-male-vertebrae-study · maximum sampled source-face error 0.00000006009737 m
+Spinal picking failures: 0

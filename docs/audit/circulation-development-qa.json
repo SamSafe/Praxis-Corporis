@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "code_checkpoint": "adab8f5",
+  "runtime_source_revision": "03cf80c581f018095e78f5eaa4ea9a2ba7bc5e3d",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": [
+    {
+      "script": "tests/viewer_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 10.521,
+      "log_sha256": "3dc428230de0fd120423510982f8eaecb333460988cb077e09c12ee55b0862d3",
+      "log": "circulation-viewer_smoke.log.txt"
+    },
+    {
+      "script": "tests/exploration_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 11.025,
+      "log_sha256": "104fe3475aae6c53e6bd227814586dedc0728a126f0887a685d4b7fb3527469d",
+      "log": "circulation-exploration_smoke.log.txt"
+    },
+    {
+      "script": "tests/part_inspection_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 11.138,
+      "log_sha256": "4bfa0405dc0c0f7198e147bbcfee1a55b24bfbb5879bac03e69676ed4fac33c9",
+      "log": "circulation-part_inspection_smoke.log.txt"
+    },
+    {
+      "script": "tests/coverage_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 10.435,
+      "log_sha256": "935268b7e21b1dfda6f7acb6d5370b5eaa4ece1b77331537670a83f7298c8369",
+      "log": "circulation-coverage_smoke.log.txt"
+    },
+    {
+      "script": "tests/study_reference_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 11.22,
+      "log_sha256": "1588c797fdedf638932a31ce68ab892ef5bc40f02240bdf9ded193c6add16374",
+      "log": "circulation-study_reference_smoke.log.txt"
+    },
+    {
+      "script": "tests/keyboard_workspace_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 6.196,
+      "log_sha256": "dee448d5466db51f5029bdb56c2db6485cc2e2ebff0ef81467847f8124f27bf4",
+      "log": "circulation-keyboard_workspace_smoke.log.txt"
+    },
+    {
+      "script": "tests/keyboard_movement_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 13.217,
+      "log_sha256": "a181dcfba01bcac23a0046f8973ade80c4acc9982abf09e22d5935d2ec80e43c",
+      "log": "circulation-keyboard_movement_smoke.log.txt"
+    },
+    {
+      "script": "tests/scene_display_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 7.126,
+      "log_sha256": "ae0a1cd426f5f8fe7459a2adf5993dfd5814411af0fef655d3bb9adc5add5742",
+      "log": "circulation-scene_display_smoke.log.txt"
+    },
+    {
+      "script": "tests/orientation_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 15.75,
+      "log_sha256": "69fcd7129a932057a29b40d1294edfbda82b68a1355316f0ef7905cf689968c2",
+      "log": "circulation-orientation_smoke.log.txt"
+    },
+    {
+      "script": "tests/part_actions_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 18.182,
+      "log_sha256": "dac278322cd657fb66599ecc6fd679f76f8a9e821fd8724516f468dfb507e041",
+      "log": "circulation-part_actions_smoke.log.txt"
+    },
+    {
+      "script": "tests/loading_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 16.861,
+      "log_sha256": "2c2c47fa5c1bb61f57f1830a2d8cdb9b0d7f4a8ba45ec2b1f289c075f0610bd7",
+      "log": "circulation-loading_smoke.log.txt"
+    },
+    {
+      "script": "tests/search_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 11.27,
+      "log_sha256": "3855079d656750b2dc579b5567c66dee68e6ff7a3aad10dc8b39cd0d7e9124cd",
+      "log": "circulation-search_smoke.log.txt"
+    },
+    {
+      "script": "tests/render_profile_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.169,
+      "log_sha256": "9954d90e0c58cc15e6a464608ee202571b059b3a44872d8e9142b240f817633f",
+      "log": "circulation-render_profile_smoke.log.txt"
+    },
+    {
+      "script": "tests/export_boundary_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.173,
+      "log_sha256": "235837cc34c4cf1c2235cda51a9da9ede4c280cde7f1745d6a780ed48e4819ca",
+      "log": "circulation-export_boundary_smoke.log.txt"
+    },
+    {
+      "script": "tests/saved_views_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 20.919,
+      "log_sha256": "ddf85bb1141acccae44f6397c289f81a1fbbde988ee1a3e11de83a0611f50a2d",
+      "log": "circulation-saved_views_smoke.log.txt"
+    },
+    {
+      "script": "tests/study_notes_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 5.532,
+      "log_sha256": "1163c33b4fb00c65d95e36978bfa3eac965e01ddcc23b7655fd2f6b746d257d4",
+      "log": "circulation-study_notes_smoke.log.txt"
+    },
+    {
+      "script": "tests/portable_views_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.172,
+      "log_sha256": "be706251c30f3a10101c6ce9b0de3064c5649c7b6df16ecdc220807c09896af0",
+      "log": "circulation-portable_views_smoke.log.txt"
+    },
+    {
+      "script": "tests/study_workspace_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 16.97,
+      "log_sha256": "3b31771d6704294896372fc0a3f54379b8a365b2ac5d7e762dd7bbb71bc5905c",
+      "log": "circulation-study_workspace_smoke.log.txt"
+    },
+    {
+      "script": "tests/spinal_picking_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 2.37,
+      "log_sha256": "a5ebc590504a9de2f3ee77d5c944fb40ef8a5fe52cc535f4d1f3792b5517090a",
+      "log": "circulation-spinal_picking_smoke.log.txt"
+    },
+    {
+      "script": "tests/study_content_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.276,
+      "log_sha256": "fe9ff71cc6df435ff9f0bcb1ffa9b4cb2a72a4b97d5a07bfaea9f1c2965c9ab1",
+      "log": "circulation-study_content_smoke.log.txt"
+    },
+    {
+      "script": "tests/circulation_route_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 13.449,
+      "log_sha256": "d9a62cd9d8d4399c9fc6940e5ec03ecb631014cecff4e8901069f859e7c18f61",
+      "log": "circulation-circulation_route_smoke.log.txt"
+    }
+  ],
+  "limits": "Scripted source-project checks. Medical review and human accessibility acceptance remain open."
+}
