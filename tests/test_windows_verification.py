@@ -26,6 +26,20 @@ def complete_log(rendered=True):
 
 
 class WindowsVerificationTests(unittest.TestCase):
+    def test_circulation_packages_require_both_route_checks(self):
+        log = complete_log(False)
+        with self.assertRaisesRegex(ValueError, 'keyboard movement'):
+            parse_result(log, False, circulation=True)
+        for identity in ['female', 'male', 'bodyparts-male-bones-study']:
+            log += f'\nPASS bundled keyboard movement: {identity}'
+        with self.assertRaisesRegex(ValueError, 'circulation route'):
+            parse_result(log, False, circulation=True)
+        log += '\nPASS bundled circulation route: female'
+        with self.assertRaisesRegex(ValueError, 'circulation route'):
+            parse_result(log, False, circulation=True)
+        log += '\nPASS bundled circulation route: male'
+        self.assertIn('male', parse_result(log, False, circulation=True)['references'])
+
     def test_expanded_catalogue_requires_study_workspace_checks(self):
         reference = 'hra-v1-2-female-cord-study'
         extra = [f'PASS interface frames while loading: {reference} · 30',

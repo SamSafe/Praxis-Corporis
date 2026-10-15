@@ -13,6 +13,7 @@ import subprocess
 import tempfile
 
 from build_native import binary_architectures, sha256, unpack_zip
+from audit_native import git_bytes, source_snapshot
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 MARKERS = ["bundled local saved view and study notes", "failed replacement preserves exploration",
@@ -24,7 +25,7 @@ def ps_literal(value: str) -> str:
     return "'" + value.replace("'", "''") + "'"
 
 
-def parse_result(log: str, rendered: bool) -> dict:
+def parse_result(log: str, rendered: bool, circulation: bool = False) -> dict:
     if "SCRIPT ERROR:" in log or re.search(r"^ERROR:", log, re.M):
         raise ValueError("The native runtime reported an error")
     if "PASS offline native bundle" not in log or "Windows native exit code: 0" not in log:
@@ -45,6 +46,13 @@ def parse_result(log: str, rendered: bool) -> dict:
                 r'^PASS bundled study workspace: ' + re.escape(reference) + r'$', log, re.M):
             raise ValueError('Native study workspace check missing: ' + reference)
     result = process_observations(log, rendered)
+    if circulation:
+        for reference in references:
+            if f'PASS bundled keyboard movement: {reference}' not in log.splitlines():
+                raise ValueError('Native keyboard movement check missing: ' + reference)
+        for reference in ['female', 'male']:
+            if f'PASS bundled circulation route: {reference}' not in log.splitlines():
+                raise ValueError('Native circulation route check missing: ' + reference)
     result.update(references=references, ui_process_frames_during_successful_load=frames)
     return result
 
@@ -149,7 +157,7 @@ try {
     return log
 
 
-def captures(folder: pathlib.Path, output: pathlib.Path, references: dict) -> dict:
+def captures(folder: pathlib.Path, output: pathlib.Path, references: dict, circulation: bool = False) -> dict:
     images = {}
     destination = output / "captures"
     destination.mkdir()
@@ -162,6 +170,8 @@ def captures(folder: pathlib.Path, output: pathlib.Path, references: dict) -> di
                        "native-chest" if reference in ["female", "male"] else "native-bones"]
         if reference in ['female', 'male'] and any(key.startswith('hra-v1-2-') for key in references):
             prefixes.append('native-guided')
+        if reference in ['female', 'male'] and circulation:
+            prefixes.extend(['native-route', 'native-route-compact'])
         for prefix in prefixes:
             name = f"{prefix}-{reference}.png"
             path = source / name
@@ -180,6 +190,11 @@ def captures(folder: pathlib.Path, output: pathlib.Path, references: dict) -> di
 def verify(args: argparse.Namespace) -> dict:
     build_report = json.loads(args.build_report.read_text(encoding="utf-8"))
     item = artifact_record(args.archive, build_report)
+    source_snapshot(build_report)
+    content_path = 'content/study_content.json'
+    content = (json.loads(git_bytes(ROOT, build_report['source_revision'], content_path))
+               if content_path in build_report['source_hashes'] else {})
+    circulation = 'heart-lung' in content.get('routes', {})
     if args.output.exists():
         raise ValueError("Use a new output folder; prior reports are kept unchanged")
     args.output.mkdir(parents=True)
@@ -191,7 +206,7 @@ def verify(args: argparse.Namespace) -> dict:
             raise ValueError("Extracted Windows executable/anatomy is incomplete")
         executable_relative = executable.relative_to(session).as_posix().replace("/", "\\")
         log = run_native(args, windows_session, windows_session + "\\" + executable_relative)
-        result = parse_result(log, args.mode == "rendered")
+        result = parse_result(log, args.mode == "rendered", circulation)
         if result["engine_actual"] != build_report["engine"]:
             raise ValueError("The native runtime differs from the pinned build engine")
         result.update(schema_version=1, recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
@@ -201,7 +216,7 @@ def verify(args: argparse.Namespace) -> dict:
                       limits=["Scripted actions; human input, clipboard and native OS picker acceptance remain open.",
                               "No sustained-performance or maximum-loading-pause claim.", "This checks actual Windows execution; Mac device validation is separate."])
         if args.mode == "rendered":
-            result["captures"] = captures(session, args.output, result["references"])
+            result["captures"] = captures(session, args.output, result["references"], circulation)
         if (session / "engine.log").exists():
             shutil.copyfile(session / "engine.log", args.output / "engine.log")
         (args.output / "report.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")

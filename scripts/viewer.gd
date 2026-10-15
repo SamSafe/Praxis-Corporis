@@ -19,7 +19,7 @@ const StudyContent = preload("res://scripts/study_content.gd")
 const GuidedChest = preload("res://scripts/guided_chest.gd")
 const StudyVerification = preload("res://scripts/study_verification.gd")
 enum ExpandedAction { FOCUS, WHOLE_BODY, INSPECT, RETURN_CONTEXT, SELECTION_LABELS,
-	LOCAL_LABELS, MOVE, UNDO, REDO, SAVED_VIEWS, SCREENSHOT, KEYBOARD_HELP, GUIDED_CHEST }
+	LOCAL_LABELS, MOVE, UNDO, REDO, SAVED_VIEWS, SCREENSHOT, KEYBOARD_HELP, GUIDED_CHEST, CIRCULATION_ROUTE }
 var save_path := "user://saved_view.json"
 var views_path := "user://saved_views.json"
 
@@ -105,6 +105,8 @@ var study_links: VBoxContainer
 var study_key := ""
 var guided_chest: GuidedChest
 var guide_button: Button
+var route_button: Button
+var route_supported := false
 var guide_home: VBoxContainer
 var guide_home_index := 0
 
@@ -812,14 +814,18 @@ func build_interface() -> void:
 	top.add_child(brand)
 	body_choice = OptionButton.new()
 	body_choice.fit_to_longest_item = false
+	body_choice.alignment = HORIZONTAL_ALIGNMENT_LEFT
+	body_choice.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	for body in pack.bodies:
 		body_choice.add_item(str(body.get("short_label", str(body.id).capitalize() + " reference")))
 		body_choice.set_item_metadata(body_choice.item_count - 1, str(body.id))
+		body_choice.set_item_tooltip(body_choice.item_count - 1, str(body.label))
 	body_choice.custom_minimum_size.x = 250
 	body_choice.item_selected.connect(func(index: int): switch_body(str(body_choice.get_item_metadata(index))))
 	top.add_child(body_choice)
 	reference_buttons.append(make_button("Saved views", show_saved_views, top, "Keep multiple named exploration setups on this computer."))
 	guide_button = make_button("Guided chest", start_guided_chest, top)
+	route_button = make_button("Heart ↔ lungs", start_circulation_route, top, "Follow a sourced circulation sequence, choose either lung branch and see coverage gaps.")
 	reference_buttons.append(make_button("Coverage", show_coverage, top))
 	make_button("Sources", show_sources, top)
 	panels_menu = MenuButton.new()
@@ -906,6 +912,8 @@ func build_interface() -> void:
 	guide_home_index = guided_chest.get_index()
 	guided_chest.step_requested.connect(apply_chest_step)
 	guided_chest.finish_requested.connect(finish_guided_chest)
+	guided_chest.route_requested.connect(apply_route_step)
+	guided_chest.route_previous_requested.connect(previous_route_step)
 	back_button = make_button("Back", func(): navigate_history(true), navigation, "Return to the previous selection and camera view. Alt + Left.")
 	forward_button = make_button("Forward", func(): navigate_history(false), navigation, "Return to the next selection and camera view. Alt + Right.")
 	context = make_label("Loading reference anatomy…", 14, Color("b5c7d8"))
@@ -938,18 +946,18 @@ func build_interface() -> void:
 	var container := SceneSurface.new()
 	scene_container = container
 	container.focus_mode = Control.FOCUS_ALL
-	container.tooltip_text = "Focus the 3D view with Tab or a click. Arrows orbit; Shift-arrows pan; +/- zoom; F focuses selection; Home shows the body."
+	container.tooltip_text = "Focus the 3D view with Tab or a click. Arrows orbit; Shift-arrows pan; +/- zoom; F focuses selection; Home shows the body. M toggles Move; I/J/K/L/U/O nudge in Move mode."
 	container.gui_input.connect(on_scene_input)
 	container.focus_entered.connect(func():
 		frame.add_theme_stylebox_override("panel", panel_style(Color("0e1926"), Color("83d9d2")))
 		if expanded_feedback:
 			expanded_feedback.add_theme_stylebox_override("panel", panel_style(Color("0e1926"), Color("83d9d2")))
-		navigation_hint.text = "Opening reference… exploration controls resume when ready" if loading else "Arrows orbit · Shift-arrows pan · +/- zoom · F focus · Shift+F10 actions")
+		refresh_input_hint())
 	container.focus_exited.connect(func():
 		frame.remove_theme_stylebox_override("panel")
 		if expanded_feedback:
 			expanded_feedback.remove_theme_stylebox_override("panel")
-		navigation_hint.text = "Opening reference… exploration controls resume when ready" if loading else "Drag to orbit · Shift/right-drag to pan · Scroll/pinch to zoom")
+		refresh_input_hint())
 	container.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	container.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	frame.add_child(container)
@@ -1095,7 +1103,7 @@ func build_interface() -> void:
 	density_row.add_child(label_density)
 	right.add_child(density_row)
 	right.add_child(make_label("CONTENT IN DEVELOPMENT", 12, Color("8a9fb2")))
-	var pending := make_label("Disease views, guided pathways and validated cutaways will be added progressively.", 14, Color("8a9fb2"))
+	var pending := make_label("Study cards and routes are source-checked drafts. Disease views and validated cutaways remain in development.", 14, Color("8a9fb2"))
 	pending.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	right.add_child(pending)
 	source_credit = make_label("Models: HuBMAP / Human Reference Atlas\n3D Reference Object Library v1.1\nCC BY 4.0 · draft catalogue", 12, Color("758ca2"))
@@ -1105,7 +1113,7 @@ func build_interface() -> void:
 	toolbar.add_theme_constant_override("separation", 12)
 	layout.add_child(toolbar)
 	reference_buttons.append(make_button("Whole body", whole_body, toolbar))
-	move_button = make_button("Move selected", toggle_move, toolbar, "In Move mode, drag in the viewer to displace selected anatomy. Shift-drag still pans.")
+	move_button = make_button("Move selected", toggle_move, toolbar, "Move: drag, or focus the 3D view and press I/J/K/L for up/left/down/right, U/O toward/away. Each press moves 5 mm; Shift moves 1 mm. Arrows still control the camera. M toggles Move.")
 	move_button.toggle_mode = true
 	labels_button = CheckButton.new()
 	labels_button.text = "Selection label"
@@ -1158,6 +1166,7 @@ func build_interface() -> void:
 	expanded_popup.add_separator()
 	expanded_popup.add_item("Saved views…", ExpandedAction.SAVED_VIEWS)
 	expanded_popup.add_item("Guided chest…", ExpandedAction.GUIDED_CHEST)
+	expanded_popup.add_item("Heart ↔ lungs route…", ExpandedAction.CIRCULATION_ROUTE)
 	expanded_popup.add_item("Screenshot…", ExpandedAction.SCREENSHOT)
 	expanded_popup.add_item("Keyboard controls…", ExpandedAction.KEYBOARD_HELP)
 	expanded_popup.add_separator("3D resolution")
@@ -1223,7 +1232,7 @@ func switch_body(id: String) -> void:
 	loading = false
 	orbit.input_enabled = true
 	loading_row.visible = false
-	navigation_hint.text = "Arrows orbit · Shift-arrows pan · +/- zoom · F focus · Shift+F10 actions" if scene_container.has_focus() else "Drag to orbit · Shift/right-drag to pan · Scroll/pinch to zoom"
+	refresh_input_hint()
 	anatomy_labels.suspended = false
 	body_choice.disabled = false
 	if not error.is_empty():
@@ -1261,9 +1270,11 @@ func on_load_progress(stage: String, fraction: float) -> void:
 
 
 func select_body_choice(id: String) -> void:
+	route_supported = study_content.route_available("heart-lung", model.body)
 	for index in range(body_choice.item_count):
 		if body_choice.get_item_metadata(index) == id:
 			body_choice.select(index)
+			body_choice.tooltip_text = body_choice.get_item_tooltip(index)
 			return
 
 
@@ -1558,11 +1569,11 @@ func on_panel_action(id: int) -> void:
 	elif id == 2:
 		var dialog := AcceptDialog.new()
 		dialog.title = "Keyboard controls"
-		dialog.dialog_text = "Tab / Shift-Tab moves between controls.\nSearch and anatomy lists provide a text selection route.\n\nWith the 3D view focused (teal border):\nArrow keys orbit · Shift + arrows pan\n+ / - zoom · F focuses selection · Home shows the body\nShift+F10 / Menu opens selected-part actions\nCamera keys leave Move mode and preserve inspection edits.\n\nF11 expands anatomy; Escape returns to the workspace.\nView chooses Native, 75% or 50% 3D resolution.\nAlt + Left/Right revisits views.\nCtrl/Cmd + Z undoes inspection; add Shift to redo.\nText fields keep their ordinary editing shortcuts.\nEscape leaves Move mode or closes the active dialog."
+		dialog.dialog_text = "Tab / Shift-Tab moves between controls.\nSearch and anatomy lists provide a text selection route.\n\nWith the 3D view focused (teal border):\nArrow keys orbit · Shift + arrows pan\n+ / - zoom · F focuses selection · Home shows the body\nShift+F10 / Menu opens selected-part actions\nM toggles Move mode. In Move mode, press:\nI/J/K/L: up/left/down/right in the camera plane\nU/O: toward/away from the camera\nEach press: 5 mm · hold Shift: 1 mm · Undo reverses a press\nCamera keys leave Move mode and preserve inspection edits.\n\nF11 expands anatomy; Escape returns to the workspace.\nAlt + Left/Right revisits views.\nCtrl/Cmd + Z undoes inspection; add Shift to redo.\nText fields keep their ordinary editing shortcuts.\nEscape leaves Move mode or closes the active dialog."
 		dialog.confirmed.connect(dialog.queue_free)
 		dialog.canceled.connect(dialog.queue_free)
 		add_child(dialog)
-		dialog.popup_centered_clamped(Vector2i(650, 430), 0.9)
+		dialog.popup_centered_clamped(Vector2i(650, 560), 0.9)
 	elif id == 4:
 		show_preferences()
 
@@ -1614,6 +1625,7 @@ func refresh_expanded_menu() -> void:
 	popup.set_item_disabled(popup.get_item_index(ExpandedAction.REDO), redo_button.disabled)
 	popup.set_item_disabled(popup.get_item_index(ExpandedAction.SCREENSHOT), unavailable or capture_in_progress)
 	popup.set_item_disabled(popup.get_item_index(ExpandedAction.GUIDED_CHEST), unavailable or not model.structures.has("anatomy.heart"))
+	popup.set_item_disabled(popup.get_item_index(ExpandedAction.CIRCULATION_ROUTE), unavailable or not route_supported)
 	popup.set_item_checked(popup.get_item_index(ExpandedAction.SELECTION_LABELS), labels_button.button_pressed)
 	popup.set_item_checked(popup.get_item_index(ExpandedAction.LOCAL_LABELS), local_labels_button.button_pressed)
 	popup.set_item_checked(popup.get_item_index(ExpandedAction.MOVE), orbit.move_mode)
@@ -1710,6 +1722,7 @@ func on_expanded_action(id: int) -> void:
 			ExpandedAction.REDO: model.redo()
 			ExpandedAction.SAVED_VIEWS: show_saved_views()
 			ExpandedAction.GUIDED_CHEST: start_guided_chest()
+			ExpandedAction.CIRCULATION_ROUTE: start_circulation_route()
 			ExpandedAction.SCREENSHOT: export_screenshot()
 	refresh_expanded_menu()
 	if id not in [ExpandedAction.SAVED_VIEWS, ExpandedAction.SCREENSHOT, ExpandedAction.KEYBOARD_HELP]:
@@ -1834,6 +1847,17 @@ func on_scene_input(event: InputEvent) -> void:
 		return
 	if event.alt_pressed or event.ctrl_pressed or event.meta_pressed:
 		return
+	if event.keycode == KEY_M and not event.echo and not move_button.disabled:
+		move_button.button_pressed = not move_button.button_pressed
+		toggle_move()
+		scene_container.accept_event()
+		return
+	if orbit.move_mode and event.keycode in [KEY_I, KEY_J, KEY_K, KEY_L, KEY_U, KEY_O]:
+		# Deliberate increments: holding a key never floods the undo history.
+		if not event.echo:
+			nudge_selection(event.keycode, event.shift_pressed)
+		scene_container.accept_event()
+		return
 	if event.keycode == KEY_MENU or (event.keycode == KEY_F10 and event.shift_pressed):
 		open_part_actions()
 		scene_container.accept_event()
@@ -1860,6 +1884,29 @@ func on_scene_input(event: InputEvent) -> void:
 	elif event.keycode == KEY_HOME:
 		whole_body()
 	scene_container.accept_event()
+
+
+func nudge_selection(key: int, fine: bool) -> void:
+	if loading or not orbit.move_mode or move_button.disabled or not model.structures.has(model.selected_id):
+		return
+	var local: Vector3 = {KEY_I: Vector3.UP, KEY_K: Vector3.DOWN, KEY_J: Vector3.LEFT, KEY_L: Vector3.RIGHT, KEY_U: Vector3.BACK, KEY_O: Vector3.FORWARD}.get(key, Vector3.ZERO)
+	if local == Vector3.ZERO:
+		return
+	model.checkpoint()
+	model.offset_selection(orbit.camera.global_basis * local * (0.001 if fine else 0.005))
+	anatomy_labels.update_labels()
+	status.text = "Moved selection %s mm in camera coordinates · Undo reverses this step" % ("1" if fine else "5")
+
+
+func refresh_input_hint() -> void:
+	if navigation_hint == null:
+		return
+	if loading:
+		navigation_hint.text = "Opening reference… exploration controls resume when ready"
+	elif scene_container.has_focus():
+		navigation_hint.text = "MOVE · I/J/K/L up/left/down/right · U/O depth · 5 mm; Shift 1 mm · M exits" if orbit.move_mode else "Arrows orbit · Shift-arrows pan · +/- zoom · F focus · M Move · Shift+F10 actions"
+	else:
+		navigation_hint.text = "Drag to orbit · Shift/right-drag to pan · Scroll/pinch to zoom"
 
 
 func refresh_details() -> void:
@@ -1889,7 +1936,10 @@ func refresh_details() -> void:
 	var selected: bool = model.structures.has(model.selected_id)
 	if guide_button:
 		guide_button.disabled = loading or not model.structures.has("anatomy.heart")
-		guide_button.text = "Finish chest guide" if guided_chest.active else "Guided chest"
+		guide_button.text = "Finish chest guide" if guided_chest.active and guided_chest.mode == "chest" else "Guided chest"
+	if route_button:
+		route_button.disabled = loading or not route_supported
+		route_button.text = "Finish route" if guided_chest.active and guided_chest.mode == "circulation" else "Heart ↔ lungs"
 	refresh_study_content()
 	var isolated: bool = not model.isolated_id.is_empty()
 	if peel_button:
@@ -1951,7 +2001,8 @@ func refresh_study_content() -> void:
 	study_key = key
 	study_summary.text = study_content.text(model.selected_id) if not model.selected_id.is_empty() else "Select a structure to explore its position and read available study information."
 	for child in study_links.get_children():
-		child.free()
+		study_links.remove_child(child)
+		child.queue_free()
 	var card := study_content.card(model.selected_id)
 	for related in card.get("related", []):
 		if not model.structures.has(related):
@@ -1995,6 +2046,7 @@ func leave_move_mode() -> void:
 	move_button.button_pressed = false
 	orbit.move_mode = false
 	orbit.cancel_drag()
+	refresh_input_hint()
 	if was_moving:
 		status.text = "Drag to orbit · click to select"
 
@@ -2073,19 +2125,78 @@ func start_guided_chest() -> void:
 	if loading or not model.structures.has("anatomy.heart"):
 		return
 	if guided_chest.active:
+		var same_mode: bool = guided_chest.mode == "chest"
 		await finish_guided_chest()
-		return
+		if same_mode:
+			return
+	begin_study_workspace("chest")
+	apply_chest_step(0)
+
+
+func begin_study_workspace(mode: String) -> void:
 	guided_chest.original = export_view_state().duplicate(true)
 	guided_chest.original_undo = model.undo_stack.duplicate(true)
 	guided_chest.original_redo = model.redo_stack.duplicate(true)
 	guided_chest.original_back = back_views.duplicate(true)
 	guided_chest.original_forward = forward_views.duplicate(true)
 	guided_chest.active = true
-	apply_chest_step(0)
+	guided_chest.mode = mode
+	guided_chest.route_history.clear()
+	guided_chest.route_node = ""
+
+
+func start_circulation_route() -> void:
+	if loading or not route_supported:
+		return
+	if guided_chest.active:
+		var same_mode: bool = guided_chest.mode == "circulation"
+		await finish_guided_chest()
+		if same_mode:
+			return
+	begin_study_workspace("circulation")
+	apply_route_step(str(study_content.route("heart-lung").start))
+
+
+func previous_route_step() -> void:
+	if guided_chest.active and guided_chest.mode == "circulation" and not guided_chest.route_history.is_empty():
+		apply_route_step(guided_chest.route_history.pop_back(), false)
+
+
+func apply_route_step(id: String, remember: bool = true) -> void:
+	if loading or not guided_chest.active or guided_chest.mode != "circulation" or not route_supported:
+		return
+	var route := study_content.route("heart-lung")
+	if not route.nodes.has(id):
+		return
+	if remember and not guided_chest.route_node.is_empty():
+		if id not in route.nodes[guided_chest.route_node].next:
+			return
+		guided_chest.route_history.append(guided_chest.route_node)
+		if guided_chest.route_history.size() > 64:
+			guided_chest.route_history.pop_front()
+	var node: Dictionary = route.nodes[id]
+	applying_preferences = true
+	leave_move_mode()
+	end_isolation()
+	model.apply_saved_state({})
+	labels_button.button_pressed = true
+	local_labels_button.button_pressed = true
+	label_density.value = 8
+	select_structure(str(node.geometry[model.body.id].id), false)
+	inspection_return = camera_view()
+	model.set_isolation(model.selected_id)
+	focus_selection(false)
+	guided_chest.show_route(id, route, study_content.data.sources)
+	scale_text(guided_chest)
+	applying_preferences = false
+	refresh_details()
+	anatomy_labels.update_labels()
+	scene_container.grab_focus()
+	status.text = "Heart ↔ lungs · conceptual sequence · Finish and restore returns to your starting setup"
 
 
 func apply_chest_step(index: int) -> void:
-	if loading or not guided_chest.active or index < 0 or index >= GuidedChest.STEPS.size():
+	if loading or not guided_chest.active or guided_chest.mode != "chest" or index < 0 or index >= GuidedChest.STEPS.size():
 		return
 	var step: Dictionary = GuidedChest.STEPS[index]
 	if not model.structures.has(step.selection):
@@ -2140,7 +2251,7 @@ func finish_guided_chest() -> void:
 		model.redo_stack = guided_chest.original_redo.duplicate(true)
 		back_views = guided_chest.original_back.duplicate(true)
 		forward_views = guided_chest.original_forward.duplicate(true)
-		status.text = "Chest guide finished · your starting setup and histories are restored"
+		status.text = "Study finished · your starting setup and histories are restored"
 	refresh_details()
 
 
@@ -2174,7 +2285,8 @@ func toggle_move() -> void:
 	if loading:
 		return
 	orbit.move_mode = move_button.button_pressed
-	status.text = "Drag to move the selected structure · Shift-drag to pan" if orbit.move_mode else "Drag to orbit · click to select"
+	status.text = "Move: drag or press I/J/K/L/U/O with the 3D view focused · Shift for 1 mm steps" if orbit.move_mode else "Drag to orbit · click to select"
+	refresh_input_hint()
 
 
 func _process(_delta: float) -> void:
@@ -2205,7 +2317,13 @@ func capture_image() -> Image:
 	var selected_label := str(model.structures[model.selected_id].label) if model.structures.has(model.selected_id) else "Whole body"
 	var caption := ViewCapture.credits(model.body, selected_label)
 	if guided_chest.active:
-		caption += "\nGuided chest teaching view · supplied meshes may be separated for inspection; no pathological change is represented."
+		if guided_chest.mode == "circulation":
+			var route := study_content.route("heart-lung")
+			caption += "\nHeart/lung conceptual route · " + str(route.nodes[guided_chest.route_node].title) + " · source-checked draft; medical review pending.\n" + str(route.scope)
+			for source in route.nodes[guided_chest.route_node].source_ids:
+				caption += "\n" + str(study_content.data.sources[source].url)
+		else:
+			caption += "\nGuided chest teaching view · supplied meshes may be separated for inspection; no pathological change is represented."
 	var study_credit := study_content.credits(model.selected_id)
 	if not study_credit.is_empty():
 		caption += "\n" + study_credit
@@ -2481,9 +2599,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 				model.undo()
 			get_viewport().set_input_as_handled()
 		elif event.keycode == KEY_ESCAPE:
-			move_button.button_pressed = false
-			orbit.move_mode = false
-			orbit.cancel_drag()
+			leave_move_mode()
 			status.text = "Navigate mode · selection preserved"
 			get_viewport().set_input_as_handled()
 		elif event.alt_pressed and event.keycode in [KEY_LEFT, KEY_RIGHT]:

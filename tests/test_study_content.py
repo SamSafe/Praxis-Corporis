@@ -12,6 +12,29 @@ from build_spinal_studies import build
 
 
 class StudyContentTests(unittest.TestCase):
+    def test_circulation_route_has_explicit_source_mappings_and_coverage_gaps(self):
+        content = json.loads((ROOT / "content/study_content.json").read_text())
+        route = content["routes"]["heart-lung"]
+        self.assertEqual(route["expert_review"], "pending")
+        self.assertEqual(route["nodes"]["pulmonary-trunk"]["next"], ["left-artery", "right-artery"])
+        self.assertEqual(route["nodes"]["systemic-gap"]["next"], ["vena-cava"])
+        bodies = json.loads((ROOT / "content/sample_pack.json").read_text())["bodies"]
+        for body in bodies:
+            available = {s["id"]: s for s in body["structures"]}
+            for key, node in route["nodes"].items():
+                mapping = node["geometry"][body["id"]]
+                source = available[mapping["id"]]
+                self.assertEqual(mapping["source_name"], source["source_name"])
+                self.assertEqual(mapping["ontology"], source["ontology"])
+                self.assertTrue(source["mesh_nodes"], key)
+                self.assertTrue(set(node["source_ids"]) <= content["sources"].keys())
+                self.assertTrue(set(node["next"]) <= route["nodes"].keys())
+                if key.endswith("exchange") or key == "systemic-gap":
+                    self.assertEqual(node["coverage"], "context_only")
+                    self.assertTrue(node["gap"])
+        # No rendered path or anatomical channel is inferred from this graph.
+        self.assertIn("conceptual", route["scope"])
+
     def test_chest_cards_and_relationships_exist_in_both_bodies(self):
         content = json.loads((ROOT / "content/study_content.json").read_text())
         catalogue = json.loads((ROOT / "content/sample_pack.json").read_text())

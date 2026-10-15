@@ -43,6 +43,9 @@ func run() -> void:
 				check(viewer.model.structures.has(related), "Study relationship maps to this reference")
 		viewer.select_structure("anatomy.heart")
 		check("Pumps blood" in viewer.study_summary.text and viewer.study_links.get_child_count() == 5, "Heart card shows authored text, relationships and primary sources")
+		viewer.study_links.get_child(0).pressed.emit()
+		check(viewer.model.selected_id == "anatomy.heart.chambers", "Related-structure links can rebuild their own controls safely")
+		viewer.select_structure("anatomy.heart")
 		viewer.model.checkpoint()
 		viewer.model.offset_selection(Vector3(0.02, 0.01, 0))
 		viewer.local_labels_button.button_pressed = false
