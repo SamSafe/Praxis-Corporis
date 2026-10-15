@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import datetime
+import hashlib
 import json
 import math
 import os
@@ -12,6 +13,7 @@ import shutil
 import subprocess
 
 from build_native import binary_architectures, sha256, unpack_zip
+from audit_native import git_bytes
 from summarize_profile import validate_configuration, validate_report
 from verify_windows import ROOT, artifact_record, native_session, powershell, process_observations, run_native
 
@@ -20,6 +22,21 @@ CURRENT_WORKLOADS = {
     'male': ['whole-body orbit', 'chest orbit with faded lungs and local labels', 'isolated supplied-part orbit'],
     'bodyparts-male-bones-study': ['whole-body orbit', 'isolated supplied-part orbit'],
 }
+
+
+def expected_workloads(build: dict) -> dict:
+    workloads = {key: value.copy() for key, value in CURRENT_WORKLOADS.items()}
+    relative = 'content/spinal_studies.json'
+    digest = build.get('source_hashes', {}).get(relative)
+    if digest:
+        source = git_bytes(ROOT, build['source_revision'], relative)
+        if hashlib.sha256(source).hexdigest() != digest:
+            raise ValueError('Spinal workload catalogue differs from the recorded source snapshot')
+        for study in json.loads(source)['bodies']:
+            if study['id'] in workloads:
+                raise ValueError('Duplicate reference in the recorded workload catalogue')
+            workloads[study['id']] = ['whole-body orbit', 'isolated supplied-part orbit']
+    return workloads
 
 
 def profile_options(args: argparse.Namespace) -> tuple[dict, list[str], int]:
@@ -37,8 +54,8 @@ def profile_options(args: argparse.Namespace) -> tuple[dict, list[str], int]:
     arguments = ['--profile-rendered-bundle', f'--profile-seconds={args.seconds}',
                  f'--profile-warmup={args.warmup}', f'--profile-repetitions={args.repetitions}',
                  f'--profile-window={args.window}', f'--profile-view={view}', f'--profile-resolution={resolution}']
-    # Eight current scenes; allow loading/setup time for every repetition.
-    timeout = math.ceil(8 * (args.seconds + args.warmup) * args.repetitions) + 180 * args.repetitions + 60
+    # Allow the expanded sixteen-scene catalogue plus loading/setup for each repeat.
+    timeout = math.ceil(16 * (args.seconds + args.warmup) * args.repetitions) + 180 * args.repetitions + 60
     return config, arguments, timeout
 
 
@@ -55,9 +72,10 @@ def validate_native_profile(report: dict, log: str, build: dict, config: dict) -
     if not report.get('engine_commit') or report['engine_commit'][:9] not in build['engine']:
         raise ValueError('Profile engine commit differs from the native artifact')
     rows = validate_report(report)
-    if {p['reference']: p['scenes'] for p in report['measurement_plan']} != CURRENT_WORKLOADS:
-        raise ValueError('Profile plan differs from the eight current bundled workloads')
-    if len(rows) != 8 * config['repetitions']:
+    workloads = expected_workloads(build)
+    if {p['reference']: p['scenes'] for p in report['measurement_plan']} != workloads:
+        raise ValueError('Profile plan differs from the recorded bundled workloads')
+    if len(rows) != sum(len(scenes) for scenes in workloads.values()) * config['repetitions']:
         raise ValueError('Profile omitted a current bundled workload')
     return observations, rows
 

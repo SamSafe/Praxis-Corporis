@@ -1,13 +1,15 @@
 """Reject incomplete or internally inconsistent native performance evidence."""
 import argparse
 import copy
+import hashlib
+import subprocess
 import pathlib
 import sys
 import unittest
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'tools'))
-from profile_windows import CURRENT_WORKLOADS, profile_options, validate_native_profile
+from profile_windows import CURRENT_WORKLOADS, expected_workloads, profile_options, validate_native_profile
 from summarize_profile import validate_report
 
 
@@ -33,6 +35,18 @@ def fixture():
 
 
 class RenderProfileTests(unittest.TestCase):
+    def test_workload_catalogue_is_bound_to_the_recorded_source(self):
+        relative = 'content/spinal_studies.json'
+        build = {'source_revision': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
+                 'source_hashes': {relative: hashlib.sha256((ROOT / relative).read_bytes()).hexdigest()}}
+        workloads = expected_workloads(build)
+        self.assertEqual(len(workloads), 7)
+        self.assertEqual(sum(map(len, workloads.values())), 16)
+        self.assertEqual(len(expected_workloads({})), 3)  # Older eight-workload artifacts stay verifiable.
+        build['source_hashes'][relative] = '0' * 64
+        with self.assertRaisesRegex(ValueError, 'recorded source'):
+            expected_workloads(build)
+
     def test_raw_intervals_determine_percentiles_and_stall_counts(self):
         report = fixture()
         rows = validate_report(report)
