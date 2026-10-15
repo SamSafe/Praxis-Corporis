@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "source_revision": "d11bb9f7537c3c22a26a1d5c6daabc4b823e1c04",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": [
+    {
+      "script": "tests/information_dialog_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 12.899,
+      "log_sha256": "e7596d96599b04ef48cd7beea3769f26e5d7f60ba33f46e8553a4021f8bd20fa",
+      "log": "information-information_dialog_smoke.log.txt"
+    },
+    {
+      "script": "tests/study_content_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.264,
+      "log_sha256": "fe9ff71cc6df435ff9f0bcb1ffa9b4cb2a72a4b97d5a07bfaea9f1c2965c9ab1",
+      "log": "information-study_content_smoke.log.txt"
+    },
+    {
+      "script": "tests/circulation_route_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 13.512,
+      "log_sha256": "bae93c6636ab6e6627d8b0e06bbf4c6909c29a87c4c7b92d436e08bfebd69975",
+      "log": "information-circulation_route_smoke.log.txt"
+    },
+    {
+      "script": "tests/study_workspace_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 17.404,
+      "log_sha256": "610fea673154cb578d0b7117efe2f2772f91f85b805b3cd39d13677aee7b5202",
+      "log": "information-study_workspace_smoke.log.txt"
+    },
+    {
+      "script": "tests/keyboard_movement_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 13.246,
+      "log_sha256": "322ed6acdb07cb57bb7d17f89d331fd0c01959d254981c9f5a9a8bf58c5341d0",
+      "log": "information-keyboard_movement_smoke.log.txt"
+    },
+    {
+      "script": "tests/keyboard_workspace_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 6.26,
+      "log_sha256": "7a2243c071845964b4567b024ce3f95011c638b6d034b42622afac66ff8574c0",
+      "log": "information-keyboard_workspace_smoke.log.txt"
+    },
+    {
+      "script": "tests/export_boundary_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.17,
+      "log_sha256": "235837cc34c4cf1c2235cda51a9da9ede4c280cde7f1745d6a780ed48e4819ca",
+      "log": "information-export_boundary_smoke.log.txt"
+    }
+  ],
+  "scope": "Seven affected engine scripts rerun after the bounded-dialog changes; the earlier complete 21-script batch is retained separately."
+}

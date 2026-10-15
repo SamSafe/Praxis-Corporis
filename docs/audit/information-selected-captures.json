@@ -1,0 +1,18 @@
+[
+  {
+    "file": "docs/prototype/information-help.png",
+    "sha256": "14843f6005be29ce10067290d9955ad302d66d1b20df7f3933cd2b6a1e1e5081"
+  },
+  {
+    "file": "docs/prototype/information-sources.png",
+    "sha256": "47a6746c2882a415f8a8f5a8a2bce1d84d23ce9904b5f2b053b6fec3cca3aea9"
+  },
+  {
+    "file": "docs/prototype/information-route-compact-female.png",
+    "sha256": "ee54dcd7d1e835757950d5a72affbbb2199e84497fb2349ef34b60c3e9fb67c2"
+  },
+  {
+    "file": "docs/prototype/information-route-compact-male.png",
+    "sha256": "e77e53337e455c1bdd6f0991cf3493502b6f9582bfa11158dd21c35f52aa5325"
+  }
+]

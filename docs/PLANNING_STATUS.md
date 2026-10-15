@@ -155,6 +155,13 @@ across all seven references; 90 capture identities and seven inspected contact
 sheets are retained. [Circulation verification](audit/CIRCULATION_ROUTE_VERIFICATION.md)
 records these packages without expanding medical, Mac or human acceptance claims.
 
+The `d11bb9f` runtime adds bounded, selectable information windows, keyboard
+scrolling/closure and study-text credits in Sources. The startup Sources path and
+route citation spacing are corrected. Forty-four Python checks, seven affected
+engine scripts and all-reference offline/native Windows workflows pass; the new
+compact help/source and route screens were inspected. [Information-window evidence](audit/INFORMATION_DIALOG_VERIFICATION.md)
+records the refreshed exact artifacts and unchanged human/Mac/medical gates.
+
 ## Established by the user
 
 | Decision | Direction |

@@ -1,5 +1,8 @@
 # Circulation route and keyboard inspection verification
 
+This is the `03cf80c` checkpoint. Subsequent [information-window improvements and
+refreshed packages](INFORMATION_DIALOG_VERIFICATION.md) retain separate identities.
+
 Private changes on 2026-10-15. Runtime source:
 `03cf80c581f018095e78f5eaa4ea9a2ba7bc5e3d`; feature checkpoint: `adab8f5`.
 This extends the earlier study workspace while preserving source-reference and

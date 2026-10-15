@@ -76,7 +76,7 @@ preview. Text size, panel layout, rendering quality and label preferences are re
 Precise keyboard movement supports 5 mm and 1 mm inspection steps with undo/redo.
 Four separate HRA v1.2 spinal-cord/vertebra studies add 108 source meshes across both
 sexes, without registering them to the original bodies. [Study workspace guide](docs/STUDY_WORKSPACE.md),
-[verification and private packages](docs/audit/CIRCULATION_ROUTE_VERIFICATION.md).
+[verification and private packages](docs/audit/INFORMATION_DIALOG_VERIFICATION.md).
 Disease content, validated cutaways and physiological simulation are future work.
 Private Windows/macOS ZIPs are generated locally under dist/. Target-device testing,
 public signing/notarization, and baseline-laptop performance remain open.
