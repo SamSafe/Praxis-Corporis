@@ -1,15 +1,19 @@
 # Run the private anatomy prototype
 
-The first viewer uses real, separate HRA male and female reference samples inside
+The viewer uses real, separate HRA male and female reference samples inside
 one continuous scene. It is a partial atlas and has no disease content or medical
 review. Detailed findings are in [the sample audit](audit/HRA_SAMPLE_FINDINGS.md).
+
+The [study workspace guide](STUDY_WORKSPACE.md) covers portable saved views/notes,
+the six-step guided chest exploration, fifteen draft study cards, text sizing and
+remembered preferences, and four separate spinal source studies.
 
 The selected-part Actions menu shares the workspace inspection, label, visibility,
 Move, restore and undo/redo controls. Visibility and history use smaller submenus;
 visibility changes are unavailable while inspecting alone. Opening or dismissing
 the menu preserves selection and camera. The menu closes when reference loading,
-selection or display layout changes. Right-drag continues to pan. Disease, pathway
-and separation actions remain pending.
+selection or display layout changes. Right-drag continues to pan. Disease and physiological pathway content remain pending.
+The guided chest teaching layout is available through its separate guide controls.
 
 ## Requirements and setup
 
@@ -107,7 +111,7 @@ is used by the viewer.
 | Workspace panels | View toggles the anatomy explorer and structure details independently; Keyboard controls opens the shortcut reference. |
 | Expanded anatomy | View > Expand anatomy or F11 fills the window with the live anatomy view. Escape or Return to workspace brings the panels back. |
 | Expanded controls | Explore keeps labels, focus/whole body, Inspect alone/Return to context, Move, Undo/Redo, Saved views, Screenshot and keyboard help available. Selection, Move mode and action feedback remain visible. |
-| Rendering resolution | View chooses Native, 75% or 50% screen-pixel resolution. Lower settings reduce graphics load while keeping all geometry and sharp UI labels. This is a session preference, separate from saved anatomy views. |
+| Rendering resolution | View chooses Native, 75% or 50% screen-pixel resolution. Lower settings reduce graphics load while keeping all geometry and sharp UI labels. This is a remembered device preference, separate from saved anatomy views. |
 | Screenshot | Screenshot captures the current workspace and opens a PNG save dialog; source credits and prototype status are added below the image. |
 
 Keyboard camera controls work only while the 3D view has focus. Search/list arrows
@@ -140,8 +144,8 @@ client window; a 1920 × 1080 window produces a 1920 × 1080 3D buffer. Very lar
 buffers are limited to 8192 pixels per dimension, with their aspect ratio retained.
 Anatomy, camera state, inspection history and the live 3D world survive display-mode
 changes. Window aspect expansion uses available space without letterbox borders.
-Panel visibility stays as set while switching references/restoring views; each launch
-starts with both panels visible. Panel layout is separate from saved anatomy snapshots.
+Panel visibility stays as set while switching references/restoring views and is remembered
+across launches. Panel layout is separate from saved anatomy snapshots.
 
 Screenshot export includes the current window, visible labels and panels, with a
 source/status footer rendered inside the PNG. Hidden side panels remain hidden, while
@@ -250,6 +254,9 @@ or changing the session. Older saves without these optional fields load in the
 ordinary body view.
 
 ## Saved views
+
+Import/export and compatibility-preview controls are described in the
+[study workspace guide](STUDY_WORKSPACE.md#portable-saved-views).
 
 Open **Saved views**, enter a name, and choose **Save current view**. The library
 keeps up to 200 named setups on this computer. Select a view to see its reference

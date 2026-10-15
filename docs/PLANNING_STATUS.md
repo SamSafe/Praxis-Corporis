@@ -1,6 +1,6 @@
 # Planning Status
 
-Updated: 2026-10-14, using the America/Edmonton client date.
+Updated: 2026-10-15, using the America/Edmonton client date.
 
 Planning established the product direction, and the user authorised the first
 private feasibility prototype. Both pinned HRA samples have been downloaded,
@@ -126,13 +126,25 @@ All four also passed actual engine mesh/triangle/bounds checks and were rendered
 their original source-body context. No source fitting or catalogue admission occurred;
 the unresolved female node is highlighted in the retained inspection preview.
 
-Current private archives use `b9c23b4`. Selection-bound Actions now expose supported
+The previous private archives use `b9c23b4`. Selection-bound Actions now expose supported
 inspection tools beside anatomy, with hidden/off-screen corner access. Real-input
 checks and native Windows workflows pass; 36 captures were reviewed, including
 individual inspection of nine new menus. The initial failed QA trial is retained.
 [Part-action verification](audit/PART_ACTIONS_VERIFICATION.md). Actual Mac execution
-and human acceptance remain open. Portable saved-view import/export is the next
-local implementation priority.
+and human acceptance remain open. Portable saved-view import/export has since been implemented.
+
+The `8a44cdb` private runtime (following the `df0e7ba` feature checkpoint) implements portable view/note transfer,
+remembered display preferences and text sizing, 15 source-checked draft heart/lung
+cards, and a six-step chest guide with reversible chamber separation. Four independent
+HRA v1.2 spinal source studies add 108 meshes; they retain their original coordinates,
+missing metadata and separate coverage records. Original United references remain
+unchanged. Forty-one Python checks, 18 engine smoke scripts and all-seven-reference
+offline workflows pass. The final Windows archive passes native AMD workflows for
+all seven references; all 86 captures were inspected. A sixteen-scene one-second
+profiler diagnostic also passes, without a sustained-performance claim.
+[Verification and packages](audit/STUDY_WORKSPACE_VERIFICATION.md) and
+[the study workspace guide](STUDY_WORKSPACE.md) record behavior and limits. Qualified review, real Mac execution, broader
+whole-body anatomy and human acceptance remain open.
 
 ## Established by the user
 

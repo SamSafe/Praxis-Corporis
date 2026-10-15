@@ -6,7 +6,7 @@ A desktop anatomy explorer for aspiring doctors and medical students. Reveal bod
 layers, select and label structures, move parts aside, inspect internal anatomy,
 follow connections, and explore related diseases within one continuous body scene.
 
-**Status: private Godot feasibility prototype, 2026-10-14.**
+**Status: private Godot feasibility prototype, 2026-10-15.**
 The user authorised work after the planning/documentation stage. Both reference
 samples are imported; coverage is partial and anatomical review is pending.
 [Prototype guide](docs/PROTOTYPE.md) explains setup, controls, checks and limitations.
@@ -68,7 +68,14 @@ the prior body view while preserving inspection edits.
 Coverage compares supplied source groups across both references and states their gaps.
 An optional BodyParts3D male bone study adds separately selectable source bones in
 its own unregistered reference. [Source audit and preparation](docs/audit/BODYPARTS3D_FINDINGS.md).
-Disease content, validated cutaways and guided pathways are future work.
+Fifteen source-checked draft heart/lung study cards now include related-structure
+links and primary sources. A six-step Guided chest view includes reversible chamber
+separation. Saved views and notes can be exported/imported with a compatibility
+preview. Text size, panel layout, rendering quality and label preferences are retained.
+Four separate HRA v1.2 spinal-cord/vertebra studies add 108 source meshes across both
+sexes, without registering them to the original bodies. [Study workspace guide](docs/STUDY_WORKSPACE.md),
+[verification and private packages](docs/audit/STUDY_WORKSPACE_VERIFICATION.md).
+Disease content, validated cutaways and physiological guided pathways are future work.
 Private Windows/macOS ZIPs are generated locally under dist/. Target-device testing,
 public signing/notarization, and baseline-laptop performance remain open.
 The [full-resolution Windows measurement report](docs/audit/WINDOWS_FULLHD_PROFILE.md)

@@ -1,0 +1,44 @@
+[
+  {
+    "original": "native-guided-female.png",
+    "retained": "docs/prototype/study-workspace-guided-female.png",
+    "sha256": "a22a36b8babcbc927a46f2212862c1b207838297433b849d097a1a07e70134b8",
+    "source": "native Windows release 8a44cdb"
+  },
+  {
+    "original": "native-guided-male.png",
+    "retained": "docs/prototype/study-workspace-guided-male.png",
+    "sha256": "a72bcc8278a5a8c026654613c136a2544b658dfaa7ce1883c0d0b57d4cff97bc",
+    "source": "native Windows release 8a44cdb"
+  },
+  {
+    "original": "native-part-actions-compact-hra-v1-2-female-cord-study.png",
+    "retained": "docs/prototype/study-workspace-cord-actions.png",
+    "sha256": "40e91a0b20020e9500da1091147bfbc12696a69040c16893d1172dc077747b73",
+    "source": "native Windows release 8a44cdb"
+  },
+  {
+    "original": "native-part-actions-expanded-hra-v1-2-female-vertebrae-study.png",
+    "retained": "docs/prototype/study-workspace-vertebra-actions.png",
+    "sha256": "b5cbd84ba24ab3c613164bd6107aebd9b7a379dd781d7c8c143d0b83e4036354",
+    "source": "native Windows release 8a44cdb"
+  },
+  {
+    "original": "final-card-large-text.png",
+    "retained": "docs/prototype/study-workspace-large-text.png",
+    "sha256": "0469155f4412e2458fc0139d6bb3a89f2eac4dbf29637bca48f26fa792414dc4",
+    "source": "Linux development rendering of 8a44cdb"
+  },
+  {
+    "original": "final-metadata-large-text.png",
+    "retained": "docs/prototype/study-workspace-metadata-gap.png",
+    "sha256": "a77fd8016f3dc823413afe0dc18f314628be08da2e99cf57a232d09f4f35ea1b",
+    "source": "Linux development rendering of 8a44cdb"
+  },
+  {
+    "original": "portable-views-preview.png",
+    "retained": "docs/prototype/study-workspace-import-preview.png",
+    "sha256": "46f97a675177a9d0a5b1f98eecb23dbc6a9f965a8be001e86d6600bfbab68167",
+    "source": "Linux development rendering; source behavior unchanged in final runtime"
+  }
+]

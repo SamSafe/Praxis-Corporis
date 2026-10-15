@@ -1,0 +1,125 @@
+# Study workspace improvements
+
+Implemented on 2026-10-15 for the private prototype. The original HRA United
+female/male references and existing saved libraries retain their identities.
+
+## Study information
+
+Fifteen authored cards cover the heart, its chambers/septum/valves, and the lungs.
+Select a covered structure to read a short overview and function, follow related
+structures in the current body, or open its primary sources in a browser.
+**Source and mesh details** expands the complete technical source record.
+Structures without an authored card say so explicitly.
+
+Text and relationships are stored separately from geometry in
+[study_content.json](../content/study_content.json). These are source-checked private
+drafts, with qualified medical review pending. General anatomical explanations do
+not establish the completeness of source meshes or supply a validated cutaway.
+The source pages are NHLBI / NIH's [heart anatomy](https://www.nhlbi.nih.gov/health/heart/anatomy),
+[heart blood flow](https://www.nhlbi.nih.gov/health/heart/blood-flow),
+[respiratory system](https://www.nhlbi.nih.gov/health/lungs/respiratory-system) and
+[gas exchange](https://www.nhlbi.nih.gov/health/lungs/breathing-benefits).
+No source illustrations, videos or substantial text passages are reused.
+
+## Guided chest exploration
+
+Choose **Guided chest** in either HRA body, or **Explore > Guided chest** in expanded
+anatomy. Six steps show chest context, supplied heart parts, separated chamber meshes,
+a supplied valve, both lungs, and chest context again. Use Previous/Next while freely
+orbiting, selecting and inspecting the supplied geometry.
+
+The chamber layout is a teaching displacement, with blue original-position ghosts.
+It is not a pathological model or a validated anatomical cutaway. Each step resets
+the temporary teaching edits. **Finish and restore** restores the starting camera,
+selection, labels, visibility, displacement, isolation/return context and undo/redo
+and navigation histories. A reference switch or saved-view restoration finishes the
+guide first. Save a named view before finishing to retain a teaching setup; the
+snapshot uses the ordinary inspection format and does not retain guide progress.
+
+The guide remains available when anatomy is expanded. It is disabled for the separate
+bone/spinal source studies, which do not supply the required chest geometry.
+
+## Portable saved views
+
+In **Saved views**, **Export all views** writes a local JSON file containing named
+snapshots and their saved notes. There are no anatomy meshes, accounts or uploads
+in this export. Unsaved notes use the existing save/discard/keep-editing choices.
+
+**Import views** first previews compatible views, skipped duplicates and incompatible
+reference/version data. Name collisions receive a numbered suffix; changed snapshots
+with a colliding identity receive a new identity. Reimporting an unchanged view keeps
+the local name and avoids another copy. Only compatible views are added, and the
+existing library is retained. Damaged files and stale previews cannot partly replace
+the library. The format retains the existing 200-view, 32-MiB and 10,000-character
+note limits. A failed write preserves the existing library and reports the error.
+
+## Viewing preferences
+
+**View > Preferences** offers 100%, 115% and 130% text, plus a reset action. The
+header wraps at smaller window sizes. Panel visibility, 3D resolution, selection/local
+labels and label density are saved locally in `user://preferences.json`.
+Anatomy snapshots keep their own label settings; restoring a view does not replace
+the stored device defaults. Damaged preferences fall back to defaults. QA uses
+disposable preference paths and does not read or alter the user's preferences.
+
+Text sizing is an improvement in readability; full assistive-technology, keyboard
+manipulation and accessibility acceptance remain open.
+
+## Added anatomy studies
+
+The reference selector adds four independent HRA v1.2 source studies:
+
+| Study | Source meshes | Source triangles |
+|---|---:|---:|
+| Female spinal cord | 29 | 288,912 |
+| Female vertebrae | 25 | 426,468 |
+| Male spinal cord | 30 | 16,358 |
+| Male vertebrae | 24 | 320,442 |
+
+All 108 source meshes retain their geometry, source indices and coordinates, with
+exact picking, isolation/return, movement/restoration, saved views and source credits.
+They are not registered to the United bodies or to one another. Each study has its
+own coverage record. Body-direction presets are disabled until their reference frames
+have independent evidence. Picking resources use a documented 100× numeric scale
+with an inverse collision transform, avoiding small-triangle ray tolerances while
+leaving display geometry in its original metre frame. Every source triangle is
+retained; sampled reconstructed vertices differ by at most about 0.061 micrometre.
+Very thin or covered silhouettes retain the ordinary corner Actions fallback when
+the bounded label search cannot establish a surface hit.
+
+`VH_F_lumbar_vertebra_6` remains an explicitly unlabelled source record with its
+original name and missing ontology. No variant/error interpretation is assigned.
+Full rib-cage/skull/muscle coverage and medical review remain open.
+
+To reproduce the optional studies before preparing geometry:
+
+```sh
+python3 tools/fetch_assets.py --manifest content/spinal_source_manifest.json
+python3 tools/build_spinal_studies.py
+godot --headless --path . --script tools/prepare_assets.gd
+```
+
+Original URLs, byte counts and SHA-256 hashes are pinned in the manifest. The builder
+rejects changed sources and unestablished node transforms. The original candidate
+inspection remains in [HRA_SPINAL_CANDIDATES.md](audit/HRA_SPINAL_CANDIDATES.md).
+
+## Verification
+
+Run the existing checks in [PROTOTYPE.md](PROTOTYPE.md), plus:
+
+```sh
+python3 -m unittest discover -s tests -v
+godot --headless --path . --script tests/portable_views_smoke.gd
+godot --headless --path . --script tests/study_workspace_smoke.gd
+godot --headless --path . --script tests/spinal_picking_smoke.gd
+```
+
+The workspace check exercises real geometry in both bodies and all four spinal studies,
+guide restoration, card mappings, text sizing, preference wiring, coverage and import
+preview. Running it with a desktop display also captures the new screens under
+`/tmp/medicine-improvements/` (create that directory first). The precision check exercises actual physics rays and first-hit labels, comparing
+reconstructed collision vertices with source mesh faces. The exported runtime checks
+portable views/notes, preferences and reversible guide state in disposable files.
+Device trials and qualified medical review remain separate from scripted verification.
+[Verification and current private packages](audit/STUDY_WORKSPACE_VERIFICATION.md)
+retain the exact build identities and native Windows evidence.

@@ -1,0 +1,740 @@
+{
+  "engine_actual": "4.7.2.stable.official.ed1daf0bf",
+  "renderer": "OpenGL API 3.3.0 Core Profile Context 25.10.37.03.260407 - Compatibility - Using Device: ATI Technologies Inc. - AMD Radeon(TM) Graphics",
+  "process_memory_observations": {
+    "peak_working_set_bytes_observed": 1766612992,
+    "maximum_private_bytes_sampled": 1915744256,
+    "sampling_interval_ms": 500,
+    "scope": "Entire native process; not per-scene or GPU memory."
+  },
+  "references": {
+    "female": 801,
+    "male": 788,
+    "bodyparts-male-bones-study": 203,
+    "hra-v1-2-female-cord-study": 29,
+    "hra-v1-2-female-vertebrae-study": 25,
+    "hra-v1-2-male-cord-study": 30,
+    "hra-v1-2-male-vertebrae-study": 24
+  },
+  "ui_process_frames_during_successful_load": {
+    "female": 96,
+    "male": 95,
+    "bodyparts-male-bones-study": 20,
+    "hra-v1-2-female-cord-study": 10,
+    "hra-v1-2-female-vertebrae-study": 12,
+    "hra-v1-2-male-cord-study": 6,
+    "hra-v1-2-male-vertebrae-study": 12
+  },
+  "schema_version": 1,
+  "recorded_at_utc": "2026-10-15T17:49:36.109571+00:00",
+  "mode": "rendered",
+  "result": "passed; native exit code 0",
+  "source_revision": "8a44cdb861e044b23b8fa73f2cd5ca6ba8f597e5",
+  "artifact": {
+    "file": "PraxisCorporis-Windows-x64-private.zip",
+    "bytes": 328074341,
+    "sha256": "2196875b10942fefb4810805af278284f874f762fa42b3b6dda38f01704ef645",
+    "architectures": [
+      "x86_64"
+    ]
+  },
+  "engine_expected": "4.7.2.stable.official.ed1daf0bf",
+  "verifier_sha256": "ad415757259e94f121900370105ca4e7332e2c0056d594c197c188f096ec4fb0",
+  "archive_crc": "passed during extraction",
+  "user_data": "APPDATA and LOCALAPPDATA isolated in a generated QA session; user libraries untouched.",
+  "limits": [
+    "Scripted actions; human input, clipboard and native OS picker acceptance remain open.",
+    "No sustained-performance or maximum-loading-pause claim.",
+    "This checks actual Windows execution; Mac device validation is separate."
+  ],
+  "captures": {
+    "native-search-female.png": {
+      "file": "captures/native-search-female.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "6556e3aae180e1492695f4cb11435a68d0c19c5632628c38726ccc4be5273626"
+    },
+    "native-study-notes-female.png": {
+      "file": "captures/native-study-notes-female.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "d08d81ac26f0def1630a9a5bb00217a0f50002089bed01a6891c372764c4a96e"
+    },
+    "native-loading-female.png": {
+      "file": "captures/native-loading-female.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "3ce4e09667c57ce3cc996a8b14c039dc5c130dcd483547b1b3e8d05be9041e2c"
+    },
+    "native-export-female.png": {
+      "file": "captures/native-export-female.png",
+      "pixels": [
+        1440,
+        1111
+      ],
+      "sha256": "8ad1a852f332d0828b1fe637d3c57eb3a0f9ed0951500a81d79f6f54a4eb0acb"
+    },
+    "native-expanded-female.png": {
+      "file": "captures/native-expanded-female.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "5a8325520b52305f41abe0cf012347b7e8ca2938b002376224a6c7cdbd5955cb"
+    },
+    "native-expanded-export-female.png": {
+      "file": "captures/native-expanded-export-female.png",
+      "pixels": [
+        1440,
+        1111
+      ],
+      "sha256": "d34ffe694bcf531427b62a097f0218954f551da1d109390986c423fb29d974a9"
+    },
+    "native-expanded-menu-female.png": {
+      "file": "captures/native-expanded-menu-female.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "b22ac95ecf58d82c3c1e48731c1c64fe486b108468f1e4e26bd282cb4c8a9a6b"
+    },
+    "native-orientation-female.png": {
+      "file": "captures/native-orientation-female.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "318c308c0e878c598136a3f1f07fce75f411c671dd0fcd970f47a06068c23b5f"
+    },
+    "native-part-actions-compact-female.png": {
+      "file": "captures/native-part-actions-compact-female.png",
+      "pixels": [
+        1100,
+        720
+      ],
+      "sha256": "b98807f127511feae9e0d06291f09d17de762422fe1ae46fa5cfb92a3b98684f"
+    },
+    "native-part-actions-expanded-female.png": {
+      "file": "captures/native-part-actions-expanded-female.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "6c8c0ff05880050ee4c88b6299bad05b8d2b06582e9dc7c9e506f78a108cb0e6"
+    },
+    "native-part-visibility-female.png": {
+      "file": "captures/native-part-visibility-female.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "96028f81f6053bd3c3fedd5461c2a813887cb2598bcfdc84bda4817bc6efc976"
+    },
+    "native-chest-female.png": {
+      "file": "captures/native-chest-female.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "5964a21b1780ff757b5bd8ee2b984c12350158144e2e16b3da69190b2ba7e775"
+    },
+    "native-guided-female.png": {
+      "file": "captures/native-guided-female.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "a22a36b8babcbc927a46f2212862c1b207838297433b849d097a1a07e70134b8"
+    },
+    "native-search-male.png": {
+      "file": "captures/native-search-male.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "d9941f03299e9e6ccf342ec9899afb834a6c645c2c22156db5c9cf53511a8899"
+    },
+    "native-study-notes-male.png": {
+      "file": "captures/native-study-notes-male.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "9ae43ac87b880097bc590038e51d7b8ed569947d32609d73e1470b26afe3c2e8"
+    },
+    "native-loading-male.png": {
+      "file": "captures/native-loading-male.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "7ae236ae5272345c8aa5a1078e2f0d78cbdcc1d46dcb59c0cabd87e76771f2c3"
+    },
+    "native-export-male.png": {
+      "file": "captures/native-export-male.png",
+      "pixels": [
+        1440,
+        1111
+      ],
+      "sha256": "90315cc96935be652708c2f7a2666e3f7a193cdaf029b9852d38ceafb70e7adb"
+    },
+    "native-expanded-male.png": {
+      "file": "captures/native-expanded-male.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "c6f2e6aeda9f97d1d0ffce8c8524dcf1a0cc8e0998ebed5a388a405da3187ed2"
+    },
+    "native-expanded-export-male.png": {
+      "file": "captures/native-expanded-export-male.png",
+      "pixels": [
+        1440,
+        1111
+      ],
+      "sha256": "80b61fbccd3610cecad6d8be52b1431c1a6f5a72abe8856adb028db0196ec4b1"
+    },
+    "native-expanded-menu-male.png": {
+      "file": "captures/native-expanded-menu-male.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "79837e9864b62ffdc66c6d3d048ebfa6f9da15ac1965a1d7e4c8d6d36f041f46"
+    },
+    "native-orientation-male.png": {
+      "file": "captures/native-orientation-male.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "c652027d31fe22e4eb407fc82bd96ca7b0960dae1b9f336aaa8c72e4c60469d7"
+    },
+    "native-part-actions-compact-male.png": {
+      "file": "captures/native-part-actions-compact-male.png",
+      "pixels": [
+        1100,
+        720
+      ],
+      "sha256": "214767402950c9a81b93d69c6471ceefbfe11d385b5dcca744faae5aa8872fd9"
+    },
+    "native-part-actions-expanded-male.png": {
+      "file": "captures/native-part-actions-expanded-male.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "c77709f17879796e434424146656b749537a1a6bd2e2d8ef2402a7986a5ed01e"
+    },
+    "native-part-visibility-male.png": {
+      "file": "captures/native-part-visibility-male.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "91c6068a7751f7d61095e4cc3055fc844d0cfdcd69c4bc7035eb00f9dd37db20"
+    },
+    "native-chest-male.png": {
+      "file": "captures/native-chest-male.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "7b9bfd6ce9a88268891ea624d1d83bcd2f44ce9c736ea1d04ed62a5c9fe69e17"
+    },
+    "native-guided-male.png": {
+      "file": "captures/native-guided-male.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "a72bcc8278a5a8c026654613c136a2544b658dfaa7ce1883c0d0b57d4cff97bc"
+    },
+    "native-search-bodyparts-male-bones-study.png": {
+      "file": "captures/native-search-bodyparts-male-bones-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "d56e9d61268f6ebd6e0814d37a07605096744cc0e6c0e7f0b3f316b956282320"
+    },
+    "native-study-notes-bodyparts-male-bones-study.png": {
+      "file": "captures/native-study-notes-bodyparts-male-bones-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "ef933adbe01c122fc647abf0f7a49a38393a7812acc5f8014a6ccfdfb7834303"
+    },
+    "native-loading-bodyparts-male-bones-study.png": {
+      "file": "captures/native-loading-bodyparts-male-bones-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "283e57d6e59e5725f8520fc309510bfbf494a59da2b96dff68914cea24fe2e2f"
+    },
+    "native-export-bodyparts-male-bones-study.png": {
+      "file": "captures/native-export-bodyparts-male-bones-study.png",
+      "pixels": [
+        1440,
+        1111
+      ],
+      "sha256": "ddce7e0730f81ad0b9dad21c5a3164e8e5ae4063940af18946b7f2d9395da5e9"
+    },
+    "native-expanded-bodyparts-male-bones-study.png": {
+      "file": "captures/native-expanded-bodyparts-male-bones-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "d118ca4b23db1edfaad312eeab91e42bae276d92f179c55ad4d1b3a4d6fb4f12"
+    },
+    "native-expanded-export-bodyparts-male-bones-study.png": {
+      "file": "captures/native-expanded-export-bodyparts-male-bones-study.png",
+      "pixels": [
+        1440,
+        1111
+      ],
+      "sha256": "3c52ad931984d218dfc60c20d03b8f7363bbf11eaa7c7063af31b79f51f2f91a"
+    },
+    "native-expanded-menu-bodyparts-male-bones-study.png": {
+      "file": "captures/native-expanded-menu-bodyparts-male-bones-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "d66d32c3343801abd60ea9980044d449cf5fc93c29ac7195cfa3ef93c641c2cd"
+    },
+    "native-orientation-bodyparts-male-bones-study.png": {
+      "file": "captures/native-orientation-bodyparts-male-bones-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "9b02ae2696102d17179e8e407e6495e8e5259d18bf1994361cada111b225b85d"
+    },
+    "native-part-actions-compact-bodyparts-male-bones-study.png": {
+      "file": "captures/native-part-actions-compact-bodyparts-male-bones-study.png",
+      "pixels": [
+        1100,
+        720
+      ],
+      "sha256": "c50895f524509466f7ab732b575c99434ee513effae647824a1f3af9de043a38"
+    },
+    "native-part-actions-expanded-bodyparts-male-bones-study.png": {
+      "file": "captures/native-part-actions-expanded-bodyparts-male-bones-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "683fd0b3a494c42789753bd6badf171442a4df55ea70493eabf8a7217152ca04"
+    },
+    "native-part-visibility-bodyparts-male-bones-study.png": {
+      "file": "captures/native-part-visibility-bodyparts-male-bones-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "b5a428d8722931bc5af6b963d9cab0b5c68d15b892c783e05ecb7a77fd3c5654"
+    },
+    "native-bones-bodyparts-male-bones-study.png": {
+      "file": "captures/native-bones-bodyparts-male-bones-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "d3adf780e4c9ac78c5afeaaf605b566f0165b3fdd48ebc1cb1a84bc566ceb268"
+    },
+    "native-search-hra-v1-2-female-cord-study.png": {
+      "file": "captures/native-search-hra-v1-2-female-cord-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "a4f0cb6475a6e3f126d86f6757e13ed20a1fc902c1794eb1d10074c46473d132"
+    },
+    "native-study-notes-hra-v1-2-female-cord-study.png": {
+      "file": "captures/native-study-notes-hra-v1-2-female-cord-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "44fabe19b29f9e40cb349542e6fc18be8704d20e3c4faaa1fb81ebc59d3652ec"
+    },
+    "native-loading-hra-v1-2-female-cord-study.png": {
+      "file": "captures/native-loading-hra-v1-2-female-cord-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "9e1e6205b0307e7ae171b58511e49038668fa3eb569815961c12fbbb2fa86955"
+    },
+    "native-export-hra-v1-2-female-cord-study.png": {
+      "file": "captures/native-export-hra-v1-2-female-cord-study.png",
+      "pixels": [
+        1440,
+        1111
+      ],
+      "sha256": "0d3d279f4cb54fabb719f5253987b0c718baec8d0ec30e2c32900b504358b72f"
+    },
+    "native-expanded-hra-v1-2-female-cord-study.png": {
+      "file": "captures/native-expanded-hra-v1-2-female-cord-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "41ed7938a67614fdc039474d06ccd941166fd8c6ebcfacabc853229dfc7bb36a"
+    },
+    "native-expanded-export-hra-v1-2-female-cord-study.png": {
+      "file": "captures/native-expanded-export-hra-v1-2-female-cord-study.png",
+      "pixels": [
+        1440,
+        1111
+      ],
+      "sha256": "cfec145655adb74596a865c92a6a143bd89e85aba6911c3017160318af363326"
+    },
+    "native-expanded-menu-hra-v1-2-female-cord-study.png": {
+      "file": "captures/native-expanded-menu-hra-v1-2-female-cord-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "e5796f93795f88bbc994df31dc23bd4b27ecb678187903e3ac16ebbcb2d45077"
+    },
+    "native-orientation-hra-v1-2-female-cord-study.png": {
+      "file": "captures/native-orientation-hra-v1-2-female-cord-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "41ed7938a67614fdc039474d06ccd941166fd8c6ebcfacabc853229dfc7bb36a"
+    },
+    "native-part-actions-compact-hra-v1-2-female-cord-study.png": {
+      "file": "captures/native-part-actions-compact-hra-v1-2-female-cord-study.png",
+      "pixels": [
+        1100,
+        720
+      ],
+      "sha256": "40e91a0b20020e9500da1091147bfbc12696a69040c16893d1172dc077747b73"
+    },
+    "native-part-actions-expanded-hra-v1-2-female-cord-study.png": {
+      "file": "captures/native-part-actions-expanded-hra-v1-2-female-cord-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "bfa070572a80153e7df701da0321ff6553488e4d245844bf6d1c491f788ab9ff"
+    },
+    "native-part-visibility-hra-v1-2-female-cord-study.png": {
+      "file": "captures/native-part-visibility-hra-v1-2-female-cord-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "a7377f1efa2562380a94d59704f5d15c5f5bca904223ae0e02bc625fe922b5db"
+    },
+    "native-bones-hra-v1-2-female-cord-study.png": {
+      "file": "captures/native-bones-hra-v1-2-female-cord-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "6232cf9925e815286dffba1db3675f20dd52883e5aae842989202bf3e57819b7"
+    },
+    "native-search-hra-v1-2-female-vertebrae-study.png": {
+      "file": "captures/native-search-hra-v1-2-female-vertebrae-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "79b0e26b2bbf5b092b6f91fca81605d08a0991fa71058c298f5a1d1bce2180dc"
+    },
+    "native-study-notes-hra-v1-2-female-vertebrae-study.png": {
+      "file": "captures/native-study-notes-hra-v1-2-female-vertebrae-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "5a7d8f13af9e148dc6d4c3356990792fea78fc432d1e3f9894132790b566e90d"
+    },
+    "native-loading-hra-v1-2-female-vertebrae-study.png": {
+      "file": "captures/native-loading-hra-v1-2-female-vertebrae-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "2c4ae8025810708fa4380872f55756f228ff054ac7fcfcc914798a4aafd0b616"
+    },
+    "native-export-hra-v1-2-female-vertebrae-study.png": {
+      "file": "captures/native-export-hra-v1-2-female-vertebrae-study.png",
+      "pixels": [
+        1440,
+        1111
+      ],
+      "sha256": "b91282f66eb76b3f89419dd56075e06449bf45ef718df74f596f76b7fe657219"
+    },
+    "native-expanded-hra-v1-2-female-vertebrae-study.png": {
+      "file": "captures/native-expanded-hra-v1-2-female-vertebrae-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "4ef38e99671f97f3c1a4c86e1e7baa1a678121b0e61127eaa4d8b46195c06bb6"
+    },
+    "native-expanded-export-hra-v1-2-female-vertebrae-study.png": {
+      "file": "captures/native-expanded-export-hra-v1-2-female-vertebrae-study.png",
+      "pixels": [
+        1440,
+        1111
+      ],
+      "sha256": "33fa3f27a218d342809377442b9cfbfbf6390fde4dcff1c3cb42fcca7a220914"
+    },
+    "native-expanded-menu-hra-v1-2-female-vertebrae-study.png": {
+      "file": "captures/native-expanded-menu-hra-v1-2-female-vertebrae-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "b504e03802f21cf3b57e1d14ba0009983f2e66b3b780ed88169dabef63523bf3"
+    },
+    "native-orientation-hra-v1-2-female-vertebrae-study.png": {
+      "file": "captures/native-orientation-hra-v1-2-female-vertebrae-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "4ef38e99671f97f3c1a4c86e1e7baa1a678121b0e61127eaa4d8b46195c06bb6"
+    },
+    "native-part-actions-compact-hra-v1-2-female-vertebrae-study.png": {
+      "file": "captures/native-part-actions-compact-hra-v1-2-female-vertebrae-study.png",
+      "pixels": [
+        1100,
+        720
+      ],
+      "sha256": "03b702ae0634df89084bd45c3a362084b3c600c7df75b469ca5c69a518b6398f"
+    },
+    "native-part-actions-expanded-hra-v1-2-female-vertebrae-study.png": {
+      "file": "captures/native-part-actions-expanded-hra-v1-2-female-vertebrae-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "b5cbd84ba24ab3c613164bd6107aebd9b7a379dd781d7c8c143d0b83e4036354"
+    },
+    "native-part-visibility-hra-v1-2-female-vertebrae-study.png": {
+      "file": "captures/native-part-visibility-hra-v1-2-female-vertebrae-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "26ea880588d2673c0ce8879237068d06e8391ba71cfd2f7eb6c2e06d56e860d2"
+    },
+    "native-bones-hra-v1-2-female-vertebrae-study.png": {
+      "file": "captures/native-bones-hra-v1-2-female-vertebrae-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "f38eaae5fa73c9a024de97d5b79691d19b3c8f58d4a454f992b967b1abe92243"
+    },
+    "native-search-hra-v1-2-male-cord-study.png": {
+      "file": "captures/native-search-hra-v1-2-male-cord-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "82fc665cd596e1a13622a7593080753e78043bb5fe0118095f17f99ec3ccacde"
+    },
+    "native-study-notes-hra-v1-2-male-cord-study.png": {
+      "file": "captures/native-study-notes-hra-v1-2-male-cord-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "494de250cf6f1dcafd1c9f0f19fffa0d4374491b077d635caa17130876a2917b"
+    },
+    "native-loading-hra-v1-2-male-cord-study.png": {
+      "file": "captures/native-loading-hra-v1-2-male-cord-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "bdeb3dc35c461fa270ad24486a777b0306ee17417077e33e51ebf0cf5b45779b"
+    },
+    "native-export-hra-v1-2-male-cord-study.png": {
+      "file": "captures/native-export-hra-v1-2-male-cord-study.png",
+      "pixels": [
+        1440,
+        1111
+      ],
+      "sha256": "f17710482dab3a2e72e7b32cedce78d260701ccd5921949475016bb9ba7b9990"
+    },
+    "native-expanded-hra-v1-2-male-cord-study.png": {
+      "file": "captures/native-expanded-hra-v1-2-male-cord-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "2f496e6c3d60b28859f48f8af2e0d57dc583b049f01d0d754957cad9a9881a45"
+    },
+    "native-expanded-export-hra-v1-2-male-cord-study.png": {
+      "file": "captures/native-expanded-export-hra-v1-2-male-cord-study.png",
+      "pixels": [
+        1440,
+        1111
+      ],
+      "sha256": "4fcda2033fb82db91da19307fd979870de791525c9b5a68cbca3e9afa58e2e35"
+    },
+    "native-expanded-menu-hra-v1-2-male-cord-study.png": {
+      "file": "captures/native-expanded-menu-hra-v1-2-male-cord-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "a86d20afb698e8003ac9daf6bc3288bfdccc62e5e5564ea2225836866b7e0ebf"
+    },
+    "native-orientation-hra-v1-2-male-cord-study.png": {
+      "file": "captures/native-orientation-hra-v1-2-male-cord-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "2f496e6c3d60b28859f48f8af2e0d57dc583b049f01d0d754957cad9a9881a45"
+    },
+    "native-part-actions-compact-hra-v1-2-male-cord-study.png": {
+      "file": "captures/native-part-actions-compact-hra-v1-2-male-cord-study.png",
+      "pixels": [
+        1100,
+        720
+      ],
+      "sha256": "14e122fc4d0c81a6390f381c0a1d5dbce9e465ca85457d3fde5fc81a5601e203"
+    },
+    "native-part-actions-expanded-hra-v1-2-male-cord-study.png": {
+      "file": "captures/native-part-actions-expanded-hra-v1-2-male-cord-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "79529819a19bb6d2edd2f4c21cb2290bec4384a91ee07aa17a6d0f7c1fdd1f5c"
+    },
+    "native-part-visibility-hra-v1-2-male-cord-study.png": {
+      "file": "captures/native-part-visibility-hra-v1-2-male-cord-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "4437d0dfdc4da4458396a1f7214e322899871d7afa54a50537384e731c1dd9b6"
+    },
+    "native-bones-hra-v1-2-male-cord-study.png": {
+      "file": "captures/native-bones-hra-v1-2-male-cord-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "85c4d4552d3992bda08a9a5a53c6707a16e8b51364ad791bb0e624fc7aeb57d2"
+    },
+    "native-search-hra-v1-2-male-vertebrae-study.png": {
+      "file": "captures/native-search-hra-v1-2-male-vertebrae-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "94864a475a7e7dbd24fb3606323e8dcd91664ed1b4a0e7df7d19ed2bdc9cc37c"
+    },
+    "native-study-notes-hra-v1-2-male-vertebrae-study.png": {
+      "file": "captures/native-study-notes-hra-v1-2-male-vertebrae-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "890f0ea2988ee1ad18811a964b1e6edd05c99ba63fc7e095979a276053e146de"
+    },
+    "native-loading-hra-v1-2-male-vertebrae-study.png": {
+      "file": "captures/native-loading-hra-v1-2-male-vertebrae-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "a1d1923d24441080e15602d0f105dd1b9a79b78de1b40dd438c40a81b131acf7"
+    },
+    "native-export-hra-v1-2-male-vertebrae-study.png": {
+      "file": "captures/native-export-hra-v1-2-male-vertebrae-study.png",
+      "pixels": [
+        1440,
+        1111
+      ],
+      "sha256": "96bda877168f288ced7709f053b53bac2955fef48c078fa0d349b6b558225135"
+    },
+    "native-expanded-hra-v1-2-male-vertebrae-study.png": {
+      "file": "captures/native-expanded-hra-v1-2-male-vertebrae-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "fd487596aec537acf95181e50cbdb271b5269c4cdee0ee0f8fccafa2be4cd2d5"
+    },
+    "native-expanded-export-hra-v1-2-male-vertebrae-study.png": {
+      "file": "captures/native-expanded-export-hra-v1-2-male-vertebrae-study.png",
+      "pixels": [
+        1440,
+        1111
+      ],
+      "sha256": "a0a5083d782eb7559a337afc3bdeb11648a013f4bd4aab7be5c66c68f3cab94f"
+    },
+    "native-expanded-menu-hra-v1-2-male-vertebrae-study.png": {
+      "file": "captures/native-expanded-menu-hra-v1-2-male-vertebrae-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "cd68a3f4b34c9129b90b8a6fe7fd276d6359858c36429b817656ee48aa9b12e6"
+    },
+    "native-orientation-hra-v1-2-male-vertebrae-study.png": {
+      "file": "captures/native-orientation-hra-v1-2-male-vertebrae-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "fd487596aec537acf95181e50cbdb271b5269c4cdee0ee0f8fccafa2be4cd2d5"
+    },
+    "native-part-actions-compact-hra-v1-2-male-vertebrae-study.png": {
+      "file": "captures/native-part-actions-compact-hra-v1-2-male-vertebrae-study.png",
+      "pixels": [
+        1100,
+        720
+      ],
+      "sha256": "27c2a8e20e5a54befd7cb4855d1609b0cd120ec80923960e52598181c85210fc"
+    },
+    "native-part-actions-expanded-hra-v1-2-male-vertebrae-study.png": {
+      "file": "captures/native-part-actions-expanded-hra-v1-2-male-vertebrae-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "da7385c70f0144a5316ad913b8e23e407bc633978632494ce3a3f9386d767270"
+    },
+    "native-part-visibility-hra-v1-2-male-vertebrae-study.png": {
+      "file": "captures/native-part-visibility-hra-v1-2-male-vertebrae-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "f4608e8f3466ad993c68e183092cfde8ec5dc15dc3e6a06a1ec19648e4684515"
+    },
+    "native-bones-hra-v1-2-male-vertebrae-study.png": {
+      "file": "captures/native-bones-hra-v1-2-male-vertebrae-study.png",
+      "pixels": [
+        1440,
+        900
+      ],
+      "sha256": "3d235e0d485e34675639e1120419bdf755b5a59aaa5ba4d4c571722349ad8f80"
+    }
+  }
+}

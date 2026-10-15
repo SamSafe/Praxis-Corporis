@@ -5,14 +5,21 @@ prepared geometry. Users need no Python, Godot editor, login or network connecti
 When prepared at build time, packages also include the separate BodyParts3D male
 bone study and its current/legacy source notices. Its coordinate frame is not
 registered to the HRA bodies; its availability is explicit in the reference selector.
-The atlas is partial and unreviewed; disease content and guided routes are absent.
+The atlas is partial and unreviewed; disease content and physiological guided routes are absent.
+The latest [study workspace](STUDY_WORKSPACE.md) adds a reversible chest teaching guide,
+draft learning cards, portable views and four independent spinal source studies.
 
 ## Run a build
 
 The generated archives are excluded from Git:
 
-- Windows x64: dist/PraxisCorporis-Windows-x64-private.zip
-- Mac Intel/Apple Silicon: dist/PraxisCorporis-macOS-universal-private.zip
+- Windows x64: dist/study-improvements/PraxisCorporis-Windows-x64-private.zip
+- Mac Intel/Apple Silicon: dist/study-improvements/PraxisCorporis-macOS-universal-private.zip
+
+The older root `dist/` archives retain their previous source identities. Use the
+study-improvements build report when verifying the new archives.
+[Fixed package and native verification](audit/STUDY_WORKSPACE_VERIFICATION.md) records
+their exact hashes, seven-reference Windows checks and remaining Mac/human limits.
 
 Extract the complete ZIP. In its PraxisCorporis folder, open PraxisCorporis.exe
 on Windows or PraxisCorporis.app on Mac. On Windows, keep anatomy.pck beside the

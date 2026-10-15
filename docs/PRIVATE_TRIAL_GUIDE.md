@@ -47,6 +47,18 @@ restarting. Repeat the HRA tasks for both female and male references.
 | Choose rendering quality | In workspace View or expanded Explore, try Native, 75% and 50%, then return to Native. | Does navigation stay consistent? Are UI labels readable, and which setting is comfortable on this device? |
 | Use keyboard alternatives | Tab through actions; focus the teal-bordered 3D view and orbit/pan/zoom with keys; operate tree/search. | Is focus clear? Which action still requires a pointer? |
 
+Also try the new [study workspace](STUDY_WORKSPACE.md) tasks:
+
+- Follow all six Guided chest steps in both HRA bodies. Finish and check that your
+  original edits/camera return; try the guide in expanded anatomy.
+- Read a heart/valve/lung card, follow a related-structure link, and open a source.
+- Export named views/notes, import into a second local installation, inspect the
+  compatibility preview and repeat the import to check duplicate handling.
+- Choose 130% text, hide a panel and change rendering quality; restart the app and
+  check the remembered defaults.
+- Open each spinal source study, inspect/return from a source mesh, and check that
+  separate coordinates and the unresolved female metadata record are understandable.
+
 The app currently has no disease visuals, reviewed routes, authored cutaways or
 registered whole female skeleton. Record expectations for these as missing coverage;
 do not score source geometry as a verified disease or pathway demonstration.

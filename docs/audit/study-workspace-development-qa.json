@@ -1,0 +1,125 @@
+{
+  "recorded_client_date": "2026-10-15",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "python_tests": 41,
+  "engine_checks": [
+    {
+      "check": "viewer_smoke",
+      "result": "passed",
+      "log": "study-workspace-viewer_smoke.log.txt",
+      "sha256": "33aa3d0b196d69e76cdb431ee2fc36e1100e2b90d8f33da68eccbb5d4f047820"
+    },
+    {
+      "check": "exploration_smoke",
+      "result": "passed",
+      "log": "study-workspace-exploration_smoke.log.txt",
+      "sha256": "62dd02bdc5fa6b6a56c6e3915ff1bf0711c52983bdb18ab244b77e4fc1c64efa"
+    },
+    {
+      "check": "part_inspection_smoke",
+      "result": "passed",
+      "log": "study-workspace-part_inspection_smoke.log.txt",
+      "sha256": "807ead5e1498fe69d4d50058af8d29e9844d6f300de68140ef1357f7ca8d85c3"
+    },
+    {
+      "check": "coverage_smoke",
+      "result": "passed",
+      "log": "study-workspace-coverage_smoke.log.txt",
+      "sha256": "27a3a121ff456e788f97dc1c1c630eed2fc16d8b8c27bb3795dbf350dd933834"
+    },
+    {
+      "check": "study_reference_smoke",
+      "result": "passed",
+      "log": "study-workspace-study_reference_smoke.log.txt",
+      "sha256": "ec97ccd522d22463519e65d0f8dde995a736a1f98ed0c26f0f2ab6e8aae3b4ef"
+    },
+    {
+      "check": "keyboard_workspace_smoke",
+      "result": "passed",
+      "log": "study-workspace-keyboard_workspace_smoke.log.txt",
+      "sha256": "af1a7c98ca621f5cbe6c3a266eb236615dc27c381fa6a081dbc551d60106d74d"
+    },
+    {
+      "check": "scene_display_smoke",
+      "result": "passed",
+      "log": "study-workspace-scene_display_smoke.log.txt",
+      "sha256": "ed467503a55b50120baf680e7528d5dadf6da849af5bae9b1529941e49ce9675"
+    },
+    {
+      "check": "orientation_smoke",
+      "result": "passed",
+      "log": "study-workspace-orientation_smoke.log.txt",
+      "sha256": "461ed380640974c587b03c1d7ac7e9621c0e8ba1fba09fa79f8a5b6817d45894"
+    },
+    {
+      "check": "part_actions_smoke",
+      "result": "passed",
+      "log": "study-workspace-part_actions_smoke.log.txt",
+      "sha256": "fcccd438a07577d3a6fbb00e959ca407614c94f98f415d4aaf1bf57cde83e3be"
+    },
+    {
+      "check": "loading_smoke",
+      "result": "passed",
+      "log": "study-workspace-loading_smoke.log.txt",
+      "sha256": "584dbdca5d6a04a898bd2bcf3aec9af6153b8e935d2a69f889ab5dbcc1ad54cf"
+    },
+    {
+      "check": "search_smoke",
+      "result": "passed",
+      "log": "study-workspace-search_smoke.log.txt",
+      "sha256": "b4a113f08d1ecc3f02ef4222ed0f8c5cf5778795180c7136000b64a62c721cbf"
+    },
+    {
+      "check": "render_profile_smoke",
+      "result": "passed",
+      "log": "study-workspace-render_profile_smoke.log.txt",
+      "sha256": "9954d90e0c58cc15e6a464608ee202571b059b3a44872d8e9142b240f817633f"
+    },
+    {
+      "check": "export_boundary_smoke",
+      "result": "passed",
+      "log": "study-workspace-export_boundary_smoke.log.txt",
+      "sha256": "235837cc34c4cf1c2235cda51a9da9ede4c280cde7f1745d6a780ed48e4819ca"
+    },
+    {
+      "check": "saved_views_smoke",
+      "result": "passed",
+      "log": "study-workspace-saved_views_smoke.log.txt",
+      "sha256": "e4cbc16562d5eccd9c807e9c05064c6f194d5e5a4b025260532636e9e2cdecfe"
+    },
+    {
+      "check": "study_notes_smoke",
+      "result": "passed",
+      "log": "study-workspace-study_notes_smoke.log.txt",
+      "sha256": "40d784500becfbed62231c3baf7cdbcfcd1260ac06c1a4d48f2c825f2c017127"
+    },
+    {
+      "check": "portable_views_smoke",
+      "result": "passed",
+      "log": "study-workspace-portable_views_smoke.log.txt",
+      "sha256": "be706251c30f3a10101c6ce9b0de3064c5649c7b6df16ecdc220807c09896af0"
+    },
+    {
+      "check": "study_workspace_smoke",
+      "result": "passed",
+      "log": "study-workspace-study_workspace_smoke.log.txt",
+      "sha256": "c0d0134b232f07254eb8012d62a7e2e8f9dec0d11382364ed0c910a99fe544d1"
+    },
+    {
+      "check": "spinal_picking_smoke",
+      "result": "passed",
+      "log": "study-workspace-spinal_picking_smoke.log.txt",
+      "sha256": "43329104f7be73d751c59e7c673792d5e6e9613804e17a87702b22a066827c30"
+    }
+  ],
+  "limits": [
+    "Checks ran across feature development; exact final exported resource checks and native trials have their own source/artifact identities.",
+    "Headless checks do not establish rendering performance or human acceptance."
+  ],
+  "initial_native_trial": {
+    "source_revision": "acee078e75f7e37e426607c5dbaf3dca09629972",
+    "result": "failed at female spinal-cord surface labels",
+    "log": "study-workspace-initial-failed-windows.log.txt",
+    "resolution": "8a44cdb normalizes picking coordinates without changing display geometry; actual ray and anchored-menu checks pass."
+  }
+}

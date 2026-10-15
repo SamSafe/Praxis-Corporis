@@ -1,5 +1,11 @@
 # Separate HRA spinal source candidates
 
+Current update (2026-10-15): these pinned files are now available as four separate
+private source studies, with original geometry/coordinates and the unresolved female
+record retained. They are not registered into the United bodies. See the
+[study workspace guide](../STUDY_WORKSPACE.md). The technical candidate record below
+describes their status and evidence at the time of the original inspection.
+
 Technical inspection: 2026-10-12. These files are candidates, outside the runtime and
 private packages. This record does not establish medical review, a complete skeleton,
 or registration to the bundled v1.1 bodies.
