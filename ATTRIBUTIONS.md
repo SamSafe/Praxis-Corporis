@@ -68,8 +68,11 @@ retained without interpreting it as normal anatomy or a variant.
 
 ## Authored study text
 
-The heart/lung study cards are original short summaries of the linked NHLBI / NIH
-health pages. Source URLs and the source-check date are recorded in
+The heart/lung study cards and circulation route are original short summaries of
+the linked NHLBI / NIH health pages. The route also cites Tucker WD, Weber C and
+Burns B, *Anatomy, Thorax, Heart Pulmonary Arteries*, StatPearls (updated 2023-07-24),
+hosted by [NCBI Bookshelf](https://www.ncbi.nlm.nih.gov/books/NBK534812/), for the
+pulmonary arterial branching relationship. Source URLs and the source-check date are recorded in
 `content/study_content.json` and linked in the app. No source images, animations,
 video or substantial text passages are reused. Text remains a private source-checked
 draft with qualified medical review pending; this does not review the mesh geometry.

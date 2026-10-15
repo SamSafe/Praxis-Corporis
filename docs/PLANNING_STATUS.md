@@ -110,7 +110,7 @@ still pause; this does not establish bounded loading latency on target hardware.
 The rebuilt native Windows app passed these checks on AMD graphics, alongside the
 existing saved-view, keyboard and credited screenshot workflows.
 Ranked source-aware search now covers names and original/ontology/catalogue IDs in
-all three references. Two-line source rows preserve repeated labels; filtering leaves
+all three then-bundled references. Two-line source rows preserve repeated labels; filtering leaves
 inspection/history unchanged. Source details and an explicit copy action retain
 reference fingerprints and coverage/review status. Keyboard selection, duplicate-row
 clicking and compact rendering passed development checks. The rebuilt Windows
@@ -118,12 +118,12 @@ release passed source-search checks on native AMD graphics. Repository verificat
 now retains exact-artifact logs/captures and isolates test data; its rendered and
 headless WSL-to-Windows modes passed. Mac hardware and human clipboard/input
 acceptance remain open.
-Four separate HRA v1.2 spinal candidates are downloaded/hash-verified and technically
-inventoried for both sexes. They are outside the runtime. The female vertebra source
+An earlier audit downloaded/hash-verified and technically inventoried four HRA v1.2
+spinal candidates for both sexes. They were outside the runtime at that stage. The female vertebra source
 contains one missing label/ontology record that requires interpretation review.
 [Candidate findings](audit/HRA_SPINAL_CANDIDATES.md) define source-frame/admission work.
 All four also passed actual engine mesh/triangle/bounds checks and were rendered against
-their original source-body context. No source fitting or catalogue admission occurred;
+their original source-body context. No source fitting or catalogue admission occurred during that audit;
 the unresolved female node is highlighted in the retained inspection preview.
 
 The previous private archives use `b9c23b4`. Selection-bound Actions now expose supported

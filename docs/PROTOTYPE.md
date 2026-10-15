@@ -118,8 +118,10 @@ Keyboard camera controls work only while the 3D view has focus. Search/list arro
 and text editing keep their ordinary behaviour. Camera keys leave explicit Move mode
 and preserve inspection changes. The focused scene has a teal border and a keyboard
 hint below it. Alt-history and inspection undo/redo remain available. This supplies a
-keyboard camera route, without claiming complete keyboard movement or assistive-tech
-acceptance.
+keyboard camera route. Precise keyboard movement is also available: M toggles Move;
+I/J/K/L move up/left/down/right in camera coordinates; U/O move toward/away. A press
+moves 5 mm, or 1 mm with Shift. Held repeats are ignored and each step supports Undo.
+Assistive-technology and human accessibility acceptance remain open.
 
 Named camera views retain the focus point, distance, selection, labels, isolation
 and anatomy edits. They leave explicit Move mode and participate in Back/Forward

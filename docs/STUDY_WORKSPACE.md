@@ -39,6 +39,46 @@ snapshot uses the ordinary inspection format and does not retain guide progress.
 The guide remains available when anatomy is expanded. It is disabled for the separate
 bone/spinal source studies, which do not supply the required chest geometry.
 
+## Heart-to-lung route
+
+Choose **Heart ↔ lungs**, or **Explore > Heart ↔ lungs route** in expanded anatomy.
+The authored sequence visits the vena cava, right heart, pulmonary vessels, lungs,
+left heart and aorta before a conceptual return through the body. At the pulmonary
+trunk, choose either lung branch. **Previous** retraces the branch you took; at the
+branch choice you can try the other lung. Every step links its supporting source.
+
+Source selections are mapped separately to the exact female and male records,
+including source names and ontology IDs. A mismatched record disables the route.
+Lung surfaces provide context for gas exchange: individual alveoli and their
+capillary networks are absent. The complete systemic vessel/tissue route is also
+an explicit gap. Mesh interiors and physical continuity remain unverified; this
+conceptual sequence draws no simulated flow or anatomical channels.
+
+The route uses NHLBI's blood-flow and gas-exchange pages above, plus Tucker,
+Weber and Burns, [*Anatomy, Thorax, Heart Pulmonary Arteries*](https://www.ncbi.nlm.nih.gov/books/NBK534812/)
+(StatPearls, updated 2023-07-24) for the two pulmonary arterial branches. All text
+and relationships remain source-checked drafts with medical review pending.
+The loader validates review stages, citations, HTTPS links, graph reachability,
+return paths and mapping fields before making the content available.
+
+Like the chest guide, **Finish and restore** recovers the exact starting exploration
+and histories. Switching between guide and route restores the previous workspace
+before starting the next. Changing reference or restoring a saved view finishes
+the route. A saved snapshot retains its anatomy setup, without route progress.
+
+## Precise keyboard movement
+
+Focus the 3D view and press **M** to enter Move mode. Press **I/J/K/L** to move
+up/left/down/right in the camera plane, or **U/O** toward/away from the camera.
+Each deliberate press moves 5 mm; hold **Shift** for 1 mm. Held-key repeat is ignored
+so it cannot create an accidental long displacement. **Ctrl/Cmd+Z** reverses one
+step; add Shift to redo. Original-position ghosts use the existing visibility control.
+
+**M** or **Escape** leaves Move mode. Camera keys still leave Move mode and preserve
+inspection edits. The keys apply only while the 3D view has focus; search and text
+fields retain normal input. Movement works in both workspace sizes and every source
+reference. These are camera coordinates, separate from body-direction presets.
+
 ## Portable saved views
 
 In **Saved views**, **Export all views** writes a local JSON file containing named
@@ -62,8 +102,8 @@ Anatomy snapshots keep their own label settings; restoring a view does not repla
 the stored device defaults. Damaged preferences fall back to defaults. QA uses
 disposable preference paths and does not read or alter the user's preferences.
 
-Text sizing is an improvement in readability; full assistive-technology, keyboard
-manipulation and accessibility acceptance remain open.
+Text sizing and keyboard manipulation improve access; assistive-technology and
+human accessibility acceptance remain open.
 
 ## Added anatomy studies
 
@@ -112,6 +152,9 @@ python3 -m unittest discover -s tests -v
 godot --headless --path . --script tests/portable_views_smoke.gd
 godot --headless --path . --script tests/study_workspace_smoke.gd
 godot --headless --path . --script tests/spinal_picking_smoke.gd
+godot --headless --path . --script tests/study_content_smoke.gd
+godot --headless --path . --script tests/circulation_route_smoke.gd
+godot --headless --path . --script tests/keyboard_movement_smoke.gd
 ```
 
 The workspace check exercises real geometry in both bodies and all four spinal studies,

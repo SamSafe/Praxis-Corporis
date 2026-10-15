@@ -5,9 +5,10 @@ prepared geometry. Users need no Python, Godot editor, login or network connecti
 When prepared at build time, packages also include the separate BodyParts3D male
 bone study and its current/legacy source notices. Its coordinate frame is not
 registered to the HRA bodies; its availability is explicit in the reference selector.
-The atlas is partial and unreviewed; disease content and physiological guided routes are absent.
+The atlas is partial and unreviewed; disease content and physiological simulation are absent.
 The latest [study workspace](STUDY_WORKSPACE.md) adds a reversible chest teaching guide,
-draft learning cards, portable views and four independent spinal source studies.
+draft learning cards, a sourced heart/lung route, precise keyboard movement,
+portable views and four independent spinal source studies.
 
 ## Run a build
 
@@ -135,7 +136,7 @@ The `cc705b8` packages also offer six camera presets and source direction cues.
 Every reference passes the presets on native Windows; all 27 captures were inspected.
 [Orientation verification](audit/ORIENTATION_VERIFICATION.md) binds the result to the
 new ZIPs and source metadata. Actual Mac and human acceptance remain open.
-Current `b9c23b4` packages add selection-bound Actions beside anatomy in both
+The `b9c23b4` packages add selection-bound Actions beside anatomy in both
 workspace modes, including corner access for hidden/off-screen parts. All native
 Windows workflows pass for every reference; 36 captures were inspected (the nine
 new menu captures also individually at full size). [Part-action evidence](audit/PART_ACTIONS_VERIFICATION.md)
@@ -347,7 +348,7 @@ python3 tools/report_profile.py dist/windows-profile-sustained/render-profile.js
 These frame-callback observations include scheduling/VSync and do not measure
 GPU timestamps or presentation latency. Cache, power state and background load are
 uncontrolled. Even a longer run on one host leaves the representative laptop and Mac
-acceptance gates open. The current eight-scene suite omits the additional label-density,
+acceptance gates open. The original eight-scene and expanded sixteen-scene suites omit the additional label-density,
 moved-organ and saved-view workloads in [the protocol](PERFORMANCE_PROTOCOL.md).
 Process working-set/private-memory observations must be recorded by the host separately;
 they are neither GPU memory nor Godot's optional debug memory counters.
