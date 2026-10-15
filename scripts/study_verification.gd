@@ -13,6 +13,8 @@ static func run(viewer: Control, rendered: bool) -> bool:
 	var forward: Array = viewer.forward_views.duplicate(true)
 	var valid: bool = viewer.study_content.data.get("cards", {}).size() == 15
 	valid = valid and viewer.study_content.error.is_empty()
+	if viewer.model.body.id == "female":
+		valid = await verify_information(viewer, rendered) and valid
 	viewer.scene_container.grab_focus()
 	var camera: Dictionary = viewer.orbit.export_state().duplicate(true)
 	var anatomy: Dictionary = viewer.model.export_state().duplicate(true)
@@ -111,4 +113,40 @@ static func run(viewer: Control, rendered: bool) -> bool:
 	valid = valid and viewer.export_view_state() == before
 	if valid:
 		print("PASS bundled study workspace: ", viewer.model.body.id)
+	return valid
+
+
+static func verify_information(viewer: Control, rendered: bool) -> bool:
+	var preferences: Dictionary = viewer.preference_state()
+	var previous_size := viewer.get_window().size
+	var large: Dictionary = preferences.duplicate()
+	large.text_scale = 1.3
+	viewer.apply_preferences(large)
+	viewer.get_window().size = Vector2i(1100, 720)
+	var valid := true
+	for kind in ["help", "sources"]:
+		var dialog: Window = viewer.show_keyboard_help() if kind == "help" else viewer.show_sources()
+		await viewer.get_tree().process_frame
+		await viewer.get_tree().process_frame
+		valid = valid and dialog.content.get_parsed_text() == dialog.message and dialog.size.y <= viewer.get_window().size.y
+		valid = valid and dialog.get_ok_button().get_global_rect().end.y <= dialog.size.y
+		var key := InputEventKey.new()
+		key.pressed = true
+		key.keycode = KEY_PAGEDOWN
+		dialog.push_input(key)
+		await viewer.get_tree().process_frame
+		valid = valid and dialog.content.get_v_scroll_bar().value > 0
+		if rendered:
+			await RenderingServer.frame_post_draw
+			valid = valid and viewer.get_viewport().get_texture().get_image().save_png("user://native-information-%s.png" % kind) == OK
+		key = key.duplicate()
+		key.keycode = KEY_ESCAPE
+		dialog.push_input(key)
+		await viewer.get_tree().process_frame
+		await viewer.get_tree().process_frame
+		valid = valid and not is_instance_valid(dialog)
+	viewer.apply_preferences(preferences)
+	viewer.get_window().size = previous_size
+	if valid:
+		print("PASS bundled information dialogs: female")
 	return valid

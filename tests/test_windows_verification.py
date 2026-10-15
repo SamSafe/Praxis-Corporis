@@ -26,6 +26,13 @@ def complete_log(rendered=True):
 
 
 class WindowsVerificationTests(unittest.TestCase):
+    def test_information_packages_require_the_dialog_check(self):
+        log = complete_log(False)
+        with self.assertRaisesRegex(ValueError, 'information dialog'):
+            parse_result(log, False, information=True)
+        log += '\nPASS bundled information dialogs: female'
+        self.assertIn('female', parse_result(log, False, information=True)['references'])
+
     def test_circulation_packages_require_both_route_checks(self):
         log = complete_log(False)
         with self.assertRaisesRegex(ValueError, 'keyboard movement'):

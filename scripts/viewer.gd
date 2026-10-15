@@ -18,6 +18,7 @@ const ViewerPreferences = preload("res://scripts/viewer_preferences.gd")
 const StudyContent = preload("res://scripts/study_content.gd")
 const GuidedChest = preload("res://scripts/guided_chest.gd")
 const StudyVerification = preload("res://scripts/study_verification.gd")
+const InformationDialog = preload("res://scripts/information_dialog.gd")
 enum ExpandedAction { FOCUS, WHOLE_BODY, INSPECT, RETURN_CONTEXT, SELECTION_LABELS,
 	LOCAL_LABELS, MOVE, UNDO, REDO, SAVED_VIEWS, SCREENSHOT, KEYBOARD_HELP, GUIDED_CHEST, CIRCULATION_ROUTE }
 var save_path := "user://saved_view.json"
@@ -1567,15 +1568,20 @@ func on_panel_action(id: int) -> void:
 	elif id in [100, 101, 102]:
 		set_scene_resolution([1.0, 0.75, 0.5][id - 100])
 	elif id == 2:
-		var dialog := AcceptDialog.new()
-		dialog.title = "Keyboard controls"
-		dialog.dialog_text = "Tab / Shift-Tab moves between controls.\nSearch and anatomy lists provide a text selection route.\n\nWith the 3D view focused (teal border):\nArrow keys orbit · Shift + arrows pan\n+ / - zoom · F focuses selection · Home shows the body\nShift+F10 / Menu opens selected-part actions\nM toggles Move mode. In Move mode, press:\nI/J/K/L: up/left/down/right in the camera plane\nU/O: toward/away from the camera\nEach press: 5 mm · hold Shift: 1 mm · Undo reverses a press\nCamera keys leave Move mode and preserve inspection edits.\n\nF11 expands anatomy; Escape returns to the workspace.\nAlt + Left/Right revisits views.\nCtrl/Cmd + Z undoes inspection; add Shift to redo.\nText fields keep their ordinary editing shortcuts.\nEscape leaves Move mode or closes the active dialog."
-		dialog.confirmed.connect(dialog.queue_free)
-		dialog.canceled.connect(dialog.queue_free)
-		add_child(dialog)
-		dialog.popup_centered_clamped(Vector2i(650, 560), 0.9)
+		show_keyboard_help()
 	elif id == 4:
 		show_preferences()
+
+
+func show_keyboard_help() -> Window:
+	var dialog := InformationDialog.new()
+	dialog.title = "Keyboard controls"
+	dialog.message = "Tab / Shift-Tab moves between controls.\nSearch and anatomy lists provide a text selection route.\n\nWith the 3D view focused (teal border):\nArrow keys orbit · Shift + arrows pan\n+ / - zoom · F focuses selection · Home shows the body\nShift+F10 / Menu opens selected-part actions\nM toggles Move mode. In Move mode, press:\nI/J/K/L: up/left/down/right in the camera plane\nU/O: toward/away from the camera\nEach press: 5 mm · hold Shift: 1 mm · Undo reverses a press\nCamera keys leave Move mode and preserve inspection edits.\n\nF11 expands anatomy; Escape returns to the workspace.\nAlt + Left/Right revisits views.\nCtrl/Cmd + Z undoes inspection; add Shift to redo.\nText fields keep their ordinary editing shortcuts.\nEscape leaves Move mode or closes the active dialog.\n\nIn this help window, Tab changes focus and Page Up/Down scroll the text."
+	dialog.theme = theme
+	add_child(dialog)
+	scale_text(dialog)
+	dialog.open(Vector2i(650, 520))
+	return dialog
 
 
 func set_scene_resolution(fraction: float) -> void:
@@ -2543,18 +2549,24 @@ func valid_label_context(selection: String, label_context: String, reference: Di
 	return false
 
 
-func show_sources() -> void:
-	var dialog := AcceptDialog.new()
+func show_sources() -> Window:
+	var dialog := InformationDialog.new()
+	dialog.theme = theme
+	var reference_id: String = str(model.body.get("id", ""))
 	dialog.title = "Sources and prototype status"
-	dialog.dialog_text = "Anatomy: HuBMAP / Human Reference Atlas 3D Reference Object Library, United v1.1.\nCC BY 4.0. Source files unchanged; sampling sites excluded, cache conversion,\nselection colours, fading and temporary inspection movements applied.\n\nhttps://github.com/hubmapconsortium/ccf-3d-reference-object-library\nhttps://creativecommons.org/licenses/by/4.0/\n\nGodot Engine: MIT licence; https://godotengine.org/license/\n\nThis is a private, partial atlas prototype. Anatomy labels and coverage are draft\nimports; qualified medical review is pending. No disease content is included."
-	if model.body.id == "bodyparts-male-bones-study":
-		dialog.dialog_text = "BodyParts3D, © The Database Center for Life Science licensed under CC\nAttribution 4.0 International. Official archive v4.0; current grant from the\n2025 licence page. Original OBJ comments retain legacy CC BY-SA 2.1 Japan\nnotices. Both records are retained. Geometry was converted from millimetres\nto metres and Z-up to Y-up, with source normals preserved. Display colour\nand inspection effects are runtime modifications.\n\nhttps://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html\nhttps://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html\n\nSeparate male bone study; no registration to HRA or female anatomy. Geometry\nand labels are unreviewed. No disease content.\nGodot Engine: MIT licence; https://godotengine.org/license/"
+	dialog.message = "Anatomy: HuBMAP / Human Reference Atlas 3D Reference Object Library, United v1.1.\nCC BY 4.0. Source files unchanged; sampling sites excluded, cache conversion,\nselection colours, fading and temporary inspection movements applied.\n\nhttps://github.com/hubmapconsortium/ccf-3d-reference-object-library\nhttps://creativecommons.org/licenses/by/4.0/\n\nGodot Engine: MIT licence; https://godotengine.org/license/\n\nThis is a private, partial atlas prototype. Anatomy labels and coverage are draft\nimports; qualified medical review is pending. No disease content is included."
+	if reference_id == "bodyparts-male-bones-study":
+		dialog.message = "BodyParts3D, © The Database Center for Life Science licensed under CC\nAttribution 4.0 International. Official archive v4.0; current grant from the\n2025 licence page. Original OBJ comments retain legacy CC BY-SA 2.1 Japan\nnotices. Both records are retained. Geometry was converted from millimetres\nto metres and Z-up to Y-up, with source normals preserved. Display colour\nand inspection effects are runtime modifications.\n\nhttps://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html\nhttps://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html\n\nSeparate male bone study; no registration to HRA or female anatomy. Geometry\nand labels are unreviewed. No disease content.\nGodot Engine: MIT licence; https://godotengine.org/license/"
 	elif model.body.get("study_kind") == "hra-spinal":
-		dialog.dialog_text = ViewCapture.credits(model.body, "") + "\n\n" + str(model.body.coverage)
-	dialog.confirmed.connect(dialog.queue_free)
-	dialog.canceled.connect(dialog.queue_free)
+		dialog.message = ViewCapture.credits(model.body, "") + "\n\n" + str(model.body.coverage)
+	if reference_id in ["", "female", "male"] and not study_content.data.is_empty():
+		dialog.message += "\n\nStudy explanations and circulation route\nOriginal summaries; source-checked %s. Qualified medical review is pending. No source illustrations or videos are reused.\n" % str(study_content.data.source_checked_on)
+		for source in study_content.data.sources.values():
+			dialog.message += "\n%s\n%s\n" % [source.title, source.url]
 	add_child(dialog)
-	dialog.popup_centered(Vector2i(760, 390))
+	scale_text(dialog)
+	dialog.open(Vector2i(760, 500))
+	return dialog
 
 
 func show_coverage() -> Window:

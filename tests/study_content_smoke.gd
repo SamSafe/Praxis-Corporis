@@ -15,7 +15,7 @@ func _initialize() -> void:
 	var original: Dictionary = content.data.duplicate(true)
 	check(content.error.is_empty() and original.cards.size() == 15 and original.routes.size() == 1, "Bundled explanations and route have valid review evidence")
 	var invalid: Array = [null, [], {}, {"schema_version": 2}]
-	for change in ["source", "card", "related", "citation", "review", "route-target", "route-gap", "route-unreachable", "route-return", "mapping"]:
+	for change in ["source", "card", "related", "citation", "review", "date", "route-target", "route-gap", "route-unreachable", "route-return", "mapping"]:
 		var candidate := original.duplicate(true)
 		match change:
 			"source": candidate.sources["heart-flow"].url = "javascript:alert(1)"
@@ -23,6 +23,7 @@ func _initialize() -> void:
 			"related": candidate.cards["anatomy.heart"].related = [3]
 			"citation": candidate.cards["anatomy.heart"].source_ids = ["missing"]
 			"review": candidate.expert_review = "approved"
+			"date": candidate.erase("source_checked_on")
 			"route-target": candidate.routes["heart-lung"].nodes["pulmonary-trunk"].next = ["missing"]
 			"route-gap": candidate.routes["heart-lung"].nodes["left-exchange"].gap = ""
 			"route-unreachable": candidate.routes["heart-lung"].nodes["pulmonary-trunk"].next = ["left-artery"]

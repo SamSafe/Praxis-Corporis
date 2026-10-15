@@ -14,7 +14,7 @@ func load_data(parsed: Variant) -> String:
 	data = {}
 	if not parsed is Dictionary or parsed.get("schema_version") != 1 or not parsed.get("cards") is Dictionary or not parsed.get("sources") is Dictionary:
 		return "Study content has an unsupported format."
-	if not reviewed_draft(parsed) or not nonempty_text(parsed.get("revision"), 128):
+	if not reviewed_draft(parsed) or not nonempty_text(parsed.get("revision"), 128) or not nonempty_text(parsed.get("source_checked_on"), 10):
 		return "Study content has missing review evidence."
 	for id in parsed.sources:
 		var source = parsed.sources[id]

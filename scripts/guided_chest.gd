@@ -45,6 +45,8 @@ func _ready() -> void:
 	branches = HFlowContainer.new()
 	layout.add_child(branches)
 	citations = HFlowContainer.new()
+	citations.add_theme_constant_override("h_separation", 14)
+	citations.add_theme_constant_override("v_separation", 6)
 	layout.add_child(citations)
 	var navigation := HFlowContainer.new()
 	layout.add_child(navigation)

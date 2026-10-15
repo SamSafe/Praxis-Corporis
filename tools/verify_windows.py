@@ -25,7 +25,7 @@ def ps_literal(value: str) -> str:
     return "'" + value.replace("'", "''") + "'"
 
 
-def parse_result(log: str, rendered: bool, circulation: bool = False) -> dict:
+def parse_result(log: str, rendered: bool, circulation: bool = False, information: bool = False) -> dict:
     if "SCRIPT ERROR:" in log or re.search(r"^ERROR:", log, re.M):
         raise ValueError("The native runtime reported an error")
     if "PASS offline native bundle" not in log or "Windows native exit code: 0" not in log:
@@ -46,6 +46,8 @@ def parse_result(log: str, rendered: bool, circulation: bool = False) -> dict:
                 r'^PASS bundled study workspace: ' + re.escape(reference) + r'$', log, re.M):
             raise ValueError('Native study workspace check missing: ' + reference)
     result = process_observations(log, rendered)
+    if information and 'PASS bundled information dialogs: female' not in log.splitlines():
+        raise ValueError('Native information dialog check missing')
     if circulation:
         for reference in references:
             if f'PASS bundled keyboard movement: {reference}' not in log.splitlines():
@@ -157,7 +159,8 @@ try {
     return log
 
 
-def captures(folder: pathlib.Path, output: pathlib.Path, references: dict, circulation: bool = False) -> dict:
+def captures(folder: pathlib.Path, output: pathlib.Path, references: dict, circulation: bool = False,
+             information: bool = False) -> dict:
     images = {}
     destination = output / "captures"
     destination.mkdir()
@@ -184,6 +187,19 @@ def captures(folder: pathlib.Path, output: pathlib.Path, references: dict, circu
                 raise ValueError("Native capture has invalid dimensions: " + name)
             shutil.copyfile(path, destination / name)
             images[name] = {"file": "captures/" + name, "pixels": pixels, "sha256": sha256(path)}
+    if information:
+        for kind in ['help', 'sources']:
+            name = f'native-information-{kind}.png'
+            path = source / name
+            with path.open('rb') as stream:
+                header = stream.read(24)
+            if len(header) != 24 or header[:8] != b'\x89PNG\r\n\x1a\n':
+                raise ValueError('Native information capture is invalid: ' + name)
+            pixels = list(struct.unpack('>II', header[16:24]))
+            if not all(v > 0 for v in pixels):
+                raise ValueError('Native information capture dimensions are invalid')
+            shutil.copyfile(path, destination / name)
+            images[name] = {'file': 'captures/' + name, 'pixels': pixels, 'sha256': sha256(path)}
     return images
 
 
@@ -195,6 +211,7 @@ def verify(args: argparse.Namespace) -> dict:
     content = (json.loads(git_bytes(ROOT, build_report['source_revision'], content_path))
                if content_path in build_report['source_hashes'] else {})
     circulation = 'heart-lung' in content.get('routes', {})
+    information = 'scripts/information_dialog.gd' in build_report['source_hashes']
     if args.output.exists():
         raise ValueError("Use a new output folder; prior reports are kept unchanged")
     args.output.mkdir(parents=True)
@@ -206,7 +223,7 @@ def verify(args: argparse.Namespace) -> dict:
             raise ValueError("Extracted Windows executable/anatomy is incomplete")
         executable_relative = executable.relative_to(session).as_posix().replace("/", "\\")
         log = run_native(args, windows_session, windows_session + "\\" + executable_relative)
-        result = parse_result(log, args.mode == "rendered", circulation)
+        result = parse_result(log, args.mode == "rendered", circulation, information)
         if result["engine_actual"] != build_report["engine"]:
             raise ValueError("The native runtime differs from the pinned build engine")
         result.update(schema_version=1, recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
@@ -216,7 +233,7 @@ def verify(args: argparse.Namespace) -> dict:
                       limits=["Scripted actions; human input, clipboard and native OS picker acceptance remain open.",
                               "No sustained-performance or maximum-loading-pause claim.", "This checks actual Windows execution; Mac device validation is separate."])
         if args.mode == "rendered":
-            result["captures"] = captures(session, args.output, result["references"], circulation)
+            result["captures"] = captures(session, args.output, result["references"], circulation, information)
         if (session / "engine.log").exists():
             shutil.copyfile(session / "engine.log", args.output / "engine.log")
         (args.output / "report.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
