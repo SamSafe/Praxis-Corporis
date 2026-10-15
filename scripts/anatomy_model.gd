@@ -58,6 +58,9 @@ func load_body(record: Dictionary) -> String:
 
 
 func prepare_body(record: Dictionary) -> String:
+	var picking_scale := float(record.get("picking_scale", 1.0))
+	if picking_scale not in [1.0, 100.0]:
+		return "Unsupported picking coordinate scale in this reference."
 	var started := Time.get_ticks_msec()
 	resource_operation_intervals_ms.clear()
 	prepared_selection_batches = 0
@@ -198,6 +201,12 @@ func prepare_body(record: Dictionary) -> String:
 			collider.set_meta("mesh_index", int(index))
 			var shape := CollisionShape3D.new()
 			shape.shape = mesh.mesh.create_trimesh_shape() if preparing_cache else next_shapes[int(index)]
+			if preparing_cache and picking_scale != 1.0:
+				# Normalize collision arithmetic for tiny source triangles, then invert the
+				# representation transform. Display meshes and source coordinates stay exact.
+				var faces: PackedVector3Array = shape.shape.get_faces()
+				shape.shape.set_faces(Transform3D(Basis.from_scale(Vector3.ONE * picking_scale), Vector3.ZERO) * faces)
+			shape.scale = Vector3.ONE / picking_scale
 			collider.add_child(shape)
 			mesh.add_child(collider)
 		next_colliders[int(index)] = collider
@@ -281,6 +290,8 @@ func load_prepared_selection(record: Dictionary, root_record: Dictionary) -> Dic
 		record_resource_operation("collect", started)
 		if batch == null or batch.source_sha256 != record.sha256 or batch.engine != Engine.get_version_info().string or batch.mesh_nodes.is_empty() or batch.mesh_nodes.size() != batch.shapes.size():
 			return {"error": "Prepared picking shapes do not match the source reference."}
+		if batch.coordinate_scale != float(record.get("picking_scale", 1.0)):
+			return {"error": "Prepared picking coordinates do not match this reference. Re-prepare the source or re-extract the complete build."}
 		for i in batch.mesh_nodes.size():
 			var index: int = batch.mesh_nodes[i]
 			if not expected.has(index) or shapes.has(index) or not batch.shapes[i] is ConcavePolygonShape3D:

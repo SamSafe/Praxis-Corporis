@@ -24,6 +24,11 @@ func prepare() -> void:
 			return
 		var existing := ContentBundle.prepared_files(body.id, body.sha256)
 		model.preparing_cache = existing.is_empty()
+		var manifest_path := ContentBundle.selection_manifest_path(body.id, body.sha256)
+		if FileAccess.file_exists(manifest_path):
+			var manifest = JSON.parse_string(FileAccess.get_file_as_string(manifest_path))
+			if not manifest is Dictionary or manifest.get("coordinate_scale", 1.0) != float(body.get("picking_scale", 1.0)):
+				model.preparing_cache = true
 		for path in existing:
 			if not FileAccess.file_exists(path):
 				model.preparing_cache = true
@@ -94,6 +99,7 @@ func write_selection_batch(record: Dictionary, nodes: Array[int], shapes: Array[
 	batch.engine = Engine.get_version_info().string
 	batch.mesh_nodes = PackedInt32Array(nodes)
 	batch.shapes = shapes.duplicate()
+	batch.coordinate_scale = float(record.get("picking_scale", 1.0))
 	return ResourceSaver.save(batch, ContentBundle.selection_batch_path(record.id, record.sha256, index))
 
 
@@ -122,6 +128,7 @@ func save_selection_batches(record: Dictionary, model: Node3D) -> String:
 		batch_count += 1
 	var manifest := {"schema_version": 1, "reference_id": record.id, "source_sha256": record.sha256,
 		"engine": Engine.get_version_info().string, "batch_count": batch_count,
+		"coordinate_scale": float(record.get("picking_scale", 1.0)),
 		"triangle_budget": 80000, "mesh_limit": 32,
 		"limits": "A single source mesh may exceed the triangle budget; no geometry is split or simplified."}
 	var path := ContentBundle.selection_manifest_path(record.id, record.sha256)

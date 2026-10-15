@@ -37,8 +37,9 @@ def fixture():
 class RenderProfileTests(unittest.TestCase):
     def test_workload_catalogue_is_bound_to_the_recorded_source(self):
         relative = 'content/spinal_studies.json'
-        build = {'source_revision': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
-                 'source_hashes': {relative: hashlib.sha256((ROOT / relative).read_bytes()).hexdigest()}}
+        revision = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
+        recorded = subprocess.check_output(['git', 'show', revision + ':' + relative], cwd=ROOT)
+        build = {'source_revision': revision, 'source_hashes': {relative: hashlib.sha256(recorded).hexdigest()}}
         workloads = expected_workloads(build)
         self.assertEqual(len(workloads), 7)
         self.assertEqual(sum(map(len, workloads.values())), 16)

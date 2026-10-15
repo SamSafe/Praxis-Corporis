@@ -53,7 +53,7 @@ def build(record: dict, root: Path = ROOT) -> dict:
     short_label = f"{sex.capitalize()} {'cord' if region == 'cord' else 'vertebrae'} · HRA study"
     return {"id": reference_id, "label": title, "short_label": short_label, "study": True,
             "study_kind": "hra-spinal", "asset_path": record["local_path"], "sha256": record["sha256"],
-            "bytes": record["bytes"], "root_id": "anatomy.body", "inspection_root": "anatomy.body",
+            "bytes": record["bytes"], "root_id": "anatomy.body", "inspection_root": "anatomy.body", "picking_scale": 100.0,
             "qa_leaf_id": leaves[0]["id"], "structures": structures,
             "coordinates": "Untouched source glTF metre/Y-up coordinates. No fitting, warping, relabelling or body registration.",
             "source_url": record["url"], "coverage": coverage,

@@ -13,6 +13,7 @@
       "bytes": 7656588,
       "root_id": "anatomy.body",
       "inspection_root": "anatomy.body",
+      "picking_scale": 100.0,
       "qa_leaf_id": "source.hra-v1-2-female-cord-study.n1",
       "structures": [
         {
@@ -559,6 +560,7 @@
       "bytes": 7700856,
       "root_id": "anatomy.body",
       "inspection_root": "anatomy.body",
+      "picking_scale": 100.0,
       "qa_leaf_id": "source.hra-v1-2-female-vertebrae-study.n1",
       "structures": [
         {
@@ -1037,6 +1039,7 @@
       "bytes": 489992,
       "root_id": "anatomy.body",
       "inspection_root": "anatomy.body",
+      "picking_scale": 100.0,
       "qa_leaf_id": "source.hra-v1-2-male-cord-study.n1",
       "structures": [
         {
@@ -1600,6 +1603,7 @@
       "bytes": 12578172,
       "root_id": "anatomy.body",
       "inspection_root": "anatomy.body",
+      "picking_scale": 100.0,
       "qa_leaf_id": "source.hra-v1-2-male-vertebrae-study.n1",
       "structures": [
         {

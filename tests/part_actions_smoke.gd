@@ -56,7 +56,6 @@ func run() -> void:
 		if viewer.model.body.id != reference.id:
 			await viewer.switch_body(reference.id)
 		var id: String = "anatomy.heart" if reference.id in ["female", "male"] else str(reference.get("qa_leaf_id", "source.bodyparts3d-v4-male.FJ3365"))
-		var thin_source: bool = str(reference.id).ends_with("-cord-study")
 		viewer.select_structure(id)
 		viewer.inspect_alone()
 		await settle()
@@ -68,8 +67,7 @@ func run() -> void:
 					viewer.set_scene_resolution(fraction)
 					await settle()
 					viewer.anatomy_labels.update_labels()
-					var valid_fallback: bool = thin_source and viewer.part_actions.position == viewer.part_actions.fallback
-					check(viewer.part_actions.visible and (viewer.part_actions.anchored or valid_fallback), "Opaque selections retain surface actions or the explicit thin-source corner fallback")
+					check(viewer.part_actions.visible and viewer.part_actions.anchored, "An opaque isolated selection has an anchored Actions button")
 					var rect := Rect2(viewer.part_actions.position, viewer.part_actions.size)
 					check(Rect2(Vector2.ZERO, viewer.scene_container.size).encloses(rect), "Actions stays within the scene at all checked sizes and resolutions")
 					for other in viewer.anatomy_labels.exclusion_controls:
@@ -153,9 +151,8 @@ func run() -> void:
 		activate(viewer, PartActions.Action.INSPECT)
 		activate(viewer, PartActions.Action.SELECTION_LABELS)
 		viewer.anatomy_labels.update_labels()
-		var valid_fallback: bool = thin_source and viewer.part_actions.visible and viewer.part_actions.position == viewer.part_actions.fallback
-		check(not viewer.labels_button.button_pressed and (viewer.part_actions.anchored or valid_fallback) and viewer.anatomy_labels.visible_ids.is_empty(),
-			"Actions remain available when labels are off, including explicit thin-source fallback")
+		check(not viewer.labels_button.button_pressed and viewer.part_actions.anchored and viewer.anatomy_labels.visible_ids.is_empty(),
+			"Selection actions retain a real surface anchor when name labels are off")
 		activate(viewer, PartActions.Action.LOCAL_LABELS)
 		check(viewer.local_labels_button.button_pressed == viewer.anatomy_labels.local_enabled, "Menu and workspace local-label controls share state")
 		activate(viewer, PartActions.Action.LOCAL_LABELS)

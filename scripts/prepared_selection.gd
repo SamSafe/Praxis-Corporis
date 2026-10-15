@@ -5,3 +5,4 @@ extends Resource
 @export var engine := ""
 @export var mesh_nodes := PackedInt32Array()
 @export var shapes: Array[Shape3D] = []
+@export var coordinate_scale := 1.0
