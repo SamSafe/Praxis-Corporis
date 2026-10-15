@@ -263,8 +263,10 @@ func run(viewer: Control) -> Dictionary:
 					return report
 				viewer.select_structure("anatomy.heart.valve.mitral")
 			else:
-				viewer.select_structure("source.bodyparts3d-v4-male.FJ3365")
+				viewer.select_structure(str(reference.get("qa_leaf_id", "source.bodyparts3d-v4-male.FJ3365")))
 			viewer.inspect_alone()
+			if viewer.model.selected_id.is_empty() or viewer.model.isolated_id != viewer.model.selected_id:
+				return {"error": "The supplied-part profiling workload did not isolate its mapped source mesh: " + str(reference.id)}
 			if not await append_sample(report, viewer, "isolated supplied-part orbit", config, repetition):
 				return report
 	return report
