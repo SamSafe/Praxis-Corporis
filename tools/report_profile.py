@@ -77,7 +77,7 @@ def markdown(report: dict, evidence: dict) -> str:
               f"Recorded VSync modes: {sorted({s['vsync_mode'] for s in report['scenes']})}; "
               f"3D MSAA modes: {sorted({s['msaa_3d'] for s in report['scenes']})}; engine max FPS: {report['engine_max_fps']}.", '',
               '## Loading and process gaps', '',
-              'Each repetition visits all three references. Revisit loads can reuse resources and OS caches. '
+              f"Each repetition visits all {len(report['measurement_plan'])} references. Revisit loads can reuse resources and OS caches. "
               'Raw process intervals include partial start/end boundaries and sum to switch wall time.', '',
               '| Repeat | Reference | Wall seconds | Verified/prepared seconds | Largest process gap ms | Gaps >100 ms | Next post-draw delay ms |',
               '|---:|---|---:|---:|---:|---:|---:|']
