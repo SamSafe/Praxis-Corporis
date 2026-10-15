@@ -26,6 +26,18 @@ def complete_log(rendered=True):
 
 
 class WindowsVerificationTests(unittest.TestCase):
+    def test_expanded_catalogue_requires_study_workspace_checks(self):
+        reference = 'hra-v1-2-female-cord-study'
+        extra = [f'PASS interface frames while loading: {reference} · 30',
+                 f'PASS bundled reference: {reference} · 29 meshes']
+        extra.extend(f'PASS {marker}: {reference}' for marker in MARKERS)
+        log = complete_log(False) + '\n' + '\n'.join(extra)
+        with self.assertRaisesRegex(ValueError, 'study workspace'):
+            parse_result(log, False)
+        for identity in ['female', 'male', 'bodyparts-male-bones-study', reference]:
+            log += f'\nPASS bundled study workspace: {identity}'
+        self.assertIn(reference, parse_result(log, False)['references'])
+
     def test_missing_or_failed_checks_cannot_pass_as_native_evidence(self):
         log = complete_log()
         report = parse_result(log, True)

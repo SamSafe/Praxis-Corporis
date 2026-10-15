@@ -14,8 +14,12 @@ const SourceRecord = preload("res://scripts/source_record.gd")
 const SceneSurface = preload("res://scripts/scene_surface.gd")
 const ReferenceOrientation = preload("res://scripts/reference_orientation.gd")
 const PartActions = preload("res://scripts/part_actions.gd")
+const ViewerPreferences = preload("res://scripts/viewer_preferences.gd")
+const StudyContent = preload("res://scripts/study_content.gd")
+const GuidedChest = preload("res://scripts/guided_chest.gd")
+const StudyVerification = preload("res://scripts/study_verification.gd")
 enum ExpandedAction { FOCUS, WHOLE_BODY, INSPECT, RETURN_CONTEXT, SELECTION_LABELS,
-	LOCAL_LABELS, MOVE, UNDO, REDO, SAVED_VIEWS, SCREENSHOT, KEYBOARD_HELP }
+	LOCAL_LABELS, MOVE, UNDO, REDO, SAVED_VIEWS, SCREENSHOT, KEYBOARD_HELP, GUIDED_CHEST }
 var save_path := "user://saved_view.json"
 var views_path := "user://saved_views.json"
 
@@ -91,6 +95,18 @@ var details_panel: Control
 var panels_menu: MenuButton
 var navigation_hint: Label
 var capture_in_progress := false
+var preferences := ViewerPreferences.new()
+var preferences_active := false
+var applying_preferences := false
+var text_scale := 1.0
+var study_content := StudyContent.new()
+var study_summary: Label
+var study_links: VBoxContainer
+var study_key := ""
+var guided_chest: GuidedChest
+var guide_button: Button
+var guide_home: VBoxContainer
+var guide_home_index := 0
 
 
 func _ready() -> void:
@@ -107,6 +123,13 @@ func _ready() -> void:
 	if coverage_parsed is Dictionary and coverage_parsed.get("pack_id") == pack.id and coverage_parsed.get("source_commit") == pack.source_commit:
 		coverage_notes = coverage_parsed
 	build_interface()
+	# Scripted QA always starts with predictable defaults and never edits user settings.
+	preferences_active = not "--script" in OS.get_cmdline_args() and OS.get_cmdline_user_args().is_empty()
+	if preferences_active:
+		var preferences_error := preferences.load_settings()
+		apply_preferences(preferences.values)
+		if not preferences_error.is_empty():
+			status.text = preferences_error
 	if not content_error.is_empty():
 		status.text = content_error
 		context.text = "Anatomy unavailable"
@@ -183,7 +206,7 @@ func verify_bundle() -> void:
 			get_tree().quit(1)
 			return
 		print("PASS interface frames while loading: %s · %d" % [reference.id, load_frame_count])
-		var target := "anatomy.heart" if model.structures.has("anatomy.heart") else "anatomy.system.skeletal"
+		var target: String = "anatomy.heart" if model.structures.has("anatomy.heart") else str(reference.get("inspection_root", "anatomy.system.skeletal"))
 		var leaf := "anatomy.heart.valve.mitral"
 		if target != "anatomy.heart":
 			var first_index := int(model.structures[target].mesh_nodes[0])
@@ -223,6 +246,10 @@ func verify_bundle() -> void:
 			get_tree().quit(1)
 			return
 		if not await verify_saved_view(rendered):
+			get_tree().quit(1)
+			return
+		if not await StudyVerification.run(self, rendered):
+			push_error("Bundled study workspace failed")
 			get_tree().quit(1)
 			return
 		if not await verify_failed_replacement(reference, rendered):
@@ -274,9 +301,12 @@ func verify_search(rendered: bool) -> bool:
 	var before := export_view_state()
 	var query := "UBERON0002135" if model.structures.has("anatomy.heart") else "FMA24474"
 	var expected := "anatomy.heart.valve.mitral" if model.structures.has("anatomy.heart") else "source.bodyparts3d-v4-male.FJ3365"
+	if model.body.has("qa_leaf_id"):
+		expected = str(model.body.qa_leaf_id)
+		query = expected
 	search.text = query
 	rebuild_tree()
-	var valid: bool = search_total == 1 and search_results.get_item_metadata(0) == expected and export_view_state() == before
+	var valid: bool = search_total >= 1 and search_results.get_item_metadata(0) == expected and export_view_state() == before
 	activate_first_search_result()
 	valid = valid and model.selected_id == expected and model.export_state() == before.changes and str(model.body.sha256) in source_record_text()
 	if rendered and valid:
@@ -423,7 +453,8 @@ func verify_keyboard_workspace() -> bool:
 func make_label(text: String, size: int = 15, color: Color = Color("c6d2df")) -> Label:
 	var label := Label.new()
 	label.text = text
-	label.add_theme_font_size_override("font_size", size)
+	label.set_meta("base_font_size", size)
+	label.add_theme_font_size_override("font_size", roundi(size * text_scale))
 	label.add_theme_color_override("font_color", color)
 	return label
 
@@ -574,7 +605,18 @@ func verify_orientation(rendered: bool) -> bool:
 	var undo: Array = model.undo_stack.duplicate(true)
 	orientation.refresh_reference()
 	if orientation.frame.is_empty():
-		return false
+		if model.body.get("study_kind") != "hra-spinal":
+			return false
+		await get_tree().process_frame
+		if not orientation.menu.disabled:
+			return false
+		if rendered:
+			await RenderingServer.frame_post_draw
+			if get_viewport().get_texture().get_image().save_png("user://native-orientation-%s.png" % str(model.body.id)) != OK:
+				return false
+			print("PASS native orientation: ", model.body.id, " · unavailable source frame")
+		print("PASS bundled orientation: ", model.body.id, " · unavailable source frame correctly disabled")
+		return export_view_state() == before
 	for index in ReferenceOrientation.VIEW_NAMES.size():
 		orientation.menu.get_popup().id_pressed.emit(index)
 		var direction: Vector3 = (orbit.camera.position - orbit.target).normalized()
@@ -606,7 +648,7 @@ func verify_part_actions(rendered: bool) -> bool:
 	var forward := forward_views.duplicate(true)
 	var window_size := get_window().size
 	var expanded := scene_expanded
-	var id := "anatomy.heart" if model.structures.has("anatomy.heart") else "source.bodyparts3d-v4-male.FJ3365"
+	var id: String = "anatomy.heart" if model.structures.has("anatomy.heart") else str(model.body.get("qa_leaf_id", "source.bodyparts3d-v4-male.FJ3365"))
 	select_structure(id, false)
 	inspect_alone()
 	var isolated := export_view_state()
@@ -760,16 +802,14 @@ func build_interface() -> void:
 	var layout := VBoxContainer.new()
 	layout.add_theme_constant_override("separation", 14)
 	margin.add_child(layout)
-	var top := HBoxContainer.new()
-	top.add_theme_constant_override("separation", 20)
+	var top := HFlowContainer.new()
+	top.add_theme_constant_override("h_separation", 10)
+	top.add_theme_constant_override("v_separation", 8)
 	layout.add_child(top)
 	var brand := VBoxContainer.new()
 	brand.add_child(make_label("PRAXIS CORPORIS", 22, Color("f1f6fa")))
 	brand.add_child(make_label("Anatomy exploration · private prototype", 13, Color("7d97ac")))
 	top.add_child(brand)
-	var spacer := Control.new()
-	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	top.add_child(spacer)
 	body_choice = OptionButton.new()
 	body_choice.fit_to_longest_item = false
 	for body in pack.bodies:
@@ -779,6 +819,7 @@ func build_interface() -> void:
 	body_choice.item_selected.connect(func(index: int): switch_body(str(body_choice.get_item_metadata(index))))
 	top.add_child(body_choice)
 	reference_buttons.append(make_button("Saved views", show_saved_views, top, "Keep multiple named exploration setups on this computer."))
+	guide_button = make_button("Guided chest", start_guided_chest, top)
 	reference_buttons.append(make_button("Coverage", show_coverage, top))
 	make_button("Sources", show_sources, top)
 	panels_menu = MenuButton.new()
@@ -792,6 +833,7 @@ func build_interface() -> void:
 	panels_menu.get_popup().add_check_item("Expand anatomy · F11", 3)
 	panels_menu.get_popup().add_separator()
 	panels_menu.get_popup().add_item("Keyboard controls…", 2)
+	panels_menu.get_popup().add_item("Preferences…", 4)
 	panels_menu.get_popup().add_separator("3D resolution")
 	panels_menu.get_popup().add_radio_check_item("Native · sharpest", 100)
 	panels_menu.get_popup().add_radio_check_item("75% · balanced", 101)
@@ -858,6 +900,12 @@ func build_interface() -> void:
 	columns.add_child(center)
 	var navigation := HBoxContainer.new()
 	center.add_child(navigation)
+	guide_home = center
+	guided_chest = GuidedChest.new()
+	center.add_child(guided_chest)
+	guide_home_index = guided_chest.get_index()
+	guided_chest.step_requested.connect(apply_chest_step)
+	guided_chest.finish_requested.connect(finish_guided_chest)
 	back_button = make_button("Back", func(): navigate_history(true), navigation, "Return to the previous selection and camera view. Alt + Left.")
 	forward_button = make_button("Forward", func(): navigate_history(false), navigation, "Return to the next selection and camera view. Alt + Right.")
 	context = make_label("Loading reference anatomy…", 14, Color("b5c7d8"))
@@ -965,6 +1013,7 @@ func build_interface() -> void:
 	orientation.view_requested.connect(orient_camera)
 	container.add_child(orientation)
 	anatomy_labels.exclusion_controls.append(orientation)
+	anatomy_labels.exclusion_controls.append(guided_chest)
 	navigation_hint = make_label("Drag to orbit · Shift/right-drag to pan · Scroll/pinch to zoom", 13, Color("7891a7"))
 	navigation_hint.tooltip_text = container.tooltip_text
 	center.add_child(navigation_hint)
@@ -982,12 +1031,22 @@ func build_interface() -> void:
 	right_scroll.add_child(right)
 	right.add_child(make_label("SELECTED STRUCTURE", 13, Color("83cfc9")))
 	heading = make_label("Explore the body", 23, Color("f2f6fa"))
-	heading.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	heading.autowrap_mode = TextServer.AUTOWRAP_ARBITRARY
 	right.add_child(heading)
+	study_summary = make_label("", 15)
+	study_summary.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	right.add_child(study_summary)
+	study_links = VBoxContainer.new()
+	right.add_child(study_links)
+	var source_toggle := CheckButton.new()
+	source_toggle.text = "Source and mesh details"
+	source_toggle.toggled.connect(func(enabled: bool): detail.visible = enabled)
+	right.add_child(source_toggle)
 	detail = make_label("Select anatomy in the viewer or list.", 14)
 	detail.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	detail.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	right.add_child(detail)
+	detail.visible = false
 	var action_row := HBoxContainer.new()
 	right.add_child(action_row)
 	action_buttons.append(make_button("Focus", focus_selection, action_row))
@@ -1098,6 +1157,7 @@ func build_interface() -> void:
 	expanded_popup.add_item("Redo inspection", ExpandedAction.REDO)
 	expanded_popup.add_separator()
 	expanded_popup.add_item("Saved views…", ExpandedAction.SAVED_VIEWS)
+	expanded_popup.add_item("Guided chest…", ExpandedAction.GUIDED_CHEST)
 	expanded_popup.add_item("Screenshot…", ExpandedAction.SCREENSHOT)
 	expanded_popup.add_item("Keyboard controls…", ExpandedAction.KEYBOARD_HELP)
 	expanded_popup.add_separator("3D resolution")
@@ -1127,12 +1187,17 @@ func build_interface() -> void:
 	expanded_scene.visible = false
 	anatomy_labels.exclusion_controls.append(expanded_toolbar)
 	anatomy_labels.exclusion_controls.append(expanded_feedback)
+	for control in [labels_button, local_labels_button]:
+		control.toggled.connect(func(_enabled: bool): save_preferences())
+	label_density.value_changed.connect(func(_value: float): save_preferences())
 	refresh_details()
 
 
 func switch_body(id: String) -> void:
 	if loading:
 		return
+	if guided_chest.active:
+		await finish_guided_chest()
 	var record: Dictionary = {}
 	for candidate in pack.bodies:
 		if candidate.id == id:
@@ -1485,6 +1550,7 @@ func on_panel_action(id: int) -> void:
 		panels_menu.get_popup().set_item_checked(id, panel.visible)
 		# Keep a keyboard route back to the workspace when hiding a focused control.
 		scene_container.grab_focus()
+		save_preferences()
 	elif id == 3:
 		set_scene_expanded(not scene_expanded)
 	elif id in [100, 101, 102]:
@@ -1497,6 +1563,8 @@ func on_panel_action(id: int) -> void:
 		dialog.canceled.connect(dialog.queue_free)
 		add_child(dialog)
 		dialog.popup_centered_clamped(Vector2i(650, 430), 0.9)
+	elif id == 4:
+		show_preferences()
 
 
 func set_scene_resolution(fraction: float) -> void:
@@ -1510,6 +1578,7 @@ func set_scene_resolution(fraction: float) -> void:
 	refresh_expanded_menu()
 	# Rendering preferences stay separate from the saved anatomy/camera setup.
 	anatomy_labels.update_labels()
+	save_preferences()
 
 
 func orient_camera(index: int) -> void:
@@ -1544,6 +1613,7 @@ func refresh_expanded_menu() -> void:
 	popup.set_item_disabled(popup.get_item_index(ExpandedAction.UNDO), undo_button.disabled)
 	popup.set_item_disabled(popup.get_item_index(ExpandedAction.REDO), redo_button.disabled)
 	popup.set_item_disabled(popup.get_item_index(ExpandedAction.SCREENSHOT), unavailable or capture_in_progress)
+	popup.set_item_disabled(popup.get_item_index(ExpandedAction.GUIDED_CHEST), unavailable or not model.structures.has("anatomy.heart"))
 	popup.set_item_checked(popup.get_item_index(ExpandedAction.SELECTION_LABELS), labels_button.button_pressed)
 	popup.set_item_checked(popup.get_item_index(ExpandedAction.LOCAL_LABELS), local_labels_button.button_pressed)
 	popup.set_item_checked(popup.get_item_index(ExpandedAction.MOVE), orbit.move_mode)
@@ -1639,6 +1709,7 @@ func on_expanded_action(id: int) -> void:
 			ExpandedAction.UNDO: model.undo()
 			ExpandedAction.REDO: model.redo()
 			ExpandedAction.SAVED_VIEWS: show_saved_views()
+			ExpandedAction.GUIDED_CHEST: start_guided_chest()
 			ExpandedAction.SCREENSHOT: export_screenshot()
 	refresh_expanded_menu()
 	if id not in [ExpandedAction.SAVED_VIEWS, ExpandedAction.SCREENSHOT, ExpandedAction.KEYBOARD_HELP]:
@@ -1653,6 +1724,79 @@ func on_scene_display_changed() -> void:
 		anatomy_labels.update_labels()
 
 
+func preference_state() -> Dictionary:
+	return {"text_scale": text_scale, "resolution": scene_container.resolution_fraction,
+		"explorer": explorer_panel.visible, "details": details_panel.visible,
+		"selection_labels": labels_button.button_pressed, "local_labels": local_labels_button.button_pressed,
+		"label_density": int(label_density.value)}
+
+
+func save_preferences() -> void:
+	if not preferences_active or applying_preferences:
+		return
+	var error := preferences.store(preference_state())
+	if not error.is_empty():
+		status.text = error
+
+
+func scale_text(node: Node) -> void:
+	if node is Control:
+		for property in ["font_size", "normal_font_size"]:
+			if node.has_theme_font_size_override(property):
+				var key: String = "base_" + property
+				if not node.has_meta(key):
+					node.set_meta(key, node.get_theme_font_size(property))
+				node.add_theme_font_size_override(property, roundi(float(node.get_meta(key)) * text_scale))
+	for child in node.get_children():
+		scale_text(child)
+
+
+func apply_preferences(settings: Dictionary) -> void:
+	applying_preferences = true
+	text_scale = float(settings.text_scale)
+	theme.default_font_size = roundi(15 * text_scale)
+	scale_text(self)
+	explorer_panel.visible = settings.explorer
+	details_panel.visible = settings.details
+	panels_menu.get_popup().set_item_checked(0, explorer_panel.visible)
+	panels_menu.get_popup().set_item_checked(1, details_panel.visible)
+	labels_button.button_pressed = settings.selection_labels
+	local_labels_button.button_pressed = settings.local_labels
+	label_density.value = settings.label_density
+	set_scene_resolution(float(settings.resolution))
+	anatomy_labels.text_scale = text_scale
+	anatomy_labels.update_labels()
+	applying_preferences = false
+
+
+func show_preferences() -> Window:
+	var dialog := AcceptDialog.new()
+	dialog.title = "Viewing preferences"
+	dialog.dialog_text = "Preferences are remembered on this computer.\nSaved anatomy views keep their own label settings."
+	var row := HBoxContainer.new()
+	row.add_child(make_label("Text size", 15))
+	var sizes := OptionButton.new()
+	for size_label in ["100%", "115%", "130%"]:
+		sizes.add_item(size_label)
+	sizes.select([1.0, 1.15, 1.3].find(text_scale))
+	sizes.item_selected.connect(func(index: int):
+		var settings := preference_state()
+		settings.text_scale = [1.0, 1.15, 1.3][index]
+		apply_preferences(settings)
+		save_preferences())
+	row.add_child(sizes)
+	make_button("Reset preferences", func():
+		apply_preferences(ViewerPreferences.DEFAULTS)
+		sizes.select(0)
+		save_preferences(), row)
+	dialog.add_child(row)
+	dialog.confirmed.connect(dialog.queue_free)
+	dialog.canceled.connect(dialog.queue_free)
+	add_child(dialog)
+	dialog.popup_centered_clamped(Vector2i(580, 190), 0.9)
+	return dialog
+
+
 func set_scene_expanded(enabled: bool) -> void:
 	if enabled == scene_expanded or (enabled and (loading or model.body.is_empty())):
 		return
@@ -1665,11 +1809,19 @@ func set_scene_expanded(enabled: bool) -> void:
 		expanded_scene.move_child(scene_container, 0)
 		expanded_scene.visible = true
 		workspace.visible = false
+		guided_chest.reparent(expanded_scene, false)
+		guided_chest.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
+		guided_chest.offset_left = 18
+		guided_chest.offset_right = -18
+		guided_chest.offset_top = 64
 	else:
 		scene_container.reparent(scene_frame, false)
 		scene_container.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 		workspace.visible = true
 		expanded_scene.visible = false
+		guided_chest.reparent(guide_home, false)
+		guided_chest.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT)
+		guide_home.move_child(guided_chest, guide_home_index)
 	panels_menu.get_popup().set_item_checked(panels_menu.get_popup().get_item_index(3), enabled)
 	orientation.set_padding(92.0 if enabled else 12.0)
 	part_actions.fallback = Vector2(12, 60 if enabled else 12)
@@ -1719,8 +1871,12 @@ func refresh_details() -> void:
 	refresh_parts()
 	if coverage_hint:
 		coverage_hint.text = "SEPARATE BONE STUDY\nSource geometry only.\nHRA alignment unreviewed." if model.body.get("study", false) else "PARTIAL ATLAS\nSkeleton, muscles and nerves\ncover selected regions."
+		if model.body.get("study_kind") == "hra-spinal":
+			coverage_hint.text = "SPINAL SOURCE STUDY\nSeparate source coordinates.\nBody registration pending."
 	if source_credit:
 		source_credit.text = "BodyParts3D · Database Center for Life Science\nSeparate male bone study · review pending\nLicence records: Sources" if model.body.get("study", false) else "HuBMAP / Human Reference Atlas\n3D Reference Object Library v1.1\nCC BY 4.0 · draft catalogue"
+		if model.body.get("study_kind") == "hra-spinal":
+			source_credit.text = "HuBMAP / Human Reference Atlas\nSeparate v1.2 spinal source\nCC BY 4.0 · review pending"
 	for button in reference_buttons:
 		button.disabled = loading or model.body.is_empty()
 	for control in [labels_button, local_labels_button, original_positions_button]:
@@ -1731,6 +1887,10 @@ func refresh_details() -> void:
 	if search:
 		search.editable = not loading
 	var selected: bool = model.structures.has(model.selected_id)
+	if guide_button:
+		guide_button.disabled = loading or not model.structures.has("anatomy.heart")
+		guide_button.text = "Finish chest guide" if guided_chest.active else "Guided chest"
+	refresh_study_content()
 	var isolated: bool = not model.isolated_id.is_empty()
 	if peel_button:
 		peel_button.disabled = loading or isolated or not model.structures.has("anatomy.skin")
@@ -1760,10 +1920,14 @@ func refresh_details() -> void:
 		heading.text = "Explore the body"
 		detail.text = "Peel away the skin, select a structure, and explore its position in the body.\n\nUse Show chest for a first close view.\n\nSource names and geometry are a draft import; anatomical review is pending."
 		if model.body.get("study", false):
-			detail.text = str(model.body.coverage) + "\n\nSeparate source coordinates; no alignment to HRA or female anatomy. Select a source bone in the list or viewer."
+			detail.text = str(model.body.coverage)
+			study_summary.text = str(model.body.coverage)
 		return
 	var record: Dictionary = model.structures[model.selected_id]
+	if record.get("metadata_gap", false):
+		study_summary.text = "Source metadata gap\nThe supplied label or ontology is missing. The original name is preserved. Its anatomical interpretation needs review."
 	heading.text = str(record.label)
+	heading.tooltip_text = str(record.label)
 	var visibility_counts := {"visible": 0, "faded": 0, "hidden": 0}
 	var displaced := false
 	for index in record.mesh_nodes:
@@ -1776,6 +1940,37 @@ func refresh_details() -> void:
 		record.source_name, str(record.ontology) if not str(record.ontology).is_empty() else "Not supplied", record.id]
 	if isolated:
 		detail.text = "INSPECTING ALONE\nSupplied geometry temporarily revealed.\n\nContext settings:\n" + detail.text
+
+
+func refresh_study_content() -> void:
+	if study_summary == null:
+		return
+	var key: String = str(model.body.get("id", "")) + ":" + model.selected_id + ":" + str(loading)
+	if key == study_key:
+		return
+	study_key = key
+	study_summary.text = study_content.text(model.selected_id) if not model.selected_id.is_empty() else "Select a structure to explore its position and read available study information."
+	for child in study_links.get_children():
+		child.free()
+	var card := study_content.card(model.selected_id)
+	for related in card.get("related", []):
+		if not model.structures.has(related):
+			continue
+		var link := LinkButton.new()
+		link.text = str(model.structures[related].label)
+		link.tooltip_text = "Select this related structure in the current body."
+		link.disabled = loading
+		link.pressed.connect(select_structure.bind(str(related)))
+		study_links.add_child(link)
+	for source_id in card.get("source_ids", []):
+		var source: Dictionary = study_content.data.sources[source_id]
+		var link := LinkButton.new()
+		link.text = str(source.title)
+		link.tooltip_text = str(source.url) + " · opens in your browser"
+		link.add_theme_font_size_override("font_size", roundi(12 * text_scale))
+		link.set_meta("base_font_size", 12)
+		link.pressed.connect(func(): OS.shell_open(str(source.url)))
+		study_links.add_child(link)
 
 
 func source_record_text() -> String:
@@ -1874,6 +2069,81 @@ func chest_view() -> void:
 	remember_view(previous)
 
 
+func start_guided_chest() -> void:
+	if loading or not model.structures.has("anatomy.heart"):
+		return
+	if guided_chest.active:
+		await finish_guided_chest()
+		return
+	guided_chest.original = export_view_state().duplicate(true)
+	guided_chest.original_undo = model.undo_stack.duplicate(true)
+	guided_chest.original_redo = model.redo_stack.duplicate(true)
+	guided_chest.original_back = back_views.duplicate(true)
+	guided_chest.original_forward = forward_views.duplicate(true)
+	guided_chest.active = true
+	apply_chest_step(0)
+
+
+func apply_chest_step(index: int) -> void:
+	if loading or not guided_chest.active or index < 0 or index >= GuidedChest.STEPS.size():
+		return
+	var step: Dictionary = GuidedChest.STEPS[index]
+	if not model.structures.has(step.selection):
+		status.text = "This guide step is unavailable in this reference."
+		return
+	applying_preferences = true
+	leave_move_mode()
+	end_isolation()
+	model.apply_saved_state({})
+	labels_button.button_pressed = true
+	local_labels_button.button_pressed = true
+	original_positions_button.button_pressed = true
+	label_density.value = 8
+	chest_view()
+	select_structure(step.selection, false)
+	if step.mode == "isolate":
+		inspection_return = camera_view()
+		model.set_isolation(step.selection)
+		focus_selection(false)
+	elif step.mode == "separate":
+		inspection_return = camera_view()
+		model.set_isolation("anatomy.heart")
+		var parts := ["anatomy.heart.atrium.right", "anatomy.heart.ventricle.right", "anatomy.heart.atrium.left", "anatomy.heart.ventricle.left"]
+		var directions := [Vector2(-1, 1), Vector2(-1, -1), Vector2(1, 1), Vector2(1, -1)]
+		var spacing := maxf(model.bounds_for("anatomy.heart").size.length() * 0.35, 0.035)
+		var right: Vector3 = orbit.camera.global_basis.x
+		var up: Vector3 = orbit.camera.global_basis.y
+		model.checkpoint()
+		for part in parts.size():
+			model.selected_id = parts[part]
+			model.offset_selection((right * directions[part].x + up * directions[part].y) * spacing)
+		model.select(step.selection)
+		orbit.focus(model.bounds_for("anatomy.heart"))
+	guided_chest.show_step(index)
+	applying_preferences = false
+	refresh_details()
+	anatomy_labels.update_labels()
+	scene_container.grab_focus()
+	status.text = "Guided chest · Finish and restore returns to your starting setup"
+
+
+func finish_guided_chest() -> void:
+	if not guided_chest.active or loading:
+		return
+	guided_chest.active = false
+	guided_chest.visible = false
+	applying_preferences = true
+	var restored := await restore_view_state(guided_chest.original)
+	applying_preferences = false
+	if restored:
+		model.undo_stack = guided_chest.original_undo.duplicate(true)
+		model.redo_stack = guided_chest.original_redo.duplicate(true)
+		back_views = guided_chest.original_back.duplicate(true)
+		forward_views = guided_chest.original_forward.duplicate(true)
+		status.text = "Chest guide finished · your starting setup and histories are restored"
+	refresh_details()
+
+
 func change_visibility(visibility: String) -> void:
 	if loading or not model.isolated_id.is_empty():
 		return
@@ -1934,6 +2204,11 @@ func capture_image() -> Image:
 	var workspace := get_viewport().get_texture().get_image()
 	var selected_label := str(model.structures[model.selected_id].label) if model.structures.has(model.selected_id) else "Whole body"
 	var caption := ViewCapture.credits(model.body, selected_label)
+	if guided_chest.active:
+		caption += "\nGuided chest teaching view · supplied meshes may be separated for inspection; no pathological change is represented."
+	var study_credit := study_content.credits(model.selected_id)
+	if not study_credit.is_empty():
+		caption += "\n" + study_credit
 	return await ViewCapture.compose(self, workspace, caption, theme)
 
 
@@ -2052,6 +2327,8 @@ func restore_view_state(state: Dictionary) -> bool:
 	if not validation.is_empty():
 		status.text = validation
 		return false
+	if guided_chest.active:
+		await finish_guided_chest()
 	if model.body.get("id") != state.body:
 		await switch_body(state.body)
 	if model.body.get("id") != state.body:
@@ -2070,10 +2347,13 @@ func restore_view_state(state: Dictionary) -> bool:
 	model.set_isolation(state.get("isolation", ""))
 	model.select(state.selection)
 	orbit.apply_state(state.camera)
+	var preferences_were_applying := applying_preferences
+	applying_preferences = true
 	labels_button.button_pressed = state.labels
 	local_labels_button.button_pressed = state.get("local_labels", false)
 	label_density.value = state.get("label_density", 8)
 	original_positions_button.button_pressed = state.get("original_positions", true)
+	applying_preferences = preferences_were_applying
 	model.show_original_positions = original_positions_button.button_pressed
 	model.refresh_appearance()
 	sync_selection_tree()
@@ -2101,6 +2381,7 @@ func show_saved_views() -> Window:
 			status.text = "Restored “" + view_name + "”")
 	browser.legacy_requested.connect(load_view)
 	add_child(browser)
+	scale_text(browser)
 	browser.popup_centered_clamped(Vector2i(780, 560), 0.9)
 	return browser
 
@@ -2148,8 +2429,10 @@ func show_sources() -> void:
 	var dialog := AcceptDialog.new()
 	dialog.title = "Sources and prototype status"
 	dialog.dialog_text = "Anatomy: HuBMAP / Human Reference Atlas 3D Reference Object Library, United v1.1.\nCC BY 4.0. Source files unchanged; sampling sites excluded, cache conversion,\nselection colours, fading and temporary inspection movements applied.\n\nhttps://github.com/hubmapconsortium/ccf-3d-reference-object-library\nhttps://creativecommons.org/licenses/by/4.0/\n\nGodot Engine: MIT licence; https://godotengine.org/license/\n\nThis is a private, partial atlas prototype. Anatomy labels and coverage are draft\nimports; qualified medical review is pending. No disease content is included."
-	if model.body.get("study", false):
+	if model.body.id == "bodyparts-male-bones-study":
 		dialog.dialog_text = "BodyParts3D, © The Database Center for Life Science licensed under CC\nAttribution 4.0 International. Official archive v4.0; current grant from the\n2025 licence page. Original OBJ comments retain legacy CC BY-SA 2.1 Japan\nnotices. Both records are retained. Geometry was converted from millimetres\nto metres and Z-up to Y-up, with source normals preserved. Display colour\nand inspection effects are runtime modifications.\n\nhttps://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html\nhttps://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html\n\nSeparate male bone study; no registration to HRA or female anatomy. Geometry\nand labels are unreviewed. No disease content.\nGodot Engine: MIT licence; https://godotengine.org/license/"
+	elif model.body.get("study_kind") == "hra-spinal":
+		dialog.dialog_text = ViewCapture.credits(model.body, "") + "\n\n" + str(model.body.coverage)
 	dialog.confirmed.connect(dialog.queue_free)
 	dialog.canceled.connect(dialog.queue_free)
 	add_child(dialog)

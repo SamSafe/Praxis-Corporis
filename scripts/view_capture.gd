@@ -8,12 +8,18 @@ static func credits(reference: Dictionary, selection_label: String) -> String:
 		context += " · " + selection_label
 	var lines: Array[String] = ["PRAXIS CORPORIS · " + context,
 		"Private anatomy prototype · draft geometry/labels · medical review pending"]
-	if reference.get("study", false):
+	if reference.get("id") == "bodyparts-male-bones-study":
 		lines.append("BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International")
 		lines.append("Source v4.0: https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html")
 		lines.append("Current grant: https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html · https://creativecommons.org/licenses/by/4.0/")
 		lines.append("Separate male bone study; no HRA/female alignment. Legacy OBJ notices retain CC BY-SA 2.1 Japan.")
 		lines.append("Changes: bone subset, mm/Z-up to metre/Y-up, source normals retained; display colours and inspection effects.")
+	elif reference.get("study_kind") == "hra-spinal":
+		lines.append("Anatomy: HuBMAP / Human Reference Atlas · separate v1.2 spinal source study")
+		lines.append("Source: " + str(reference.source_url))
+		lines.append("CC BY 4.0: https://creativecommons.org/licenses/by/4.0/")
+		lines.append("Source coordinates preserved; no registration to United bodies or other studies. Labels and anatomy unreviewed.")
+		lines.append("Changes: cache conversion, selection colours, fading, labels and temporary inspection movement/isolation.")
 	else:
 		lines.append("Anatomy: HuBMAP / Human Reference Atlas, 3D Reference Object Library · United v1.1")
 		lines.append("Source: https://github.com/hubmapconsortium/ccf-3d-reference-object-library")

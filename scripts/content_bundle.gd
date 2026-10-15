@@ -75,19 +75,31 @@ static func study_body() -> Dictionary:
 
 
 static func supplemental_files() -> Array[Dictionary]:
-	var study := study_body()
-	if study.is_empty():
-		return []
-	return [{"local_path": study.asset_path, "sha256": study.sha256, "bytes": study.bytes, "body_id": study.id}]
+	var files: Array[Dictionary] = []
+	for study in study_bodies():
+		files.append({"local_path": study.asset_path, "sha256": study.sha256, "bytes": study.bytes, "body_id": study.id})
+	return files
+
+
+static func study_bodies() -> Array[Dictionary]:
+	var bodies: Array[Dictionary] = []
+	var bones := study_body()
+	if not bones.is_empty():
+		bodies.append(bones)
+	if FileAccess.file_exists("res://content/spinal_studies.json"):
+		var parsed = JSON.parse_string(FileAccess.get_file_as_string("res://content/spinal_studies.json"))
+		if parsed is Dictionary and parsed.get("schema_version") == 1 and parsed.get("bodies") is Array:
+			for study in parsed.bodies:
+				if study is Dictionary and study.get("study_kind") == "hra-spinal" and FileAccess.file_exists("res://" + str(study.get("asset_path", ""))):
+					bodies.append(study)
+	return bodies
 
 
 static func catalogue() -> Dictionary:
 	var parsed = JSON.parse_string(FileAccess.get_file_as_string("res://content/sample_pack.json"))
 	if not parsed is Dictionary:
 		return {}
-	var study := study_body()
-	if not study.is_empty():
-		parsed.bodies.append(study)
+	parsed.bodies.append_array(study_bodies())
 	return parsed
 
 

@@ -41,6 +41,9 @@ def parse_result(log: str, rendered: bool) -> dict:
         for marker in MARKERS + (RENDERED_MARKERS if rendered else []):
             if not re.search(r"^PASS " + re.escape(marker) + ": " + re.escape(reference) + r"(?: · .*|)$", log, re.M):
                 raise ValueError("Native check missing: " + marker + " / " + reference)
+        if any(key.startswith('hra-v1-2-') for key in references) and not re.search(
+                r'^PASS bundled study workspace: ' + re.escape(reference) + r'$', log, re.M):
+            raise ValueError('Native study workspace check missing: ' + reference)
     result = process_observations(log, rendered)
     result.update(references=references, ui_process_frames_during_successful_load=frames)
     return result
@@ -152,11 +155,14 @@ def captures(folder: pathlib.Path, output: pathlib.Path, references: dict) -> di
     destination.mkdir()
     source = folder / "user-data/PraxisCorporisPrototype"
     for reference in references:
-        for prefix in ["native-search", "native-study-notes", "native-loading", "native-export", "native-expanded",
+        prefixes = ["native-search", "native-study-notes", "native-loading", "native-export", "native-expanded",
                        "native-expanded-export", "native-expanded-menu",
                        "native-orientation",
                        "native-part-actions-compact", "native-part-actions-expanded", "native-part-visibility",
-                       "native-chest" if reference in ["female", "male"] else "native-bones"]:
+                       "native-chest" if reference in ["female", "male"] else "native-bones"]
+        if reference in ['female', 'male'] and any(key.startswith('hra-v1-2-') for key in references):
+            prefixes.append('native-guided')
+        for prefix in prefixes:
             name = f"{prefix}-{reference}.png"
             path = source / name
             with path.open("rb") as stream:

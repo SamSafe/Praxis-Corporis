@@ -1,0 +1,237 @@
+{
+  "schema_version": 1,
+  "revision": "chest-study-1",
+  "source_checked_on": "2026-10-15",
+  "review_status": "source_checked",
+  "expert_review": "pending",
+  "scope": "Private draft explanations. General anatomy is separate from completeness and accuracy of the supplied source meshes. No source illustrations or video are reused.",
+  "sources": {
+    "heart-anatomy": {
+      "title": "NHLBI: Heart anatomy",
+      "url": "https://www.nhlbi.nih.gov/health/heart/anatomy"
+    },
+    "heart-flow": {
+      "title": "NHLBI: Blood flow through the heart",
+      "url": "https://www.nhlbi.nih.gov/health/heart/blood-flow"
+    },
+    "lungs": {
+      "title": "NHLBI: The respiratory system",
+      "url": "https://www.nhlbi.nih.gov/health/lungs/respiratory-system"
+    },
+    "gas-exchange": {
+      "title": "NHLBI: Breathing and gas exchange",
+      "url": "https://www.nhlbi.nih.gov/health/lungs/breathing-benefits"
+    }
+  },
+  "cards": {
+    "anatomy.heart": {
+      "overview": "A muscular organ in the chest between the lungs.",
+      "function": "Pumps blood through the lungs and the body.",
+      "related": [
+        "anatomy.heart.chambers",
+        "anatomy.heart.valves",
+        "anatomy.lungs"
+      ],
+      "source_ids": [
+        "heart-anatomy",
+        "heart-flow"
+      ],
+      "review_status": "source_checked",
+      "expert_review": "pending"
+    },
+    "anatomy.heart.chambers": {
+      "overview": "The heart has two atria and two ventricles.",
+      "function": "Atria receive blood; ventricles pump it onward.",
+      "related": [
+        "anatomy.heart.atrium.right",
+        "anatomy.heart.ventricle.right",
+        "anatomy.heart.atrium.left",
+        "anatomy.heart.ventricle.left"
+      ],
+      "source_ids": [
+        "heart-anatomy"
+      ],
+      "review_status": "source_checked",
+      "expert_review": "pending"
+    },
+    "anatomy.heart.septum": {
+      "overview": "A wall separates the right and left sides of the heart.",
+      "function": "The interventricular portion separates the ventricles.",
+      "related": [
+        "anatomy.heart.ventricle.left",
+        "anatomy.heart.ventricle.right"
+      ],
+      "source_ids": [
+        "heart-anatomy"
+      ],
+      "review_status": "source_checked",
+      "expert_review": "pending"
+    },
+    "anatomy.heart.atrium.right": {
+      "overview": "The right atrium is one of the upper chambers.",
+      "function": "Receives blood returning from the body.",
+      "related": [
+        "anatomy.heart.valve.tricuspid",
+        "anatomy.heart.ventricle.right"
+      ],
+      "source_ids": [
+        "heart-anatomy",
+        "heart-flow"
+      ],
+      "review_status": "source_checked",
+      "expert_review": "pending"
+    },
+    "anatomy.heart.atrium.left": {
+      "overview": "The left atrium is one of the upper chambers.",
+      "function": "Receives blood returning from the lungs.",
+      "related": [
+        "anatomy.heart.valve.mitral",
+        "anatomy.heart.ventricle.left"
+      ],
+      "source_ids": [
+        "heart-anatomy",
+        "heart-flow"
+      ],
+      "review_status": "source_checked",
+      "expert_review": "pending"
+    },
+    "anatomy.heart.ventricle.right": {
+      "overview": "The right ventricle is a lower chamber.",
+      "function": "Pumps blood toward the lungs through the pulmonary valve.",
+      "related": [
+        "anatomy.heart.valve.pulmonary",
+        "anatomy.lungs"
+      ],
+      "source_ids": [
+        "heart-anatomy",
+        "heart-flow"
+      ],
+      "review_status": "source_checked",
+      "expert_review": "pending"
+    },
+    "anatomy.heart.ventricle.left": {
+      "overview": "The left ventricle is a lower chamber.",
+      "function": "Pumps blood through the aortic valve toward the body.",
+      "related": [
+        "anatomy.heart.valve.aortic",
+        "anatomy.heart.atrium.left"
+      ],
+      "source_ids": [
+        "heart-anatomy",
+        "heart-flow"
+      ],
+      "review_status": "source_checked",
+      "expert_review": "pending"
+    },
+    "anatomy.heart.valves": {
+      "overview": "Four valves control forward flow through the heart.",
+      "function": "Their leaflets open and close to limit backward flow.",
+      "related": [
+        "anatomy.heart.valve.tricuspid",
+        "anatomy.heart.valve.pulmonary",
+        "anatomy.heart.valve.mitral",
+        "anatomy.heart.valve.aortic"
+      ],
+      "source_ids": [
+        "heart-flow"
+      ],
+      "review_status": "source_checked",
+      "expert_review": "pending"
+    },
+    "anatomy.heart.valve.tricuspid": {
+      "overview": "Between the right atrium and right ventricle.",
+      "function": "Helps prevent backward blood flow.",
+      "related": [
+        "anatomy.heart.atrium.right",
+        "anatomy.heart.ventricle.right"
+      ],
+      "source_ids": [
+        "heart-flow"
+      ],
+      "review_status": "source_checked",
+      "expert_review": "pending"
+    },
+    "anatomy.heart.valve.pulmonary": {
+      "overview": "Between the right ventricle and pulmonary artery.",
+      "function": "Helps prevent backward blood flow.",
+      "related": [
+        "anatomy.heart.ventricle.right",
+        "anatomy.lungs"
+      ],
+      "source_ids": [
+        "heart-flow"
+      ],
+      "review_status": "source_checked",
+      "expert_review": "pending"
+    },
+    "anatomy.heart.valve.mitral": {
+      "overview": "Between the left atrium and left ventricle.",
+      "function": "Helps prevent backward blood flow.",
+      "related": [
+        "anatomy.heart.atrium.left",
+        "anatomy.heart.ventricle.left"
+      ],
+      "source_ids": [
+        "heart-flow"
+      ],
+      "review_status": "source_checked",
+      "expert_review": "pending"
+    },
+    "anatomy.heart.valve.aortic": {
+      "overview": "Between the left ventricle and aorta.",
+      "function": "Helps prevent backward blood flow.",
+      "related": [
+        "anatomy.heart.ventricle.left",
+        "anatomy.heart"
+      ],
+      "source_ids": [
+        "heart-flow"
+      ],
+      "review_status": "source_checked",
+      "expert_review": "pending"
+    },
+    "anatomy.lungs": {
+      "overview": "Paired organs in the chest connected to the airways.",
+      "function": "Exchange oxygen and carbon dioxide between air and blood.",
+      "related": [
+        "anatomy.lung.left",
+        "anatomy.lung.right",
+        "anatomy.heart"
+      ],
+      "source_ids": [
+        "lungs",
+        "gas-exchange"
+      ],
+      "review_status": "source_checked",
+      "expert_review": "pending"
+    },
+    "anatomy.lung.left": {
+      "overview": "The left lung has two lobes and shares chest space with the heart.",
+      "function": "Participates in gas exchange.",
+      "related": [
+        "anatomy.lungs",
+        "anatomy.heart"
+      ],
+      "source_ids": [
+        "lungs",
+        "gas-exchange"
+      ],
+      "review_status": "source_checked",
+      "expert_review": "pending"
+    },
+    "anatomy.lung.right": {
+      "overview": "The right lung has three lobes.",
+      "function": "Participates in gas exchange.",
+      "related": [
+        "anatomy.lungs",
+        "anatomy.heart"
+      ],
+      "source_ids": [
+        "lungs",
+        "gas-exchange"
+      ],
+      "review_status": "source_checked",
+      "expert_review": "pending"
+    }
+  }
+}

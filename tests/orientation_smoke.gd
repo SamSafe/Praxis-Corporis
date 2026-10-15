@@ -38,6 +38,11 @@ func run() -> void:
 		await process_frame
 	var frames: Dictionary = viewer.orientation.document
 	for reference in viewer.pack.bodies:
+		if reference.get("study_kind") == "hra-spinal":
+			await viewer.switch_body(reference.id)
+			await settle()
+			check(viewer.orientation.frame.is_empty() and viewer.orientation.menu.disabled, "Unestablished source directions disable anatomical presets")
+			continue
 		check(not ReferenceOrientation.checked_frame(reference, frames).is_empty(), "Every installed reference has fingerprint-matched source directions")
 		for kind in ["fingerprint", "reflection", "length", "nonfinite", "missing"]:
 			var invalid := frames.duplicate(true)

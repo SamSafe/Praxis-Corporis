@@ -47,3 +47,4 @@ assets/prepared/
 # Audited supplemental source downloads and generated study geometry.
 assets/bodyparts3d/raw/
 assets/bodyparts3d/*.glb
+assets/hra-spinal/*.glb

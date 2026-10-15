@@ -51,3 +51,25 @@ licence is applied to app code. No public distribution has been performed.
 
 Attribution does not establish anatomical or clinical accuracy. Track technical
 validation, source checking, and expert review separately.
+## Separate HRA spinal source studies
+
+The private viewer also includes four unchanged v1.2 HRA GLBs: female/male
+spinal cord and female/male vertebrae, pinned to repository commit
+`f1a3a63f110e27ff0736047d52d04dba5d3087f9`. The existing HuBMAP / Human Reference
+Atlas CC BY 4.0 credits and retained HRA notices apply. Exact original URLs,
+byte counts and SHA-256 hashes are in `content/spinal_source_manifest.json`.
+
+These are independent source studies, with original metre/Y-up coordinates;
+no body registration, geometric fitting or silent replacement of United v1.1
+references occurs. Cache conversion, selection colours, fading, labels and temporary
+inspection displacement/isolation are display modifications. A source record named
+`VH_F_lumbar_vertebra_6` has a missing label/ontology; its name and metadata gap are
+retained without interpreting it as normal anatomy or a variant.
+
+## Authored study text
+
+The heart/lung study cards are original short summaries of the linked NHLBI / NIH
+health pages. Source URLs and the source-check date are recorded in
+`content/study_content.json` and linked in the app. No source images, animations,
+video or substantial text passages are reused. Text remains a private source-checked
+draft with qualified medical review pending; this does not review the mesh geometry.

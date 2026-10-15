@@ -12,6 +12,7 @@ var context_id := ""
 var selection_enabled := true
 var local_enabled := false
 var density := 8
+var text_scale := 1.0
 var suspended := false
 var buttons: Dictionary = {}
 var anchors: Dictionary = {}
@@ -187,14 +188,17 @@ func update_labels() -> void:
 		if anchor.is_empty():
 			continue
 		var button: Button = buttons[id] if buttons.has(id) else make_button(id)
+		var font_size := roundi(14 * text_scale)
+		button.add_theme_font_size_override("font_size", font_size)
 		var font := button.get_theme_font("font")
-		var width := clampf(font.get_string_size(button.text, HORIZONTAL_ALIGNMENT_LEFT, -1, 14).x + 28, 100, minf(220, size.x - 16))
+		var width := clampf(font.get_string_size(button.text, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x + 28, 100, minf(220 * text_scale, size.x - 16))
 		var label_wanted: bool = id != model.selected_id or selection_enabled or parts.has(id)
-		var extent := Vector2(width, 34) if label_wanted else Vector2.ZERO
+		var height := maxf(34, 34 * text_scale)
+		var extent := Vector2(width, height) if label_wanted else Vector2.ZERO
 		var label_extent := extent
 		if selected_actions:
 			occupied.erase(fallback_rect)
-			extent = Vector2(extent.x + (6 if label_wanted else 0) + selection_actions.size.x, 34)
+			extent = Vector2(extent.x + (6 if label_wanted else 0) + selection_actions.size.x, maxf(height, selection_actions.size.y))
 		var point: Vector2 = anchor.screen
 		var placed := place_rect(point, extent, occupied)
 		if selected_actions:

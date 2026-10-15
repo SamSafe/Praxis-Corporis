@@ -133,6 +133,11 @@ def add_notices(folder: pathlib.Path, platform: str) -> None:
         "Move selected enables inspection displacement; blue overlays mark original positions.\n"
         "Undo/Redo reverses or reapplies inspection changes. Restore returns original anatomy.\n"
         "Saved views keeps named local exploration setups and your study notes outside this folder.\n\n"
+        "Saved views > Export all views backs up your views and notes to JSON; Import previews compatibility and keeps existing views.\n"
+        "Guided chest offers six reversible steps, including a separated chamber teaching view. Finish restores your starting setup.\n"
+        "Heart/lung study cards include primary-source links and retain draft/review status. Source and mesh details expands technical identity.\n"
+        "View > Preferences adjusts text size. Panel layout, 3D resolution and label preferences are remembered on this computer.\n"
+        "Female/male spinal-cord and vertebra source studies use separate v1.2 files; they are not registered to United bodies.\n\n"
         "Both reference bodies are included. This is a partial, unreviewed atlas.\n"
         "There is no disease content, guided pathway, or public-release claim.\n"
         "Human input/performance acceptance and Mac hardware execution remain open.\n"
@@ -155,7 +160,8 @@ def build(args: argparse.Namespace) -> dict:
                                [ROOT / "project.godot", ROOT / "export_presets.cfg", ROOT / "content/sample_pack.json",
                                 ROOT / "content/source_manifest.json", ROOT / "content/toolchain_manifest.json",
                                 ROOT / "content/coverage_notes.json",
-                                ROOT / "content/reference_frames.json",
+                                ROOT / "content/reference_frames.json", ROOT / "content/study_content.json",
+                                ROOT / "content/spinal_studies.json", ROOT / "content/spinal_source_manifest.json",
                                 ROOT / "content/bodyparts3d_bone_study.json", ROOT / "content/bodyparts3d_source_manifest.json",
                                 ROOT / "addons/private_native_export/plugin.gd",
                                 *sorted((ROOT / "scripts").glob("*.gd"))]}

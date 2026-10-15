@@ -1,0 +1,2054 @@
+{
+  "schema_version": 1,
+  "source_commit": "f1a3a63f110e27ff0736047d52d04dba5d3087f9",
+  "bodies": [
+    {
+      "id": "hra-v1-2-female-cord-study",
+      "label": "Female spinal cord \u00b7 HRA source study",
+      "short_label": "Female cord \u00b7 HRA study",
+      "study": true,
+      "study_kind": "hra-spinal",
+      "asset_path": "assets/hra-spinal/VH_F_Spinal_Cord.glb",
+      "sha256": "d9bfc840783a415068e34b8a1a9343fff40ad03d0025fafabf74f9d8664887f8",
+      "bytes": 7656588,
+      "root_id": "anatomy.body",
+      "inspection_root": "anatomy.body",
+      "qa_leaf_id": "source.hra-v1-2-female-cord-study.n1",
+      "structures": [
+        {
+          "id": "anatomy.body",
+          "label": "Female spinal cord \u00b7 HRA source study",
+          "source_node": 0,
+          "source_name": "VH_F_spinal_cord",
+          "ontology": "",
+          "source_label": "",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29
+          ],
+          "children": [
+            "source.hra-v1-2-female-cord-study.n1",
+            "source.hra-v1-2-female-cord-study.n2",
+            "source.hra-v1-2-female-cord-study.n3",
+            "source.hra-v1-2-female-cord-study.n4",
+            "source.hra-v1-2-female-cord-study.n5",
+            "source.hra-v1-2-female-cord-study.n6",
+            "source.hra-v1-2-female-cord-study.n7",
+            "source.hra-v1-2-female-cord-study.n8",
+            "source.hra-v1-2-female-cord-study.n9",
+            "source.hra-v1-2-female-cord-study.n10",
+            "source.hra-v1-2-female-cord-study.n11",
+            "source.hra-v1-2-female-cord-study.n12",
+            "source.hra-v1-2-female-cord-study.n13",
+            "source.hra-v1-2-female-cord-study.n14",
+            "source.hra-v1-2-female-cord-study.n15",
+            "source.hra-v1-2-female-cord-study.n16",
+            "source.hra-v1-2-female-cord-study.n17",
+            "source.hra-v1-2-female-cord-study.n18",
+            "source.hra-v1-2-female-cord-study.n19",
+            "source.hra-v1-2-female-cord-study.n20",
+            "source.hra-v1-2-female-cord-study.n21",
+            "source.hra-v1-2-female-cord-study.n22",
+            "source.hra-v1-2-female-cord-study.n23",
+            "source.hra-v1-2-female-cord-study.n24",
+            "source.hra-v1-2-female-cord-study.n25",
+            "source.hra-v1-2-female-cord-study.n26",
+            "source.hra-v1-2-female-cord-study.n27",
+            "source.hra-v1-2-female-cord-study.n28",
+            "source.hra-v1-2-female-cord-study.n29"
+          ],
+          "parent": "",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-cord-study.n1",
+          "label": "C1 segment of cervical spinal cord",
+          "source_node": 1,
+          "source_name": "VH_F_C1_segment_of_cervical_spinal_cord",
+          "ontology": "UBERON:0006469",
+          "source_label": "C1 segment of cervical spinal cord",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            1
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-cord-study.n2",
+          "label": "C2 segment of cervical spinal cord",
+          "source_node": 2,
+          "source_name": "VH_F_C2_segment_of_cervical_spinal_cord",
+          "ontology": "UBERON:0006489",
+          "source_label": "C2 segment of cervical spinal cord",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            2
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-cord-study.n3",
+          "label": "C3 segment of cervical spinal cord",
+          "source_node": 3,
+          "source_name": "VH_F_C3_segment_of_cervical_spinal_cord",
+          "ontology": "UBERON:0006488",
+          "source_label": "C3 segment of cervical spinal cord",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            3
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-cord-study.n4",
+          "label": "C4 segment of cervical spinal cord",
+          "source_node": 4,
+          "source_name": "VH_F_C4_segment_of_cervical_spinal_cord",
+          "ontology": "UBERON:0006490",
+          "source_label": "C4 segment of cervical spinal cord",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            4
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-cord-study.n5",
+          "label": "C5 segment of cervical spinal cord",
+          "source_node": 5,
+          "source_name": "VH_F_C5_segment_of_cervical_spinal_cord",
+          "ontology": "UBERON:0006491",
+          "source_label": "C5 segment of cervical spinal cord",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            5
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-cord-study.n6",
+          "label": "C6 segment of cervical spinal cord",
+          "source_node": 6,
+          "source_name": "VH_F_C6_segment_of_cervical_spinal_cord",
+          "ontology": "UBERON:0006492",
+          "source_label": "C6 segment of cervical spinal cord",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            6
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-cord-study.n7",
+          "label": "C7 segment of cervical spinal cord",
+          "source_node": 7,
+          "source_name": "VH_F_C7_segment_of_cervical_spinal_cord",
+          "ontology": "UBERON:0006493",
+          "source_label": "C7 segment of cervical spinal cord",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            7
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-cord-study.n8",
+          "label": "C8 segment of cervical spinal cord",
+          "source_node": 8,
+          "source_name": "VH_F_C8_segment_of_cervical_spinal_cord",
+          "ontology": "UBERON:0006470",
+          "source_label": "C8 segment of cervical spinal cord",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            8
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-cord-study.n9",
+          "label": "first thoracic spinal cord segment",
+          "source_node": 9,
+          "source_name": "VH_F_first_thoracic_spinal_cord_segment",
+          "ontology": "UBERON:0006457",
+          "source_label": "first thoracic spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            9
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-cord-study.n10",
+          "label": "second thoracic spinal cord segment",
+          "source_node": 10,
+          "source_name": "VH_F_second_thoracic_spinal_cord_segment",
+          "ontology": "UBERON:0006458",
+          "source_label": "second thoracic spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            10
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-cord-study.n11",
+          "label": "third thoracic spinal cord segment",
+          "source_node": 11,
+          "source_name": "VH_F_third_thoracic_spinal_cord_segment",
+          "ontology": "UBERON:0006459",
+          "source_label": "third thoracic spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            11
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-cord-study.n12",
+          "label": "fourth thoracic spinal cord segment",
+          "source_node": 12,
+          "source_name": "VH_F_fourth_thoracic_spinal_cord_segment",
+          "ontology": "UBERON:0006452",
+          "source_label": "fourth thoracic spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            12
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-cord-study.n13",
+          "label": "fifth thoracic spinal cord segment",
+          "source_node": 13,
+          "source_name": "VH_F_fifth_thoracic_spinal_cord_segment",
+          "ontology": "UBERON:0006453",
+          "source_label": "fifth thoracic spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            13
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-cord-study.n14",
+          "label": "seventh thoracic spinal cord segment",
+          "source_node": 14,
+          "source_name": "VH_F_seventh_thoracic_spinal_cord_segment",
+          "ontology": "UBERON:0006455",
+          "source_label": "seventh thoracic spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            14
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-cord-study.n15",
+          "label": "eighth thoracic spinal cord segment",
+          "source_node": 15,
+          "source_name": "VH_F_eigth_thoracic_spinal_cord_segment",
+          "ontology": "UBERON:0006456",
+          "source_label": "eighth thoracic spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            15
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-cord-study.n16",
+          "label": "sixth thoracic spinal cord segment",
+          "source_node": 16,
+          "source_name": "VH_F_sixth_thoracic_spinal_cord_segment",
+          "ontology": "UBERON:0006454",
+          "source_label": "sixth thoracic spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            16
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-cord-study.n17",
+          "label": "ninth thoracic spinal cord segment",
+          "source_node": 17,
+          "source_name": "VH_F_ninth_thoracic_spinal_cord_segment",
+          "ontology": "UBERON:0006465",
+          "source_label": "ninth thoracic spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            17
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-cord-study.n18",
+          "label": "tenth thoracic spinal cord segment",
+          "source_node": 18,
+          "source_name": "VH_F_tenth_thoracic_spinal_cord_segment",
+          "ontology": "UBERON:0006466",
+          "source_label": "tenth thoracic spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            18
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-cord-study.n19",
+          "label": "eleventh thoracic spinal cord segment",
+          "source_node": 19,
+          "source_name": "VH_F_eleventh_thoracic_spinal_cord_segment",
+          "ontology": "UBERON:0006467",
+          "source_label": "eleventh thoracic spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            19
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-cord-study.n20",
+          "label": "twelfth thoracic spinal cord segment",
+          "source_node": 20,
+          "source_name": "VH_F_twelfth_thoracic_spinal_cord_segment",
+          "ontology": "UBERON:0006468",
+          "source_label": "twelfth thoracic spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            20
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-cord-study.n21",
+          "label": "first lumbar spinal cord segment",
+          "source_node": 21,
+          "source_name": "VH_F_first_lumbar_spinal_cord_segment",
+          "ontology": "UBERON:0006448",
+          "source_label": "first lumbar spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            21
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-cord-study.n22",
+          "label": "second lumbar spinal cord segment",
+          "source_node": 22,
+          "source_name": "VH_F_second_lumbar_spinal_cord_segment",
+          "ontology": "UBERON:0006450",
+          "source_label": "second lumbar spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            22
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-cord-study.n23",
+          "label": "third lumbar spinal cord segment",
+          "source_node": 23,
+          "source_name": "VH_F_third_lumbar_spinal_cord_segment",
+          "ontology": "UBERON:0006449",
+          "source_label": "third lumbar spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            23
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-cord-study.n24",
+          "label": "fourth lumbar spinal cord segment",
+          "source_node": 24,
+          "source_name": "VH_F_fourth_lumbar_spinal_cord_segment",
+          "ontology": "UBERON:0006451",
+          "source_label": "fourth lumbar spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            24
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-cord-study.n25",
+          "label": "fifth lumbar spinal cord segment",
+          "source_node": 25,
+          "source_name": "VH_F_fifth_lumbar_spinal_cord_segment",
+          "ontology": "UBERON:0006447",
+          "source_label": "fifth lumbar spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            25
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-cord-study.n26",
+          "label": "first sacral spinal cord segment",
+          "source_node": 26,
+          "source_name": "VH_F_first_sacral_spinal_cord_segment",
+          "ontology": "UBERON:0006460",
+          "source_label": "first sacral spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            26
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-cord-study.n27",
+          "label": "second sacral spinal cord segment",
+          "source_node": 27,
+          "source_name": "VH_F_second_sacral_spinal_cord_segment",
+          "ontology": "UBERON:0006461",
+          "source_label": "second sacral spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            27
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-cord-study.n28",
+          "label": "third sacral spinal cord segment",
+          "source_node": 28,
+          "source_name": "VH_F_third_sacral_spinal_cord_segment",
+          "ontology": "UBERON:0006462",
+          "source_label": "third sacral spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            28
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-cord-study.n29",
+          "label": "fourth sacral spinal cord segment",
+          "source_node": 29,
+          "source_name": "VH_F_fourth_sacral_spinal_cord_segment",
+          "ontology": "UBERON:0006463",
+          "source_label": "fourth sacral spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            29
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        }
+      ],
+      "coordinates": "Untouched source glTF metre/Y-up coordinates. No fitting, warping, relabelling or body registration.",
+      "source_url": "https://raw.githubusercontent.com/hubmapconsortium/ccf-3d-reference-object-library/f1a3a63f110e27ff0736047d52d04dba5d3087f9/VH_Female/v1.2/VH_F_Spinal_Cord.glb",
+      "coverage": "Separate pinned v1.2 female cord source geometry; 29 meshes. No registration to the HRA United bodies or other studies. Anatomical completeness and medical review pending.",
+      "coverage_notes": {
+        "notice": "Separate pinned v1.2 female cord source geometry; 29 meshes. No registration to the HRA United bodies or other studies. Anatomical completeness and medical review pending.",
+        "audit_date": "2026-10-15",
+        "reference_ids": [
+          "hra-v1-2-female-cord-study"
+        ],
+        "source_label": "HRA separate v1.2 source file",
+        "systems": [
+          {
+            "label": "Supplied spinal source geometry",
+            "roots": {
+              "hra-v1-2-female-cord-study": "anatomy.body"
+            },
+            "supplied": {
+              "hra-v1-2-female-cord-study": "29 unchanged source meshes, 288912 triangles."
+            },
+            "gaps": "This isolated source study does not complete a whole-body skeleton, establish registration, or supply reviewed neural connections."
+          }
+        ]
+      }
+    },
+    {
+      "id": "hra-v1-2-female-vertebrae-study",
+      "label": "Female vertebrae \u00b7 HRA source study",
+      "short_label": "Female vertebrae \u00b7 HRA study",
+      "study": true,
+      "study_kind": "hra-spinal",
+      "asset_path": "assets/hra-spinal/VH_F_Vertebrae.glb",
+      "sha256": "bdbea49a40e9e64cac1c8f0d67b6483686a3cc9617f7cae645e58159e4b02984",
+      "bytes": 7700856,
+      "root_id": "anatomy.body",
+      "inspection_root": "anatomy.body",
+      "qa_leaf_id": "source.hra-v1-2-female-vertebrae-study.n1",
+      "structures": [
+        {
+          "id": "anatomy.body",
+          "label": "Female vertebrae \u00b7 HRA source study",
+          "source_node": 0,
+          "source_name": "VH_F_vertebrae",
+          "ontology": "",
+          "source_label": "",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25
+          ],
+          "children": [
+            "source.hra-v1-2-female-vertebrae-study.n1",
+            "source.hra-v1-2-female-vertebrae-study.n2",
+            "source.hra-v1-2-female-vertebrae-study.n3",
+            "source.hra-v1-2-female-vertebrae-study.n4",
+            "source.hra-v1-2-female-vertebrae-study.n5",
+            "source.hra-v1-2-female-vertebrae-study.n6",
+            "source.hra-v1-2-female-vertebrae-study.n7",
+            "source.hra-v1-2-female-vertebrae-study.n8",
+            "source.hra-v1-2-female-vertebrae-study.n9",
+            "source.hra-v1-2-female-vertebrae-study.n10",
+            "source.hra-v1-2-female-vertebrae-study.n11",
+            "source.hra-v1-2-female-vertebrae-study.n12",
+            "source.hra-v1-2-female-vertebrae-study.n13",
+            "source.hra-v1-2-female-vertebrae-study.n14",
+            "source.hra-v1-2-female-vertebrae-study.n15",
+            "source.hra-v1-2-female-vertebrae-study.n16",
+            "source.hra-v1-2-female-vertebrae-study.n17",
+            "source.hra-v1-2-female-vertebrae-study.n18",
+            "source.hra-v1-2-female-vertebrae-study.n19",
+            "source.hra-v1-2-female-vertebrae-study.n20",
+            "source.hra-v1-2-female-vertebrae-study.n21",
+            "source.hra-v1-2-female-vertebrae-study.n22",
+            "source.hra-v1-2-female-vertebrae-study.n23",
+            "source.hra-v1-2-female-vertebrae-study.n24",
+            "source.hra-v1-2-female-vertebrae-study.n25"
+          ],
+          "parent": "",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-vertebrae-study.n1",
+          "label": "lumbar vertebra 1",
+          "source_node": 1,
+          "source_name": "VH_F_lumbar_vertebra_1",
+          "ontology": "UBERON:0004617",
+          "source_label": "lumbar vertebra 1",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            1
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-vertebrae-study.n2",
+          "label": "lumbar vertebra 2",
+          "source_node": 2,
+          "source_name": "VH_F_lumbar_vertebra_2",
+          "ontology": "UBERON:0004618",
+          "source_label": "lumbar vertebra 2",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            2
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-vertebrae-study.n3",
+          "label": "lumbar vertebra 3",
+          "source_node": 3,
+          "source_name": "VH_F_lumbar_vertebra_3",
+          "ontology": "UBERON:0004619",
+          "source_label": "lumbar vertebra 3",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            3
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-vertebrae-study.n4",
+          "label": "lumbar vertebra 4",
+          "source_node": 4,
+          "source_name": "VH_F_lumbar_vertebra_4",
+          "ontology": "UBERON:0004620",
+          "source_label": "lumbar vertebra 4",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            4
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-vertebrae-study.n5",
+          "label": "lumbar vertebra 5",
+          "source_node": 5,
+          "source_name": "VH_F_lumbar_vertebra_5",
+          "ontology": "UBERON:0004621",
+          "source_label": "lumbar vertebra 5",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            5
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-vertebrae-study.n6",
+          "label": "Unlabelled source: VH_F_lumbar_vertebra_6",
+          "source_node": 6,
+          "source_name": "VH_F_lumbar_vertebra_6",
+          "ontology": "-",
+          "source_label": "-",
+          "metadata_gap": true,
+          "mesh_nodes": [
+            6
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-vertebrae-study.n7",
+          "label": "thoracic vertebra 1",
+          "source_node": 7,
+          "source_name": "VH_F_thoracic_vertebra_1",
+          "ontology": "UBERON:0004626",
+          "source_label": "thoracic vertebra 1",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            7
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-vertebrae-study.n8",
+          "label": "thoracic vertebra 2",
+          "source_node": 8,
+          "source_name": "VH_F_thoracic_vertebra_2",
+          "ontology": "UBERON:0004627",
+          "source_label": "thoracic vertebra 2",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            8
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-vertebrae-study.n9",
+          "label": "thoracic vertebra 3",
+          "source_node": 9,
+          "source_name": "VH_F_thoracic_vertebra_3",
+          "ontology": "UBERON:0004628",
+          "source_label": "thoracic vertebra 3",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            9
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-vertebrae-study.n10",
+          "label": "thoracic vertebra 4",
+          "source_node": 10,
+          "source_name": "VH_F_thoracic_vertebra_4",
+          "ontology": "UBERON:0004629",
+          "source_label": "thoracic vertebra 4",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            10
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-vertebrae-study.n11",
+          "label": "thoracic vertebra 5",
+          "source_node": 11,
+          "source_name": "VH_F_thoracic_vertebra_5",
+          "ontology": "UBERON:0004630",
+          "source_label": "thoracic vertebra 5",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            11
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-vertebrae-study.n12",
+          "label": "thoracic vertebra 6",
+          "source_node": 12,
+          "source_name": "VH_F_thoracic_vertebra_6",
+          "ontology": "UBERON:0004631",
+          "source_label": "thoracic vertebra 6",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            12
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-vertebrae-study.n13",
+          "label": "thoracic vertebra 7",
+          "source_node": 13,
+          "source_name": "VH_F_thoracic_vertebra_7",
+          "ontology": "UBERON:0004632",
+          "source_label": "thoracic vertebra 7",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            13
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-vertebrae-study.n14",
+          "label": "thoracic vertebra 8",
+          "source_node": 14,
+          "source_name": "VH_F_thoracic_vertebra_8",
+          "ontology": "UBERON:0011050",
+          "source_label": "thoracic vertebra 8",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            14
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-vertebrae-study.n15",
+          "label": "thoracic vertebra 9",
+          "source_node": 15,
+          "source_name": "VH_F_thoracic_vertebra_9",
+          "ontology": "UBERON:0004633",
+          "source_label": "thoracic vertebra 9",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            15
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-vertebrae-study.n16",
+          "label": "thoracic vertebra 10",
+          "source_node": 16,
+          "source_name": "VH_F_thoracic_vertebra_10",
+          "ontology": "UBERON:0004634",
+          "source_label": "thoracic vertebra 10",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            16
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-vertebrae-study.n17",
+          "label": "thoracic vertebra 11",
+          "source_node": 17,
+          "source_name": "VH_F_thoracic_vertebra_11",
+          "ontology": "UBERON:0004635",
+          "source_label": "thoracic vertebra 11",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            17
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-vertebrae-study.n18",
+          "label": "thoracic vertebra 12",
+          "source_node": 18,
+          "source_name": "VH_F_thoracic_vertebra_12",
+          "ontology": "UBERON:0004636",
+          "source_label": "thoracic vertebra 12",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            18
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-vertebrae-study.n19",
+          "label": "vertebral bone 1",
+          "source_node": 19,
+          "source_name": "VH_F_cervical_vertebra_1",
+          "ontology": "UBERON:0001092",
+          "source_label": "vertebral bone 1",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            19
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-vertebrae-study.n20",
+          "label": "vertebral bone 2",
+          "source_node": 20,
+          "source_name": "VH_F_cervical_vertebra_2",
+          "ontology": "UBERON:0001093",
+          "source_label": "vertebral bone 2",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            20
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-vertebrae-study.n21",
+          "label": "mammalian cervical vertebra 3",
+          "source_node": 21,
+          "source_name": "VH_F_cervical_vertebra_3",
+          "ontology": "UBERON:0004612",
+          "source_label": "mammalian cervical vertebra 3",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            21
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-vertebrae-study.n22",
+          "label": "mammalian cervical vertebra 4",
+          "source_node": 22,
+          "source_name": "VH_F_cervical_vertebra_4",
+          "ontology": "UBERON:0004613",
+          "source_label": "mammalian cervical vertebra 4",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            22
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-vertebrae-study.n23",
+          "label": "mammalian cervical vertebra 5",
+          "source_node": 23,
+          "source_name": "VH_F_cervical_vertebra_5",
+          "ontology": "UBERON:0004614",
+          "source_label": "mammalian cervical vertebra 5",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            23
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-vertebrae-study.n24",
+          "label": "mammalian cervical vertebra 6",
+          "source_node": 24,
+          "source_name": "VH_F_cervical_vertebra_6",
+          "ontology": "UBERON:0004615",
+          "source_label": "mammalian cervical vertebra 6",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            24
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-female-vertebrae-study.n25",
+          "label": "mammalian cervical vertebra 7",
+          "source_node": 25,
+          "source_name": "VH_F_cervical_vertebra_7",
+          "ontology": "UBERON:0004616",
+          "source_label": "mammalian cervical vertebra 7",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            25
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        }
+      ],
+      "coordinates": "Untouched source glTF metre/Y-up coordinates. No fitting, warping, relabelling or body registration.",
+      "source_url": "https://raw.githubusercontent.com/hubmapconsortium/ccf-3d-reference-object-library/f1a3a63f110e27ff0736047d52d04dba5d3087f9/VH_Female/v1.2/VH_F_Vertebrae.glb",
+      "coverage": "Separate pinned v1.2 female vertebrae source geometry; 25 meshes. No registration to the HRA United bodies or other studies. Anatomical completeness and medical review pending. Female source VH_F_lumbar_vertebra_6 has no supplied label/ontology; its interpretation is unresolved.",
+      "coverage_notes": {
+        "notice": "Separate pinned v1.2 female vertebrae source geometry; 25 meshes. No registration to the HRA United bodies or other studies. Anatomical completeness and medical review pending. Female source VH_F_lumbar_vertebra_6 has no supplied label/ontology; its interpretation is unresolved.",
+        "audit_date": "2026-10-15",
+        "reference_ids": [
+          "hra-v1-2-female-vertebrae-study"
+        ],
+        "source_label": "HRA separate v1.2 source file",
+        "systems": [
+          {
+            "label": "Supplied spinal source geometry",
+            "roots": {
+              "hra-v1-2-female-vertebrae-study": "anatomy.body"
+            },
+            "supplied": {
+              "hra-v1-2-female-vertebrae-study": "25 unchanged source meshes, 426468 triangles."
+            },
+            "gaps": "This isolated source study does not complete a whole-body skeleton, establish registration, or supply reviewed neural connections. Female source VH_F_lumbar_vertebra_6 has no supplied label/ontology; its interpretation is unresolved."
+          }
+        ]
+      }
+    },
+    {
+      "id": "hra-v1-2-male-cord-study",
+      "label": "Male spinal cord \u00b7 HRA source study",
+      "short_label": "Male cord \u00b7 HRA study",
+      "study": true,
+      "study_kind": "hra-spinal",
+      "asset_path": "assets/hra-spinal/VH_M_Spinal_Cord.glb",
+      "sha256": "a7858d88c2237aa7d559c4c1d638923d213d2a9f46c575dea03d6ba67a9975c0",
+      "bytes": 489992,
+      "root_id": "anatomy.body",
+      "inspection_root": "anatomy.body",
+      "qa_leaf_id": "source.hra-v1-2-male-cord-study.n1",
+      "structures": [
+        {
+          "id": "anatomy.body",
+          "label": "Male spinal cord \u00b7 HRA source study",
+          "source_node": 0,
+          "source_name": "VH_M_spinal_cord",
+          "ontology": "",
+          "source_label": "",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
+          "children": [
+            "source.hra-v1-2-male-cord-study.n1",
+            "source.hra-v1-2-male-cord-study.n2",
+            "source.hra-v1-2-male-cord-study.n3",
+            "source.hra-v1-2-male-cord-study.n4",
+            "source.hra-v1-2-male-cord-study.n5",
+            "source.hra-v1-2-male-cord-study.n6",
+            "source.hra-v1-2-male-cord-study.n7",
+            "source.hra-v1-2-male-cord-study.n8",
+            "source.hra-v1-2-male-cord-study.n9",
+            "source.hra-v1-2-male-cord-study.n10",
+            "source.hra-v1-2-male-cord-study.n11",
+            "source.hra-v1-2-male-cord-study.n12",
+            "source.hra-v1-2-male-cord-study.n13",
+            "source.hra-v1-2-male-cord-study.n14",
+            "source.hra-v1-2-male-cord-study.n15",
+            "source.hra-v1-2-male-cord-study.n16",
+            "source.hra-v1-2-male-cord-study.n17",
+            "source.hra-v1-2-male-cord-study.n18",
+            "source.hra-v1-2-male-cord-study.n19",
+            "source.hra-v1-2-male-cord-study.n20",
+            "source.hra-v1-2-male-cord-study.n21",
+            "source.hra-v1-2-male-cord-study.n22",
+            "source.hra-v1-2-male-cord-study.n23",
+            "source.hra-v1-2-male-cord-study.n24",
+            "source.hra-v1-2-male-cord-study.n25",
+            "source.hra-v1-2-male-cord-study.n26",
+            "source.hra-v1-2-male-cord-study.n27",
+            "source.hra-v1-2-male-cord-study.n28",
+            "source.hra-v1-2-male-cord-study.n29",
+            "source.hra-v1-2-male-cord-study.n30"
+          ],
+          "parent": "",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-cord-study.n1",
+          "label": "C1 segment of cervical spinal cord",
+          "source_node": 1,
+          "source_name": "VH_M_C1_segment_of_cervical_spinal_cord",
+          "ontology": "UBERON:0006469",
+          "source_label": "C1 segment of cervical spinal cord",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            1
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-cord-study.n2",
+          "label": "C2 segment of cervical spinal cord",
+          "source_node": 2,
+          "source_name": "VH_M_C2_segment_of_cervical_spinal_cord",
+          "ontology": "UBERON:0006489",
+          "source_label": "C2 segment of cervical spinal cord",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            2
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-cord-study.n3",
+          "label": "C3 segment of cervical spinal cord",
+          "source_node": 3,
+          "source_name": "VH_M_C3_segment_of_cervical_spinal_cord",
+          "ontology": "UBERON:0006488",
+          "source_label": "C3 segment of cervical spinal cord",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            3
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-cord-study.n4",
+          "label": "C4 segment of cervical spinal cord",
+          "source_node": 4,
+          "source_name": "VH_M_C4_segment_of_cervical_spinal_cord",
+          "ontology": "UBERON:0006490",
+          "source_label": "C4 segment of cervical spinal cord",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            4
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-cord-study.n5",
+          "label": "C5 segment of cervical spinal cord",
+          "source_node": 5,
+          "source_name": "VH_M_C5_segment_of_cervical_spinal_cord",
+          "ontology": "UBERON:0006491",
+          "source_label": "C5 segment of cervical spinal cord",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            5
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-cord-study.n6",
+          "label": "C6 segment of cervical spinal cord",
+          "source_node": 6,
+          "source_name": "VH_M_C6_segment_of_cervical_spinal_cord",
+          "ontology": "UBERON:0006492",
+          "source_label": "C6 segment of cervical spinal cord",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            6
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-cord-study.n7",
+          "label": "C7 segment of cervical spinal cord",
+          "source_node": 7,
+          "source_name": "VH_M_C7_segment_of_cervical_spinal_cord",
+          "ontology": "UBERON:0006493",
+          "source_label": "C7 segment of cervical spinal cord",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            7
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-cord-study.n8",
+          "label": "C8 segment of cervical spinal cord",
+          "source_node": 8,
+          "source_name": "VH_M_C8_segment_of_cervical_spinal_cord",
+          "ontology": "UBERON:0006470",
+          "source_label": "C8 segment of cervical spinal cord",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            8
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-cord-study.n9",
+          "label": "first thoracic spinal cord segment",
+          "source_node": 9,
+          "source_name": "VH_M_first_thoracic_spinal_cord_segment",
+          "ontology": "UBERON:0006457",
+          "source_label": "first thoracic spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            9
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-cord-study.n10",
+          "label": "second thoracic spinal cord segment",
+          "source_node": 10,
+          "source_name": "VH_M_second_thoracic_spinal_cord_segment",
+          "ontology": "UBERON:0006458",
+          "source_label": "second thoracic spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            10
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-cord-study.n11",
+          "label": "third thoracic spinal cord segment",
+          "source_node": 11,
+          "source_name": "VH_M_third_thoracic_spinal_cord_segment",
+          "ontology": "UBERON:0006459",
+          "source_label": "third thoracic spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            11
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-cord-study.n12",
+          "label": "fourth thoracic spinal cord segment",
+          "source_node": 12,
+          "source_name": "VH_M_fourth_thoracic_spinal_cord_segment",
+          "ontology": "UBERON:0006452",
+          "source_label": "fourth thoracic spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            12
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-cord-study.n13",
+          "label": "fifth thoracic spinal cord segment",
+          "source_node": 13,
+          "source_name": "VH_M_fifth_thoracic_spinal_cord_segment",
+          "ontology": "UBERON:0006453",
+          "source_label": "fifth thoracic spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            13
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-cord-study.n14",
+          "label": "sixth thoracic spinal cord segment",
+          "source_node": 14,
+          "source_name": "VH_M_sixth_thoracic_spinal_cord_segment",
+          "ontology": "UBERON:0006454",
+          "source_label": "sixth thoracic spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            14
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-cord-study.n15",
+          "label": "seventh thoracic spinal cord segment",
+          "source_node": 15,
+          "source_name": "VH_M_seventh_thoracic_spinal_cord_segment",
+          "ontology": "UBERON:0006455",
+          "source_label": "seventh thoracic spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            15
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-cord-study.n16",
+          "label": "eighth thoracic spinal cord segment",
+          "source_node": 16,
+          "source_name": "VH_M_eighth_thoracic_spinal_cord_segment",
+          "ontology": "UBERON:0006456",
+          "source_label": "eighth thoracic spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            16
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-cord-study.n17",
+          "label": "ninth thoracic spinal cord segment",
+          "source_node": 17,
+          "source_name": "VH_M_ninth_thoracic_spinal_cord_segment",
+          "ontology": "UBERON:0006465",
+          "source_label": "ninth thoracic spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            17
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-cord-study.n18",
+          "label": "tenth thoracic spinal cord segment",
+          "source_node": 18,
+          "source_name": "VH_M_tenth_thoracic_spinal_cord_segment",
+          "ontology": "UBERON:0006466",
+          "source_label": "tenth thoracic spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            18
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-cord-study.n19",
+          "label": "eleventh thoracic spinal cord segment",
+          "source_node": 19,
+          "source_name": "VH_M_eleventh_thoracic_spinal_cord_segment",
+          "ontology": "UBERON:0006467",
+          "source_label": "eleventh thoracic spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            19
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-cord-study.n20",
+          "label": "twelfth thoracic spinal cord segment",
+          "source_node": 20,
+          "source_name": "VH_M_twelfth_thoracic_spinal_cord_segment",
+          "ontology": "UBERON:0006468",
+          "source_label": "twelfth thoracic spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            20
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-cord-study.n21",
+          "label": "first lumbar spinal cord segment",
+          "source_node": 21,
+          "source_name": "VH_M_first_lumbar_spinal_cord_segment",
+          "ontology": "UBERON:0006448",
+          "source_label": "first lumbar spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            21
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-cord-study.n22",
+          "label": "second lumbar spinal cord segment",
+          "source_node": 22,
+          "source_name": "VH_M_second_lumbar_spinal_cord_segment",
+          "ontology": "UBERON:0006450",
+          "source_label": "second lumbar spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            22
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-cord-study.n23",
+          "label": "third lumbar spinal cord segment",
+          "source_node": 23,
+          "source_name": "VH_M_third_lumbar_spinal_cord_segment",
+          "ontology": "UBERON:0006449",
+          "source_label": "third lumbar spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            23
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-cord-study.n24",
+          "label": "fourth lumbar spinal cord segment",
+          "source_node": 24,
+          "source_name": "VH_M_fourth_lumbar_spinal_cord_segment",
+          "ontology": "UBERON:0006451",
+          "source_label": "fourth lumbar spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            24
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-cord-study.n25",
+          "label": "fifth lumbar spinal cord segment",
+          "source_node": 25,
+          "source_name": "VH_M_fifth_lumbar_spinal_cord_segment",
+          "ontology": "UBERON:0006447",
+          "source_label": "fifth lumbar spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            25
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-cord-study.n26",
+          "label": "first sacral spinal cord segment",
+          "source_node": 26,
+          "source_name": "VH_M_first_sacral_spinal_cord_segment",
+          "ontology": "UBERON:0006460",
+          "source_label": "first sacral spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            26
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-cord-study.n27",
+          "label": "second sacral spinal cord segment",
+          "source_node": 27,
+          "source_name": "VH_M_second_sacral_spinal_cord_segment",
+          "ontology": "UBERON:0006461",
+          "source_label": "second sacral spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            27
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-cord-study.n28",
+          "label": "third sacral spinal cord segment",
+          "source_node": 28,
+          "source_name": "VH_M_third_sacral_spinal_cord_segment",
+          "ontology": "UBERON:0006462",
+          "source_label": "third sacral spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            28
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-cord-study.n29",
+          "label": "fourth sacral spinal cord segment",
+          "source_node": 29,
+          "source_name": "VH_M_fourth_sacral_spinal_cord_segment",
+          "ontology": "UBERON:0006463",
+          "source_label": "fourth sacral spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            29
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-cord-study.n30",
+          "label": "fifth sacral spinal cord segment",
+          "source_node": 30,
+          "source_name": "VH_M_fifth_sacral_spinal_cord_segment",
+          "ontology": "UBERON:0006464",
+          "source_label": "fifth sacral spinal cord segment",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            30
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        }
+      ],
+      "coordinates": "Untouched source glTF metre/Y-up coordinates. No fitting, warping, relabelling or body registration.",
+      "source_url": "https://raw.githubusercontent.com/hubmapconsortium/ccf-3d-reference-object-library/f1a3a63f110e27ff0736047d52d04dba5d3087f9/VH_Male/v1.2/VH_M_Spinal_Cord.glb",
+      "coverage": "Separate pinned v1.2 male cord source geometry; 30 meshes. No registration to the HRA United bodies or other studies. Anatomical completeness and medical review pending.",
+      "coverage_notes": {
+        "notice": "Separate pinned v1.2 male cord source geometry; 30 meshes. No registration to the HRA United bodies or other studies. Anatomical completeness and medical review pending.",
+        "audit_date": "2026-10-15",
+        "reference_ids": [
+          "hra-v1-2-male-cord-study"
+        ],
+        "source_label": "HRA separate v1.2 source file",
+        "systems": [
+          {
+            "label": "Supplied spinal source geometry",
+            "roots": {
+              "hra-v1-2-male-cord-study": "anatomy.body"
+            },
+            "supplied": {
+              "hra-v1-2-male-cord-study": "30 unchanged source meshes, 16358 triangles."
+            },
+            "gaps": "This isolated source study does not complete a whole-body skeleton, establish registration, or supply reviewed neural connections."
+          }
+        ]
+      }
+    },
+    {
+      "id": "hra-v1-2-male-vertebrae-study",
+      "label": "Male vertebrae \u00b7 HRA source study",
+      "short_label": "Male vertebrae \u00b7 HRA study",
+      "study": true,
+      "study_kind": "hra-spinal",
+      "asset_path": "assets/hra-spinal/VH_M_Vertebrae.glb",
+      "sha256": "981041904438bd74c14d671af8f87b3f407b675294bbf297af673c8df7144451",
+      "bytes": 12578172,
+      "root_id": "anatomy.body",
+      "inspection_root": "anatomy.body",
+      "qa_leaf_id": "source.hra-v1-2-male-vertebrae-study.n1",
+      "structures": [
+        {
+          "id": "anatomy.body",
+          "label": "Male vertebrae \u00b7 HRA source study",
+          "source_node": 0,
+          "source_name": "VH_M_vertebrae",
+          "ontology": "",
+          "source_label": "",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ],
+          "children": [
+            "source.hra-v1-2-male-vertebrae-study.n1",
+            "source.hra-v1-2-male-vertebrae-study.n2",
+            "source.hra-v1-2-male-vertebrae-study.n3",
+            "source.hra-v1-2-male-vertebrae-study.n4",
+            "source.hra-v1-2-male-vertebrae-study.n5",
+            "source.hra-v1-2-male-vertebrae-study.n6",
+            "source.hra-v1-2-male-vertebrae-study.n7",
+            "source.hra-v1-2-male-vertebrae-study.n8",
+            "source.hra-v1-2-male-vertebrae-study.n9",
+            "source.hra-v1-2-male-vertebrae-study.n10",
+            "source.hra-v1-2-male-vertebrae-study.n11",
+            "source.hra-v1-2-male-vertebrae-study.n12",
+            "source.hra-v1-2-male-vertebrae-study.n13",
+            "source.hra-v1-2-male-vertebrae-study.n14",
+            "source.hra-v1-2-male-vertebrae-study.n15",
+            "source.hra-v1-2-male-vertebrae-study.n16",
+            "source.hra-v1-2-male-vertebrae-study.n17",
+            "source.hra-v1-2-male-vertebrae-study.n18",
+            "source.hra-v1-2-male-vertebrae-study.n19",
+            "source.hra-v1-2-male-vertebrae-study.n20",
+            "source.hra-v1-2-male-vertebrae-study.n21",
+            "source.hra-v1-2-male-vertebrae-study.n22",
+            "source.hra-v1-2-male-vertebrae-study.n23",
+            "source.hra-v1-2-male-vertebrae-study.n24"
+          ],
+          "parent": "",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-vertebrae-study.n1",
+          "label": "vertebral bone 1",
+          "source_node": 1,
+          "source_name": "VH_M_cervical_vertebra_1",
+          "ontology": "UBERON:0001092",
+          "source_label": "vertebral bone 1",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            1
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-vertebrae-study.n2",
+          "label": "vertebral bone 2",
+          "source_node": 2,
+          "source_name": "VH_M_cervical_vertebra_2",
+          "ontology": "UBERON:0001093",
+          "source_label": "vertebral bone 2",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            2
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-vertebrae-study.n3",
+          "label": "mammalian cervical vertebra 3",
+          "source_node": 3,
+          "source_name": "VH_M_cervical_vertebra_3",
+          "ontology": "UBERON:0004612",
+          "source_label": "mammalian cervical vertebra 3",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            3
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-vertebrae-study.n4",
+          "label": "mammalian cervical vertebra 4",
+          "source_node": 4,
+          "source_name": "VH_M_cervical_vertebra_4",
+          "ontology": "UBERON:0004613",
+          "source_label": "mammalian cervical vertebra 4",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            4
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-vertebrae-study.n5",
+          "label": "mammalian cervical vertebra 5",
+          "source_node": 5,
+          "source_name": "VH_M_cervical_vertebra_5",
+          "ontology": "UBERON:0004614",
+          "source_label": "mammalian cervical vertebra 5",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            5
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-vertebrae-study.n6",
+          "label": "mammalian cervical vertebra 6",
+          "source_node": 6,
+          "source_name": "VH_M_cervical_vertebra_6",
+          "ontology": "UBERON:0004615",
+          "source_label": "mammalian cervical vertebra 6",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            6
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-vertebrae-study.n7",
+          "label": "mammalian cervical vertebra 7",
+          "source_node": 7,
+          "source_name": "VH_M_cervical_vertebra_7",
+          "ontology": "UBERON:0004616",
+          "source_label": "mammalian cervical vertebra 7",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            7
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-vertebrae-study.n8",
+          "label": "thoracic vertebra 1",
+          "source_node": 8,
+          "source_name": "VH_M_thoracic_vertebra_1",
+          "ontology": "UBERON:0004626",
+          "source_label": "thoracic vertebra 1",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            8
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-vertebrae-study.n9",
+          "label": "thoracic vertebra 2",
+          "source_node": 9,
+          "source_name": "VH_M_thoracic_vertebra_2",
+          "ontology": "UBERON:0004627",
+          "source_label": "thoracic vertebra 2",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            9
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-vertebrae-study.n10",
+          "label": "thoracic vertebra 3",
+          "source_node": 10,
+          "source_name": "VH_M_thoracic_vertebra_3",
+          "ontology": "UBERON:0004628",
+          "source_label": "thoracic vertebra 3",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            10
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-vertebrae-study.n11",
+          "label": "thoracic vertebra 4",
+          "source_node": 11,
+          "source_name": "VH_M_thoracic_vertebra_4",
+          "ontology": "UBERON:0004629",
+          "source_label": "thoracic vertebra 4",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            11
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-vertebrae-study.n12",
+          "label": "thoracic vertebra 5",
+          "source_node": 12,
+          "source_name": "VH_M_thoracic_vertebra_5",
+          "ontology": "UBERON:0004630",
+          "source_label": "thoracic vertebra 5",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            12
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-vertebrae-study.n13",
+          "label": "thoracic vertebra 6",
+          "source_node": 13,
+          "source_name": "VH_M_thoracic_vertebra_6",
+          "ontology": "UBERON:0004631",
+          "source_label": "thoracic vertebra 6",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            13
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-vertebrae-study.n14",
+          "label": "thoracic vertebra 7",
+          "source_node": 14,
+          "source_name": "VH_M_thoracic_vertebra_7",
+          "ontology": "UBERON:0004632",
+          "source_label": "thoracic vertebra 7",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            14
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-vertebrae-study.n15",
+          "label": "thoracic vertebra 8",
+          "source_node": 15,
+          "source_name": "VH_M_thoracic_vertebra_8",
+          "ontology": "UBERON:0011050",
+          "source_label": "thoracic vertebra 8",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            15
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-vertebrae-study.n16",
+          "label": "thoracic vertebra 9",
+          "source_node": 16,
+          "source_name": "VH_M_thoracic_vertebra_9",
+          "ontology": "UBERON:0004633",
+          "source_label": "thoracic vertebra 9",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            16
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-vertebrae-study.n17",
+          "label": "thoracic vertebra 10",
+          "source_node": 17,
+          "source_name": "VH_M_thoracic_vertebra_10",
+          "ontology": "UBERON:0004634",
+          "source_label": "thoracic vertebra 10",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            17
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-vertebrae-study.n18",
+          "label": "thoracic vertebra 11",
+          "source_node": 18,
+          "source_name": "VH_M_thoracic_vertebra_11",
+          "ontology": "UBERON:0004635",
+          "source_label": "thoracic vertebra 11",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            18
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-vertebrae-study.n19",
+          "label": "thoracic vertebra 12",
+          "source_node": 19,
+          "source_name": "VH_M_thoracic_vertebra_12",
+          "ontology": "UBERON:0004636",
+          "source_label": "thoracic vertebra 12",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            19
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-vertebrae-study.n20",
+          "label": "lumbar vertebra 1",
+          "source_node": 20,
+          "source_name": "VH_M_lumbar_vertebra_1",
+          "ontology": "UBERON:0004617",
+          "source_label": "lumbar vertebra 1",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            20
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-vertebrae-study.n21",
+          "label": "lumbar vertebra 2",
+          "source_node": 21,
+          "source_name": "VH_M_lumbar_vertebra_2",
+          "ontology": "UBERON:0004618",
+          "source_label": "lumbar vertebra 2",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            21
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-vertebrae-study.n22",
+          "label": "lumbar vertebra 3",
+          "source_node": 22,
+          "source_name": "VH_M_lumbar_vertebra_3",
+          "ontology": "UBERON:0004619",
+          "source_label": "lumbar vertebra 3",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            22
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-vertebrae-study.n23",
+          "label": "lumbar vertebra 4",
+          "source_node": 23,
+          "source_name": "VH_M_lumbar_vertebra_4",
+          "ontology": "UBERON:0004620",
+          "source_label": "lumbar vertebra 4",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            23
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-2-male-vertebrae-study.n24",
+          "label": "lumbar vertebra 5",
+          "source_node": 24,
+          "source_name": "VH_M_lumbar_vertebra_5",
+          "ontology": "UBERON:0004621",
+          "source_label": "lumbar vertebra 5",
+          "metadata_gap": false,
+          "mesh_nodes": [
+            24
+          ],
+          "children": [],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        }
+      ],
+      "coordinates": "Untouched source glTF metre/Y-up coordinates. No fitting, warping, relabelling or body registration.",
+      "source_url": "https://raw.githubusercontent.com/hubmapconsortium/ccf-3d-reference-object-library/f1a3a63f110e27ff0736047d52d04dba5d3087f9/VH_Male/v1.2/VH_M_Vertebrae.glb",
+      "coverage": "Separate pinned v1.2 male vertebrae source geometry; 24 meshes. No registration to the HRA United bodies or other studies. Anatomical completeness and medical review pending.",
+      "coverage_notes": {
+        "notice": "Separate pinned v1.2 male vertebrae source geometry; 24 meshes. No registration to the HRA United bodies or other studies. Anatomical completeness and medical review pending.",
+        "audit_date": "2026-10-15",
+        "reference_ids": [
+          "hra-v1-2-male-vertebrae-study"
+        ],
+        "source_label": "HRA separate v1.2 source file",
+        "systems": [
+          {
+            "label": "Supplied spinal source geometry",
+            "roots": {
+              "hra-v1-2-male-vertebrae-study": "anatomy.body"
+            },
+            "supplied": {
+              "hra-v1-2-male-vertebrae-study": "24 unchanged source meshes, 320442 triangles."
+            },
+            "gaps": "This isolated source study does not complete a whole-body skeleton, establish registration, or supply reviewed neural connections."
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "source_commit": "f1a3a63f110e27ff0736047d52d04dba5d3087f9",
+  "source": "HuBMAP / HRA separate v1.2 spinal source studies",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "files": [
+    {
+      "source_path": "VH_Female/v1.2/VH_F_Spinal_Cord.glb",
+      "url": "https://raw.githubusercontent.com/hubmapconsortium/ccf-3d-reference-object-library/f1a3a63f110e27ff0736047d52d04dba5d3087f9/VH_Female/v1.2/VH_F_Spinal_Cord.glb",
+      "bytes": 7656588,
+      "sha256": "d9bfc840783a415068e34b8a1a9343fff40ad03d0025fafabf74f9d8664887f8",
+      "git_blob_sha1": "b7fe688162b02c9023f7de4ca2a78636282d404c",
+      "local_path": "assets/hra-spinal/VH_F_Spinal_Cord.glb"
+    },
+    {
+      "source_path": "VH_Female/v1.2/VH_F_Vertebrae.glb",
+      "url": "https://raw.githubusercontent.com/hubmapconsortium/ccf-3d-reference-object-library/f1a3a63f110e27ff0736047d52d04dba5d3087f9/VH_Female/v1.2/VH_F_Vertebrae.glb",
+      "bytes": 7700856,
+      "sha256": "bdbea49a40e9e64cac1c8f0d67b6483686a3cc9617f7cae645e58159e4b02984",
+      "git_blob_sha1": "69a586b82bed63fabf69ba1445a137ccc562bade",
+      "local_path": "assets/hra-spinal/VH_F_Vertebrae.glb"
+    },
+    {
+      "source_path": "VH_Male/v1.2/VH_M_Spinal_Cord.glb",
+      "url": "https://raw.githubusercontent.com/hubmapconsortium/ccf-3d-reference-object-library/f1a3a63f110e27ff0736047d52d04dba5d3087f9/VH_Male/v1.2/VH_M_Spinal_Cord.glb",
+      "bytes": 489992,
+      "sha256": "a7858d88c2237aa7d559c4c1d638923d213d2a9f46c575dea03d6ba67a9975c0",
+      "git_blob_sha1": "70ae7aaff86cf529df3da67600acac42bd5e82a7",
+      "local_path": "assets/hra-spinal/VH_M_Spinal_Cord.glb"
+    },
+    {
+      "source_path": "VH_Male/v1.2/VH_M_Vertebrae.glb",
+      "url": "https://raw.githubusercontent.com/hubmapconsortium/ccf-3d-reference-object-library/f1a3a63f110e27ff0736047d52d04dba5d3087f9/VH_Male/v1.2/VH_M_Vertebrae.glb",
+      "bytes": 12578172,
+      "sha256": "981041904438bd74c14d671af8f87b3f407b675294bbf297af673c8df7144451",
+      "git_blob_sha1": "c1e72ec815bad4754d702c9d0cd2324f87e6e566",
+      "local_path": "assets/hra-spinal/VH_M_Vertebrae.glb"
+    }
+  ]
+}

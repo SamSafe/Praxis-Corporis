@@ -17,8 +17,8 @@ func save_image(name: String) -> void:
 
 
 func drag_in_viewport(viewer: Control, delta: Vector2) -> void:
-	var container: Control = viewer.viewport.get_parent()
-	var point: Vector2 = container.global_position + Vector2(viewer.viewport.size) / 2.0
+	var container: Control = viewer.scene_container
+	var point: Vector2 = container.global_position + container.size / 2.0
 	var press := InputEventMouseButton.new()
 	press.button_index = MOUSE_BUTTON_LEFT
 	press.pressed = true
@@ -123,8 +123,8 @@ func capture() -> void:
 		quit(1)
 		return
 	# Feed mouse events through the desktop UI to verify SubViewport forwarding.
-	var container: Control = viewer.viewport.get_parent()
-	var point: Vector2 = container.global_position + Vector2(viewer.viewport.size) / 2.0
+	var container: Control = viewer.scene_container
+	var point: Vector2 = container.global_position + container.size / 2.0
 	var click := InputEventMouseButton.new()
 	click.button_index = MOUSE_BUTTON_LEFT
 	click.position = point

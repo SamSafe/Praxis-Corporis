@@ -26,6 +26,10 @@ var editing_id := ""
 var syncing_notes := false
 var pending_action: Callable
 var unsaved_dialog: ConfirmationDialog
+var import_plan: Dictionary = {}
+var import_dialog: ConfirmationDialog
+var import_button: Button
+var export_button: Button
 
 
 func button(text: String, callback: Callable, parent: Node) -> Button:
@@ -74,6 +78,10 @@ func _ready() -> void:
 	name_input.text_submitted.connect(func(_text: String): save_current())
 	new_view.add_child(name_input)
 	save_button = button("Save current view", save_current, new_view)
+	var transfer := HBoxContainer.new()
+	layout.add_child(transfer)
+	import_button = button("Import views…", func(): request_action(open_import), transfer)
+	export_button = button("Export all views…", func(): request_action(open_export), transfer)
 	var content := HBoxContainer.new()
 	content.add_theme_constant_override("separation", 18)
 	content.size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -158,6 +166,8 @@ func refresh_list(selected_id: String = "") -> void:
 		if entry.id == selected_id:
 			view_list.select(index)
 	save_button.disabled = not library.read_error.is_empty()
+	import_button.disabled = not library.read_error.is_empty()
+	export_button.disabled = not library.read_error.is_empty() or library.entries.is_empty()
 	recovery_button.visible = not library.read_error.is_empty() and library.can_recover()
 	select_entry(-1)
 	if library.entries.is_empty() and library.read_error.is_empty():
@@ -254,6 +264,68 @@ func recover_library() -> void:
 	refresh_list()
 
 
+func transfer_picker(save: bool) -> FileDialog:
+	var picker := FileDialog.new()
+	picker.title = "Export saved views and notes" if save else "Import saved views and notes"
+	picker.file_mode = FileDialog.FILE_MODE_SAVE_FILE if save else FileDialog.FILE_MODE_OPEN_FILE
+	picker.access = FileDialog.ACCESS_FILESYSTEM
+	picker.use_native_dialog = true
+	picker.filters = PackedStringArray(["*.json ; Saved views"])
+	if save:
+		picker.current_file = "praxis-corporis-views.json"
+	picker.canceled.connect(picker.queue_free)
+	add_child(picker)
+	return picker
+
+
+func open_export() -> void:
+	var picker := transfer_picker(true)
+	picker.file_selected.connect(func(destination: String):
+		var error: String = library.export_library(destination)
+		message.text = error if not error.is_empty() else "Exported %d views with saved study notes." % library.entries.size()
+		picker.queue_free())
+	picker.popup_file_dialog()
+
+
+func open_import() -> void:
+	var picker := transfer_picker(false)
+	picker.file_selected.connect(func(source: String): preview_import(source); picker.queue_free())
+	picker.popup_file_dialog()
+
+
+func preview_import(source: String) -> void:
+	import_plan = library.preview_import(source, validate_state)
+	if not str(import_plan.error).is_empty():
+		message.text = import_plan.error
+		return
+	if is_instance_valid(import_dialog):
+		import_dialog.queue_free()
+	import_dialog = ConfirmationDialog.new()
+	import_dialog.title = "Import preview"
+	import_dialog.ok_button_text = "Import %d views" % import_plan.imported
+	import_dialog.get_ok_button().disabled = import_plan.imported == 0
+	var scroll := ScrollContainer.new()
+	scroll.custom_minimum_size = Vector2(540, 240)
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	var preview := Label.new()
+	preview.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	preview.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	preview.text = "%d compatible views to add · %d skipped\nYour current views stay in the library.\n\n%s" % [import_plan.imported, import_plan.skipped, import_plan.summary]
+	scroll.add_child(preview)
+	import_dialog.add_child(scroll)
+	import_dialog.confirmed.connect(confirm_import)
+	add_child(import_dialog)
+	import_dialog.popup_centered_clamped(Vector2i(600, 360), 0.9)
+
+
+func confirm_import() -> void:
+	var error: String = library.apply_import(import_plan, validate_state)
+	message.text = error if not error.is_empty() else "Imported %d views and their saved notes." % import_plan.imported
+	if error.is_empty():
+		refresh_list()
+	import_plan.clear()
+
+
 func remember_notes_draft() -> void:
 	if syncing_notes or editing_id.is_empty():
 		return
@@ -339,6 +411,9 @@ func finish_pending_action(save: bool) -> void:
 			unsaved_dialog.dialog_text = error + "\nYour draft notes are still open."
 			return
 	draft_notes.clear()
+	syncing_notes = true
+	notes_input.text = str(selected_entry().get("notes", ""))
+	syncing_notes = false
 	var action := pending_action
 	pending_action = Callable()
 	unsaved_dialog.hide()

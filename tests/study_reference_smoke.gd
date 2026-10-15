@@ -20,7 +20,7 @@ func run() -> void:
 	await process_frame
 	while viewer.loading:
 		await process_frame
-	check(viewer.body_choice.item_count == 3, "Prepared separate bone study appears alongside both HRA references")
+	check(viewer.body_choice.item_count == viewer.pack.bodies.size() and viewer.pack.bodies.size() >= 3, "Prepared separate bone study appears alongside both HRA references")
 	await viewer.switch_body("bodyparts-male-bones-study")
 	check(viewer.model.meshes.size() == 203 and viewer.model.body.get("study", false), "The bone study remains a distinct source reference")
 	check(viewer.peel_button.disabled and viewer.chest_button.disabled, "Study reference does not offer absent skin/heart controls")

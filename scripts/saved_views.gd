@@ -190,3 +190,109 @@ func recover_backup() -> String:
 	if error.is_empty():
 		read_error = ""
 	return error
+
+
+func export_library(destination: String) -> String:
+	if not read_error.is_empty():
+		return read_error
+	if not destination.to_lower().ends_with(".json"):
+		return "Choose a JSON file for your saved views."
+	var absolute := ProjectSettings.globalize_path(destination).simplify_path()
+	for suffix in ["", ".bak", ".tmp", ".damaged"]:
+		if absolute == ProjectSettings.globalize_path(path + suffix).simplify_path():
+			return "Choose a file outside the active saved-view library."
+	var temporary := destination + "." + Crypto.new().generate_random_bytes(16).hex_encode() + ".tmp"
+	var file := FileAccess.open(temporary, FileAccess.WRITE)
+	if file == null:
+		return "Could not open the export file."
+	file.store_string(JSON.stringify({"schema_version": 1, "views": entries}, "\t", true, true))
+	file.flush()
+	var error := file.get_error()
+	file.close()
+	if error == OK:
+		error = DirAccess.rename_absolute(temporary, destination)
+	if FileAccess.file_exists(temporary):
+		DirAccess.remove_absolute(temporary)
+	return "" if error == OK else "Could not finish exporting saved views."
+
+
+static func same_snapshot(a: Variant, b: Variant) -> bool:
+	if (a is int or a is float) and (b is int or b is float):
+		return absf(float(a) - float(b)) <= 1e-12
+	if a is Dictionary and b is Dictionary:
+		if a.size() != b.size():
+			return false
+		for key in a:
+			if not b.has(key) or not same_snapshot(a[key], b[key]):
+				return false
+		return true
+	if a is Array and b is Array:
+		if a.size() != b.size():
+			return false
+		for index in a.size():
+			if not same_snapshot(a[index], b[index]):
+				return false
+		return true
+	return a == b
+
+
+func preview_import(source: String, validate_state: Callable) -> Dictionary:
+	if not read_error.is_empty():
+		return {"error": read_error}
+	var incoming := read_file(source)
+	if not incoming.error.is_empty():
+		return incoming
+	var next := entries.duplicate(true)
+	var lines: Array[String] = []
+	var imported := 0
+	var skipped := 0
+	for entry in incoming.entries:
+		var error: String = validate_state.call(entry.state)
+		if not error.is_empty():
+			lines.append("Skip “%s”: %s" % [entry.name, error])
+			skipped += 1
+			continue
+		var identical := false
+		for existing in entries:
+			if existing.id == entry.id and same_snapshot(existing.state, entry.state) and existing.get("notes", "") == entry.get("notes", ""):
+				identical = true
+		if identical:
+			lines.append("Already present: “%s”" % entry.name)
+			skipped += 1
+			continue
+		var copy: Dictionary = entry.duplicate(true)
+		var names := {}
+		var ids := {}
+		for existing in next:
+			names[existing.name.to_lower()] = true
+			ids[existing.id] = true
+		var number := 2
+		while names.has(copy.name.to_lower()):
+			var suffix := " (%d)" % number
+			copy.name = str(entry.name).left(80 - suffix.length()) + suffix
+			number += 1
+		while ids.has(copy.id):
+			copy.id = Crypto.new().generate_random_bytes(16).hex_encode()
+		next.append(copy)
+		lines.append("Import “%s”%s" % [copy.name, " (renamed to keep both views)" if copy.name != entry.name else ""])
+		imported += 1
+	if next.size() > MAX_VIEWS:
+		return {"error": "This import would exceed 200 views. Delete some views or use a smaller export."}
+	return {"error": "", "entries": next, "imported": imported, "skipped": skipped,
+		"summary": "\n".join(lines), "library_hash": loaded_hash}
+
+
+func apply_import(plan: Dictionary, validate_state: Callable) -> String:
+	if not read_error.is_empty():
+		return read_error
+	if plan.get("library_hash") != loaded_hash or not plan.get("entries") is Array or plan.get("imported", 0) < 1:
+		return "Open the import preview again before importing."
+	# Recheck every added snapshot before the single atomic library write.
+	var next: Array[Dictionary] = []
+	for entry in plan.entries:
+		if next.size() >= entries.size():
+			var error: String = validate_state.call(entry.state)
+			if not error.is_empty():
+				return error
+		next.append(entry.duplicate(true))
+	return persist(next)
