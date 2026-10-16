@@ -15,7 +15,8 @@ import subprocess
 from build_native import binary_architectures, sha256, unpack_zip
 from audit_native import git_bytes
 from summarize_profile import validate_configuration, validate_report
-from verify_windows import ROOT, artifact_record, native_session, powershell, process_observations, run_native
+from verify_windows import (ROOT, artifact_record, cleanup_successful_session, native_session,
+                           powershell, process_observations, run_native, write_report)
 
 CURRENT_WORKLOADS = {
     'female': ['whole-body orbit', 'chest orbit with faded lungs and local labels', 'isolated supplied-part orbit'],
@@ -107,7 +108,7 @@ def profile(args: argparse.Namespace) -> dict:
                'source_revision': build['source_revision'], 'artifact': item, 'host': host, 'configuration': config,
                'profiler_sha256': sha256(pathlib.Path(__file__)), 'verifier_sha256': sha256(ROOT / 'tools/verify_windows.py'),
                'validator_sha256': sha256(ROOT / 'tools/summarize_profile.py'), 'context': args.context}
-    (args.output / 'attempt.json').write_text(json.dumps(attempt, indent=2) + '\n', encoding='utf-8')
+    write_report(args.output / 'attempt.json', attempt)
     session, windows_session = native_session(args)
     print('Native staging:', windows_session, flush=True)
     try:
@@ -140,7 +141,8 @@ def profile(args: argparse.Namespace) -> dict:
                     'Workspace windows include side panels; expanded native scenes are checked against the full requested window pixels.',
                     'Frame-callback cadence and load gaps are observations, not GPU timestamps or presentation latency.',
                     'One Windows host does not close Mac, representative-hardware, human-input or anatomy-review gates.'])
-        (args.output / 'report.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8')
+        result['session_cleanup'] = {'status': 'pending', 'path': str(session)}
+        write_report(args.output / 'report.json', result)
     except BaseException:
         # Failed/incomplete runs still retain unmodified measurements and the startup binding.
         for name in ['render-profile.json', 'render-profile-rejected.json', 'render-profile-progress.json']:
@@ -151,8 +153,8 @@ def profile(args: argparse.Namespace) -> dict:
             shutil.copyfile(session / 'engine.log', args.output / 'engine.log')
         print('Native staging retained for diagnosis:', windows_session, flush=True)
         raise
-    if (session / '.praxis-qa-owned').is_file():
-        shutil.rmtree(session)
+    result['session_cleanup'] = cleanup_successful_session(session, getattr(args, 'keep_session', False))
+    write_report(args.output / 'report.json', result)
     return result
 
 
@@ -169,6 +171,7 @@ def main() -> None:
     parser.add_argument('--resolution', choices=['native', '75', '50'], default='native')
     parser.add_argument('--context', help='Operator observations about power source, foreground use and background work')
     parser.add_argument('--powershell', help='Native Windows PowerShell executable; required on WSL')
+    parser.add_argument('--keep-session', action='store_true', help='Keep successful native staging for manual inspection')
     args = parser.parse_args()
     if not args.powershell:
         if os.name != 'nt':
@@ -182,6 +185,9 @@ def main() -> None:
         parser.exit(1, str(error) + '\n')
     print('PASS native Windows rendering profile:', result['source_revision'])
     print('Retained report:', args.output / 'report.json')
+    if result['session_cleanup']['status'] == 'retained':
+        print('Native staging retained:', result['session_cleanup']['path'])
+        print(result['session_cleanup']['reason'])
 
 
 if __name__ == '__main__':

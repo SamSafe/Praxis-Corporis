@@ -10,12 +10,12 @@ import re
 import shutil
 import struct
 import subprocess
-import tempfile
 
 from build_native import binary_architectures, sha256, unpack_zip
 from audit_native import git_bytes, source_snapshot
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
+OWNED_SESSION_MARKER = "Generated private verification session\n"
 MARKERS = ["bundled local saved view and study notes", "failed replacement preserves exploration",
            "bundled keyboard workspace", "bundled source search", "bundled scene display", "bundled expanded controls", "bundled orientation", "bundled part actions"]
 RENDERED_MARKERS = ["native rendered study notes", "native credited screenshot", "native rendered reference", "native expanded anatomy", "native expanded screenshot", "native orientation", "native part actions"]
@@ -113,8 +113,38 @@ def native_session(args: argparse.Namespace) -> tuple[pathlib.Path, str]:
     else:
         mapped = subprocess.check_output(["wslpath", "-u", windows_path], text=True, timeout=10).strip()
         local_path = pathlib.Path(mapped)
-    (local_path / ".praxis-qa-owned").write_text("Generated private verification session\n", encoding="utf-8")
+    (local_path / ".praxis-qa-owned").write_text(OWNED_SESSION_MARKER, encoding="utf-8")
     return local_path, windows_path
+
+
+def write_report(path: pathlib.Path, report: dict) -> None:
+    """Keep the last complete report if a later metadata update cannot finish."""
+    temporary = path.with_name(path.name + '.tmp')
+    temporary.write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
+    temporary.replace(path)
+
+
+def cleanup_successful_session(session: pathlib.Path, keep: bool = False) -> dict:
+    """Only remove this run's marked scratch folder after its evidence is retained."""
+    outcome = {'status': 'retained', 'path': str(session)}
+    if keep:
+        return dict(outcome, reason='Requested with --keep-session')
+    try:
+        if not session.is_absolute() or not re.fullmatch(r'PraxisCorporis-QA-[0-9a-f]{32}', session.name):
+            return dict(outcome, reason='Unexpected generated-session path; left unchanged')
+        if session.is_symlink():
+            return dict(outcome, reason='Generated-session path is a symlink; left unchanged')
+        if not session.exists():
+            return dict(outcome, status='already_missing')
+        marker = session / '.praxis-qa-owned'
+        if not session.is_dir() or marker.is_symlink() or not marker.is_file():
+            return dict(outcome, reason='Generated-session ownership could not be verified')
+        if marker.stat().st_size > 128 or marker.read_text(encoding='utf-8') != OWNED_SESSION_MARKER:
+            return dict(outcome, reason='Generated-session marker differs; left unchanged')
+        shutil.rmtree(session)
+    except (OSError, UnicodeError) as error:
+        return dict(outcome, reason='Temporary-file cleanup could not finish: ' + str(error))
+    return dict(outcome, status='removed')
 
 
 def run_native(args: argparse.Namespace, folder: str, executable: str,
@@ -244,13 +274,14 @@ def verify(args: argparse.Namespace) -> dict:
             result["captures"] = captures(session, args.output, result["references"], circulation, information, conditions)
         if (session / "engine.log").exists():
             shutil.copyfile(session / "engine.log", args.output / "engine.log")
-        (args.output / "report.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+        result['session_cleanup'] = {'status': 'pending', 'path': str(session)}
+        write_report(args.output / 'report.json', result)
     except BaseException:
         print("Verification failed. Its isolated native session is retained:", windows_session)
         raise
     else:
-        if (session / ".praxis-qa-owned").is_file():
-            shutil.rmtree(session)
+        result['session_cleanup'] = cleanup_successful_session(session, getattr(args, 'keep_session', False))
+        write_report(args.output / 'report.json', result)
     return result
 
 
@@ -261,6 +292,7 @@ def main() -> None:
     parser.add_argument("--output", type=pathlib.Path, help="New folder for retained logs, captures and report")
     parser.add_argument("--mode", choices=["rendered", "headless"], default="rendered")
     parser.add_argument("--powershell", help="Windows PowerShell executable; required on WSL")
+    parser.add_argument('--keep-session', action='store_true', help='Keep the generated successful session for manual inspection')
     args = parser.parse_args()
     if not args.powershell:
         if os.name != "nt":
@@ -274,6 +306,9 @@ def main() -> None:
         parser.exit(1, str(error) + "\n")
     print("PASS native Windows archive:", result["source_revision"])
     print("Retained report:", args.output / "report.json")
+    if result['session_cleanup']['status'] == 'retained':
+        print('Generated QA session retained:', result['session_cleanup']['path'])
+        print(result['session_cleanup']['reason'])
 
 
 if __name__ == "__main__":
