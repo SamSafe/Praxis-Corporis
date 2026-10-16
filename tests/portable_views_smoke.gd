@@ -71,6 +71,10 @@ func _initialize() -> void:
 	file.store_string('{"schema_version":1,"values":{"text_scale":99999}}')
 	file.close()
 	check(not preferences.load_settings().is_empty() and preferences.values == Preferences.DEFAULTS, "Damaged preferences recover to defaults")
+	file = FileAccess.open(preferences.path, FileAccess.WRITE)
+	file.store_string("not JSON")
+	file.close()
+	check(not preferences.load_settings().is_empty() and preferences.values == Preferences.DEFAULTS and FileAccess.get_file_as_string(preferences.path) == "not JSON", "Invalid JSON recovers quietly and preserves the original file")
 	for name in DirAccess.get_files_at(directory):
 		DirAccess.remove_absolute(directory.path_join(name))
 	DirAccess.remove_absolute(directory)

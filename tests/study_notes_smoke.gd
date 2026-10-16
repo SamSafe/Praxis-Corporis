@@ -115,10 +115,14 @@ func run() -> void:
 	browser.unsaved_dialog.get_cancel_button().pressed.emit()
 	await process_frame
 	# A normal application close uses the same draft protection.
+	viewer.window_state.path = test_path + ".window.json"
+	viewer.window_state.enabled = true
 	root.close_requested.emit()
 	check(browser.unsaved_dialog.visible and browser.pending_action.is_valid(), "Root-window close protects the open note editor")
+	check(not FileAccess.file_exists(viewer.window_state.path), "A canceled close does not persist a new window layout")
 	browser.unsaved_dialog.get_cancel_button().pressed.emit()
 	await process_frame
+	viewer.window_state.enabled = false
 	browser.request_close()
 	browser.unsaved_dialog.custom_action.emit("discard")
 	await process_frame

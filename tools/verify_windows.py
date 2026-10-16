@@ -13,6 +13,7 @@ import subprocess
 
 from build_native import binary_architectures, sha256, unpack_zip
 from audit_native import git_bytes, source_snapshot
+from window_lifecycle_windows import verify_lifecycle
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 OWNED_SESSION_MARKER = "Generated private verification session\n"
@@ -250,6 +251,7 @@ def verify(args: argparse.Namespace) -> dict:
     circulation = 'heart-lung' in content.get('routes', {})
     information = 'scripts/information_dialog.gd' in build_report['source_hashes']
     conditions = bool(content.get('conditions'))
+    window_state = 'scripts/window_state.gd' in build_report['source_hashes']
     if args.output.exists():
         raise ValueError("Use a new output folder; prior reports are kept unchanged")
     args.output.mkdir(parents=True)
@@ -260,6 +262,11 @@ def verify(args: argparse.Namespace) -> dict:
         if binary_architectures(executable) != ["x86_64"] or not (executable.parent / "anatomy.pck").is_file():
             raise ValueError("Extracted Windows executable/anatomy is incomplete")
         executable_relative = executable.relative_to(session).as_posix().replace("/", "\\")
+        window_fixture = session / 'user-data/PraxisCorporisPrototype/window-state.json'
+        fixture_text = '{"schema_version":1,"size":[4320,2440],"maximized":true}'
+        if window_state:
+            window_fixture.parent.mkdir(parents=True, exist_ok=True)
+            window_fixture.write_text(fixture_text, encoding='utf-8')
         log = run_native(args, windows_session, windows_session + "\\" + executable_relative)
         result = parse_result(log, args.mode == "rendered", circulation, information, conditions)
         if result["engine_actual"] != build_report["engine"]:
@@ -274,6 +281,13 @@ def verify(args: argparse.Namespace) -> dict:
             result["captures"] = captures(session, args.output, result["references"], circulation, information, conditions)
         if (session / "engine.log").exists():
             shutil.copyfile(session / "engine.log", args.output / "engine.log")
+        if window_state:
+            if window_fixture.read_text(encoding='utf-8') != fixture_text:
+                raise ValueError('Scripted QA changed the isolated window-settings fixture')
+            window_fixture.unlink()
+            result['window_settings_ignored_during_scripted_qa'] = True
+            if args.mode == 'rendered':
+                result['window_state_lifecycle'] = verify_lifecycle(args, session, windows_session, windows_session + '\\' + executable_relative)
         result['session_cleanup'] = {'status': 'pending', 'path': str(session)}
         write_report(args.output / 'report.json', result)
     except BaseException:

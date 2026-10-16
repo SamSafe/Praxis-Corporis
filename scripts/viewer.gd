@@ -19,6 +19,7 @@ const StudyContent = preload("res://scripts/study_content.gd")
 const GuidedChest = preload("res://scripts/guided_chest.gd")
 const StudyVerification = preload("res://scripts/study_verification.gd")
 const InformationDialog = preload("res://scripts/information_dialog.gd")
+const WindowState = preload("res://scripts/window_state.gd")
 enum ExpandedAction { FOCUS, WHOLE_BODY, INSPECT, RETURN_CONTEXT, SELECTION_LABELS,
 	LOCAL_LABELS, MOVE, UNDO, REDO, SAVED_VIEWS, SCREENSHOT, KEYBOARD_HELP, GUIDED_CHEST, CIRCULATION_ROUTE }
 var save_path := "user://saved_view.json"
@@ -97,6 +98,7 @@ var panels_menu: MenuButton
 var navigation_hint: Label
 var capture_in_progress := false
 var preferences := ViewerPreferences.new()
+var window_state := WindowState.new()
 var preferences_active := false
 var applying_preferences := false
 var text_scale := 1.0
@@ -129,11 +131,14 @@ func _ready() -> void:
 	build_interface()
 	# Scripted QA always starts with predictable defaults and never edits user settings.
 	preferences_active = not "--script" in OS.get_cmdline_args() and OS.get_cmdline_user_args().is_empty()
+	var window_error := window_state.attach(get_window(), preferences_active)
 	if preferences_active:
 		var preferences_error := preferences.load_settings()
 		apply_preferences(preferences.values)
 		if not preferences_error.is_empty():
 			status.text = preferences_error
+	if not window_error.is_empty():
+		status.text = window_error
 	if not content_error.is_empty():
 		status.text = content_error
 		context.text = "Anatomy unavailable"
@@ -151,9 +156,20 @@ func _ready() -> void:
 func request_exit() -> void:
 	for child in get_children():
 		if child is SavedViewsBrowser and child.visible:
-			child.request_action(get_tree().quit)
+			child.request_action(finish_exit)
 			return
+	finish_exit()
+
+
+func finish_exit() -> void:
+	var error := window_state.save()
+	if not error.is_empty():
+		push_warning(error)
 	get_tree().quit()
+
+
+func _exit_tree() -> void:
+	window_state.detach()
 
 
 func profile_bundle() -> void:

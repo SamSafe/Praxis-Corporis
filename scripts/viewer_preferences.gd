@@ -27,9 +27,10 @@ func load_settings() -> String:
 	var file := FileAccess.open(path, FileAccess.READ)
 	if file == null or file.get_length() > 8192:
 		return "Preferences could not be read. Default settings are in use."
-	var data = JSON.parse_string(file.get_as_text())
-	if not valid(data):
+	var parser := JSON.new()
+	if parser.parse(file.get_as_text()) != OK or not valid(parser.data):
 		return "Preferences were invalid. Default settings are in use."
+	var data: Dictionary = parser.data
 	values = data.values.duplicate()
 	return ""
 
