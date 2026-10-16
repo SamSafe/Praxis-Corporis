@@ -155,6 +155,19 @@ Scripted QA and headless runs ignore this desktop file. Invalid layout settings
 fall back to the current default layout; malformed viewing-preference JSON also
 recovers without a parser error.
 
+A normal close also saves the last successfully loaded reference in
+`user://reference-state.json`. Reopening starts that reference at its default
+anatomy view. Camera, inspection edits and notes remain in named saved views.
+The window title identifies the loaded reference. Failed switches do not replace
+the remembered choice, and canceling an unsaved-note close saves neither startup
+reference nor window layout.
+
+Startup matches both the installed reference ID and source fingerprint. A removed,
+changed or unreadable choice falls back to the female reference with a status
+message. If its asset cannot load, startup also tries the female reference. Loading
+alone does not rewrite the startup file; an accepted normal close saves the last
+completed load. Scripted QA and headless runs ignore this file.
+
 Text sizing and keyboard manipulation improve access; assistive-technology and
 human accessibility acceptance remain open.
 
@@ -217,6 +230,8 @@ godot --headless --path . --script tests/information_dialog_smoke.gd
 godot --headless --path . --script tests/window_state_smoke.gd
 godot --headless --path . --script tests/saved_views_filter_smoke.gd
 godot --headless --path . --script tests/saved_views_recovery_smoke.gd
+godot --headless --path . --script tests/reference_state_smoke.gd
+godot --headless --path . --script tests/reference_startup_smoke.gd
 ```
 
 The workspace check exercises real geometry in both bodies and all four spinal studies,
