@@ -223,7 +223,7 @@ func refresh_list(selected_id: String = "", reveal: bool = false) -> void:
 		view_list.set_item_tooltip(index, entry.name)
 		if entry.id == selected_id:
 			view_list.select(index)
-	filter_summary.text = "%d of %d views" % [view_list.item_count, library.entries.size()]
+	filter_summary.text = "%d of %d view%s" % [view_list.item_count, library.entries.size(), "" if library.entries.size() == 1 else "s"]
 	save_button.disabled = not library.read_error.is_empty()
 	import_button.disabled = not library.read_error.is_empty()
 	export_button.disabled = not library.read_error.is_empty() or library.entries.is_empty()

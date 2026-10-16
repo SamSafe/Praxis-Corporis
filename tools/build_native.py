@@ -142,6 +142,7 @@ def add_notices(folder: pathlib.Path, platform: str) -> None:
         "Related conditions offers sourced aortic-stenosis and mitral-regurgitation summaries; Inspect reference anatomy reveals the supplied valve.\n"
         "Learning text remains draft; assistant cross-checks do not establish human source or medical review.\n"
         "View > Preferences adjusts text size. Panel layout, 3D resolution and label preferences are remembered on this computer.\n"
+        "Teal outlines identify keyboard focus. Anatomy lists reveal their selected structure when focused; unavailable actions use muted labels.\n"
         "The desktop window size and maximized state are remembered after a normal close. Saved anatomy views remain independent.\n"
         "A normal close also remembers the last successfully loaded reference. Startup opens its default view; named saved views keep anatomy edits and notes.\n"
         "When replacing an open reference, Cancel opening keeps the current view and study step. The current reading step may finish before controls resume.\n"

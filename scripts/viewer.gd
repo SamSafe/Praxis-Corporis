@@ -829,12 +829,32 @@ func panel_style(background: Color, border: Color, radius: int = 8) -> StyleBoxF
 func build_interface() -> void:
 	var palette := Theme.new()
 	palette.default_font_size = 15
-	for type in ["Button", "OptionButton", "CheckButton"]:
+	for type in ["Button", "OptionButton", "CheckButton", "MenuButton", "CheckBox"]:
 		palette.set_stylebox("normal", type, panel_style(Color("172433"), Color("2b3c50")))
 		palette.set_stylebox("hover", type, panel_style(Color("23394a"), Color("6db9c2")))
 		palette.set_stylebox("pressed", type, panel_style(Color("26535b"), Color("78c8c8")))
+		palette.set_stylebox("disabled", type, panel_style(Color("101c2a"), Color("223448")))
 		palette.set_stylebox("focus", type, panel_style(Color(0, 0, 0, 0), Color("83d9d2")))
 		palette.set_color("font_color", type, Color("e3edf5"))
+		palette.set_color("font_disabled_color", type, Color("8298ab"))
+		for state in ["font_hover_color", "font_focus_color", "font_pressed_color", "font_hover_pressed_color"]:
+			palette.set_color(state, type, Color("e3edf5"))
+	var focus := panel_style(Color(0, 0, 0, 0), Color("83d9d2"), 4)
+	var reading_padding := StyleBoxEmpty.new()
+	focus.set_border_width_all(2)
+	for side in ["left", "right", "top", "bottom"]:
+		focus.set("content_margin_" + side, 0.0)
+		reading_padding.set("content_margin_" + side, 4.0)
+	palette.set_stylebox("normal", "RichTextLabel", reading_padding)
+	for type in ["LineEdit", "TextEdit", "Tree", "ItemList", "RichTextLabel"]:
+		palette.set_stylebox("focus", type, focus)
+	var link_focus := focus.duplicate() as StyleBoxFlat
+	link_focus.set_expand_margin_all(2.0)
+	palette.set_stylebox("focus", "LinkButton", link_focus)
+	palette.set_color("font_color", "LinkButton", Color("b5dce4"))
+	palette.set_color("font_disabled_color", "LinkButton", Color("8298ab"))
+	for state in ["font_hover_color", "font_focus_color", "font_pressed_color"]:
+		palette.set_color(state, "LinkButton", Color("e4f8fb"))
 	palette.set_stylebox("panel", "PanelContainer", panel_style(Color("0e1926"), Color("263447")))
 	palette.set_stylebox("panel", "Tree", panel_style(Color("0e1926"), Color("263447")))
 	palette.set_color("font_color", "Tree", Color("c8d6e3"))
@@ -850,6 +870,17 @@ func build_interface() -> void:
 	palette.set_constant("v_separation", "Tree", 8)
 	palette.set_stylebox("normal", "LineEdit", panel_style(Color("172433"), Color("2b3c50")))
 	palette.set_color("font_color", "LineEdit", Color("e3edf5"))
+	palette.set_stylebox("read_only", "LineEdit", panel_style(Color("101c2a"), Color("223448")))
+	palette.set_color("font_uneditable_color", "LineEdit", Color("8298ab"))
+	for state in ["normal", "read_only"]:
+		palette.set_stylebox(state, "TextEdit", panel_style(Color("172433"), Color("2b3c50")))
+	palette.set_color("font_color", "TextEdit", Color("e3edf5"))
+	palette.set_color("font_readonly_color", "TextEdit", Color("8298ab"))
+	for type in ["LineEdit", "TextEdit", "RichTextLabel"]:
+		palette.set_color("font_selected_color", type, Color("f1f6fa"))
+		palette.set_color("selection_color", type, Color("26535b"))
+	for type in ["LineEdit", "TextEdit"]:
+		palette.set_color("caret_color", type, Color("e3edf5"))
 	theme = palette
 	var background := ColorRect.new()
 	background.color = Color("080f19")
@@ -945,6 +976,7 @@ func build_interface() -> void:
 	search_results.add_theme_constant_override("v_separation", 10)
 	search_results.item_selected.connect(on_search_selected)
 	search_results.item_activated.connect(on_search_selected)
+	search_results.focus_entered.connect(queue_selection_scroll)
 	search_results.resized.connect(func():
 		search_results.fixed_column_width = maxi(int(search_results.size.x) - 18, 1)
 		if not search.text.strip_edges().is_empty():
@@ -955,6 +987,7 @@ func build_interface() -> void:
 	tree.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	tree.custom_minimum_size.x = 255
 	tree.item_selected.connect(on_tree_selected)
+	tree.focus_entered.connect(queue_selection_scroll)
 	left.add_child(tree)
 	peel_button = make_button("Peel away skin", peel_skin, left)
 	chest_button = make_button("Show chest", chest_view, left)
@@ -1142,6 +1175,7 @@ func build_interface() -> void:
 	parts_tree.hide_root = true
 	parts_tree.custom_minimum_size.y = 180
 	parts_tree.item_selected.connect(on_part_selected)
+	parts_tree.focus_entered.connect(queue_selection_scroll)
 	parts_section.add_child(parts_tree)
 	var parts_hint := make_label("Select a part, then Inspect alone to see covered geometry.", 12, Color("879db0"))
 	parts_hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
