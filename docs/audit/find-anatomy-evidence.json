@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "feature_runtime_revision": "37f951b4140b22039c6c6ff74c2fb26b33ca319b",
+  "package_source_revision": "2923959dcd9f0e75fbe6725a06f7015c23e87586",
+  "native_references": 7,
+  "native_capture_identities": 94,
+  "inspected_native_captures": [
+    "native-search-female.png",
+    "native-search-bodyparts-male-bones-study.png"
+  ],
+  "native_session_independently_checked_absent": true,
+  "python_checks": 65,
+  "mac_content_qa": "passed on development engine; actual Mac execution pending",
+  "linux_release_template_qa": "failed popup focus connections; isolated diagnostic retained",
+  "files": {
+    "find-anatomy-artifact-audit.json": {
+      "bytes": 1346,
+      "sha256": "cf94b14efedecf84a60dba0b3dc4588b4319065bb855a3d04a1aaea0f00c1784"
+    },
+    "find-anatomy-build-report.json": {
+      "bytes": 4966,
+      "sha256": "6399d7fe82a65502adec6b55b48746c297db14ee179d337d26523fc45e0badf3"
+    },
+    "find-anatomy-build.log.txt": {
+      "bytes": 8093,
+      "sha256": "809374c114a6f5747fd8e8e2fe4c5555194511aecb203787c709f48164449186"
+    },
+    "find-anatomy-bundle.gd.txt": {
+      "bytes": 453,
+      "sha256": "503d1cae853808322f15d6238cc4e3a2378749a85fee793da500e850a7660920"
+    },
+    "find-anatomy-bundle.log.txt": {
+      "bytes": 257,
+      "sha256": "4ed04c99319ea9d998c43e3b4452ded3b1946ee35bcb23c470f87eb5f573fe34"
+    },
+    "find-anatomy-captures.log.txt": {
+      "bytes": 489,
+      "sha256": "16dbac3f3e2179a75ee4041015c55eaaa8ce596a511d1202fa771653b4726d11"
+    },
+    "find-anatomy-development-qa.json": {
+      "bytes": 1600,
+      "sha256": "69f9cdcf08e75193a7ace20488b7c609b11568b663f0fd7112f7a7e595a2e9b9"
+    },
+    "find-anatomy-development.log.txt": {
+      "bytes": 256,
+      "sha256": "d9983ae4ceef58bb103ce05a64c5096616838aa948a307a0003f91984eced192"
+    },
+    "find-anatomy-help.log.txt": {
+      "bytes": 758,
+      "sha256": "e92e2f79255eb0cf108a9f799880e9300fdafd727a43305899619c3de1adecd6"
+    },
+    "find-anatomy-keyboard.log.txt": {
+      "bytes": 283,
+      "sha256": "b2661fc2a3a1cfe07951371e76ae764de687924065e5614eab822caa6ac90f55"
+    },
+    "find-anatomy-linux-template-errors.log.txt": {
+      "bytes": 113437,
+      "sha256": "b675412da5a7135a3f83b79261bb2a295e056ab67f7f50fc1bb4f4b544415c0d"
+    },
+    "find-anatomy-native-initial-anatomy.log.txt": {
+      "bytes": 443,
+      "sha256": "6a428e814db5daadfed709ddbdfc5fda71f7c8b070b4f1715de240e31880d2e2"
+    },
+    "find-anatomy-native-replacement-selection.log.txt": {
+      "bytes": 527,
+      "sha256": "b36a32050421c91392072289893e2fe4a4e19bbc760b2d90b6e8ab037e62b1b9"
+    },
+    "find-anatomy-normal-lifecycle.json": {
+      "bytes": 1648,
+      "sha256": "414fba2ca285882a1f0bad957fac189f867cd0b592e2abd0123e5b8efdf0b4f3"
+    },
+    "find-anatomy-python.log.txt": {
+      "bytes": 164,
+      "sha256": "1ae60eedf30be02ee6d346ebb60e2b655a9e2a4b1d70a72de8576666aeca763b"
+    },
+    "find-anatomy-search.log.txt": {
+      "bytes": 411,
+      "sha256": "444e18cafeb73c686b40c54c674f5450ffe1144142ea4c07643e3075c5ae6358"
+    },
+    "find-anatomy-windows-qa.json": {
+      "bytes": 30762,
+      "sha256": "9343b436491a476c0e19ad29a6efd8902d8215a76f9727b7fb1d996eee2e14ff"
+    },
+    "find-anatomy-windows-runtime.log.txt": {
+      "bytes": 11794,
+      "sha256": "39f0b51d0cc79cb2ebef26876d739b2d898b0a31e7a50f7787a52c1228c8fa48"
+    },
+    "popup-template-repro/export_presets.cfg.txt": {
+      "bytes": 219,
+      "sha256": "0b95ac158dda3b084cdb59ebe743d6603b65dc9ed9353f1ab45c73d4a858fb24"
+    },
+    "popup-template-repro/exported-headless.log.txt": {
+      "bytes": 7203,
+      "sha256": "a935909d2c5e960d5794aa6f539d10a7b326aaa0f7f3631d50ec72831b679e2c"
+    },
+    "popup-template-repro/exported-rendered.log.txt": {
+      "bytes": 7505,
+      "sha256": "5d1d929247fd4d6ad3768045818b3da1bbb7cc7df332684217500b6afc7e7f72"
+    },
+    "popup-template-repro/exported-settled.log.txt": {
+      "bytes": 7203,
+      "sha256": "a935909d2c5e960d5794aa6f539d10a7b326aaa0f7f3631d50ec72831b679e2c"
+    },
+    "popup-template-repro/main.gd.txt": {
+      "bytes": 388,
+      "sha256": "dddcdf78ed0cae6fab37048ed38b2c94d848da4cb0d2b097779b327c732638af"
+    },
+    "popup-template-repro/main.tscn.txt": {
+      "bytes": 149,
+      "sha256": "33687cc0fffb9f4225ecd50b227c0b794ca8a18492ab50d1af3397cdcad536ab"
+    },
+    "popup-template-repro/project.godot.txt": {
+      "bytes": 121,
+      "sha256": "39e0ea8f9abc63bca340175430fddf08bbb0c2fde498fd2186929a40c48ebb42"
+    },
+    "popup-template-repro/report.json": {
+      "bytes": 1930,
+      "sha256": "60d9f1c7de098539c6ef405a38eb03d85811645a2817f7685b7afb9e3945062c"
+    },
+    "popup-template-repro/source.log.txt": {
+      "bytes": 99,
+      "sha256": "6084bf9bd9d2dddcfad7fc2c0359d8047d857bcd36f2c3bd2a6ad02705190bb7"
+    },
+    "popup-template-repro/strict-runner.log.txt": {
+      "bytes": 7263,
+      "sha256": "0a3aaa910b0410276ddb3311c334574f1535cd836932fd4cdc8e05e36d73dd8e"
+    },
+    "../prototype/find-anatomy-compact-focus.png": {
+      "bytes": 307992,
+      "sha256": "3eddd4f9a686543d7f3796e654a60dd8a8dea2b603cec5ed7fb9da125faf67cf"
+    },
+    "../prototype/find-anatomy-expanded-menu.png": {
+      "bytes": 286235,
+      "sha256": "a62ae70668d461a9bf0e3a1ea4805001944762ef7312b879e71e4673688314f9"
+    },
+    "../prototype/find-anatomy-menu-focus.png": {
+      "bytes": 319248,
+      "sha256": "e0efbc572e3be1e94926a4f0352ce3bbf374a7d51b77e9ef5a89462e8eb8ebaa"
+    },
+    "../prototype/find-anatomy-native-bones.png": {
+      "bytes": 193144,
+      "sha256": "dec181bf0a9e3eca1a4bb55c16b4b3086c85f02eba60c1fb3375184e3b7eb98c"
+    },
+    "../prototype/find-anatomy-native-female.png": {
+      "bytes": 191329,
+      "sha256": "81f2d3afbf74a41e3b10d8e17812d4a8ba15bb734158ef6e9b614925427818d5"
+    }
+  }
+}

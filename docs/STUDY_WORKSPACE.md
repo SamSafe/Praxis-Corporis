@@ -105,6 +105,25 @@ inspection edits. The keys apply only while the 3D view has focus; search and te
 fields retain normal input. Movement works in both workspace sizes and every source
 reference. These are camera coordinates, separate from body-direction presets.
 
+## Finding anatomy
+
+**Ctrl/Cmd+F** focuses anatomy search and selects its current query. It reveals the
+explorer panel when hidden and returns from expanded anatomy to the workspace.
+**View → Find anatomy** and **Explore → Find anatomy** provide the same route.
+The details panel keeps its previous visibility. Revealing the explorer uses the
+existing panel preference behavior.
+
+**Enter** selects a result and focuses its list for keyboard navigation. **Escape**
+from the search field or result list clears the query and shows the hierarchy;
+press it again in the empty search field to return focus to 3D. These focus and
+layout changes preserve the current anatomy, inspection edits, camera, histories,
+Move setting and study step. Result selection retains its existing camera-focus
+behavior.
+
+Find is unavailable while a reference opens. The search field stays read-only
+until its reference index is available. Dialogs keep their own keyboard input;
+Ctrl/Cmd+F inside Saved views continues to search views and notes.
+
 ## Portable saved views
 
 In **Saved views**, the search field finds view names, saved notes and unsaved note
@@ -281,6 +300,7 @@ godot --headless --path . --script tests/saved_views_filter_smoke.gd
 godot --headless --path . --script tests/saved_views_recovery_smoke.gd
 godot --headless --path . --script tests/saved_views_undo_smoke.gd
 godot --headless --path . --script tests/export_safeguards_smoke.gd
+godot --headless --path . --script tests/find_anatomy_smoke.gd
 godot --headless --path . --script tests/reference_state_smoke.gd
 godot --headless --path . --script tests/reference_startup_smoke.gd
 godot --headless --path . --script tests/loading_cancel_smoke.gd
@@ -293,7 +313,7 @@ preview. Running it with a desktop display also captures the new screens under
 reconstructed collision vertices with source mesh faces. The exported runtime checks
 portable views/notes, preferences and reversible guide state in disposable files.
 Device trials and qualified medical review remain separate from scripted verification.
-[Verification and current private packages](audit/LOADING_SHUTDOWN_VERIFICATION.md)
+[Verification and current private packages](audit/FIND_ANATOMY_VERIFICATION.md)
 retain exact build identities, native Windows evidence, saved-view recovery/search/draft
 and deletion-undo checks, study-preserving cancellation and normal-launch reference/window restoration observations. [Draft content verification](audit/DRAFT_CONTENT_VERIFICATION.md)
 records the learning-content review-stage correction and valve-reference checks.

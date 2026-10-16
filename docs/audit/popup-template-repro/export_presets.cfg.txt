@@ -1,0 +1,11 @@
+[preset.0]
+name="Linux Popup Probe"
+platform="Linux"
+runnable=false
+export_filter="all_resources"
+export_path=""
+script_export_mode=2
+
+[preset.0.options]
+binary_format/architecture="x86_64"
+binary_format/embed_pck=true

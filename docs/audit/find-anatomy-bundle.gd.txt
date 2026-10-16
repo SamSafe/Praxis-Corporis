@@ -1,0 +1,14 @@
+extends SceneTree
+func _initialize() -> void:
+	call_deferred("run")
+func run() -> void:
+	var viewer = load("res://scenes/main.tscn").instantiate()
+	root.add_child(viewer)
+	await process_frame
+	while viewer.loading:
+		await process_frame
+	var valid: bool = await viewer.verify_search(false)
+	viewer.queue_free()
+	await process_frame
+	print("PASS development Find bundle check" if valid else "FAIL development Find bundle check")
+	quit(0 if valid else 1)

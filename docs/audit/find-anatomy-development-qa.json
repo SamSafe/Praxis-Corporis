@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "runtime_checkpoint": "37f951b4140b22039c6c6ff74c2fb26b33ca319b",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": [
+    {
+      "script": "tests/find_anatomy_smoke.gd",
+      "script_sha256": "542a7109c5532625a61c95a010bcddb40341d85c6b5d5a3302870b84d30c52a0",
+      "log": "find-anatomy-development.log.txt",
+      "log_sha256": "d9983ae4ceef58bb103ce05a64c5096616838aa948a307a0003f91984eced192",
+      "passed": true,
+      "success_marker": "Find anatomy failures: 0"
+    },
+    {
+      "script": "tests/search_smoke.gd",
+      "script_sha256": "04e987347696f329dc3dd9488b8b37da544fd84ab402c6fa7a62e1357838adf4",
+      "log": "find-anatomy-search.log.txt",
+      "log_sha256": "444e18cafeb73c686b40c54c674f5450ffe1144142ea4c07643e3075c5ae6358",
+      "passed": true,
+      "success_marker": "Search failures: 0"
+    },
+    {
+      "script": "tests/keyboard_workspace_smoke.gd",
+      "script_sha256": "82da8a3e9b0657c6503775d141dd8f49c859fd84ce4d3e447b70dc161fc5bb79",
+      "log": "find-anatomy-keyboard.log.txt",
+      "log_sha256": "b2661fc2a3a1cfe07951371e76ae764de687924065e5614eab822caa6ac90f55",
+      "passed": true,
+      "success_marker": "Keyboard workspace failures: 0"
+    },
+    {
+      "script": "tests/information_dialog_smoke.gd",
+      "script_sha256": "effffddcaa450ec35148365c41494b77147bb4a606dc9f35eb87ff330e0c970b",
+      "log": "find-anatomy-help.log.txt",
+      "log_sha256": "e92e2f79255eb0cf108a9f799880e9300fdafd727a43305899619c3de1adecd6",
+      "passed": true,
+      "success_marker": "Information dialog failures: 0"
+    }
+  ]
+}

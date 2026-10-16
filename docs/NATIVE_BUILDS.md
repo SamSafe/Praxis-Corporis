@@ -14,14 +14,15 @@ portable views and four independent spinal source studies.
 
 The generated archives are excluded from Git:
 
-- Windows x64: dist/loading-shutdown-improvements/PraxisCorporis-Windows-x64-private.zip
-- Mac Intel/Apple Silicon: dist/loading-shutdown-improvements/PraxisCorporis-macOS-universal-private.zip
+- Windows x64: dist/find-anatomy-verified/PraxisCorporis-Windows-x64-private.zip
+- Mac Intel/Apple Silicon: dist/find-anatomy-verified/PraxisCorporis-macOS-universal-private.zip
 
 Earlier archives retain their previous source identities and their review-label
-corrections. Use the loading-shutdown-improvements build report when verifying the new archives.
-[Loading shutdown and package verification](audit/LOADING_SHUTDOWN_VERIFICATION.md)
-records their exact hashes, seven-reference workflows and early-close checks,
-four normal launches and remaining Mac/human limits.
+corrections. Use the find-anatomy-verified build report when verifying the new archives.
+[Find anatomy and package verification](audit/FIND_ANATOMY_VERIFICATION.md)
+records their exact hashes, seven-reference Find/Escape workflows, early-close checks,
+four normal launches and remaining Mac/human limits. The Linux-template qualification
+is recorded separately; it is not a clean passing platform check.
 
 Extract the complete ZIP. In its PraxisCorporis folder, open PraxisCorporis.exe
 on Windows or PraxisCorporis.app on Mac. On Windows, keep anatomy.pck beside the
@@ -96,7 +97,18 @@ Use a new evidence path. `--build-report` and `--artifact-dir` can select anothe
 recorded build. This command does not run the app, verify a public signature or prove
 the contents of the Mac resource pack; runtime/content checks remain separate.
 
-On the Linux development host, add --qa-linux:
+To check embedded Mac content on the Linux development host, add `--qa-mac-content`:
+
+```sh
+python3 tools/build_native.py --godot /path/to/godot --qa-mac-content
+```
+
+This runs the compiled Mac resource pack with the development engine, checks its
+private resource boundary, every reference/workflow and two loading shutdowns.
+It does not execute the Mac binary. All runtime checks require their completion
+marker and reject errors or object leaks, including errors mixed into progress lines.
+
+`--qa-linux` additionally exercises the temporary Linux export:
 
 ```sh
 python3 tools/build_native.py --godot /path/to/godot --qa-linux
@@ -115,6 +127,13 @@ mapping while preserving the prior exploration. Focused keyboard navigation and 
 changing anatomy state. It also loads every reference from the Mac core resource pack
 using the development engine; this verifies embedded content, not Mac OS execution.
 Linux is not a release target.
+
+The current Linux release template reports popup focus-connection errors in an
+independent single-menu reproduction. `--qa-linux` now rejects those errors;
+it is not a clean passing check on this host. The development engine and native
+Windows checks are recorded separately. Earlier build reports' Linux pass labels
+established workflow markers but did not reject all engine errors. See the
+[template reproduction and qualification](audit/POPUP_TEMPLATE_VERIFICATION.md).
 
 The build also inspects actual executable headers: Windows x86_64 and both Mac
 x86_64/arm64 slices. build-report.json records artifact sizes/hashes, anatomy-pack

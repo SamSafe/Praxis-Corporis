@@ -1,0 +1,1117 @@
+WorkerThreadPool: 12 threads, 3 max low-priority.
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+TextServer: Added interface "Dummy"
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
+SDL: Init OK!
+Using "default" pen tablet driver...
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+CORE API HASH: 0
+EDITOR API HASH: 0
+SceneTreeFTI: traversal method DEFAULT
+Loaded system CA certificates
+Loading resource: res://.godot/exported/133200997/export-3ad5c15c4f3250da0cc7c1af1770d85f-main.scn remapped: res://.godot/exported/133200997/export-3ad5c15c4f3250da0cc7c1af1770d85f-main.scn
+Loading resource: res://scripts/viewer.gdc remapped: res://scripts/viewer.gdc
+Completed load for: 'res://scripts/viewer.gd' remapped 'res://scripts/viewer.gdc' at thread -1
+Completed load for: 'res://scenes/main.tscn' remapped 'res://.godot/exported/133200997/export-3ad5c15c4f3250da0cc7c1af1770d85f-main.scn' at thread -1
+PASS private export resource boundary
+Loading female reference
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2.scn remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2.scn
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2.scn' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2.scn' at thread 0
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0000.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0000.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0000.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0000.res' at thread 1
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0001.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0001.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0001.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0001.res' at thread 2
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0002.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0002.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0002.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0002.res' at thread 3
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0003.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0003.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0003.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0003.res' at thread 4
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0004.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0004.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0004.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0004.res' at thread 5
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0005.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0005.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0005.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0005.res' at thread 6
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0006.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0006.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0006.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0006.res' at thread 7
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0007.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0007.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0007.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0007.res' at thread 8
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0008.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0008.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0008.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0008.res' at thread 9
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0009.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0009.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0009.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0009.res' at thread 10
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0010.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0010.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0010.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0010.res' at thread 11
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0011.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0011.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0011.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0011.res' at thread 0
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0012.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0012.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0012.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0012.res' at thread 1
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0013.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0013.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0013.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0013.res' at thread 2
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0014.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0014.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0014.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0014.res' at thread 3
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0015.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0015.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0015.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0015.res' at thread 4
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0016.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0016.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0016.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0016.res' at thread 5
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0017.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0017.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0017.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0017.res' at thread 6
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0018.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0018.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0018.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0018.res' at thread 7
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0019.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0019.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0019.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0019.res' at thread 8
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0020.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0020.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0020.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0020.res' at thread 9
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0021.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0021.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0021.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0021.res' at thread 10
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0022.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0022.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0022.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0022.res' at thread 11
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0023.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0023.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0023.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0023.res' at thread 0
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0024.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0024.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0024.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0024.res' at thread 1
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0025.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0025.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0025.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0025.res' at thread 2
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0026.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0026.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0026.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0026.res' at thread 3
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0027.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0027.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0027.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0027.res' at thread 4
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0028.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0028.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0028.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0028.res' at thread 5
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0029.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0029.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0029.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0029.res' at thread 6
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0030.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0030.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0030.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0030.res' at thread 7
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0031.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0031.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0031.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0031.res' at thread 8
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0032.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0032.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0032.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0032.res' at thread 9
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0033.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0033.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0033.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0033.res' at thread 10
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0034.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0034.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0034.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0034.res' at thread 11
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0035.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0035.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0035.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0035.res' at thread 0
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0036.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0036.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0036.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0036.res' at thread 1
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0037.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0037.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0037.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0037.res' at thread 2
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0038.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0038.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0038.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0038.res' at thread 3
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0039.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0039.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0039.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0039.res' at thread 4
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0040.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0040.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0040.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0040.res' at thread 5
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0041.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0041.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0041.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0041.res' at thread 6
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0042.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0042.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0042.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0042.res' at thread 7
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0043.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0043.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0043.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0043.res' at thread 8
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0044.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0044.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0044.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0044.res' at thread 9
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0045.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0045.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0045.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0045.res' at thread 10
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0046.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0046.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0046.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0046.res' at thread 11
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0047.res remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0047.res
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0047.res' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0047.res' at thread 0
+Prepared 801 meshes in 3.04s; 157 frames while loading
+PASS interface frames while loading: female · 158
+PASS bundled saved-view draft undo: female
+PASS bundled save all study notes: female
+PASS bundled local saved view and study notes: female
+Loading male reference
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2.scn remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2.scn
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2.scn' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2.scn' at thread 1
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0000.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0000.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0000.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0000.res' at thread 2
+PASS bundled canceled reference switch
+PASS bundled information dialogs: female
+PASS bundled saved-view recovery
+PASS bundled condition study: female
+PASS bundled keyboard movement: female
+PASS bundled circulation route: female
+PASS bundled export destination guard: female · case-sensitive true
+PASS bundled saved-view deletion undo: female
+PASS bundled study workspace: female
+Loading female reference
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2.scn remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2.scn
+Completed load for: 'res://assets/prepared/female-149c9dade4a9-geometry-v2.scn' remapped 'res://assets/prepared/female-149c9dade4a9-geometry-v2.scn' at thread 3
+PASS failed replacement preseERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+rves exploration: female
+PASS bundled keyboard workspace: female
+PASS bundled find anatomy: female
+PASS bundled source search: female
+PASS bundled expanded controls: female
+PASS bundled orientation: female
+PASS bundled part actions: female
+PASS bundled scene display: female
+PASS bundled reference: female · 801 meshes
+Loading male reference
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2.scn remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2.scn
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2.scn' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2.scn' at thread 4
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0000.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0000.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0000.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0000.res' at thread 5
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0001.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0001.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0001.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0001.res' at thread 6
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0002.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0002.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0002.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0002.res' at thread 7
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0003.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0003.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0003.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0003.res' at thread 8
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0004.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0004.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0004.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0004.res' at thread 9
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0005.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0005.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0005.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0005.res' at thread 10
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0006.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0006.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0006.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0006.res' at thread 11
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0007.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0007.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0007.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0007.res' at thread 0
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0008.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0008.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0008.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0008.res' at thread 1
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0009.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0009.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0009.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0009.res' at thread 2
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0010.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0010.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0010.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0010.res' at thread 3
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0011.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0011.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0011.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0011.res' at thread 4
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0012.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0012.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0012.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0012.res' at thread 5
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0013.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0013.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0013.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0013.res' at thread 6
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0014.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0014.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0014.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0014.res' at thread 7
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0015.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0015.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0015.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0015.res' at thread 8
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0016.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0016.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0016.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0016.res' at thread 9
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0017.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0017.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0017.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0017.res' at thread 10
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0018.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0018.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0018.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0018.res' at thread 11
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0019.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0019.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0019.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0019.res' at thread 0
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0020.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0020.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0020.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0020.res' at thread 1
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0021.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0021.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0021.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0021.res' at thread 2
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0022.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0022.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0022.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0022.res' at thread 3
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0023.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0023.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0023.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0023.res' at thread 4
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0024.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0024.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0024.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0024.res' at thread 5
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0025.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0025.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0025.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0025.res' at thread 6
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0026.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0026.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0026.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0026.res' at thread 7
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0027.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0027.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0027.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0027.res' at thread 8
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0028.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0028.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0028.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0028.res' at thread 9
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0029.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0029.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0029.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0029.res' at thread 10
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0030.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0030.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0030.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0030.res' at thread 11
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0031.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0031.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0031.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0031.res' at thread 0
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0032.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0032.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0032.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0032.res' at thread 1
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0033.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0033.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0033.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0033.res' at thread 2
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0034.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0034.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0034.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0034.res' at thread 3
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0035.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0035.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0035.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0035.res' at thread 4
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0036.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0036.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0036.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0036.res' at thread 5
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0037.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0037.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0037.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0037.res' at thread 6
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0038.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0038.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0038.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0038.res' at thread 7
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0039.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0039.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0039.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0039.res' at thread 8
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0040.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0040.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0040.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0040.res' at thread 9
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0041.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0041.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0041.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0041.res' at thread 10
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0042.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0042.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0042.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0042.res' at thread 11
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0043.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0043.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0043.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0043.res' at thread 0
+Loading resource: res://asseERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ts/prepared/male-f8dce99e28b6-geometry-v2-selection-0044.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0044.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0044.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0044.res' at thread 1
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0045.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0045.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0045.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0045.res' at thread 2
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0046.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0046.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0046.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0046.res' at thread 3
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0047.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0047.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0047.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0047.res' at thread 4
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0048.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0048.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0048.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0048.res' at thread 5
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0049.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0049.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0049.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0049.res' at thread 6
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0050.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0050.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0050.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0050.res' at thread 7
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0051.res remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0051.res
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0051.res' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0051.res' at thread 8
+Prepared 788 meshes in 3.00s; 165 frames while loading
+PASS interface frames while loading: male · 167
+PASS bundled saved-view draft undo: male
+PASS bundled save all study notes: male
+PASS bundled local saved view and study notes: male
+PASS bundled condition study: male
+PASS bundled keyboard movement: male
+PASS bundled circulation route: male
+PASS bundled export destination guard: male · case-sensitive true
+PASS bundled saved-view deletion undo: male
+PASS bundled study workspace: male
+Loading male reference
+Loading resource: res://assets/prepared/male-f8dce99e28b6-geometry-v2.scn remapped: res://assets/prepared/male-f8dce99e28b6-geometry-v2.scn
+Completed load for: 'res://assets/prepared/male-f8dce99e28b6-geometry-v2.scn' remapped 'res://assets/prepared/male-f8dce99e28b6-geometry-v2.scn' at thread 9
+PASS failed replacement preserves exploration: male
+PASS bundled keyboard workspace: male
+PASS bundled find anatomy: male
+PASS bundled source search: male
+PASS bundled expanded controls: male
+PASS bundled orientation: male
+PASS bundled part actions: male
+PASS bundled scene display: male
+PASS bundled reference: male · 788 meshes
+Loading bodyparts-male-bones-study reference
+Loading resource: res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2.scn remapped: res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2.scn
+Completed load for: 'res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2.scn' remapped 'res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2.scn' at thread 10
+Loading resource: res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0000.res remapped: res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0000.res
+Completed load for: 'res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0000.res' remapped 'res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0000.res' at thread 11
+Loading resource: res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0001.res remapped: res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0001.res
+Completed load for: 'res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0001.res' remapped 'res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0001.res' at thread 0
+Loading resource: res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0002.res remapped: res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0002.res
+Completed load for: 'res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0002.res' remapped 'res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0002.res' at thread 1
+Loading resource: res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0003.res remapped: res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0003.res
+Completed load for: 'res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0003.res' remapped 'res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0003.res' at thread 2
+Loading resource: res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0004.res remapped: res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0004.res
+Completed load for: 'res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0004.res' remapped 'res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0004.res' at thread 3
+Loading resource: res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0005.res remapped: res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0005.res
+Completed load for: 'res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0005.res' remapped 'res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0005.res' at thread 4
+Loading resource: res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0006.res remapped: res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0006.res
+Completed load for: 'res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0006.res' remapped 'res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0006.res' at thread 5
+Loading resource: res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0007.res remapped: res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0007.res
+Completed load for: 'res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0007.res' remapped 'res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0007.res' at thread 6
+Prepared 203 meshes in 0.35s; 24 frames while loading
+PASS interface frames while loading: bodyparts-male-bones-study · 26
+PASS bundled saved-view draft undo: bodyparts-male-bones-study
+PASS bundled save all study notes: bodyparERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ts-male-bones-study
+PASS bundled local saved view and study notes: bodyparts-male-bones-study
+PASS bundled keyboard movement: bodyparts-male-bones-study
+PASS bundled export destination guard: bodyparts-male-bones-study · case-sensitive true
+PASS bundled saved-view deletion undo: bodyparts-male-bones-study
+PASS bundled study workspace: bodyparts-male-bones-study
+Loading bodyparts-male-bones-study reference
+Loading resource: res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2.scn remapped: res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2.scn
+Completed load for: 'res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2.scn' remapped 'res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2.scn' at thread 7
+PASS failed replacement preserves exploration: bodyparts-male-bones-study
+PASS bundled keyboard workspace: bodyparts-male-bones-study
+PASS bundled find anatomy: bodyparts-male-bones-study
+PASS bundled source search: bodyparts-male-bones-study
+PASS bundled expanded controls: bodyparts-male-bones-study
+PASS bundled orientation: bodyparts-male-bones-study
+PASS bundled part actions: bodyparts-male-bones-study
+PASS bundled scene display: bodyparts-male-bones-study
+PASS bundled reference: bodyparts-male-bones-study · 203 meshes
+Loading hra-v1-2-female-cord-study reference
+Loading resource: res://assets/prepared/hra-v1-2-female-cord-study-d9bfc840783a-geometry-v2.scn remapped: res://assets/prepared/hra-v1-2-female-cord-study-d9bfc840783a-geometry-v2.scn
+Completed load for: 'res://assets/prepared/hra-v1-2-female-cord-study-d9bfc840783a-geometry-v2.scn' remapped 'res://assets/prepared/hra-v1-2-female-cord-study-d9bfc840783a-geometry-v2.scn' at thread 8
+Loading resource: res://assets/prepared/hra-v1-2-female-cord-study-d9bfc840783a-geometry-v2-selection-0000.res remapped: res://assets/prepared/hra-v1-2-female-cord-study-d9bfc840783a-geometry-v2-selection-0000.res
+Completed load for: 'res://assets/prepared/hra-v1-2-female-cord-study-d9bfc840783a-geometry-v2-selection-0000.res' remapped 'res://assets/prepared/hra-v1-2-female-cord-study-d9bfc840783a-geometry-v2-selection-0000.res' at thread 9
+Loading resource: res://assets/prepared/hra-v1-2-female-cord-study-d9bfc840783a-geometry-v2-selection-0001.res remapped: res://assets/prepared/hra-v1-2-female-cord-study-d9bfc840783a-geometry-v2-selection-0001.res
+Completed load for: 'res://assets/prepared/hra-v1-2-female-cord-study-d9bfc840783a-geometry-v2-selection-0001.res' remapped 'res://assets/prepared/hra-v1-2-female-cord-study-d9bfc840783a-geometry-v2-selection-0001.res' at thread 10
+Loading resource: res://assets/prepared/hra-v1-2-female-cord-study-d9bfc840783a-geometry-v2-selection-0002.res remapped: res://assets/prepared/hra-v1-2-female-cord-study-d9bfc840783a-geometry-v2-selection-0002.res
+Completed load for: 'res://assets/prepared/hra-v1-2-female-cord-study-d9bfc840783a-geometry-v2-selection-0002.res' remapped 'res://assets/prepared/hra-v1-2-female-cord-study-d9bfc840783a-geometry-v2-selection-0002.res' at thread 11
+Loading resource: res://assets/prepared/hra-v1-2-female-cord-study-d9bfc840783a-geometry-v2-selection-0003.res remapped: res://assets/prepared/hra-v1-2-female-cord-study-d9bfc840783a-geometry-v2-selection-0003.res
+Completed load for: 'res://assets/prepared/hra-v1-2-female-cord-study-d9bfc840783a-geometry-v2-selection-0003.res' remapped 'res://assets/prepared/hra-v1-2-female-cord-study-d9bfc840783a-geometry-v2-selection-0003.res' at thread 0
+Prepared 29 meshes in 0.20s; 10 frames while loading
+PASS interface frames while loading: hra-v1-2-female-cord-study · 12
+PASS bundled saved-view draft undo: hra-v1-2-female-cord-study
+PASS bundled save all study notes: hra-v1-2-female-cord-study
+PASS bundled local saved view and study notes: hra-v1-2-female-cord-study
+PASS bundled keyboard movement: hra-v1-2-female-cord-study
+PASS bundled export destination guard: hra-v1-2-female-cord-study · case-sensitive true
+PASS bundled saved-view deletion undo: hra-v1-2-female-cord-study
+PASS bundled study worksERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+pace: hra-v1-2-female-cord-study
+Loading hra-v1-2-female-cord-study reference
+Loading resource: res://assets/prepared/hra-v1-2-female-cord-study-d9bfc840783a-geometry-v2.scn remapped: res://assets/prepared/hra-v1-2-female-cord-study-d9bfc840783a-geometry-v2.scn
+Completed load for: 'res://assets/prepared/hra-v1-2-female-cord-study-d9bfc840783a-geometry-v2.scn' remapped 'res://assets/prepared/hra-v1-2-female-cord-study-d9bfc840783a-geometry-v2.scn' at thread 1
+PASS failed replacement preserves exploration: hra-v1-2-female-cord-study
+PASS bundled keyboard workspace: hra-v1-2-female-cord-study
+PASS bundled find anatomy: hra-v1-2-female-cord-study
+PASS bundled source search: hra-v1-2-female-cord-study
+PASS bundled expanded controls: hra-v1-2-female-cord-study
+PASS bundled orientation: hra-v1-2-female-cord-study · unavailable source frame correctly disabled
+PASS bundled part actions: hra-v1-2-female-cord-study
+PASS bundled scene display: hra-v1-2-female-cord-study
+PASS bundled reference: hra-v1-2-female-cord-study · 29 meshes
+Loading hra-v1-2-female-vertebrae-study reference
+Loading resource: res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2.scn remapped: res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2.scn
+Completed load for: 'res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2.scn' remapped 'res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2.scn' at thread 2
+Loading resource: res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2-selection-0000.res remapped: res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2-selection-0000.res
+Completed load for: 'res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2-selection-0000.res' remapped 'res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2-selection-0000.res' at thread 3
+Loading resource: res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2-selection-0001.res remapped: res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2-selection-0001.res
+Completed load for: 'res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2-selection-0001.res' remapped 'res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2-selection-0001.res' at thread 4
+Loading resource: res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2-selection-0002.res remapped: res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2-selection-0002.res
+Completed load for: 'res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2-selection-0002.res' remapped 'res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2-selection-0002.res' at thread 5
+Loading resource: res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2-selection-0003.res remapped: res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2-selection-0003.res
+Completed load for: 'res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2-selection-0003.res' remapped 'res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2-selection-0003.res' at thread 6
+Loading resource: res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2-selection-0004.res remapped: res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2-selection-0004.res
+Completed load for: 'res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2-selection-0004.res' remapped 'res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2-selection-0004.res' at thread 7
+Loading resource: res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2-selection-0005.res remapped: res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2-selection-0005.res
+Completed load for: 'res://assets/prepared/hra-v1-2-feERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+male-vertebrae-study-bdbea49a40e9-geometry-v2-selection-0005.res' remapped 'res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2-selection-0005.res' at thread 8
+Prepared 25 meshes in 0.31s; 17 frames while loading
+PASS interface frames while loading: hra-v1-2-female-vertebrae-study · 19
+PASS bundled saved-view draft undo: hra-v1-2-female-vertebrae-study
+PASS bundled save all study notes: hra-v1-2-female-vertebrae-study
+PASS bundled local saved view and study notes: hra-v1-2-female-vertebrae-study
+PASS bundled keyboard movement: hra-v1-2-female-vertebrae-study
+PASS bundled export destination guard: hra-v1-2-female-vertebrae-study · case-sensitive true
+PASS bundled saved-view deletion undo: hra-v1-2-female-vertebrae-study
+PASS bundled study workspace: hra-v1-2-female-vertebrae-study
+Loading hra-v1-2-female-vertebrae-study reference
+Loading resource: res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2.scn remapped: res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2.scn
+Completed load for: 'res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2.scn' remapped 'res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2.scn' at thread 9
+PASS failed replacement preserves exploration: hra-v1-2-female-vertebrae-study
+PASS bundled keyboard workspace: hra-v1-2-female-vertebrae-study
+PASS bundled find anatomy: hra-v1-2-female-vertebrae-study
+PASS bundled source search: hra-v1-2-female-vertebrae-study
+PASS bundled expanded controls: hra-v1-2-female-vertebrae-study
+PASS bundled orientation: hra-v1-2-female-vertebrae-study · unavailable source frame correctly disabled
+PASS bundled part actions: hra-v1-2-female-vertebrae-study
+PASS bundled scene display: hra-v1-2-female-vertebrae-study
+PASS bundled reference: hra-v1-2-female-vertebrae-study · 25 meshes
+Loading hra-v1-2-male-cord-study reference
+Loading resource: res://assets/prepared/hra-v1-2-male-cord-study-a7858d88c223-geometry-v2.scn remapped: res://assets/prepared/hra-v1-2-male-cord-study-a7858d88c223-geometry-v2.scn
+Completed load for: 'res://assets/prepared/hra-v1-2-male-cord-study-a7858d88c223-geometry-v2.scn' remapped 'res://assets/prepared/hra-v1-2-male-cord-study-a7858d88c223-geometry-v2.scn' at thread 10
+Loading resource: res://assets/prepared/hra-v1-2-male-cord-study-a7858d88c223-geometry-v2-selection-0000.res remapped: res://assets/prepared/hra-v1-2-male-cord-study-a7858d88c223-geometry-v2-selection-0000.res
+Completed load for: 'res://assets/prepared/hra-v1-2-male-cord-study-a7858d88c223-geometry-v2-selection-0000.res' remapped 'res://assets/prepared/hra-v1-2-male-cord-study-a7858d88c223-geometry-v2-selection-0000.res' at thread 11
+Prepared 30 meshes in 0.04s; 4 frames while loading
+PASS interface frames while loading: hra-v1-2-male-cord-study · 6
+PASS bundled saved-view draft undo: hra-v1-2-male-cord-study
+PASS bundled save all study notes: hra-v1-2-male-cord-study
+PASS bundled local saved view and study notes: hra-v1-2-male-cord-study
+PASS bundled keyboard movement: hra-v1-2-male-cord-study
+PASS bundled export destination guard: hra-v1-2-male-cord-study · case-sensitive true
+PASS bundled saved-view deletion undo: hra-v1-2-male-cord-study
+PASS bundled study workspace: hra-v1-2-male-cord-study
+Loading hra-v1-2-male-cord-study reference
+Loading resource: res://assets/prepared/hra-v1-2-male-cord-study-a7858d88c223-geometry-v2.scn remapped: res://assets/prepared/hra-v1-2-male-cord-study-a7858d88c223-geometry-v2.scn
+Completed load for: 'res://assets/prepared/hra-v1-2-male-cord-study-a7858d88c223-geometry-v2.scn' remapped 'res://assets/prepared/hra-v1-2-male-cord-study-a7858d88c223-geometry-v2.scn' at thread 0
+PASS failed replacement preserves exploration: hra-v1-2-male-cord-study
+PASS bundled keyboard workspace: hra-v1-2-male-cord-study
+PASS bundled find anatomy: hra-v1-2-male-cord-study
+PASS bundled source search: hra-v1-2-male-cord-study
+PASS bundled expanded controls: hra-v1-2-male-cord-study
+PASS bundled orientation: hra-v1-2-male-cord-study · uERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+navailable source frame correctly disabled
+PASS bundled part actions: hra-v1-2-male-cord-study
+PASS bundled scene display: hra-v1-2-male-cord-study
+PASS bundled reference: hra-v1-2-male-cord-study · 30 meshes
+Loading hra-v1-2-male-vertebrae-study reference
+Loading resource: res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2.scn remapped: res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2.scn
+Completed load for: 'res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2.scn' remapped 'res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2.scn' at thread 1
+Loading resource: res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2-selection-0000.res remapped: res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2-selection-0000.res
+Completed load for: 'res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2-selection-0000.res' remapped 'res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2-selection-0000.res' at thread 2
+Loading resource: res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2-selection-0001.res remapped: res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2-selection-0001.res
+Completed load for: 'res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2-selection-0001.res' remapped 'res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2-selection-0001.res' at thread 3
+Loading resource: res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2-selection-0002.res remapped: res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2-selection-0002.res
+Completed load for: 'res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2-selection-0002.res' remapped 'res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2-selection-0002.res' at thread 4
+Loading resource: res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2-selection-0003.res remapped: res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2-selection-0003.res
+Completed load for: 'res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2-selection-0003.res' remapped 'res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2-selection-0003.res' at thread 5
+Loading resource: res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2-selection-0004.res remapped: res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2-selection-0004.res
+Completed load for: 'res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2-selection-0004.res' remapped 'res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2-selection-0004.res' at thread 6
+Prepared 24 meshes in 0.25s; 13 frames while loading
+PASS interface frames while loading: hra-v1-2-male-vertebrae-study · 15
+PASS bundled saved-view draft undo: hra-v1-2-male-vertebrae-study
+PASS bundled save all study notes: hra-v1-2-male-vertebrae-study
+PASS bundled local saved view and study notes: hra-v1-2-male-vertebrae-study
+PASS bundled keyboard movement: hra-v1-2-male-vertebrae-study
+PASS bundled export destination guard: hra-v1-2-male-vertebrae-study · case-sensitive true
+PASS bundled saved-view deletion undo: hra-v1-2-male-vertebrae-study
+PASS bundled study workspace: hra-v1-2-male-vertebrae-study
+Loading hra-v1-2-male-vertebrae-study reference
+Loading resource: res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2.scn remapped: res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2.scn
+Completed load for: 'res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2.scn' remapped 'res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2.scn' at thread 7
+PASS failed replacement preserves exploration: hra-v1-2-male-vertebrae-study
+PASS bundled keybERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24041751893>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+oard workspace: hra-v1-2-male-vertebrae-study
+PASS bundled find anatomy: hra-v1-2-male-vertebrae-study
+PASS bundled source search: hra-v1-2-male-vertebrae-study
+PASS bundled expanded controls: hra-v1-2-male-vertebrae-study
+PASS bundled orientation: hra-v1-2-male-vertebrae-study · unavailable source frame correctly disabled
+PASS bundled part actions: hra-v1-2-male-vertebrae-study
+PASS bundled scene display: hra-v1-2-male-vertebrae-study
+PASS bundled reference: hra-v1-2-male-vertebrae-study · 24 meshes
+PASS offline native bundle
+XR: Clearing primary interface
+XR: Removed interface "Native mobile"
+XR: Removed interface "OpenXR"

@@ -1,0 +1,97 @@
+Command failed (0): /tmp/medicine-improvements/popup-probe
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24075306325>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24075306325>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24075306325>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24075306325>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24075306325>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24075306325>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24075306325>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24075306325>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24075306325>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24075306325>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24075306325>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24075306325>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24075306325>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24075306325>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24075306325>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24075306325>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24075306325>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24075306325>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24075306325>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24075306325>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24075306325>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24075306325>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Signal 'tree_exited' is already connected to given callable '' in that object.
+   at: connect (core/object/object.cpp:1562)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24075306325>'. Signal: 'focus_entered', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#24075306325>'. Signal: 'tree_exited', callable: ''.
+   at: _disconnect (core/object/object.cpp:1644)
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS minimal popup cycles
+

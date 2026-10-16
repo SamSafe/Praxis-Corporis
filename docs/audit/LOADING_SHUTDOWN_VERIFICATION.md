@@ -56,6 +56,12 @@ inputs remain unchanged at build completion. Mac content uses the Linux
 development engine. [Build report](loading-shutdown-build-report.json),
 [log](loading-shutdown-build.log.txt).
 
+Later qualification: the older Linux bundle runner did not reject every engine
+error. A single-menu Linux-template reproduction now reports focus-connection
+errors, so this report's Linux workflow markers do not establish an error-free
+runtime. The two shutdown checks already rejected errors and leaks. Mac content
+and native Windows have separate evidence. [Reproduction and stricter checks](POPUP_TEMPLATE_VERIFICATION.md).
+
 The exact Windows archive passes both early-close processes using native AMD
 OpenGL. Each closes with an owned request, reports completed cleanup and exits
 without an ObjectDB leak. The replacement case also proves staged-scene release.

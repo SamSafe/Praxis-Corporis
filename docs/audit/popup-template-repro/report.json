@@ -1,0 +1,48 @@
+{
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "sources": {
+    "project.godot.txt": "39e0ea8f9abc63bca340175430fddf08bbb0c2fde498fd2186929a40c48ebb42",
+    "main.tscn.txt": "33687cc0fffb9f4225ecd50b227c0b794ca8a18492ab50d1af3397cdcad536ab",
+    "main.gd.txt": "dddcdf78ed0cae6fab37048ed38b2c94d848da4cb0d2b097779b327c732638af",
+    "export_presets.cfg.txt": "0b95ac158dda3b084cdb59ebe743d6603b65dc9ed9353f1ab45c73d4a858fb24"
+  },
+  "cases": [
+    {
+      "case": "source",
+      "exit_code": 0,
+      "error_count": 0,
+      "completion_marker": true,
+      "log": "source.log.txt",
+      "log_sha256": "6084bf9bd9d2dddcfad7fc2c0359d8047d857bcd36f2c3bd2a6ad02705190bb7"
+    },
+    {
+      "case": "exported-headless",
+      "exit_code": 0,
+      "error_count": 46,
+      "completion_marker": true,
+      "log": "exported-headless.log.txt",
+      "log_sha256": "a935909d2c5e960d5794aa6f539d10a7b326aaa0f7f3631d50ec72831b679e2c"
+    },
+    {
+      "case": "exported-settled",
+      "exit_code": 0,
+      "error_count": 46,
+      "completion_marker": true,
+      "log": "exported-settled.log.txt",
+      "log_sha256": "a935909d2c5e960d5794aa6f539d10a7b326aaa0f7f3631d50ec72831b679e2c"
+    },
+    {
+      "case": "exported-rendered-settled",
+      "exit_code": 0,
+      "error_count": 46,
+      "completion_marker": true,
+      "log": "exported-rendered.log.txt",
+      "log_sha256": "5d1d929247fd4d6ad3768045818b3da1bbb7cc7df332684217500b6afc7e7f72"
+    }
+  ],
+  "strict_runner_rejects_reproduction": true,
+  "engine_binary_sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+  "linux_release_template_sha256": "d9f79ab89b5ae369aeed11c6052d402e8218cd503bf85b4a235f9c30c46a7c63",
+  "reproduction_executable_sha256": "5f3c93996682b2fc458ef53e2aee55ce58c6b774f33b1349ba3233622b0e9d9c",
+  "scope": "Independent diagnostic; exported Linux popup errors remain unresolved. No Mac or human acceptance claim."
+}
