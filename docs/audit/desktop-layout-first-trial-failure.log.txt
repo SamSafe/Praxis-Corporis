@@ -1,0 +1,7 @@
+Own window lifecycle step timed out
+At line:36 char:53
++ ... lliseconds -gt 60000) { throw 'Own window lifecycle step timed out' }
++                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (Own window lifecycle step timed out:String) [], RuntimeException
+    + FullyQualifiedErrorId : Own window lifecycle step timed out
+ 

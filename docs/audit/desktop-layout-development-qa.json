@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "source_revision": "0000d07265d32a207040443c322b65fac1e19030",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": [
+    {
+      "script": "tests/window_state_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.328,
+      "log_sha256": "8cb382efd2e2be99b1025d561eaac246e4e70ad56a0bafd04340eb5c6b7fa33d",
+      "log": "desktop-layout-window_state_smoke.log.txt"
+    },
+    {
+      "script": "tests/portable_views_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.312,
+      "log_sha256": "be706251c30f3a10101c6ce9b0de3064c5649c7b6df16ecdc220807c09896af0",
+      "log": "desktop-layout-portable_views_smoke.log.txt"
+    },
+    {
+      "script": "tests/study_notes_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 9.546,
+      "log_sha256": "b2c34379f29e81f78758668ad15d0db72964ba46870e93c1ccccc4fed33295a1",
+      "log": "desktop-layout-study_notes_smoke.log.txt"
+    },
+    {
+      "script": "tests/study_workspace_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 24.043,
+      "log_sha256": "2d047ba007af6d24b33842a19c0b6bec9fc2cb916bd2ca2f53cdfc3c56ec74e7",
+      "log": "desktop-layout-study_workspace_smoke.log.txt"
+    },
+    {
+      "script": "tests/scene_display_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 8.495,
+      "log_sha256": "d0f6a5d6488672be07e43552966ca91ca48d58f554ef7e125fb540661b82e0cd",
+      "log": "desktop-layout-scene_display_smoke.log.txt"
+    },
+    {
+      "script": "tests/part_actions_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 25.554,
+      "log_sha256": "7cb63c00672be9deb5e4af11912f7c7298aee9bb00e399ebee1e6acb04a60779",
+      "log": "desktop-layout-part_actions_smoke.log.txt"
+    },
+    {
+      "script": "tests/viewer_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 13.688,
+      "log_sha256": "070c841a912348aa823b8514f18e26a27562b574ee632ead0a5091ae362b2df7",
+      "log": "desktop-layout-viewer_smoke.log.txt"
+    },
+    {
+      "script": "tests/condition_study_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 14.423,
+      "log_sha256": "7166954631167600c0f16a4b62d2f77a9458d3fd98401f0e772eeaa7c415d851",
+      "log": "desktop-layout-condition_study_smoke.log.txt"
+    },
+    {
+      "script": "tests/information_dialog_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 15.668,
+      "log_sha256": "6005d387ffb18d01a30e4faeddab435f00493a08e19e6f9cd74e87949a9aad40",
+      "log": "desktop-layout-information_dialog_smoke.log.txt"
+    },
+    {
+      "script": "tests/export_boundary_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.291,
+      "log_sha256": "235837cc34c4cf1c2235cda51a9da9ede4c280cde7f1745d6a780ed48e4819ca",
+      "log": "desktop-layout-export_boundary_smoke.log.txt"
+    }
+  ],
+  "scope": "Window-state storage, malformed preferences, protected shutdown and affected anatomy interactions; scripted QA ignores real desktop preferences."
+}

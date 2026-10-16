@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "runtime_source_revision": "0000d07265d32a207040443c322b65fac1e19030",
+  "harness_revision": "f4d999f",
+  "files": {
+    "desktop-layout-artifact-audit.json": {
+      "bytes": 1346,
+      "sha256": "7c676f076205e39e46504827cd4822d0a399e64d4eda93c6560e3dc92613892f"
+    },
+    "desktop-layout-build-report.json": {
+      "bytes": 4837,
+      "sha256": "11e0001fc3fafceeab83d621f4bb8b76de12b4c070f41adadd45bb3a6b7a8c26"
+    },
+    "desktop-layout-build.log.txt": {
+      "bytes": 10917,
+      "sha256": "f370526c54570f9fa788f6bf2bc3afb48c835190cf62cf3a1756f3f1fa47f899"
+    },
+    "desktop-layout-condition_study_smoke.log.txt": {
+      "bytes": 358,
+      "sha256": "7166954631167600c0f16a4b62d2f77a9458d3fd98401f0e772eeaa7c415d851"
+    },
+    "desktop-layout-development-qa.json": {
+      "bytes": 3072,
+      "sha256": "82eb2e8682c66a6387e8019b69780d7044a84ec89040773a86bade0145fb125c"
+    },
+    "desktop-layout-export_boundary_smoke.log.txt": {
+      "bytes": 116,
+      "sha256": "235837cc34c4cf1c2235cda51a9da9ede4c280cde7f1745d6a780ed48e4819ca"
+    },
+    "desktop-layout-first-trial-failure.log.txt": {
+      "bytes": 387,
+      "sha256": "b2f6b6bbb25158df75ab7b8489ada856138a44d8028bd9241afbce6ec9ecb24c"
+    },
+    "desktop-layout-information_dialog_smoke.log.txt": {
+      "bytes": 758,
+      "sha256": "6005d387ffb18d01a30e4faeddab435f00493a08e19e6f9cd74e87949a9aad40"
+    },
+    "desktop-layout-linux-rendered.log.txt": {
+      "bytes": 400,
+      "sha256": "0e2d48d76664e7d08326d3b27c5eab09fa006b019527986788637e02e43cd147"
+    },
+    "desktop-layout-part_actions_smoke.log.txt": {
+      "bytes": 1209,
+      "sha256": "7cb63c00672be9deb5e4af11912f7c7298aee9bb00e399ebee1e6acb04a60779"
+    },
+    "desktop-layout-portable_views_smoke.log.txt": {
+      "bytes": 116,
+      "sha256": "be706251c30f3a10101c6ce9b0de3064c5649c7b6df16ecdc220807c09896af0"
+    },
+    "desktop-layout-python.log.txt": {
+      "bytes": 9836,
+      "sha256": "304e4fc26939271996cfb17e5759558ae37316f96715f46e72d0f0c95eaa02e9"
+    },
+    "desktop-layout-scene_display_smoke.log.txt": {
+      "bytes": 543,
+      "sha256": "d0f6a5d6488672be07e43552966ca91ca48d58f554ef7e125fb540661b82e0cd"
+    },
+    "desktop-layout-study_notes_smoke.log.txt": {
+      "bytes": 177,
+      "sha256": "b2c34379f29e81f78758668ad15d0db72964ba46870e93c1ccccc4fed33295a1"
+    },
+    "desktop-layout-study_workspace_smoke.log.txt": {
+      "bytes": 736,
+      "sha256": "2d047ba007af6d24b33842a19c0b6bec9fc2cb916bd2ca2f53cdfc3c56ec74e7"
+    },
+    "desktop-layout-viewer_smoke.log.txt": {
+      "bytes": 351,
+      "sha256": "070c841a912348aa823b8514f18e26a27562b574ee632ead0a5091ae362b2df7"
+    },
+    "desktop-layout-window-first-state.json": {
+      "bytes": 74,
+      "sha256": "294f9c0437828a0416ab6d74d5f1f722fc0ffbadf7bee9f19ed3fadf25bbeb6a"
+    },
+    "desktop-layout-window-first-stdout.log.txt": {
+      "bytes": 213,
+      "sha256": "df714341f9c0ba69853315af4e376dec361bdec3fe8a3e6c44753576371333db"
+    },
+    "desktop-layout-window-first.log.txt": {
+      "bytes": 210,
+      "sha256": "6118825023ccb3b6f561087388482706b29f57a130e503f3ec96c16279a1ef5e"
+    },
+    "desktop-layout-window-lifecycle-runtime.log.txt": {
+      "bytes": 320,
+      "sha256": "df64697597e9da42a5ded20765d2b629a3f964e721b3162a6701f0eec1007c4f"
+    },
+    "desktop-layout-window-lifecycle.json": {
+      "bytes": 584,
+      "sha256": "6ddde462b6367a7699cb05eea5b94e183b0c8b0ec0f348999db9caad7681fc05"
+    },
+    "desktop-layout-window-second-state.json": {
+      "bytes": 73,
+      "sha256": "048601e6547f34008604e20b0ceb7f198541a1a5c8d109f01e7307043810c782"
+    },
+    "desktop-layout-window-second-stdout.log.txt": {
+      "bytes": 239,
+      "sha256": "b1aecb9b956f1a88e319559ba55bed91af76d248ba1e6a4b91677ab54d4c5cf1"
+    },
+    "desktop-layout-window-second.log.txt": {
+      "bytes": 235,
+      "sha256": "c168c774452e2748ee6f6760453e49a6ae8a162be9022b27ba065e1b0feb6c86"
+    },
+    "desktop-layout-window-third-state.json": {
+      "bytes": 74,
+      "sha256": "294f9c0437828a0416ab6d74d5f1f722fc0ffbadf7bee9f19ed3fadf25bbeb6a"
+    },
+    "desktop-layout-window-third-stdout.log.txt": {
+      "bytes": 213,
+      "sha256": "df714341f9c0ba69853315af4e376dec361bdec3fe8a3e6c44753576371333db"
+    },
+    "desktop-layout-window-third.log.txt": {
+      "bytes": 210,
+      "sha256": "6118825023ccb3b6f561087388482706b29f57a130e503f3ec96c16279a1ef5e"
+    },
+    "desktop-layout-window_state_smoke.log.txt": {
+      "bytes": 98,
+      "sha256": "8cb382efd2e2be99b1025d561eaac246e4e70ad56a0bafd04340eb5c6b7fa33d"
+    },
+    "desktop-layout-windows-qa.json": {
+      "bytes": 27791,
+      "sha256": "1d6f1f2b2fb3ad7bc8ceccc1d5dae6b104897cef6c230aa640b4942ab3fee033"
+    },
+    "desktop-layout-windows-runtime.log.txt": {
+      "bytes": 9521,
+      "sha256": "baf4b979adb43a37eb8490fda13c42ce8ab9ceb92731ba51ac9610c2941cfd89"
+    }
+  },
+  "successful_session_independently_absent": true
+}
