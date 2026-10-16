@@ -131,6 +131,12 @@ existing library is retained. Damaged files and stale previews cannot partly rep
 the library. The format retains the existing 200-view, 32-MiB and 10,000-character
 note limits. A failed write preserves the existing library and reports the error.
 
+Damaged or missing libraries can recover from a valid previous library. Recovery
+refuses a stale offer if the main file has changed, and preserves each damaged
+original under its own filename. The result names that copy. Older damaged copies
+and the valid backup remain available. A healthy loaded library does not offer
+recovery. Invalid JSON reports a readable error while keeping the input unchanged.
+
 ## Viewing preferences
 
 **View > Preferences** offers 100%, 115% and 130% text, plus a reset action. The
@@ -210,6 +216,7 @@ godot --headless --path . --script tests/keyboard_movement_smoke.gd
 godot --headless --path . --script tests/information_dialog_smoke.gd
 godot --headless --path . --script tests/window_state_smoke.gd
 godot --headless --path . --script tests/saved_views_filter_smoke.gd
+godot --headless --path . --script tests/saved_views_recovery_smoke.gd
 ```
 
 The workspace check exercises real geometry in both bodies and all four spinal studies,

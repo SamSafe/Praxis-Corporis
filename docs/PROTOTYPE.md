@@ -308,7 +308,12 @@ The local library is `user://saved_views.json`, outside the installation/project
 Numbers use full precision, and writes use a temporary file plus one previous-library
 backup (`.bak`). Invalid formats or failed writes preserve the known library. If the
 main file is damaged/missing and the backup is valid, **Recover previous library**
-restores it; a damaged original is retained as `.damaged`. Recovery returns the
+restores it; a damaged original is retained as `.damaged`, or `.damaged-<unique ID>`
+when an earlier copy already exists. The result message names the preserved file.
+If the main file changes after the recovery offer, recovery stops and asks you to
+close and reopen Saved views. A healthy loaded library cannot be rolled back through
+this action. Malformed JSON in libraries, imports or backups produces the app's
+readable error message without an engine parser error. Recovery returns the
 previous version, which may omit the most recent edit. A stale open library detects
 external file changes and asks you to close/reopen before editing. This is local
 storage, without cloud sync or a cross-process transaction service.
