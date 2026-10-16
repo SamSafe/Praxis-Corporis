@@ -26,6 +26,7 @@ func click(window: Window, control: Control) -> void:
 
 
 func capture() -> void:
+	DirAccess.make_dir_recursive_absolute("/tmp/medicine-viewer-feasibility")
 	var viewer = load("res://scenes/main.tscn").instantiate()
 	root.add_child(viewer)
 	await process_frame
@@ -53,6 +54,9 @@ func capture() -> void:
 	viewer.inspect_alone()
 	viewer.model.checkpoint()
 	viewer.model.offset_selection(Vector3(0.03, 0.01, 0))
+	var preferences: Dictionary = viewer.preference_state()
+	preferences.text_scale = 1.3
+	viewer.apply_preferences(preferences)
 	root.size = Vector2i(1100, 720)
 	await process_frame
 	browser = viewer.show_saved_views()
@@ -104,11 +108,52 @@ func capture() -> void:
 	await process_frame
 	await RenderingServer.frame_post_draw
 	var result := root.get_texture().get_image().save_png("/tmp/medicine-viewer-feasibility/saved-views-library.png")
-	for control in [browser.name_input, browser.save_button, browser.restore_button, browser.rename_button, browser.delete_button, browser.information, browser.notes_input, browser.notes_button, browser.notes_status]:
+	for control in [browser.content_scroll, browser.restore_button, browser.rename_button, browser.delete_button, browser.close_button]:
 		if not Rect2(Vector2.ZERO, Vector2(browser.size)).encloses(control.get_global_rect()):
 			push_error("A saved-view action overflows the compact window")
 			quit(1)
 			return
+	browser.filter_input.grab_focus()
+	browser.filter_input.text = "source bone"
+	browser.filter_input.text_changed.emit(browser.filter_input.text)
+	await process_frame
+	await process_frame
+	await RenderingServer.frame_post_draw
+	if not browser.content_scroll.get_global_rect().encloses(browser.filter_input.get_global_rect()):
+		push_error("Focusing saved-view search did not bring it into view")
+		quit(1)
+		return
+	if browser.view_list.item_count != 1 or root.get_texture().get_image().save_png("/tmp/medicine-viewer-feasibility/saved-views-search.png") != OK:
+		push_error("Saved-view note search failed to render")
+		quit(1)
+		return
+	var previous_size: Vector2i = browser.size
+	browser.size = Vector2i(720, 500)
+	browser.notes_input.grab_focus()
+	await process_frame
+	await process_frame
+	var find := InputEventKey.new()
+	find.keycode = KEY_F
+	find.ctrl_pressed = true
+	find.pressed = true
+	browser.push_input(find)
+	await process_frame
+	await process_frame
+	await RenderingServer.frame_post_draw
+	for control in [browser.content_scroll, browser.restore_button, browser.rename_button, browser.delete_button, browser.close_button]:
+		if not Rect2(Vector2.ZERO, Vector2(browser.size)).encloses(control.get_global_rect()):
+			push_error("A saved-view action overflows at the minimum dialog size")
+			quit(1)
+			return
+	if not browser.filter_input.has_focus() or not browser.content_scroll.get_global_rect().encloses(browser.filter_input.get_global_rect()) or root.get_texture().get_image().save_png("/tmp/medicine-viewer-feasibility/saved-views-search-minimum.png") != OK:
+		push_error("Search cannot be reached from the note editor at minimum size")
+		quit(1)
+		return
+	browser.size = previous_size
+	await process_frame
+	await process_frame
+	browser.filter_input.text = ""
+	browser.filter_input.text_changed.emit("")
 	# Activate a list row and restore through ordinary UI input.
 	browser.view_list.select(1)
 	browser.select_entry(1)

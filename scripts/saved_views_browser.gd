@@ -30,6 +30,10 @@ var import_plan: Dictionary = {}
 var import_dialog: ConfirmationDialog
 var import_button: Button
 var export_button: Button
+var filter_input: LineEdit
+var filter_summary: Label
+var content_scroll: ScrollContainer
+var close_button: Button
 
 
 func button(text: String, callback: Callable, parent: Node) -> Button:
@@ -57,13 +61,23 @@ func _ready() -> void:
 	for side in ["left", "right", "top", "bottom"]:
 		margin.add_theme_constant_override("margin_" + side, 20)
 	add_child(margin)
-	var layout := VBoxContainer.new()
-	layout.add_theme_constant_override("separation", 12)
-	margin.add_child(layout)
+	var frame := VBoxContainer.new()
+	frame.add_theme_constant_override("separation", 12)
+	margin.add_child(frame)
 	var title_label := Label.new()
 	title_label.text = "SAVED VIEWS"
 	title_label.add_theme_font_size_override("font_size", 22)
-	layout.add_child(title_label)
+	frame.add_child(title_label)
+	content_scroll = ScrollContainer.new()
+	content_scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	content_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	content_scroll.follow_focus = true
+	frame.add_child(content_scroll)
+	var layout := VBoxContainer.new()
+	layout.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	layout.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	layout.add_theme_constant_override("separation", 12)
+	content_scroll.add_child(layout)
 	var hint := Label.new()
 	hint.text = "Keep your camera, labels and inspection setup. Add your study notes. Stored on this computer."
 	hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -82,6 +96,18 @@ func _ready() -> void:
 	layout.add_child(transfer)
 	import_button = button("Import views…", func(): request_action(open_import), transfer)
 	export_button = button("Export all views…", func(): request_action(open_export), transfer)
+	var filter_row := HBoxContainer.new()
+	layout.add_child(filter_row)
+	filter_input = LineEdit.new()
+	filter_input.placeholder_text = "Search views and notes…"
+	filter_input.tooltip_text = "Search view names and study notes. All words must match. Ctrl + F."
+	filter_input.clear_button_enabled = true
+	filter_input.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	filter_input.text_changed.connect(apply_filter)
+	filter_input.text_submitted.connect(func(_text: String): focus_first_match())
+	filter_row.add_child(filter_input)
+	filter_summary = Label.new()
+	filter_row.add_child(filter_summary)
 	var content := HBoxContainer.new()
 	content.add_theme_constant_override("separation", 18)
 	content.size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -128,7 +154,7 @@ func _ready() -> void:
 	message.add_theme_color_override("font_color", Color("83cfc9"))
 	layout.add_child(message)
 	var actions := HBoxContainer.new()
-	layout.add_child(actions)
+	frame.add_child(actions)
 	restore_button = button("Restore", restore_selected, actions)
 	rename_button = button("Rename", rename_selected, actions)
 	delete_button = button("Delete", delete_selected, actions)
@@ -136,7 +162,7 @@ func _ready() -> void:
 	var spacer := Control.new()
 	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	actions.add_child(spacer)
-	button("Close", request_close, actions)
+	close_button = button("Close", request_close, actions)
 	if legacy_available:
 		button("Restore previous quick save", restore_legacy, layout)
 	library.load_library()
@@ -156,15 +182,48 @@ func selected_entry() -> Dictionary:
 	return {}
 
 
-func refresh_list(selected_id: String = "") -> void:
+static func search_text(value: String) -> String:
+	return value.to_lower().replace("\t", " ").replace("\n", " ").replace("\r", " ")
+
+
+func matches_filter(entry: Dictionary) -> bool:
+	var text := search_text(str(entry.name) + " " + str(entry.get("notes", "")) + " " + str(draft_notes.get(entry.id, "")))
+	for word in search_text(filter_input.text).split(" ", false):
+		if word not in text:
+			return false
+	return true
+
+
+func apply_filter(_text: String) -> void:
+	refresh_list(str(selected_entry().get("id", "")))
+
+
+func focus_first_match() -> void:
+	if view_list.item_count == 0:
+		return
+	if view_list.get_selected_items().is_empty():
+		view_list.select(0)
+		select_entry(0)
+	view_list.grab_focus()
+
+
+func refresh_list(selected_id: String = "", reveal: bool = false) -> void:
+	remember_notes_draft()
+	if reveal:
+		for entry in library.entries:
+			if entry.id == selected_id and not matches_filter(entry):
+				filter_input.text = ""
 	view_list.clear()
 	for entry in library.entries:
+		if not matches_filter(entry):
+			continue
 		view_list.add_item(entry.name)
 		var index := view_list.item_count - 1
 		view_list.set_item_metadata(index, entry.id)
 		view_list.set_item_tooltip(index, entry.name)
 		if entry.id == selected_id:
 			view_list.select(index)
+	filter_summary.text = "%d of %d views" % [view_list.item_count, library.entries.size()]
 	save_button.disabled = not library.read_error.is_empty()
 	import_button.disabled = not library.read_error.is_empty()
 	export_button.disabled = not library.read_error.is_empty() or library.entries.is_empty()
@@ -172,6 +231,8 @@ func refresh_list(selected_id: String = "") -> void:
 	select_entry(-1)
 	if library.entries.is_empty() and library.read_error.is_empty():
 		information.text = "No named views yet. Enter a name to save the current setup."
+	elif view_list.item_count == 0:
+		information.text = "No matching views. Try another search or clear the search."
 
 
 func cancel_delete() -> void:
@@ -219,7 +280,7 @@ func save_current() -> void:
 		error = library.add_view(name_input.text.strip_edges(), current_state)
 	message.text = error if not error.is_empty() else "View saved on this computer."
 	if error.is_empty():
-		refresh_list(library.entries[0].id)
+		refresh_list(library.entries[0].id, true)
 
 
 func restore_selected() -> void:
@@ -238,7 +299,7 @@ func rename_selected() -> void:
 	var error: String = library.rename_view(entry.id, name_input.text.strip_edges())
 	message.text = error if not error.is_empty() else "View renamed."
 	if error.is_empty():
-		refresh_list(entry.id)
+		refresh_list(entry.id, true)
 
 
 func delete_selected() -> void:
@@ -350,6 +411,8 @@ func refresh_notes_status() -> void:
 	notes_button.disabled = editing_id.is_empty() or not draft_notes.has(editing_id) or not library.read_error.is_empty() or not error.is_empty()
 	if editing_id.is_empty():
 		notes_status.text = "Notes are attached to a saved view."
+		if not draft_notes.is_empty():
+			notes_status.text += "\n%d unsaved note draft%s kept. Select their views to continue." % [draft_notes.size(), "s" if draft_notes.size() != 1 else ""]
 	else:
 		notes_status.text = "%s · %d / 10,000 characters" % ["Unsaved" if draft_notes.has(editing_id) else "Saved", notes_input.text.length()]
 		if not error.is_empty():
@@ -364,7 +427,9 @@ func save_notes() -> void:
 	message.text = error if not error.is_empty() else "Study notes saved on this computer."
 	if error.is_empty():
 		draft_notes.erase(editing_id)
-	refresh_notes_status()
+		refresh_list(editing_id)
+	else:
+		refresh_notes_status()
 
 
 func request_close() -> void:
@@ -421,7 +486,17 @@ func finish_pending_action(save: bool) -> void:
 	action.call()
 
 
-func _unhandled_key_input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
-		request_close()
+func _input(event: InputEvent) -> void:
+	if not event is InputEventKey or not event.pressed or event.echo:
+		return
+	if event.keycode == KEY_F and (event.ctrl_pressed or event.meta_pressed) and not event.alt_pressed:
+		filter_input.grab_focus()
+		filter_input.select_all()
+		set_input_as_handled()
+	elif event.keycode == KEY_ESCAPE:
+		if filter_input.has_focus() and not filter_input.text.is_empty():
+			filter_input.text = ""
+			apply_filter("")
+		else:
+			request_close()
 		set_input_as_handled()

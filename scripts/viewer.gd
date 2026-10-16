@@ -418,7 +418,7 @@ func verify_note_editor(library_path: String, snapshot: Dictionary) -> bool:
 	browser.validate_state = validate_view_state
 	browser.theme = theme
 	add_child(browser)
-	browser.popup_centered_clamped(Vector2i(820, 620), 0.9)
+	browser.popup_centered_clamped(Vector2i(820, 660), 0.9)
 	await get_tree().process_frame
 	await get_tree().process_frame
 	browser.view_list.select(0)
@@ -431,6 +431,27 @@ func verify_note_editor(library_path: String, snapshot: Dictionary) -> bool:
 	var reopened := SavedViews.new()
 	reopened.path = library_path
 	var valid: bool = reopened.load_library().is_empty() and reopened.entries.size() == 1 and reopened.entries[0].get("notes", "") == expected and browser.draft_notes.is_empty() and export_view_state() == before
+	var library_bytes := FileAccess.get_file_as_bytes(library_path)
+	browser.filter_input.text = "no matching saved view"
+	browser.filter_input.text_changed.emit(browser.filter_input.text)
+	valid = valid and browser.view_list.item_count == 0 and browser.restore_button.disabled and browser.notes_button.disabled
+	browser.filter_input.text = "LOCAL source"
+	browser.filter_input.text_changed.emit(browser.filter_input.text)
+	browser.filter_input.text_submitted.emit(browser.filter_input.text)
+	valid = valid and browser.view_list.item_count == 1 and browser.selected_entry().get("id") == reopened.entries[0].id and browser.notes_input.text == expected
+	var clear := InputEventKey.new()
+	clear.keycode = KEY_F
+	clear.ctrl_pressed = true
+	clear.pressed = true
+	browser.push_input(clear)
+	await get_tree().process_frame
+	valid = valid and browser.filter_input.has_focus()
+	clear = clear.duplicate()
+	clear.keycode = KEY_ESCAPE
+	clear.ctrl_pressed = false
+	browser.push_input(clear)
+	await get_tree().process_frame
+	valid = valid and browser.filter_input.text.is_empty() and browser.view_list.item_count == 1 and FileAccess.get_file_as_bytes(library_path) == library_bytes and export_view_state() == before
 	await RenderingServer.frame_post_draw
 	var capture := get_viewport().get_texture().get_image()
 	valid = valid and capture.save_png("user://native-study-notes-%s.png" % str(model.body.id)) == OK
@@ -2568,7 +2589,7 @@ func show_saved_views() -> Window:
 	browser.legacy_requested.connect(load_view)
 	add_child(browser)
 	scale_text(browser)
-	browser.popup_centered_clamped(Vector2i(780, 560), 0.9)
+	browser.popup_centered_clamped(Vector2i(780, 660), 0.9)
 	return browser
 
 
