@@ -185,6 +185,12 @@ completed load. Scripted QA and headless runs ignore this file.
 Text sizing and keyboard manipulation improve access; assistive-technology and
 human accessibility acceptance remain open.
 
+Text fields, lists and selectable information use teal focus outlines. Text
+selection has a dark teal highlight, and unavailable buttons/links retain muted,
+readable labels. Focusing an anatomy list reveals its selected structure after
+layout or text-size changes without changing the selection, camera or edits.
+The note editor follows the same dark palette as the other text fields.
+
 Keyboard help and **Sources** use bounded, scrollable windows. Their text follows
 the selected size and can be selected for copying. Tab changes focus; Page Up/Down
 scrolls focused text, and Escape closes the window. Sources also lists the authored
