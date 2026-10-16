@@ -503,6 +503,10 @@ func verify_note_editor(library_path: String, snapshot: Dictionary, rendered: bo
 	DirAccess.remove_absolute(library_path + ".tmp")
 	browser.notes_input.set_caret_line(1)
 	browser.notes_input.set_caret_column(4)
+	var unfinished_name := "Name for a future view"
+	browser.name_input.text = unfinished_name
+	browser.name_input.caret_column = 6
+	browser.name_input.grab_focus()
 	var save_key := InputEventKey.new()
 	save_key.keycode = KEY_S
 	save_key.ctrl_pressed = true
@@ -515,6 +519,7 @@ func verify_note_editor(library_path: String, snapshot: Dictionary, rendered: bo
 	valid = valid and reopened.entries.size() == 2 and reopened.entries[0].id == second_id and reopened.entries[0].notes == second_draft and reopened.entries[1].id == saved.id and reopened.entries[1].notes == recovered_draft
 	valid = valid and browser.draft_notes.is_empty() and browser.save_all_notes_button.disabled and browser.selected_entry().get("id") == saved.id and not browser.is_queued_for_deletion()
 	valid = valid and browser.notes_input.get_caret_line() == 1 and browser.notes_input.get_caret_column() == 4 and export_view_state() == before
+	valid = valid and browser.name_input.text == unfinished_name and browser.name_input.caret_column == 6 and browser.name_input.has_focus()
 	if valid:
 		print("PASS bundled save all study notes: ", model.body.id)
 	await get_tree().process_frame

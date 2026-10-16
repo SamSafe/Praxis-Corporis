@@ -146,6 +146,11 @@ func run() -> void:
 	browser.on_notes_changed()
 	check(not browser.save_all_notes_button.disabled and "1 other view with unsaved notes" in browser.notes_status.text, "Multiple drafts have a shared save action and a visible count on other views")
 	browser.notes_input.set_caret_column(7)
+	var unfinished_name := "Name I am still typing"
+	browser.name_input.text = unfinished_name
+	browser.name_input.caret_column = 6
+	browser.name_input.select(3, 8)
+	var name_caret: int = browser.name_input.caret_column
 	browser.name_input.grab_focus()
 	key(browser, KEY_S, true)
 	await process_frame
@@ -154,6 +159,8 @@ func run() -> void:
 	reopened.load_library()
 	check(browser.draft_notes.is_empty() and browser.save_all_notes_button.disabled and browser.selected_entry().id == other and browser.notes_input.get_caret_column() == 7,
 		"Ctrl+S saves every draft from any library control, preserves selection/cursor, and keeps the window open")
+	check(browser.name_input.text == unfinished_name and browser.name_input.caret_column == name_caret and browser.name_input.get_selected_text() == unfinished_name.substr(3, 5),
+		"Saving notes keeps a partially typed view name, its cursor and its text selection")
 	var actual_notes := {}
 	for entry in reopened.entries:
 		actual_notes[entry.id] = entry.get("notes", "")
@@ -169,6 +176,11 @@ func run() -> void:
 	key(browser, KEY_S, false, true)
 	await process_frame
 	check(browser.draft_notes.is_empty() and browser.selected_entry().get("notes") == "Command shortcut note", "Cmd+S also saves notes without restoring anatomy")
+	browser.name_input.text = unfinished_name
+	browser.notes_input.text = "Save only this selected note"
+	browser.on_notes_changed()
+	browser.save_notes()
+	check(browser.name_input.text == unfinished_name, "Saving one selected note also preserves an unfinished view name")
 	browser.notes_input.text = "Do not partly save"
 	browser.on_notes_changed()
 	choose(browser, other)

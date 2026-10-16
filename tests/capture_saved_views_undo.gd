@@ -104,9 +104,13 @@ func run() -> void:
 	await process_frame
 	await process_frame
 	check(browser.content_scroll.get_global_rect().encloses(browser.save_all_notes_button.get_global_rect()), "Save all notes can be reached at minimum size with 130% text")
+	var unfinished_name := "A name for my next view"
+	browser.name_input.text = unfinished_name
+	browser.name_input.caret_column = 8
 	await click(browser, browser.save_all_notes_button)
 	check(browser.draft_notes.is_empty() and browser.library.entries[1].notes == draft and browser.library.entries[0].notes == other_note and browser.selected_entry().id == other_id and not browser.is_queued_for_deletion(),
 		"Real Save all notes click persists both drafts while keeping the selected view and library open")
+	check(browser.name_input.text == unfinished_name and browser.name_input.caret_column == 8, "Saving all notes keeps an unfinished view name and its cursor")
 	check(viewer.export_view_state() == before and viewer.model.undo_stack == undo and viewer.model.redo_stack == redo and viewer.back_views == back and viewer.forward_views == forward,
 		"Saving all notes preserves the entire anatomy view and both histories")
 	await RenderingServer.frame_post_draw

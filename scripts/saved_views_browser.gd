@@ -254,10 +254,11 @@ func cancel_delete() -> void:
 		delete_button.text = "Delete"
 
 
-func select_entry(_index: int) -> void:
+func select_entry(index: int) -> void:
 	cancel_delete()
 	remember_notes_draft()
 	var entry := selected_entry()
+	var previous_id := editing_id
 	var unavailable: bool = entry.is_empty() or not library.read_error.is_empty()
 	restore_button.disabled = unavailable
 	rename_button.disabled = unavailable
@@ -286,7 +287,9 @@ func select_entry(_index: int) -> void:
 	if not error.is_empty():
 		information.text += "\n" + error
 		restore_button.disabled = true
-	name_input.text = entry.name
+	# A notes refresh keeps any name the user is still typing.
+	if index >= 0 or previous_id != editing_id:
+		name_input.text = entry.name
 
 
 func save_current() -> void:
