@@ -108,7 +108,7 @@ func capture() -> void:
 	await process_frame
 	await RenderingServer.frame_post_draw
 	var result := root.get_texture().get_image().save_png("/tmp/medicine-viewer-feasibility/saved-views-library.png")
-	for control in [browser.content_scroll, browser.restore_button, browser.rename_button, browser.delete_button, browser.close_button]:
+	for control in [browser.content_scroll, browser.message, browser.restore_button, browser.rename_button, browser.delete_button, browser.close_button]:
 		if not Rect2(Vector2.ZERO, Vector2(browser.size)).encloses(control.get_global_rect()):
 			push_error("A saved-view action overflows the compact window")
 			quit(1)
@@ -140,7 +140,7 @@ func capture() -> void:
 	await process_frame
 	await process_frame
 	await RenderingServer.frame_post_draw
-	for control in [browser.content_scroll, browser.restore_button, browser.rename_button, browser.delete_button, browser.close_button]:
+	for control in [browser.content_scroll, browser.message, browser.restore_button, browser.rename_button, browser.delete_button, browser.close_button]:
 		if not Rect2(Vector2.ZERO, Vector2(browser.size)).encloses(control.get_global_rect()):
 			push_error("A saved-view action overflows at the minimum dialog size")
 			quit(1)

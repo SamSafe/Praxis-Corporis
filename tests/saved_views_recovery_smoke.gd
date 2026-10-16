@@ -107,6 +107,9 @@ func run() -> void:
 		"Successful browser recovery restores editing and removes the recovery action")
 	check(browser.library.recovery_copy_path.get_file() in browser.message.text and FileAccess.get_file_as_string(browser.library.recovery_copy_path) == "final damaged UI input",
 		"The browser names the preserved damaged file and retains its exact bytes")
+	await process_frame
+	await process_frame
+	check(Rect2(Vector2.ZERO, Vector2(browser.size)).encloses(browser.message.get_global_rect()), "Recovery feedback stays visible at the minimum dialog size")
 	browser.queue_free()
 	await process_frame
 	check(StudyVerification.verify_recovery({"body": "fixture", "selection": "first"}), "The exported-runtime recovery protocol passes against disposable storage")

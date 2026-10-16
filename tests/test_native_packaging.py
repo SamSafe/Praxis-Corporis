@@ -11,10 +11,39 @@ import zipfile
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
-from build_native import binary_architectures, make_zip, unpack_zip
+from build_native import binary_architectures, ensure_unchanged_sources, make_zip, sha256, unpack_zip
 
 
 class NativePackagingTests(unittest.TestCase):
+    def test_changed_or_deleted_runtime_inputs_cannot_finish_a_build(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = pathlib.Path(folder)
+            (root / "scripts").mkdir()
+            project = root / "project.godot"
+            script = root / "scripts/viewer.gd"
+            project.write_text("original project")
+            script.write_text("original script")
+            recorded = {"project.godot": sha256(project), "scripts/viewer.gd": sha256(script)}
+            ensure_unchanged_sources(recorded, root)
+            script.write_text("edited during export")
+            with self.assertRaisesRegex(ValueError, "viewer.gd"):
+                ensure_unchanged_sources(recorded, root)
+            script.write_text("original script")
+            project.unlink()
+            with self.assertRaisesRegex(ValueError, "project.godot"):
+                ensure_unchanged_sources(recorded, root)
+
+    def test_added_runtime_script_invalidates_the_recorded_build_snapshot(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = pathlib.Path(folder)
+            (root / "scripts").mkdir()
+            script = root / "scripts/viewer.gd"
+            script.write_text("original script")
+            recorded = {"scripts/viewer.gd": sha256(script)}
+            (root / "scripts/added.gd").write_text("new runtime resource")
+            with self.assertRaisesRegex(ValueError, "Runtime scripts changed"):
+                ensure_unchanged_sources(recorded, root)
+
     def test_mac_executable_permissions_survive_archive_round_trip(self):
         with tempfile.TemporaryDirectory() as folder:
             root = pathlib.Path(folder)

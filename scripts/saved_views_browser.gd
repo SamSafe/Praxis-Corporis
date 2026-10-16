@@ -152,7 +152,7 @@ func _ready() -> void:
 	message = Label.new()
 	message.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	message.add_theme_color_override("font_color", Color("83cfc9"))
-	layout.add_child(message)
+	frame.add_child(message)
 	var actions := HBoxContainer.new()
 	frame.add_child(actions)
 	restore_button = button("Restore", restore_selected, actions)

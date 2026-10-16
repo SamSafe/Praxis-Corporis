@@ -154,6 +154,19 @@ def add_notices(folder: pathlib.Path, platform: str) -> None:
     )
 
 
+def ensure_unchanged_sources(recorded: dict, root: pathlib.Path = ROOT) -> None:
+    """Reject runtime files that no longer match the build's recorded inputs."""
+    for relative, expected in recorded.items():
+        path = root / relative
+        if not path.is_file() or sha256(path) != expected:
+            raise ValueError("Runtime source changed during build: " + relative
+                             + ". Rebuild before using these archives.")
+    scripts = {path.relative_to(root).as_posix() for path in (root / "scripts").glob("*.gd")}
+    recorded_scripts = {name for name in recorded if name.startswith("scripts/") and name.endswith(".gd")}
+    if scripts != recorded_scripts:
+        raise ValueError("Runtime scripts changed during build. Rebuild before using these archives.")
+
+
 def build(args: argparse.Namespace) -> dict:
     version = subprocess.check_output([args.godot, "--version"], text=True, timeout=10).strip()
     if not version.startswith("4.7.2."):
@@ -162,7 +175,7 @@ def build(args: argparse.Namespace) -> dict:
     report = {"engine": version, "content_pack": "hra-united-v1-1-prototype-1", "artifacts": [],
               "target_device_testing": "pending", "publication": "local private artifacts only"}
     report["source_revision"] = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
-    report["source_hashes"] = {str(path.relative_to(ROOT)): sha256(path) for path in
+    report["source_hashes"] = {path.relative_to(ROOT).as_posix(): sha256(path) for path in
                                [ROOT / "project.godot", ROOT / "export_presets.cfg", ROOT / "content/sample_pack.json",
                                 ROOT / "content/source_manifest.json", ROOT / "content/toolchain_manifest.json",
                                 ROOT / "content/coverage_notes.json",
@@ -252,6 +265,8 @@ def build(args: argparse.Namespace) -> dict:
             report["artifacts"].append({"file": name, "bytes": destination.stat().st_size,
                                         "sha256": sha256(destination), "architectures": architectures})
             print("Built", destination, flush=True)
+        ensure_unchanged_sources(report["source_hashes"])
+        report["runtime_sources_unchanged"] = True
         (args.output / "build-report.json").write_text(json.dumps(report, indent=2) + "\n")
     return report
 
