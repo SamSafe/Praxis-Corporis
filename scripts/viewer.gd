@@ -22,7 +22,7 @@ const InformationDialog = preload("res://scripts/information_dialog.gd")
 const WindowState = preload("res://scripts/window_state.gd")
 const ReferenceState = preload("res://scripts/reference_state.gd")
 enum ExpandedAction { FOCUS, WHOLE_BODY, INSPECT, RETURN_CONTEXT, SELECTION_LABELS,
-	LOCAL_LABELS, MOVE, UNDO, REDO, SAVED_VIEWS, SCREENSHOT, KEYBOARD_HELP, GUIDED_CHEST, CIRCULATION_ROUTE }
+	LOCAL_LABELS, MOVE, UNDO, REDO, SAVED_VIEWS, SCREENSHOT, KEYBOARD_HELP, GUIDED_CHEST, CIRCULATION_ROUTE, FIND_ANATOMY }
 var save_path := "user://saved_view.json"
 var views_path := "user://saved_views.json"
 
@@ -353,8 +353,43 @@ func verify_search(rendered: bool) -> bool:
 	search.text = query
 	rebuild_tree()
 	var valid: bool = search_total >= 1 and search_results.get_item_metadata(0) == expected and export_view_state() == before
+	var previous_expanded := scene_expanded
+	var explorer_visible := explorer_panel.visible
+	var undo: Array = model.undo_stack.duplicate(true)
+	var back: Array = back_views.duplicate(true)
+	var forward: Array = forward_views.duplicate(true)
+	if explorer_panel.visible:
+		on_panel_action(0)
+	set_scene_expanded(true)
+	scene_container.grab_focus()
+	var find_key := InputEventKey.new()
+	find_key.keycode = KEY_F
+	find_key.ctrl_pressed = true
+	find_key.pressed = true
+	get_viewport().push_input(find_key)
+	await get_tree().process_frame
+	await get_tree().process_frame
+	valid = valid and not scene_expanded and explorer_panel.visible and search.has_focus() and search.get_selected_text() == query
+	valid = valid and export_view_state() == before and model.undo_stack == undo and back_views == back and forward_views == forward
+	find_key = find_key.duplicate()
+	find_key.keycode = KEY_ESCAPE
+	find_key.ctrl_pressed = false
+	get_viewport().push_input(find_key)
+	await get_tree().process_frame
+	valid = valid and search.text.is_empty() and tree.visible and search.has_focus() and export_view_state() == before
+	get_viewport().push_input(find_key)
+	await get_tree().process_frame
+	valid = valid and scene_container.has_focus() and export_view_state() == before
+	search.text = query
+	rebuild_tree()
 	activate_first_search_result()
 	valid = valid and model.selected_id == expected and model.export_state() == before.changes and str(model.body.sha256) in source_record_text()
+	var selected_view := export_view_state()
+	get_viewport().push_input(find_key)
+	await get_tree().process_frame
+	valid = valid and search.text.is_empty() and search.has_focus() and export_view_state() == selected_view
+	search.text = query
+	rebuild_tree()
 	if rendered and valid:
 		inspect_alone()
 		await get_tree().physics_frame
@@ -365,7 +400,12 @@ func verify_search(rendered: bool) -> bool:
 	search.text = ""
 	rebuild_tree()
 	valid = valid and await restore_view_state(before)
+	if explorer_panel.visible != explorer_visible:
+		on_panel_action(0)
+	if scene_expanded != previous_expanded:
+		set_scene_expanded(previous_expanded)
 	if valid:
+		print("PASS bundled find anatomy: ", model.body.id)
 		print("PASS bundled source search: ", model.body.id)
 	return valid
 
@@ -988,6 +1028,7 @@ func build_interface() -> void:
 	panels_menu.get_popup().add_separator()
 	panels_menu.get_popup().add_item("Keyboard controls…", 2)
 	panels_menu.get_popup().add_item("Preferences…", 4)
+	panels_menu.get_popup().add_item("Find anatomy… · Ctrl/Cmd+F", 5)
 	panels_menu.get_popup().add_separator("3D resolution")
 	panels_menu.get_popup().add_radio_check_item("Native · sharpest", 100)
 	panels_menu.get_popup().add_radio_check_item("75% · balanced", 101)
@@ -1011,17 +1052,19 @@ func build_interface() -> void:
 	search = LineEdit.new()
 	search.placeholder_text = "Name or source ID…"
 	search.max_length = 256
-	search.tooltip_text = "Find structures in this reference by name, source name, ontology ID or catalogue ID. Enter selects the first result."
+	search.tooltip_text = "Find structures in this reference by name, source name, ontology ID or catalogue ID. Ctrl/Cmd+F opens search; Enter selects the first result. Escape clears search, then returns to anatomy."
 	search.clear_button_enabled = true
 	search.custom_minimum_size.y = 40
 	search.text_changed.connect(func(_text: String): rebuild_tree())
 	search.text_submitted.connect(func(_text: String): activate_first_search_result())
+	search.gui_input.connect(on_search_input)
 	left.add_child(search)
 	search_summary = make_label("", 12, Color("83cfc9"))
 	search_summary.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	search_summary.visible = false
 	left.add_child(search_summary)
 	search_results = ItemList.new()
+	search_results.gui_input.connect(on_search_input)
 	search_results.visible = false
 	search_results.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	search_results.custom_minimum_size = Vector2(255, 160)
@@ -1327,6 +1370,7 @@ func build_interface() -> void:
 	expanded_popup.add_item("Heart ↔ lungs route…", ExpandedAction.CIRCULATION_ROUTE)
 	expanded_popup.add_item("Screenshot…", ExpandedAction.SCREENSHOT)
 	expanded_popup.add_item("Keyboard controls…", ExpandedAction.KEYBOARD_HELP)
+	expanded_popup.add_item("Find anatomy… · Ctrl/Cmd+F", ExpandedAction.FIND_ANATOMY)
 	expanded_popup.add_separator("3D resolution")
 	expanded_popup.add_radio_check_item("Native · sharpest", 100)
 	expanded_popup.add_radio_check_item("75% · balanced", 101)
@@ -1759,12 +1803,45 @@ func on_panel_action(id: int) -> void:
 		show_keyboard_help()
 	elif id == 4:
 		show_preferences()
+	elif id == 5:
+		focus_anatomy_search()
+
+
+func focus_anatomy_search() -> void:
+	if loading or model.body.is_empty():
+		return
+	part_actions.close_menu()
+	panels_menu.get_popup().hide()
+	expanded_menu.get_popup().hide()
+	if scene_expanded:
+		set_scene_expanded(false)
+	if not explorer_panel.visible:
+		on_panel_action(0)
+	# Close menus first so their focus restoration cannot take focus back.
+	search.grab_focus()
+	search.select_all()
+
+
+func on_search_input(event: InputEvent) -> void:
+	if loading or not event is InputEventKey or not event.pressed or event.echo:
+		return
+	if event.keycode == KEY_F and (event.ctrl_pressed or event.meta_pressed) and not event.alt_pressed and not event.shift_pressed:
+		focus_anatomy_search()
+		search.accept_event()
+	elif event.keycode == KEY_ESCAPE and not event.ctrl_pressed and not event.meta_pressed and not event.alt_pressed and not event.shift_pressed:
+		if not search.text.is_empty():
+			search.text = ""
+			rebuild_tree()
+			search.grab_focus()
+		else:
+			scene_container.grab_focus()
+		search.accept_event()
 
 
 func show_keyboard_help() -> Window:
 	var dialog := InformationDialog.new()
 	dialog.title = "Keyboard controls"
-	dialog.message = "Tab / Shift-Tab moves between controls.\nSearch and anatomy lists provide a text selection route.\n\nWith the 3D view focused (teal border):\nArrow keys orbit · Shift + arrows pan\n+ / - zoom · F focuses selection · Home shows the body\nShift+F10 / Menu opens selected-part actions\nM toggles Move mode. In Move mode, press:\nI/J/K/L: up/left/down/right in the camera plane\nU/O: toward/away from the camera\nEach press: 5 mm · hold Shift: 1 mm · Undo reverses a press\nCamera keys leave Move mode and preserve inspection edits.\n\nF11 expands anatomy; Escape returns to the workspace.\nAlt + Left/Right revisits views.\nCtrl/Cmd + Z undoes inspection; add Shift to redo.\nText fields keep their ordinary editing shortcuts.\nEscape leaves Move mode or closes the active dialog.\n\nIn this help window, Tab changes focus and Page Up/Down scroll the text."
+	dialog.message = "Tab / Shift-Tab moves between controls.\nCtrl/Cmd+F finds anatomy and reveals its search panel.\nIn anatomy search, Escape clears the query; press again to return to 3D.\nSearch and anatomy lists provide a text selection route.\n\nWith the 3D view focused (teal border):\nArrow keys orbit · Shift + arrows pan\n+ / - zoom · F focuses selection · Home shows the body\nShift+F10 / Menu opens selected-part actions\nM toggles Move mode. In Move mode, press:\nI/J/K/L: up/left/down/right in the camera plane\nU/O: toward/away from the camera\nEach press: 5 mm · hold Shift: 1 mm · Undo reverses a press\nCamera keys leave Move mode and preserve inspection edits.\n\nF11 expands anatomy; Escape returns to the workspace.\nAlt + Left/Right revisits views.\nCtrl/Cmd + Z undoes inspection; add Shift to redo.\nText fields keep their ordinary editing shortcuts.\nEscape leaves Move mode or closes the active dialog.\n\nIn this help window, Tab changes focus and Page Up/Down scroll the text."
 	dialog.theme = theme
 	add_child(dialog)
 	scale_text(dialog)
@@ -1918,8 +1995,9 @@ func on_expanded_action(id: int) -> void:
 			ExpandedAction.GUIDED_CHEST: start_guided_chest()
 			ExpandedAction.CIRCULATION_ROUTE: start_circulation_route()
 			ExpandedAction.SCREENSHOT: export_screenshot()
+			ExpandedAction.FIND_ANATOMY: focus_anatomy_search()
 	refresh_expanded_menu()
-	if id not in [ExpandedAction.SAVED_VIEWS, ExpandedAction.SCREENSHOT, ExpandedAction.KEYBOARD_HELP]:
+	if id not in [ExpandedAction.SAVED_VIEWS, ExpandedAction.SCREENSHOT, ExpandedAction.KEYBOARD_HELP, ExpandedAction.FIND_ANATOMY]:
 		scene_container.grab_focus()
 
 
@@ -2136,7 +2214,8 @@ func refresh_details() -> void:
 	if label_density:
 		label_density.editable = not loading
 	if search:
-		search.editable = not loading
+		search.editable = not loading and not model.body.is_empty()
+	panels_menu.get_popup().set_item_disabled(panels_menu.get_popup().get_item_index(5), loading or model.body.is_empty())
 	var selected: bool = model.structures.has(model.selected_id)
 	if guide_button:
 		guide_button.disabled = loading or not model.structures.has("anatomy.heart")
@@ -2849,7 +2928,10 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		var focused := get_viewport().gui_get_focus_owner()
 		if focused is LineEdit or focused is TextEdit:
 			return
-		if event.keycode == KEY_Z and (event.ctrl_pressed or event.meta_pressed):
+		if event.keycode == KEY_F and (event.ctrl_pressed or event.meta_pressed) and not event.alt_pressed and not event.shift_pressed:
+			focus_anatomy_search()
+			get_viewport().set_input_as_handled()
+		elif event.keycode == KEY_Z and (event.ctrl_pressed or event.meta_pressed):
 			if event.shift_pressed:
 				model.redo()
 			else:
