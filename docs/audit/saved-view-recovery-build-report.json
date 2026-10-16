@@ -1,0 +1,71 @@
+{
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "content_pack": "hra-united-v1-1-prototype-1",
+  "artifacts": [
+    {
+      "file": "PraxisCorporis-Windows-x64-private.zip",
+      "bytes": 328117731,
+      "sha256": "f8574888758a2eeb2e50dc9840c79b0aa965c58cc0ce51a67fdb7dc86648c76b",
+      "architectures": [
+        "x86_64"
+      ]
+    },
+    {
+      "file": "PraxisCorporis-macOS-universal-private.zip",
+      "bytes": 350563646,
+      "sha256": "c8492bb5ee9cc7896ecd2848b817a3f1018cc0f62d5677d347aab318ec761eee",
+      "architectures": [
+        "x86_64",
+        "arm64"
+      ]
+    }
+  ],
+  "target_device_testing": "pending",
+  "publication": "local private artifacts only",
+  "source_revision": "6ca4acf5072391b152d9a7dbd9e86a276d92b1fd",
+  "source_hashes": {
+    "project.godot": "42fb2623bd409f69e02411ffae312411087e7610d480c03132366aff43465b35",
+    "export_presets.cfg": "924d082f18ee79e58ed339b2ff4c7eb92f92fb498f6481743f3d8814d5779aa2",
+    "content/sample_pack.json": "7766d1c3fb63ba526a1a5a36f4c25c4024da7e9237bd212c224ab9080af7207c",
+    "content/source_manifest.json": "15a940b6de53461975446187bcd651f806327fb1bf9c8be10ee5f64d655a1385",
+    "content/toolchain_manifest.json": "2697648889696238ca23c3a240b25791a775e57fedf525a4dc998690a0256f55",
+    "content/coverage_notes.json": "94024f61ee793f1342ccf9f1550e03a6c0b49d11220143f14eca63bbbe49883c",
+    "content/reference_frames.json": "d99c4f603b365af3d6cc36c19581ac385f87b080b35944d7b5ef279e6964b5a0",
+    "content/study_content.json": "ca76692360de3b1328e0bc049e6173fc7162e9bacbfa4e9d93c1607a2a1f6d8c",
+    "content/spinal_studies.json": "54008500339438e189008a67baa3c877d08ae7494d90f9fd2b842695a99cf204",
+    "content/spinal_source_manifest.json": "85d1d1b19d7655eabc069ff50fd80b55c64ccc9ac647220f5e9f5585278c4b22",
+    "content/bodyparts3d_bone_study.json": "988b7dced7c0742d4d56c05829401d99e90ae5aa8139a9382b58e9d16b0605db",
+    "content/bodyparts3d_source_manifest.json": "c2653fdd1a580228766666187707344b88989177b169f7a01bc0c514937a61a9",
+    "addons/private_native_export/plugin.gd": "60315cec1189c41bc6a11e0caa66ae7dcf4cc95c4acc171ada4f134ee53f0916",
+    "scripts/anatomy_labels.gd": "6079975044081e9482ff9815e7d914428d2b7a97d828d364de4e6db5e37642cf",
+    "scripts/anatomy_model.gd": "8c2bb64a8ccf1b0e96d9f22e733e35554f6dfbdad388ce2427dc87762aedce0a",
+    "scripts/anatomy_search.gd": "cf70522a940dcefc239485b100031f497dc8d6e1f801c46a346a9ab019ffcc98",
+    "scripts/content_bundle.gd": "65a67db6c829389bb5fbe44ef5149efa1bd8137637866106d1361b405c9017d9",
+    "scripts/coverage_browser.gd": "5906cb9ff0d527efbc8439ec1a0cb3a8e8e1f68fa250349555a61552e54d2aff",
+    "scripts/guided_chest.gd": "beac0407af3a93089d5b094e89f96372ca515e4c1aa868c66bd1e7c39d49585d",
+    "scripts/information_dialog.gd": "6ffcb8411287dc493106bfb6de0a55450467e9cc97765a0205d1bbe50961abca",
+    "scripts/orbit_camera.gd": "b018ce8e8ff5be639ac611368f0afc227d0318f8700bbcfcce14f46b449496e3",
+    "scripts/part_actions.gd": "d7a22bd054d8618cc0acad55e28aff53dd531fbe4722f678c3deea8b1c91011e",
+    "scripts/prepared_selection.gd": "e944fee8a6990e332591a204ffc456942cf20670377efd871a533cef7ac7b3d2",
+    "scripts/reference_orientation.gd": "4f510b74357d7a7020710f514559be36354bb52d0e72bea7a4ccf0123274b802",
+    "scripts/render_profile.gd": "0121687a67b13e355680ed8c9afb43fea091649a65fd1bf2f462b57620c5f2ce",
+    "scripts/saved_views.gd": "5d41cded30e7f0c19375a6ca73f988fa350a8d6876337e885499275c953872cf",
+    "scripts/saved_views_browser.gd": "ccf8bf34a0a8dfde33fdad88268b111d3acd584d9af9ce3445a8ed9365b45828",
+    "scripts/scene_surface.gd": "b5ba22e8602bb3bf89eb8c734a1678d863bd563add489bdc73ceff0d780dbd41",
+    "scripts/source_index_extension.gd": "090d8c7f9346889a43980f0854e0bca2e588138447d86628f76b8ab87b94d84c",
+    "scripts/source_record.gd": "94af7e7697dca85d83c160553efe55d1a450723237a0c29b814ba9e0328af78e",
+    "scripts/study_content.gd": "d3b9d9ada3270ba79c143b47c262098fa910bea060f4da74e6badd9ff5b5174f",
+    "scripts/study_verification.gd": "a22cf29a9c33670b9eed8f96c2d0f32144acfe53e642a9aaa239ac40d8009109",
+    "scripts/view_capture.gd": "b7ca05ae495747ab94337d25b5fb805ffb1249cd3b76d0d9bb56a141d0cd640d",
+    "scripts/viewer.gd": "8f4e5d311393abbb9bb0a265d36ab83b402766482baa1d71bd2b3a9eba7990c6",
+    "scripts/viewer_preferences.gd": "94d0e1a2c561225a67f8df97c1591a1cc5f9a43b63b019fefa2da456b5b7249c",
+    "scripts/window_state.gd": "5397d2e07abc86dde125dd3332fa1b6dd793d8fd3556fffb8c4ba1dc48db277b"
+  },
+  "anatomy_package": {
+    "bytes": 624166432,
+    "sha256": "5db1ab9a5e8d4630a63cfa68e701232ace4fc751dd9f8e8bab094e8b1317e109"
+  },
+  "linux_qa": "passed exported-runtime checks for every bundled reference and missing-content handling",
+  "mac_content_qa": "passed every bundled reference in embedded content on the development engine; Mac device testing pending",
+  "runtime_sources_unchanged": true
+}

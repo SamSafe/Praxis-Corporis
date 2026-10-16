@@ -1,0 +1,74 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ERROR: Parse JSON failed. Error at line 0: Expected 'true', 'false', or 'null', got 'truncated'
+   at: parse_string (core/io/json.cpp:629)
+   GDScript backtrace (most recent call first):
+       [0] read_file (res://scripts/saved_views.gd:17)
+       [1] load_library (res://scripts/saved_views.gd:47)
+       [2] run (res://tests/saved_views_recovery_smoke.gd:36)
+ERROR: Stale recovery cannot replace a newly healthy library
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/saved_views_recovery_smoke.gd:10)
+       [1] run (res://tests/saved_views_recovery_smoke.gd:41)
+ERROR: Rejected recovery does not change memory or create a damaged copy
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/saved_views_recovery_smoke.gd:10)
+       [1] run (res://tests/saved_views_recovery_smoke.gd:42)
+ERROR: Parse JSON failed. Error at line 0: Expected 'true', 'false', or 'null', got 'second'
+   at: parse_string (core/io/json.cpp:629)
+   GDScript backtrace (most recent call first):
+       [0] read_file (res://scripts/saved_views.gd:17)
+       [1] load_library (res://scripts/saved_views.gd:47)
+       [2] run (res://tests/saved_views_recovery_smoke.gd:44)
+ERROR: A changed damaged file also invalidates the recovery offer
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/saved_views_recovery_smoke.gd:10)
+       [1] run (res://tests/saved_views_recovery_smoke.gd:47)
+ERROR: Recovery never replaces an earlier damaged copy
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/saved_views_recovery_smoke.gd:10)
+       [1] run (res://tests/saved_views_recovery_smoke.gd:51)
+ERROR: A separate recovery copy preserves this damaged file exactly
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/saved_views_recovery_smoke.gd:10)
+       [1] run (res://tests/saved_views_recovery_smoke.gd:56)
+ERROR: A healthy loaded library cannot be rolled back through recovery
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/saved_views_recovery_smoke.gd:10)
+       [1] run (res://tests/saved_views_recovery_smoke.gd:60)
+ERROR: Recovery for a missing file cannot overwrite a later replacement
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/saved_views_recovery_smoke.gd:10)
+       [1] run (res://tests/saved_views_recovery_smoke.gd:65)
+ERROR: Parse JSON failed. Error at line 0: Expected '}'
+   at: parse_string (core/io/json.cpp:629)
+   GDScript backtrace (most recent call first):
+       [0] read_file (res://scripts/saved_views.gd:17)
+       [1] preview_import (res://scripts/saved_views.gd:242)
+       [2] run (res://tests/saved_views_recovery_smoke.gd:72)
+ERROR: Parse JSON failed. Error at line 0: Expected '}'
+   at: parse_string (core/io/json.cpp:629)
+   GDScript backtrace (most recent call first):
+       [0] read_file (res://scripts/saved_views.gd:17)
+       [1] load_library (res://scripts/saved_views.gd:47)
+       [2] run (res://tests/saved_views_recovery_smoke.gd:76)
+ERROR: Parse JSON failed. Error at line 0: Expected '}'
+   at: parse_string (core/io/json.cpp:629)
+   GDScript backtrace (most recent call first):
+       [0] read_file (res://scripts/saved_views.gd:17)
+       [1] can_recover (res://scripts/saved_views.gd:178)
+       [2] run (res://tests/saved_views_recovery_smoke.gd:77)
+ERROR: Parse JSON failed. Error at line 0: Expected '}'
+   at: parse_string (core/io/json.cpp:629)
+   GDScript backtrace (most recent call first):
+       [0] read_file (res://scripts/saved_views.gd:17)
+       [1] recover_backup (res://scripts/saved_views.gd:182)
+       [2] run (res://tests/saved_views_recovery_smoke.gd:77)
+Saved-view recovery failures: 7

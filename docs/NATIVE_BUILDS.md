@@ -14,13 +14,13 @@ portable views and four independent spinal source studies.
 
 The generated archives are excluded from Git:
 
-- Windows x64: dist/saved-view-search-final/PraxisCorporis-Windows-x64-private.zip
-- Mac Intel/Apple Silicon: dist/saved-view-search-final/PraxisCorporis-macOS-universal-private.zip
+- Windows x64: dist/recovery-final/PraxisCorporis-Windows-x64-private.zip
+- Mac Intel/Apple Silicon: dist/recovery-final/PraxisCorporis-macOS-universal-private.zip
 
 Earlier archives retain their previous source identities and their review-label
-corrections. Use the saved-view-search-final build report when verifying the new archives.
-[Saved-view search and package verification](audit/SAVED_VIEWS_SEARCH_VERIFICATION.md)
-records their exact hashes, seven-reference Windows checks, note-cursor preservation,
+corrections. Use the recovery-final build report when verifying the new archives.
+[Recovery and package verification](audit/LIBRARY_RECOVERY_VERIFICATION.md)
+records their exact hashes, seven-reference Windows checks, recovery/draft safeguards,
 three normal-launch window restoration checks and remaining Mac/human limits.
 
 Extract the complete ZIP. In its PraxisCorporis folder, open PraxisCorporis.exe
@@ -48,6 +48,11 @@ First fetch and prepare anatomy using [PROTOTYPE.md](PROTOTYPE.md), then:
 ```sh
 python3 tools/build_native.py --godot /path/to/godot
 ```
+
+The builder compares runtime hashes and the script set again before recording a
+successful build report. If inputs have changed, it stops with an error; rebuild
+from a stable working tree before using those intermediate ZIPs. Archive auditing
+still checks that the recorded inputs match their committed source revision.
 
 On Windows, use the Python executable and full Godot executable path available on
 that machine. --platform windows or --platform macos builds a single target.
