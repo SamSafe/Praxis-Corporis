@@ -1,0 +1,38 @@
+extends SceneTree
+var wanted := "Loading anatomy"
+var replacing := false
+var closed := false
+var observed := ""
+var viewer
+
+func _initialize() -> void:
+	for argument in OS.get_cmdline_user_args():
+		if argument.begins_with("--stage="):
+			wanted = argument.trim_prefix("--stage=")
+		if argument == "--replace":
+			replacing = true
+	call_deferred("run")
+
+func run() -> void:
+	viewer = load("res://scenes/main.tscn").instantiate()
+	root.add_child(viewer)
+	if replacing or wanted == "Ready":
+		await process_frame
+		while viewer.loading:
+			await process_frame
+	if wanted == "Ready":
+		closed = true
+		observed = wanted
+		viewer.request_exit()
+		return
+	viewer.model.load_progress.connect(func(stage: String, _fraction: float):
+		if stage == wanted and not closed:
+			closed = true
+			observed = stage
+			print("REQUEST CLOSE DURING: ", stage, " · replacing ", replacing)
+			viewer.call_deferred("request_exit"))
+	if replacing:
+		viewer.switch_body("male")
+
+func _finalize() -> void:
+	print("CLOSE OBSERVED: ", closed, " · ", observed, " · replacing ", replacing)

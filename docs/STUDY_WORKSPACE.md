@@ -174,6 +174,8 @@ and restores its original viewing controls. Canceling a different-reference save
 view also retains the current study.
 
 Canceling may wait for the current reading step to finish before controls resume.
+Closing the application during opening also collects its pending read and releases
+staged geometry. The current read may finish before the process closes.
 The button then disappears and keyboard focus returns to the anatomy view. The
 last completed reference remains the startup choice. Completing a later reference
 switch still works normally.
@@ -291,7 +293,7 @@ preview. Running it with a desktop display also captures the new screens under
 reconstructed collision vertices with source mesh faces. The exported runtime checks
 portable views/notes, preferences and reversible guide state in disposable files.
 Device trials and qualified medical review remain separate from scripted verification.
-[Verification and current private packages](audit/EXPORT_SAFEGUARDS_VERIFICATION.md)
+[Verification and current private packages](audit/LOADING_SHUTDOWN_VERIFICATION.md)
 retain exact build identities, native Windows evidence, saved-view recovery/search/draft
 and deletion-undo checks, study-preserving cancellation and normal-launch reference/window restoration observations. [Draft content verification](audit/DRAFT_CONTENT_VERIFICATION.md)
 records the learning-content review-stage correction and valve-reference checks.

@@ -14,13 +14,13 @@ portable views and four independent spinal source studies.
 
 The generated archives are excluded from Git:
 
-- Windows x64: dist/export-guard-improvements/PraxisCorporis-Windows-x64-private.zip
-- Mac Intel/Apple Silicon: dist/export-guard-improvements/PraxisCorporis-macOS-universal-private.zip
+- Windows x64: dist/loading-shutdown-improvements/PraxisCorporis-Windows-x64-private.zip
+- Mac Intel/Apple Silicon: dist/loading-shutdown-improvements/PraxisCorporis-macOS-universal-private.zip
 
 Earlier archives retain their previous source identities and their review-label
-corrections. Use the export-guard-improvements build report when verifying the new archives.
-[Export safeguards and package verification](audit/EXPORT_SAFEGUARDS_VERIFICATION.md)
-records their exact hashes, seven-reference checks and filesystem alias safeguards,
+corrections. Use the loading-shutdown-improvements build report when verifying the new archives.
+[Loading shutdown and package verification](audit/LOADING_SHUTDOWN_VERIFICATION.md)
+records their exact hashes, seven-reference workflows and early-close checks,
 four normal launches and remaining Mac/human limits.
 
 Extract the complete ZIP. In its PraxisCorporis folder, open PraxisCorporis.exe

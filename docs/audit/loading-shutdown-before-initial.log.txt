@@ -1,0 +1,29 @@
+WorkerThreadPool: 12 threads, 3 max low-priority.
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+TextServer: Added interface "Dummy"
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
+SDL: Init OK!
+Using "default" pen tablet driver...
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+CORE API HASH: 2004498165
+EDITOR API HASH: 1696660745
+Loading resource: /tmp/medicine-improvements/probe_close_loading.gd remapped: /tmp/medicine-improvements/probe_close_loading.gd
+Completed load for: '/tmp/medicine-improvements/probe_close_loading.gd' remapped '/tmp/medicine-improvements/probe_close_loading.gd' at thread -1
+SceneTreeFTI: traversal method DEFAULT
+Loaded system CA certificates
+Loading resource: res://scenes/main.tscn remapped: res://scenes/main.tscn
+Loading resource: res://scripts/viewer.gd remapped: res://scripts/viewer.gd
+Completed load for: 'res://scripts/viewer.gd' remapped 'res://scripts/viewer.gd' at thread -1
+Completed load for: 'res://scenes/main.tscn' remapped 'res://scenes/main.tscn' at thread -1
+Loading female reference
+REQUEST CLOSE DURING: Loading anatomy · replacing false
+Loading resource: res://assets/prepared/female-149c9dade4a9-geometry-v2.scn remapped: res://assets/prepared/female-149c9dade4a9-geometry-v2.scn
+CLOSE OBSERVED: true · Loading anatomy · replacing false
+WARNING: 1 ObjectDB instance was leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+XR: Clearing primary interface
+XR: Removed interface "Native mobile"
+XR: Removed interface "OpenXR"
+Leaked instance: RefCounted:9223372085575813312 - Reference count: 1
+Hint: Leaked instances typically happen when nodes are removed from the scene tree (with `remove_child()`) but not freed (with `free()` or `queue_free()`).

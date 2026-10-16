@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "runtime_source_revision": "8fe8d58cfeca204100329931123a2d42710e5c1f",
+  "before_fix_revision": "7a052c2ee95417502fa7f53ca57c01a40d0abb34",
+  "source_shutdown_cases": 8,
+  "linux_export_shutdown_cases": [
+    "initial/anatomy",
+    "replacement/selection"
+  ],
+  "mac_embedded_content_shutdown_cases": [
+    "initial/anatomy",
+    "replacement/selection"
+  ],
+  "windows_shutdown_cases": [
+    "initial/anatomy",
+    "replacement/selection"
+  ],
+  "native_capture_identities": 94,
+  "native_session_independently_checked_absent": true,
+  "files": {
+    "loading-shutdown-artifact-audit.json": {
+      "bytes": 1346,
+      "sha256": "7214813f7f2c04c83885678bd2bb4e54382804966ac0079a6188e078c4c5306d"
+    },
+    "loading-shutdown-before-initial.log.txt": {
+      "bytes": 1827,
+      "sha256": "09c983d25dc0fd305d20c2e3722e64d61ec90031afaf122582394213f9a1e0da"
+    },
+    "loading-shutdown-before-replacement.log.txt": {
+      "bytes": 423,
+      "sha256": "6844fae6c6a339d6dd7b9606a701c884f693bb907564c1e48eed5aedef99ac86"
+    },
+    "loading-shutdown-build-report.json": {
+      "bytes": 5160,
+      "sha256": "162ee7ceeda5e8f50248e55a1e165a17be7f20a31ed975bfbbef702d3e5ba48a"
+    },
+    "loading-shutdown-build.log.txt": {
+      "bytes": 15076,
+      "sha256": "25c666e5bdfce148fb4e0dfbcef39ead43642197f86629d10c8a87237611ad91"
+    },
+    "loading-shutdown-cancel.log.txt": {
+      "bytes": 1038,
+      "sha256": "e1c3583594394e62bb6e62387b0ef18ad18b4c65dc1a203a1e9a1a5c112da918"
+    },
+    "loading-shutdown-layout.gd.txt": {
+      "bytes": 1485,
+      "sha256": "af782675e37085d60750c6a5b3284cb429a2a0263033ec8f5afcd0985ff52f95"
+    },
+    "loading-shutdown-layout.log.txt": {
+      "bytes": 591,
+      "sha256": "80608f8436f91bbf60721c292570d6291635a2dcf0996bc101431ca87532eb59"
+    },
+    "loading-shutdown-loading.log.txt": {
+      "bytes": 707,
+      "sha256": "2e62f69f25cbabfc816b7a628e24047536dc8d265d56c2b4f3cbf3d5c955c395"
+    },
+    "loading-shutdown-native-initial-anatomy.log.txt": {
+      "bytes": 443,
+      "sha256": "9678d23c198515dc219d23d1cffa8e58ee37b1f563f6f8d35f38b90aa622b744"
+    },
+    "loading-shutdown-native-replacement-selection.log.txt": {
+      "bytes": 527,
+      "sha256": "6cc4923e3ae26287f96958f42d3b42e9e26dad3cc598e07f84855b5a23eb8038"
+    },
+    "loading-shutdown-normal-lifecycle.json": {
+      "bytes": 1648,
+      "sha256": "414fba2ca285882a1f0bad957fac189f867cd0b592e2abd0123e5b8efdf0b4f3"
+    },
+    "loading-shutdown-python.log.txt": {
+      "bytes": 11096,
+      "sha256": "2098b8fadf418ad2cd494b312973568a2d18dd800f2cf360acdf69b8d4bebef5"
+    },
+    "loading-shutdown-ready-control.log.txt": {
+      "bytes": 19150,
+      "sha256": "b2b3a57906dd1a4f5220384239bcaa7e999918c18d0040b2b640e9ff047d64fc"
+    },
+    "loading-shutdown-reproduction.gd.txt": {
+      "bytes": 1064,
+      "sha256": "13714c960127ae1c796b88606316d380b55d676c0de60215dd07558c4050585a"
+    },
+    "loading-shutdown-windows-qa.json": {
+      "bytes": 30762,
+      "sha256": "b69f7804f475cf3524bbe8c472d69894cbed7e1a01d834a5a067edc8ad50eada"
+    },
+    "loading-shutdown-windows-runtime.log.txt": {
+      "bytes": 11452,
+      "sha256": "64b5811f08833571b35d01661495df926fc1a98ee3b78dbb918110eeadeee8c5"
+    },
+    "loading-shutdown-source/initial-anatomy.log.txt": {
+      "bytes": 186,
+      "sha256": "fb9d680f41fe1f26cf61fafdfe84f6ebe099a508e0394a7d84b3679bdb865d67"
+    },
+    "loading-shutdown-source/initial-preparing.log.txt": {
+      "bytes": 188,
+      "sha256": "95eaecd23ba91fd2481a12da0da58d4e111ab97f6a95893a9a015cba2f4a16c3"
+    },
+    "loading-shutdown-source/initial-selection.log.txt": {
+      "bytes": 187,
+      "sha256": "fc53b62f82354a19b85c6a5a1de4593d89b8288e648c9c0f3a29e99753958ec1"
+    },
+    "loading-shutdown-source/initial-source.log.txt": {
+      "bytes": 160,
+      "sha256": "26d433d5fb778173a78bf4b583010320cd7a161b08b3daaa30d26eba76837621"
+    },
+    "loading-shutdown-source/replacement-anatomy.log.txt": {
+      "bytes": 268,
+      "sha256": "ba471e9112fb63373861edf97e00d5db8c65bc97f5b8fcb00d54040d8fe114c4"
+    },
+    "loading-shutdown-source/replacement-preparing.log.txt": {
+      "bytes": 270,
+      "sha256": "91d76fc6c581f7229514eb62d151d8ee5c54ecd17f6b205067417b19b3ce1ed9"
+    },
+    "loading-shutdown-source/replacement-selection.log.txt": {
+      "bytes": 269,
+      "sha256": "055e2b0591191c129e028bacb31013388f6c44ba58be5a5aa7b3edf854cccfe0"
+    },
+    "loading-shutdown-source/replacement-source.log.txt": {
+      "bytes": 244,
+      "sha256": "2e53858cda344acfdacda64832033286ffbcfb36050b2a8d76495be9268cc8d6"
+    },
+    "loading-shutdown-source/report.json": {
+      "bytes": 7229,
+      "sha256": "be38c733a1d0357930aaca06462da7e79739377df1fd10724a0d841c7fbd26aa"
+    }
+  }
+}

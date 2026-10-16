@@ -1,0 +1,32 @@
+extends SceneTree
+var viewer
+var moved := false
+var exits := 0
+func _initialize() -> void:
+	call_deferred("run")
+func run() -> void:
+	viewer = load("res://scenes/main.tscn").instantiate()
+	root.add_child(viewer)
+	await process_frame
+	while viewer.loading:
+		await process_frame
+	viewer.model.tree_exiting.connect(func(): exits += 1; print("MODEL TREE EXIT: ", exits))
+	viewer.set_scene_expanded(true)
+	print("EXPANDED: ", viewer.scene_expanded, " · tree exits ", exits)
+	viewer.model.load_progress.connect(func(stage: String, _fraction: float):
+		if stage == "Loading selection" and not moved:
+			moved = true
+			call_deferred("return_workspace"))
+	viewer.switch_body("male")
+	var started := Time.get_ticks_msec()
+	while viewer.loading and Time.get_ticks_msec() - started < 12000:
+		await process_frame
+	print("FINAL: moved ", moved, " · loading ", viewer.loading, " · body ", viewer.model.body.get("id"), " · tree exits ", exits)
+	var good: bool = moved and not viewer.loading and viewer.model.body.get("id") == "male"
+	viewer.queue_free()
+	await process_frame
+	quit(0 if good else 1)
+func return_workspace() -> void:
+	print("RETURN WHILE LOADING: ", viewer.loading, " · pending ", viewer.model.pending_resource_path, " · staged ", is_instance_valid(viewer.model.staged_scene))
+	viewer.set_scene_expanded(false)
+	print("RETURNED: expanded ", viewer.scene_expanded, " · pending ", viewer.model.pending_resource_path, " · staged ", is_instance_valid(viewer.model.staged_scene))

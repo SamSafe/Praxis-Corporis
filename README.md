@@ -82,12 +82,13 @@ for the current display.
 They reopen the last successfully loaded reference after a normal close; saved
 anatomy setups and notes remain in named views.
 Cancel opening preserves the current view and study progress when replacing a reference.
+Closing during opening also collects pending reads before releasing staged geometry.
 Two draft valve-condition summaries link to inspection of their
 reference anatomy, with explicit depiction limits; human source and medical review are pending.
 Precise keyboard movement supports 5 mm and 1 mm inspection steps with undo/redo.
 Four separate HRA v1.2 spinal-cord/vertebra studies add 108 source meshes across both
 sexes, without registering them to the original bodies. [Study workspace guide](docs/STUDY_WORKSPACE.md),
-[verification and private packages](docs/audit/EXPORT_SAFEGUARDS_VERIFICATION.md).
+[verification and private packages](docs/audit/LOADING_SHUTDOWN_VERIFICATION.md).
 Pathological geometry, validated cutaways and physiological simulation are future work.
 Private Windows/macOS ZIPs are generated locally under dist/. Target-device testing,
 public signing/notarization, and baseline-laptop performance remain open.
