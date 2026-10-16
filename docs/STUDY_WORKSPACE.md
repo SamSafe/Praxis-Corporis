@@ -107,6 +107,18 @@ reference. These are camera coordinates, separate from body-direction presets.
 
 ## Portable saved views
 
+In **Saved views**, the search field finds view names, saved notes and unsaved note
+drafts. Words can appear in any order; matching ignores letter case. The count
+shows matching views against the whole library. **Ctrl+F** focuses search;
+**Enter** selects a match without restoring it. **Escape** clears a nonempty
+focused search. The clear button restores the full list.
+
+Filtering keeps note drafts and the current anatomy unchanged. A hidden selection
+is cleared rather than replaced by another view. Saving or renaming a view clears
+the search when needed to reveal that view. Saving notes refreshes their matches.
+The dialog keeps its action buttons visible and scrolls content at smaller sizes
+or larger text settings.
+
 In **Saved views**, **Export all views** writes a local JSON file containing named
 snapshots and their saved notes. There are no anatomy meshes, accounts or uploads
 in this export. Unsaved notes use the existing save/discard/keep-editing choices.
@@ -197,6 +209,7 @@ godot --headless --path . --script tests/circulation_route_smoke.gd
 godot --headless --path . --script tests/keyboard_movement_smoke.gd
 godot --headless --path . --script tests/information_dialog_smoke.gd
 godot --headless --path . --script tests/window_state_smoke.gd
+godot --headless --path . --script tests/saved_views_filter_smoke.gd
 ```
 
 The workspace check exercises real geometry in both bodies and all four spinal studies,

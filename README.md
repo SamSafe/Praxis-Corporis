@@ -55,6 +55,7 @@ Open [project.godot](project.godot) with Godot 4.7.2 after the setup in the
 [prototype guide](docs/PROTOTYPE.md). The app has selection, search, camera focus,
 hide/fade controls, inspection movement with original-position overlays, restoration,
 undo/redo and local saved views with personal study notes.
+The saved-view library searches names and notes while preserving unsaved drafts.
 A selected part has an Actions menu beside its surface, with a corner fallback
 for hidden or off-screen anatomy. Shift+F10 opens it from the focused 3D view.
 [Menu verification](docs/audit/PART_ACTIONS_VERIFICATION.md) records the private

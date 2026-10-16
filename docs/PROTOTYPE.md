@@ -276,6 +276,12 @@ they do not modify the body snapshot or provide authored disease information.
 Creating another view starts with empty notes. Selecting a different view preserves
 any unsaved drafts until you return to them.
 
+Search the library by view name or note text, including drafts. **Ctrl+F** focuses
+search, **Enter** selects a matching row, and **Escape** clears a nonempty focused
+search. Filtering preserves drafts and does not restore anatomy. The result count
+includes the full library; clear search to return to every view. The dialog's
+action buttons stay visible while its content can scroll at compact sizes.
+
 Closing Saved views, restoring a view/older quick save, or normally closing the app
 protects unsaved drafts with **Save notes**, **Discard notes**, or **Keep editing**.
 Save writes every pending draft in one library update before continuing. A failed
