@@ -181,6 +181,17 @@ removed after those artifacts are copied. Failed sessions are kept for inspectio
 the error prints their location. The process timeout applies only to its own child.
 No execution-policy or system-setting change is performed.
 
+Cleanup checks the generated directory name and ownership marker and records its
+outcome separately in `session_cleanup`. A temporary-file lock leaves the session
+available and preserves the successful runtime result. Reports are replaced atomically.
+Use `--keep-session` to retain a successful extraction for manual inspection.
+[Cleanup verification](audit/QA_SESSION_VERIFICATION.md) records the real Windows
+checks and simulated lock/failure cases.
+
+Commands without `--archive` and `--build-report` use the root `dist/` outputs.
+For the named package checkpoint above, supply both paths explicitly so the
+verifier checks that checkpoint's archive and build report.
+
 Use `--mode headless` for the offline checks without rendering. Rendered mode requires
 a desktop display. `--output` must name a new folder; existing reports are never
 replaced. `--archive` and `--build-report` select another matching private artifact.
@@ -309,6 +320,9 @@ The repository runner extracts an exact matching archive into generated native s
 isolates user data, records host/driver/power identity, observes its own process memory,
 validates all raw measurements and retains logs/reports before removing successful
 staging. It requires Python 3.10+ for QA; the application itself does not require Python.
+The profiler uses the same ownership-checked cleanup and atomic reports. Its
+`--keep-session` option also keeps a successful staging folder; cleanup failures
+are recorded separately from measurement validation.
 Run on Windows with native Python:
 
 ```powershell
