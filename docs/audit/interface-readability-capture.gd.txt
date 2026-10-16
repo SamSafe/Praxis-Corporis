@@ -1,0 +1,47 @@
+extends SceneTree
+func _initialize():
+ call_deferred("run")
+func capture(name):
+ await process_frame
+ await process_frame
+ await RenderingServer.frame_post_draw
+ var result=root.get_texture().get_image().save_png("/tmp/medicine-improvements/theme-"+name+".png")
+ print("Theme capture: ",name," / ",result)
+func run():
+ root.size=Vector2i(1100,720)
+ var viewer=load("res://scenes/main.tscn").instantiate()
+ root.add_child(viewer)
+ await process_frame
+ await process_frame
+ while viewer.loading:await process_frame
+ var preferences=viewer.preference_state()
+ preferences.text_scale=1.3
+ viewer.apply_preferences(preferences)
+ viewer.chest_view()
+ var help=viewer.show_keyboard_help()
+ await capture("help-focus")
+ help.queue_free()
+ await process_frame
+ viewer.views_path="user://theme-capture-"+Crypto.new().generate_random_bytes(8).hex_encode()+".json"
+ var browser=viewer.show_saved_views()
+ browser.name_input.text="Keyboard study"
+ browser.save_current()
+ browser.notes_input.text="Study observations\nQuestions for my next course session."
+ browser.on_notes_changed()
+ browser.notes_input.grab_focus()
+ browser.notes_input.select_all()
+ await capture("notes-selection")
+ browser.filter_input.text="study"
+ browser.filter_input.text_changed.emit("study")
+ browser.filter_input.grab_focus()
+ browser.filter_input.select_all()
+ await capture("search-focus")
+ browser.queue_free()
+ await process_frame
+ viewer.tree.grab_focus()
+ await capture("tree-focus")
+ for suffix in ["",".bak",".tmp"]:DirAccess.remove_absolute(viewer.views_path+suffix)
+ viewer.queue_free()
+ await process_frame
+ print("PASS theme capture session")
+ quit()

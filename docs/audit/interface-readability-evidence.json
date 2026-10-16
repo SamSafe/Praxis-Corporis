@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "runtime_source_revision": "11741bd4e1014b03be9e4c6973d5b9b71eb0de52",
+  "files": {
+    "interface-readability-artifact-audit.json": {
+      "bytes": 1346,
+      "sha256": "b2bc9fa7d7795fcdc7c3690bc46a87e294ebe0d143a4b56c50b099b71c358d67"
+    },
+    "interface-readability-build-report.json": {
+      "bytes": 4976,
+      "sha256": "8a8474a7613caa0e951b6e9e8b6de774c04cec57f51bbd841aa91a52fb6ba78e"
+    },
+    "interface-readability-build.log.txt": {
+      "bytes": 11070,
+      "sha256": "7d84651a9a0c8dd15fb788f837be1ae91bfd487913deb9f4c65397b6a60d7eb8"
+    },
+    "interface-readability-capture.gd.txt": {
+      "bytes": 1630,
+      "sha256": "bfa03358efd6c941ae75def3fbfd32ddca3db434c71ceb6f41e3923c7e97e41a"
+    },
+    "interface-readability-captures.log.txt": {
+      "bytes": 609,
+      "sha256": "516c12248a2cadf8c6b194576b3e7a5b3f705a05975c5cb4e69cef56de36dd3e"
+    },
+    "interface-readability-counter.log.txt": {
+      "bytes": 103,
+      "sha256": "9854807cf0dc138e17f7634f384fb1bd30e09d36f8268bc5723775eecbffb1de"
+    },
+    "interface-readability-development-qa.json": {
+      "bytes": 2424,
+      "sha256": "79d4af5fae252d1ccf9f10d8e180524d43b0d71320036d7a53f008e9fe8c4513"
+    },
+    "interface-readability-export_boundary_smoke.log.txt": {
+      "bytes": 116,
+      "sha256": "235837cc34c4cf1c2235cda51a9da9ede4c280cde7f1745d6a780ed48e4819ca"
+    },
+    "interface-readability-information_dialog_smoke.log.txt": {
+      "bytes": 758,
+      "sha256": "49d19a7b1b81b8d491b5186d00bbdf108010b279b9582c89af877ffff98081c3"
+    },
+    "interface-readability-keyboard_workspace_smoke.log.txt": {
+      "bytes": 283,
+      "sha256": "9498102191c13d514d816eb3ba9cf97a04cb66596d56da9fcb89912e4bd42b8b"
+    },
+    "interface-readability-loading-mouse.log.txt": {
+      "bytes": 577,
+      "sha256": "9c1c8fc651f99a67b39b93515174335d816beac91894cf296e90ec7128fbfbce"
+    },
+    "interface-readability-normal-lifecycle.json": {
+      "bytes": 1648,
+      "sha256": "414fba2ca285882a1f0bad957fac189f867cd0b592e2abd0123e5b8efdf0b4f3"
+    },
+    "interface-readability-python.log.txt": {
+      "bytes": 10554,
+      "sha256": "ebd30ab6da563808fabe0d59483112417986252943522c759bf0e285120b89f2"
+    },
+    "interface-readability-saved_views_filter_smoke.log.txt": {
+      "bytes": 103,
+      "sha256": "9854807cf0dc138e17f7634f384fb1bd30e09d36f8268bc5723775eecbffb1de"
+    },
+    "interface-readability-scene_display_smoke.log.txt": {
+      "bytes": 543,
+      "sha256": "8526dce56286553c0b6c11f88daab02c3ef19e8658ee28b10238409e72bca651"
+    },
+    "interface-readability-study_notes_smoke.log.txt": {
+      "bytes": 177,
+      "sha256": "add10312cb831c8dd748a05a4a6ce627b03bc54d38337ff49446bf8f105e02f0"
+    },
+    "interface-readability-tree-navigation.log.txt": {
+      "bytes": 434,
+      "sha256": "fd3ae93a914fdafd321ffa395aa0403df87790cdbc9c92288218a8f2963393bf"
+    },
+    "interface-readability-windows-qa.json": {
+      "bytes": 28983,
+      "sha256": "6ecb9b38c989fb1287da828b999dfb7c69891308177e95ac38e1eba233194936"
+    },
+    "interface-readability-windows-runtime.log.txt": {
+      "bytes": 9615,
+      "sha256": "b0f3914b12c769199fb8b8004ac852eaa1796b11b0ffcfad46b41172aca6bc45"
+    }
+  },
+  "images": {
+    "docs/prototype/interface-disabled-actions.png": {
+      "bytes": 254284,
+      "sha256": "46bf8afabec628e5d71bdf61b1f8d10d1ec2679703a791ef5aa90b6179fc13f8"
+    },
+    "docs/prototype/interface-help-focus.png": {
+      "bytes": 328889,
+      "sha256": "71d103a9c7ffde9fc236c0f4d59eedcd31e4f75055d62435efba1ba278c55a31"
+    },
+    "docs/prototype/interface-native-help.png": {
+      "bytes": 334531,
+      "sha256": "4cb27b4383b8bed929962683cf8c77f17555be3fbcac6433a16f6656a914156e"
+    },
+    "docs/prototype/interface-native-loading.png": {
+      "bytes": 307495,
+      "sha256": "c84bfb6e2053e22ec5021df935f4887b7ddd2895a421214b615a57286f0b9761"
+    },
+    "docs/prototype/interface-native-notes.png": {
+      "bytes": 204057,
+      "sha256": "8c1d84b39e71d82e0d5d8cbcf356483c3e9e41540c147efbce10155962021356"
+    },
+    "docs/prototype/interface-notes-selection.png": {
+      "bytes": 277515,
+      "sha256": "1639e9170b2ab9947e4819cf1be0542d8f922b8cf8ded7ed0b2abae9707b6cf8"
+    },
+    "docs/prototype/interface-search-focus.png": {
+      "bytes": 275440,
+      "sha256": "9abd62a333887151d29a2196b65034fae2b1ac229151ab1e3d049181f803ee95"
+    },
+    "docs/prototype/interface-tree-focus.png": {
+      "bytes": 307990,
+      "sha256": "98564e8875296ceb6fc724fef1284a60c1d5740c6c3b03b83af796dabd71dc30"
+    }
+  },
+  "successful_staging_independently_absent": true
+}

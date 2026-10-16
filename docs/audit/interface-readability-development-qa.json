@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "source_revision": "11741bd4e1014b03be9e4c6973d5b9b71eb0de52",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": [
+    {
+      "script": "tests/information_dialog_smoke.gd",
+      "script_sha256": "effffddcaa450ec35148365c41494b77147bb4a606dc9f35eb87ff330e0c970b",
+      "log_sha256": "49d19a7b1b81b8d491b5186d00bbdf108010b279b9582c89af877ffff98081c3",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 14.802,
+      "log": "interface-readability-information_dialog_smoke.log.txt"
+    },
+    {
+      "script": "tests/keyboard_workspace_smoke.gd",
+      "script_sha256": "82da8a3e9b0657c6503775d141dd8f49c859fd84ce4d3e447b70dc161fc5bb79",
+      "log_sha256": "9498102191c13d514d816eb3ba9cf97a04cb66596d56da9fcb89912e4bd42b8b",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 6.339,
+      "log": "interface-readability-keyboard_workspace_smoke.log.txt"
+    },
+    {
+      "script": "tests/saved_views_filter_smoke.gd",
+      "script_sha256": "899b8d02708003deca4f6ededf5ecac74978eb9464ec987069ad43c5ed07ad4c",
+      "log_sha256": "9854807cf0dc138e17f7634f384fb1bd30e09d36f8268bc5723775eecbffb1de",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.273,
+      "log": "interface-readability-saved_views_filter_smoke.log.txt"
+    },
+    {
+      "script": "tests/study_notes_smoke.gd",
+      "script_sha256": "83dd815eb82e972d6ac5d1ad0d7da9601ef61c30e419d73521da957be3f544b3",
+      "log_sha256": "add10312cb831c8dd748a05a4a6ce627b03bc54d38337ff49446bf8f105e02f0",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 5.378,
+      "log": "interface-readability-study_notes_smoke.log.txt"
+    },
+    {
+      "script": "tests/scene_display_smoke.gd",
+      "script_sha256": "cedf93f850b7c5faece1bde97655e3f75d127ddd7a3e1e9ed1e31a65209cb643",
+      "log_sha256": "8526dce56286553c0b6c11f88daab02c3ef19e8658ee28b10238409e72bca651",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 6.78,
+      "log": "interface-readability-scene_display_smoke.log.txt"
+    },
+    {
+      "script": "tests/export_boundary_smoke.gd",
+      "script_sha256": "51f89cd5d43ea25a359994e4ca92837d4991cc4e0f5c7724943714a1d142d493",
+      "log_sha256": "235837cc34c4cf1c2235cda51a9da9ede4c280cde7f1745d6a780ed48e4819ca",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.268,
+      "log": "interface-readability-export_boundary_smoke.log.txt"
+    }
+  ]
+}
