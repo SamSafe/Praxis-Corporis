@@ -426,11 +426,13 @@ func verify_note_editor(library_path: String, snapshot: Dictionary) -> bool:
 	browser.notes_input.insert_text_at_caret("Saved from the local note editor.\n")
 	await get_tree().process_frame
 	await get_tree().process_frame
+	var caret := Vector2i(browser.notes_input.get_caret_line(), browser.notes_input.get_caret_column())
 	browser.notes_button.pressed.emit()
 	var expected: String = browser.notes_input.text
 	var reopened := SavedViews.new()
 	reopened.path = library_path
 	var valid: bool = reopened.load_library().is_empty() and reopened.entries.size() == 1 and reopened.entries[0].get("notes", "") == expected and browser.draft_notes.is_empty() and export_view_state() == before
+	valid = valid and caret == Vector2i(browser.notes_input.get_caret_line(), browser.notes_input.get_caret_column())
 	var library_bytes := FileAccess.get_file_as_bytes(library_path)
 	browser.filter_input.text = "no matching saved view"
 	browser.filter_input.text_changed.emit(browser.filter_input.text)

@@ -252,7 +252,9 @@ func select_entry(_index: int) -> void:
 	information.text = ""
 	editing_id = str(entry.get("id", ""))
 	syncing_notes = true
-	notes_input.text = str(draft_notes.get(editing_id, entry.get("notes", ""))) if not entry.is_empty() else ""
+	var note := str(draft_notes.get(editing_id, entry.get("notes", ""))) if not entry.is_empty() else ""
+	if notes_input.text != note:
+		notes_input.text = note
 	syncing_notes = false
 	notes_input.editable = not unavailable
 	refresh_notes_status()

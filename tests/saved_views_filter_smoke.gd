@@ -104,8 +104,12 @@ func run() -> void:
 	check(browser.unsaved_dialog.visible and browser.draft_notes.has(heart), "Escape from the note editor protects the draft")
 	browser.unsaved_dialog.get_cancel_button().pressed.emit()
 	await process_frame
+	browser.notes_input.set_caret_column(11)
 	browser.save_notes()
 	check(browser.draft_notes.is_empty() and library.entries[2].notes == "Unsaved draft with temporaryword", "Recovered draft saves against its original view identity")
+	check(browser.notes_input.get_caret_column() == 11, "Saving notes preserves the editor cursor when the view stays selected")
+	filter(browser, "temporaryword")
+	check(browser.notes_input.get_caret_column() == 11, "Filtering with the same selected view preserves the editor cursor")
 	filter(browser, "temporaryword")
 	choose(browser, heart)
 	browser.notes_input.text = "Updated after search"
