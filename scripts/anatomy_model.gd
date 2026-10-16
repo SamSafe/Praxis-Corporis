@@ -7,6 +7,7 @@ signal load_progress(stage: String, fraction: float)
 const SourceIndexExtension = preload("res://scripts/source_index_extension.gd")
 const ContentBundle = preload("res://scripts/content_bundle.gd")
 const PreparedSelection = preload("res://scripts/prepared_selection.gd")
+const LOAD_CANCELED := "Reference opening canceled."
 
 var body: Dictionary = {}
 var structures: Dictionary = {}
@@ -33,6 +34,7 @@ var prepared_selection_batches := 0
 var preparing_cache := false # Explicit offline preparation; ordinary launches require compiled picking shapes.
 var hash_worker: Thread
 var staged_scene: Node3D
+var cancel_requested := false
 
 
 func _exit_tree() -> void:
@@ -52,9 +54,19 @@ func load_body(record: Dictionary) -> String:
 	if loading:
 		return "A reference is already loading."
 	loading = true
+	cancel_requested = false
 	var error: String = await prepare_body(record)
+	if is_instance_valid(staged_scene):
+		staged_scene.free()
+		staged_scene = null
 	loading = false
+	cancel_requested = false
 	return error
+
+
+func cancel_load() -> void:
+	if loading:
+		cancel_requested = true
 
 
 func prepare_body(record: Dictionary) -> String:
@@ -71,6 +83,8 @@ func prepare_body(record: Dictionary) -> String:
 			return "Anatomy is missing from this build. Re-extract the application together with anatomy.pck."
 		return "Anatomy files are missing. Run python3 tools/fetch_assets.py, then reopen the viewer."
 	load_progress.emit("Checking source file", -1.0)
+	if cancel_requested:
+		return LOAD_CANCELED
 	hash_worker = Thread.new()
 	if hash_worker.start(source_hash.bind(path)) != OK:
 		hash_worker = null
@@ -80,6 +94,8 @@ func prepare_body(record: Dictionary) -> String:
 		wait_frames += 1
 	var actual_hash: String = hash_worker.wait_to_finish()
 	hash_worker = null
+	if cancel_requested:
+		return LOAD_CANCELED
 	if actual_hash != str(record.sha256):
 		if OS.has_feature("template"):
 			return "Anatomy differs from the expected reference. Re-extract the complete private build."
@@ -108,14 +124,18 @@ func prepare_body(record: Dictionary) -> String:
 			resource_status = ResourceLoader.load_threaded_get_status(cache_path, progress)
 			record_resource_operation("status", operation_started)
 		if resource_status != ResourceLoader.THREAD_LOAD_LOADED:
-			return "Prepared anatomy could not be read. Re-prepare the source or re-extract the complete private build."
+			return LOAD_CANCELED if cancel_requested else "Prepared anatomy could not be read. Re-prepare the source or re-extract the complete private build."
 		# This call is nonblocking only after THREAD_LOAD_LOADED.
 		operation_started = Time.get_ticks_usec()
 		var cached := ResourceLoader.load_threaded_get(cache_path) as PackedScene
 		record_resource_operation("collect", operation_started)
+		if cancel_requested:
+			return LOAD_CANCELED
 		load_progress.emit("Preparing view", -1.0)
 		await get_tree().process_frame
 		wait_frames += 1
+		if cancel_requested:
+			return LOAD_CANCELED
 		if cached:
 			operation_started = Time.get_ticks_usec()
 			var instance := cached.instantiate()
@@ -139,6 +159,8 @@ func prepare_body(record: Dictionary) -> String:
 		load_progress.emit("Preparing source geometry — first import may take several minutes", -1.0)
 		await get_tree().process_frame
 		wait_frames += 1
+		if cancel_requested:
+			return LOAD_CANCELED
 		var extension := SourceIndexExtension.new()
 		GLTFDocument.register_gltf_document_extension(extension, true)
 		var document := GLTFDocument.new()
@@ -156,6 +178,8 @@ func prepare_body(record: Dictionary) -> String:
 	if next_scene == null:
 		return "The anatomy file did not produce a 3D scene."
 	load_progress.emit("Checking anatomy", -1.0)
+	if cancel_requested:
+		return LOAD_CANCELED
 	var mapping_error := validate_scene(record, node_map, next_scene)
 	if not mapping_error.is_empty():
 		next_scene.free()
@@ -184,6 +208,8 @@ func prepare_body(record: Dictionary) -> String:
 	load_progress.emit("Preparing selection", 0.0)
 	var selection_batch_started := Time.get_ticks_usec()
 	for index in root_record.mesh_nodes:
+		if cancel_requested:
+			return LOAD_CANCELED
 		var mesh: MeshInstance3D = node_map[int(index)]
 		var overrides: Array[StandardMaterial3D] = []
 		for surface in mesh.mesh.get_surface_count():
@@ -218,6 +244,8 @@ func prepare_body(record: Dictionary) -> String:
 			selection_batch_started = Time.get_ticks_usec()
 	# No fallible mapping or preparation step remains before replacing the old scene.
 	load_progress.emit("Opening reference", -1.0)
+	if cancel_requested:
+		return LOAD_CANCELED
 	clear_body()
 	body = record
 	source_scene = next_scene
@@ -266,6 +294,8 @@ func load_prepared_selection(record: Dictionary, root_record: Dictionary) -> Dic
 	var shapes := {}
 	var yield_frames := 0
 	for batch_index in count:
+		if cancel_requested:
+			return {"error": LOAD_CANCELED}
 		load_progress.emit("Loading selection", float(batch_index) / count)
 		var path := ContentBundle.selection_batch_path(record.id, record.sha256, batch_index)
 		if not FileAccess.file_exists(path):
@@ -284,10 +314,12 @@ func load_prepared_selection(record: Dictionary, root_record: Dictionary) -> Dic
 			status = ResourceLoader.load_threaded_get_status(path)
 			record_resource_operation("status", started)
 		if status != ResourceLoader.THREAD_LOAD_LOADED:
-			return {"error": "Prepared picking shapes could not be read. Re-extract the complete private build or run the source preparation tool."}
+			return {"error": LOAD_CANCELED if cancel_requested else "Prepared picking shapes could not be read. Re-extract the complete private build or run the source preparation tool."}
 		started = Time.get_ticks_usec()
 		var batch := ResourceLoader.load_threaded_get(path) as PreparedSelection
 		record_resource_operation("collect", started)
+		if cancel_requested:
+			return {"error": LOAD_CANCELED}
 		if batch == null or batch.source_sha256 != record.sha256 or batch.engine != Engine.get_version_info().string or batch.mesh_nodes.is_empty() or batch.mesh_nodes.size() != batch.shapes.size():
 			return {"error": "Prepared picking shapes do not match the source reference."}
 		if batch.coordinate_scale != float(record.get("picking_scale", 1.0)):

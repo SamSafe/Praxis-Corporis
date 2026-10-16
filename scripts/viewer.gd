@@ -79,6 +79,9 @@ var loading := false
 var loading_row: HBoxContainer
 var loading_stage: Label
 var loading_bar: ProgressBar
+var cancel_load_button: Button
+var expanded_cancel_load_button: Button
+var load_cancel_requested := false
 var load_frame_count := 0
 var syncing_tree := false
 var scene_container: SceneSurface
@@ -972,6 +975,7 @@ func build_interface() -> void:
 	guided_chest.finish_requested.connect(finish_guided_chest)
 	guided_chest.route_requested.connect(apply_route_step)
 	guided_chest.route_previous_requested.connect(previous_route_step)
+	guided_chest.minimum_size_changed.connect(fit_expanded_study)
 	back_button = make_button("Back", func(): navigate_history(true), navigation, "Return to the previous selection and camera view. Alt + Left.")
 	forward_button = make_button("Forward", func(): navigate_history(false), navigation, "Return to the next selection and camera view. Alt + Right.")
 	context = make_label("Loading reference anatomy…", 14, Color("b5c7d8"))
@@ -989,6 +993,8 @@ func build_interface() -> void:
 	loading_bar.custom_minimum_size = Vector2(130, 14)
 	loading_bar.show_percentage = false
 	loading_row.add_child(loading_bar)
+	cancel_load_button = make_button("Cancel opening", cancel_reference_load, loading_row, "Keep the current view. Finishing the current loading step may take a moment.")
+	cancel_load_button.visible = false
 	loading_row.visible = false
 	center.add_child(loading_row)
 	return_button = make_button("Return to context", return_to_context, inspection_banner, "Restore the selection and camera from before Inspect alone; preserve current inspection changes.")
@@ -1205,6 +1211,8 @@ func build_interface() -> void:
 	expanded_caption.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	expanded_caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	expanded_toolbar.add_child(expanded_caption)
+	expanded_cancel_load_button = make_button("Cancel opening", cancel_reference_load, expanded_toolbar, "Keep the current view. Finishing the current loading step may take a moment.")
+	expanded_cancel_load_button.visible = false
 	expanded_menu = MenuButton.new()
 	expanded_menu.text = "Explore"
 	expanded_menu.flat = false
@@ -1265,14 +1273,14 @@ func build_interface() -> void:
 func switch_body(id: String) -> void:
 	if loading:
 		return
-	if guided_chest.active:
-		await finish_guided_chest()
 	var record: Dictionary = {}
 	for candidate in pack.bodies:
 		if candidate.id == id:
 			record = candidate
 	if record.is_empty():
 		return
+	var previous_context := context.text
+	load_cancel_requested = false
 	loading = true
 	load_frame_count = 0
 	orbit.input_enabled = false
@@ -1285,22 +1293,29 @@ func switch_body(id: String) -> void:
 	body_choice.disabled = true
 	context.text = "Loading %s…" % str(record.label)
 	on_load_progress("Checking source file", -1.0)
-	var previous_selection: String = model.selected_id
+	var previous_selection: String = str(guided_chest.original.selection) if guided_chest.active else model.selected_id
 	await get_tree().process_frame
 	await get_tree().process_frame
-	var error: String = await model.load_body(record)
+	var error: String = AnatomyModel.LOAD_CANCELED if load_cancel_requested else await model.load_body(record)
 	loading = false
+	load_cancel_requested = false
 	orbit.input_enabled = true
 	loading_row.visible = false
 	refresh_input_hint()
 	anatomy_labels.suspended = false
 	body_choice.disabled = false
 	if not error.is_empty():
-		status.text = error
-		context.text = "Reference unavailable"
+		status.text = "Reference switch canceled. Current view kept." if error == AnatomyModel.LOAD_CANCELED else error
+		context.text = previous_context if not model.body.is_empty() else "Reference unavailable"
 		select_body_choice(str(model.body.get("id", "female")))
 		refresh_details()
+		if error == AnatomyModel.LOAD_CANCELED:
+			scene_container.grab_focus()
 		return
+	if guided_chest.active:
+		guided_chest.active = false
+		orbit.apply_state(guided_chest.original.camera)
+		restore_view_controls(guided_chest.original)
 	anatomy_labels.clear_labels()
 	parts_scope = ""
 	parts_items.clear()
@@ -1323,7 +1338,29 @@ func switch_body(id: String) -> void:
 	refresh_details()
 
 
+func cancel_reference_load() -> void:
+	if not loading or model.body.is_empty():
+		return
+	load_cancel_requested = true
+	model.cancel_load()
+	on_load_progress("", -1.0)
+	refresh_cancel_loading()
+
+
+func refresh_cancel_loading() -> void:
+	for button in [cancel_load_button, expanded_cancel_load_button]:
+		if button:
+			button.visible = loading and not model.body.is_empty()
+			button.disabled = load_cancel_requested
+			button.text = "Canceling…" if load_cancel_requested else "Cancel opening"
+
+
 func on_load_progress(stage: String, fraction: float) -> void:
+	if load_cancel_requested:
+		loading_stage.text = "Canceling reference switch…"
+		loading_bar.indeterminate = true
+		status.text = loading_stage.text
+		return
 	loading_stage.text = stage + "…"
 	loading_bar.indeterminate = fraction < 0.0
 	loading_bar.value = clampf(fraction, 0.0, 1.0) * 100.0
@@ -1906,7 +1943,13 @@ func set_scene_expanded(enabled: bool) -> void:
 	orientation.set_padding(92.0 if enabled else 12.0)
 	part_actions.fallback = Vector2(12, 60 if enabled else 12)
 	refresh_expanded_menu()
+	fit_expanded_study()
 	scene_container.grab_focus()
+
+
+func fit_expanded_study() -> void:
+	if scene_expanded and guided_chest and guided_chest.visible:
+		guided_chest.size.y = guided_chest.get_combined_minimum_size().y
 
 
 func on_scene_input(event: InputEvent) -> void:
@@ -1979,6 +2022,10 @@ func refresh_input_hint() -> void:
 func refresh_details() -> void:
 	if heading == null:
 		return
+	refresh_cancel_loading()
+	if guided_chest:
+		guided_chest.visible = guided_chest.active and not loading
+		fit_expanded_study()
 	if orientation:
 		orientation.active = not loading
 	refresh_navigation()
@@ -2555,7 +2602,7 @@ func restore_view_state(state: Dictionary) -> bool:
 	if not validation.is_empty():
 		status.text = validation
 		return false
-	if guided_chest.active:
+	if guided_chest.active and model.body.get("id") == state.body:
 		await finish_guided_chest()
 	if model.body.get("id") != state.body:
 		await switch_body(state.body)
@@ -2575,6 +2622,17 @@ func restore_view_state(state: Dictionary) -> bool:
 	model.set_isolation(state.get("isolation", ""))
 	model.select(state.selection)
 	orbit.apply_state(state.camera)
+	restore_view_controls(state)
+	model.refresh_appearance()
+	sync_selection_tree()
+	refresh_details()
+	remember_view(previous)
+	refresh_navigation()
+	status.text = "Saved view restored"
+	return true
+
+
+func restore_view_controls(state: Dictionary) -> void:
 	var preferences_were_applying := applying_preferences
 	applying_preferences = true
 	labels_button.button_pressed = state.labels
@@ -2583,13 +2641,6 @@ func restore_view_state(state: Dictionary) -> bool:
 	original_positions_button.button_pressed = state.get("original_positions", true)
 	applying_preferences = preferences_were_applying
 	model.show_original_positions = original_positions_button.button_pressed
-	model.refresh_appearance()
-	sync_selection_tree()
-	refresh_details()
-	remember_view(previous)
-	refresh_navigation()
-	status.text = "Saved view restored"
-	return true
 
 
 func show_saved_views() -> Window:

@@ -14,6 +14,7 @@ static func run(viewer: Control, rendered: bool) -> bool:
 	var valid: bool = viewer.study_content.data.get("cards", {}).size() == 15
 	valid = valid and viewer.study_content.error.is_empty()
 	if viewer.model.body.id == "female":
+		valid = await verify_cancel_loading(viewer) and valid
 		valid = await verify_information(viewer, rendered) and valid
 		valid = verify_recovery(before) and valid
 	if viewer.model.structures.has("anatomy.heart"):
@@ -120,6 +121,35 @@ static func run(viewer: Control, rendered: bool) -> bool:
 	valid = valid and viewer.export_view_state() == before
 	if valid:
 		print("PASS bundled study workspace: ", viewer.model.body.id)
+	return valid
+
+
+static func verify_cancel_loading(viewer: Control) -> bool:
+	var before: Dictionary = viewer.export_view_state().duplicate(true)
+	var undo: Array = viewer.model.undo_stack.duplicate(true)
+	var redo: Array = viewer.model.redo_stack.duplicate(true)
+	var back: Array = viewer.back_views.duplicate(true)
+	var forward: Array = viewer.forward_views.duplicate(true)
+	var remembered: Dictionary = viewer.reference_state.current.duplicate(true)
+	viewer.start_guided_chest()
+	viewer.apply_chest_step(2)
+	var during: Dictionary = viewer.export_view_state().duplicate(true)
+	var staged := [null]
+	var canceled := [false]
+	var callback := func(stage: String, _fraction: float):
+		if stage == "Loading selection" and not canceled[0]:
+			canceled[0] = true
+			staged[0] = viewer.model.staged_scene
+			viewer.cancel_load_button.pressed.emit()
+	viewer.model.load_progress.connect(callback)
+	await viewer.switch_body("male")
+	viewer.model.load_progress.disconnect(callback)
+	var valid: bool = canceled[0] and not is_instance_valid(staged[0]) and viewer.model.staged_scene == null and viewer.model.hash_worker == null
+	valid = valid and viewer.export_view_state() == during and viewer.guided_chest.active and viewer.guided_chest.visible and viewer.guided_chest.step == 2 and viewer.reference_state.current == remembered
+	await viewer.finish_guided_chest()
+	valid = valid and viewer.export_view_state() == before and viewer.model.undo_stack == undo and viewer.model.redo_stack == redo and viewer.back_views == back and viewer.forward_views == forward
+	if valid:
+		print("PASS bundled canceled reference switch")
 	return valid
 
 
