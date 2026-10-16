@@ -14,13 +14,13 @@ portable views and four independent spinal source studies.
 
 The generated archives are excluded from Git:
 
-- Windows x64: dist/all-notes-final/PraxisCorporis-Windows-x64-private.zip
-- Mac Intel/Apple Silicon: dist/all-notes-final/PraxisCorporis-macOS-universal-private.zip
+- Windows x64: dist/export-guard-improvements/PraxisCorporis-Windows-x64-private.zip
+- Mac Intel/Apple Silicon: dist/export-guard-improvements/PraxisCorporis-macOS-universal-private.zip
 
 Earlier archives retain their previous source identities and their review-label
-corrections. Use the all-notes-final build report when verifying the new archives.
-[Study notes and package verification](audit/ALL_NOTES_VERIFICATION.md)
-records their exact hashes, seven-reference checks, shared-note saves and failure recovery,
+corrections. Use the export-guard-improvements build report when verifying the new archives.
+[Export safeguards and package verification](audit/EXPORT_SAFEGUARDS_VERIFICATION.md)
+records their exact hashes, seven-reference checks and filesystem alias safeguards,
 four normal launches and remaining Mac/human limits.
 
 Extract the complete ZIP. In its PraxisCorporis folder, open PraxisCorporis.exe

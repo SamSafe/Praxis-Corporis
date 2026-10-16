@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "runtime_source_revision": "0b8e67f8a18ceabb019c063927fe73aec0725fd0",
+  "case_sensitive_bundled_checks_per_reference": {
+    "female": 2,
+    "male": 2,
+    "bodyparts-male-bones-study": 2,
+    "hra-v1-2-female-cord-study": 2,
+    "hra-v1-2-female-vertebrae-study": 2,
+    "hra-v1-2-male-cord-study": 2,
+    "hra-v1-2-male-vertebrae-study": 2
+  },
+  "native_case_insensitive_export_guard_references": [
+    "female",
+    "male",
+    "bodyparts-male-bones-study",
+    "hra-v1-2-female-cord-study",
+    "hra-v1-2-female-vertebrae-study",
+    "hra-v1-2-male-cord-study",
+    "hra-v1-2-male-vertebrae-study"
+  ],
+  "native_capture_identities": 94,
+  "native_session_independently_checked_absent": true,
+  "files": {
+    "export-guard-artifact-audit.json": {
+      "bytes": 1346,
+      "sha256": "f94c2a02cdda0046f51efcacd8923503cad4db9a4d00194783a29cc98f85e388"
+    },
+    "export-guard-before.log.txt": {
+      "bytes": 2929,
+      "sha256": "e4031c10def84abc4f4ff863d2be090e2a159c4cffa2c85b014c783fedcb197c"
+    },
+    "export-guard-build-report.json": {
+      "bytes": 4976,
+      "sha256": "4006901f0687542df84a2288c4b398706bdf7d38b79fa601ac36ad545a368996"
+    },
+    "export-guard-build.log.txt": {
+      "bytes": 14702,
+      "sha256": "8967554afd7e09f875cfb3c7f733c96e576c6a432d78139afe00319c7975b19c"
+    },
+    "export-guard-development-qa.json": {
+      "bytes": 1802,
+      "sha256": "3d4a37ff628e581e88cc81d5812a4d5356ca5531be2ad6127d859d9c24e02c01"
+    },
+    "export-guard-development.log.txt": {
+      "bytes": 229,
+      "sha256": "b8a613fa965a57206b05dd6acdc56a471a1a9718c014d02721c359bf4739ef20"
+    },
+    "export-guard-normal-lifecycle.json": {
+      "bytes": 1648,
+      "sha256": "414fba2ca285882a1f0bad957fac189f867cd0b592e2abd0123e5b8efdf0b4f3"
+    },
+    "export-guard-portable.log.txt": {
+      "bytes": 116,
+      "sha256": "be706251c30f3a10101c6ce9b0de3064c5649c7b6df16ecdc220807c09896af0"
+    },
+    "export-guard-python.log.txt": {
+      "bytes": 10554,
+      "sha256": "0dffa021baa69e8d07deaa7fc2801247315666b41ddb7490aa1877a5e5f95a88"
+    },
+    "export-guard-recovery.log.txt": {
+      "bytes": 138,
+      "sha256": "28386b045cde11c94b869c51e2ce435ddd27f1feb6825d9a4c9d77312e8a83bd"
+    },
+    "export-guard-windows-qa.json": {
+      "bytes": 28983,
+      "sha256": "b971d9045cbd3931e00fe6b76bc7b6515716768d336b265506e79719d49bcb08"
+    },
+    "export-guard-windows-runtime.log.txt": {
+      "bytes": 11452,
+      "sha256": "11a104668d752d6d769290a7bcfdc24ea6b0677f7ec4ba962b8d76527dd1a3ae"
+    }
+  }
+}

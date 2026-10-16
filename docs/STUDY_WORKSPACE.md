@@ -144,6 +144,12 @@ In **Saved views**, **Export all views** writes a local JSON file containing nam
 snapshots and their saved notes. There are no anatomy meshes, accounts or uploads
 in this export. Unsaved notes use the existing save/discard/keep-editing choices.
 
+Export refuses paths that identify the active library or its backup, including
+directory/file links and case aliases on case-insensitive directories. A missing
+active file stays protected through its directory and filename. Independent copies
+with identical contents remain valid export destinations. If a linked path uses
+parent (`..`) segments ambiguously, choose the destination folder directly.
+
 **Import views** first previews compatible views, skipped duplicates and incompatible
 reference/version data. Name collisions receive a numbered suffix; changed snapshots
 with a colliding identity receive a new identity. Reimporting an unchanged view keeps
@@ -272,6 +278,7 @@ godot --headless --path . --script tests/window_state_smoke.gd
 godot --headless --path . --script tests/saved_views_filter_smoke.gd
 godot --headless --path . --script tests/saved_views_recovery_smoke.gd
 godot --headless --path . --script tests/saved_views_undo_smoke.gd
+godot --headless --path . --script tests/export_safeguards_smoke.gd
 godot --headless --path . --script tests/reference_state_smoke.gd
 godot --headless --path . --script tests/reference_startup_smoke.gd
 godot --headless --path . --script tests/loading_cancel_smoke.gd
@@ -284,7 +291,7 @@ preview. Running it with a desktop display also captures the new screens under
 reconstructed collision vertices with source mesh faces. The exported runtime checks
 portable views/notes, preferences and reversible guide state in disposable files.
 Device trials and qualified medical review remain separate from scripted verification.
-[Verification and current private packages](audit/ALL_NOTES_VERIFICATION.md)
+[Verification and current private packages](audit/EXPORT_SAFEGUARDS_VERIFICATION.md)
 retain exact build identities, native Windows evidence, saved-view recovery/search/draft
 and deletion-undo checks, study-preserving cancellation and normal-launch reference/window restoration observations. [Draft content verification](audit/DRAFT_CONTENT_VERIFICATION.md)
 records the learning-content review-stage correction and valve-reference checks.

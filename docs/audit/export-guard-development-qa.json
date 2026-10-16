@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "runtime_checkpoint": "0b8e67f8a18ceabb019c063927fe73aec0725fd0",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": [
+    {
+      "script": "tests/export_safeguards_smoke.gd",
+      "script_sha256": "808451365d153faf582ef3ca484006bbad4b25016b26a7748cc34dc64d457570",
+      "log": "export-guard-development.log.txt",
+      "log_sha256": "b8a613fa965a57206b05dd6acdc56a471a1a9718c014d02721c359bf4739ef20",
+      "passed": true,
+      "success_marker": "Export safeguard failures: 0"
+    },
+    {
+      "script": "tests/portable_views_smoke.gd",
+      "script_sha256": "3e5a287fc1ac98bf0df0dab434e1e995051b7757d3ac5294fe5377d7654e17e2",
+      "log": "export-guard-portable.log.txt",
+      "log_sha256": "be706251c30f3a10101c6ce9b0de3064c5649c7b6df16ecdc220807c09896af0",
+      "passed": true,
+      "success_marker": "Portable views and preferences failures: 0"
+    },
+    {
+      "script": "tests/saved_views_recovery_smoke.gd",
+      "script_sha256": "0045a1948b22db788ee3d19a030abd1112dc6cb229243a51583c4e7ec78bccfb",
+      "log": "export-guard-recovery.log.txt",
+      "log_sha256": "28386b045cde11c94b869c51e2ce435ddd27f1feb6825d9a4c9d77312e8a83bd",
+      "passed": true,
+      "success_marker": "Saved-view recovery failures: 0"
+    }
+  ],
+  "before_fix": {
+    "source_revision": "35522f1be21bc0241745c710a229d099e42cfa6d",
+    "storage_script_sha256": "0f140218b1b4c3ea35a52688b6e8e7dd96313e45a9ee0eff8b019b2770cb2586",
+    "regression_script_sha256": "808451365d153faf582ef3ca484006bbad4b25016b26a7748cc34dc64d457570",
+    "log": "export-guard-before.log.txt",
+    "expected_nonzero_exit_code": 1,
+    "note": "Assertion failures include downstream effects of the deliberately overwritten disposable fixture; not a count of independent vulnerabilities."
+  }
+}

@@ -1,0 +1,4 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS bundled export destination guard: fixture · case-sensitive true
+Export safeguard failures: 0 · case-sensitive directory: true · link fixtures: true

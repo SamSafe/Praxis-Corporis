@@ -1,0 +1,48 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ERROR: A relative export path cannot overwrite the active library
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/export_safeguards_smoke.gd:12)
+       [1] _initialize (res://tests/export_safeguards_smoke.gd:52)
+ERROR: Letter-case handling preserves the newer active file
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/export_safeguards_smoke.gd:12)
+       [1] _initialize (res://tests/export_safeguards_smoke.gd:62)
+ERROR: Separate export writes the visible library without changing memory or the newer active file
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/export_safeguards_smoke.gd:12)
+       [1] _initialize (res://tests/export_safeguards_smoke.gd:68)
+ERROR: A directory link cannot overwrite a newer active library
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/export_safeguards_smoke.gd:12)
+       [1] _initialize (res://tests/export_safeguards_smoke.gd:86)
+ERROR: Ambiguous parent segments after a directory link fail before writing any file
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/export_safeguards_smoke.gd:12)
+       [1] _initialize (res://tests/export_safeguards_smoke.gd:90)
+ERROR: A file link to the active library stays intact and cannot bypass the guard
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/export_safeguards_smoke.gd:12)
+       [1] _initialize (res://tests/export_safeguards_smoke.gd:93)
+ERROR: A JSON-named link to the active backup cannot replace that backup link
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/export_safeguards_smoke.gd:12)
+       [1] _initialize (res://tests/export_safeguards_smoke.gd:97)
+ERROR: A directory alias cannot recreate a missing active file from a stale reader
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/export_safeguards_smoke.gd:12)
+       [1] _initialize (res://tests/export_safeguards_smoke.gd:101)
+ERROR: The held newer file returns unchanged
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/export_safeguards_smoke.gd:12)
+       [1] _initialize (res://tests/export_safeguards_smoke.gd:109)
+Export safeguard failures: 9 · case-sensitive directory: true · link fixtures: true
