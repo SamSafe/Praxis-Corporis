@@ -1,0 +1,191 @@
+Packing prepared anatomy…
+Anatomy package complete: /home/king-/projects/3d_medicine_viewer/dist/saved-view-search-final/native-build-14bhg7al/anatomy.pck
+Exporting and checking the Linux QA runtime…
+PASS private export resource boundary
+PASS interface frames while loading: female · 169
+PASS bundled local saved view and study notes: female
+PASS bundled information dialogs: female
+PASS bundled condition study: female
+PASS bundled keyboard movement: female
+PASS bundled circulation route: female
+PASS bundled study workspace: female
+PASS failed replacement preserves exploration: female
+PASS bundled keyboard workspace: female
+PASS bundled source search: female
+PASS bundled expanded controls: female
+PASS bundled orientation: female
+PASS bundled part actions: female
+PASS bundled scene display: female
+PASS bundled reference: female · 801 meshes
+PASS interface frames while loading: male · 179
+PASS bundled local saved view and study notes: male
+PASS bundled condition study: male
+PASS bundled keyboard movement: male
+PASS bundled circulation route: male
+PASS bundled study workspace: male
+PASS failed replacement preserves exploration: male
+PASS bundled keyboard workspace: male
+PASS bundled source search: male
+PASS bundled expanded controls: male
+PASS bundled orientation: male
+PASS bundled part actions: male
+PASS bundled scene display: male
+PASS bundled reference: male · 788 meshes
+PASS interface frames while loading: bodyparts-male-bones-study · 25
+PASS bundled local saved view and study notes: bodyparts-male-bones-study
+PASS bundled keyboard movement: bodyparts-male-bones-study
+PASS bundled study workspace: bodyparts-male-bones-study
+PASS failed replacement preserves exploration: bodyparts-male-bones-study
+PASS bundled keyboard workspace: bodyparts-male-bones-study
+PASS bundled source search: bodyparts-male-bones-study
+PASS bundled expanded controls: bodyparts-male-bones-study
+PASS bundled orientation: bodyparts-male-bones-study
+PASS bundled part actions: bodyparts-male-bones-study
+PASS bundled scene display: bodyparts-male-bones-study
+PASS bundled reference: bodyparts-male-bones-study · 203 meshes
+PASS interface frames while loading: hra-v1-2-female-cord-study · 15
+PASS bundled local saved view and study notes: hra-v1-2-female-cord-study
+PASS bundled keyboard movement: hra-v1-2-female-cord-study
+PASS bundled study workspace: hra-v1-2-female-cord-study
+PASS failed replacement preserves exploration: hra-v1-2-female-cord-study
+PASS bundled keyboard workspace: hra-v1-2-female-cord-study
+PASS bundled source search: hra-v1-2-female-cord-study
+PASS bundled expanded controls: hra-v1-2-female-cord-study
+PASS bundled orientation: hra-v1-2-female-cord-study · unavailable source frame correctly disabled
+PASS bundled part actions: hra-v1-2-female-cord-study
+PASS bundled scene display: hra-v1-2-female-cord-study
+PASS bundled reference: hra-v1-2-female-cord-study · 29 meshes
+PASS interface frames while loading: hra-v1-2-female-vertebrae-study · 19
+PASS bundled local saved view and study notes: hra-v1-2-female-vertebrae-study
+PASS bundled keyboard movement: hra-v1-2-female-vertebrae-study
+PASS bundled study workspace: hra-v1-2-female-vertebrae-study
+PASS failed replacement preserves exploration: hra-v1-2-female-vertebrae-study
+PASS bundled keyboard workspace: hra-v1-2-female-vertebrae-study
+PASS bundled source search: hra-v1-2-female-vertebrae-study
+PASS bundled expanded controls: hra-v1-2-female-vertebrae-study
+PASS bundled orientation: hra-v1-2-female-vertebrae-study · unavailable source frame correctly disabled
+PASS bundled ERROR: Signal 'focus_entered' is already connected to given callable '' in that object.
+PASS bundled scene display: hra-v1-2-female-vertebrae-study
+PASS bundled reference: hra-v1-2-female-vertebrae-study · 25 meshes
+PASS interface frames while loading: hra-v1-2-male-cord-study · 7
+PASS bundled local saved view and study notes: hra-v1-2-male-cord-study
+PASS bundled keyboard movement: hra-v1-2-male-cord-study
+PASS bundled study workspace: hra-v1-2-male-cord-study
+PASS failed replacement preserves exploration: hra-v1-2-male-cord-study
+PASS bundled keyboard workspace: hra-v1-2-male-cord-study
+PASS bundled source search: hra-v1-2-male-cord-study
+PASS bundled expanded controls: hra-v1-2-male-cord-study
+PASS bundled orientation: hra-v1-2-male-cord-study · unavailable source frame correctly disabled
+PASS bundled part actions: hra-v1-2-male-cord-study
+PASS bundled scene display: hra-v1-2-male-cord-study
+PASS bundled reference: hra-v1-2-male-cord-study · 30 meshes
+PASS interface frames while loading: hra-v1-2-male-vertebrae-study · 23
+PASS bundled local saved view and study notes: hra-v1-2-male-vertebrae-study
+PASS bundled keyboard movement: hra-v1-2-male-vertebrae-study
+PASS bundled study workspace: hra-v1-2-male-vertebrae-study
+PASS failed replacement preserves exploration: hra-v1-2-male-vertebrae-study
+PASS bundled keyboard workspace: hra-v1-2-male-vertebrae-study
+PASS bundled source search: hra-v1-2-male-vertebrae-study
+PASS bundled expanded controls: hra-v1-2-male-vertebrae-study
+PASS bundled orientation: hra-v1-2-male-vertebrae-study · unavailable source frame correctly disabled
+PASS bundled part actions: hra-v1-2-male-vertebrae-study
+PASS bundled scene display: hra-v1-2-male-vertebrae-study
+PASS bundled reference: hra-v1-2-male-vertebrae-study · 24 meshes
+PASS offline native bundle
+Exporting windows…
+Built /home/king-/projects/3d_medicine_viewer/dist/saved-view-search-final/PraxisCorporis-Windows-x64-private.zip
+Exporting macos…
+Checking the embedded Mac content using the development engine…
+PASS standalone packed resource boundary
+PASS private export resource boundary
+PASS interface frames while loading: female · 284
+PASS bundled local saved view and study notes: female
+PASS bundled information dialogs: female
+PASS bundled condition study: female
+PASS bundled keyboard movement: female
+PASS bundled circulation route: female
+PASS bundled study workspace: female
+PASS failed replacement preserves exploration: female
+PASS bundled keyboard workspace: female
+PASS bundled source search: female
+PASS bundled expanded controls: female
+PASS bundled orientation: female
+PASS bundled part actions: female
+PASS bundled scene display: female
+PASS bundled reference: female · 801 meshes
+PASS interface frames while loading: male · 306
+PASS bundled local saved view and study notes: male
+PASS bundled condition study: male
+PASS bundled keyboard movement: male
+PASS bundled circulation route: male
+PASS bundled study workspace: male
+PASS failed replacement preserves exploration: male
+PASS bundled keyboard workspace: male
+PASS bundled source search: male
+PASS bundled expanded controls: male
+PASS bundled orientation: male
+PASS bundled part actions: male
+PASS bundled scene display: male
+PASS bundled reference: male · 788 meshes
+PASS interface frames while loading: bodyparts-male-bones-study · 52
+PASS bundled local saved view and study notes: bodyparts-male-bones-study
+PASS bundled keyboard movement: bodyparts-male-bones-study
+PASS bundled study workspace: bodyparts-male-bones-study
+PASS failed replacement preserves exploration: bodyparts-male-bones-study
+PASS bundled keyboard workspace: bodyparts-male-bones-study
+PASS bundled source search: bodyparts-male-bones-study
+PASS bundled expanded controls: bodyparts-male-bones-study
+PASS bundled orientation: bodyparts-male-bones-study
+PASS bundled part actions: bodyparts-male-bones-study
+PASS bundled scene display: bodyparts-male-bones-study
+PASS bundled reference: bodyparts-male-bones-study · 203 meshes
+PASS interface frames while loading: hra-v1-2-female-cord-study · 29
+PASS bundled local saved view and study notes: hra-v1-2-female-cord-study
+PASS bundled keyboard movement: hra-v1-2-female-cord-study
+PASS bundled study workspace: hra-v1-2-female-cord-study
+PASS failed replacement preserves exploration: hra-v1-2-female-cord-study
+PASS bundled keyboard workspace: hra-v1-2-female-cord-study
+PASS bundled source search: hra-v1-2-female-cord-study
+PASS bundled expanded controls: hra-v1-2-female-cord-study
+PASS bundled orientation: hra-v1-2-female-cord-study · unavailable source frame correctly disabled
+PASS bundled part actions: hra-v1-2-female-cord-study
+PASS bundled scene display: hra-v1-2-female-cord-study
+PASS bundled reference: hra-v1-2-female-cord-study · 29 meshes
+PASS interface frames while loading: hra-v1-2-female-vertebrae-study · 42
+PASS bundled local saved view and study notes: hra-v1-2-female-vertebrae-study
+PASS bundled keyboard movement: hra-v1-2-female-vertebrae-study
+PASS bundled study workspace: hra-v1-2-female-vertebrae-study
+PASS failed replacement preserves exploration: hra-v1-2-female-vertebrae-study
+PASS bundled keyboard workspace: hra-v1-2-female-vertebrae-study
+PASS bundled source search: hra-v1-2-female-vertebrae-study
+PASS bundled expanded controls: hra-v1-2-female-vertebrae-study
+PASS bundled orientation: hra-v1-2-female-vertebrae-study · unavailable source frame correctly disabled
+PASS bundled part actions: hra-v1-2-female-vertebrae-study
+PASS bundled scene display: hra-v1-2-female-vertebrae-study
+PASS bundled reference: hra-v1-2-female-vertebrae-study · 25 meshes
+PASS interface frames while loading: hra-v1-2-male-cord-study · 9
+PASS bundled local saved view and study notes: hra-v1-2-male-cord-study
+PASS bundled keyboard movement: hra-v1-2-male-cord-study
+PASS bundled study workspace: hra-v1-2-male-cord-study
+PASS failed replacement preserves exploration: hra-v1-2-male-cord-study
+PASS bundled keyboard workspace: hra-v1-2-male-cord-study
+PASS bundled source search: hra-v1-2-male-cord-study
+PASS bundled expanded controls: hra-v1-2-male-cord-study
+PASS bundled orientation: hra-v1-2-male-cord-study · unavailable source frame correctly disabled
+PASS bundled part actions: hra-v1-2-male-cord-study
+PASS bundled scene display: hra-v1-2-male-cord-study
+PASS bundled reference: hra-v1-2-male-cord-study · 30 meshes
+PASS interface frames while loading: hra-v1-2-male-vertebrae-study · 39
+PASS bundled local saved view and study notes: hra-v1-2-male-vertebrae-study
+PASS bundled keyboard movement: hra-v1-2-male-vertebrae-study
+PASS bundled study workspace: hra-v1-2-male-vertebrae-study
+PASS failed replacement preserves exploration: hra-v1-2-male-vertebrae-study
+PASS bundled keyboard workspace: hra-v1-2-male-vertebrae-study
+PASS bundled source search: hra-v1-2-male-vertebrae-study
+PASS bundled expanded controls: hra-v1-2-male-vertebrae-study
+PASS bundled orientation: hra-v1-2-male-vertebrae-study · unavailable source frame correctly disabled
+PASS bundled part actions: hra-v1-2-male-vertebrae-study
+PASS bundled scene display: hra-v1-2-male-vertebrae-study
+PASS bundled reference: hra-v1-2-male-vertebrae-study · 24 meshes
+PASS offline native bundle
+Built /home/king-/projects/3d_medicine_viewer/dist/saved-view-search-final/PraxisCorporis-macOS-universal-private.zip

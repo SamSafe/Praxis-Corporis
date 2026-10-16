@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "source_revision": "14b624083afbde0335a5f3805293b583be952839",
+  "checks": [
+    {
+      "script": "tests/saved_views_filter_smoke.gd",
+      "script_sha256": "899b8d02708003deca4f6ededf5ecac74978eb9464ec987069ad43c5ed07ad4c",
+      "log": "saved-view-search-caret-smoke.log.txt",
+      "log_sha256": "9854807cf0dc138e17f7634f384fb1bd30e09d36f8268bc5723775eecbffb1de",
+      "passed": true
+    },
+    {
+      "script": "tests/study_notes_smoke.gd",
+      "script_sha256": "9bd71fba93a9431f6e4f99304d425ddde3c7c1da98b789ae946fd846985a1c22",
+      "log": "saved-view-search-caret-notes.log.txt",
+      "log_sha256": "51581e6ea8860748dbdcd6e17901a0a7095c181533ca7539d382853fde43214c",
+      "passed": true
+    }
+  ],
+  "direct_cursor_observation": {
+    "before": [
+      1,
+      8
+    ],
+    "after": [
+      1,
+      8
+    ],
+    "log": "saved-view-search-caret-check.log.txt"
+  }
+}

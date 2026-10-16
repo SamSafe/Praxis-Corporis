@@ -1,0 +1,37 @@
+{
+  "reopened_maximized": true,
+  "reopened_size": [
+    1300,
+    800
+  ],
+  "final_saved": {
+    "maximized": false,
+    "schema_version": 1,
+    "size": [
+      1300,
+      800
+    ]
+  },
+  "schema_version": 1,
+  "maximized_saved": {
+    "maximized": true,
+    "schema_version": 1,
+    "size": [
+      1300,
+      800
+    ]
+  },
+  "unmaximized_size": [
+    1300,
+    800
+  ],
+  "first_saved": {
+    "maximized": false,
+    "schema_version": 1,
+    "size": [
+      1300,
+      800
+    ]
+  },
+  "protocol_sha256": "548ce5680e95d4a478d3402c38636fb078ab8398961e28f1781c9b1e0e517c71"
+}

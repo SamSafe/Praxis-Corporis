@@ -1,0 +1,29 @@
+extends SceneTree
+const SavedViews = preload("res://scripts/saved_views.gd")
+const Browser = preload("res://scripts/saved_views_browser.gd")
+func _initialize():
+ call_deferred("run")
+func run():
+ var library=SavedViews.new()
+ library.path="user://caret-check-"+Crypto.new().generate_random_bytes(8).hex_encode()+".json"
+ library.load_library()
+ library.add_view("Study",{})
+ var browser=Browser.new()
+ browser.library=library
+ browser.pack={"bodies":[]}
+ browser.validate_state=func(_s):return ""
+ root.add_child(browser)
+ browser.view_list.select(0)
+ browser.select_entry(0)
+ browser.notes_input.text="First line\nSecond observation"
+ browser.on_notes_changed()
+ browser.notes_input.set_caret_line(1)
+ browser.notes_input.set_caret_column(8)
+ var before=Vector2i(browser.notes_input.get_caret_line(),browser.notes_input.get_caret_column())
+ browser.save_notes()
+ var after=Vector2i(browser.notes_input.get_caret_line(),browser.notes_input.get_caret_column())
+ print("Note caret before/after save: ",before," / ",after)
+ for suffix in ["",".bak",".tmp"]:DirAccess.remove_absolute(library.path+suffix)
+ browser.queue_free()
+ await process_frame
+ quit(0 if before==after else 1)

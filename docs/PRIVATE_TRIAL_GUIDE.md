@@ -6,7 +6,8 @@ tasks assess controls and coverage understanding; they do not provide medical re
 
 ## Record the tested version
 
-Record the archive name and SHA-256 from [the build report](audit/native-build-report.json),
+Record the archive name and SHA-256 from the matching build report linked in
+[private builds](NATIVE_BUILDS.md),
 OS version, graphics device, screen resolution/scaling, and whether input uses a mouse
 or trackpad. Use the actual ZIP that matches that record. Later source commits do not
 retroactively validate earlier packages. Extract the complete archive before opening it.
@@ -38,6 +39,7 @@ restarting. Repeat the HRA tasks for both female and male references.
 | Revisit anatomy | Select the heart/lung and use Back/Forward. | Were camera and inspection changes retained as expected? |
 | Save two views | Give two different setups distinct names in Saved views. | Are reference and structure easy to distinguish? |
 | Add study notes | Select each saved view, save different notes, and reopen them. Try Keep editing after closing an unsaved draft. | Did text stay attached to the right view? Were the choices clear? |
+| Find a saved view | Search by name and a word in its notes. Filter away an unsaved draft, clear search and return to it. Try Ctrl+F, Enter and Escape at 130% text. | Were matches/counts clear, drafts retained and actions reachable in a small dialog? |
 | Reopen and restore | Close/reopen the app and restore a named isolated part. | Does Return to context still work? |
 | Export a screenshot | Save a PNG through the native picker, reopen it and check the source/status footer. Cancel another export. | Any missing label, clipped credit, unclear overwrite or changed session? |
 | Check a coverage gap | Open Coverage and inspect skeletal coverage for both HRA bodies. | Do counts look like a completeness claim? |

@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "source_revision": "9ca77d1e2eb2b1d48cc2123576ac904e39d09e94",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": [
+    {
+      "script": "tests/saved_views_filter_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.404,
+      "script_sha256": "e87f6061e9fde88affb1d5c942bb653b25ae021e5bd36eb66f127df9bcaccf2f",
+      "log_sha256": "9854807cf0dc138e17f7634f384fb1bd30e09d36f8268bc5723775eecbffb1de",
+      "log": "saved-view-search-saved_views_filter_smoke.log.txt"
+    },
+    {
+      "script": "tests/study_notes_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 8.444,
+      "script_sha256": "9bd71fba93a9431f6e4f99304d425ddde3c7c1da98b789ae946fd846985a1c22",
+      "log_sha256": "cd735139bff97329e429ad65a9cee163bf89f3760498730e050bc8c220a75436",
+      "log": "saved-view-search-study_notes_smoke.log.txt"
+    },
+    {
+      "script": "tests/saved_views_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 31.067,
+      "script_sha256": "c3488b43a250418be1cc4d4232e24b02463609682bff3afdbd4c154d8842c531",
+      "log_sha256": "34f28ec2bdfebe550d83c7dd4ac16c30c3ff6a6d84228799f28d40b49d558fad",
+      "log": "saved-view-search-saved_views_smoke.log.txt"
+    },
+    {
+      "script": "tests/keyboard_workspace_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 7.502,
+      "script_sha256": "82da8a3e9b0657c6503775d141dd8f49c859fd84ce4d3e447b70dc161fc5bb79",
+      "log_sha256": "08ca5af3d360a4e5bb95b1e9bd90571087d862e7b94fa5bba46ddac7c5565ad0",
+      "log": "saved-view-search-keyboard_workspace_smoke.log.txt"
+    },
+    {
+      "script": "tests/portable_views_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.287,
+      "script_sha256": "3e5a287fc1ac98bf0df0dab434e1e995051b7757d3ac5294fe5377d7654e17e2",
+      "log_sha256": "be706251c30f3a10101c6ce9b0de3064c5649c7b6df16ecdc220807c09896af0",
+      "log": "saved-view-search-portable_views_smoke.log.txt"
+    },
+    {
+      "script": "tests/export_boundary_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.296,
+      "script_sha256": "51f89cd5d43ea25a359994e4ca92837d4991cc4e0f5c7724943714a1d142d493",
+      "log_sha256": "235837cc34c4cf1c2235cda51a9da9ede4c280cde7f1745d6a780ed48e4819ca",
+      "log": "saved-view-search-export_boundary_smoke.log.txt"
+    }
+  ]
+}
