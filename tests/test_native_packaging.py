@@ -21,10 +21,18 @@ class NativePackagingTests(unittest.TestCase):
         marker = 'PASS loading shutdown: initial/anatomy · resource true · worker false · staged false'
         for output in ['', marker + '\n' + marker, marker + '\nERROR: Resource failed',
                        marker + '\nWARNING: 1 ObjectDB instance was leaked at exit',
-                       marker + '\nSCRIPT ERROR: invalid call']:
+                       marker + '\nSCRIPT ERROR: invalid call',
+                       marker + '\nPASS bundled find anatomy: femERROR: duplicate signal']:
             with self.subTest(output=output), patch('build_native.subprocess.run', return_value=SimpleNamespace(returncode=0, stdout=output)):
                 with self.assertRaises(RuntimeError):
                     run(['fixture-engine'], required_marker=marker)
+
+    def test_bundle_runtime_requires_completion_without_interleaved_errors(self):
+        marker = 'PASS offline native bundle'
+        for output in ['PASS partial check', 'PASS stepERROR: duplicate signal\n' + marker]:
+            with self.subTest(output=output), patch('build_native.subprocess.run', return_value=SimpleNamespace(returncode=0, stdout=output)):
+                with self.assertRaises(RuntimeError):
+                    run(['fixture-runtime'], required_marker=marker)
 
     def test_changed_or_deleted_runtime_inputs_cannot_finish_a_build(self):
         with tempfile.TemporaryDirectory() as folder:

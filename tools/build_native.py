@@ -35,7 +35,7 @@ def run(command: list[str], cwd: pathlib.Path = ROOT, env: dict | None = None,
         output = error.stdout.decode(errors="replace") if isinstance(error.stdout, bytes) else (error.stdout or "")
         raise RuntimeError(f"Build step timed out: {command[0]}\n{output}") from error
     incomplete = required_marker is not None and (result.stdout.splitlines().count(required_marker) != 1
-                  or re.search(r'^ERROR:|ObjectDB instance.*leaked|^Leaked instance:', result.stdout, re.M))
+                  or re.search(r'ERROR:|ObjectDB instance.*leaked|^Leaked instance:', result.stdout, re.M))
     if result.returncode or "SCRIPT ERROR:" in result.stdout or incomplete:
         raise RuntimeError(f"Command failed ({result.returncode}): {command[0]}\n{result.stdout}")
     # Keep successful build output compact; retained reports describe verified results.
@@ -210,6 +210,12 @@ def build(args: argparse.Namespace) -> dict:
         print("Packing prepared anatomy…", flush=True)
         run([args.godot, "--headless", "--path", str(ROOT), "--script", "tools/pack_anatomy.gd", "--", f"--output={data_pack}"])
         report["anatomy_package"] = {"bytes": data_pack.stat().st_size, "sha256": sha256(data_pack)}
+        qa_environment = os.environ.copy()
+        qa_environment.update({
+            "XDG_DATA_HOME": str(temporary / "qa-user-data"),
+            "XDG_CONFIG_HOME": str(temporary / "qa-config"),
+            "XDG_CACHE_HOME": str(temporary / "qa-cache"),
+        })
         if args.qa_linux:
             qa = temporary / "qa"
             qa.mkdir()
@@ -218,14 +224,9 @@ def build(args: argparse.Namespace) -> dict:
             run([args.godot, "--headless", "--path", str(ROOT), "--export-release", "Linux Bundle QA", str(executable)])
             shutil.copyfile(data_pack, qa / "anatomy.pck")
             executable.chmod(0o755)
-            qa_environment = os.environ.copy()
-            qa_environment.update({
-                "XDG_DATA_HOME": str(temporary / "qa-user-data"),
-                "XDG_CONFIG_HOME": str(temporary / "qa-config"),
-                "XDG_CACHE_HOME": str(temporary / "qa-cache"),
-            })
             # Run outside the source project; every anatomy read must come from the bundle.
-            run([str(executable), "--headless", "--audio-driver", "Dummy", "--", "--verify-bundle"], cwd=qa, env=qa_environment)
+            run([str(executable), "--headless", "--audio-driver", "Dummy", "--", "--verify-bundle"], cwd=qa, env=qa_environment,
+                required_marker="PASS offline native bundle")
             report['linux_loading_shutdown_qa'] = check_loading_shutdown(
                 [str(executable), '--headless', '--audio-driver', 'Dummy'], qa, qa_environment)
             (qa / "anatomy.pck").rename(qa / "anatomy.unavailable")
@@ -266,14 +267,16 @@ def build(args: argparse.Namespace) -> dict:
                     raise ValueError("Mac application must contain its anatomy inside the core resource pack")
                 if not list(folder.glob("*.app/Contents/_CodeSignature/CodeResources")):
                     raise ValueError("Mac application must retain its ad-hoc resource seal")
-                if args.qa_linux:
+                if args.qa_linux or args.qa_mac_content:
                     print("Checking the embedded Mac content using the development engine…", flush=True)
                     # Engine-consumed --main-pack is absent from OS.get_cmdline_args().
                     # An external script checks the actual virtual pack without relying on template features.
                     run([args.godot, "--headless", "--audio-driver", "Dummy", "--main-pack", str(core_packs[0]),
-                         "--script", str(ROOT / "tests/packed_resource_boundary.gd")], cwd=folder, env=qa_environment)
+                         "--script", str(ROOT / "tests/packed_resource_boundary.gd")], cwd=folder, env=qa_environment,
+                        required_marker="PASS standalone packed resource boundary")
                     run([args.godot, "--headless", "--audio-driver", "Dummy", "--main-pack", str(core_packs[0]),
-                         "--", "--verify-bundle", "--verify-export-boundary"], cwd=folder, env=qa_environment)
+                         "--", "--verify-bundle", "--verify-export-boundary"], cwd=folder, env=qa_environment,
+                        required_marker="PASS offline native bundle")
                     report["mac_content_qa"] = "passed every bundled reference in embedded content on the development engine; Mac device testing pending"
                     report['mac_loading_shutdown_content_qa'] = check_loading_shutdown(
                         [args.godot, '--headless', '--audio-driver', 'Dummy', '--main-pack', str(core_packs[0])],
@@ -302,6 +305,7 @@ if __name__ == "__main__":
     parser.add_argument("--output", type=pathlib.Path, default=ROOT / "dist")
     parser.add_argument("--platform", nargs="+", choices=["windows", "macos"], default=["windows", "macos"])
     parser.add_argument("--qa-linux", action="store_true", help="Test an exported Linux runtime; Linux is not a release target")
+    parser.add_argument("--qa-mac-content", action="store_true", help="Check embedded Mac content on the development engine, independently of Linux template QA; Mac hardware testing remains pending")
     options = parser.parse_args()
     options.godot = shutil.which(options.godot) or str(pathlib.Path(options.godot).resolve())
     options.output = options.output.resolve()

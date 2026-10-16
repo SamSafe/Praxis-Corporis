@@ -26,6 +26,17 @@ def complete_log(rendered=True):
 
 
 class WindowsVerificationTests(unittest.TestCase):
+    def test_find_anatomy_packages_require_every_reference_check(self):
+        log = complete_log(False)
+        for reference in ['female', 'male']:
+            with self.assertRaisesRegex(ValueError, 'Find anatomy'):
+                parse_result(log, False, find_anatomy=True)
+            log += '\nPASS bundled find anatomy: ' + reference
+        with self.assertRaisesRegex(ValueError, 'Find anatomy'):
+            parse_result(log, False, find_anatomy=True)
+        log += '\nPASS bundled find anatomy: bodyparts-male-bones-study'
+        self.assertIn('female', parse_result(log, False, find_anatomy=True)['references'])
+
     def test_shutdown_evidence_requires_its_actual_loading_boundary(self):
         marker = 'PASS loading shutdown: initial/anatomy · resource true · worker false · staged false'
         self.assertTrue(parse_loading_shutdown(marker, 'initial/anatomy')['owned_resource_at_close'])
@@ -39,7 +50,8 @@ class WindowsVerificationTests(unittest.TestCase):
     def test_shutdown_errors_and_late_object_leaks_cannot_pass(self):
         marker = 'PASS loading shutdown: replacement/selection · resource true · worker false · staged true'
         for suffix in ['\nSCRIPT ERROR: invalid call', '\nERROR: Resource failed',
-                       '\nWARNING: 1 ObjectDB instance was leaked at exit', '\nLeaked instance: RefCounted:1234']:
+                       '\nWARNING: 1 ObjectDB instance was leaked at exit', '\nLeaked instance: RefCounted:1234',
+                       '\nPASS stepERROR: duplicate signal']:
             with self.subTest(suffix=suffix), self.assertRaises(ValueError):
                 parse_loading_shutdown(marker + suffix, 'replacement/selection')
 
@@ -96,6 +108,7 @@ class WindowsVerificationTests(unittest.TestCase):
             with self.subTest(marker=marker), self.assertRaises(ValueError):
                 parse_result(broken, True)
         for broken in [log + '\nSCRIPT ERROR: Failure', log + '\nERROR: Invalid source',
+                       log + '\nPASS stepERROR: duplicate signal',
                        log + '\nWARNING: 1 ObjectDB instance was leaked at exit',
                        log.replace('Windows native exit code: 0', 'Windows native exit code: 1'),
                        log.replace('PASS offline native bundle', ''),

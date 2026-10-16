@@ -27,8 +27,8 @@ def ps_literal(value: str) -> str:
 
 
 def parse_result(log: str, rendered: bool, circulation: bool = False, information: bool = False,
-                 conditions: bool = False) -> dict:
-    if "SCRIPT ERROR:" in log or re.search(r"^ERROR:", log, re.M):
+                 conditions: bool = False, find_anatomy: bool = False) -> dict:
+    if "ERROR:" in log:
         raise ValueError("The native runtime reported an error")
     if re.search(r'ObjectDB instance.*leaked|^Leaked instance:', log, re.M):
         raise ValueError('The native runtime leaked an object at exit')
@@ -49,6 +49,8 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
         if any(key.startswith('hra-v1-2-') for key in references) and not re.search(
                 r'^PASS bundled study workspace: ' + re.escape(reference) + r'$', log, re.M):
             raise ValueError('Native study workspace check missing: ' + reference)
+        if find_anatomy and f'PASS bundled find anatomy: {reference}' not in log.splitlines():
+            raise ValueError('Native Find anatomy check missing: ' + reference)
     result = process_observations(log, rendered)
     if information and 'PASS bundled information dialogs: female' not in log.splitlines():
         raise ValueError('Native information dialog check missing')
@@ -73,7 +75,7 @@ def parse_loading_shutdown(log: str, case: str) -> dict:
                 'selection': (True, False, True), 'preparing': (False, False, True)}
     if len(fields) != 2 or fields[0] not in {'initial', 'replacement'} or fields[1] not in expected:
         raise ValueError('Unknown loading shutdown case')
-    if 'SCRIPT ERROR:' in log or re.search(r'^ERROR:', log, re.M):
+    if 'ERROR:' in log:
         raise ValueError('Loading shutdown reported an error')
     if re.search(r'ObjectDB instance.*leaked|^Leaked instance:', log, re.M):
         raise ValueError('Loading shutdown leaked an object at exit')
@@ -88,7 +90,7 @@ def parse_loading_shutdown(log: str, case: str) -> dict:
 
 
 def process_observations(log: str, rendered: bool = True) -> dict:
-    if 'SCRIPT ERROR:' in log or re.search(r'^ERROR:', log, re.M) or 'Windows native exit code: 0' not in log:
+    if 'ERROR:' in log or 'Windows native exit code: 0' not in log:
         raise ValueError('Native process did not finish without errors')
     memory = {}
     for field, label in [("peak_working_set_bytes_observed", "QA observed peak working set bytes"),
@@ -277,6 +279,8 @@ def verify(args: argparse.Namespace) -> dict:
     reference_state = 'scripts/reference_state.gd' in build_report['source_hashes']
     loading_shutdown = ('scripts/viewer.gd' in build_report['source_hashes']
                         and b'--verify-loading-shutdown' in git_bytes(ROOT, build_report['source_revision'], 'scripts/viewer.gd'))
+    find_anatomy = ('scripts/viewer.gd' in build_report['source_hashes']
+                    and b'PASS bundled find anatomy:' in git_bytes(ROOT, build_report['source_revision'], 'scripts/viewer.gd'))
     startup_cases = None
     if reference_state:
         bodies = json.loads(git_bytes(ROOT, build_report['source_revision'], 'content/sample_pack.json'))['bodies']
@@ -303,7 +307,7 @@ def verify(args: argparse.Namespace) -> dict:
             reference_fixture.parent.mkdir(parents=True, exist_ok=True)
             reference_fixture.write_text(reference_fixture_text, encoding='utf-8')
         log = run_native(args, windows_session, windows_session + "\\" + executable_relative)
-        result = parse_result(log, args.mode == "rendered", circulation, information, conditions)
+        result = parse_result(log, args.mode == "rendered", circulation, information, conditions, find_anatomy)
         if result["engine_actual"] != build_report["engine"]:
             raise ValueError("The native runtime differs from the pinned build engine")
         result.update(schema_version=1, recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
