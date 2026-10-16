@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "source_revision": "2c20e864886fca91e4318d4bf87ec2984e169749",
+  "before_revision": "d1d81892a2926b2303ed81392410300e8fcb1d56",
+  "before_camera_sha256": "b018ce8e8ff5be639ac611368f0afc227d0318f8700bbcfcce14f46b449496e3",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": [
+    {
+      "script": "tests/pointer_interruption_smoke.gd",
+      "script_sha256": "3bad036eb573ea11d38215a867b9cadb99954c4dca6c745ec578aaa94d34944f",
+      "log": "pointer-interruption-after.log.txt",
+      "log_sha256": "bd2a04f8c651f6a6e1c34fa7ccbc52015d86aca3a602b16e3df34b9f87aba911",
+      "success_marker": "Pointer interruption failures: 0"
+    },
+    {
+      "script": "tests/pointer_workspace_smoke.gd",
+      "script_sha256": "84040f54cc2e6ae66f8086710cc4eef8587a8b093b5b875a55641110d2cc6895",
+      "log": "pointer-workspace.log.txt",
+      "log_sha256": "be75d39ceba2fd2670f2be13d6c6c8f90351d45de075a9e5b3b73575cc7659ca",
+      "success_marker": "Pointer workspace failures: 0"
+    },
+    {
+      "script": "tests/scene_display_smoke.gd",
+      "script_sha256": "cedf93f850b7c5faece1bde97655e3f75d127ddd7a3e1e9ed1e31a65209cb643",
+      "log": "pointer-scene-display.log.txt",
+      "log_sha256": "48aeb556ff8bfbbe34de9edc615a018eb99af32d5c6285df2208771fe3790909",
+      "success_marker": "Screen-density display failures: 0"
+    },
+    {
+      "script": "tests/part_actions_smoke.gd",
+      "script_sha256": "418eed957471556b6b72fec3a025929e9df461f440adad5fe73a0c46148038a4",
+      "log": "pointer-part-actions.log.txt",
+      "log_sha256": "af91a2135fea61a0d4ab8d91ac43bf14e9ca28994526e40142db5732178b5995",
+      "success_marker": "PASS part action menus: actual GUI events, sizes, densities, guards and restoration"
+    },
+    {
+      "script": "tests/find_anatomy_smoke.gd",
+      "script_sha256": "542a7109c5532625a61c95a010bcddb40341d85c6b5d5a3302870b84d30c52a0",
+      "log": "pointer-find.log.txt",
+      "log_sha256": "83101471134b5b239d69919d3113584ff246e9a2ded7723651eaff917dbb65f7",
+      "success_marker": "Find anatomy failures: 0"
+    }
+  ]
+}

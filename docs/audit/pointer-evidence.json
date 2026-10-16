@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "runtime_source_revision": "2c20e864886fca91e4318d4bf87ec2984e169749",
+  "before_revision": "d1d81892a2926b2303ed81392410300e8fcb1d56",
+  "native_references": 7,
+  "native_interruption_rounds_per_reference": 20,
+  "native_capture_identities": 94,
+  "native_session_independently_checked_absent": true,
+  "python_checks": 66,
+  "mac_content_qa": "passed on development engine; actual Mac execution pending",
+  "linux_release_template_qa": "not rerun; independent popup-template limitation remains open",
+  "files": {
+    "pointer-artifact-audit.json": {
+      "bytes": 1346,
+      "sha256": "f35061c9dcde67af898f3b5b155daac36c7ca8990308a37bc4368ac4537c1cc2"
+    },
+    "pointer-build-report.json": {
+      "bytes": 4966,
+      "sha256": "823fb041cc007bd36a6b4e8aedb5dbfd0c85b524fbb0d9136a56ebea54cf3e16"
+    },
+    "pointer-build.log.txt": {
+      "bytes": 8527,
+      "sha256": "609af68bc80257910235cf9a508c8a861581dd862dd377959ffd2b5a70662c6a"
+    },
+    "pointer-development-qa.json": {
+      "bytes": 2082,
+      "sha256": "8963f912f055b944461304137471320131d048b28aa95b6214de68992dff2220"
+    },
+    "pointer-find.log.txt": {
+      "bytes": 256,
+      "sha256": "83101471134b5b239d69919d3113584ff246e9a2ded7723651eaff917dbb65f7"
+    },
+    "pointer-interruption-after.log.txt": {
+      "bytes": 106,
+      "sha256": "bd2a04f8c651f6a6e1c34fa7ccbc52015d86aca3a602b16e3df34b9f87aba911"
+    },
+    "pointer-interruption-before.log.txt": {
+      "bytes": 3406,
+      "sha256": "bb56f8e21e1cfcceb256877ef932c027491b5a88d1e7f0b2db54113c3a5d565a"
+    },
+    "pointer-native-initial-anatomy.log.txt": {
+      "bytes": 443,
+      "sha256": "a772f36bebd21d36561d9c4d645e18abb01088bdecc38026676e2e194b960594"
+    },
+    "pointer-native-replacement-selection.log.txt": {
+      "bytes": 527,
+      "sha256": "c4b21040e73a331af266d26fe075c47c3630032c0f02ab9e2f94313ba107e057"
+    },
+    "pointer-normal-lifecycle.json": {
+      "bytes": 1648,
+      "sha256": "414fba2ca285882a1f0bad957fac189f867cd0b592e2abd0123e5b8efdf0b4f3"
+    },
+    "pointer-part-actions.log.txt": {
+      "bytes": 1209,
+      "sha256": "af91a2135fea61a0d4ab8d91ac43bf14e9ca28994526e40142db5732178b5995"
+    },
+    "pointer-python.log.txt": {
+      "bytes": 165,
+      "sha256": "873885734d0bbbe1e4791207290418856be6bea14c43200a9966ca55d56f6f44"
+    },
+    "pointer-scene-display.log.txt": {
+      "bytes": 543,
+      "sha256": "48aeb556ff8bfbbe34de9edc615a018eb99af32d5c6285df2208771fe3790909"
+    },
+    "pointer-windows-qa.json": {
+      "bytes": 31007,
+      "sha256": "ac03d1aaec64a8eac0341398f9aaa57df02a3883cc89a35e043089c658d95fa3"
+    },
+    "pointer-windows-runtime.log.txt": {
+      "bytes": 12192,
+      "sha256": "a8c986988cae1b692d819af5cb39d2200f438698942b52eda9645bbde89ea9a8"
+    },
+    "pointer-workspace.log.txt": {
+      "bytes": 1235,
+      "sha256": "be75d39ceba2fd2670f2be13d6c6c8f90351d45de075a9e5b3b73575cc7659ca"
+    }
+  }
+}

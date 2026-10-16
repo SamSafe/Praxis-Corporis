@@ -95,7 +95,7 @@ is used by the viewer.
 | Zoom | Scroll wheel or supported pinch gesture. |
 | Keyboard camera | Tab/click to focus the 3D view (teal border). Arrows orbit; Shift-arrows pan; +/- zoom; F fits selection; Home shows the body. |
 | Orient the camera | Camera views offers Front, Back, From body left/right and angled Above/Below around the current focus. The direction cue rotates with the camera; L/R refer to the body's sides. |
-| Find a source record | Search names, source names, ontology IDs or catalogue IDs. Enter selects the first ranked result. |
+| Find a source record | Ctrl/Cmd+F or View/Explore > Find anatomy opens search. Search names, source names, ontology IDs or catalogue IDs; Enter selects the first ranked result. Escape clears the query, then returns focus to 3D. |
 | Trace source identity | Copy source record in the details panel copies the selected record and reference fingerprint. |
 | Select and focus | Click visible geometry or a surface label, choose a tree item, or select a search result. |
 | Actions beside anatomy | Select a part, then choose Actions beside its label. Shift+F10 or the Menu key opens it from the focused 3D view. Hidden/faded/off-screen selections keep a corner button. |
@@ -131,6 +131,11 @@ keyboard camera route. Precise keyboard movement is also available: M toggles Mo
 I/J/K/L move up/left/down/right in camera coordinates; U/O move toward/away. A press
 moves 5 mm, or 1 mm with Shift. Held repeats are ignored and each step supports Undo.
 Assistive-technology and human accessibility acceptance remain open.
+
+Switching to another app/window or focusing another control stops the current
+pointer drag. A lost mouse release or canceled click also stops it. Your existing
+camera position, selection and anatomy edits remain; Undo still reverses a Move
+gesture. Press again to begin a new drag. The Move toggle keeps its chosen setting.
 
 Named camera views retain the focus point, distance, selection, labels, isolation
 and anatomy edits. They leave explicit Move mode and participate in Back/Forward

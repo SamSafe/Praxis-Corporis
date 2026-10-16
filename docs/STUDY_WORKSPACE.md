@@ -105,6 +105,11 @@ inspection edits. The keys apply only while the 3D view has focus; search and te
 fields retain normal input. Movement works in both workspace sizes and every source
 reference. These are camera coordinates, separate from body-direction presets.
 
+For pointer movement, focusing another control or switching away from the app
+stops the current drag without discarding completed edits. A canceled click does not select anatomy.
+Start a fresh drag to continue; Undo reverses each completed gesture independently.
+The selected Move setting stays in place.
+
 ## Finding anatomy
 
 **Ctrl/Cmd+F** focuses anatomy search and selects its current query. It reveals the
@@ -294,6 +299,8 @@ godot --headless --path . --script tests/spinal_picking_smoke.gd
 godot --headless --path . --script tests/study_content_smoke.gd
 godot --headless --path . --script tests/circulation_route_smoke.gd
 godot --headless --path . --script tests/keyboard_movement_smoke.gd
+godot --headless --path . --script tests/pointer_interruption_smoke.gd
+godot --headless --path . --script tests/pointer_workspace_smoke.gd
 godot --headless --path . --script tests/information_dialog_smoke.gd
 godot --headless --path . --script tests/window_state_smoke.gd
 godot --headless --path . --script tests/saved_views_filter_smoke.gd
@@ -313,7 +320,7 @@ preview. Running it with a desktop display also captures the new screens under
 reconstructed collision vertices with source mesh faces. The exported runtime checks
 portable views/notes, preferences and reversible guide state in disposable files.
 Device trials and qualified medical review remain separate from scripted verification.
-[Verification and current private packages](audit/FIND_ANATOMY_VERIFICATION.md)
+[Verification and current private packages](audit/POINTER_INTERRUPTION_VERIFICATION.md)
 retain exact build identities, native Windows evidence, saved-view recovery/search/draft
 and deletion-undo checks, study-preserving cancellation and normal-launch reference/window restoration observations. [Draft content verification](audit/DRAFT_CONTENT_VERIFICATION.md)
 records the learning-content review-stage correction and valve-reference checks.

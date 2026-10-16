@@ -1,0 +1,58 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ERROR: A missing release stops navigation before an unheld motion: 1
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/pointer_interruption_smoke.gd:11)
+       [1] run (res://tests/pointer_interruption_smoke.gd:59)
+ERROR: A missing release stops navigation before an unheld motion: 2
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/pointer_interruption_smoke.gd:11)
+       [1] run (res://tests/pointer_interruption_smoke.gd:59)
+ERROR: A missing release stops navigation before an unheld motion: 3
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/pointer_interruption_smoke.gd:11)
+       [1] run (res://tests/pointer_interruption_smoke.gd:59)
+ERROR: A different held button cannot continue a stale drag
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/pointer_interruption_smoke.gd:11)
+       [1] run (res://tests/pointer_interruption_smoke.gd:64)
+ERROR: A missing release cannot keep editing anatomy in Move mode
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/pointer_interruption_smoke.gd:11)
+       [1] run (res://tests/pointer_interruption_smoke.gd:74)
+ERROR: Focus loss stops the gesture and keeps the chosen Move mode
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/pointer_interruption_smoke.gd:11)
+       [1] run (res://tests/pointer_interruption_smoke.gd:82)
+ERROR: Motion and a late release after focus loss cannot move or select anatomy
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/pointer_interruption_smoke.gd:11)
+       [1] run (res://tests/pointer_interruption_smoke.gd:85)
+ERROR: Focus loss stops the gesture and keeps the chosen Move mode
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/pointer_interruption_smoke.gd:11)
+       [1] run (res://tests/pointer_interruption_smoke.gd:82)
+ERROR: Motion and a late release after focus loss cannot move or select anatomy
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/pointer_interruption_smoke.gd:11)
+       [1] run (res://tests/pointer_interruption_smoke.gd:85)
+ERROR: A canceled click never requests an anatomy selection
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/pointer_interruption_smoke.gd:11)
+       [1] run (res://tests/pointer_interruption_smoke.gd:90)
+ERROR: Canceling a Move drag clears all gesture bookkeeping
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/pointer_interruption_smoke.gd:11)
+       [1] run (res://tests/pointer_interruption_smoke.gd:97)
+Pointer interruption failures: 11

@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-10-16T20:56:41.879368+00:00",
+  "source_snapshot_verified_against_revision": "2c20e864886fca91e4318d4bf87ec2984e169749",
+  "runtime_source_files": 37,
+  "auditor_sha256": "8c05fecc1e8a5aa53a95cd8cf242d0b084642998f0596a744e76d745c66f8c66",
+  "artifacts": [
+    {
+      "file": "PraxisCorporis-Windows-x64-private.zip",
+      "bytes": 328140938,
+      "sha256": "40a5d9cfd68f9f02d9b8189e4457bb7ed1beb7aaf533137cb259571319694649",
+      "architectures": [
+        "x86_64"
+      ],
+      "crc": "passed every extracted entry",
+      "notices": "all match committed source",
+      "content": "Companion anatomy package bytes/SHA-256 match the build record."
+    },
+    {
+      "file": "PraxisCorporis-macOS-universal-private.zip",
+      "bytes": 350586842,
+      "sha256": "971fb7963383b7bf1407486fe709b3af7b7b158ad3b2027cbc6df0616235e181",
+      "architectures": [
+        "x86_64",
+        "arm64"
+      ],
+      "crc": "passed every extracted entry",
+      "notices": "all match committed source",
+      "content": "Embedded content size, executable modes and resource-seal presence checked; no signature or content execution claim."
+    }
+  ],
+  "scope": "Archive/source audit only; native execution, resource-boundary checks, content fidelity and device performance have separate evidence."
+}
