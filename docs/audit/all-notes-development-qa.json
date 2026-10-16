@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "runtime_checkpoint": "98fb26e69d6ce632f813b35662042f6184af7783",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": [
+    {
+      "script": "tests/saved_views_filter_smoke.gd",
+      "script_sha256": "bf16e0ec0a1a0d1b2b3db6bd0b70f28ff5af0faab7693e986a0f66ee76f716d8",
+      "log": "all-notes-saved_views_filter_smoke.log.txt",
+      "log_sha256": "9854807cf0dc138e17f7634f384fb1bd30e09d36f8268bc5723775eecbffb1de",
+      "passed": true,
+      "success_marker": "Saved-view search failures: 0"
+    },
+    {
+      "script": "tests/study_notes_smoke.gd",
+      "script_sha256": "83dd815eb82e972d6ac5d1ad0d7da9601ef61c30e419d73521da957be3f544b3",
+      "log": "all-notes-study_notes_smoke.log.txt",
+      "log_sha256": "d8ae05f475646c64eb1619132e124a72f89351484637616e8251663e519e1761",
+      "passed": true,
+      "success_marker": "Study notes failures: 0"
+    },
+    {
+      "script": "tests/saved_views_undo_smoke.gd",
+      "script_sha256": "210d861d4c375ae6489d7a99fd3e498bcc2088005d0fbf9ebe91d3cdda326c31",
+      "log": "all-notes-saved_views_undo_smoke.log.txt",
+      "log_sha256": "9da3ca1d1df43f41761117c0ecb3c1ae0b5aac96f3fb797ea6e5c393229103d0",
+      "passed": true,
+      "success_marker": "Saved-view deletion undo failures: 0"
+    }
+  ]
+}

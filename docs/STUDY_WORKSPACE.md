@@ -119,6 +119,15 @@ the search when needed to reveal that view. Saving notes refreshes their matches
 The dialog keeps its action buttons visible and scrolls content at smaller sizes
 or larger text settings.
 
+**Save notes** retains the selected view's draft. **Save all notes** or **Ctrl/Cmd+S**
+retains every pending note, including drafts hidden by the search, and keeps the
+library open. The note status counts drafts on other views. All notes are saved
+together: an invalid note or failed write leaves every draft open. Selection and
+the editor cursor stay in place if the selected view still matches the search.
+Saving notes preserves a view name you are still typing. Use **Save current view**
+or **Rename** to apply that name.
+Saving or discarding notes before another action also refreshes search results.
+
 After confirming a deletion, **Undo delete** restores the most recently deleted
 view at its previous list position where possible. Its identity, date, snapshot
 and saved notes remain intact. Unfinished notes return as an unsaved draft; use
@@ -275,7 +284,7 @@ preview. Running it with a desktop display also captures the new screens under
 reconstructed collision vertices with source mesh faces. The exported runtime checks
 portable views/notes, preferences and reversible guide state in disposable files.
 Device trials and qualified medical review remain separate from scripted verification.
-[Verification and current private packages](audit/DELETION_UNDO_VERIFICATION.md)
+[Verification and current private packages](audit/ALL_NOTES_VERIFICATION.md)
 retain exact build identities, native Windows evidence, saved-view recovery/search/draft
 and deletion-undo checks, study-preserving cancellation and normal-launch reference/window restoration observations. [Draft content verification](audit/DRAFT_CONTENT_VERIFICATION.md)
 records the learning-content review-stage correction and valve-reference checks.
