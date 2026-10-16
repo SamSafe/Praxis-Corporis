@@ -137,6 +137,20 @@ original under its own filename. The result names that copy. Older damaged copie
 and the valid backup remain available. A healthy loaded library does not offer
 recovery. Invalid JSON reports a readable error while keeping the input unchanged.
 
+## Opening and switching references
+
+After a reference is open, **Cancel opening** is available during a replacement
+in both workspace sizes. It keeps the current anatomy, camera, labels, inspection
+edits and histories. Guide/route controls pause while loading and resume at the
+same step if opening is canceled or fails. A completed switch finishes the study
+and restores its original viewing controls. Canceling a different-reference saved
+view also retains the current study.
+
+Canceling may wait for the current reading step to finish before controls resume.
+The button then disappears and keyboard focus returns to the anatomy view. The
+last completed reference remains the startup choice. Completing a later reference
+switch still works normally.
+
 ## Viewing preferences
 
 **View > Preferences** offers 100%, 115% and 130% text, plus a reset action. The
@@ -232,6 +246,7 @@ godot --headless --path . --script tests/saved_views_filter_smoke.gd
 godot --headless --path . --script tests/saved_views_recovery_smoke.gd
 godot --headless --path . --script tests/reference_state_smoke.gd
 godot --headless --path . --script tests/reference_startup_smoke.gd
+godot --headless --path . --script tests/loading_cancel_smoke.gd
 ```
 
 The workspace check exercises real geometry in both bodies and all four spinal studies,

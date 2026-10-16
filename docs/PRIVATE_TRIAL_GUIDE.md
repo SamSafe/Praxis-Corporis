@@ -26,6 +26,7 @@ restarting. Repeat the HRA tasks for both female and male references.
 | Task | Success to observe | Notes to record |
 |---|---|---|
 | Switch references | Watch the loading steps; wait for the new body before manipulating it. | Did the progress update, and was there a noticeable pause? |
+| Cancel a reference switch | With a reference already open, choose another and use Cancel opening. Repeat during a chest guide or route and in expanded anatomy, then retry the switch. | Were the original view, edits, study step and keyboard focus retained? Did the cancellation feedback make sense? |
 | Identify the current reference | Recognise its body/source and that coverage is partial. | What did you assume was included? |
 | Explore the body | Orbit, pan and zoom using the available input device. | Any jump, accidental selection or lost orientation? |
 | Recover orientation | Choose Camera views > Front, Back and From body left/right. Read the direction cue, then use Back. Try this with an isolated or moved part. | Is it clear that left/right belong to the body? Did camera rotation preserve your focus and anatomy edits? |

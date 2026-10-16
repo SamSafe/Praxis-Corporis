@@ -68,10 +68,18 @@ anatomy/camera controls paused to preserve the current exploration. A failed rea
 invalid source mapping restores the controls and keeps the existing scene, camera,
 labels, isolation, movement settings, edits and both histories.
 
+Once a reference is open, **Cancel opening** keeps that exploration when a
+replacement is pending. It appears in both workspace sizes. A pending read is
+allowed to finish before its result is collected and released; cancellation can
+therefore take a moment. Canceled staging never replaces the current scene, and
+keyboard focus returns to anatomy. Chest/route progress also resumes at the same
+step after cancellation or a failed switch. A completed switch ends the study and
+restores its original viewing controls.
+
 Scene instantiation and the final replacement still run on the main thread and can
 cause a short pause. Keeping both references temporarily uses more memory. The first
 raw development import remains expensive and should be run as preparation before
-opening the app; desktop packages include prepared scenes. Loading has no cancel UI.
+opening the app; desktop packages include prepared scenes.
 [Godot background loading](https://docs.godotengine.org/en/stable/classes/class_resourceloader.html).
 
 The GLBs, compiled scenes and .godot/ directory are excluded from Git. After fetching

@@ -78,6 +78,7 @@ Normal launches also remember window size and maximized state, with size bounds
 for the current display.
 They reopen the last successfully loaded reference after a normal close; saved
 anatomy setups and notes remain in named views.
+Cancel opening preserves the current view and study progress when replacing a reference.
 Two draft valve-condition summaries link to inspection of their
 reference anatomy, with explicit depiction limits; human source and medical review are pending.
 Precise keyboard movement supports 5 mm and 1 mm inspection steps with undo/redo.
