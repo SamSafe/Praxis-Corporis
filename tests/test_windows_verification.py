@@ -8,7 +8,7 @@ import unittest
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'tools'))
-from verify_windows import MARKERS, RENDERED_MARKERS, artifact_record, parse_result, ps_literal
+from verify_windows import MARKERS, RENDERED_MARKERS, artifact_record, parse_loading_shutdown, parse_result, ps_literal
 
 
 def complete_log(rendered=True):
@@ -26,6 +26,23 @@ def complete_log(rendered=True):
 
 
 class WindowsVerificationTests(unittest.TestCase):
+    def test_shutdown_evidence_requires_its_actual_loading_boundary(self):
+        marker = 'PASS loading shutdown: initial/anatomy · resource true · worker false · staged false'
+        self.assertTrue(parse_loading_shutdown(marker, 'initial/anatomy')['owned_resource_at_close'])
+        for broken in [marker.replace('resource true', 'resource false'), marker.replace('initial/', 'replacement/'),
+                       marker + '\n' + marker, '']:
+            with self.subTest(broken=broken), self.assertRaises(ValueError):
+                parse_loading_shutdown(broken, 'initial/anatomy')
+        with self.assertRaisesRegex(ValueError, 'Unknown'):
+            parse_loading_shutdown(marker, 'initial/unsupported')
+
+    def test_shutdown_errors_and_late_object_leaks_cannot_pass(self):
+        marker = 'PASS loading shutdown: replacement/selection · resource true · worker false · staged true'
+        for suffix in ['\nSCRIPT ERROR: invalid call', '\nERROR: Resource failed',
+                       '\nWARNING: 1 ObjectDB instance was leaked at exit', '\nLeaked instance: RefCounted:1234']:
+            with self.subTest(suffix=suffix), self.assertRaises(ValueError):
+                parse_loading_shutdown(marker + suffix, 'replacement/selection')
+
     def test_condition_packages_require_both_reference_checks(self):
         log = complete_log(False)
         with self.assertRaisesRegex(ValueError, 'condition study'):
@@ -79,6 +96,7 @@ class WindowsVerificationTests(unittest.TestCase):
             with self.subTest(marker=marker), self.assertRaises(ValueError):
                 parse_result(broken, True)
         for broken in [log + '\nSCRIPT ERROR: Failure', log + '\nERROR: Invalid source',
+                       log + '\nWARNING: 1 ObjectDB instance was leaked at exit',
                        log.replace('Windows native exit code: 0', 'Windows native exit code: 1'),
                        log.replace('PASS offline native bundle', ''),
                        log.replace('PASS private export resource boundary', ''),

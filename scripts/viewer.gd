@@ -148,15 +148,21 @@ func _ready() -> void:
 	if not content_error.is_empty():
 		status.text = content_error
 		context.text = "Anatomy unavailable"
-		if "--verify-bundle" in OS.get_cmdline_user_args() or "--verify-rendered-bundle" in OS.get_cmdline_user_args() or "--profile-rendered-bundle" in OS.get_cmdline_user_args():
+		if "--verify-bundle" in OS.get_cmdline_user_args() or "--verify-rendered-bundle" in OS.get_cmdline_user_args() or "--profile-rendered-bundle" in OS.get_cmdline_user_args() or "--verify-loading-shutdown" in OS.get_cmdline_user_args():
 			push_error(content_error)
 			get_tree().quit(1)
 	elif "--profile-rendered-bundle" in OS.get_cmdline_user_args():
 		call_deferred("profile_bundle")
+	elif "--verify-loading-shutdown" in OS.get_cmdline_user_args():
+		call_deferred("verify_loading_shutdown")
 	elif "--verify-bundle" in OS.get_cmdline_user_args() or "--verify-rendered-bundle" in OS.get_cmdline_user_args():
 		call_deferred("verify_bundle")
 	else:
 		call_deferred("start_reference")
+
+
+func verify_loading_shutdown() -> void:
+	await StudyVerification.verify_loading_shutdown(self)
 
 
 func start_reference() -> void:

@@ -30,6 +30,8 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
                  conditions: bool = False) -> dict:
     if "SCRIPT ERROR:" in log or re.search(r"^ERROR:", log, re.M):
         raise ValueError("The native runtime reported an error")
+    if re.search(r'ObjectDB instance.*leaked|^Leaked instance:', log, re.M):
+        raise ValueError('The native runtime leaked an object at exit')
     if "PASS offline native bundle" not in log or "Windows native exit code: 0" not in log:
         raise ValueError("Native verification did not finish successfully")
     if 'PASS private export resource boundary' not in log:
@@ -63,6 +65,26 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
                 raise ValueError('Native circulation route check missing: ' + reference)
     result.update(references=references, ui_process_frames_during_successful_load=frames)
     return result
+
+
+def parse_loading_shutdown(log: str, case: str) -> dict:
+    fields = case.split('/')
+    expected = {'source': (False, True, False), 'anatomy': (True, False, False),
+                'selection': (True, False, True), 'preparing': (False, False, True)}
+    if len(fields) != 2 or fields[0] not in {'initial', 'replacement'} or fields[1] not in expected:
+        raise ValueError('Unknown loading shutdown case')
+    if 'SCRIPT ERROR:' in log or re.search(r'^ERROR:', log, re.M):
+        raise ValueError('Loading shutdown reported an error')
+    if re.search(r'ObjectDB instance.*leaked|^Leaked instance:', log, re.M):
+        raise ValueError('Loading shutdown leaked an object at exit')
+    resource, worker, staged = expected[fields[1]]
+    marker = (f'PASS loading shutdown: {case} · resource {str(resource).lower()} '
+              f'· worker {str(worker).lower()} · staged {str(staged).lower()}')
+    observed = re.findall(r'^PASS loading shutdown: .*$', log, re.M)
+    if observed != [marker]:
+        raise ValueError('Loading shutdown ownership/cleanup evidence is missing or mismatched')
+    return {'case': case, 'owned_resource_at_close': resource, 'hash_worker_at_close': worker,
+            'staged_scene_at_close': staged, 'ownership_cleanup_verified': True}
 
 
 def process_observations(log: str, rendered: bool = True) -> dict:
@@ -253,6 +275,8 @@ def verify(args: argparse.Namespace) -> dict:
     conditions = bool(content.get('conditions'))
     window_state = 'scripts/window_state.gd' in build_report['source_hashes']
     reference_state = 'scripts/reference_state.gd' in build_report['source_hashes']
+    loading_shutdown = ('scripts/viewer.gd' in build_report['source_hashes']
+                        and b'--verify-loading-shutdown' in git_bytes(ROOT, build_report['source_revision'], 'scripts/viewer.gd'))
     startup_cases = None
     if reference_state:
         bodies = json.loads(git_bytes(ROOT, build_report['source_revision'], 'content/sample_pack.json'))['bodies']
@@ -304,6 +328,10 @@ def verify(args: argparse.Namespace) -> dict:
             result['window_settings_ignored_during_scripted_qa'] = True
             if args.mode == 'rendered':
                 result['window_state_lifecycle'] = verify_lifecycle(args, session, windows_session, windows_session + '\\' + executable_relative, startup_cases)
+        if loading_shutdown:
+            result['loading_shutdown'] = verify_loading_shutdown(
+                args, session, windows_session, str(pathlib.PureWindowsPath(windows_session) / executable_relative),
+                build_report['engine'])
         result['session_cleanup'] = {'status': 'pending', 'path': str(session)}
         write_report(args.output / 'report.json', result)
     except BaseException:
@@ -313,6 +341,44 @@ def verify(args: argparse.Namespace) -> dict:
         result['session_cleanup'] = cleanup_successful_session(session, getattr(args, 'keep_session', False))
         write_report(args.output / 'report.json', result)
     return result
+
+
+def verify_loading_shutdown(args: argparse.Namespace, session: pathlib.Path, windows_session: str,
+                            executable: str, engine: str) -> list[dict]:
+    data = session / 'user-data/PraxisCorporisPrototype'
+    names = ['saved_views.json', 'preferences.json', 'reference-state.json', 'window-state.json']
+    def settings_snapshot() -> dict:
+        snapshot = {}
+        for name in names:
+            path = data / name
+            if path.exists():
+                metadata = path.stat()
+                snapshot[name] = (path.read_bytes(), metadata.st_mtime_ns, metadata.st_ino)
+            else:
+                snapshot[name] = None
+        return snapshot
+    before = settings_snapshot()
+    results = []
+    for case in ['initial/anatomy', 'replacement/selection']:
+        folder = args.output / 'loading-shutdown' / case.replace('/', '-')
+        folder.mkdir(parents=True)
+        child_args = argparse.Namespace(**vars(args))
+        child_args.output = folder
+        user_args = ['--verify-loading-shutdown', '--shutdown-stage=' + case.split('/')[1]]
+        if case.startswith('replacement/'):
+            user_args.append('--shutdown-replacement')
+        log = run_native(child_args, windows_session, executable, user_args)
+        record = parse_loading_shutdown(log, case)
+        record.update(process_observations(log, args.mode == 'rendered'))
+        if record['engine_actual'] != engine:
+            raise ValueError('Loading shutdown used a different engine')
+        after = settings_snapshot()
+        if before != after:
+            raise ValueError('Scripted loading shutdown changed persistent settings or saved views')
+        record.update(log=(folder / 'native-runtime.log').relative_to(args.output).as_posix(),
+                      log_sha256=sha256(folder / 'native-runtime.log'), settings_unchanged=True)
+        results.append(record)
+    return results
 
 
 def main() -> None:

@@ -51,7 +51,7 @@ func cancel_at(viewer, stage: String, early: bool = false, target: String = "mal
 	check(viewer.model.undo_stack == undo and viewer.model.redo_stack == redo and viewer.back_views == back and viewer.forward_views == forward, stage + ": both edit and navigation histories survive")
 	check(viewer.reference_state.current == remembered and root.title == title, stage + ": startup reference and title retain the last completed load")
 	check(viewer.context.text == context_text and viewer.orbit.move_mode == move_mode and viewer.move_button.button_pressed == move_mode, stage + ": source context and Move mode are retained")
-	check(viewer.model.staged_scene == null and viewer.model.hash_worker == null and not viewer.model.loading and not viewer.model.cancel_requested and not viewer.load_cancel_requested,
+	check(viewer.model.staged_scene == null and viewer.model.hash_worker == null and viewer.model.pending_resource_path.is_empty() and not viewer.model.loading and not viewer.model.cancel_requested and not viewer.load_cancel_requested,
 		stage + ": staged scenes, source worker and pending flags are released")
 	check(not is_instance_valid(staged[0]), stage + ": a captured staged scene is freed")
 	check(viewer.orbit.input_enabled and not viewer.loading_row.visible and not viewer.cancel_load_button.visible and not viewer.expanded_cancel_load_button.visible and "canceled" in viewer.status.text,

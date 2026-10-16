@@ -33,6 +33,7 @@ var resource_operation_intervals_ms: Dictionary = {}
 var prepared_selection_batches := 0
 var preparing_cache := false # Explicit offline preparation; ordinary launches require compiled picking shapes.
 var hash_worker: Thread
+var pending_resource_path := ""
 var staged_scene: Node3D
 var cancel_requested := false
 
@@ -41,6 +42,7 @@ func _exit_tree() -> void:
 	# A worker only reads a file. Join before releasing its owning object.
 	if hash_worker != null and hash_worker.is_started():
 		hash_worker.wait_to_finish()
+	drain_pending_resource()
 	if is_instance_valid(staged_scene):
 		staged_scene.free()
 	staged_scene = null
@@ -56,6 +58,7 @@ func load_body(record: Dictionary) -> String:
 	loading = true
 	cancel_requested = false
 	var error: String = await prepare_body(record)
+	drain_pending_resource()
 	if is_instance_valid(staged_scene):
 		staged_scene.free()
 		staged_scene = null
@@ -67,6 +70,13 @@ func load_body(record: Dictionary) -> String:
 func cancel_load() -> void:
 	if loading:
 		cancel_requested = true
+
+
+func drain_pending_resource() -> void:
+	if not pending_resource_path.is_empty():
+		# The engine retains a request until it is collected, including on shutdown.
+		ResourceLoader.load_threaded_get(pending_resource_path)
+		pending_resource_path = ""
 
 
 func prepare_body(record: Dictionary) -> String:
@@ -112,6 +122,7 @@ func prepare_body(record: Dictionary) -> String:
 		record_resource_operation("request", operation_started)
 		if request_error != OK:
 			return "Could not start reading prepared anatomy (Godot error %d)." % request_error
+		pending_resource_path = cache_path
 		var progress := []
 		operation_started = Time.get_ticks_usec()
 		var resource_status := ResourceLoader.load_threaded_get_status(cache_path, progress)
@@ -128,6 +139,7 @@ func prepare_body(record: Dictionary) -> String:
 		# This call is nonblocking only after THREAD_LOAD_LOADED.
 		operation_started = Time.get_ticks_usec()
 		var cached := ResourceLoader.load_threaded_get(cache_path) as PackedScene
+		pending_resource_path = ""
 		record_resource_operation("collect", operation_started)
 		if cancel_requested:
 			return LOAD_CANCELED
@@ -305,6 +317,7 @@ func load_prepared_selection(record: Dictionary, root_record: Dictionary) -> Dic
 		record_resource_operation("request", started)
 		if error != OK:
 			return {"error": "Could not read prepared picking shapes. Re-extract the complete private build or run the source preparation tool."}
+		pending_resource_path = path
 		var status := ResourceLoader.THREAD_LOAD_IN_PROGRESS
 		while status == ResourceLoader.THREAD_LOAD_IN_PROGRESS:
 			# Yield before each poll so queued shape initialization is spread across groups.
@@ -317,6 +330,7 @@ func load_prepared_selection(record: Dictionary, root_record: Dictionary) -> Dic
 			return {"error": LOAD_CANCELED if cancel_requested else "Prepared picking shapes could not be read. Re-extract the complete private build or run the source preparation tool."}
 		started = Time.get_ticks_usec()
 		var batch := ResourceLoader.load_threaded_get(path) as PreparedSelection
+		pending_resource_path = ""
 		record_resource_operation("collect", started)
 		if cancel_requested:
 			return {"error": LOAD_CANCELED}

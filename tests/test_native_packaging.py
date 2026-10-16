@@ -6,15 +6,26 @@ import stat
 import struct
 import sys
 import tempfile
+from types import SimpleNamespace
 import unittest
+from unittest.mock import patch
 import zipfile
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
-from build_native import binary_architectures, ensure_unchanged_sources, make_zip, sha256, unpack_zip
+from build_native import binary_architectures, ensure_unchanged_sources, make_zip, run, sha256, unpack_zip
 
 
 class NativePackagingTests(unittest.TestCase):
+    def test_shutdown_build_checks_cannot_accept_missing_checks_or_late_leaks(self):
+        marker = 'PASS loading shutdown: initial/anatomy · resource true · worker false · staged false'
+        for output in ['', marker + '\n' + marker, marker + '\nERROR: Resource failed',
+                       marker + '\nWARNING: 1 ObjectDB instance was leaked at exit',
+                       marker + '\nSCRIPT ERROR: invalid call']:
+            with self.subTest(output=output), patch('build_native.subprocess.run', return_value=SimpleNamespace(returncode=0, stdout=output)):
+                with self.assertRaises(RuntimeError):
+                    run(['fixture-engine'], required_marker=marker)
+
     def test_changed_or_deleted_runtime_inputs_cannot_finish_a_build(self):
         with tempfile.TemporaryDirectory() as folder:
             root = pathlib.Path(folder)

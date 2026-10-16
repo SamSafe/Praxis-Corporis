@@ -7,6 +7,7 @@ import hashlib
 import json
 import os
 import pathlib
+import re
 import shutil
 import stat
 import struct
@@ -25,19 +26,34 @@ def sha256(path: pathlib.Path) -> str:
     return checksum.hexdigest()
 
 
-def run(command: list[str], cwd: pathlib.Path = ROOT, env: dict | None = None) -> None:
+def run(command: list[str], cwd: pathlib.Path = ROOT, env: dict | None = None,
+        required_marker: str | None = None) -> None:
     try:
         result = subprocess.run(command, cwd=cwd, env=env, text=True, stdout=subprocess.PIPE,
                                 stderr=subprocess.STDOUT, timeout=120)
     except subprocess.TimeoutExpired as error:
         output = error.stdout.decode(errors="replace") if isinstance(error.stdout, bytes) else (error.stdout or "")
         raise RuntimeError(f"Build step timed out: {command[0]}\n{output}") from error
-    if result.returncode or "SCRIPT ERROR:" in result.stdout:
+    incomplete = required_marker is not None and (result.stdout.splitlines().count(required_marker) != 1
+                  or re.search(r'^ERROR:|ObjectDB instance.*leaked|^Leaked instance:', result.stdout, re.M))
+    if result.returncode or "SCRIPT ERROR:" in result.stdout or incomplete:
         raise RuntimeError(f"Command failed ({result.returncode}): {command[0]}\n{result.stdout}")
     # Keep successful build output compact; retained reports describe verified results.
     for line in result.stdout.splitlines():
         if line.startswith(("PASS ", "Anatomy package complete:")):
             print(line, flush=True)
+
+
+def check_loading_shutdown(prefix: list[str], cwd: pathlib.Path, env: dict) -> list[str]:
+    cases = ['initial/anatomy', 'replacement/selection']
+    for case in cases:
+        arguments = ['--verify-loading-shutdown', '--shutdown-stage=' + case.split('/')[1]]
+        if case.startswith('replacement/'):
+            arguments.append('--shutdown-replacement')
+        staged = 'true' if case.startswith('replacement/') else 'false'
+        marker = f'PASS loading shutdown: {case} · resource true · worker false · staged {staged}'
+        run(prefix + ['--'] + arguments, cwd=cwd, env=env, required_marker=marker)
+    return cases
 
 
 def unpack_zip(archive: pathlib.Path, destination: pathlib.Path) -> dict[str, int]:
@@ -209,6 +225,8 @@ def build(args: argparse.Namespace) -> dict:
             })
             # Run outside the source project; every anatomy read must come from the bundle.
             run([str(executable), "--headless", "--audio-driver", "Dummy", "--", "--verify-bundle"], cwd=qa, env=qa_environment)
+            report['linux_loading_shutdown_qa'] = check_loading_shutdown(
+                [str(executable), '--headless', '--audio-driver', 'Dummy'], qa, qa_environment)
             (qa / "anatomy.pck").rename(qa / "anatomy.unavailable")
             missing = subprocess.run([str(executable), "--headless", "--", "--verify-bundle"],
                                      cwd=qa, env=qa_environment, text=True, stdout=subprocess.PIPE,
@@ -256,6 +274,9 @@ def build(args: argparse.Namespace) -> dict:
                     run([args.godot, "--headless", "--audio-driver", "Dummy", "--main-pack", str(core_packs[0]),
                          "--", "--verify-bundle", "--verify-export-boundary"], cwd=folder, env=qa_environment)
                     report["mac_content_qa"] = "passed every bundled reference in embedded content on the development engine; Mac device testing pending"
+                    report['mac_loading_shutdown_content_qa'] = check_loading_shutdown(
+                        [args.godot, '--headless', '--audio-driver', 'Dummy', '--main-pack', str(core_packs[0])],
+                        folder, qa_environment)
             if platform == "windows":
                 shutil.copyfile(data_pack, folder / "anatomy.pck")
             add_notices(folder, platform)

@@ -1,8 +1,61 @@
 extends RefCounted
-## Exported-runtime checks use disposable files and leave the live exploration intact.
+## Study checks use disposable files; shutdown checks run in a dedicated process.
 
 const SavedViews = preload("res://scripts/saved_views.gd")
 const Preferences = preload("res://scripts/viewer_preferences.gd")
+
+
+static func verify_loading_shutdown(viewer: Control) -> void:
+	var boundaries := {"source": ["Checking source file", false, true, false],
+		"anatomy": ["Loading anatomy", true, false, false],
+		"selection": ["Loading selection", true, false, true],
+		"preparing": ["Preparing selection", false, false, true]}
+	var boundary := "anatomy"
+	var replacement := "--shutdown-replacement" in OS.get_cmdline_user_args()
+	for argument in OS.get_cmdline_user_args():
+		if argument.begins_with("--shutdown-stage="):
+			boundary = argument.trim_prefix("--shutdown-stage=")
+	var tree := viewer.get_tree()
+	if not boundaries.has(boundary):
+		push_error("Unknown shutdown verification boundary.")
+		tree.quit(1)
+		return
+	if replacement:
+		await viewer.switch_body("female")
+		if viewer.model.body.get("id") != "female":
+			push_error("Shutdown verification could not open its initial reference.")
+			tree.quit(1)
+			return
+	var model: Node3D = viewer.model
+	var expected: Array = boundaries[boundary]
+	var phase := "replacement" if replacement else "initial"
+	var context := {"triggered": false, "requested": false, "loading": false,
+		"resource": false, "worker": false, "staged": false, "scene": null, "reference": {}}
+	model.tree_exited.connect(func():
+		var clean: bool = context.requested and context.loading and model.pending_resource_path.is_empty() and model.staged_scene == null
+		clean = clean and (model.hash_worker == null or not model.hash_worker.is_started()) and not is_instance_valid(context.scene)
+		clean = clean and context.resource == expected[1] and context.worker == expected[2] and context.staged == expected[3]
+		clean = clean and viewer.reference_state.current == context.reference
+		if clean:
+			print("PASS loading shutdown: %s/%s · resource %s · worker %s · staged %s" % [phase, boundary, context.resource, context.worker, context.staged])
+		else:
+			push_error("Loading shutdown did not preserve its expected ownership and cleanup state.")
+			tree.quit(1), CONNECT_ONE_SHOT)
+	model.load_progress.connect(func(stage: String, _fraction: float):
+		if stage != expected[0] or context.triggered:
+			return
+		context.triggered = true
+		var close := func():
+			context.requested = true
+			context.loading = viewer.loading and model.loading
+			context.resource = not model.pending_resource_path.is_empty()
+			context.worker = model.hash_worker != null and model.hash_worker.is_started()
+			context.staged = is_instance_valid(model.staged_scene)
+			context.scene = model.staged_scene
+			context.reference = viewer.reference_state.current.duplicate(true)
+			viewer.get_window().close_requested.emit()
+		close.call_deferred())
+	viewer.switch_body("male" if replacement else "female")
 
 
 static func run(viewer: Control, rendered: bool) -> bool:
