@@ -3,6 +3,11 @@
 This records the `8a44cdb` package checkpoint. Later circulation and keyboard work
 has [its own exact-artifact verification](CIRCULATION_ROUTE_VERIFICATION.md).
 
+Review-status correction: this checkpoint used `source_checked` without recorded
+human source review. Those labels overstated the stage defined in
+[DATA_MODEL.md](../DATA_MODEL.md#review-evidence). The engineering checks below do
+not establish human source or expert review. Current learning content remains draft.
+
 Recorded on the America/Edmonton client date 2026-10-15. Final private runtime:
 `8a44cdb861e044b23b8fa73f2cd5ca6ba8f597e5`, Godot
 `4.7.2.stable.official.ed1daf0bf`. Usage and scope are in the

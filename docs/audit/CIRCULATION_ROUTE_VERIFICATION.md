@@ -3,6 +3,11 @@
 This is the `03cf80c` checkpoint. Subsequent [information-window improvements and
 refreshed packages](INFORMATION_DIALOG_VERIFICATION.md) retain separate identities.
 
+Review-status correction: the package's `source_checked` labels lacked the recorded
+human review required by [the review model](../DATA_MODEL.md#review-evidence).
+These engineering results do not establish human source or expert review. Current
+learning content uses draft status and separate preliminary assistant-check metadata.
+
 Private changes on 2026-10-15. Runtime source:
 `03cf80c581f018095e78f5eaa4ea9a2ba7bc5e3d`; feature checkpoint: `adab8f5`.
 This extends the earlier study workspace while preserving source-reference and

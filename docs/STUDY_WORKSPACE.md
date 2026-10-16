@@ -12,14 +12,40 @@ structures in the current body, or open its primary sources in a browser.
 Structures without an authored card say so explicitly.
 
 Text and relationships are stored separately from geometry in
-[study_content.json](../content/study_content.json). These are source-checked private
-drafts, with qualified medical review pending. General anatomical explanations do
+[study_content.json](../content/study_content.json). These are private drafts. Assistant source cross-checks are preliminary; human
+source review and qualified medical review remain pending. General anatomical explanations do
 not establish the completeness of source meshes or supply a validated cutaway.
 The source pages are NHLBI / NIH's [heart anatomy](https://www.nhlbi.nih.gov/health/heart/anatomy),
 [heart blood flow](https://www.nhlbi.nih.gov/health/heart/blood-flow),
 [respiratory system](https://www.nhlbi.nih.gov/health/lungs/respiratory-system) and
 [gas exchange](https://www.nhlbi.nih.gov/health/lungs/breathing-benefits).
 No source illustrations, videos or substantial text passages are reused.
+
+The earlier packages used `source_checked` labels without the recorded human
+check required by [the review model](DATA_MODEL.md#review-evidence). That was an
+overstatement. Current records use `draft`, keep both human review stages pending,
+and store assistant cross-check metadata separately. Unsupported review promotions
+are rejected by the loader. Earlier engineering reports do not establish human review.
+
+## Related conditions
+
+Heart and valve cards now link two initial examples: **Aortic stenosis** and
+**Mitral regurgitation**. These are short draft summaries based on
+[NHLBI's valve-disease types](https://www.nhlbi.nih.gov/health/heart-valve-diseases/types)
+and the heart blood-flow page above. Qualified medical review remains pending.
+The associations and reference targets are explicit records in the content file.
+
+Open a condition to read its summary, anatomical location, depiction limits and
+sources. Reading or closing the text preserves the current exploration.
+**Inspect reference anatomy** reveals the supplied valve using the existing
+inspection tools. **Return to context** restores body context; **Back** can also
+recover an earlier isolated view. Source visibility/displacement edits remain intact.
+
+The supplied meshes are unreviewed reference anatomy. These examples provide no
+pathological mesh, narrowing, leakage, leaflet motion or flow simulation. Saved views
+retain the ordinary reference-anatomy setup. The loader accepts the implemented
+`reference_location_only` capability and rejects unsupported geometry claims.
+The separate bone/spinal studies have no inferred condition associations.
 
 ## Guided chest exploration
 
@@ -57,7 +83,7 @@ conceptual sequence draws no simulated flow or anatomical channels.
 The route uses NHLBI's blood-flow and gas-exchange pages above, plus Tucker,
 Weber and Burns, [*Anatomy, Thorax, Heart Pulmonary Arteries*](https://www.ncbi.nlm.nih.gov/books/NBK534812/)
 (StatPearls, updated 2023-07-24) for the two pulmonary arterial branches. All text
-and relationships remain source-checked drafts with medical review pending.
+and relationships remain drafts with human source and medical review pending.
 The loader validates review stages, citations, HTTPS links, graph reachability,
 return paths and mapping fields before making the content available.
 

@@ -5,7 +5,7 @@ prepared geometry. Users need no Python, Godot editor, login or network connecti
 When prepared at build time, packages also include the separate BodyParts3D male
 bone study and its current/legacy source notices. Its coordinate frame is not
 registered to the HRA bodies; its availability is explicit in the reference selector.
-The atlas is partial and unreviewed; disease content and physiological simulation are absent.
+The atlas is partial and unreviewed; pathological geometry and physiological simulation are absent.
 The latest [study workspace](STUDY_WORKSPACE.md) adds a reversible chest teaching guide,
 draft learning cards, a sourced heart/lung route, precise keyboard movement,
 portable views and four independent spinal source studies.

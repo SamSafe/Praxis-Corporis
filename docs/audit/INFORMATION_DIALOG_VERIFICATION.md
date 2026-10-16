@@ -4,6 +4,11 @@ Private runtime source `d11bb9f7537c3c22a26a1d5c6daabc4b823e1c04`, following
 feature checkpoint `ea8a112`, built and checked on 2026-10-15. The earlier
 [circulation package](CIRCULATION_ROUTE_VERIFICATION.md) keeps its own identities.
 
+Review-status correction: this package inherited `source_checked` labels without
+the required recorded human check. Those labels overstate review evidence. The
+engineering checks below do not establish human source or medical review; current
+learning records use draft status with preliminary assistant checks recorded separately.
+
 Keyboard help and Sources now use bounded, scrollable, selectable plain text.
 Page Up/Down scrolls focused text, and Escape closes the window even when the
 text control has focus. Close remains inside the compact window at 130% text.

@@ -134,7 +134,7 @@ individual inspection of nine new menus. The initial failed QA trial is retained
 and human acceptance remain open. Portable saved-view import/export has since been implemented.
 
 The `8a44cdb` private runtime (following the `df0e7ba` feature checkpoint) implements portable view/note transfer,
-remembered display preferences and text sizing, 15 source-checked draft heart/lung
+remembered display preferences and text sizing, 15 draft heart/lung
 cards, and a six-step chest guide with reversible chamber separation. Four independent
 HRA v1.2 spinal source studies add 108 meshes; they retain their original coordinates,
 missing metadata and separate coverage records. Original United references remain
@@ -161,6 +161,13 @@ route citation spacing are corrected. Forty-four Python checks, seven affected
 engine scripts and all-reference offline/native Windows workflows pass; the new
 compact help/source and route screens were inspected. [Information-window evidence](audit/INFORMATION_DIALOG_VERIFICATION.md)
 records the refreshed exact artifacts and unchanged human/Mac/medical gates.
+
+Review-stage correction: the earlier packages used `source_checked` without the
+recorded human check required by [the data model](DATA_MODEL.md#review-evidence).
+That label overstated the evidence. Current cards, routes and condition summaries
+remain `draft`, with human source and expert review pending. Preliminary assistant
+cross-checks are recorded separately and do not count as reviewer evidence. Earlier
+engineering pass reports do not establish medical-content review.
 
 ## Established by the user
 

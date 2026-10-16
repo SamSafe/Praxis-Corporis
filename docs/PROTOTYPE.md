@@ -1,8 +1,9 @@
 # Run the private anatomy prototype
 
 The viewer uses real, separate HRA male and female reference samples inside
-one continuous scene. It is a partial atlas and has no disease content or medical
-review. Detailed findings are in [the sample audit](audit/HRA_SAMPLE_FINDINGS.md).
+one continuous scene. It is a partial atlas with medical review pending. Two draft
+valve-condition summaries provide reference locations; pathological geometry is
+unavailable. Detailed source findings are in [the sample audit](audit/HRA_SAMPLE_FINDINGS.md).
 
 The [study workspace guide](STUDY_WORKSPACE.md) covers portable saved views/notes,
 the six-step guided chest exploration, fifteen draft study cards, text sizing and
@@ -12,7 +13,7 @@ The selected-part Actions menu shares the workspace inspection, label, visibilit
 Move, restore and undo/redo controls. Visibility and history use smaller submenus;
 visibility changes are unavailable while inspecting alone. Opening or dismissing
 the menu preserves selection and camera. The menu closes when reference loading,
-selection or display layout changes. Right-drag continues to pan. Disease and physiological pathway content remain pending.
+selection or display layout changes. Right-drag continues to pan. Pathological geometry and physiological simulation remain pending.
 The guided chest teaching layout is available through its separate guide controls.
 
 ## Requirements and setup
