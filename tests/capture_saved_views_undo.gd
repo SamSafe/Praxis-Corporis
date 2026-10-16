@@ -93,11 +93,24 @@ func run() -> void:
 	check(browser.unsaved_dialog.visible, "Closing after undo protects the recovered draft")
 	browser.unsaved_dialog.get_cancel_button().pressed.emit()
 	await process_frame
-	browser.content_scroll.ensure_control_visible(browser.notes_button)
+	browser.view_list.select(0)
+	browser.select_entry(0)
+	var other_id: String = browser.selected_entry().id
+	var other_note := "Another view's unfinished observations."
+	browser.notes_input.text = other_note
+	browser.on_notes_changed()
+	check(browser.draft_notes.size() == 2 and "1 other view with unsaved notes" in browser.notes_status.text, "Other pending notes are counted without switching away")
+	browser.content_scroll.ensure_control_visible(browser.save_all_notes_button)
 	await process_frame
 	await process_frame
-	await click(browser, browser.notes_button)
-	check(browser.draft_notes.is_empty() and browser.library.entries[1].notes == draft, "Real Save notes click persists the recovered draft")
+	check(browser.content_scroll.get_global_rect().encloses(browser.save_all_notes_button.get_global_rect()), "Save all notes can be reached at minimum size with 130% text")
+	await click(browser, browser.save_all_notes_button)
+	check(browser.draft_notes.is_empty() and browser.library.entries[1].notes == draft and browser.library.entries[0].notes == other_note and browser.selected_entry().id == other_id and not browser.is_queued_for_deletion(),
+		"Real Save all notes click persists both drafts while keeping the selected view and library open")
+	check(viewer.export_view_state() == before and viewer.model.undo_stack == undo and viewer.model.redo_stack == redo and viewer.back_views == back and viewer.forward_views == forward,
+		"Saving all notes preserves the entire anatomy view and both histories")
+	await RenderingServer.frame_post_draw
+	check(root.get_texture().get_image().save_png("/tmp/medicine-viewer-feasibility/saved-notes-save-all-minimum.png") == OK, "Save all notes capture saved")
 	await click(browser, browser.close_button)
 	await process_frame
 	browser = viewer.show_saved_views()
@@ -110,4 +123,6 @@ func run() -> void:
 		DirAccess.remove_absolute(directory.path_join(name))
 	DirAccess.remove_absolute(directory)
 	print("Rendered saved-view deletion undo failures: ", failures)
+	if failures == 0:
+		print("PASS rendered save all study notes: real mouse, 130% text and minimum library size")
 	quit(0 if failures == 0 else 1)

@@ -20,6 +20,7 @@ var recovery_button: Button
 var delete_pending := ""
 var notes_input: TextEdit
 var notes_button: Button
+var save_all_notes_button: Button
 var notes_status: Label
 var draft_notes: Dictionary = {}
 var editing_id := ""
@@ -98,6 +99,8 @@ func _ready() -> void:
 	layout.add_child(transfer)
 	import_button = button("Import views…", func(): request_action(open_import), transfer)
 	export_button = button("Export all views…", func(): request_action(open_export), transfer)
+	save_all_notes_button = button("Save all notes", save_all_notes, transfer)
+	save_all_notes_button.tooltip_text = "Save every unfinished note in this library and keep the window open. Ctrl / Cmd + S."
 	var filter_row := HBoxContainer.new()
 	layout.add_child(filter_row)
 	filter_input = LineEdit.new()
@@ -446,6 +449,7 @@ func on_notes_changed() -> void:
 func refresh_notes_status() -> void:
 	var error: String = library.notes_format(notes_input.text)
 	notes_button.disabled = editing_id.is_empty() or not draft_notes.has(editing_id) or not library.read_error.is_empty() or not error.is_empty()
+	save_all_notes_button.disabled = draft_notes.is_empty() or not library.read_error.is_empty()
 	if editing_id.is_empty():
 		notes_status.text = "Notes are attached to a saved view."
 		if not draft_notes.is_empty():
@@ -454,6 +458,9 @@ func refresh_notes_status() -> void:
 		notes_status.text = "%s · %d / 10,000 characters" % ["Unsaved" if draft_notes.has(editing_id) else "Saved", notes_input.text.length()]
 		if not error.is_empty():
 			notes_status.text += "\n" + error
+		var others := draft_notes.size() - (1 if draft_notes.has(editing_id) else 0)
+		if others > 0:
+			notes_status.text += "\n%d other view%s with unsaved notes." % [others, "s" if others != 1 else ""]
 
 
 func save_notes() -> void:
@@ -464,6 +471,20 @@ func save_notes() -> void:
 	message.text = error if not error.is_empty() else "Study notes saved on this computer."
 	if error.is_empty():
 		draft_notes.erase(editing_id)
+		refresh_list(editing_id)
+	else:
+		refresh_notes_status()
+
+
+func save_all_notes() -> void:
+	remember_notes_draft()
+	if draft_notes.is_empty():
+		return
+	var count := draft_notes.size()
+	var error: String = library.update_notes(draft_notes)
+	message.text = error if not error.is_empty() else "Study notes saved for %d view%s." % [count, "s" if count != 1 else ""]
+	if error.is_empty():
+		draft_notes.clear()
 		refresh_list(editing_id)
 	else:
 		refresh_notes_status()
@@ -514,12 +535,14 @@ func finish_pending_action(save: bool) -> void:
 			return
 	draft_notes.clear()
 	syncing_notes = true
-	notes_input.text = str(selected_entry().get("notes", ""))
+	var note := str(selected_entry().get("notes", ""))
+	if notes_input.text != note:
+		notes_input.text = note
 	syncing_notes = false
 	var action := pending_action
 	pending_action = Callable()
 	unsaved_dialog.hide()
-	refresh_notes_status()
+	refresh_list(editing_id)
 	action.call()
 
 
@@ -529,6 +552,9 @@ func _input(event: InputEvent) -> void:
 	if event.keycode == KEY_F and (event.ctrl_pressed or event.meta_pressed) and not event.alt_pressed:
 		filter_input.grab_focus()
 		filter_input.select_all()
+		set_input_as_handled()
+	elif event.keycode == KEY_S and (event.ctrl_pressed or event.meta_pressed) and not event.alt_pressed and not event.shift_pressed:
+		save_all_notes()
 		set_input_as_handled()
 	elif event.keycode == KEY_ESCAPE:
 		if filter_input.has_focus() and not filter_input.text.is_empty():

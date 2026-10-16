@@ -30,11 +30,12 @@ func choose(browser, id: String) -> void:
 	check(false, "Expected saved view is visible: " + id)
 
 
-func key(browser, code: Key, control: bool = false) -> void:
+func key(browser, code: Key, control: bool = false, command: bool = false) -> void:
 	var event := InputEventKey.new()
 	event.keycode = code
 	event.pressed = true
 	event.ctrl_pressed = control
+	event.meta_pressed = command
 	browser.push_input(event)
 
 
@@ -135,6 +136,81 @@ func run() -> void:
 	browser.delete_selected()
 	browser.delete_selected()
 	check(browser.view_list.item_count == 0 and browser.filter_summary.text == "0 of 3 views", "Deleting the only match updates the empty result and total")
+	filter(browser, "")
+	choose(browser, heart)
+	browser.notes_input.text = "bulkfirst source notes"
+	browser.on_notes_changed()
+	var other: String = library.entries[0].id
+	choose(browser, other)
+	browser.notes_input.text = "bulksecond λ notes"
+	browser.on_notes_changed()
+	check(not browser.save_all_notes_button.disabled and "1 other view with unsaved notes" in browser.notes_status.text, "Multiple drafts have a shared save action and a visible count on other views")
+	browser.notes_input.set_caret_column(7)
+	browser.name_input.grab_focus()
+	key(browser, KEY_S, true)
+	await process_frame
+	var reopened := SavedViews.new()
+	reopened.path = library.path
+	reopened.load_library()
+	check(browser.draft_notes.is_empty() and browser.save_all_notes_button.disabled and browser.selected_entry().id == other and browser.notes_input.get_caret_column() == 7,
+		"Ctrl+S saves every draft from any library control, preserves selection/cursor, and keeps the window open")
+	var actual_notes := {}
+	for entry in reopened.entries:
+		actual_notes[entry.id] = entry.get("notes", "")
+	check(actual_notes[heart] == "bulkfirst source notes" and actual_notes[other] == "bulksecond λ notes" and reopened.entries.size() == 3,
+		"Save all persists both Unicode notes without creating or renaming views")
+	bytes_before = FileAccess.get_file_as_bytes(library.path)
+	key(browser, KEY_S, true)
+	await process_frame
+	check(FileAccess.get_file_as_bytes(library.path) == bytes_before, "Saving an unchanged library performs no write")
+	choose(browser, heart)
+	browser.notes_input.text = "Command shortcut note"
+	browser.on_notes_changed()
+	key(browser, KEY_S, false, true)
+	await process_frame
+	check(browser.draft_notes.is_empty() and browser.selected_entry().get("notes") == "Command shortcut note", "Cmd+S also saves notes without restoring anatomy")
+	browser.notes_input.text = "Do not partly save"
+	browser.on_notes_changed()
+	choose(browser, other)
+	browser.notes_input.text = "x".repeat(SavedViews.MAX_NOTE_CHARACTERS + 1)
+	browser.on_notes_changed()
+	bytes_before = FileAccess.get_file_as_bytes(library.path)
+	entries_before = library.entries.duplicate(true)
+	browser.save_all_notes()
+	check(browser.draft_notes.size() == 2 and library.entries == entries_before and FileAccess.get_file_as_bytes(library.path) == bytes_before,
+		"One invalid note rejects the entire shared save and retains every draft")
+	browser.notes_input.text = "Valid replacement"
+	browser.on_notes_changed()
+	DirAccess.make_dir_absolute(library.path + ".tmp")
+	browser.save_all_notes()
+	check(browser.draft_notes.size() == 2 and library.entries == entries_before and FileAccess.get_file_as_bytes(library.path) == bytes_before and not browser.is_queued_for_deletion(),
+		"A real shared-save write failure leaves the library and both open drafts intact")
+	DirAccess.remove_absolute(library.path + ".tmp")
+	browser.save_all_notes()
+	check(browser.draft_notes.is_empty() and "saved for 2 views" in browser.message.text, "A failed shared save can be retried without retyping")
+	choose(browser, heart)
+	browser.notes_input.text = "temporary-discard-match"
+	browser.on_notes_changed()
+	filter(browser, "temporary-discard-match")
+	var actions := [0]
+	bytes_before = FileAccess.get_file_as_bytes(library.path)
+	browser.request_action(func(): actions[0] += 1)
+	browser.unsaved_dialog.custom_action.emit("discard")
+	check(actions[0] == 1 and browser.draft_notes.is_empty() and browser.view_list.item_count == 0 and browser.selected_entry().is_empty() and FileAccess.get_file_as_bytes(library.path) == bytes_before,
+		"Discarding before another action immediately removes draft-only search matches without resurrecting or saving the draft")
+	filter(browser, "")
+	choose(browser, heart)
+	browser.notes_input.text = "stored-match-to-replace"
+	browser.on_notes_changed()
+	browser.save_all_notes()
+	filter(browser, "stored-match-to-replace")
+	browser.notes_input.text = "Changed after searching"
+	browser.on_notes_changed()
+	browser.request_action(func(): actions[0] += 1)
+	browser.unsaved_dialog.get_ok_button().pressed.emit()
+	check(actions[0] == 2 and browser.draft_notes.is_empty() and browser.view_list.item_count == 0 and browser.notes_input.text.is_empty(),
+		"Saving before another action refreshes stale saved-note matches")
+	check(restored[0] == 0 and browser.current_state == state, "Shared-save shortcuts and draft decisions preserve the current anatomy")
 	# A maximum-sized in-memory library stays complete after clearing a search.
 	library.entries.clear()
 	for index in SavedViews.MAX_VIEWS:

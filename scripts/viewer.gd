@@ -415,8 +415,8 @@ func verify_saved_view(rendered: bool) -> bool:
 		model.restore()
 		if not await restore_view_state(reopened.entries[0].state) or model.export_state() != snapshot.changes or model.selected_id != snapshot.selection:
 			error = "Saved view did not restore bundled anatomy"
-	if error.is_empty() and rendered and not await verify_note_editor(library.path, snapshot):
-		error = "Rendered study-note editing failed"
+	if error.is_empty() and not await verify_note_editor(library.path, snapshot, rendered):
+		error = "Study-note editing failed"
 	for suffix in ["", ".tmp", ".bak", ".bak.tmp"]:
 		if FileAccess.file_exists(library.path + suffix):
 			DirAccess.remove_absolute(library.path + suffix)
@@ -427,7 +427,7 @@ func verify_saved_view(rendered: bool) -> bool:
 	return true
 
 
-func verify_note_editor(library_path: String, snapshot: Dictionary) -> bool:
+func verify_note_editor(library_path: String, snapshot: Dictionary, rendered: bool = true) -> bool:
 	var before := export_view_state()
 	var library := SavedViews.new()
 	library.path = library_path
@@ -486,14 +486,45 @@ func verify_note_editor(library_path: String, snapshot: Dictionary) -> bool:
 	valid = valid and browser.notes_input.text == recovered_draft and browser.draft_notes.get(saved.id) == recovered_draft and browser.last_deleted.is_empty() and not browser.undo_delete_button.visible
 	valid = valid and export_view_state() == before
 	if valid:
-		print("PASS native saved-view deletion undo: ", model.body.id)
+		print("PASS native saved-view deletion undo: " if rendered else "PASS bundled saved-view draft undo: ", model.body.id)
+	browser.name_input.text = "Second source view"
+	browser.save_button.pressed.emit()
+	var second_id: String = browser.selected_entry().get("id", "")
+	var second_draft := "A second pending note for the same source reference."
+	browser.notes_input.text = second_draft
+	browser.on_notes_changed()
+	browser.view_list.select(1)
+	browser.select_entry(1)
+	valid = valid and browser.draft_notes.size() == 2 and "1 other view with unsaved notes" in browser.notes_status.text
+	var bytes_before := FileAccess.get_file_as_bytes(library_path)
+	valid = DirAccess.make_dir_absolute(library_path + ".tmp") == OK and valid
+	browser.save_all_notes_button.pressed.emit()
+	valid = valid and browser.draft_notes.size() == 2 and FileAccess.get_file_as_bytes(library_path) == bytes_before
+	DirAccess.remove_absolute(library_path + ".tmp")
+	browser.notes_input.set_caret_line(1)
+	browser.notes_input.set_caret_column(4)
+	var save_key := InputEventKey.new()
+	save_key.keycode = KEY_S
+	save_key.ctrl_pressed = true
+	save_key.pressed = true
+	browser.push_input(save_key)
 	await get_tree().process_frame
-	await RenderingServer.frame_post_draw
-	var capture := get_viewport().get_texture().get_image()
-	valid = valid and capture.save_png("user://native-study-notes-%s.png" % str(model.body.id)) == OK
+	reopened = SavedViews.new()
+	reopened.path = library_path
+	valid = reopened.load_library().is_empty() and valid
+	valid = valid and reopened.entries.size() == 2 and reopened.entries[0].id == second_id and reopened.entries[0].notes == second_draft and reopened.entries[1].id == saved.id and reopened.entries[1].notes == recovered_draft
+	valid = valid and browser.draft_notes.is_empty() and browser.save_all_notes_button.disabled and browser.selected_entry().get("id") == saved.id and not browser.is_queued_for_deletion()
+	valid = valid and browser.notes_input.get_caret_line() == 1 and browser.notes_input.get_caret_column() == 4 and export_view_state() == before
+	if valid:
+		print("PASS bundled save all study notes: ", model.body.id)
+	await get_tree().process_frame
+	if rendered:
+		await RenderingServer.frame_post_draw
+		var capture := get_viewport().get_texture().get_image()
+		valid = valid and capture.save_png("user://native-study-notes-%s.png" % str(model.body.id)) == OK
 	browser.queue_free()
 	await get_tree().process_frame
-	if valid:
+	if valid and rendered:
 		print("PASS native rendered study notes: ", model.body.id)
 	return valid
 
