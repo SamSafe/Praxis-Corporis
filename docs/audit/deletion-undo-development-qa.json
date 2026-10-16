@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "runtime_checkpoint": "75d13945c7e8f3bcfc32c84c030df273d016861f",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": [
+    {
+      "script": "tests/saved_views_undo_smoke.gd",
+      "script_sha256": "210d861d4c375ae6489d7a99fd3e498bcc2088005d0fbf9ebe91d3cdda326c31",
+      "log": "deletion-undo-saved_views_undo_smoke.log.txt",
+      "log_sha256": "9da3ca1d1df43f41761117c0ecb3c1ae0b5aac96f3fb797ea6e5c393229103d0",
+      "passed": true,
+      "success_marker": "Saved-view deletion undo failures: 0"
+    },
+    {
+      "script": "tests/saved_views_filter_smoke.gd",
+      "script_sha256": "899b8d02708003deca4f6ededf5ecac74978eb9464ec987069ad43c5ed07ad4c",
+      "log": "deletion-undo-saved_views_filter_smoke.log.txt",
+      "log_sha256": "9854807cf0dc138e17f7634f384fb1bd30e09d36f8268bc5723775eecbffb1de",
+      "passed": true,
+      "success_marker": "Saved-view search failures: 0"
+    },
+    {
+      "script": "tests/saved_views_smoke.gd",
+      "script_sha256": "c3488b43a250418be1cc4d4232e24b02463609682bff3afdbd4c154d8842c531",
+      "log": "deletion-undo-saved_views_smoke.log.txt",
+      "log_sha256": "5faedc00ed9ad5979cd5b29a4fb64d1233bbea85d0d0ab6dd11e85c2c5472657",
+      "passed": true,
+      "success_marker": "Named saved-view failures: 0"
+    },
+    {
+      "script": "tests/study_notes_smoke.gd",
+      "script_sha256": "83dd815eb82e972d6ac5d1ad0d7da9601ef61c30e419d73521da957be3f544b3",
+      "log": "deletion-undo-study_notes_smoke.log.txt",
+      "log_sha256": "de701cd2184002472bc0088e25e664064cc5b3622f0c31f0c9ac50fc3efc7f32",
+      "passed": true,
+      "success_marker": "Study notes failures: 0"
+    },
+    {
+      "script": "tests/portable_views_smoke.gd",
+      "script_sha256": "3e5a287fc1ac98bf0df0dab434e1e995051b7757d3ac5294fe5377d7654e17e2",
+      "log": "deletion-undo-portable_views_smoke.log.txt",
+      "log_sha256": "be706251c30f3a10101c6ce9b0de3064c5649c7b6df16ecdc220807c09896af0",
+      "passed": true,
+      "success_marker": "Portable views and preferences failures: 0"
+    },
+    {
+      "script": "tests/saved_views_recovery_smoke.gd",
+      "script_sha256": "0045a1948b22db788ee3d19a030abd1112dc6cb229243a51583c4e7ec78bccfb",
+      "log": "deletion-undo-saved_views_recovery_smoke.log.txt",
+      "log_sha256": "28386b045cde11c94b869c51e2ce435ddd27f1feb6825d9a4c9d77312e8a83bd",
+      "passed": true,
+      "success_marker": "Saved-view recovery failures: 0"
+    },
+    {
+      "script": "tests/export_boundary_smoke.gd",
+      "script_sha256": "51f89cd5d43ea25a359994e4ca92837d4991cc4e0f5c7724943714a1d142d493",
+      "log": "deletion-undo-export_boundary_smoke.log.txt",
+      "log_sha256": "235837cc34c4cf1c2235cda51a9da9ede4c280cde7f1745d6a780ed48e4819ca",
+      "passed": true,
+      "success_marker": "PASS developer resource boundary traversal"
+    }
+  ]
+}

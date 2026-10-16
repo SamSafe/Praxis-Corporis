@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "runtime_source_revision": "75d13945c7e8f3bcfc32c84c030df273d016861f",
+  "native_undo_observations": {
+    "bundled saved-view deletion undo": [
+      "bodyparts-male-bones-study",
+      "female",
+      "hra-v1-2-female-cord-study",
+      "hra-v1-2-female-vertebrae-study",
+      "hra-v1-2-male-cord-study",
+      "hra-v1-2-male-vertebrae-study",
+      "male"
+    ],
+    "native saved-view deletion undo": [
+      "bodyparts-male-bones-study",
+      "female",
+      "hra-v1-2-female-cord-study",
+      "hra-v1-2-female-vertebrae-study",
+      "hra-v1-2-male-cord-study",
+      "hra-v1-2-male-vertebrae-study",
+      "male"
+    ]
+  },
+  "native_capture_identities": 94,
+  "native_session_independently_checked_absent": true,
+  "files": {
+    "audit/deletion-undo-artifact-audit.json": {
+      "bytes": 1346,
+      "sha256": "0e1fa1e2db2f07b914051750a7f0267d7ae58c8030b9ce94022a1e3ec4193c21"
+    },
+    "audit/deletion-undo-build-report.json": {
+      "bytes": 4976,
+      "sha256": "d7bbf043e468430c26aebdf0bcd2f72dc9e35fd1f6ba060a87f51e20e66317c8"
+    },
+    "audit/deletion-undo-build.log.txt": {
+      "bytes": 11892,
+      "sha256": "4d61a238ab0d0b642fc6a7694a7edfdfcbd9ffb8fbfdd6a755ed46d37c3f3d51"
+    },
+    "audit/deletion-undo-captures.log.txt": {
+      "bytes": 1574,
+      "sha256": "37d23c91754c480937017c3501aff22a327a2d9a203cb9427419bc821547e6c3"
+    },
+    "audit/deletion-undo-development-qa.json": {
+      "bytes": 2847,
+      "sha256": "d4c95d7e80d8ae984e57bfd45c646103b2e1e23d06fbf393ed7dab6cf382924b"
+    },
+    "audit/deletion-undo-export_boundary_smoke.log.txt": {
+      "bytes": 116,
+      "sha256": "235837cc34c4cf1c2235cda51a9da9ede4c280cde7f1745d6a780ed48e4819ca"
+    },
+    "audit/deletion-undo-normal-lifecycle.json": {
+      "bytes": 1648,
+      "sha256": "414fba2ca285882a1f0bad957fac189f867cd0b592e2abd0123e5b8efdf0b4f3"
+    },
+    "audit/deletion-undo-portable_views_smoke.log.txt": {
+      "bytes": 116,
+      "sha256": "be706251c30f3a10101c6ce9b0de3064c5649c7b6df16ecdc220807c09896af0"
+    },
+    "audit/deletion-undo-python.log.txt": {
+      "bytes": 10554,
+      "sha256": "36259278e5fa781511c246ca878f3d60eeb4ff95c4edc3d803b4e0a58aa6b471"
+    },
+    "audit/deletion-undo-saved_views_filter_smoke.log.txt": {
+      "bytes": 103,
+      "sha256": "9854807cf0dc138e17f7634f384fb1bd30e09d36f8268bc5723775eecbffb1de"
+    },
+    "audit/deletion-undo-saved_views_recovery_smoke.log.txt": {
+      "bytes": 138,
+      "sha256": "28386b045cde11c94b869c51e2ce435ddd27f1feb6825d9a4c9d77312e8a83bd"
+    },
+    "audit/deletion-undo-saved_views_smoke.log.txt": {
+      "bytes": 597,
+      "sha256": "5faedc00ed9ad5979cd5b29a4fb64d1233bbea85d0d0ab6dd11e85c2c5472657"
+    },
+    "audit/deletion-undo-saved_views_undo_smoke.log.txt": {
+      "bytes": 110,
+      "sha256": "9da3ca1d1df43f41761117c0ecb3c1ae0b5aac96f3fb797ea6e5c393229103d0"
+    },
+    "audit/deletion-undo-study_notes_smoke.log.txt": {
+      "bytes": 177,
+      "sha256": "de701cd2184002472bc0088e25e664064cc5b3622f0c31f0c9ac50fc3efc7f32"
+    },
+    "audit/deletion-undo-windows-qa.json": {
+      "bytes": 28983,
+      "sha256": "4d1cbc37e04ea5860faecf2fc588046f0f2f99404f1055f23c9f9712b795fb44"
+    },
+    "audit/deletion-undo-windows-runtime.log.txt": {
+      "bytes": 10460,
+      "sha256": "6cb22b53011fa1fb2f705b72a1023c44c175295935d0ac58e6e52020aa571359"
+    },
+    "prototype/saved-view-delete-undo.png": {
+      "bytes": 308042,
+      "sha256": "3c97a27c51cc8d2839a01dc3634ee2907244b0c0c0fc9662b0d5b0ab100d194b"
+    },
+    "prototype/saved-view-delete-restored.png": {
+      "bytes": 301865,
+      "sha256": "ed430459372f86cdf0530966a32bbd94f72bd74bf253f61f5df1444bae8bc7ca"
+    },
+    "prototype/saved-view-delete-native-restored.png": {
+      "bytes": 211572,
+      "sha256": "634b751f11ffd9f9703beeef96f0ae26ff3ff3ca21970b35c3486c6f54e06c39"
+    }
+  }
+}

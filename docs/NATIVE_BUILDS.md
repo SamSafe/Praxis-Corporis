@@ -14,14 +14,14 @@ portable views and four independent spinal source studies.
 
 The generated archives are excluded from Git:
 
-- Windows x64: dist/interface-readability-improvements/PraxisCorporis-Windows-x64-private.zip
-- Mac Intel/Apple Silicon: dist/interface-readability-improvements/PraxisCorporis-macOS-universal-private.zip
+- Windows x64: dist/deletion-undo-improvements/PraxisCorporis-Windows-x64-private.zip
+- Mac Intel/Apple Silicon: dist/deletion-undo-improvements/PraxisCorporis-macOS-universal-private.zip
 
 Earlier archives retain their previous source identities and their review-label
-corrections. Use the interface-readability-improvements build report when verifying the new archives.
-[Interface and package verification](audit/INTERFACE_READABILITY_VERIFICATION.md)
-records their exact hashes, seven-reference Windows checks, inspected focus/text
-states, four normal launches and remaining Mac/human limits.
+corrections. Use the deletion-undo-improvements build report when verifying the new archives.
+[Deletion undo and package verification](audit/DELETION_UNDO_VERIFICATION.md)
+records their exact hashes, seven-reference checks, inspected notes/undo controls,
+four normal launches and remaining Mac/human limits.
 
 Extract the complete ZIP. In its PraxisCorporis folder, open PraxisCorporis.exe
 on Windows or PraxisCorporis.app on Mac. On Windows, keep anatomy.pck beside the

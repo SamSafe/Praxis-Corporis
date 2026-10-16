@@ -119,6 +119,18 @@ the search when needed to reveal that view. Saving notes refreshes their matches
 The dialog keeps its action buttons visible and scrolls content at smaller sizes
 or larger text settings.
 
+After confirming a deletion, **Undo delete** restores the most recently deleted
+view at its previous list position where possible. Its identity, date, snapshot
+and saved notes remain intact. Unfinished notes return as an unsaved draft; use
+**Save notes** to retain them. Other drafts and the open anatomy stay unchanged.
+Undo reveals and selects the restored view, clearing the search if needed.
+
+Only the last confirmed deletion is available, and only while this library window
+stays open. A failed delete leaves the previous undo available. A failed undo
+keeps its recovery record for retry; name/identity conflicts, a full library and
+external file changes cannot overwrite existing views. Closing the window drops
+this temporary undo record.
+
 In **Saved views**, **Export all views** writes a local JSON file containing named
 snapshots and their saved notes. There are no anatomy meshes, accounts or uploads
 in this export. Unsaved notes use the existing save/discard/keep-editing choices.
@@ -250,6 +262,7 @@ godot --headless --path . --script tests/information_dialog_smoke.gd
 godot --headless --path . --script tests/window_state_smoke.gd
 godot --headless --path . --script tests/saved_views_filter_smoke.gd
 godot --headless --path . --script tests/saved_views_recovery_smoke.gd
+godot --headless --path . --script tests/saved_views_undo_smoke.gd
 godot --headless --path . --script tests/reference_state_smoke.gd
 godot --headless --path . --script tests/reference_startup_smoke.gd
 godot --headless --path . --script tests/loading_cancel_smoke.gd
@@ -262,7 +275,7 @@ preview. Running it with a desktop display also captures the new screens under
 reconstructed collision vertices with source mesh faces. The exported runtime checks
 portable views/notes, preferences and reversible guide state in disposable files.
 Device trials and qualified medical review remain separate from scripted verification.
-[Verification and current private packages](audit/INTERFACE_READABILITY_VERIFICATION.md)
+[Verification and current private packages](audit/DELETION_UNDO_VERIFICATION.md)
 retain exact build identities, native Windows evidence, saved-view recovery/search/draft
-checks, study-preserving cancellation and normal-launch reference/window restoration observations. [Draft content verification](audit/DRAFT_CONTENT_VERIFICATION.md)
+and deletion-undo checks, study-preserving cancellation and normal-launch reference/window restoration observations. [Draft content verification](audit/DRAFT_CONTENT_VERIFICATION.md)
 records the learning-content review-stage correction and valve-reference checks.
