@@ -13,7 +13,7 @@ import subprocess
 
 from build_native import binary_architectures, sha256, unpack_zip
 from audit_native import git_bytes, source_snapshot
-from window_lifecycle_windows import verify_lifecycle
+from window_lifecycle_windows import reference_cases, verify_lifecycle
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 OWNED_SESSION_MARKER = "Generated private verification session\n"
@@ -252,6 +252,12 @@ def verify(args: argparse.Namespace) -> dict:
     information = 'scripts/information_dialog.gd' in build_report['source_hashes']
     conditions = bool(content.get('conditions'))
     window_state = 'scripts/window_state.gd' in build_report['source_hashes']
+    reference_state = 'scripts/reference_state.gd' in build_report['source_hashes']
+    startup_cases = None
+    if reference_state:
+        bodies = json.loads(git_bytes(ROOT, build_report['source_revision'], 'content/sample_pack.json'))['bodies']
+        bodies += json.loads(git_bytes(ROOT, build_report['source_revision'], 'content/spinal_studies.json'))['bodies']
+        startup_cases = reference_cases(bodies)
     if args.output.exists():
         raise ValueError("Use a new output folder; prior reports are kept unchanged")
     args.output.mkdir(parents=True)
@@ -267,6 +273,11 @@ def verify(args: argparse.Namespace) -> dict:
         if window_state:
             window_fixture.parent.mkdir(parents=True, exist_ok=True)
             window_fixture.write_text(fixture_text, encoding='utf-8')
+        reference_fixture = session / 'user-data/PraxisCorporisPrototype/reference-state.json'
+        reference_fixture_text = json.dumps(startup_cases['male']['record']) if startup_cases else ''
+        if reference_state:
+            reference_fixture.parent.mkdir(parents=True, exist_ok=True)
+            reference_fixture.write_text(reference_fixture_text, encoding='utf-8')
         log = run_native(args, windows_session, windows_session + "\\" + executable_relative)
         result = parse_result(log, args.mode == "rendered", circulation, information, conditions)
         if result["engine_actual"] != build_report["engine"]:
@@ -281,13 +292,18 @@ def verify(args: argparse.Namespace) -> dict:
             result["captures"] = captures(session, args.output, result["references"], circulation, information, conditions)
         if (session / "engine.log").exists():
             shutil.copyfile(session / "engine.log", args.output / "engine.log")
+        if reference_state:
+            if reference_fixture.read_text(encoding='utf-8') != reference_fixture_text:
+                raise ValueError('Scripted QA changed the isolated startup-reference fixture')
+            reference_fixture.unlink()
+            result['reference_settings_ignored_during_scripted_qa'] = True
         if window_state:
             if window_fixture.read_text(encoding='utf-8') != fixture_text:
                 raise ValueError('Scripted QA changed the isolated window-settings fixture')
             window_fixture.unlink()
             result['window_settings_ignored_during_scripted_qa'] = True
             if args.mode == 'rendered':
-                result['window_state_lifecycle'] = verify_lifecycle(args, session, windows_session, windows_session + '\\' + executable_relative)
+                result['window_state_lifecycle'] = verify_lifecycle(args, session, windows_session, windows_session + '\\' + executable_relative, startup_cases)
         result['session_cleanup'] = {'status': 'pending', 'path': str(session)}
         write_report(args.output / 'report.json', result)
     except BaseException:

@@ -33,6 +33,11 @@ $output = OUTPUT
 $executable = EXECUTABLE
 [void][IO.Directory]::CreateDirectory($output)
 $statePath = Join-Path $folder 'user-data\PraxisCorporisPrototype\window-state.json'
+$referencePath = Join-Path $folder 'user-data\PraxisCorporisPrototype\reference-state.json'
+$referenceCases = REFERENCE_CASES | ConvertFrom-Json
+$script:referenceRecords = @()
+$script:referenceTitles = @()
+$script:referenceWrites = @()
 $script:active = $null
 $script:lifecycleWatch = [Diagnostics.Stopwatch]::StartNew()
 function Wait-For([scriptblock]$condition) {
@@ -44,7 +49,17 @@ function Wait-For([scriptblock]$condition) {
         Start-Sleep -Milliseconds 100
     }
 }
-function Start-Viewer([string]$stage) {
+function Seed-Reference($record) {
+    [void][IO.Directory]::CreateDirectory((Split-Path $referencePath))
+    [IO.File]::WriteAllText($referencePath, ($record | ConvertTo-Json -Compress))
+}
+function Record-Reference($run) {
+    $script:referenceRecords += @(Get-Content -Raw $referencePath | ConvertFrom-Json)
+    $script:referenceTitles += @($run.Title)
+    $script:referenceWrites += @($run.ReferenceWritten)
+}
+function Start-Viewer([string]$stage, [string]$expectedTitle = '') {
+    $referenceBefore = if ($null -ne $referenceCases) { [IO.File]::GetLastWriteTimeUtc($referencePath).Ticks } else { 0 }
     $p = [Diagnostics.Process]::new()
     $p.StartInfo.FileName = $executable
     $p.StartInfo.WorkingDirectory = Split-Path $executable
@@ -65,7 +80,14 @@ function Start-Viewer([string]$stage) {
         if ($p.HasExited) { throw ('Viewer exited before ready: ' + $p.ExitCode) }
         $p.MainWindowHandle -ne [IntPtr]::Zero
     }
-    return @{Process=$p;Stdout=$stdout;Stderr=$stderr;Stage=$stage;Log=$log}
+    if ($expectedTitle) {
+        Wait-For {
+            $p.Refresh()
+            if ($p.HasExited) { throw ('Viewer exited before reference ready: ' + $p.ExitCode) }
+            $p.MainWindowTitle -eq $expectedTitle
+        }
+    }
+    return @{Process=$p;Stdout=$stdout;Stderr=$stderr;Stage=$stage;Log=$log;Title=$p.MainWindowTitle;ReferenceBefore=$referenceBefore}
 }
 function Close-Viewer($run) {
     if (-not [PraxisWindowStateQA]::PostMessage($run.Process.MainWindowHandle,0x10,[IntPtr]::Zero,[IntPtr]::Zero)) { throw 'Own viewer close request failed' }
@@ -79,31 +101,58 @@ function Close-Viewer($run) {
     if (-not (Test-Path $statePath)) { throw 'Normal shutdown did not save window layout' }
     $saved = Get-Content -Raw $statePath | ConvertFrom-Json
     Copy-Item $statePath (Join-Path $output ($run.Stage + '-state.json'))
+    if ($null -ne $referenceCases) {
+        if (-not (Test-Path $referencePath)) { throw 'Normal shutdown did not save its reference' }
+        Copy-Item $referencePath (Join-Path $output ($run.Stage + '-reference.json'))
+        $run.ReferenceWritten = [IO.File]::GetLastWriteTimeUtc($referencePath).Ticks -ne $run.ReferenceBefore
+    }
     return $saved
 }
 try {
     if (Test-Path $statePath) { throw 'Lifecycle fixture must start without user window settings' }
-    $first = Start-Viewer 'window-first'
+    $maleTitle = ''
+    if ($null -ne $referenceCases) {
+        if (Test-Path $referencePath) { throw 'Lifecycle fixture must start without user reference settings' }
+        Seed-Reference $referenceCases.male.record
+        $maleTitle = $referenceCases.male.title
+    }
+    $first = Start-Viewer 'window-first' $maleTitle
     [void][PraxisWindowStateQA]::ShowWindow($first.Process.MainWindowHandle,9)
     Wait-For { -not [PraxisWindowStateQA]::IsZoomed($first.Process.MainWindowHandle) }
     [PraxisWindowStateQA]::ResizeClient($first.Process.MainWindowHandle,1300,800)
     Wait-For { $c=[PraxisWindowStateQA]::ClientSize($first.Process.MainWindowHandle); $c[0] -eq 1300 -and $c[1] -eq 800 }
     $firstSaved = Close-Viewer $first
-    $second = Start-Viewer 'window-second'
+    if ($null -ne $referenceCases) { Record-Reference $first }
+    $second = Start-Viewer 'window-second' $maleTitle
     Wait-For { $c=[PraxisWindowStateQA]::ClientSize($second.Process.MainWindowHandle); $c[0] -eq 1300 -and $c[1] -eq 800 }
     $reopenedSize = [PraxisWindowStateQA]::ClientSize($second.Process.MainWindowHandle)
     [void][PraxisWindowStateQA]::ShowWindow($second.Process.MainWindowHandle,3)
     Wait-For { [PraxisWindowStateQA]::IsZoomed($second.Process.MainWindowHandle) }
     Start-Sleep -Milliseconds 250
     $maximizedSaved = Close-Viewer $second
-    $third = Start-Viewer 'window-third'
+    $studyTitle = ''
+    if ($null -ne $referenceCases) {
+        Record-Reference $second
+        Seed-Reference $referenceCases.study.record
+        $studyTitle = $referenceCases.study.title
+    }
+    $third = Start-Viewer 'window-third' $studyTitle
     Wait-For { [PraxisWindowStateQA]::IsZoomed($third.Process.MainWindowHandle) }
     $reopenedMaximized = [PraxisWindowStateQA]::IsZoomed($third.Process.MainWindowHandle)
     [void][PraxisWindowStateQA]::ShowWindow($third.Process.MainWindowHandle,9)
     Wait-For { $c=[PraxisWindowStateQA]::ClientSize($third.Process.MainWindowHandle); $c[0] -eq 1300 -and $c[1] -eq 800 }
     $unmaximizedSize = [PraxisWindowStateQA]::ClientSize($third.Process.MainWindowHandle)
     $finalSaved = Close-Viewer $third
-    @{schema_version=1;first_saved=$firstSaved;reopened_size=$reopenedSize;maximized_saved=$maximizedSaved;reopened_maximized=$reopenedMaximized;unmaximized_size=$unmaximizedSize;final_saved=$finalSaved} | ConvertTo-Json -Depth 6 -Compress
+    $observations = @{schema_version=1;first_saved=$firstSaved;reopened_size=$reopenedSize;maximized_saved=$maximizedSaved;reopened_maximized=$reopenedMaximized;unmaximized_size=$unmaximizedSize;final_saved=$finalSaved}
+    if ($null -ne $referenceCases) {
+        Record-Reference $third
+        Seed-Reference $referenceCases.unavailable
+        $fallback = Start-Viewer 'reference-fallback' $referenceCases.female.title
+        [void](Close-Viewer $fallback)
+        Record-Reference $fallback
+        $observations['reference_startup'] = @{saved=$script:referenceRecords;titles=$script:referenceTitles;written=$script:referenceWrites}
+    }
+    $observations | ConvertTo-Json -Depth 8 -Compress
 } finally {
     if ($null -ne $script:active) {
         if (-not $script:active.HasExited) { $script:active.Kill(); [void]$script:active.WaitForExit(10000) }
@@ -113,7 +162,19 @@ try {
 '''
 
 
-def validate_observations(data: dict) -> None:
+def reference_cases(bodies: list[dict]) -> dict:
+    cases = {}
+    for key, identity in [('male', 'male'), ('female', 'female'), ('study', 'hra-v1-2-female-cord-study')]:
+        body = next((body for body in bodies if body['id'] == identity), None)
+        if body is None:
+            raise ValueError('Startup verification source is missing: ' + identity)
+        cases[key] = {'record': {'schema_version': 1, 'body_id': identity, 'source_sha256': body['sha256']},
+                      'title': 'Praxis Corporis · ' + body.get('short_label', body['label'])}
+    cases['unavailable'] = {'schema_version': 1, 'body_id': 'not-installed', 'source_sha256': '0' * 64}
+    return cases
+
+
+def validate_observations(data: dict, references: dict | None = None) -> None:
     if not isinstance(data, dict) or type(data.get('schema_version')) is not int or data['schema_version'] != 1:
         raise ValueError('Unsupported normal-window lifecycle observations')
     for key, maximized in [('first_saved', False), ('maximized_saved', True), ('final_saved', False)]:
@@ -123,14 +184,28 @@ def validate_observations(data: dict) -> None:
             raise ValueError('Normal window layout was not retained: ' + key)
     if data.get('reopened_size') != [1300, 800] or data.get('unmaximized_size') != [1300, 800] or data.get('reopened_maximized') is not True:
         raise ValueError('Normal window reopen/maximize behavior differs from the saved layout')
+    if references is not None:
+        observed = data.get('reference_startup')
+        expected = [references[key] for key in ['male', 'male', 'study', 'female']]
+        if not isinstance(observed, dict) or observed.get('titles') != [case['title'] for case in expected]:
+            raise ValueError('Normal startup did not open its expected reference titles')
+        written = observed.get('written')
+        if not isinstance(written, list) or len(written) != 4 or not all(value is True for value in written):
+            raise ValueError('Normal shutdown did not write a fresh startup-reference file')
+        records = observed.get('saved')
+        if not isinstance(records, list) or len(records) != 4:
+            raise ValueError('Normal startup reference records are incomplete')
+        for record, case in zip(records, expected):
+            if not isinstance(record, dict) or type(record.get('schema_version')) is not int or record != case['record']:
+                raise ValueError('Normal shutdown did not retain its completed source identity')
 
 
-def verify_lifecycle(args, session: pathlib.Path, folder: str, executable: str) -> dict:
+def verify_lifecycle(args, session: pathlib.Path, folder: str, executable: str, references: dict | None = None) -> dict:
     # Import at call time: the shared runner also imports this protocol module.
     from verify_windows import powershell, ps_literal, write_report
     if not pathlib.Path(args.output).is_dir():
         raise ValueError('A retained evidence folder is required')
-    command = SCRIPT.replace('FOLDER', ps_literal(folder)).replace('OUTPUT', ps_literal(folder + '\\window-lifecycle-evidence')).replace('EXECUTABLE', ps_literal(executable))
+    command = SCRIPT.replace('FOLDER', ps_literal(folder)).replace('OUTPUT', ps_literal(folder + '\\window-lifecycle-evidence')).replace('EXECUTABLE', ps_literal(executable)).replace('REFERENCE_CASES', ps_literal(json.dumps(references)))
     result = powershell(args, command, timeout=240)
     (args.output / 'window-lifecycle-runtime.log').write_text(result.stdout + result.stderr, encoding='utf-8')
     evidence = session / 'window-lifecycle-evidence'
@@ -139,7 +214,7 @@ def verify_lifecycle(args, session: pathlib.Path, folder: str, executable: str) 
     if result.returncode:
         raise RuntimeError('Normal window lifecycle failed; see window-lifecycle-runtime.log')
     observations = json.loads(result.stdout)
-    validate_observations(observations)
+    validate_observations(observations, references)
     observations['protocol_sha256'] = hashlib.sha256(pathlib.Path(__file__).read_bytes()).hexdigest()
     write_report(args.output / 'window-lifecycle.json', observations)
     return observations

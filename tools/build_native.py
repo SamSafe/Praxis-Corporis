@@ -143,6 +143,7 @@ def add_notices(folder: pathlib.Path, platform: str) -> None:
         "Learning text remains draft; assistant cross-checks do not establish human source or medical review.\n"
         "View > Preferences adjusts text size. Panel layout, 3D resolution and label preferences are remembered on this computer.\n"
         "The desktop window size and maximized state are remembered after a normal close. Saved anatomy views remain independent.\n"
+        "A normal close also remembers the last successfully loaded reference. Startup opens its default view; named saved views keep anatomy edits and notes.\n"
         "Female/male spinal-cord and vertebra source studies use separate v1.2 files; they are not registered to United bodies.\n\n"
         "Both reference bodies are included. This is a partial, unreviewed atlas.\n"
         "Pathological geometry and physiological simulation are unavailable. Medical review and public release remain pending.\n"

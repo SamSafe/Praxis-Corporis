@@ -20,6 +20,7 @@ const GuidedChest = preload("res://scripts/guided_chest.gd")
 const StudyVerification = preload("res://scripts/study_verification.gd")
 const InformationDialog = preload("res://scripts/information_dialog.gd")
 const WindowState = preload("res://scripts/window_state.gd")
+const ReferenceState = preload("res://scripts/reference_state.gd")
 enum ExpandedAction { FOCUS, WHOLE_BODY, INSPECT, RETURN_CONTEXT, SELECTION_LABELS,
 	LOCAL_LABELS, MOVE, UNDO, REDO, SAVED_VIEWS, SCREENSHOT, KEYBOARD_HELP, GUIDED_CHEST, CIRCULATION_ROUTE }
 var save_path := "user://saved_view.json"
@@ -99,6 +100,7 @@ var navigation_hint: Label
 var capture_in_progress := false
 var preferences := ViewerPreferences.new()
 var window_state := WindowState.new()
+var reference_state := ReferenceState.new()
 var preferences_active := false
 var applying_preferences := false
 var text_scale := 1.0
@@ -131,6 +133,7 @@ func _ready() -> void:
 	build_interface()
 	# Scripted QA always starts with predictable defaults and never edits user settings.
 	preferences_active = not "--script" in OS.get_cmdline_args() and OS.get_cmdline_user_args().is_empty()
+	reference_state.enabled = preferences_active and DisplayServer.get_name() != "headless"
 	var window_error := window_state.attach(get_window(), preferences_active)
 	if preferences_active:
 		var preferences_error := preferences.load_settings()
@@ -150,7 +153,18 @@ func _ready() -> void:
 	elif "--verify-bundle" in OS.get_cmdline_user_args() or "--verify-rendered-bundle" in OS.get_cmdline_user_args():
 		call_deferred("verify_bundle")
 	else:
-		call_deferred("switch_body", "female")
+		call_deferred("start_reference")
+
+
+func start_reference() -> void:
+	var choice := reference_state.choice(pack)
+	await switch_body(choice.id)
+	if model.body.is_empty() and choice.id != ReferenceState.DEFAULT_REFERENCE:
+		await switch_body(ReferenceState.DEFAULT_REFERENCE)
+		if not model.body.is_empty():
+			status.text = "The remembered reference could not be opened. Showing the female reference."
+	elif not str(choice.message).is_empty() and not model.body.is_empty():
+		status.text = str(choice.message)
 
 
 func request_exit() -> void:
@@ -165,6 +179,9 @@ func finish_exit() -> void:
 	var error := window_state.save()
 	if not error.is_empty():
 		push_warning(error)
+	var reference_error := reference_state.save()
+	if not reference_error.is_empty():
+		push_warning(reference_error)
 	get_tree().quit()
 
 
@@ -1301,6 +1318,8 @@ func switch_body(id: String) -> void:
 	else:
 		whole_body(false)
 	status.text = str(record.get("short_label", record.label)) + " ready"
+	reference_state.remember(model.body)
+	get_window().title = "Praxis Corporis · " + str(record.get("short_label", record.label))
 	refresh_details()
 
 
