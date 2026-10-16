@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "runtime_source_revision": "036ac8faf866aa06fb1fb4b91e35488b6c1f45fe",
+  "files": {
+    "cancel-opening-artifact-audit.json": {
+      "bytes": 1346,
+      "sha256": "9e89b22e14ac85fa298bc726dd65724f0984a70b355903285537f47566cb32c8"
+    },
+    "cancel-opening-build-report.json": {
+      "bytes": 4976,
+      "sha256": "b4dd4d23d6244779e2aed58a43a294248046c151a90ff52bb0909c5d940a4229"
+    },
+    "cancel-opening-build.log.txt": {
+      "bytes": 11049,
+      "sha256": "3082cf659fc4e2b3e39a093dbed1afbb6a5f4979f8caca322359f77fe8ca707c"
+    },
+    "cancel-opening-circulation_route_smoke.log.txt": {
+      "bytes": 440,
+      "sha256": "5ce0c456de8dafe4e300e5b023e1a6e7ab223d0570e9176d18bb966caf1eab2d"
+    },
+    "cancel-opening-desktop.log.txt": {
+      "bytes": 577,
+      "sha256": "5c92dd749b363dae2ecca1c448fc34dae16adce319c9921bb800cba2b9331a15"
+    },
+    "cancel-opening-development-qa.json": {
+      "bytes": 3832,
+      "sha256": "3a72b7db89cf2a823e8c4b62dccd6232857165bbf20068d8094d50c4ca9b3e89"
+    },
+    "cancel-opening-export_boundary_smoke.log.txt": {
+      "bytes": 116,
+      "sha256": "235837cc34c4cf1c2235cda51a9da9ede4c280cde7f1745d6a780ed48e4819ca"
+    },
+    "cancel-opening-loading_cancel_smoke.log.txt": {
+      "bytes": 1038,
+      "sha256": "4494567ca88de9c715a7cccf5cbee93abd70127fe530f1ebceb7ecc6eb4d936f"
+    },
+    "cancel-opening-loading_smoke.log.txt": {
+      "bytes": 707,
+      "sha256": "3d20a076438de6b8a47ebe6a04f6f3939bbc61ca5ab7521512bcb23c74e6205c"
+    },
+    "cancel-opening-normal-lifecycle.json": {
+      "bytes": 1648,
+      "sha256": "414fba2ca285882a1f0bad957fac189f867cd0b592e2abd0123e5b8efdf0b4f3"
+    },
+    "cancel-opening-python.log.txt": {
+      "bytes": 10554,
+      "sha256": "11490b4ab148c4eae87e5ab613eb1390fcbd60bdd0feef821bdbb32f77ce2be1"
+    },
+    "cancel-opening-reference-fallback-reference.json": {
+      "bytes": 132,
+      "sha256": "c67a0861e22e4e248f83af1de10f67ed2aa67fadabb0c5545efa97db68c339d6"
+    },
+    "cancel-opening-reference-fallback-state.json": {
+      "bytes": 74,
+      "sha256": "294f9c0437828a0416ab6d74d5f1f722fc0ffbadf7bee9f19ed3fadf25bbeb6a"
+    },
+    "cancel-opening-reference-fallback-stdout.log.txt": {
+      "bytes": 294,
+      "sha256": "09cc86a84d0c280175811394ec6d7846d27f677269c6a9eaf104fb5f8e5e7e32"
+    },
+    "cancel-opening-reference-fallback.log.txt": {
+      "bytes": 289,
+      "sha256": "12404d58dff4cbff36d16326ac4b19f092d785b120b3d6967d3ce513c0caadd3"
+    },
+    "cancel-opening-reference_startup_smoke.log.txt": {
+      "bytes": 359,
+      "sha256": "6be89632602c529a4fbcd62da15a1c976676df8a7a8504890972d519a3853a9a"
+    },
+    "cancel-opening-saved_views_smoke.log.txt": {
+      "bytes": 597,
+      "sha256": "20f54c75d3faef9cbb296c58cadb8720eeb2e20fdf9a71103598596978be5545"
+    },
+    "cancel-opening-scene_display_smoke.log.txt": {
+      "bytes": 543,
+      "sha256": "aa535e97908c643dc74dd60bfe4f29d134ba5124315316d6721eaae06a868a2a"
+    },
+    "cancel-opening-selection_cache_smoke.log.txt": {
+      "bytes": 567,
+      "sha256": "eb826bb49471371d995a72d3a4b064ccfca23f664243d6b4b1f7fc9eb754c310"
+    },
+    "cancel-opening-study_notes_smoke.log.txt": {
+      "bytes": 177,
+      "sha256": "79ecf191d5ed7203c5ba5cef54d492d3af2408e2acf7f2f89d6a9477e01be77b"
+    },
+    "cancel-opening-study_workspace_smoke.log.txt": {
+      "bytes": 736,
+      "sha256": "6a780377b04f4feec6d759a4d80028489d957fd60544968f775da7088d249ca4"
+    },
+    "cancel-opening-window-first-reference.json": {
+      "bytes": 130,
+      "sha256": "a5404395636b62b040d358b78eaab88c764b651692f40606f61d2b800318b534"
+    },
+    "cancel-opening-window-first-state.json": {
+      "bytes": 74,
+      "sha256": "294f9c0437828a0416ab6d74d5f1f722fc0ffbadf7bee9f19ed3fadf25bbeb6a"
+    },
+    "cancel-opening-window-first-stdout.log.txt": {
+      "bytes": 292,
+      "sha256": "184f03236bfb87698ab2223a86ba803d60513e8677caa908717214f9cbf5d7ed"
+    },
+    "cancel-opening-window-first.log.txt": {
+      "bytes": 287,
+      "sha256": "cd9609f775ec0d0fe989875091e154a8f6961b7f08eb6d3dbb420aa479e5d9ff"
+    },
+    "cancel-opening-window-second-reference.json": {
+      "bytes": 130,
+      "sha256": "a5404395636b62b040d358b78eaab88c764b651692f40606f61d2b800318b534"
+    },
+    "cancel-opening-window-second-state.json": {
+      "bytes": 73,
+      "sha256": "048601e6547f34008604e20b0ceb7f198541a1a5c8d109f01e7307043810c782"
+    },
+    "cancel-opening-window-second-stdout.log.txt": {
+      "bytes": 292,
+      "sha256": "67c707904fa3a50f846636dd9b2565209d05098a66a97a71996a4b9f48876f36"
+    },
+    "cancel-opening-window-second.log.txt": {
+      "bytes": 287,
+      "sha256": "5b8a1701ac6393f9c7313b4ced3ec2c280130528cbb3df9f7f430233f324755a"
+    },
+    "cancel-opening-window-third-reference.json": {
+      "bytes": 152,
+      "sha256": "caa6915f8614a07f13e861ac013ec2e80d59b78ecb7a6cfd6c242aa47feedd02"
+    },
+    "cancel-opening-window-third-state.json": {
+      "bytes": 74,
+      "sha256": "294f9c0437828a0416ab6d74d5f1f722fc0ffbadf7bee9f19ed3fadf25bbeb6a"
+    },
+    "cancel-opening-window-third-stdout.log.txt": {
+      "bytes": 312,
+      "sha256": "8da614d53d5616ba86080e8724fa061883ed38f6584f3d1e24ef6f8e1db0f3a7"
+    },
+    "cancel-opening-window-third.log.txt": {
+      "bytes": 307,
+      "sha256": "14215fa20aa09934c22c128218d38b911216dbf480e585af970ac64ed49e4288"
+    },
+    "cancel-opening-windows-qa.json": {
+      "bytes": 28983,
+      "sha256": "3cd66d17707ef7b3883de550c80a42ee260eedf0353b0ddd036ff3926014dd66"
+    },
+    "cancel-opening-windows-runtime.log.txt": {
+      "bytes": 9615,
+      "sha256": "270c43b2c61a06cb1f43106f195eb457dcc39a13e26888a415c7a489b0a79016"
+    }
+  },
+  "images": {
+    "docs/prototype/cancel-opening-expanded.png": {
+      "bytes": 121848,
+      "sha256": "bcc3a6ff53acd45a31582bed86acf63949cb928fe650195b6a356360cdf42ab3"
+    },
+    "docs/prototype/cancel-opening-guide-layout-before.png": {
+      "bytes": 59043,
+      "sha256": "501ac37573b04bbf0252f547b747b614c61e806ca0dee345ad3e36176a481dbf"
+    },
+    "docs/prototype/cancel-opening-resumed-guide.png": {
+      "bytes": 177437,
+      "sha256": "57cf8f307ac884c9aa103ca3908a8ca8a2265cd4d15a3708cddb41afd38760b0"
+    },
+    "docs/prototype/cancel-opening-workspace.png": {
+      "bytes": 251936,
+      "sha256": "125654405c264a2235bfe2988fc6132f685e8a188af05d44f6c7d45de5ec165d"
+    }
+  },
+  "native_cancellation_marker_count": 1,
+  "successful_staging_independently_absent": true
+}
