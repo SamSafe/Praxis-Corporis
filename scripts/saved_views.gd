@@ -8,13 +8,32 @@ var path := "user://saved_views.json"
 var entries: Array[Dictionary] = []
 var read_error := ""
 var loaded_hash := ""
+var recovery_hash := ""
+var recovery_copy_path := ""
 
 
 func read_file(file_path: String) -> Dictionary:
 	var file := FileAccess.open(file_path, FileAccess.READ)
 	if file == null or file.get_length() > MAX_BYTES:
 		return {"error": "Saved views could not be read. The file has been kept unchanged."}
-	var parsed = JSON.parse_string(file.get_as_text())
+	var length := file.get_length()
+	var bytes := file.get_buffer(length)
+	file.close()
+	if bytes.size() != length:
+		return {"error": "Saved views could not be read. The file has been kept unchanged."}
+	var hash := HashingContext.new()
+	hash.start(HashingContext.HASH_SHA256)
+	hash.update(bytes)
+	var result := parse_contents(bytes.get_string_from_utf8())
+	result.fingerprint = hash.finish().hex_encode()
+	return result
+
+
+func parse_contents(text: String) -> Dictionary:
+	var parser := JSON.new()
+	if parser.parse(text.trim_prefix("\ufeff")) != OK:
+		return {"error": "Saved views have an unsupported or damaged format. The file has been kept unchanged."}
+	var parsed: Variant = parser.data
 	if not parsed is Dictionary or parsed.get("schema_version") != 1 or not parsed.get("views") is Array or parsed.views.size() > MAX_VIEWS:
 		return {"error": "Saved views have an unsupported or damaged format. The file has been kept unchanged."}
 	var ids := {}
@@ -38,6 +57,7 @@ func read_file(file_path: String) -> Dictionary:
 
 
 func load_library() -> String:
+	recovery_hash = ""
 	if not FileAccess.file_exists(path):
 		read_error = "Saved views are missing, but a previous library is available." if FileAccess.file_exists(path + ".bak") else ""
 		if read_error.is_empty():
@@ -48,7 +68,9 @@ func load_library() -> String:
 	read_error = result.error
 	if read_error.is_empty():
 		entries.assign(result.entries)
-		loaded_hash = FileAccess.get_sha256(path)
+		loaded_hash = result.fingerprint
+	else:
+		recovery_hash = str(result.get("fingerprint", ""))
 	return read_error
 
 
@@ -71,9 +93,10 @@ func valid_name(value: String, except_id: String = "") -> String:
 	return ""
 
 
-func persist(next_entries: Array[Dictionary], keep_backup: bool = true) -> String:
+func persist(next_entries: Array[Dictionary], keep_backup: bool = true, expected_hash: String = "") -> String:
 	var current_hash := FileAccess.get_sha256(path) if FileAccess.file_exists(path) else ""
-	if keep_backup and current_hash != loaded_hash:
+	# Recovery uses the failed-read fingerprint; ordinary edits use the loaded library.
+	if current_hash != (loaded_hash if keep_backup else expected_hash):
 		return "Saved views changed elsewhere. Close and reopen Saved views before editing."
 	var text := JSON.stringify({"schema_version": 1, "views": next_entries}, "\t", true, true)
 	if text.to_utf8_buffer().size() > MAX_BYTES:
@@ -179,16 +202,31 @@ func can_recover() -> bool:
 
 
 func recover_backup() -> String:
+	recovery_copy_path = ""
+	if read_error.is_empty():
+		return "This library is readable. Recovery is only available for a damaged or missing library."
+	var exists := FileAccess.file_exists(path)
+	if exists and recovery_hash.is_empty():
+		return "Saved views could not be checked. Close and reopen Saved views before recovery."
+	var current_hash := FileAccess.get_sha256(path) if exists else ""
+	if current_hash != recovery_hash:
+		return "Saved views changed elsewhere. Close and reopen Saved views before recovery."
 	var result := read_file(path + ".bak")
 	if not result.error.is_empty():
 		return "The previous library is unavailable or invalid."
-	if FileAccess.file_exists(path) and DirAccess.copy_absolute(path, path + ".damaged") != OK:
-		return "Could not preserve the damaged library. Recovery was cancelled."
+	if exists:
+		var copy_path := path + ".damaged"
+		if FileAccess.file_exists(copy_path):
+			copy_path += "-" + Crypto.new().generate_random_bytes(16).hex_encode()
+		if DirAccess.copy_absolute(path, copy_path) != OK or FileAccess.get_sha256(copy_path) != recovery_hash:
+			return "Could not preserve the damaged library. Recovery was cancelled."
+		recovery_copy_path = copy_path
 	var recovered: Array[Dictionary] = []
 	recovered.assign(result.entries)
-	var error := persist(recovered, false)
+	var error := persist(recovered, false, recovery_hash)
 	if error.is_empty():
 		read_error = ""
+		recovery_hash = ""
 	return error
 
 

@@ -323,7 +323,9 @@ func delete_selected() -> void:
 
 func recover_library() -> void:
 	var error: String = library.recover_backup()
-	message.text = error if not error.is_empty() else "Previous library restored. Any damaged file has been retained."
+	message.text = error if not error.is_empty() else "Previous library restored."
+	if error.is_empty() and not library.recovery_copy_path.is_empty():
+		message.text += " Damaged file retained as “" + str(library.recovery_copy_path).get_file() + "”."
 	refresh_list()
 
 

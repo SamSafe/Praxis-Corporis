@@ -15,6 +15,7 @@ static func run(viewer: Control, rendered: bool) -> bool:
 	valid = valid and viewer.study_content.error.is_empty()
 	if viewer.model.body.id == "female":
 		valid = await verify_information(viewer, rendered) and valid
+		valid = verify_recovery(before) and valid
 	if viewer.model.structures.has("anatomy.heart"):
 		valid = await verify_conditions(viewer, rendered) and valid
 		viewer.model.undo_stack = undo.duplicate(true)
@@ -119,6 +120,43 @@ static func run(viewer: Control, rendered: bool) -> bool:
 	valid = valid and viewer.export_view_state() == before
 	if valid:
 		print("PASS bundled study workspace: ", viewer.model.body.id)
+	return valid
+
+
+static func verify_recovery(snapshot: Dictionary) -> bool:
+	var path := "user://recovery-check-" + Crypto.new().generate_random_bytes(16).hex_encode() + ".json"
+	var library := SavedViews.new()
+	library.path = path
+	var valid := library.load_library().is_empty()
+	valid = library.add_view("Recover this source view", snapshot).is_empty() and valid
+	valid = library.set_notes(library.entries[0].id, "Recovered source notes 🫀").is_empty() and valid
+	valid = library.add_view("Later view", snapshot).is_empty() and valid
+	var healthy := FileAccess.get_file_as_string(path)
+	var file := FileAccess.open(path, FileAccess.WRITE)
+	file.store_string("truncated {")
+	file.close()
+	valid = not library.load_library().is_empty() and library.can_recover() and valid
+	file = FileAccess.open(path, FileAccess.WRITE)
+	file.store_string(healthy)
+	file.close()
+	valid = not library.recover_backup().is_empty() and FileAccess.get_file_as_string(path) == healthy and valid
+	file = FileAccess.open(path, FileAccess.WRITE)
+	file.store_string("truncated {")
+	file.close()
+	library.load_library()
+	file = FileAccess.open(path + ".damaged", FileAccess.WRITE)
+	file.store_string("Keep earlier damaged input")
+	file.close()
+	valid = library.recover_backup().is_empty() and valid
+	valid = FileAccess.get_file_as_string(path + ".damaged") == "Keep earlier damaged input" and FileAccess.get_file_as_string(library.recovery_copy_path) == "truncated {" and valid
+	valid = library.entries.size() == 1 and library.entries[0].notes == "Recovered source notes 🫀" and SavedViews.same_snapshot(library.entries[0].state, snapshot) and valid
+	for suffix in ["", ".bak", ".damaged"]:
+		if FileAccess.file_exists(path + suffix):
+			DirAccess.remove_absolute(path + suffix)
+	if not library.recovery_copy_path.is_empty():
+		DirAccess.remove_absolute(library.recovery_copy_path)
+	if valid:
+		print("PASS bundled saved-view recovery")
 	return valid
 
 
