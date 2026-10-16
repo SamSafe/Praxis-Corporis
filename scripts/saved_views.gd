@@ -255,14 +255,45 @@ func recover_backup() -> String:
 	return error
 
 
+static func filesystem_path(value: String) -> String:
+	var absolute := ProjectSettings.globalize_path(value)
+	if not absolute.is_absolute_path():
+		var working_directory := DirAccess.open(".")
+		if working_directory == null:
+			return ""
+		absolute = working_directory.get_current_dir().path_join(absolute)
+	# Keep parent segments for the ambiguity check before DirAccess normalizes them.
+	return absolute
+
+
 func export_library(destination: String) -> String:
 	if not read_error.is_empty():
 		return read_error
 	if not destination.to_lower().ends_with(".json"):
 		return "Choose a JSON file for your saved views."
-	var absolute := ProjectSettings.globalize_path(destination).simplify_path()
+	var absolute := filesystem_path(destination)
+	var directory := DirAccess.open(absolute.get_base_dir()) if not absolute.is_empty() else null
+	if directory == null:
+		return "Could not open the export file."
+	var protected_base := filesystem_path(path)
+	if protected_base.is_empty():
+		return "Could not check the active saved-view library path."
+	for candidate in [absolute, protected_base]:
+		# FileAccess and DirAccess resolve a link followed by .. differently.
+		# Reject that spelling before either API writes or renames a file.
+		var spelling: String = candidate.replace("\\", "/")
+		var parent := spelling.find("/../")
+		while parent >= 0:
+			if directory.is_link(spelling.left(parent)):
+				return "Choose the folder directly instead of using parent (..) segments after a link."
+			parent = spelling.find("/../", parent + 3)
+	var case_sensitive := directory.is_case_sensitive(absolute.get_base_dir())
 	for suffix in ["", ".bak", ".tmp", ".damaged"]:
-		if absolute == ProjectSettings.globalize_path(path + suffix).simplify_path():
+		var protected: String = protected_base + str(suffix)
+		var same_name: bool = absolute.get_file() == protected.get_file() if case_sensitive else absolute.get_file().to_lower() == protected.get_file().to_lower()
+		# Identity catches directory links, junctions, hard links and case aliases.
+		# Compare parents too, so a missing active file cannot be recreated via an alias.
+		if absolute == protected or directory.is_equivalent(absolute, protected) or (same_name and directory.is_equivalent(absolute.get_base_dir(), protected.get_base_dir())):
 			return "Choose a file outside the active saved-view library."
 	var temporary := destination + "." + Crypto.new().generate_random_bytes(16).hex_encode() + ".tmp"
 	var file := FileAccess.open(temporary, FileAccess.WRITE)

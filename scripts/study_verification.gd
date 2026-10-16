@@ -95,6 +95,7 @@ static func run(viewer: Control, rendered: bool) -> bool:
 		valid = valid and viewer.export_view_state() == before and viewer.model.undo_stack == undo and viewer.model.redo_stack == redo and viewer.back_views == back and viewer.forward_views == forward
 		if valid:
 			print("PASS bundled circulation route: ", viewer.model.body.id)
+	valid = verify_export_protection(before, viewer.model.body.id) and valid
 	var path := "user://study-check-" + Crypto.new().generate_random_bytes(16).hex_encode()
 	var library := SavedViews.new()
 	library.path = path + ".json"
@@ -127,6 +128,45 @@ static func run(viewer: Control, rendered: bool) -> bool:
 	valid = valid and viewer.export_view_state() == before
 	if valid:
 		print("PASS bundled study workspace: ", viewer.model.body.id)
+	return valid
+
+
+static func verify_export_protection(snapshot: Dictionary, reference: String) -> bool:
+	var library := SavedViews.new()
+	library.path = "user://export-guard-" + Crypto.new().generate_random_bytes(16).hex_encode() + ".json"
+	var valid := library.load_library().is_empty()
+	valid = library.add_view("Export safeguard fixture", snapshot).is_empty() and valid
+	var id: String = library.entries[0].id
+	valid = library.set_notes(id, "Original visible note").is_empty() and valid
+	var stale := SavedViews.new()
+	stale.path = library.path
+	valid = stale.load_library().is_empty() and valid
+	var visible: Array = stale.entries.duplicate(true)
+	valid = library.set_notes(id, "Keep this newer saved note").is_empty() and valid
+	var expected := FileAccess.get_file_as_bytes(library.path)
+	var absolute := SavedViews.filesystem_path(library.path)
+	var fs := DirAccess.open(absolute.get_base_dir())
+	var sensitive := fs.is_case_sensitive(absolute.get_base_dir())
+	var case_alias := absolute.get_base_dir().path_join(absolute.get_file().to_upper())
+	var result := stale.export_library(case_alias)
+	valid = (result.is_empty() if sensitive else "outside the active" in result) and valid
+	valid = FileAccess.get_file_as_bytes(library.path) == expected and valid
+	valid = "outside the active" in stale.export_library(absolute.get_base_dir() + "/./" + absolute.get_file()) and valid
+	var outside := absolute.trim_suffix(".json") + "-separate.json"
+	valid = DirAccess.copy_absolute(absolute, outside) == OK and valid
+	valid = stale.export_library(outside).is_empty() and valid
+	var exported := stale.read_file(outside)
+	valid = exported.error.is_empty() and exported.entries[0].notes == "Original visible note" and valid
+	valid = DirAccess.rename_absolute(absolute, absolute + ".held") == OK and valid
+	result = stale.export_library(absolute if sensitive else case_alias)
+	valid = "outside the active" in result and not FileAccess.file_exists(absolute) and valid
+	valid = DirAccess.rename_absolute(absolute + ".held", absolute) == OK and valid
+	valid = FileAccess.get_file_as_bytes(absolute) == expected and stale.entries == visible and valid
+	for file in [absolute, absolute + ".bak", absolute + ".held", outside, case_alias]:
+		if FileAccess.file_exists(file):
+			DirAccess.remove_absolute(file)
+	if valid:
+		print("PASS bundled export destination guard: ", reference, " · case-sensitive ", sensitive)
 	return valid
 
 
