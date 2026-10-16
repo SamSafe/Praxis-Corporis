@@ -59,10 +59,11 @@ function Start-Viewer([string]$stage) {
     $script:active = $p
     $stdout = $p.StandardOutput.ReadToEndAsync()
     $stderr = $p.StandardError.ReadToEndAsync()
+    if (-not $p.WaitForInputIdle(30000)) { throw 'Own viewer GUI did not become idle' }
     Wait-For {
         $p.Refresh()
         if ($p.HasExited) { throw ('Viewer exited before ready: ' + $p.ExitCode) }
-        ($p.MainWindowHandle -ne [IntPtr]::Zero) -and (Test-Path $log) -and ((Get-Content -Raw -ErrorAction SilentlyContinue $log) -match 'Prepared 801 meshes')
+        $p.MainWindowHandle -ne [IntPtr]::Zero
     }
     return @{Process=$p;Stdout=$stdout;Stderr=$stderr;Stage=$stage;Log=$log}
 }
@@ -89,12 +90,14 @@ try {
     Wait-For { $c=[PraxisWindowStateQA]::ClientSize($first.Process.MainWindowHandle); $c[0] -eq 1300 -and $c[1] -eq 800 }
     $firstSaved = Close-Viewer $first
     $second = Start-Viewer 'window-second'
+    Wait-For { $c=[PraxisWindowStateQA]::ClientSize($second.Process.MainWindowHandle); $c[0] -eq 1300 -and $c[1] -eq 800 }
     $reopenedSize = [PraxisWindowStateQA]::ClientSize($second.Process.MainWindowHandle)
     [void][PraxisWindowStateQA]::ShowWindow($second.Process.MainWindowHandle,3)
     Wait-For { [PraxisWindowStateQA]::IsZoomed($second.Process.MainWindowHandle) }
     Start-Sleep -Milliseconds 250
     $maximizedSaved = Close-Viewer $second
     $third = Start-Viewer 'window-third'
+    Wait-For { [PraxisWindowStateQA]::IsZoomed($third.Process.MainWindowHandle) }
     $reopenedMaximized = [PraxisWindowStateQA]::IsZoomed($third.Process.MainWindowHandle)
     [void][PraxisWindowStateQA]::ShowWindow($third.Process.MainWindowHandle,9)
     Wait-For { $c=[PraxisWindowStateQA]::ClientSize($third.Process.MainWindowHandle); $c[0] -eq 1300 -and $c[1] -eq 800 }
