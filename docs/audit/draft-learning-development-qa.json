@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "source_revision": "82120935bacc41a182a7d0b48c83bfceff4d6b8d",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": [
+    {
+      "script": "tests/condition_study_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 14.662,
+      "log_sha256": "bb1abb9db19b287dcad7eb50e291eecfadc62e937a6b9b5e81cf282f54353e53",
+      "log": "draft-learning-condition_study_smoke.log.txt"
+    },
+    {
+      "script": "tests/study_content_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.281,
+      "log_sha256": "fe9ff71cc6df435ff9f0bcb1ffa9b4cb2a72a4b97d5a07bfaea9f1c2965c9ab1",
+      "log": "draft-learning-study_content_smoke.log.txt"
+    },
+    {
+      "script": "tests/part_inspection_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 13.051,
+      "log_sha256": "29d2870b60802966b60a4bb6f03fa538fa1f03ab807baa0806890a835db16159",
+      "log": "draft-learning-part_inspection_smoke.log.txt"
+    },
+    {
+      "script": "tests/part_actions_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 21.756,
+      "log_sha256": "2121ca0069b6bb4760c12e42205f6d1479575b565d73a8f0c2ccddb10a9188e4",
+      "log": "draft-learning-part_actions_smoke.log.txt"
+    },
+    {
+      "script": "tests/saved_views_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 27.061,
+      "log_sha256": "deb8360cd0a8efdc8b993664dbd3aa964f4624bb71c14695dae2812ecce48294",
+      "log": "draft-learning-saved_views_smoke.log.txt"
+    },
+    {
+      "script": "tests/study_notes_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 6.621,
+      "log_sha256": "1ca7a1bcbb7f28f3042abab6a40c339192bb46daa7cb13fbc46a05e94e287f27",
+      "log": "draft-learning-study_notes_smoke.log.txt"
+    },
+    {
+      "script": "tests/portable_views_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.281,
+      "log_sha256": "be706251c30f3a10101c6ce9b0de3064c5649c7b6df16ecdc220807c09896af0",
+      "log": "draft-learning-portable_views_smoke.log.txt"
+    },
+    {
+      "script": "tests/study_workspace_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 20.655,
+      "log_sha256": "44c423e50847b4e2e40368ab6b795dc310e80067a6f50d2e8d8a36b565d7285d",
+      "log": "draft-learning-study_workspace_smoke.log.txt"
+    },
+    {
+      "script": "tests/circulation_route_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 17.557,
+      "log_sha256": "74a21ab6cccad474eb15b25a3f624d9383b45e1a40fc571607a0d8e18dbf82d0",
+      "log": "draft-learning-circulation_route_smoke.log.txt"
+    },
+    {
+      "script": "tests/information_dialog_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 15.537,
+      "log_sha256": "f6620cba7f90c8f0bd943017dca7a27692fdcc53e55b40f28398ee34a6e401ae",
+      "log": "draft-learning-information_dialog_smoke.log.txt"
+    },
+    {
+      "script": "tests/keyboard_movement_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 15.836,
+      "log_sha256": "d4980afc65296ef6944f8a9cd27abf9f7d3266d487abe6f4cf3516d152eb2ae5",
+      "log": "draft-learning-keyboard_movement_smoke.log.txt"
+    },
+    {
+      "script": "tests/viewer_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 13.301,
+      "log_sha256": "7026cf2cc14688e4ce0904f2cc3b2f22eb051b42336002192108f8ef61ddc1d9",
+      "log": "draft-learning-viewer_smoke.log.txt"
+    },
+    {
+      "script": "tests/export_boundary_smoke.gd",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.184,
+      "log_sha256": "235837cc34c4cf1c2235cda51a9da9ede4c280cde7f1745d6a780ed48e4819ca",
+      "log": "draft-learning-export_boundary_smoke.log.txt"
+    }
+  ],
+  "review_status": "draft",
+  "human_source_review": "pending",
+  "expert_review": "pending",
+  "scope": "Engineering checks of private draft content and interactions. These do not establish human source or medical review."
+}

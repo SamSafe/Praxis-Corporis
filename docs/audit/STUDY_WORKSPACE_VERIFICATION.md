@@ -7,6 +7,7 @@ Review-status correction: this checkpoint used `source_checked` without recorded
 human source review. Those labels overstated the stage defined in
 [DATA_MODEL.md](../DATA_MODEL.md#review-evidence). The engineering checks below do
 not establish human source or expert review. Current learning content remains draft.
+Use the [corrected draft packages](DRAFT_CONTENT_VERIFICATION.md) for the current runtime.
 
 Recorded on the America/Edmonton client date 2026-10-15. Final private runtime:
 `8a44cdb861e044b23b8fa73f2cd5ca6ba8f597e5`, Godot

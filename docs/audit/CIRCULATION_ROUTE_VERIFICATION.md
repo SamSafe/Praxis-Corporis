@@ -7,6 +7,7 @@ Review-status correction: the package's `source_checked` labels lacked the recor
 human review required by [the review model](../DATA_MODEL.md#review-evidence).
 These engineering results do not establish human source or expert review. Current
 learning content uses draft status and separate preliminary assistant-check metadata.
+The [corrected draft packages](DRAFT_CONTENT_VERIFICATION.md) retain the current evidence.
 
 Private changes on 2026-10-15. Runtime source:
 `03cf80c581f018095e78f5eaa4ea9a2ba7bc5e3d`; feature checkpoint: `adab8f5`.

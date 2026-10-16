@@ -8,6 +8,7 @@ Review-status correction: this package inherited `source_checked` labels without
 the required recorded human check. Those labels overstate review evidence. The
 engineering checks below do not establish human source or medical review; current
 learning records use draft status with preliminary assistant checks recorded separately.
+Use the [corrected draft packages](DRAFT_CONTENT_VERIFICATION.md) for the current runtime.
 
 Keyboard help and Sources now use bounded, scrollable, selectable plain text.
 Page Up/Down scrolls focused text, and Escape closes the window even when the

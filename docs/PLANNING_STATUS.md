@@ -169,6 +169,13 @@ remain `draft`, with human source and expert review pending. Preliminary assista
 cross-checks are recorded separately and do not count as reviewer evidence. Earlier
 engineering pass reports do not establish medical-content review.
 
+The `8212093` runtime includes the corrected draft-review metadata and initial
+aortic-stenosis/mitral-regurgitation learning summaries with reference-valve inspection.
+Forty-seven Python checks, 13 affected engine scripts and all-reference offline/native
+Windows workflows pass. Enlarged condition dialogs, route status and Sources were
+inspected; 94 native capture identities are retained. [Draft-content verification](audit/DRAFT_CONTENT_VERIFICATION.md)
+records the current artifacts and the separate pending human/medical/Mac gates.
+
 ## Established by the user
 
 | Decision | Direction |
