@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "source_revision": "423bdd5b65b9278bdd50cd7e53fc6201247005eb",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": [
+    {
+      "script": "tests/reference_state_smoke.gd",
+      "script_sha256": "85fb0c5670189420e10bd88ebe48bd5f3abc16808d1d32dec10a04fdec2a3f81",
+      "log_sha256": "2c783808143c35890fa2565e014392fff9537c85d26b0df7b3fa0de176e39949",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.28,
+      "log": "reference-startup-reference_state_smoke.log.txt"
+    },
+    {
+      "script": "tests/reference_startup_smoke.gd",
+      "script_sha256": "d9d65344a025c27aa6d3cecb976fe72fb5c08a14d407ff5c34b277f87eb05d86",
+      "log_sha256": "d6c1925e2e6e893f7795fc7bef51430b7aa2651c8aec70a7e4ec01feaea47171",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 11.107,
+      "log": "reference-startup-reference_startup_smoke.log.txt"
+    },
+    {
+      "script": "tests/study_notes_smoke.gd",
+      "script_sha256": "83dd815eb82e972d6ac5d1ad0d7da9601ef61c30e419d73521da957be3f544b3",
+      "log_sha256": "e241adcd2cb2b9683e4b379168ee3d86424d7f64575fab1363d480bde0689c9b",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 5.761,
+      "log": "reference-startup-study_notes_smoke.log.txt"
+    },
+    {
+      "script": "tests/loading_smoke.gd",
+      "script_sha256": "099acaa9c16e6023dd1d555711d4a07795531fbea0591ed7936339bdb6d3de5b",
+      "log_sha256": "12cf74e27e7327fe12d807418c9c22200b84c9a5cbff633f1d372e897c37a37d",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 19.164,
+      "log": "reference-startup-loading_smoke.log.txt"
+    },
+    {
+      "script": "tests/viewer_smoke.gd",
+      "script_sha256": "1a273a0430745a0f49c5a0640fa89c4faabff0a026d595b80d70cf5bc82bc6ca",
+      "log_sha256": "7ef3914f8112fe140d1ba3900a15d10c8d13dfc3016c10af5c8dbc37da6f9b0e",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 10.683,
+      "log": "reference-startup-viewer_smoke.log.txt"
+    },
+    {
+      "script": "tests/study_workspace_smoke.gd",
+      "script_sha256": "a103d60e330906f6ceb829a127c1ae131f601e9d145972118d48538e28b0ba84",
+      "log_sha256": "1712716c3231b85ce420ecaff0d646e1904bf51652cea915505055ad417eb5f9",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 17.314,
+      "log": "reference-startup-study_workspace_smoke.log.txt"
+    },
+    {
+      "script": "tests/portable_views_smoke.gd",
+      "script_sha256": "3e5a287fc1ac98bf0df0dab434e1e995051b7757d3ac5294fe5377d7654e17e2",
+      "log_sha256": "be706251c30f3a10101c6ce9b0de3064c5649c7b6df16ecdc220807c09896af0",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.273,
+      "log": "reference-startup-portable_views_smoke.log.txt"
+    },
+    {
+      "script": "tests/export_boundary_smoke.gd",
+      "script_sha256": "51f89cd5d43ea25a359994e4ca92837d4991cc4e0f5c7724943714a1d142d493",
+      "log_sha256": "235837cc34c4cf1c2235cda51a9da9ede4c280cde7f1745d6a780ed48e4819ca",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.284,
+      "log": "reference-startup-export_boundary_smoke.log.txt"
+    }
+  ]
+}

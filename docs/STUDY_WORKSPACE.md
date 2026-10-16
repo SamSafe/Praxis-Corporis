@@ -241,7 +241,7 @@ preview. Running it with a desktop display also captures the new screens under
 reconstructed collision vertices with source mesh faces. The exported runtime checks
 portable views/notes, preferences and reversible guide state in disposable files.
 Device trials and qualified medical review remain separate from scripted verification.
-[Verification and current private packages](audit/LIBRARY_RECOVERY_VERIFICATION.md)
+[Verification and current private packages](audit/REFERENCE_STARTUP_VERIFICATION.md)
 retain exact build identities, native Windows evidence, saved-view recovery/search/draft
-checks and normal-launch window restoration observations. [Draft content verification](audit/DRAFT_CONTENT_VERIFICATION.md)
+checks and normal-launch reference/window restoration observations. [Draft content verification](audit/DRAFT_CONTENT_VERIFICATION.md)
 records the learning-content review-stage correction and valve-reference checks.
