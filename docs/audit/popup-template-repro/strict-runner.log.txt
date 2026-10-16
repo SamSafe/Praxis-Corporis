@@ -94,4 +94,3 @@ ERROR: Attempt to disconnect a nonexistent connection from 'root:<Window#2407530
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 
 PASS minimal popup cycles
-
