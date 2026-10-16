@@ -40,20 +40,27 @@ func parse_contents(text: String) -> Dictionary:
 	var names := {}
 	var loaded: Array[Dictionary] = []
 	for entry in parsed.views:
-		if not entry is Dictionary or not entry.get("id") is String or entry.id.length() != 32 or not entry.id.is_valid_hex_number(false):
-			return {"error": "Saved views contain an invalid identifier. The file has been kept unchanged."}
-		if not entry.get("name") is String or not name_format(entry.name).is_empty() or not entry.get("state") is Dictionary:
-			return {"error": "Saved views contain invalid names or view data. The file has been kept unchanged."}
-		if not (entry.get("created_unix") is int or entry.get("created_unix") is float) or not is_finite(float(entry.created_unix)) or entry.created_unix < 0 or entry.created_unix > 253402300799 or floorf(float(entry.created_unix)) != entry.created_unix:
-			return {"error": "Saved views contain an invalid date. The file has been kept unchanged."}
-		if not notes_format(entry.get("notes", "")).is_empty():
-			return {"error": "Saved views contain invalid study notes. The file has been kept unchanged."}
+		var error := entry_format(entry)
+		if not error.is_empty():
+			return {"error": error}
 		if ids.has(entry.id) or names.has(entry.name.to_lower()):
 			return {"error": "Saved views contain duplicate names or identifiers. The file has been kept unchanged."}
 		ids[entry.id] = true
 		names[entry.name.to_lower()] = true
 		loaded.append(entry.duplicate(true))
 	return {"error": "", "entries": loaded}
+
+
+func entry_format(entry: Variant) -> String:
+	if not entry is Dictionary or not entry.get("id") is String or entry.id.length() != 32 or not entry.id.is_valid_hex_number(false):
+		return "Saved views contain an invalid identifier. The file has been kept unchanged."
+	if not entry.get("name") is String or not name_format(entry.name).is_empty() or not entry.get("state") is Dictionary:
+		return "Saved views contain invalid names or view data. The file has been kept unchanged."
+	if not (entry.get("created_unix") is int or entry.get("created_unix") is float) or not is_finite(float(entry.created_unix)) or entry.created_unix < 0 or entry.created_unix > 253402300799 or floorf(float(entry.created_unix)) != entry.created_unix:
+		return "Saved views contain an invalid date. The file has been kept unchanged."
+	if not notes_format(entry.get("notes", "")).is_empty():
+		return "Saved views contain invalid study notes. The file has been kept unchanged."
+	return ""
 
 
 func load_library() -> String:
@@ -195,6 +202,24 @@ func delete_view(id: String) -> String:
 			next.remove_at(index)
 			return persist(next)
 	return "That saved view is no longer available."
+
+
+func restore_deleted(entry: Dictionary, position: int) -> String:
+	if not read_error.is_empty():
+		return read_error
+	var error := entry_format(entry)
+	if error.is_empty():
+		error = valid_name(entry.name)
+	if not error.is_empty():
+		return error
+	for existing in entries:
+		if existing.id == entry.id:
+			return "That saved-view identifier is already in the library. No views were changed."
+	if entries.size() >= MAX_VIEWS:
+		return "This library already holds 200 views. The deleted view could not be restored."
+	var next := entries.duplicate(true)
+	next.insert(clampi(position, 0, next.size()), entry.duplicate(true))
+	return persist(next)
 
 
 func can_recover() -> bool:

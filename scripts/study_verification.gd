@@ -109,6 +109,12 @@ static func run(viewer: Control, rendered: bool) -> bool:
 	valid = valid and plan.get("error", "failure").is_empty() and plan.get("imported") == 1
 	valid = valid and imported.apply_import(plan, viewer.validate_view_state).is_empty()
 	valid = valid and imported.entries.size() == 1 and SavedViews.same_snapshot(imported.entries[0], library.entries[0])
+	var deleted: Dictionary = library.entries[0].duplicate(true)
+	var delete_ok := library.delete_view(deleted.id).is_empty()
+	var undo_ok := library.restore_deleted(deleted, 0).is_empty()
+	valid = delete_ok and undo_ok and library.entries.size() == 1 and library.entries[0] == deleted and valid
+	if delete_ok and undo_ok and library.entries.size() == 1 and library.entries[0] == deleted:
+		print("PASS bundled saved-view deletion undo: ", viewer.model.body.id)
 	var preferences := Preferences.new()
 	preferences.path = path + "-preferences.json"
 	var settings: Dictionary = Preferences.DEFAULTS.duplicate()

@@ -474,6 +474,20 @@ func verify_note_editor(library_path: String, snapshot: Dictionary) -> bool:
 	browser.push_input(clear)
 	await get_tree().process_frame
 	valid = valid and browser.filter_input.text.is_empty() and browser.view_list.item_count == 1 and FileAccess.get_file_as_bytes(library_path) == library_bytes and export_view_state() == before
+	var saved: Dictionary = browser.library.entries[0].duplicate(true)
+	var recovered_draft := expected + "\nUnfinished note recovered with Undo delete."
+	browser.notes_input.text = recovered_draft
+	browser.on_notes_changed()
+	browser.delete_button.pressed.emit()
+	browser.delete_button.pressed.emit()
+	valid = valid and browser.library.entries.is_empty() and browser.undo_delete_button.visible and browser.last_deleted.entry == saved
+	browser.undo_delete_button.pressed.emit()
+	valid = valid and browser.library.entries.size() == 1 and browser.library.entries[0] == saved and browser.selected_entry().get("id") == saved.id
+	valid = valid and browser.notes_input.text == recovered_draft and browser.draft_notes.get(saved.id) == recovered_draft and browser.last_deleted.is_empty() and not browser.undo_delete_button.visible
+	valid = valid and export_view_state() == before
+	if valid:
+		print("PASS native saved-view deletion undo: ", model.body.id)
+	await get_tree().process_frame
 	await RenderingServer.frame_post_draw
 	var capture := get_viewport().get_texture().get_image()
 	valid = valid and capture.save_png("user://native-study-notes-%s.png" % str(model.body.id)) == OK

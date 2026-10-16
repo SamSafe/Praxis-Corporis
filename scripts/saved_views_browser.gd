@@ -34,6 +34,8 @@ var filter_input: LineEdit
 var filter_summary: Label
 var content_scroll: ScrollContainer
 var close_button: Button
+var undo_delete_button: Button
+var last_deleted: Dictionary = {}
 
 
 func button(text: String, callback: Callable, parent: Node) -> Button:
@@ -152,7 +154,13 @@ func _ready() -> void:
 	message = Label.new()
 	message.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	message.add_theme_color_override("font_color", Color("83cfc9"))
-	frame.add_child(message)
+	message.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	var feedback := HBoxContainer.new()
+	frame.add_child(feedback)
+	feedback.add_child(message)
+	undo_delete_button = button("Undo delete", undo_delete, feedback)
+	undo_delete_button.tooltip_text = "Restore the most recently deleted view and its notes. Available while this Saved views window stays open."
+	undo_delete_button.visible = false
 	var actions := HBoxContainer.new()
 	frame.add_child(actions)
 	restore_button = button("Restore", restore_selected, actions)
@@ -228,6 +236,8 @@ func refresh_list(selected_id: String = "", reveal: bool = false) -> void:
 	import_button.disabled = not library.read_error.is_empty()
 	export_button.disabled = not library.read_error.is_empty() or library.entries.is_empty()
 	recovery_button.visible = not library.read_error.is_empty() and library.can_recover()
+	undo_delete_button.visible = not last_deleted.is_empty()
+	undo_delete_button.disabled = not library.read_error.is_empty()
 	select_entry(-1)
 	if library.entries.is_empty() and library.read_error.is_empty():
 		information.text = "No named views yet. Enter a name to save the current setup."
@@ -313,12 +323,35 @@ func delete_selected() -> void:
 		delete_button.text = "Confirm delete"
 		message.text = "Delete “" + str(entry.name) + "”? Click Confirm delete, or select another view to cancel."
 		return
+	remember_notes_draft()
+	var deleted := {"entry": entry.duplicate(true), "position": library.entries.find(entry),
+		"has_draft": draft_notes.has(entry.id), "draft": draft_notes.get(entry.id, "")}
 	var error: String = library.delete_view(entry.id)
-	message.text = error if not error.is_empty() else "View deleted."
+	message.text = error if not error.is_empty() else "View deleted. Undo is available until this window closes."
 	if error.is_empty():
+		last_deleted = deleted
 		draft_notes.erase(entry.id)
 		editing_id = ""
 		refresh_list()
+		undo_delete_button.grab_focus()
+
+
+func undo_delete() -> void:
+	if last_deleted.is_empty():
+		return
+	var entry: Dictionary = last_deleted.entry
+	var error: String = library.restore_deleted(entry, last_deleted.position)
+	message.text = error
+	if not error.is_empty():
+		return
+	var has_draft: bool = last_deleted.has_draft
+	if has_draft:
+		draft_notes[entry.id] = last_deleted.draft
+	last_deleted.clear()
+	refresh_list(entry.id, true)
+	message.text = "Deleted view restored." + (" Your unfinished notes are back; use Save notes to keep them." if has_draft else "")
+	view_list.grab_focus()
+	view_list.ensure_current_is_visible()
 
 
 func recover_library() -> void:
