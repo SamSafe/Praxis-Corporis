@@ -128,6 +128,15 @@ Anatomy snapshots keep their own label settings; restoring a view does not repla
 the stored device defaults. Damaged preferences fall back to defaults. QA uses
 disposable preference paths and does not read or alter the user's preferences.
 
+Normal desktop launches also remember the windowed client size and maximized state
+on a clean close, in `user://window-state.json`. Reopening centers the window on the
+current display and bounds the saved size to its usable area while retaining the
+app's minimum size. Returning from maximized mode keeps the preceding windowed
+dimensions. Window layout is independent of anatomy snapshots and portable views.
+Scripted QA and headless runs ignore this desktop file. Invalid layout settings
+fall back to the current default layout; malformed viewing-preference JSON also
+recovers without a parser error.
+
 Text sizing and keyboard manipulation improve access; assistive-technology and
 human accessibility acceptance remain open.
 
@@ -187,6 +196,7 @@ godot --headless --path . --script tests/study_content_smoke.gd
 godot --headless --path . --script tests/circulation_route_smoke.gd
 godot --headless --path . --script tests/keyboard_movement_smoke.gd
 godot --headless --path . --script tests/information_dialog_smoke.gd
+godot --headless --path . --script tests/window_state_smoke.gd
 ```
 
 The workspace check exercises real geometry in both bodies and all four spinal studies,

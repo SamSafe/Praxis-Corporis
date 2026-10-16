@@ -56,6 +56,9 @@ Also try the new [study workspace](STUDY_WORKSPACE.md) tasks:
   the lung/systemic coverage gaps, and finish to recover your starting view.
 - With the 3D view focused, press M and try I/J/K/L/U/O, then Shift for fine steps.
   Undo/redo a step and check that typing in search never moves anatomy.
+- Resize the window, close normally and reopen. Repeat while maximized, then restore
+  the windowed frame. Check the result on another available display and record any
+  misplaced controls or unexpected dimensions.
 - Export named views/notes, import into a second local installation, inspect the
   compatibility preview and repeat the import to check duplicate handling.
 - Choose 130% text, hide a panel and change rendering quality; restart the app and
