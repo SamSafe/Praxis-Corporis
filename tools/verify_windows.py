@@ -27,7 +27,8 @@ def ps_literal(value: str) -> str:
 
 
 def parse_result(log: str, rendered: bool, circulation: bool = False, information: bool = False,
-                 conditions: bool = False, find_anatomy: bool = False) -> dict:
+                 conditions: bool = False, find_anatomy: bool = False,
+                 pointer_interruption: bool = False) -> dict:
     if "ERROR:" in log:
         raise ValueError("The native runtime reported an error")
     if re.search(r'ObjectDB instance.*leaked|^Leaked instance:', log, re.M):
@@ -51,6 +52,8 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
             raise ValueError('Native study workspace check missing: ' + reference)
         if find_anatomy and f'PASS bundled find anatomy: {reference}' not in log.splitlines():
             raise ValueError('Native Find anatomy check missing: ' + reference)
+        if pointer_interruption and f'PASS bundled pointer interruption: {reference}' not in log.splitlines():
+            raise ValueError('Native pointer interruption check missing: ' + reference)
     result = process_observations(log, rendered)
     if information and 'PASS bundled information dialogs: female' not in log.splitlines():
         raise ValueError('Native information dialog check missing')
@@ -66,6 +69,8 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
             if f'PASS bundled circulation route: {reference}' not in log.splitlines():
                 raise ValueError('Native circulation route check missing: ' + reference)
     result.update(references=references, ui_process_frames_during_successful_load=frames)
+    if pointer_interruption:
+        result['pointer_interruption_references'] = list(references)
     return result
 
 
@@ -281,6 +286,8 @@ def verify(args: argparse.Namespace) -> dict:
                         and b'--verify-loading-shutdown' in git_bytes(ROOT, build_report['source_revision'], 'scripts/viewer.gd'))
     find_anatomy = ('scripts/viewer.gd' in build_report['source_hashes']
                     and b'PASS bundled find anatomy:' in git_bytes(ROOT, build_report['source_revision'], 'scripts/viewer.gd'))
+    pointer_interruption = ('scripts/study_verification.gd' in build_report['source_hashes']
+                           and b'PASS bundled pointer interruption:' in git_bytes(ROOT, build_report['source_revision'], 'scripts/study_verification.gd'))
     startup_cases = None
     if reference_state:
         bodies = json.loads(git_bytes(ROOT, build_report['source_revision'], 'content/sample_pack.json'))['bodies']
@@ -307,7 +314,8 @@ def verify(args: argparse.Namespace) -> dict:
             reference_fixture.parent.mkdir(parents=True, exist_ok=True)
             reference_fixture.write_text(reference_fixture_text, encoding='utf-8')
         log = run_native(args, windows_session, windows_session + "\\" + executable_relative)
-        result = parse_result(log, args.mode == "rendered", circulation, information, conditions, find_anatomy)
+        result = parse_result(log, args.mode == "rendered", circulation, information, conditions,
+                              find_anatomy, pointer_interruption)
         if result["engine_actual"] != build_report["engine"]:
             raise ValueError("The native runtime differs from the pinned build engine")
         result.update(schema_version=1, recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),

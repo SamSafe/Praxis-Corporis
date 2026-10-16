@@ -132,6 +132,7 @@ def add_notices(folder: pathlib.Path, platform: str) -> None:
            "Extract the ZIP first. Anatomy is included inside the application bundle.\n")
         + "Python and the Godot editor are not required; exploration works offline.\n\n"
         "Drag to orbit; Shift/right-drag to pan; scroll or pinch to zoom.\n"
+        "Leaving the app or 3D focus stops a drag. Existing edits remain available to Undo.\n"
         "Tab/click to focus the 3D view: arrows orbit, Shift-arrows pan, +/- zoom, F focuses, Home shows the body.\n"
         "M toggles Move; I/J/K/L move up/left/down/right, U/O toward/away. Press for 5 mm; Shift for 1 mm. Undo reverses a step.\n"
         "View toggles either side panel; Expand anatomy or F11 fills the window, and Escape returns.\n"

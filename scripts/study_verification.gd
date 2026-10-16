@@ -5,6 +5,93 @@ const SavedViews = preload("res://scripts/saved_views.gd")
 const Preferences = preload("res://scripts/viewer_preferences.gd")
 
 
+static func pointer_button(viewer: Control, point: Vector2, pressed: bool, canceled: bool = false) -> void:
+	var event := InputEventMouseButton.new()
+	event.button_index = MOUSE_BUTTON_LEFT
+	event.pressed = pressed
+	event.canceled = canceled
+	event.position = viewer.scene_container.get_global_transform_with_canvas() * point
+	event.global_position = event.position
+	viewer.get_viewport().push_input(event, true)
+
+
+static func pointer_motion(viewer: Control, point: Vector2, mask: int) -> void:
+	var event := InputEventMouseMotion.new()
+	event.position = viewer.scene_container.get_global_transform_with_canvas() * point
+	event.global_position = event.position
+	event.relative = Vector2(24, 12)
+	event.button_mask = mask
+	viewer.get_viewport().push_input(event, true)
+
+
+static func verify_pointer_interruption(viewer: Control) -> bool:
+	var before: Dictionary = viewer.export_view_state().duplicate(true)
+	var undo: Array = viewer.model.undo_stack.duplicate(true)
+	var redo: Array = viewer.model.redo_stack.duplicate(true)
+	var back: Array = viewer.back_views.duplicate(true)
+	var forward: Array = viewer.forward_views.duplicate(true)
+	var expanded: bool = viewer.scene_expanded
+	var fraction: float = viewer.scene_container.resolution_fraction
+	var moving: bool = viewer.orbit.move_mode
+	var valid := true
+	for layout in [false, true]:
+		viewer.set_scene_expanded(layout)
+		for quality in [1.0, 0.5]:
+			viewer.set_scene_resolution(quality)
+			await viewer.get_tree().process_frame
+			await viewer.get_tree().process_frame
+			viewer.scene_container.update_resolution()
+			viewer.scene_container.grab_focus()
+			viewer.move_button.button_pressed = true
+			viewer.orbit.move_mode = true
+			var start := Vector2(40, viewer.scene_container.size.y * 0.6)
+			var finish := start + Vector2(24, 12)
+			for interruption in ["missing release", "window focus", "application focus", "control focus", "canceled release"]:
+				pointer_button(viewer, start, true)
+				pointer_motion(viewer, finish, MOUSE_BUTTON_MASK_LEFT)
+				var stopped: Dictionary = viewer.export_view_state().duplicate(true)
+				valid = valid and stopped.changes != before.changes and stopped.camera == before.camera and viewer.model.undo_stack.size() == undo.size() + 1
+				match interruption:
+					"missing release": pointer_motion(viewer, finish, 0)
+					"window focus": viewer.get_window().propagate_notification(Node.NOTIFICATION_WM_WINDOW_FOCUS_OUT)
+					"application focus": viewer.get_window().propagate_notification(Node.NOTIFICATION_APPLICATION_FOCUS_OUT)
+					"control focus":
+						if layout:
+							viewer.expanded_menu.grab_focus()
+						else:
+							viewer.search.grab_focus()
+					"canceled release": pointer_button(viewer, finish, false, true)
+				valid = valid and viewer.orbit.active_button == 0 and not viewer.orbit.dragged and not viewer.orbit.move_checkpoint and viewer.orbit.move_mode
+				pointer_motion(viewer, finish, MOUSE_BUTTON_MASK_LEFT)
+				pointer_button(viewer, finish, false)
+				valid = valid and viewer.export_view_state() == stopped and viewer.model.undo_stack.size() == undo.size() + 1 and viewer.back_views == back and viewer.forward_views == forward
+				# A new deliberate gesture retains a separate, exact undo boundary.
+				pointer_button(viewer, start, true)
+				pointer_motion(viewer, finish, MOUSE_BUTTON_MASK_LEFT)
+				pointer_button(viewer, finish, false)
+				valid = valid and viewer.model.export_state() != stopped.changes and viewer.model.undo_stack.size() == undo.size() + 2
+				viewer.model.undo()
+				valid = valid and viewer.export_view_state() == stopped
+				viewer.model.undo()
+				valid = valid and viewer.export_view_state() == before
+				viewer.model.undo_stack = undo.duplicate(true)
+				viewer.model.redo_stack = redo.duplicate(true)
+				if not valid:
+					push_error("Pointer interruption failed: %s / expanded %s / quality %s" % [interruption, layout, quality])
+					return false
+			pointer_button(viewer, start, true)
+			pointer_button(viewer, start, false, true)
+			valid = valid and viewer.export_view_state() == before and viewer.back_views == back and viewer.forward_views == forward
+	viewer.move_button.button_pressed = moving
+	viewer.orbit.move_mode = moving
+	viewer.set_scene_resolution(fraction)
+	viewer.set_scene_expanded(expanded)
+	viewer.refresh_details()
+	if valid:
+		print("PASS bundled pointer interruption: ", viewer.model.body.id)
+	return valid
+
+
 static func verify_loading_shutdown(viewer: Control) -> void:
 	var boundaries := {"source": ["Checking source file", false, true, false],
 		"anatomy": ["Loading anatomy", true, false, false],
@@ -98,6 +185,7 @@ static func run(viewer: Control, rendered: bool) -> bool:
 	viewer.model.redo_stack = redo.duplicate(true)
 	if valid:
 		print("PASS bundled keyboard movement: ", viewer.model.body.id)
+	valid = await verify_pointer_interruption(viewer) and valid
 	if viewer.model.structures.has("anatomy.heart"):
 		viewer.start_guided_chest()
 		viewer.apply_chest_step(2)

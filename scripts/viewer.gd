@@ -1150,6 +1150,8 @@ func build_interface() -> void:
 			expanded_feedback.add_theme_stylebox_override("panel", panel_style(Color("0e1926"), Color("83d9d2")))
 		refresh_input_hint())
 	container.focus_exited.connect(func():
+		if orbit:
+			orbit.cancel_drag()
 		frame.remove_theme_stylebox_override("panel")
 		if expanded_feedback:
 			expanded_feedback.remove_theme_stylebox_override("panel")

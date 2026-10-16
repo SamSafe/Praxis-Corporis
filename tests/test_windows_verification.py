@@ -26,6 +26,15 @@ def complete_log(rendered=True):
 
 
 class WindowsVerificationTests(unittest.TestCase):
+    def test_pointer_packages_require_every_reference_check(self):
+        log = complete_log(False)
+        for reference in ['female', 'male', 'bodyparts-male-bones-study']:
+            with self.assertRaisesRegex(ValueError, 'pointer interruption'):
+                parse_result(log, False, pointer_interruption=True)
+            log += '\nPASS bundled pointer interruption: ' + reference
+        self.assertEqual(parse_result(log, False, pointer_interruption=True)['pointer_interruption_references'],
+                         ['female', 'male', 'bodyparts-male-bones-study'])
+
     def test_find_anatomy_packages_require_every_reference_check(self):
         log = complete_log(False)
         for reference in ['female', 'male']:

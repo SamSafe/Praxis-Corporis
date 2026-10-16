@@ -72,6 +72,11 @@ func cancel_drag() -> void:
 	move_checkpoint = false
 
 
+func _notification(what: int) -> void:
+	if what in [NOTIFICATION_WM_WINDOW_FOCUS_OUT, NOTIFICATION_APPLICATION_FOCUS_OUT]:
+		cancel_drag()
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	if not input_enabled:
 		return
@@ -79,6 +84,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if display_size.x > 0 and display_size.y > 0:
 		ratio = get_viewport().get_visible_rect().size / display_size
 	if event is InputEventMouseButton:
+		if event.canceled:
+			cancel_drag()
+			return
 		if event.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN] and event.pressed:
 			distance = clampf(distance * (0.88 if event.button_index == MOUSE_BUTTON_WHEEL_UP else 1.12), 0.018, 12.0)
 			update_camera()
@@ -93,6 +101,10 @@ func _unhandled_input(event: InputEvent) -> void:
 					clicked.emit(event.position)
 				active_button = 0
 	elif event is InputEventMouseMotion and active_button != 0:
+		# Recover when a release was consumed elsewhere or lost during a focus change.
+		if (event.button_mask & (1 << (active_button - 1))) == 0:
+			cancel_drag()
+			return
 		if not dragged and (event.position / ratio).distance_to(press_position) < 4.0:
 			return
 		dragged = true
