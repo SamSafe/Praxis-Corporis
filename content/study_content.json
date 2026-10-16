@@ -1,8 +1,7 @@
 {
   "schema_version": 1,
-  "revision": "chest-study-2",
-  "source_checked_on": "2026-10-15",
-  "review_status": "source_checked",
+  "revision": "chest-study-3-draft",
+  "review_status": "draft",
   "expert_review": "pending",
   "scope": "Private draft explanations. General anatomy is separate from completeness and accuracy of the supplied source meshes. No source illustrations or video are reused.",
   "sources": {
@@ -25,6 +24,10 @@
     "pulmonary-branches": {
       "title": "NCBI Bookshelf: Pulmonary arteries",
       "url": "https://www.ncbi.nlm.nih.gov/books/NBK534812/"
+    },
+    "valve-disease-types": {
+      "title": "NHLBI: Types of heart valve disease",
+      "url": "https://www.nhlbi.nih.gov/health/heart-valve-diseases/types"
     }
   },
   "cards": {
@@ -40,8 +43,9 @@
         "heart-anatomy",
         "heart-flow"
       ],
-      "review_status": "source_checked",
-      "expert_review": "pending"
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
     },
     "anatomy.heart.chambers": {
       "overview": "The heart has two atria and two ventricles.",
@@ -55,8 +59,9 @@
       "source_ids": [
         "heart-anatomy"
       ],
-      "review_status": "source_checked",
-      "expert_review": "pending"
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
     },
     "anatomy.heart.septum": {
       "overview": "A wall separates the right and left sides of the heart.",
@@ -68,8 +73,9 @@
       "source_ids": [
         "heart-anatomy"
       ],
-      "review_status": "source_checked",
-      "expert_review": "pending"
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
     },
     "anatomy.heart.atrium.right": {
       "overview": "The right atrium is one of the upper chambers.",
@@ -82,8 +88,9 @@
         "heart-anatomy",
         "heart-flow"
       ],
-      "review_status": "source_checked",
-      "expert_review": "pending"
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
     },
     "anatomy.heart.atrium.left": {
       "overview": "The left atrium is one of the upper chambers.",
@@ -96,8 +103,9 @@
         "heart-anatomy",
         "heart-flow"
       ],
-      "review_status": "source_checked",
-      "expert_review": "pending"
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
     },
     "anatomy.heart.ventricle.right": {
       "overview": "The right ventricle is a lower chamber.",
@@ -110,8 +118,9 @@
         "heart-anatomy",
         "heart-flow"
       ],
-      "review_status": "source_checked",
-      "expert_review": "pending"
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
     },
     "anatomy.heart.ventricle.left": {
       "overview": "The left ventricle is a lower chamber.",
@@ -124,8 +133,9 @@
         "heart-anatomy",
         "heart-flow"
       ],
-      "review_status": "source_checked",
-      "expert_review": "pending"
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
     },
     "anatomy.heart.valves": {
       "overview": "Four valves control forward flow through the heart.",
@@ -139,8 +149,9 @@
       "source_ids": [
         "heart-flow"
       ],
-      "review_status": "source_checked",
-      "expert_review": "pending"
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
     },
     "anatomy.heart.valve.tricuspid": {
       "overview": "Between the right atrium and right ventricle.",
@@ -152,8 +163,9 @@
       "source_ids": [
         "heart-flow"
       ],
-      "review_status": "source_checked",
-      "expert_review": "pending"
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
     },
     "anatomy.heart.valve.pulmonary": {
       "overview": "Between the right ventricle and pulmonary artery.",
@@ -165,8 +177,9 @@
       "source_ids": [
         "heart-flow"
       ],
-      "review_status": "source_checked",
-      "expert_review": "pending"
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
     },
     "anatomy.heart.valve.mitral": {
       "overview": "Between the left atrium and left ventricle.",
@@ -178,8 +191,9 @@
       "source_ids": [
         "heart-flow"
       ],
-      "review_status": "source_checked",
-      "expert_review": "pending"
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
     },
     "anatomy.heart.valve.aortic": {
       "overview": "Between the left ventricle and aorta.",
@@ -191,8 +205,9 @@
       "source_ids": [
         "heart-flow"
       ],
-      "review_status": "source_checked",
-      "expert_review": "pending"
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
     },
     "anatomy.lungs": {
       "overview": "Paired organs in the chest connected to the airways.",
@@ -206,8 +221,9 @@
         "lungs",
         "gas-exchange"
       ],
-      "review_status": "source_checked",
-      "expert_review": "pending"
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
     },
     "anatomy.lung.left": {
       "overview": "The left lung has two lobes and shares chest space with the heart.",
@@ -220,8 +236,9 @@
         "lungs",
         "gas-exchange"
       ],
-      "review_status": "source_checked",
-      "expert_review": "pending"
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
     },
     "anatomy.lung.right": {
       "overview": "The right lung has three lobes.",
@@ -234,8 +251,9 @@
         "lungs",
         "gas-exchange"
       ],
-      "review_status": "source_checked",
-      "expert_review": "pending"
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
     }
   },
   "routes": {
@@ -251,7 +269,7 @@
         "gas-exchange",
         "pulmonary-branches"
       ],
-      "review_status": "source_checked",
+      "review_status": "draft",
       "expert_review": "pending",
       "scope": "A conceptual sequence with explicit source selections. Mesh shape and proximity do not establish flow or vessel continuity. No flow simulation or internal channel is drawn.",
       "nodes": {
@@ -665,7 +683,72 @@
           "coverage": "context_only",
           "gap": "Whole-body context only. A complete systemic vessel and tissue-capillary route is not mapped here."
         }
-      }
+      },
+      "human_source_review": "pending"
     }
-  }
+  },
+  "conditions": {
+    "condition.aortic-stenosis": {
+      "title": "Aortic stenosis",
+      "summary": "Narrowing of the aortic-valve opening can obstruct forward blood flow.",
+      "location": "The aortic valve is at the outlet from the left ventricle into the aorta.",
+      "focus_id": "anatomy.heart.valve.aortic",
+      "related_anatomy": [
+        "anatomy.heart.valve.aortic",
+        "anatomy.heart.ventricle.left"
+      ],
+      "display_on": [
+        "anatomy.heart",
+        "anatomy.heart.valves",
+        "anatomy.heart.valve.aortic"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "valve-disease-types",
+        "heart-flow"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    },
+    "condition.mitral-regurgitation": {
+      "title": "Mitral regurgitation",
+      "summary": "An incompletely closed mitral valve can allow blood to pass backward.",
+      "location": "The mitral valve connects the left atrium and left ventricle.",
+      "focus_id": "anatomy.heart.valve.mitral",
+      "related_anatomy": [
+        "anatomy.heart.valve.mitral",
+        "anatomy.heart.atrium.left",
+        "anatomy.heart.ventricle.left"
+      ],
+      "display_on": [
+        "anatomy.heart",
+        "anatomy.heart.valves",
+        "anatomy.heart.valve.mitral"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "valve-disease-types",
+        "heart-flow"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    }
+  },
+  "assistant_checks": {
+    "actor": "assistant",
+    "kind": "preliminary_source_cross_check",
+    "checked_on": "2026-10-15",
+    "scope": "Preliminary comparison of the short explanations, route order and condition associations with the linked sources. This is not human reviewer evidence and does not establish anatomical mesh accuracy.",
+    "source_ids": [
+      "heart-anatomy",
+      "heart-flow",
+      "lungs",
+      "gas-exchange",
+      "pulmonary-branches",
+      "valve-disease-types"
+    ]
+  },
+  "human_source_review": "pending"
 }

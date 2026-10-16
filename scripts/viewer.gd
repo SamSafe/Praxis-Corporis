@@ -103,6 +103,7 @@ var text_scale := 1.0
 var study_content := StudyContent.new()
 var study_summary: Label
 var study_links: VBoxContainer
+var condition_links: VBoxContainer
 var study_key := ""
 var guided_chest: GuidedChest
 var guide_button: Button
@@ -1047,6 +1048,8 @@ func build_interface() -> void:
 	right.add_child(study_summary)
 	study_links = VBoxContainer.new()
 	right.add_child(study_links)
+	condition_links = VBoxContainer.new()
+	right.add_child(condition_links)
 	var source_toggle := CheckButton.new()
 	source_toggle.text = "Source and mesh details"
 	source_toggle.toggled.connect(func(enabled: bool): detail.visible = enabled)
@@ -1104,7 +1107,7 @@ func build_interface() -> void:
 	density_row.add_child(label_density)
 	right.add_child(density_row)
 	right.add_child(make_label("CONTENT IN DEVELOPMENT", 12, Color("8a9fb2")))
-	var pending := make_label("Study cards and routes are source-checked drafts. Disease views and validated cutaways remain in development.", 14, Color("8a9fb2"))
+	var pending := make_label("Study cards, condition summaries and routes are private drafts; human source and medical review are pending. Pathological geometry and validated cutaways remain in development.", 14, Color("8a9fb2"))
 	pending.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	right.add_child(pending)
 	source_credit = make_label("Models: HuBMAP / Human Reference Atlas\n3D Reference Object Library v1.1\nCC BY 4.0 · draft catalogue", 12, Color("758ca2"))
@@ -2028,6 +2031,46 @@ func refresh_study_content() -> void:
 		link.set_meta("base_font_size", 12)
 		link.pressed.connect(func(): OS.shell_open(str(source.url)))
 		study_links.add_child(link)
+	for child in condition_links.get_children():
+		condition_links.remove_child(child)
+		child.queue_free()
+	var available_conditions: Array[String] = study_content.conditions_for(model.selected_id)
+	condition_links.visible = not available_conditions.is_empty()
+	if condition_links.visible:
+		condition_links.add_child(make_label("RELATED CONDITIONS · DRAFT", 12, Color("83cfc9")))
+	for id in available_conditions:
+		var link := LinkButton.new()
+		link.text = str(study_content.condition(id).title)
+		link.tooltip_text = "Read the sourced summary and locate its reference anatomy. Pathological geometry is unavailable."
+		link.disabled = loading or not study_content.condition_available(id, model.structures)
+		link.pressed.connect(show_condition.bind(id))
+		condition_links.add_child(link)
+
+
+func show_condition(id: String) -> Window:
+	if loading or not study_content.condition_available(id, model.structures):
+		status.text = "This condition's reference anatomy is unavailable in the current source."
+		return null
+	var record := study_content.condition(id)
+	var reference_id: String = str(model.body.id)
+	var dialog := InformationDialog.new()
+	dialog.theme = theme
+	dialog.title = str(record.title) + " · draft learning text"
+	dialog.message = study_content.condition_text(id)
+	dialog.add_button("Inspect reference anatomy", false, "reference")
+	dialog.custom_action.connect(func(action: StringName):
+		if action != "reference":
+			return
+		if not loading and str(model.body.get("id", "")) == reference_id and study_content.condition_available(id, model.structures):
+			inspect_alone(str(record.focus_id))
+			status.text = "Reference location for %s · pathological changes are not depicted" % str(record.title)
+		dialog.hide()
+		dialog.queue_free()
+		scene_container.grab_focus())
+	add_child(dialog)
+	scale_text(dialog)
+	dialog.open(Vector2i(760, 540))
+	return dialog
 
 
 func source_record_text() -> String:
@@ -2057,14 +2100,17 @@ func leave_move_mode() -> void:
 		status.text = "Drag to orbit · click to select"
 
 
-func inspect_alone() -> void:
-	if loading or not model.structures.has(model.selected_id) or model.structures[model.selected_id].mesh_nodes.is_empty():
+func inspect_alone(id: String = "") -> void:
+	var target: String = model.selected_id if id.is_empty() else id
+	if loading or not model.structures.has(target) or model.structures[target].mesh_nodes.is_empty():
 		return
 	var previous := current_view()
 	if model.isolated_id.is_empty():
 		inspection_return = camera_view()
 	leave_move_mode()
-	model.set_isolation(model.selected_id)
+	if target != model.selected_id:
+		select_structure(target, false)
+	model.set_isolation(target)
 	focus_selection(false)
 	remember_view(previous)
 	status.text = "Temporary inspection view · Return to context preserves your changes"
@@ -2325,7 +2371,7 @@ func capture_image() -> Image:
 	if guided_chest.active:
 		if guided_chest.mode == "circulation":
 			var route := study_content.route("heart-lung")
-			caption += "\nHeart/lung conceptual route · " + str(route.nodes[guided_chest.route_node].title) + " · source-checked draft; medical review pending.\n" + str(route.scope)
+			caption += "\nHeart/lung conceptual route · " + str(route.nodes[guided_chest.route_node].title) + " · private draft; human source and medical review pending.\n" + str(route.scope)
 			for source in route.nodes[guided_chest.route_node].source_ids:
 				caption += "\n" + str(study_content.data.sources[source].url)
 		else:
@@ -2554,13 +2600,13 @@ func show_sources() -> Window:
 	dialog.theme = theme
 	var reference_id: String = str(model.body.get("id", ""))
 	dialog.title = "Sources and prototype status"
-	dialog.message = "Anatomy: HuBMAP / Human Reference Atlas 3D Reference Object Library, United v1.1.\nCC BY 4.0. Source files unchanged; sampling sites excluded, cache conversion,\nselection colours, fading and temporary inspection movements applied.\n\nhttps://github.com/hubmapconsortium/ccf-3d-reference-object-library\nhttps://creativecommons.org/licenses/by/4.0/\n\nGodot Engine: MIT licence; https://godotengine.org/license/\n\nThis is a private, partial atlas prototype. Anatomy labels and coverage are draft\nimports; qualified medical review is pending. No disease content is included."
+	dialog.message = "Anatomy: HuBMAP / Human Reference Atlas 3D Reference Object Library, United v1.1.\nCC BY 4.0. Source files unchanged; sampling sites excluded, cache conversion,\nselection colours, fading and temporary inspection movements applied.\n\nhttps://github.com/hubmapconsortium/ccf-3d-reference-object-library\nhttps://creativecommons.org/licenses/by/4.0/\n\nGodot Engine: MIT licence; https://godotengine.org/license/\n\nThis is a private, partial atlas prototype. Anatomy labels and coverage are draft\nimports; qualified medical review is pending. Condition summaries are draft text; pathological geometry is unavailable."
 	if reference_id == "bodyparts-male-bones-study":
-		dialog.message = "BodyParts3D, © The Database Center for Life Science licensed under CC\nAttribution 4.0 International. Official archive v4.0; current grant from the\n2025 licence page. Original OBJ comments retain legacy CC BY-SA 2.1 Japan\nnotices. Both records are retained. Geometry was converted from millimetres\nto metres and Z-up to Y-up, with source normals preserved. Display colour\nand inspection effects are runtime modifications.\n\nhttps://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html\nhttps://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html\n\nSeparate male bone study; no registration to HRA or female anatomy. Geometry\nand labels are unreviewed. No disease content.\nGodot Engine: MIT licence; https://godotengine.org/license/"
+		dialog.message = "BodyParts3D, © The Database Center for Life Science licensed under CC\nAttribution 4.0 International. Official archive v4.0; current grant from the\n2025 licence page. Original OBJ comments retain legacy CC BY-SA 2.1 Japan\nnotices. Both records are retained. Geometry was converted from millimetres\nto metres and Z-up to Y-up, with source normals preserved. Display colour\nand inspection effects are runtime modifications.\n\nhttps://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html\nhttps://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html\n\nSeparate male bone study; no registration to HRA or female anatomy. Geometry\nand labels are unreviewed. Reference geometry only.\nGodot Engine: MIT licence; https://godotengine.org/license/"
 	elif model.body.get("study_kind") == "hra-spinal":
 		dialog.message = ViewCapture.credits(model.body, "") + "\n\n" + str(model.body.coverage)
 	if reference_id in ["", "female", "male"] and not study_content.data.is_empty():
-		dialog.message += "\n\nStudy explanations and circulation route\nOriginal summaries; source-checked %s. Qualified medical review is pending. No source illustrations or videos are reused.\n" % str(study_content.data.source_checked_on)
+		dialog.message += "\n\nStudy explanations and circulation route\nOriginal summaries. Assistant source cross-check: %s. Human source and qualified medical review are pending. No source illustrations or videos are reused.\n" % str(study_content.data.assistant_checks.checked_on)
 		for source in study_content.data.sources.values():
 			dialog.message += "\n%s\n%s\n" % [source.title, source.url]
 	add_child(dialog)

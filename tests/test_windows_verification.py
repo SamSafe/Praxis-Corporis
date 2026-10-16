@@ -26,6 +26,16 @@ def complete_log(rendered=True):
 
 
 class WindowsVerificationTests(unittest.TestCase):
+    def test_condition_packages_require_both_reference_checks(self):
+        log = complete_log(False)
+        with self.assertRaisesRegex(ValueError, 'condition study'):
+            parse_result(log, False, conditions=True)
+        log += '\nPASS bundled condition study: female'
+        with self.assertRaisesRegex(ValueError, 'condition study'):
+            parse_result(log, False, conditions=True)
+        log += '\nPASS bundled condition study: male'
+        self.assertIn('male', parse_result(log, False, conditions=True)['references'])
+
     def test_information_packages_require_the_dialog_check(self):
         log = complete_log(False)
         with self.assertRaisesRegex(ValueError, 'information dialog'):

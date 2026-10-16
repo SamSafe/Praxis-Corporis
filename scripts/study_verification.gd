@@ -15,6 +15,12 @@ static func run(viewer: Control, rendered: bool) -> bool:
 	valid = valid and viewer.study_content.error.is_empty()
 	if viewer.model.body.id == "female":
 		valid = await verify_information(viewer, rendered) and valid
+	if viewer.model.structures.has("anatomy.heart"):
+		valid = await verify_conditions(viewer, rendered) and valid
+		viewer.model.undo_stack = undo.duplicate(true)
+		viewer.model.redo_stack = redo.duplicate(true)
+		viewer.back_views = back.duplicate(true)
+		viewer.forward_views = forward.duplicate(true)
 	viewer.scene_container.grab_focus()
 	var camera: Dictionary = viewer.orbit.export_state().duplicate(true)
 	var anatomy: Dictionary = viewer.model.export_state().duplicate(true)
@@ -149,4 +155,44 @@ static func verify_information(viewer: Control, rendered: bool) -> bool:
 	viewer.get_window().size = previous_size
 	if valid:
 		print("PASS bundled information dialogs: female")
+	return valid
+
+
+static func verify_conditions(viewer: Control, rendered: bool) -> bool:
+	var before: Dictionary = viewer.export_view_state().duplicate(true)
+	var anatomy: Dictionary = viewer.model.export_state().duplicate(true)
+	var preferences: Dictionary = viewer.preference_state()
+	var previous_size := viewer.get_window().size
+	var large: Dictionary = preferences.duplicate()
+	large.text_scale = 1.3
+	viewer.apply_preferences(large)
+	viewer.get_window().size = Vector2i(1100, 720)
+	var valid: bool = viewer.study_content.data.get("conditions", {}).size() == 2
+	for id in ["condition.aortic-stenosis", "condition.mitral-regurgitation"]:
+		var dialog: Window = viewer.show_condition(id)
+		if dialog == null:
+			return false
+		await viewer.get_tree().process_frame
+		valid = valid and "REFERENCE ANATOMY ONLY" in dialog.message and "medical review pending" in dialog.message
+		valid = valid and dialog.get_ok_button().get_global_rect().end.y <= dialog.size.y
+		if rendered and id == "condition.aortic-stenosis":
+			await RenderingServer.frame_post_draw
+			valid = valid and viewer.get_viewport().get_texture().get_image().save_png("user://native-condition-%s.png" % str(viewer.model.body.id)) == OK
+		var pressed := false
+		for button in dialog.find_children("*", "Button", true, false):
+			if button is Button and button.text == "Inspect reference anatomy":
+				button.pressed.emit()
+				pressed = true
+				break
+		await viewer.get_tree().process_frame
+		valid = valid and pressed and viewer.model.selected_id == viewer.study_content.condition(id).focus_id
+		valid = valid and viewer.model.isolated_id == viewer.model.selected_id and viewer.model.export_state() == anatomy
+		valid = valid and viewer.validate_view_state(viewer.export_view_state()).is_empty()
+		viewer.return_to_context()
+		valid = valid and viewer.export_view_state() == before
+		valid = await viewer.restore_view_state(before) and valid
+	viewer.apply_preferences(preferences)
+	viewer.get_window().size = previous_size
+	if valid:
+		print("PASS bundled condition study: ", viewer.model.body.id)
 	return valid

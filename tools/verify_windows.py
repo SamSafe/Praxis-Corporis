@@ -25,7 +25,8 @@ def ps_literal(value: str) -> str:
     return "'" + value.replace("'", "''") + "'"
 
 
-def parse_result(log: str, rendered: bool, circulation: bool = False, information: bool = False) -> dict:
+def parse_result(log: str, rendered: bool, circulation: bool = False, information: bool = False,
+                 conditions: bool = False) -> dict:
     if "SCRIPT ERROR:" in log or re.search(r"^ERROR:", log, re.M):
         raise ValueError("The native runtime reported an error")
     if "PASS offline native bundle" not in log or "Windows native exit code: 0" not in log:
@@ -48,6 +49,10 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
     result = process_observations(log, rendered)
     if information and 'PASS bundled information dialogs: female' not in log.splitlines():
         raise ValueError('Native information dialog check missing')
+    if conditions:
+        for reference in ['female', 'male']:
+            if f'PASS bundled condition study: {reference}' not in log.splitlines():
+                raise ValueError('Native condition study check missing: ' + reference)
     if circulation:
         for reference in references:
             if f'PASS bundled keyboard movement: {reference}' not in log.splitlines():
@@ -160,7 +165,7 @@ try {
 
 
 def captures(folder: pathlib.Path, output: pathlib.Path, references: dict, circulation: bool = False,
-             information: bool = False) -> dict:
+             information: bool = False, conditions: bool = False) -> dict:
     images = {}
     destination = output / "captures"
     destination.mkdir()
@@ -175,6 +180,8 @@ def captures(folder: pathlib.Path, output: pathlib.Path, references: dict, circu
             prefixes.append('native-guided')
         if reference in ['female', 'male'] and circulation:
             prefixes.extend(['native-route', 'native-route-compact'])
+        if reference in ['female', 'male'] and conditions:
+            prefixes.append('native-condition')
         for prefix in prefixes:
             name = f"{prefix}-{reference}.png"
             path = source / name
@@ -212,6 +219,7 @@ def verify(args: argparse.Namespace) -> dict:
                if content_path in build_report['source_hashes'] else {})
     circulation = 'heart-lung' in content.get('routes', {})
     information = 'scripts/information_dialog.gd' in build_report['source_hashes']
+    conditions = bool(content.get('conditions'))
     if args.output.exists():
         raise ValueError("Use a new output folder; prior reports are kept unchanged")
     args.output.mkdir(parents=True)
@@ -223,7 +231,7 @@ def verify(args: argparse.Namespace) -> dict:
             raise ValueError("Extracted Windows executable/anatomy is incomplete")
         executable_relative = executable.relative_to(session).as_posix().replace("/", "\\")
         log = run_native(args, windows_session, windows_session + "\\" + executable_relative)
-        result = parse_result(log, args.mode == "rendered", circulation, information)
+        result = parse_result(log, args.mode == "rendered", circulation, information, conditions)
         if result["engine_actual"] != build_report["engine"]:
             raise ValueError("The native runtime differs from the pinned build engine")
         result.update(schema_version=1, recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
@@ -233,7 +241,7 @@ def verify(args: argparse.Namespace) -> dict:
                       limits=["Scripted actions; human input, clipboard and native OS picker acceptance remain open.",
                               "No sustained-performance or maximum-loading-pause claim.", "This checks actual Windows execution; Mac device validation is separate."])
         if args.mode == "rendered":
-            result["captures"] = captures(session, args.output, result["references"], circulation, information)
+            result["captures"] = captures(session, args.output, result["references"], circulation, information, conditions)
         if (session / "engine.log").exists():
             shutil.copyfile(session / "engine.log", args.output / "engine.log")
         (args.output / "report.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")

@@ -14,15 +14,18 @@ func load_data(parsed: Variant) -> String:
 	data = {}
 	if not parsed is Dictionary or parsed.get("schema_version") != 1 or not parsed.get("cards") is Dictionary or not parsed.get("sources") is Dictionary:
 		return "Study content has an unsupported format."
-	if not reviewed_draft(parsed) or not nonempty_text(parsed.get("revision"), 128) or not nonempty_text(parsed.get("source_checked_on"), 10):
+	if not draft_record(parsed) or not nonempty_text(parsed.get("revision"), 128):
 		return "Study content has missing review evidence."
 	for id in parsed.sources:
 		var source = parsed.sources[id]
 		if not nonempty_text(id, 128) or not source is Dictionary or not nonempty_text(source.get("title"), 256) or not safe_url(source.get("url")):
 			return "Study content contains an invalid source."
+	var assistance = parsed.get("assistant_checks")
+	if not assistance is Dictionary or assistance.get("actor") != "assistant" or assistance.get("kind") != "preliminary_source_cross_check" or not nonempty_text(assistance.get("checked_on"), 10) or not nonempty_text(assistance.get("scope")) or not valid_sources(assistance, parsed.sources):
+		return "Study content has invalid preliminary source-check metadata."
 	for id in parsed.cards:
 		var record = parsed.cards[id]
-		if not nonempty_text(id, 256) or not record is Dictionary or not reviewed_draft(record) or not nonempty_text(record.get("overview")) or not nonempty_text(record.get("function")):
+		if not nonempty_text(id, 256) or not record is Dictionary or not draft_record(record) or not nonempty_text(record.get("overview")) or not nonempty_text(record.get("function")):
 			return "Study content contains an invalid explanation."
 		if not string_list(record.get("related")) or not valid_sources(record, parsed.sources):
 			return "Study content contains an invalid relationship or citation."
@@ -32,6 +35,17 @@ func load_data(parsed: Variant) -> String:
 	for id in routes:
 		if not valid_route(routes[id], parsed.sources):
 			return "Study content contains an invalid route."
+	var conditions = parsed.get("conditions", {})
+	if not conditions is Dictionary:
+		return "Condition information has an unsupported format."
+	for id in conditions:
+		var condition = conditions[id]
+		if not nonempty_text(id, 128) or not condition is Dictionary or not draft_record(condition) or not valid_sources(condition, parsed.sources):
+			return "Condition information has missing review evidence or citations."
+		if not nonempty_text(condition.get("title"), 128) or not nonempty_text(condition.get("summary")) or not nonempty_text(condition.get("location")):
+			return "Condition information contains invalid text."
+		if not string_list(condition.get("related_anatomy"), false) or not string_list(condition.get("display_on"), false) or condition.get("focus_id") not in condition.related_anatomy or condition.get("geometry_mode") != "reference_location_only":
+			return "Condition information has unsupported geometry or anatomy mappings."
 	data = parsed.duplicate(true)
 	return ""
 
@@ -47,9 +61,10 @@ static func safe_url(value: Variant) -> bool:
 	return authority.contains(".") and not authority.contains("@") and not authority.contains("\\")
 
 
-static func reviewed_draft(record: Dictionary) -> bool:
+static func draft_record(record: Dictionary) -> bool:
 	# New review stages need their own evidence before the UI can claim them.
-	return record.get("review_status") == "source_checked" and record.get("expert_review") == "pending"
+	# Assistant cross-checks never qualify as human source or expert review.
+	return record.get("review_status") == "draft" and record.get("human_source_review") == "pending" and record.get("expert_review") == "pending"
 
 
 static func string_list(value: Variant, allow_empty: bool = true) -> bool:
@@ -73,7 +88,7 @@ static func valid_sources(record: Dictionary, sources: Dictionary) -> bool:
 
 
 static func valid_route(value: Variant, sources: Dictionary) -> bool:
-	if not value is Dictionary or not reviewed_draft(value) or not valid_sources(value, sources) or not nonempty_text(value.get("title"), 128) or not nonempty_text(value.get("scope")):
+	if not value is Dictionary or not draft_record(value) or not valid_sources(value, sources) or not nonempty_text(value.get("title"), 128) or not nonempty_text(value.get("scope")):
 		return false
 	if not string_list(value.get("reference_ids"), false) or not value.get("nodes") is Dictionary or value.nodes.is_empty() or value.nodes.size() > 64 or not value.nodes.has(value.get("start")):
 		return false
@@ -130,15 +145,49 @@ func card(id: String) -> Dictionary:
 	return data.get("cards", {}).get(id, {})
 
 
+func condition(id: String) -> Dictionary:
+	return data.get("conditions", {}).get(id, {})
+
+
+func conditions_for(anatomy_id: String) -> Array[String]:
+	var result: Array[String] = []
+	for id in data.get("conditions", {}):
+		if anatomy_id in condition(id).display_on:
+			result.append(str(id))
+	return result
+
+
+func condition_available(id: String, structures: Dictionary) -> bool:
+	var record := condition(id)
+	if record.is_empty():
+		return false
+	for related in record.related_anatomy:
+		if not structures.has(related) or structures[related].get("mesh_nodes", []).is_empty():
+			return false
+	return true
+
+
+func condition_text(id: String) -> String:
+	var record := condition(id)
+	if record.is_empty():
+		return "Condition information is unavailable."
+	var result: String = str(record.summary) + "\n\nReference location\n" + str(record.location)
+	result += "\n\nREFERENCE ANATOMY ONLY\nThe supplied geometry is unreviewed reference anatomy. Pathological narrowing, leakage, leaflet motion and blood flow are not depicted."
+	result += "\n\nDraft learning text · human source and medical review pending.\n\nSources"
+	for source in record.source_ids:
+		result += "\n\n%s\n%s" % [data.sources[source].title, data.sources[source].url]
+	return result
+
+
 func text(id: String) -> String:
 	var record := card(id)
 	if record.is_empty():
 		return "No authored explanation for this structure yet."
-	return "%s\n\nFunction\n%s\n\nSource-checked draft · medical review pending.\nThe supplied geometry may omit structures or internal surfaces." % [record.overview, record.function]
+	return "%s\n\nFunction\n%s\n\nDraft learning text · human source and medical review pending.\nThe supplied geometry may omit structures or internal surfaces." % [record.overview, record.function]
 
 
 func credits(id: String) -> String:
 	var links: Array[String] = []
 	for source in card(id).get("source_ids", []):
 		links.append(str(data.sources[source].url))
-	return "" if links.is_empty() else "Study text: private source-checked draft; medical review pending. Sources: " + " · ".join(links)
+	return "" if links.is_empty() else "Study text: private draft; human source and medical review pending. Sources: " + " · ".join(links)

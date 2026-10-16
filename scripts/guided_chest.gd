@@ -87,7 +87,7 @@ func show_route(id: String, route: Dictionary, sources: Dictionary) -> void:
 	title_label.text = "HEART ↔ LUNGS · " + str(node.title)
 	description.text = str(node.text) + "\n"
 	description.text += "Coverage gap · " + str(node.gap) if node.coverage == "context_only" else "Supplied source mesh · vessel continuity and inner surfaces are unverified."
-	description.text += "\nSource-checked draft · medical review pending."
+	description.text += "\nDraft route · human source and medical review pending."
 	previous.disabled = route_history.is_empty()
 	next.visible = false
 	for container in [branches, citations]:
