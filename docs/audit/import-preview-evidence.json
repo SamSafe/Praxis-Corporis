@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "source_revision": "d73ba5fed84d867c4233c13b5941194d78ea3c2d",
+  "python_checks": 71,
+  "native_references": 7,
+  "native_import_preview_references": [
+    "female",
+    "male",
+    "bodyparts-male-bones-study",
+    "hra-v1-2-female-cord-study",
+    "hra-v1-2-female-vertebrae-study",
+    "hra-v1-2-male-cord-study",
+    "hra-v1-2-male-vertebrae-study"
+  ],
+  "native_layout_text_combinations": 28,
+  "native_capture_identities": 103,
+  "preview_captures_inspected": [
+    "long",
+    "duplicates"
+  ],
+  "native_normal_launches": 4,
+  "native_early_closes": 2,
+  "native_session_independently_checked_absent": true,
+  "mac_content_qa": "passed on development engine; actual Mac execution pending",
+  "linux_release_template_qa": "not rerun; independent popup-template limitation remains open",
+  "clipboard_read_or_copy_exercised": false,
+  "files": {
+    "import-preview-artifact-audit.json": {
+      "bytes": 1346,
+      "sha256": "bd4dc1c15677dcfebc60cd27f81823320ff538ffe65b77335f1ca76ce206905d"
+    },
+    "import-preview-before.gd.txt": {
+      "bytes": 2018,
+      "sha256": "ec2dca084f75dc3055b8d7654ef12e21fefda4e8f486b16a3a8330feb3179ba1"
+    },
+    "import-preview-before.log.txt": {
+      "bytes": 264,
+      "sha256": "b29929ce3f3efe00c42b5634cc09d0de29471b9569fd38b36935bfe7afbfd2ad"
+    },
+    "import-preview-build-report.json": {
+      "bytes": 5067,
+      "sha256": "744ce2455cfd282ca1c043f60e258ac4ac1d169f9e899d801bc43a820b0c8678"
+    },
+    "import-preview-build.log.txt": {
+      "bytes": 10440,
+      "sha256": "169d1ec3fd88d1fd4cbd963430b3045065b966f7d9137b27f795a2ae54cafcaa"
+    },
+    "import-preview-development-qa.json": {
+      "bytes": 1439,
+      "sha256": "5d26a00b707d72f1f1e57021a1eabcd09627c72a2315a3b36fd2e91dd5f20b37"
+    },
+    "import-preview-native-initial-anatomy.log.txt": {
+      "bytes": 443,
+      "sha256": "8ad15eae0c7c3bf05eb8c99e0fbe84d424384084c1f3119878837721e2491f31"
+    },
+    "import-preview-native-replacement-selection.log.txt": {
+      "bytes": 526,
+      "sha256": "ea52a789cd0034449662d7ea5105eccbd6115945ec191d165920cba17fa1fd86"
+    },
+    "import-preview-normal-lifecycle.json": {
+      "bytes": 1648,
+      "sha256": "414fba2ca285882a1f0bad957fac189f867cd0b592e2abd0123e5b8efdf0b4f3"
+    },
+    "import-preview-portable.log.txt": {
+      "bytes": 116,
+      "sha256": "be706251c30f3a10101c6ce9b0de3064c5649c7b6df16ecdc220807c09896af0"
+    },
+    "import-preview-python.log.txt": {
+      "bytes": 170,
+      "sha256": "d91d90643ca66dd0195ed60c0d68bddf46c5fb1cfb5b8f9c171544f52792c6aa"
+    },
+    "import-preview-study-regression.log.txt": {
+      "bytes": 736,
+      "sha256": "519773883f48d3d105f65b8b73ed7ed0ed1d977538c573c0a714c258793bc63a"
+    },
+    "import-preview-windows-qa.json": {
+      "bytes": 34362,
+      "sha256": "566212599b483bee86826355fca08c6e825fa2e47b800d776b8dd6b0bf544ffb"
+    },
+    "import-preview-windows-runtime.log.txt": {
+      "bytes": 14514,
+      "sha256": "644e4a00903ff9ab7de6870351a6634dd05f17fc536f287e376d45c00a4d2898"
+    },
+    "import-preview-workspace.log.txt": {
+      "bytes": 1466,
+      "sha256": "68632450aa56f76afef7c3b06e4ce5095d60affd2d0fef1f7fd84193801d545d"
+    },
+    "../prototype/import-preview-long.png": {
+      "bytes": 307889,
+      "sha256": "82a8969d2d123ae42005c940c894c027312d008015a8779765b946509c2207bb"
+    },
+    "../prototype/import-preview-duplicates.png": {
+      "bytes": 323341,
+      "sha256": "183f1cafdfb00f3237876068bb3c693697a5adb8626d97a0bb605231377b6f5e"
+    }
+  }
+}

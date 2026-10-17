@@ -72,7 +72,9 @@ Also try the new [study workspace](STUDY_WORKSPACE.md) tasks:
   default anatomy view. Restore a named view when you want its exact inspection
   setup and notes. Check that canceling an unsaved-note close keeps the app open.
 - Export named views/notes, import into a second local installation, inspect the
-  compatibility preview and repeat the import to check duplicate handling.
+  compatibility preview and repeat the import to check duplicate handling. Try
+  Page Up/Down, Ctrl/Cmd+A, Escape and Tab to the import actions at 130% text;
+  check that reading or canceling leaves the library unchanged.
 - Choose 130% text, hide a panel and change rendering quality; restart the app and
   check the remembered defaults.
 - Open each spinal source study, inspect/return from a source mesh, and check that

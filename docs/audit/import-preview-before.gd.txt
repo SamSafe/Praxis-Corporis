@@ -1,0 +1,53 @@
+extends SceneTree
+const SavedViews = preload("res://scripts/saved_views.gd")
+
+func _initialize() -> void:
+	call_deferred("run")
+
+func run() -> void:
+	var directory := "user://preview-probe-" + Crypto.new().generate_random_bytes(8).hex_encode()
+	DirAccess.make_dir_recursive_absolute(directory)
+	var viewer = load("res://scenes/main.tscn").instantiate()
+	root.add_child(viewer)
+	await process_frame
+	while viewer.loading:
+		await process_frame
+	viewer.views_path = directory + "/library.json"
+	var browser: Window = viewer.show_saved_views()
+	browser.name_input.text = "Keep this view"
+	browser.save_current()
+	var entries: Array[Dictionary] = []
+	for index in 32:
+		var entry: Dictionary = browser.library.entries[0].duplicate(true)
+		entry.id = Crypto.new().generate_random_bytes(16).hex_encode()
+		entry.name = "Incoming view %02d" % index
+		entries.append(entry)
+	var source := directory + "/incoming.json"
+	var file := FileAccess.open(source, FileAccess.WRITE)
+	file.store_string(JSON.stringify({"schema_version":1,"views":entries}))
+	file.close()
+	browser.preview_import(source)
+	await process_frame
+	await process_frame
+	var scroll: ScrollContainer
+	for child in browser.import_dialog.get_children():
+		if child is ScrollContainer:
+			scroll = child
+	var focus: Control = browser.import_dialog.gui_get_focus_owner()
+	print("Preview rows: ", browser.import_plan.imported)
+	print("Initial focus: ", focus.get_class() if focus else "none")
+	print("Long preview: ", scroll.get_v_scroll_bar().max_value > scroll.get_v_scroll_bar().page)
+	print("Scroll before Page Down: ", scroll.scroll_vertical)
+	var event := InputEventKey.new()
+	event.keycode = KEY_PAGEDOWN
+	event.pressed = true
+	browser.import_dialog.push_input(event)
+	await process_frame
+	print("Scroll after Page Down: ", scroll.scroll_vertical)
+	browser.queue_free()
+	viewer.queue_free()
+	await process_frame
+	for name in DirAccess.get_files_at(directory):
+		DirAccess.remove_absolute(directory.path_join(name))
+	DirAccess.remove_absolute(directory)
+	quit()

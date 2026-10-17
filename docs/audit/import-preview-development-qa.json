@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "source_revision": "d73ba5fed84d867c4233c13b5941194d78ea3c2d",
+  "before_revision": "8427a7564f5fcbf7ad0ed701173bf4f9b4d7c34a",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": [
+    {
+      "script": "tests/import_preview_smoke.gd",
+      "script_sha256": "37dd1bd254925df30ff4ee2c5d4084fe2772edb761d7c384bf8904548b24bc54",
+      "log": "import-preview-workspace.log.txt",
+      "log_sha256": "68632450aa56f76afef7c3b06e4ce5095d60affd2d0fef1f7fd84193801d545d",
+      "success_marker": "Import preview failures: 0"
+    },
+    {
+      "script": "tests/portable_views_smoke.gd",
+      "script_sha256": "3e5a287fc1ac98bf0df0dab434e1e995051b7757d3ac5294fe5377d7654e17e2",
+      "log": "import-preview-portable.log.txt",
+      "log_sha256": "be706251c30f3a10101c6ce9b0de3064c5649c7b6df16ecdc220807c09896af0",
+      "success_marker": "Portable views and preferences failures: 0"
+    },
+    {
+      "script": "tests/study_workspace_smoke.gd",
+      "script_sha256": "a103d60e330906f6ceb829a127c1ae131f601e9d145972118d48538e28b0ba84",
+      "log": "import-preview-study-regression.log.txt",
+      "log_sha256": "519773883f48d3d105f65b8b73ed7ed0ed1d977538c573c0a714c258793bc63a",
+      "success_marker": "Study workspace failures: 0"
+    }
+  ],
+  "python_checks": 71,
+  "references": 7,
+  "layout_text_combinations": 28,
+  "window_pixels": [
+    1100,
+    720
+  ],
+  "clipboard_read_or_copy_exercised": false
+}

@@ -280,6 +280,8 @@ ordinary body view.
 
 Import/export and compatibility-preview controls are described in the
 [study workspace guide](STUDY_WORKSPACE.md#portable-saved-views).
+In the import preview, Page Up/Down scroll the selectable text, Ctrl/Cmd+A selects
+it, Tab reaches the actions, and Escape cancels without changing the library.
 
 Open **Saved views**, enter a name, and choose **Save current view**. The library
 keeps up to 200 named setups on this computer. Select a view to see its reference
@@ -340,7 +342,8 @@ storage, without cloud sync or a cross-process transaction service.
 
 The older `user://saved_view.json` quick-save slot is kept intact. When present,
 **Restore previous quick save** appears in the window. Older HRA schema-1 views retain
-their compatible defaults. General schema migration/import/export remain future work. Saved notes use the same
+their compatible defaults. Portable JSON import/export is available through Saved
+views; general schema migration remains future work. Saved notes use the same
 backup and stale-file protections as the views. Text editing undo belongs to the
 note field and leaves anatomy edits untouched.
 

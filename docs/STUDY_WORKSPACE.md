@@ -210,6 +210,11 @@ existing library is retained. Damaged files and stale previews cannot partly rep
 the library. The format retains the existing 200-view, 32-MiB and 10,000-character
 note limits. A failed write preserves the existing library and reports the error.
 
+The import preview opens with its selectable text focused. Page Up/Down scroll;
+Ctrl/Cmd+A selects the preview. Enter and Space while reading leave the library
+unchanged. Tab reaches Import and Cancel; Escape closes the preview, including
+when text is selected. Names containing brackets remain literal text.
+
 Damaged or missing libraries can recover from a valid previous library. Recovery
 refuses a stale offer if the main file has changed, and preserves each damaged
 original under its own filename. The result names that copy. Older damaged copies
@@ -331,6 +336,7 @@ godot --headless --path . --script tests/camera_zoom_smoke.gd
 godot --headless --path . --script tests/zoom_workspace_smoke.gd
 godot --headless --path . --script tests/coverage_keyboard_smoke.gd
 godot --headless --path . --script tests/study_navigation_smoke.gd
+godot --headless --path . --script tests/import_preview_smoke.gd
 godot --headless --path . --script tests/pointer_interruption_smoke.gd
 godot --headless --path . --script tests/pointer_workspace_smoke.gd
 godot --headless --path . --script tests/information_dialog_smoke.gd
@@ -353,7 +359,7 @@ preview. Running it with a desktop display also captures the new screens under
 reconstructed collision vertices with source mesh faces. The exported runtime checks
 portable views/notes, preferences and reversible guide state in disposable files.
 Device trials and qualified medical review remain separate from scripted verification.
-[Verification and current private packages](audit/STUDY_NAVIGATION_VERIFICATION.md)
+[Verification and current private packages](audit/IMPORT_PREVIEW_VERIFICATION.md)
 retain exact build identities, native Windows evidence, saved-view recovery/search/draft
 and deletion-undo checks, study-preserving cancellation and normal-launch reference/window restoration observations. [Draft content verification](audit/DRAFT_CONTENT_VERIFICATION.md)
 records the learning-content review-stage correction and valve-reference checks.
