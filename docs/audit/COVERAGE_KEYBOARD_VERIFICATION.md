@@ -7,7 +7,7 @@ Previously, Tab from the group list skipped the inventory and focused a button;
 Page Down then left its scrollbar at zero. The text was not selectable.
 The retained [baseline probe](coverage-access-before.gd.txt) and
 [log](coverage-access-before.log.txt) record that behavior against the preceding
-source. They do not establish that the former control had a zero focus-mode value.
+source.
 
 Coverage now opens with its group list focused. Arrows choose a group, Tab reaches
 the inventory, Page Up/Down scroll and Ctrl/Cmd+A selects its text. Further Tab

@@ -46,4 +46,3 @@ ERROR: Condition "err != OK" is true. Returning: ERR_CANT_CREATE
 [0m
 [   0% ] [90m[1mexport[22m | Started Exporting for macOS (3 steps)[39m[0m
 [   0% ] [90m[1mexport[22m | Creating app bundle[39m[0m
-
