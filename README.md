@@ -95,9 +95,10 @@ Precise keyboard movement supports 5 mm and 1 mm inspection steps with undo/redo
 Repeated visibility or Restore commands retain redo when they leave anatomy unchanged.
 Movement at its limit keeps history too; Undo/Redo ends a held drag so it cannot
 continue changing anatomy after restoration.
+Switching Move on or off also requires a fresh gesture.
 Four separate HRA v1.2 spinal-cord/vertebra studies add 108 source meshes across both
 sexes, without registering them to the original bodies. [Study workspace guide](docs/STUDY_WORKSPACE.md),
-[verification and private packages](docs/audit/MOVEMENT_HISTORY_VERIFICATION.md).
+[verification and private packages](docs/audit/MOVE_MODE_VERIFICATION.md).
 Pathological geometry, validated cutaways and physiological simulation are future work.
 Private Windows/macOS ZIPs are generated locally under dist/. Target-device testing,
 public signing/notarization, and baseline-laptop performance remain open.

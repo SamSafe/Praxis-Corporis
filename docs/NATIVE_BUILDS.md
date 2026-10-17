@@ -14,13 +14,13 @@ portable views and four independent spinal source studies.
 
 The generated archives are excluded from Git:
 
-- Windows x64: dist/movement-history-verified/PraxisCorporis-Windows-x64-private.zip
-- Mac Intel/Apple Silicon: dist/movement-history-verified/PraxisCorporis-macOS-universal-private.zip
+- Windows x64: dist/move-mode-improvements/PraxisCorporis-Windows-x64-private.zip
+- Mac Intel/Apple Silicon: dist/move-mode-improvements/PraxisCorporis-macOS-universal-private.zip
 
 Earlier archives retain their previous source identities and their review-label
-corrections. Use the movement-history-verified build report when verifying the new archives.
-[Movement history and package verification](audit/MOVEMENT_HISTORY_VERIFICATION.md)
-records their exact hashes, seven-reference movement/workspace checks, early-close checks,
+corrections. Use the move-mode-improvements build report when verifying the new archives.
+[Move-mode gesture and package verification](audit/MOVE_MODE_VERIFICATION.md)
+records their exact hashes, seven-reference gesture/workspace checks, early-close checks,
 four normal launches and remaining Mac/human limits. The Linux-template qualification
 is recorded separately; it is not a clean passing platform check.
 

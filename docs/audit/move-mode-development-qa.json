@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "source_revision": "0ac05d5f8ceacf487556dff9cf1a45fdbb760908",
+  "before_revision": "78d3e41846bf98104c5f1ae2d953148b1be19584",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "python_checks": 74,
+  "checks": [
+    {
+      "script": "tests/move_mode_smoke.gd",
+      "script_sha256": "7f4b7830de74a8d4c4866f9bc0d54b7a7cc4ad64fdde8001647c0d5a70d8e340",
+      "log": "move-mode-workspace.log.txt",
+      "log_sha256": "aa2e1a533d50779d92c1a504ca68ca8cef7e4181d9886c10bb3157eacd5f87a9",
+      "success_marker": "Move mode failures: 0"
+    },
+    {
+      "script": "tests/keyboard_movement_smoke.gd",
+      "script_sha256": "5676d24f4bfee028ec675041f7bf764f456d0c5a08e59ab2267a88de10416894",
+      "log": "move-mode-keyboard.log.txt",
+      "log_sha256": "ac2ebd6522708863696e2512d51f9b0a7b86746d16bfb7f3487213c2211239d0",
+      "success_marker": "Keyboard movement failures: 0"
+    },
+    {
+      "script": "tests/pointer_workspace_smoke.gd",
+      "script_sha256": "84040f54cc2e6ae66f8086710cc4eef8587a8b093b5b875a55641110d2cc6895",
+      "log": "move-mode-pointer.log.txt",
+      "log_sha256": "cad22a25760808661e221ae664395eb1d29b23877d89b200954e085ab5ad764a",
+      "success_marker": "Pointer workspace failures: 0"
+    }
+  ],
+  "references": 7,
+  "layout_resolution_combinations": 28,
+  "mode_switch_directions": 2,
+  "gesture_transition_cases": 56
+}

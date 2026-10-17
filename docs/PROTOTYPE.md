@@ -190,6 +190,9 @@ Movement records history only when an offset changes. An ineffective movement at
 the displacement limit keeps Undo/Redo; a drag that first reaches a limit can
 reverse into available space with one undo step. Undo/Redo ends the active pointer
 gesture and keeps Move selected, so a fresh drag continues deliberately.
+Switching Move on or off ends a held gesture as well. The old held button cannot
+turn an orbit into a move, or a move into an orbit; press again to continue in the
+chosen mode.
 New inspection edits discard redo history. Original-position overlays are separate
 from anatomy and do not intercept clicks; restoring a part hides its overlay.
 Ordinary selection of a hidden structure focuses its position without revealing it.

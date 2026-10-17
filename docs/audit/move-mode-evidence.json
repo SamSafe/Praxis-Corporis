@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "source_revision": "0ac05d5f8ceacf487556dff9cf1a45fdbb760908",
+  "python_checks": 74,
+  "native_references": 7,
+  "native_move_mode_references": [
+    "female",
+    "male",
+    "bodyparts-male-bones-study",
+    "hra-v1-2-female-cord-study",
+    "hra-v1-2-female-vertebrae-study",
+    "hra-v1-2-male-cord-study",
+    "hra-v1-2-male-vertebrae-study"
+  ],
+  "native_layout_resolution_combinations": 28,
+  "native_mode_transition_cases": 56,
+  "native_capture_identities": 103,
+  "native_normal_launches": 4,
+  "native_early_closes": 2,
+  "native_session_independently_checked_absent": true,
+  "mac_content_qa": "passed on development engine; actual Mac execution pending",
+  "linux_release_template_qa": "not rerun; independent popup-template limitation remains open",
+  "files": {
+    "move-mode-after.log.txt": {
+      "bytes": 393,
+      "sha256": "6a5e0a23ce09bec6a514234c5c7453ee07f39e200f8882dfcad42008e15f7ccb"
+    },
+    "move-mode-artifact-audit.json": {
+      "bytes": 1346,
+      "sha256": "1f5fb88d7712f32e0346c147b01d47f83a5aee5137be2ed5142dcc03e599762e"
+    },
+    "move-mode-before.gd.txt": {
+      "bytes": 1520,
+      "sha256": "c221ea3349bec62497c334bcdddedc2f48e1676eae9da1da41aa13c301040d6d"
+    },
+    "move-mode-before.log.txt": {
+      "bytes": 395,
+      "sha256": "fc8a6bb828f5bc827c73d362caa9b26724690bde903d81c5b819213faf283e30"
+    },
+    "move-mode-build-report.json": {
+      "bytes": 5067,
+      "sha256": "537bb519b7791c36fe92d186c9acae242617fe5da4427b84e7448fead65a30c3"
+    },
+    "move-mode-build.log.txt": {
+      "bytes": 11905,
+      "sha256": "95ee51f553ad07969fcf72509cb75544a20a9b8a18624b3e5572122c6a328654"
+    },
+    "move-mode-development-qa.json": {
+      "bytes": 1381,
+      "sha256": "3cdc9e9f6728cebe68b72d4e1e58183e4a545dfb5e9d5783c792ad3765be2dac"
+    },
+    "move-mode-keyboard.log.txt": {
+      "bytes": 757,
+      "sha256": "ac2ebd6522708863696e2512d51f9b0a7b86746d16bfb7f3487213c2211239d0"
+    },
+    "move-mode-native-initial-anatomy.log.txt": {
+      "bytes": 443,
+      "sha256": "0456bd0aff1889e2b08bd6864f58be6d74a64181e5a13f2e507cca8931983266"
+    },
+    "move-mode-native-replacement-selection.log.txt": {
+      "bytes": 527,
+      "sha256": "57d05c22b0c58e70c0c109dbbd2b26dfd2ecc7278ed0c21e3a9360e9a465fa8e"
+    },
+    "move-mode-normal-lifecycle.json": {
+      "bytes": 1648,
+      "sha256": "414fba2ca285882a1f0bad957fac189f867cd0b592e2abd0123e5b8efdf0b4f3"
+    },
+    "move-mode-pointer.log.txt": {
+      "bytes": 1235,
+      "sha256": "cad22a25760808661e221ae664395eb1d29b23877d89b200954e085ab5ad764a"
+    },
+    "move-mode-python.log.txt": {
+      "bytes": 173,
+      "sha256": "17d2037d49c796414b49b5bd9734bcee93ed3b43884dc102aaa479f795d78d5a"
+    },
+    "move-mode-windows-qa.json": {
+      "bytes": 35086,
+      "sha256": "85b1db5441b5cde0cf620fea3b766d7cad0eef54688399a0db7ccb6bb101133f"
+    },
+    "move-mode-windows-runtime.log.txt": {
+      "bytes": 15994,
+      "sha256": "91b3f74a4725b51619d0b7c437dfe489ca85c68accb5f17335c14eb529a4c761"
+    },
+    "move-mode-workspace.log.txt": {
+      "bytes": 1133,
+      "sha256": "aa2e1a533d50779d92c1a504ca68ca8cef7e4181d9886c10bb3157eacd5f87a9"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+extends SceneTree
+const Verification = preload("res://scripts/study_verification.gd")
+
+func _initialize() -> void:
+	call_deferred("run")
+
+func toggle(viewer: Control) -> void:
+	viewer.scene_container.grab_focus()
+	await Verification.movement_key(viewer, KEY_M)
+
+func run() -> void:
+	var viewer = load("res://scenes/main.tscn").instantiate()
+	root.add_child(viewer)
+	await process_frame
+	while viewer.loading:
+		await process_frame
+	viewer.select_structure("anatomy.heart.valve.mitral")
+	var start := Vector2(40, viewer.scene_container.size.y * 0.6)
+	for enter_move in [true, false]:
+		viewer.orbit.cancel_drag()
+		viewer.move_button.button_pressed = not enter_move
+		viewer.orbit.move_mode = not enter_move
+		viewer.scene_container.grab_focus()
+		Verification.pointer_button(viewer, start, true)
+		Verification.pointer_motion(viewer, start + Vector2(24,12), MOUSE_BUTTON_MASK_LEFT)
+		await toggle(viewer)
+		var anatomy: Dictionary = viewer.model.export_state().duplicate(true)
+		var camera: Dictionary = viewer.orbit.export_state().duplicate(true)
+		print("Move ", enter_move, " after toggle · active drag ", viewer.orbit.active_button)
+		Verification.pointer_motion(viewer, start + Vector2(48,24), MOUSE_BUTTON_MASK_LEFT)
+		print("Move ", enter_move, " after held motion · anatomy unchanged ", viewer.model.export_state() == anatomy, " · camera unchanged ", viewer.orbit.export_state() == camera)
+		Verification.pointer_button(viewer, start + Vector2(48,24), false)
+	viewer.queue_free()
+	await process_frame
+	quit()

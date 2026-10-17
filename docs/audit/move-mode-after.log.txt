@@ -1,0 +1,8 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Loading female reference
+Prepared 801 meshes in 4.80s; 247 frames while loading
+Move true after toggle · active drag 0
+Move true after held motion · anatomy unchanged true · camera unchanged true
+Move false after toggle · active drag 0
+Move false after held motion · anatomy unchanged true · camera unchanged true
