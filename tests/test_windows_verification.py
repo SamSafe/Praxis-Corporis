@@ -26,6 +26,15 @@ def complete_log(rendered=True):
 
 
 class WindowsVerificationTests(unittest.TestCase):
+    def test_move_mode_packages_require_gesture_checks_for_every_reference(self):
+        log = complete_log(False)
+        for reference in ['female', 'male', 'bodyparts-male-bones-study']:
+            with self.assertRaisesRegex(ValueError, 'Move mode gesture'):
+                parse_result(log, False, move_mode_boundary=True)
+            log += '\nPASS bundled move mode boundary: ' + reference
+        self.assertEqual(parse_result(log, False, move_mode_boundary=True)['move_mode_boundary_references'],
+                         ['female', 'male', 'bodyparts-male-bones-study'])
+
     def test_movement_packages_require_history_evidence_for_every_reference(self):
         log = complete_log(False)
         for reference in ['female', 'male', 'bodyparts-male-bones-study']:

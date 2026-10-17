@@ -5,6 +5,77 @@ const SavedViews = preload("res://scripts/saved_views.gd")
 const Preferences = preload("res://scripts/viewer_preferences.gd")
 
 
+static func verify_move_mode_boundary(viewer: Control) -> bool:
+	var before: Dictionary = viewer.export_view_state().duplicate(true)
+	var undo: Array = viewer.model.undo_stack.duplicate(true)
+	var redo: Array = viewer.model.redo_stack.duplicate(true)
+	var back: Array = viewer.back_views.duplicate(true)
+	var forward: Array = viewer.forward_views.duplicate(true)
+	var expanded: bool = viewer.scene_expanded
+	var quality: float = viewer.scene_container.resolution_fraction
+	var moving: bool = viewer.orbit.move_mode
+	var leaf: String = viewer.model.body.get("qa_leaf_id", "anatomy.heart.valve.mitral")
+	if viewer.model.body.id == "bodyparts-male-bones-study":
+		leaf = "source.bodyparts3d-v4-male.FJ3365"
+	viewer.end_isolation()
+	viewer.select_structure(leaf, false)
+	var valid := true
+	for layout in [false, true]:
+		viewer.set_scene_expanded(layout)
+		for fraction in [1.0, 0.5]:
+			viewer.set_scene_resolution(fraction)
+			await viewer.get_tree().process_frame
+			await viewer.get_tree().process_frame
+			for initial_mode in [false, true]:
+				valid = viewer.model.apply_saved_state({}).is_empty() and valid
+				viewer.model.undo_stack.clear()
+				viewer.model.redo_stack.clear()
+				viewer.move_button.button_pressed = initial_mode
+				viewer.toggle_move()
+				viewer.orbit.yaw = 0.2
+				viewer.orbit.pitch = 0.15
+				viewer.orbit.distance = 2.8
+				viewer.orbit.target = Vector3.ZERO
+				viewer.orbit.update_camera()
+				viewer.scene_container.grab_focus()
+				var start := Vector2(40, viewer.scene_container.size.y * 0.6)
+				var finish := start + Vector2(24, 12)
+				pointer_button(viewer, start, true)
+				pointer_motion(viewer, finish, MOUSE_BUTTON_MASK_LEFT)
+				var boundary: Dictionary = viewer.export_view_state().duplicate(true)
+				var edit_undo: Array = viewer.model.undo_stack.duplicate(true)
+				var edit_redo: Array = viewer.model.redo_stack.duplicate(true)
+				await movement_key(viewer, KEY_M)
+				valid = valid and viewer.orbit.move_mode != initial_mode and viewer.move_button.button_pressed == viewer.orbit.move_mode and viewer.orbit.active_button == 0 and not viewer.pending_move_checkpoint
+				pointer_motion(viewer, finish + Vector2(24, 12), MOUSE_BUTTON_MASK_LEFT)
+				pointer_button(viewer, finish + Vector2(24, 12), false)
+				valid = valid and viewer.export_view_state() == boundary and viewer.model.undo_stack == edit_undo and viewer.model.redo_stack == edit_redo
+				pointer_button(viewer, start, true)
+				pointer_motion(viewer, finish, MOUSE_BUTTON_MASK_LEFT)
+				pointer_button(viewer, finish, false)
+				if initial_mode:
+					valid = valid and viewer.model.export_state() == boundary.changes and viewer.orbit.export_state() != boundary.camera and viewer.model.undo_stack == edit_undo
+				else:
+					valid = valid and viewer.model.export_state() != boundary.changes and viewer.orbit.export_state() == boundary.camera and viewer.model.undo_stack.size() == edit_undo.size() + 1
+	viewer.orbit.cancel_drag()
+	valid = await viewer.restore_view_state(before) and valid
+	viewer.model.undo_stack = undo.duplicate(true)
+	viewer.model.redo_stack = redo.duplicate(true)
+	viewer.back_views = back.duplicate(true)
+	viewer.forward_views = forward.duplicate(true)
+	viewer.set_scene_expanded(expanded)
+	viewer.set_scene_resolution(quality)
+	viewer.move_button.button_pressed = moving
+	viewer.orbit.move_mode = moving
+	viewer.refresh_details()
+	valid = valid and viewer.export_view_state() == before
+	if valid:
+		print("PASS bundled move mode boundary: ", viewer.model.body.id)
+	else:
+		push_error("Move mode inherited a prior pointer gesture or lost state: " + str(viewer.model.body.id))
+	return valid
+
+
 static func movement_fixture(viewer: Control, offset: Vector3) -> Dictionary:
 	viewer.orbit.cancel_drag()
 	var leaf: String = viewer.model.selected_id
@@ -816,6 +887,7 @@ static func run(viewer: Control, rendered: bool) -> bool:
 		valid = await verify_unchanged_edits(viewer) and valid
 	viewer.set_scene_expanded(history_layout)
 	valid = await verify_movement_history(viewer) and valid
+	valid = await verify_move_mode_boundary(viewer) and valid
 	if viewer.model.structures.has("anatomy.heart"):
 		valid = await verify_study_navigation(viewer) and valid
 		viewer.start_guided_chest()

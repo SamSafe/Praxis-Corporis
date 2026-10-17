@@ -2655,6 +2655,8 @@ func redo_inspection() -> void:
 func toggle_move() -> void:
 	if loading:
 		return
+	orbit.cancel_drag()
+	pending_move_checkpoint = false
 	orbit.move_mode = move_button.button_pressed
 	status.text = "Move: drag or press I/J/K/L/U/O with the 3D view focused · Shift for 1 mm steps" if orbit.move_mode else "Drag to orbit · click to select"
 	refresh_input_hint()
