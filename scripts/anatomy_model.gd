@@ -531,13 +531,24 @@ func set_visibility(id: String, visibility: String) -> void:
 	state_changed.emit()
 
 
-func offset_selection(delta: Vector3) -> void:
-	if not structures.has(selected_id):
-		return
+func offset_selection(delta: Vector3, record_history: bool = false) -> bool:
+	if not structures.has(selected_id) or not delta.is_finite():
+		return false
+	var offsets := {}
 	for index in structures[selected_id].mesh_nodes:
-		states[int(index)].offset = (states[int(index)].offset + delta).clamp(Vector3.ONE * -10.0, Vector3.ONE * 10.0)
+		var key := int(index)
+		var next: Vector3 = (states[key].offset + delta).clamp(Vector3.ONE * -10.0, Vector3.ONE * 10.0)
+		if next != states[key].offset:
+			offsets[key] = next
+	if offsets.is_empty():
+		return false
+	if record_history:
+		checkpoint()
+	for index in offsets:
+		states[index].offset = offsets[index]
 	refresh_appearance()
 	state_changed.emit()
+	return true
 
 
 func restore(id: String = "anatomy.body") -> void:

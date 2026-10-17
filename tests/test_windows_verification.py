@@ -26,6 +26,15 @@ def complete_log(rendered=True):
 
 
 class WindowsVerificationTests(unittest.TestCase):
+    def test_movement_packages_require_history_evidence_for_every_reference(self):
+        log = complete_log(False)
+        for reference in ['female', 'male', 'bodyparts-male-bones-study']:
+            with self.assertRaisesRegex(ValueError, 'movement history'):
+                parse_result(log, False, movement_history=True)
+            log += '\nPASS bundled movement history: ' + reference
+        self.assertEqual(parse_result(log, False, movement_history=True)['movement_history_references'],
+                         ['female', 'male', 'bodyparts-male-bones-study'])
+
     def test_unchanged_anatomy_requires_history_evidence_for_every_reference(self):
         log = complete_log(False)
         for reference in ['female', 'male', 'bodyparts-male-bones-study']:

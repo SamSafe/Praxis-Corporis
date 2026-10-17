@@ -53,6 +53,7 @@ var forward_button: Button
 var back_views: Array[Dictionary] = []
 var forward_views: Array[Dictionary] = []
 var move_button: Button
+var pending_move_checkpoint := false
 var undo_button: Button
 var redo_button: Button
 var original_positions_button: CheckButton
@@ -1220,8 +1221,10 @@ func build_interface() -> void:
 	container.display_changed.connect(on_scene_display_changed)
 	orbit.display_size = container.size
 	orbit.clicked.connect(on_viewport_clicked)
-	orbit.move_started.connect(func(): model.checkpoint())
-	orbit.moved.connect(func(delta: Vector3): model.offset_selection(delta))
+	orbit.move_started.connect(func(): pending_move_checkpoint = true)
+	orbit.moved.connect(func(delta: Vector3):
+		if model.offset_selection(delta, pending_move_checkpoint):
+			pending_move_checkpoint = false)
 	anatomy_labels = AnatomyLabels.new()
 	anatomy_labels.model = model
 	anatomy_labels.camera = orbit.camera
@@ -1346,8 +1349,8 @@ func build_interface() -> void:
 	labels_button.button_pressed = true
 	labels_button.toggled.connect(func(enabled: bool): anatomy_labels.selection_enabled = enabled)
 	toolbar.add_child(labels_button)
-	undo_button = make_button("Undo", func(): model.undo(), toolbar)
-	redo_button = make_button("Redo", func(): model.redo(), toolbar)
+	undo_button = make_button("Undo", undo_inspection, toolbar)
+	redo_button = make_button("Redo", redo_inspection, toolbar)
 	reference_buttons.append(make_button("Restore all", restore_all, toolbar))
 	status = make_label("Preparing the local anatomy sample…", 13, Color("7891a7"))
 	status.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -2016,8 +2019,8 @@ func on_expanded_action(id: int) -> void:
 				if not move_button.disabled:
 					move_button.button_pressed = not move_button.button_pressed
 					toggle_move()
-			ExpandedAction.UNDO: model.undo()
-			ExpandedAction.REDO: model.redo()
+			ExpandedAction.UNDO: undo_inspection()
+			ExpandedAction.REDO: redo_inspection()
 			ExpandedAction.SAVED_VIEWS: show_saved_views()
 			ExpandedAction.GUIDED_CHEST: start_guided_chest()
 			ExpandedAction.CIRCULATION_ROUTE: start_circulation_route()
@@ -2197,10 +2200,11 @@ func nudge_selection(key: int, fine: bool) -> void:
 	var local: Vector3 = {KEY_I: Vector3.UP, KEY_K: Vector3.DOWN, KEY_J: Vector3.LEFT, KEY_L: Vector3.RIGHT, KEY_U: Vector3.BACK, KEY_O: Vector3.FORWARD}.get(key, Vector3.ZERO)
 	if local == Vector3.ZERO:
 		return
-	model.checkpoint()
-	model.offset_selection(orbit.camera.global_basis * local * (0.001 if fine else 0.005))
+	if not model.offset_selection(orbit.camera.global_basis * local * (0.001 if fine else 0.005), true):
+		status.text = "Movement limit reached · try another direction"
+		return
 	anatomy_labels.update_labels()
-	status.text = "Moved selection %s mm in camera coordinates · Undo reverses this step" % ("1" if fine else "5")
+	status.text = "Moved selection up to %s mm in camera coordinates · Undo reverses this step" % ("1" if fine else "5")
 
 
 func refresh_input_hint() -> void:
@@ -2266,8 +2270,9 @@ func refresh_details() -> void:
 		button.disabled = loading or not selected or isolated
 		button.tooltip_text = "Return to context to edit visibility." if isolated else "Change the selected anatomy's visibility; faded parts are click-through."
 	if move_button:
-		move_button.disabled = not selected or loading
-		if not selected:
+		var movable: bool = selected and not model.structures[model.selected_id].mesh_nodes.is_empty()
+		move_button.disabled = not movable or loading
+		if not movable:
 			leave_move_mode()
 	if undo_button:
 		undo_button.disabled = model.undo_stack.is_empty() or loading
@@ -2635,6 +2640,18 @@ func restore_all() -> void:
 	remember_view(previous)
 
 
+func undo_inspection() -> void:
+	orbit.cancel_drag()
+	pending_move_checkpoint = false
+	model.undo()
+
+
+func redo_inspection() -> void:
+	orbit.cancel_drag()
+	pending_move_checkpoint = false
+	model.redo()
+
+
 func toggle_move() -> void:
 	if loading:
 		return
@@ -2961,9 +2978,9 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 		elif event.keycode == KEY_Z and (event.ctrl_pressed or event.meta_pressed):
 			if event.shift_pressed:
-				model.redo()
+				redo_inspection()
 			else:
-				model.undo()
+				undo_inspection()
 			get_viewport().set_input_as_handled()
 		elif event.keycode == KEY_ESCAPE:
 			leave_move_mode()
