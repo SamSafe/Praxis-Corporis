@@ -27,10 +27,10 @@ def sha256(path: pathlib.Path) -> str:
 
 
 def run(command: list[str], cwd: pathlib.Path = ROOT, env: dict | None = None,
-        required_marker: str | None = None) -> None:
+        required_marker: str | None = None, timeout: int = 120) -> None:
     try:
         result = subprocess.run(command, cwd=cwd, env=env, text=True, stdout=subprocess.PIPE,
-                                stderr=subprocess.STDOUT, timeout=120)
+                                stderr=subprocess.STDOUT, timeout=timeout)
     except subprocess.TimeoutExpired as error:
         output = error.stdout.decode(errors="replace") if isinstance(error.stdout, bytes) else (error.stdout or "")
         raise RuntimeError(f"Build step timed out: {command[0]}\n{output}") from error
@@ -251,7 +251,7 @@ def build(args: argparse.Namespace) -> dict:
                 architectures = binary_architectures(executable)
             else:
                 app_archive = temporary / "macos-app.zip"
-                run([args.godot, "--headless", "--path", str(ROOT), "--export-release", "macOS Private", str(app_archive)])
+                run([args.godot, "--headless", "--path", str(ROOT), "--export-release", "macOS Private", str(app_archive)], timeout=300)
                 modes = unpack_zip(app_archive, folder)
                 applications = list(folder.glob("*.app"))
                 if len(applications) != 1:
