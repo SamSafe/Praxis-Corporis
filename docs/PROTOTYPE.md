@@ -115,6 +115,7 @@ is used by the viewer.
 | Leave Move mode | Escape or Whole body returns to navigation and preserves inspection changes. |
 | Body reference | Select Female reference or Male reference; shared canonical selections are retained where mapped. |
 | Save/load | Saved views opens named local exploration setups with Save current view, Restore, Rename and Delete. |
+| Find a saved view | Search its name, notes, reference or selected anatomy name/source ID. This reference narrows the library; the heading shows matches out of all views. |
 | Study notes | Select a saved view, type your observations/questions, then Save notes. |
 | Coverage | Coverage opens the technical inventory for both reference bodies, known gaps and a shortcut to select a supplied group. |
 | Workspace panels | View toggles the anatomy explorer and structure details independently; Keyboard controls opens the shortcut reference. |

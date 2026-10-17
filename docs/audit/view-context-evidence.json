@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "runtime_source_revision": "3887cb342dcedb37f03216d24454562110e0d14a",
+  "native_references": 7,
+  "native_capture_identities": 94,
+  "native_session_independently_checked_absent": true,
+  "python_checks": 67,
+  "inspected_native_captures": [
+    "native-study-notes-female.png",
+    "native-study-notes-hra-v1-2-female-cord-study.png"
+  ],
+  "gui_protocol_sha256": "e4ac850c93bbbe9fa25388e743a6cd6429aba33e8616dacf18e9d2457a5beb17",
+  "mac_content_qa": "passed on development engine; actual Mac execution pending",
+  "linux_release_template_qa": "not rerun; independent popup-template limitation remains open",
+  "files": {
+    "view-context-artifact-audit.json": {
+      "bytes": 1346,
+      "sha256": "5f137cc98697229b6827db59e5e0ef850a7b9dcf5a84f274603f36f8d2787be2"
+    },
+    "view-context-build-report.json": {
+      "bytes": 4966,
+      "sha256": "e3e137f255c1de9451d5c3a0b172cf2e9f8483d92d268a6701d4e2c580bd19cf"
+    },
+    "view-context-build.log.txt": {
+      "bytes": 8954,
+      "sha256": "fbccc535cbc0e22ad9b13ac802ca6b67a4750dc6ad588bee5fdce521c60ba9d5"
+    },
+    "view-context-capture.log.txt": {
+      "bytes": 731,
+      "sha256": "48c04aace52f0c2ea9fabaa848795d10fa132a9dd0af05a49b8ce97cba980f26"
+    },
+    "view-context-development-qa.json": {
+      "bytes": 1200,
+      "sha256": "1da3d7456266f1cc8f5ba42d38d6495926ed31ec722b8b49ddd66b9edac9ee3c"
+    },
+    "view-context-development.log.txt": {
+      "bytes": 104,
+      "sha256": "b0e7598cc3089cb441763d9a918ed6a430d786c760122e068e78690536e01250"
+    },
+    "view-context-filter.log.txt": {
+      "bytes": 103,
+      "sha256": "9854807cf0dc138e17f7634f384fb1bd30e09d36f8268bc5723775eecbffb1de"
+    },
+    "view-context-native-initial-anatomy.log.txt": {
+      "bytes": 443,
+      "sha256": "3cc021aa05231d318d9c26a454e7d2dda6c60cc4b3a3fdd087be9e0101ad936d"
+    },
+    "view-context-native-replacement-selection.log.txt": {
+      "bytes": 527,
+      "sha256": "b901871a0da905db2cdd8cb669a2c62c9749eec761b8fe2e0ed02ba0a9c8777e"
+    },
+    "view-context-normal-lifecycle.json": {
+      "bytes": 1648,
+      "sha256": "414fba2ca285882a1f0bad957fac189f867cd0b592e2abd0123e5b8efdf0b4f3"
+    },
+    "view-context-python.log.txt": {
+      "bytes": 166,
+      "sha256": "8eef965d5d1fab4be6fcdc2effcff85ecab7e17bf8048c483cbb7b2ddc82d213"
+    },
+    "view-context-undo.log.txt": {
+      "bytes": 110,
+      "sha256": "9da3ca1d1df43f41761117c0ecb3c1ae0b5aac96f3fb797ea6e5c393229103d0"
+    },
+    "view-context-windows-qa.json": {
+      "bytes": 31257,
+      "sha256": "baf3b06c95727e37125787aba73dd747ba66aca7cc0d97edb42250c97dcda9a8"
+    },
+    "view-context-windows-runtime.log.txt": {
+      "bytes": 12625,
+      "sha256": "7197fd25d419f30f2f122c651cb89f4fd7c0476f7896b670bf9feed6c52ec17d"
+    },
+    "../prototype/saved-view-context-minimum.png": {
+      "bytes": 285664,
+      "sha256": "9f329d72cdf1aa853bc20d5acdaeacdd44dc7cd37e81208166ad0853857c5a55"
+    },
+    "../prototype/saved-view-context-native-cord.png": {
+      "bytes": 243777,
+      "sha256": "3d20bcaad07fb5c7488110bb77fbbca763786f5d8d3c88d0934889af102e47ca"
+    },
+    "../prototype/saved-view-context-native-female.png": {
+      "bytes": 216512,
+      "sha256": "c670a733224de925c4b1b6d62ecfa7f88eb5b532d5fb054fb4a4c015fae85a40"
+    },
+    "../prototype/saved-view-context.png": {
+      "bytes": 303643,
+      "sha256": "dc4e5dc915d8d6cca6f33b1db85c6e65459eae48eda132c6976641daf87ef872"
+    }
+  }
+}

@@ -55,7 +55,7 @@ Open [project.godot](project.godot) with Godot 4.7.2 after the setup in the
 [prototype guide](docs/PROTOTYPE.md). The app has selection, search, camera focus,
 hide/fade controls, inspection movement with original-position overlays, restoration,
 undo/redo and local saved views with personal study notes.
-The saved-view library searches names and notes while preserving unsaved drafts.
+The saved-view library searches names, notes and selected anatomy IDs, with a This reference filter and preserved drafts.
 Ctrl/Cmd+F opens anatomy search from the workspace or expanded view; Escape clears search and then returns focus to 3D.
 Undo delete recovers the last deleted view and its unfinished notes while the library stays open.
 Save all notes, or Ctrl/Cmd+S in the library, retains every pending note without closing it.
@@ -90,7 +90,7 @@ reference anatomy, with explicit depiction limits; human source and medical revi
 Precise keyboard movement supports 5 mm and 1 mm inspection steps with undo/redo.
 Four separate HRA v1.2 spinal-cord/vertebra studies add 108 source meshes across both
 sexes, without registering them to the original bodies. [Study workspace guide](docs/STUDY_WORKSPACE.md),
-[verification and private packages](docs/audit/POINTER_INTERRUPTION_VERIFICATION.md).
+[verification and private packages](docs/audit/SAVED_VIEW_CONTEXT_VERIFICATION.md).
 Pathological geometry, validated cutaways and physiological simulation are future work.
 Private Windows/macOS ZIPs are generated locally under dist/. Target-device testing,
 public signing/notarization, and baseline-laptop performance remain open.

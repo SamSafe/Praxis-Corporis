@@ -127,19 +127,31 @@ behavior.
 
 Find is unavailable while a reference opens. The search field stays read-only
 until its reference index is available. Dialogs keep their own keyboard input;
-Ctrl/Cmd+F inside Saved views continues to search views and notes.
+Ctrl/Cmd+F inside Saved views searches the saved-view library.
 
 ## Portable saved views
 
-In **Saved views**, the search field finds view names, saved notes and unsaved note
-drafts. Words can appear in any order; matching ignores letter case. The count
-shows matching views against the whole library. **Ctrl+F** focuses search;
+In **Saved views**, the search field finds view names, saved notes, unsaved note
+drafts, reference names and selected anatomy names/source IDs. Ontology IDs work
+with or without their colon. Words can appear in any order and combine these
+fields; matching ignores letter case. Current anatomy labels resolve only when
+the saved content pack and source geometry match. Older/unavailable views remain
+findable by their recorded IDs and retain compatibility errors.
+
+**This reference** narrows results to the reference open behind the library.
+It starts off in each new library window. Older views of that reference may still
+appear; Restore continues to check compatibility. The count stays in the heading
+and compares matches with the whole library. **Ctrl/Cmd+F** focuses search;
 **Enter** selects a match without restoring it. **Escape** clears a nonempty
-focused search. The clear button restores the full list.
+focused search. The clear button removes the query; turn off This reference to
+show the whole library.
 
 Filtering keeps note drafts and the current anatomy unchanged. A hidden selection
 is cleared rather than replaced by another view. Saving or renaming a view clears
 the search when needed to reveal that view. Saving notes refreshes their matches.
+Undo delete removes the reference filter when needed to reveal the restored view,
+and retains a query that still matches it. Changing search/scope cancels pending
+deletion and clears its obsolete confirmation notice.
 The dialog keeps its action buttons visible and scrolls content at smaller sizes
 or larger text settings.
 
@@ -156,7 +168,7 @@ After confirming a deletion, **Undo delete** restores the most recently deleted
 view at its previous list position where possible. Its identity, date, snapshot
 and saved notes remain intact. Unfinished notes return as an unsaved draft; use
 **Save notes** to retain them. Other drafts and the open anatomy stay unchanged.
-Undo reveals and selects the restored view, clearing the search if needed.
+Undo reveals and selects the restored view, clearing the query or reference scope if needed.
 
 Only the last confirmed deletion is available, and only while this library window
 stays open. A failed delete leaves the previous undo available. A failed undo
@@ -167,6 +179,7 @@ this temporary undo record.
 In **Saved views**, **Export all views** writes a local JSON file containing named
 snapshots and their saved notes. There are no anatomy meshes, accounts or uploads
 in this export. Unsaved notes use the existing save/discard/keep-editing choices.
+Export includes the whole library, including views hidden by search/reference filters.
 
 Export refuses paths that identify the active library or its backup, including
 directory/file links and case aliases on case-insensitive directories. A missing
@@ -304,6 +317,7 @@ godot --headless --path . --script tests/pointer_workspace_smoke.gd
 godot --headless --path . --script tests/information_dialog_smoke.gd
 godot --headless --path . --script tests/window_state_smoke.gd
 godot --headless --path . --script tests/saved_views_filter_smoke.gd
+godot --headless --path . --script tests/saved_view_context_smoke.gd
 godot --headless --path . --script tests/saved_views_recovery_smoke.gd
 godot --headless --path . --script tests/saved_views_undo_smoke.gd
 godot --headless --path . --script tests/export_safeguards_smoke.gd
@@ -320,7 +334,7 @@ preview. Running it with a desktop display also captures the new screens under
 reconstructed collision vertices with source mesh faces. The exported runtime checks
 portable views/notes, preferences and reversible guide state in disposable files.
 Device trials and qualified medical review remain separate from scripted verification.
-[Verification and current private packages](audit/POINTER_INTERRUPTION_VERIFICATION.md)
+[Verification and current private packages](audit/SAVED_VIEW_CONTEXT_VERIFICATION.md)
 retain exact build identities, native Windows evidence, saved-view recovery/search/draft
 and deletion-undo checks, study-preserving cancellation and normal-launch reference/window restoration observations. [Draft content verification](audit/DRAFT_CONTENT_VERIFICATION.md)
 records the learning-content review-stage correction and valve-reference checks.
