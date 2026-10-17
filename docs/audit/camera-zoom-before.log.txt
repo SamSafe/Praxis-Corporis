@@ -1,0 +1,79 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Keyboard reverse pairs: initial 2.8 · final 1.56742158862171
+ERROR: Opposite keyboard steps do not accumulate zoom drift
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/camera_zoom_smoke.gd:8)
+       [1] run (res://tests/camera_zoom_smoke.gd:48)
+ERROR: Four quarter-wheel events equal one full zoom step
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/camera_zoom_smoke.gd:8)
+       [1] run (res://tests/camera_zoom_smoke.gd:56)
+ERROR: Opposite fine-wheel events preserve framing
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/camera_zoom_smoke.gd:8)
+       [1] run (res://tests/camera_zoom_smoke.gd:61)
+ERROR: Wheel amount honors a multi-step event
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/camera_zoom_smoke.gd:8)
+       [1] run (res://tests/camera_zoom_smoke.gd:68)
+ERROR: Non-finite wheel amounts are ignored
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/camera_zoom_smoke.gd:8)
+       [1] run (res://tests/camera_zoom_smoke.gd:81)
+ERROR: Non-finite wheel amounts are ignored
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/camera_zoom_smoke.gd:8)
+       [1] run (res://tests/camera_zoom_smoke.gd:81)
+ERROR: Non-finite wheel amounts are ignored
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/camera_zoom_smoke.gd:8)
+       [1] run (res://tests/camera_zoom_smoke.gd:81)
+ERROR: Very large inward amounts stop at the finite near limit
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/camera_zoom_smoke.gd:8)
+       [1] run (res://tests/camera_zoom_smoke.gd:87)
+ERROR: Very large outward amounts stop at the finite far limit
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/camera_zoom_smoke.gd:8)
+       [1] run (res://tests/camera_zoom_smoke.gd:89)
+ERROR: Invalid pinch factors cannot jump or corrupt the camera
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/camera_zoom_smoke.gd:8)
+       [1] run (res://tests/camera_zoom_smoke.gd:93)
+ERROR: Invalid pinch factors cannot jump or corrupt the camera
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/camera_zoom_smoke.gd:8)
+       [1] run (res://tests/camera_zoom_smoke.gd:93)
+ERROR: Invalid pinch factors cannot jump or corrupt the camera
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/camera_zoom_smoke.gd:8)
+       [1] run (res://tests/camera_zoom_smoke.gd:93)
+ERROR: Invalid pinch factors cannot jump or corrupt the camera
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/camera_zoom_smoke.gd:8)
+       [1] run (res://tests/camera_zoom_smoke.gd:93)
+ERROR: Invalid pinch factors cannot jump or corrupt the camera
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/camera_zoom_smoke.gd:8)
+       [1] run (res://tests/camera_zoom_smoke.gd:93)
+ERROR: Small positive pinch factors retain their reported amount
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/camera_zoom_smoke.gd:8)
+       [1] run (res://tests/camera_zoom_smoke.gd:100)
+Camera zoom failures: 15

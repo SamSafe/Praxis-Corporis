@@ -29,6 +29,7 @@ restarting. Repeat the HRA tasks for both female and male references.
 | Cancel a reference switch | With a reference already open, choose another and use Cancel opening. Repeat during a chest guide or route and in expanded anatomy, then retry the switch. | Were the original view, edits, study step and keyboard focus retained? Did the cancellation feedback make sense? |
 | Identify the current reference | Recognise its body/source and that coverage is partial. | What did you assume was included? |
 | Explore the body | Orbit, pan and zoom using the available input device. | Any jump, accidental selection or lost orientation? |
+| Try fine zoom | Use a high-resolution wheel/trackpad if available. Compare small and large scrolls, reverse equal amounts, then compare keyboard +/- and pinch. | Is the amount comfortable, does reversal retain framing away from the limits, and do anatomy edits stay intact? |
 | Recover orientation | Choose Camera views > Front, Back and From body left/right. Read the direction cue, then use Back. Try this with an isolated or moved part. | Is it clear that left/right belong to the body? Did camera rotation preserve your focus and anatomy edits? |
 | Reveal and select the heart | Peel skin or use Show chest; selection focuses on its actual body position. | Is surrounding context useful? |
 | Find a source ID | Search UBERON0002135 in HRA or FMA24474 in the bone study; press Enter. Check repeated names such as Dura mater. | Are source names readable and distinct? |

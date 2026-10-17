@@ -61,6 +61,7 @@ Undo delete recovers the last deleted view and its unfinished notes while the li
 Save all notes, or Ctrl/Cmd+S in the library, retains every pending note without closing it.
 Export safeguards recognize alternate paths to the active library and protect newer notes.
 Switching away during a drag stops it; completed movement remains available to Undo.
+Zoom honors fine wheel amounts and reverses equal wheel/key steps without accumulating drift away from the limits.
 A selected part has an Actions menu beside its surface, with a corner fallback
 for hidden or off-screen anatomy. Shift+F10 opens it from the focused 3D view.
 [Menu verification](docs/audit/PART_ACTIONS_VERIFICATION.md) records the private
@@ -90,7 +91,7 @@ reference anatomy, with explicit depiction limits; human source and medical revi
 Precise keyboard movement supports 5 mm and 1 mm inspection steps with undo/redo.
 Four separate HRA v1.2 spinal-cord/vertebra studies add 108 source meshes across both
 sexes, without registering them to the original bodies. [Study workspace guide](docs/STUDY_WORKSPACE.md),
-[verification and private packages](docs/audit/SAVED_VIEW_CONTEXT_VERIFICATION.md).
+[verification and private packages](docs/audit/CAMERA_ZOOM_VERIFICATION.md).
 Pathological geometry, validated cutaways and physiological simulation are future work.
 Private Windows/macOS ZIPs are generated locally under dist/. Target-device testing,
 public signing/notarization, and baseline-laptop performance remain open.

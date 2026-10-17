@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "runtime_source_revision": "b30b065b161e601089b017c466dec91c45ff8f04",
+  "before_revision": "e6f8ee32a8820588f242025558225f9040850dcf",
+  "native_references": 7,
+  "native_layout_resolution_combinations": 28,
+  "native_capture_identities": 94,
+  "native_session_independently_checked_absent": true,
+  "python_checks": 68,
+  "mac_content_qa": "passed on development engine; actual Mac execution pending",
+  "linux_release_template_qa": "not rerun; independent popup-template limitation remains open",
+  "files": {
+    "camera-zoom-after.log.txt": {
+      "bytes": 146,
+      "sha256": "a565b61d8c67504070c00bda67a36a69342faf9a51dc2b53985c853a3b91557d"
+    },
+    "camera-zoom-artifact-audit.json": {
+      "bytes": 1346,
+      "sha256": "8f7c41170dffaed67279b48b6923da9e3e2d36086ea9f042994b47870c17e3f2"
+    },
+    "camera-zoom-before.log.txt": {
+      "bytes": 4209,
+      "sha256": "cfe71523395cd7720392033a5daa6b027207ebad579e2c0f9504d4f966e110ab"
+    },
+    "camera-zoom-build-report.json": {
+      "bytes": 4966,
+      "sha256": "207a4af6e1f3d8843e066ad27b5145981ff782bc9cd82c96fd2e810fe4821404"
+    },
+    "camera-zoom-build.log.txt": {
+      "bytes": 9268,
+      "sha256": "cff992002a9d232ff5f347c8e3ff034ef84c9ff1d47d36b348d7fd06a8477765"
+    },
+    "camera-zoom-development-qa.json": {
+      "bytes": 1677,
+      "sha256": "ac2f71ec6c421eae3999b5b03d3b1ff37e4d2b20a62475f8e7d1930ce6c2550f"
+    },
+    "camera-zoom-display.log.txt": {
+      "bytes": 543,
+      "sha256": "94061b445ea12447ca229d1481dc9e4006eeb356bf9e079d5fdc030749817140"
+    },
+    "camera-zoom-keyboard.log.txt": {
+      "bytes": 283,
+      "sha256": "89774879128c9bc663dca6b6d4900a91ed0d53c5fc639aee0289e50beed17739"
+    },
+    "camera-zoom-native-initial-anatomy.log.txt": {
+      "bytes": 443,
+      "sha256": "b5c6ddf9599b82e8bb964b68a42e1317cc9c58e8fccc86f5bcd51a62950b5169"
+    },
+    "camera-zoom-native-replacement-selection.log.txt": {
+      "bytes": 527,
+      "sha256": "a4eeed366fa149499cb807e98e2ac5aca234966d4b205f19265fe27830d4846c"
+    },
+    "camera-zoom-normal-lifecycle.json": {
+      "bytes": 1648,
+      "sha256": "414fba2ca285882a1f0bad957fac189f867cd0b592e2abd0123e5b8efdf0b4f3"
+    },
+    "camera-zoom-python.log.txt": {
+      "bytes": 167,
+      "sha256": "045f548cf61b0fe10e1d9de852fbaa7c838a47ea009157cb480b54bf8eed1874"
+    },
+    "camera-zoom-windows-qa.json": {
+      "bytes": 31493,
+      "sha256": "de78aafa0785a23b360eda855ba658d022968d710cc520b70a086a3fca87cb0c"
+    },
+    "camera-zoom-windows-runtime.log.txt": {
+      "bytes": 12960,
+      "sha256": "9c4efcc59959862aea00d577dc4cbca26c625e2cfcc6ee6f6cb676c3f29546ff"
+    },
+    "camera-zoom-workspace.log.txt": {
+      "bytes": 1169,
+      "sha256": "07954f555be4ba5a7de94eeb62b5a514dca14d2c2ca685669543a16f19406277"
+    }
+  }
+}

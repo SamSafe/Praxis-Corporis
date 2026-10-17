@@ -14,13 +14,13 @@ portable views and four independent spinal source studies.
 
 The generated archives are excluded from Git:
 
-- Windows x64: dist/saved-view-context-improvements/PraxisCorporis-Windows-x64-private.zip
-- Mac Intel/Apple Silicon: dist/saved-view-context-improvements/PraxisCorporis-macOS-universal-private.zip
+- Windows x64: dist/camera-zoom-improvements/PraxisCorporis-Windows-x64-private.zip
+- Mac Intel/Apple Silicon: dist/camera-zoom-improvements/PraxisCorporis-macOS-universal-private.zip
 
 Earlier archives retain their previous source identities and their review-label
-corrections. Use the saved-view-context-improvements build report when verifying the new archives.
-[Saved-view context and package verification](audit/SAVED_VIEW_CONTEXT_VERIFICATION.md)
-records their exact hashes, seven-reference saved-view retrieval/workspace checks, early-close checks,
+corrections. Use the camera-zoom-improvements build report when verifying the new archives.
+[Camera zoom and package verification](audit/CAMERA_ZOOM_VERIFICATION.md)
+records their exact hashes, seven-reference zoom/workspace checks, early-close checks,
 four normal launches and remaining Mac/human limits. The Linux-template qualification
 is recorded separately; it is not a clean passing platform check.
 

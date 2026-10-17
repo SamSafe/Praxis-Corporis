@@ -133,6 +133,12 @@ I/J/K/L move up/left/down/right in camera coordinates; U/O move toward/away. A p
 moves 5 mm, or 1 mm with Shift. Held repeats are ignored and each step supports Undo.
 Assistive-technology and human accessibility acceptance remain open.
 
+Wheel zoom uses the amount reported by the input device, so fine scrolling makes
+smaller changes. Equal opposite wheel amounts or keyboard zoom steps return to
+the same framing before reaching the near/far limits. Pinch uses its reported
+positive scale factor; invalid factors leave the view unchanged. Zoom preserves
+the focus point, anatomy edits and inspection history.
+
 Switching to another app/window or focusing another control stops the current
 pointer drag. A lost mouse release or canceled click also stops it. Your existing
 camera position, selection and anatomy edits remain; Undo still reverses a Move

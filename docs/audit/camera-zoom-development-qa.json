@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "source_revision": "b30b065b161e601089b017c466dec91c45ff8f04",
+  "before_revision": "e6f8ee32a8820588f242025558225f9040850dcf",
+  "before_camera_sha256": "9bad4628543ad62ef7065e49b809f5ecdeacfc2f7702b7cf8edf7f105a9dba87",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": [
+    {
+      "script": "tests/camera_zoom_smoke.gd",
+      "script_sha256": "eb0fcf2b8d19a470732ac16fe03ee6eb6165ff865881d90dbc09961c96dc7390",
+      "log": "camera-zoom-after.log.txt",
+      "log_sha256": "a565b61d8c67504070c00bda67a36a69342faf9a51dc2b53985c853a3b91557d",
+      "success_marker": "Camera zoom failures: 0"
+    },
+    {
+      "script": "tests/zoom_workspace_smoke.gd",
+      "script_sha256": "df10d98ff1955405916384b404adf239637c8ada0d1398d0ad52c380e046c660",
+      "log": "camera-zoom-workspace.log.txt",
+      "log_sha256": "07954f555be4ba5a7de94eeb62b5a514dca14d2c2ca685669543a16f19406277",
+      "success_marker": "Zoom workspace failures: 0"
+    },
+    {
+      "script": "tests/keyboard_workspace_smoke.gd",
+      "script_sha256": "82da8a3e9b0657c6503775d141dd8f49c859fd84ce4d3e447b70dc161fc5bb79",
+      "log": "camera-zoom-keyboard.log.txt",
+      "log_sha256": "89774879128c9bc663dca6b6d4900a91ed0d53c5fc639aee0289e50beed17739",
+      "success_marker": "Keyboard workspace failures: 0"
+    },
+    {
+      "script": "tests/scene_display_smoke.gd",
+      "script_sha256": "cedf93f850b7c5faece1bde97655e3f75d127ddd7a3e1e9ed1e31a65209cb643",
+      "log": "camera-zoom-display.log.txt",
+      "log_sha256": "94061b445ea12447ca229d1481dc9e4006eeb356bf9e079d5fdc030749817140",
+      "success_marker": "Screen-density display failures: 0"
+    }
+  ]
+}

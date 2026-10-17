@@ -110,6 +110,13 @@ stops the current drag without discarding completed edits. A canceled click does
 Start a fresh drag to continue; Undo reverses each completed gesture independently.
 The selected Move setting stays in place.
 
+## Camera zoom
+
+Wheel zoom honors fine scroll amounts where the platform supplies them. Equal
+opposite wheel/key steps return to the same distance away from the zoom limits;
+pinch keeps the same scale behavior. Zoom changes neither anatomy edits nor their
+undo history. Actual mouse/trackpad sensitivity remains part of device trials.
+
 ## Finding anatomy
 
 **Ctrl/Cmd+F** focuses anatomy search and selects its current query. It reveals the
@@ -312,6 +319,8 @@ godot --headless --path . --script tests/spinal_picking_smoke.gd
 godot --headless --path . --script tests/study_content_smoke.gd
 godot --headless --path . --script tests/circulation_route_smoke.gd
 godot --headless --path . --script tests/keyboard_movement_smoke.gd
+godot --headless --path . --script tests/camera_zoom_smoke.gd
+godot --headless --path . --script tests/zoom_workspace_smoke.gd
 godot --headless --path . --script tests/pointer_interruption_smoke.gd
 godot --headless --path . --script tests/pointer_workspace_smoke.gd
 godot --headless --path . --script tests/information_dialog_smoke.gd
@@ -334,7 +343,7 @@ preview. Running it with a desktop display also captures the new screens under
 reconstructed collision vertices with source mesh faces. The exported runtime checks
 portable views/notes, preferences and reversible guide state in disposable files.
 Device trials and qualified medical review remain separate from scripted verification.
-[Verification and current private packages](audit/SAVED_VIEW_CONTEXT_VERIFICATION.md)
+[Verification and current private packages](audit/CAMERA_ZOOM_VERIFICATION.md)
 retain exact build identities, native Windows evidence, saved-view recovery/search/draft
 and deletion-undo checks, study-preserving cancellation and normal-launch reference/window restoration observations. [Draft content verification](audit/DRAFT_CONTENT_VERIFICATION.md)
 records the learning-content review-stage correction and valve-reference checks.
