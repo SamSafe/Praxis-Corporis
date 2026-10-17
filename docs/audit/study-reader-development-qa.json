@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "source_revision": "e5147328076c50582e06cfc19a3aeebbfaf6fbb7",
+  "before_revision": "01974ab1139a0d8559de752325ddc82c200f5ed4",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "python_checks": 77,
+  "checks": [
+    {
+      "script": "tests/study_reader_smoke.gd",
+      "script_sha256": "57f9752b9a73dc9b99a79bbf2b51c910527a7a632a612cdcc2c75a21e3cb576b",
+      "log": "study-reader-development.log.txt",
+      "log_sha256": "5d53455fc35a3fa8aa8e06ca248975aa7a0b2b9bf364c90b3aec6a9b267a9f1b",
+      "success_marker": "Study reader failures: 0"
+    },
+    {
+      "script": "tests/source_fallback_smoke.gd",
+      "script_sha256": "14231f57e9247baf3514902c34ea8a72fbae3b10260132ad2a5b0547e1689e41",
+      "log": "study-reader-sources.log.txt",
+      "log_sha256": "cbeafaf0d9773ee59a3932cc962066410d3f659f3b03f0b740d024081b029bd5",
+      "success_marker": "Source fallback failures: 0"
+    },
+    {
+      "script": "tests/study_navigation_smoke.gd",
+      "script_sha256": "5dcff75f2479620f5933d984dfa528675e0d9bb8e83c8a3aeced39c75e937ef8",
+      "log": "study-reader-navigation.log.txt",
+      "log_sha256": "a4dda267023391adcccafe7cb366e10d7aa3d84cb93ee43ec38e8c1e61b92b86",
+      "success_marker": "Study navigation failures: 0"
+    },
+    {
+      "script": "tests/viewer_smoke.gd",
+      "script_sha256": "1a273a0430745a0f49c5a0640fa89c4faabff0a026d595b80d70cf5bc82bc6ca",
+      "log": "study-reader-geometry.log.txt",
+      "log_sha256": "436139da4c4d4d364b019bad5f8f65c161cdaf7613c94a9ca168ad7b020d4b6f",
+      "success_marker": "Integration failures: 0"
+    }
+  ],
+  "authored_cards_per_hra_reference": 15,
+  "authored_card_references": [
+    "female",
+    "male"
+  ],
+  "text_scales": [
+    1.0,
+    1.3
+  ],
+  "layouts": [
+    "workspace",
+    "expanded"
+  ],
+  "card_reading_contexts": 120,
+  "related_link_transitions": 72,
+  "active_guide_route_reads": 4,
+  "unavailable_separate_references": 5,
+  "hra_missing_card_gate": "Checked using each HRA root selection.",
+  "workspace_activation": "Enter on the actual reading button.",
+  "expanded_activation": "Connected PopupMenu item signal; not OS-generated menu keyboard input.",
+  "clipboard": "Ctrl/Cmd+A selects text; no clipboard read/write."
+}

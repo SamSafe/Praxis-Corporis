@@ -14,13 +14,13 @@ portable views and four independent spinal source studies.
 
 The generated archives are excluded from Git:
 
-- Windows x64: dist/source-link-improvements/PraxisCorporis-Windows-x64-private.zip
-- Mac Intel/Apple Silicon: dist/source-link-improvements/PraxisCorporis-macOS-universal-private.zip
+- Windows x64: dist/study-reader-improvements/PraxisCorporis-Windows-x64-private.zip
+- Mac Intel/Apple Silicon: dist/study-reader-improvements/PraxisCorporis-macOS-universal-private.zip
 
 Earlier archives retain their previous source identities and their review-label
-corrections. Use the source-link-improvements build report when verifying the new archives.
-[Study-link keyboard/fallback and package verification](audit/SOURCE_LINK_VERIFICATION.md)
-records their exact hashes, source-link recovery, seven-reference workspace checks,
+corrections. Use the study-reader-improvements build report when verifying the new archives.
+[Study-card reader and package verification](audit/STUDY_READER_VERIFICATION.md)
+records their exact hashes, selectable study-card reading, seven-reference workspace checks,
 early-close checks, four normal launches and remaining Mac/human limits. The Linux-template qualification
 is recorded separately; it is not a clean passing platform check.
 

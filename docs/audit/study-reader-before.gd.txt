@@ -1,0 +1,45 @@
+extends SceneTree
+const Verification = preload("res://scripts/study_verification.gd")
+func _initialize() -> void:
+ call_deferred("run")
+func run() -> void:
+ var viewer = load("res://scenes/main.tscn").instantiate()
+ root.add_child(viewer)
+ await process_frame
+ while viewer.loading:
+  await process_frame
+ viewer.select_structure("anatomy.heart.valve.mitral")
+ var condition: LinkButton
+ for child in viewer.condition_links.get_children():
+  if child is LinkButton:
+   condition = child
+   break
+ condition.grab_focus()
+ await Verification.movement_key(viewer, KEY_ENTER)
+ var dialog: Window
+ for child in viewer.get_children():
+  if child is Window and child.title.ends_with(" · draft learning text"):
+   dialog = child
+   break
+ print("Condition reading opened: ", dialog != null)
+ if dialog != null:
+  await Verification.coverage_key(dialog, KEY_ESCAPE)
+  await process_frame
+ print("Condition close returns to link: ", condition.has_focus())
+ var related: LinkButton
+ for child in viewer.study_links.get_children():
+  if child is LinkButton and child.tooltip_text == "Select this related structure in the current body.":
+   related = child
+   break
+ print("Related link: ", related.text)
+ related.grab_focus()
+ await Verification.movement_key(viewer, KEY_ENTER)
+ await process_frame
+ var focused = root.gui_get_focus_owner()
+ print("After related selection: ", viewer.model.selected_id, " · focus: ", str(focused))
+ print("Study text focus mode: ", viewer.study_summary.focus_mode)
+ viewer.set_scene_expanded(true)
+ print("Expanded study text visible: ", viewer.study_summary.is_visible_in_tree())
+ viewer.queue_free()
+ await process_frame
+ quit()

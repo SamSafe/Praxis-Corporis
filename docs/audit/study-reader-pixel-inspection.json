@@ -1,0 +1,53 @@
+{
+  "purpose": "Read-only PNG comparison of shared reader text; repeated-image previews can omit unchanged glyphs.",
+  "files": {
+    "study-reader-expanded-windows.png": "33b585fa91adea62947e7e05811e79316f4662fd43918e2d04ce3aad8af8f7c7",
+    "study-reader-workspace-windows.png": "d54864075edc5e9815a45fa849a5013fdfb6aaa0f873aa09cc3bbad7de3b3111"
+  },
+  "regions": {
+    "reference_line": {
+      "box": [
+        268,
+        166,
+        800,
+        188
+      ],
+      "identical": true,
+      "workspace_raw_sha256": "ed0020c02dac778caf2f8d635ffef7cb397b55e6d4097e4f15852dd955d46f30",
+      "expanded_raw_sha256": "ed0020c02dac778caf2f8d635ffef7cb397b55e6d4097e4f15852dd955d46f30"
+    },
+    "function_heading": {
+      "box": [
+        268,
+        271,
+        370,
+        290
+      ],
+      "identical": true,
+      "workspace_raw_sha256": "7a958e720b6fa5de028d6c21af42b7a4ccf848a96bce6cc18a71b31ab5c2ad1c",
+      "expanded_raw_sha256": "7a958e720b6fa5de028d6c21af42b7a4ccf848a96bce6cc18a71b31ab5c2ad1c"
+    },
+    "draft_and_geometry_limits": {
+      "box": [
+        268,
+        333,
+        810,
+        379
+      ],
+      "identical": true,
+      "workspace_raw_sha256": "0f57c11a1a4a02633645e6344196d89095f967a888f9eaf0e33b08d660ac6a72",
+      "expanded_raw_sha256": "0f57c11a1a4a02633645e6344196d89095f967a888f9eaf0e33b08d660ac6a72"
+    },
+    "sources_heading": {
+      "box": [
+        268,
+        398,
+        370,
+        417
+      ],
+      "identical": true,
+      "workspace_raw_sha256": "5bc0d0a705a46a012ca49d276eaa8284b301e6854a2a1032c005abb764c2384c",
+      "expanded_raw_sha256": "5bc0d0a705a46a012ca49d276eaa8284b301e6854a2a1032c005abb764c2384c"
+    }
+  }
+}

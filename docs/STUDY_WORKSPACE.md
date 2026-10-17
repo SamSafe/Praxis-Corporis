@@ -11,6 +11,17 @@ structures in the current body, or open its primary sources in a browser.
 **Source and mesh details** expands the complete technical source record.
 Structures without an authored card say so explicitly.
 
+**Read study card** opens the selected card in a larger, selectable text window,
+with the current reference, structure name, draft/review status and source addresses.
+In expanded anatomy, use **Explore → Read study card**. Page Up/Down scrolls longer
+text; Ctrl/Cmd+A selects the reader text. Close or Escape returns to its opening
+control, keeping anatomy, camera, histories and the study step intact. The reading
+action appears only for an authored card; other references gain no inferred text.
+
+After activating a related-anatomy link, keyboard focus moves to the new card's
+reading action, so Enter can open it without finding the control again.
+
+
 Text and relationships are stored separately from geometry in
 [study_content.json](../content/study_content.json). These are private drafts. Assistant source cross-checks are preliminary; human
 source review and qualified medical review remain pending. General anatomical explanations do
@@ -360,6 +371,7 @@ godot --headless --path . --script tests/zoom_workspace_smoke.gd
 godot --headless --path . --script tests/coverage_keyboard_smoke.gd
 godot --headless --path . --script tests/study_navigation_smoke.gd
 godot --headless --path . --script tests/source_fallback_smoke.gd
+godot --headless --path . --script tests/study_reader_smoke.gd
 godot --headless --path . --script tests/import_preview_smoke.gd
 godot --headless --path . --script tests/unchanged_edits_smoke.gd
 godot --headless --path . --script tests/movement_history_smoke.gd
@@ -387,7 +399,7 @@ preview. Running it with a desktop display also captures the new screens under
 reconstructed collision vertices with source mesh faces. The exported runtime checks
 portable views/notes, preferences and reversible guide state in disposable files.
 Device trials and qualified medical review remain separate from scripted verification.
-[Verification and current private packages](audit/SOURCE_LINK_VERIFICATION.md)
+[Verification and current private packages](audit/STUDY_READER_VERIFICATION.md)
 retain exact build identities, native Windows evidence, saved-view recovery/search/draft
 and deletion-undo checks, study-preserving cancellation and normal-launch reference/window restoration observations. [Draft content verification](audit/DRAFT_CONTENT_VERIFICATION.md)
 records the learning-content review-stage correction and valve-reference checks.

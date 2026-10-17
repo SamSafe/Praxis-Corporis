@@ -77,7 +77,8 @@ Its group list, scrollable inventory and Explore action can be used with the key
 An optional BodyParts3D male bone study adds separately selectable source bones in
 its own unregistered reference. [Source audit and preparation](docs/audit/BODYPARTS3D_FINDINGS.md).
 Fifteen draft heart/lung study cards now include related-structure
-links and primary sources. A six-step Guided chest view includes reversible chamber
+links and primary sources. Read study card opens selectable text and source addresses
+in either anatomy layout. A six-step Guided chest view includes reversible chamber
 separation. Study links support Tab navigation, and a browser-launch failure leaves
 a selectable source address in the app. Study navigation keeps keyboard focus as
 you advance; finishing returns focus to 3D. A sourced Heart ↔ lungs route offers either lung branch, explicit
@@ -100,7 +101,7 @@ Switching Move on or off also requires a fresh gesture.
 A keyboard movement step ends a held drag and keeps the edits independently reversible.
 Four separate HRA v1.2 spinal-cord/vertebra studies add 108 source meshes across both
 sexes, without registering them to the original bodies. [Study workspace guide](docs/STUDY_WORKSPACE.md),
-[verification and private packages](docs/audit/SOURCE_LINK_VERIFICATION.md).
+[verification and private packages](docs/audit/STUDY_READER_VERIFICATION.md).
 Pathological geometry, validated cutaways and physiological simulation are future work.
 Private Windows/macOS ZIPs are generated locally under dist/. Target-device testing,
 public signing/notarization, and baseline-laptop performance remain open.

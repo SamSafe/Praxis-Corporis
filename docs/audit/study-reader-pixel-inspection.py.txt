@@ -1,0 +1,56 @@
+import struct,zlib
+from pathlib import Path
+
+def read_png(path):
+    data=path.read_bytes()
+    assert data[:8]==b'\x89PNG\r\n\x1a\n'
+    pos=8; packed=bytearray()
+    while pos<len(data):
+        length,kind=struct.unpack_from('>I4s',data,pos)
+        chunk=data[pos+8:pos+8+length]
+        if kind==b'IHDR':
+            width,height,depth,color,compression,filtration,interlace=struct.unpack('>IIBBBBB',chunk)
+        elif kind==b'IDAT':
+            packed.extend(chunk)
+        pos+=length+12
+    assert depth==8 and color in [2,6] and interlace==0
+    bpp=3 if color==2 else 4
+    stride=width*bpp
+    raw=zlib.decompress(packed)
+    assert len(raw)==height*(stride+1)
+    previous=bytearray(stride); rows=[]
+    for y in range(height):
+        offset=y*(stride+1); filter_type=raw[offset]
+        row=bytearray(raw[offset+1:offset+1+stride])
+        for x in range(stride):
+            a=row[x-bpp] if x>=bpp else 0
+            b=previous[x]; c=previous[x-bpp] if x>=bpp else 0
+            if filter_type==0: predictor=0
+            elif filter_type==1: predictor=a
+            elif filter_type==2: predictor=b
+            elif filter_type==3: predictor=(a+b)//2
+            elif filter_type==4:
+                p=a+b-c; pa=abs(p-a); pb=abs(p-b); pc=abs(p-c)
+                predictor=a if pa<=pb and pa<=pc else b if pb<=pc else c
+            else: raise ValueError(filter_type)
+            row[x]=(row[x]+predictor)&255
+        rows.append(bytes(row)); previous=row
+    return width,height,bpp,rows
+
+def region(image,bounds):
+    width,height,bpp,rows=image
+    l,t,r,b=bounds
+    return bytes(v for row in rows[t:b] for x in range(l,r) for v in row[x*bpp:x*bpp+3])
+
+import hashlib,json
+base=Path('docs/prototype')
+a=read_png(base/'study-reader-workspace-windows.png')
+b=read_png(base/'study-reader-expanded-windows.png')
+boxes={'reference_line':(268,166,800,188),'function_heading':(268,271,370,290),'draft_and_geometry_limits':(268,333,810,379),'sources_heading':(268,398,370,417)}
+r={'purpose':'Read-only PNG comparison of shared reader text; repeated-image previews can omit unchanged glyphs.','files':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in base.glob('study-reader-*-windows.png')},'regions':{}}
+for name,box in boxes.items():
+ x=region(a,box);y=region(b,box)
+ r['regions'][name]={'box':list(box),'identical':x==y,'workspace_raw_sha256':hashlib.sha256(x).hexdigest(),'expanded_raw_sha256':hashlib.sha256(y).hexdigest()}
+ print(name,x==y)
+assert all(item['identical'] for item in r['regions'].values()),r
+Path('build/qa/study-reader-pixel-inspection.json').write_text(json.dumps(r,indent=2)+'\n')

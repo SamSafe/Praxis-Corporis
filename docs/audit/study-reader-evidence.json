@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "source_revision": "e5147328076c50582e06cfc19a3aeebbfaf6fbb7",
+  "python_checks": 77,
+  "native_references": 7,
+  "native_study_reader_references": [
+    "female",
+    "male",
+    "bodyparts-male-bones-study",
+    "hra-v1-2-female-cord-study",
+    "hra-v1-2-female-vertebrae-study",
+    "hra-v1-2-male-cord-study",
+    "hra-v1-2-male-vertebrae-study"
+  ],
+  "native_authored_card_contexts": 120,
+  "native_related_link_transitions": 72,
+  "native_active_study_reads": 4,
+  "native_capture_identities": 106,
+  "native_normal_launches": 4,
+  "native_early_closes": 2,
+  "native_session_independently_checked_absent": true,
+  "mac_content_qa": "passed on development engine; actual Mac execution pending",
+  "linux_release_template_qa": "not rerun; independent popup-template limitation remains open",
+  "menu_acceptance": "Expanded entry uses connected menu signal; human OS-menu input acceptance pending.",
+  "files": {
+    "study-reader-after.log.txt": {
+      "bytes": 410,
+      "sha256": "aa58b45eef0dfb70601e96d06b4228b5b3c048c6c9e27ab08a26ee4dcd7e9bf1"
+    },
+    "study-reader-artifact-audit.json": {
+      "bytes": 1346,
+      "sha256": "2076cca5535a11a32e7228fcc452949adb6f7ef807f0759a1f1a9c4710978499"
+    },
+    "study-reader-before.gd.txt": {
+      "bytes": 1654,
+      "sha256": "5601839d26ff4b945f97b1679e9792fd47e073706a83283062cdbf38292e7338"
+    },
+    "study-reader-before.log.txt": {
+      "bytes": 391,
+      "sha256": "750dcb8c8a57be7c6cd9d3df9be6393db8325dcb52a813fa9c8a05d781ad9e60"
+    },
+    "study-reader-build-report.json": {
+      "bytes": 5067,
+      "sha256": "6ec0be4b08b1c94e160296d3b094d223a0666cc461908ebadca7282336f5e923"
+    },
+    "study-reader-build.log.txt": {
+      "bytes": 12677,
+      "sha256": "045c50fc4f9c47e8e9a429638087e755d62120f28dd7187fba74556e8fb149ba"
+    },
+    "study-reader-development-qa.json": {
+      "bytes": 2236,
+      "sha256": "e12d364907304bca3ebfb33bddf669964a1c1da20cdc1880cf9c88ed580b0d29"
+    },
+    "study-reader-development.log.txt": {
+      "bytes": 1094,
+      "sha256": "5d53455fc35a3fa8aa8e06ca248975aa7a0b2b9bf364c90b3aec6a9b267a9f1b"
+    },
+    "study-reader-geometry.log.txt": {
+      "bytes": 351,
+      "sha256": "436139da4c4d4d364b019bad5f8f65c161cdaf7613c94a9ca168ad7b020d4b6f"
+    },
+    "study-reader-native-initial-anatomy.log.txt": {
+      "bytes": 443,
+      "sha256": "c69032e63cd3ffeb9f80e8aae57b3b3dcb10c3aacd70d87e1c70532b573b51d6"
+    },
+    "study-reader-native-replacement-selection.log.txt": {
+      "bytes": 526,
+      "sha256": "667a2b4c12f5e4888709549b4bed50f54908d560a9661d36fe4d68749c2b4729"
+    },
+    "study-reader-navigation.log.txt": {
+      "bytes": 334,
+      "sha256": "a4dda267023391adcccafe7cb366e10d7aa3d84cb93ee43ec38e8c1e61b92b86"
+    },
+    "study-reader-normal-lifecycle.json": {
+      "bytes": 1648,
+      "sha256": "414fba2ca285882a1f0bad957fac189f867cd0b592e2abd0123e5b8efdf0b4f3"
+    },
+    "study-reader-pixel-inspection.json": {
+      "bytes": 1687,
+      "sha256": "db438c31840ddb44c0134b9f840170585b67fe4fca12994f438ed50e651c2704"
+    },
+    "study-reader-pixel-inspection.py.txt": {
+      "bytes": 2628,
+      "sha256": "94f59310349310992e597510a727daa8860689b6a84905e39920c88a6efb54e5"
+    },
+    "study-reader-python.log.txt": {
+      "bytes": 176,
+      "sha256": "b3e2970e23489d84e6a9c2c62bc24b9b0b6af6f75a3176198509e0f8f3077309"
+    },
+    "study-reader-sources.log.txt": {
+      "bytes": 331,
+      "sha256": "cbeafaf0d9773ee59a3932cc962066410d3f659f3b03f0b740d024081b029bd5"
+    },
+    "study-reader-windows-qa.json": {
+      "bytes": 36346,
+      "sha256": "9a7380db87169a44717271496731b3ea16ee6223b08cf366e8f168f67da3c52a"
+    },
+    "study-reader-windows-runtime.log.txt": {
+      "bytes": 16826,
+      "sha256": "e305a37994439735f4b976abe9fa7eadfde2b0fca6cf630ef511b9f11158b110"
+    },
+    "../prototype/study-reader-expanded-windows.png": {
+      "bytes": 145538,
+      "sha256": "33b585fa91adea62947e7e05811e79316f4662fd43918e2d04ce3aad8af8f7c7"
+    },
+    "../prototype/study-reader-workspace-windows.png": {
+      "bytes": 275680,
+      "sha256": "d54864075edc5e9815a45fa849a5013fdfb6aaa0f873aa09cc3bbad7de3b3111"
+    }
+  }
+}
