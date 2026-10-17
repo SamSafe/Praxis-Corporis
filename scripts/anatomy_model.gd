@@ -2,6 +2,7 @@ extends Node3D
 ## One physical mesh state per source node, shared by all ancestor selections.
 
 signal state_changed
+signal appearance_changed
 signal load_progress(stage: String, fraction: float)
 
 const SourceIndexExtension = preload("res://scripts/source_index_extension.gd")
@@ -414,6 +415,7 @@ func clear_body() -> void:
 	isolated_id = ""
 	isolated_meshes.clear()
 	body = {}
+	appearance_changed.emit()
 
 
 func bounds_for(id: String) -> AABB:
@@ -484,6 +486,7 @@ func refresh_appearance() -> void:
 				material.emission = Color(0.18, 0.075, 0.015)
 			mesh.set_surface_override_material(surface, material)
 		refresh_original_ghost(index)
+	appearance_changed.emit()
 
 
 func refresh_original_ghost(index: int) -> void:

@@ -35,7 +35,7 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
                  move_mode_boundary: bool = False, nudge_gesture: bool = False,
                  source_fallback: bool = False, study_reader: bool = False,
                  exploration_return: bool = False, text_encoding: bool = False,
-                 draft_export: bool = False) -> dict:
+                 draft_export: bool = False, scene_redraw: bool = False) -> dict:
     if "ERROR:" in log or "Unicode parsing error" in log:
         raise ValueError("The native runtime reported an error")
     if re.search(r'ObjectDB instance.*leaked|^Leaked instance:', log, re.M):
@@ -89,6 +89,9 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
             raise ValueError('Native text encoding check missing: ' + reference)
         if draft_export and f'PASS bundled draft export: {reference}' not in log.splitlines():
             raise ValueError('Native draft export check missing: ' + reference)
+        if scene_redraw and (f'PASS bundled scene redraw: {reference}' not in log.splitlines()
+                             or rendered and not re.search(r'^PASS native scene redraw: ' + re.escape(reference) + r' · ', log, re.M)):
+            raise ValueError('Native scene redraw check missing: ' + reference)
     result = process_observations(log, rendered)
     if information and 'PASS bundled information dialogs: female' not in log.splitlines():
         raise ValueError('Native information dialog check missing')
@@ -142,6 +145,40 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
         result['text_encoding_references'] = list(references)
     if draft_export:
         result['draft_export_references'] = list(references)
+    if scene_redraw:
+        result['scene_redraw_references'] = list(references)
+    return result
+
+
+def scene_redraw_reports(folder: pathlib.Path, output: pathlib.Path, references: dict) -> dict:
+    """Retain pixel-pair and idle-draw evidence from the exact native process."""
+    result = {}
+    for reference in references:
+        source = folder / 'user-data/PraxisCorporisPrototype' / f'scene-render-{reference}.json'
+        report = json.loads(source.read_text(encoding='utf-8'))
+        expected = 79 if reference in ['female', 'male'] else 77
+        frames = report.get('frames', [])
+        if report.get('reference') != reference or len(frames) != expected:
+            raise ValueError('Scene redraw pixel evidence incomplete: ' + reference)
+        for row in frames:
+            if (row.get('identical') is not True or not re.fullmatch(r'[0-9a-f]{64}', row.get('cached_sha256', ''))
+                    or row.get('cached_sha256') != row.get('continuous_sha256')):
+                raise ValueError('Scene redraw pixel pair differs: ' + reference)
+        idle = report.get('idle', [])
+        if len(idle) != 2 or [row.get('mode') for row in idle] != ['continuous', 'cached']:
+            raise ValueError('Scene redraw idle samples incomplete: ' + reference)
+        for row in idle:
+            counts = row.get('global_draw_calls', [])
+            if len(counts) != 12 or any(type(value) is not int or value < 0 for value in counts):
+                raise ValueError('Scene redraw draw counts invalid: ' + reference)
+        if (not re.fullmatch(r'[0-9a-f]{64}', idle[0].get('scene_sha256', ''))
+                or idle[0].get('scene_sha256') != idle[1].get('scene_sha256')
+                or max(idle[1]['global_draw_calls']) >= min(idle[0]['global_draw_calls'])):
+            raise ValueError('Scene redraw idle evidence failed: ' + reference)
+        shutil.copyfile(source, output / source.name)
+        result[reference] = {'file': source.name, 'sha256': sha256(source), 'identical_pixel_pairs': len(frames),
+                             'continuous_minimum_draw_calls': min(idle[0]['global_draw_calls']),
+                             'cached_maximum_draw_calls': max(idle[1]['global_draw_calls'])}
     return result
 
 
@@ -399,6 +436,7 @@ def verify(args: argparse.Namespace) -> dict:
                      and b'PASS bundled text encoding:' in git_bytes(ROOT, build_report['source_revision'], 'scripts/study_verification.gd'))
     draft_export = ('scripts/study_verification.gd' in build_report['source_hashes']
                     and b'PASS bundled draft export:' in git_bytes(ROOT, build_report['source_revision'], 'scripts/study_verification.gd'))
+    scene_redraw = 'scripts/scene_render_verification.gd' in build_report['source_hashes']
     startup_cases = None
     if reference_state:
         bodies = json.loads(git_bytes(ROOT, build_report['source_revision'], 'content/sample_pack.json'))['bodies']
@@ -424,9 +462,10 @@ def verify(args: argparse.Namespace) -> dict:
         if reference_state:
             reference_fixture.parent.mkdir(parents=True, exist_ok=True)
             reference_fixture.write_text(reference_fixture_text, encoding='utf-8')
-        log = run_native(args, windows_session, windows_session + "\\" + executable_relative)
+        log = run_native(args, windows_session, windows_session + "\\" + executable_relative,
+                         process_timeout=300 if scene_redraw else 180)
         result = parse_result(log, args.mode == "rendered", circulation, information, conditions,
-                              find_anatomy, pointer_interruption, saved_view_context, camera_zoom, coverage_keyboard, study_navigation, import_preview, unchanged_edits, movement_history, move_mode_boundary, nudge_gesture, source_fallback, study_reader, exploration_return, text_encoding, draft_export)
+                              find_anatomy, pointer_interruption, saved_view_context, camera_zoom, coverage_keyboard, study_navigation, import_preview, unchanged_edits, movement_history, move_mode_boundary, nudge_gesture, source_fallback, study_reader, exploration_return, text_encoding, draft_export, scene_redraw)
         if result["engine_actual"] != build_report["engine"]:
             raise ValueError("The native runtime differs from the pinned build engine")
         result.update(schema_version=1, recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
@@ -437,6 +476,8 @@ def verify(args: argparse.Namespace) -> dict:
                               "No sustained-performance or maximum-loading-pause claim.", "This checks actual Windows execution; Mac device validation is separate."])
         if args.mode == "rendered":
             result["captures"] = captures(session, args.output, result["references"], circulation, information, conditions, coverage_keyboard, import_preview, source_fallback, study_reader, draft_export)
+            if scene_redraw:
+                result['scene_redraw'] = scene_redraw_reports(session, args.output, result['references'])
         if (session / "engine.log").exists():
             shutil.copyfile(session / "engine.log", args.output / "engine.log")
         if reference_state:

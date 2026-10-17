@@ -3,6 +3,7 @@ extends Node3D
 signal clicked(position: Vector2)
 signal move_started
 signal moved(delta: Vector3)
+signal view_changed
 
 var camera: Camera3D
 var target := Vector3.ZERO
@@ -34,6 +35,7 @@ func update_camera() -> void:
 	var direction := Vector3(sin(yaw) * cos(pitch), sin(pitch), cos(yaw) * cos(pitch))
 	camera.position = target + direction * distance
 	camera.look_at(target, Vector3.UP)
+	view_changed.emit()
 
 
 func focus(bounds: AABB) -> void:

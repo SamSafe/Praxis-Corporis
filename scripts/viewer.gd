@@ -1191,7 +1191,8 @@ func build_interface() -> void:
 	viewport = SubViewport.new()
 	viewport.size = Vector2i(800, 650)
 	viewport.own_world_3d = true
-	viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	# Anatomy and lighting are static between inspection/camera/display changes.
+	viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
 	viewport.msaa_3d = Viewport.MSAA_2X
 	# Keep the 3D world attached while its display moves between workspace and expanded view.
 	add_child(viewport)
@@ -1217,10 +1218,12 @@ func build_interface() -> void:
 	world.add_child(fill)
 	model = AnatomyModel.new()
 	world.add_child(model)
+	model.appearance_changed.connect(request_scene_render)
 	model.state_changed.connect(refresh_details)
 	model.load_progress.connect(on_load_progress)
 	orbit = OrbitCamera.new()
 	world.add_child(orbit)
+	orbit.view_changed.connect(request_scene_render)
 	container.display_changed.connect(on_scene_display_changed)
 	orbit.display_size = container.size
 	orbit.clicked.connect(on_viewport_clicked)
@@ -2041,7 +2044,12 @@ func on_expanded_action(id: int) -> void:
 		scene_container.grab_focus()
 
 
+func request_scene_render() -> void:
+	viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
+
+
 func on_scene_display_changed() -> void:
+	request_scene_render()
 	orbit.display_size = scene_container.size
 	if part_actions:
 		part_actions.close_menu()

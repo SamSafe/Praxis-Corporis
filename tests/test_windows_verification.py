@@ -8,7 +8,7 @@ import unittest
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'tools'))
-from verify_windows import MARKERS, RENDERED_MARKERS, artifact_record, parse_loading_shutdown, parse_result, process_observations, ps_literal
+from verify_windows import MARKERS, RENDERED_MARKERS, artifact_record, parse_loading_shutdown, parse_result, process_observations, ps_literal, scene_redraw_reports
 
 
 def complete_log(rendered=True):
@@ -26,6 +26,46 @@ def complete_log(rendered=True):
 
 
 class WindowsVerificationTests(unittest.TestCase):
+    def test_scene_redraw_requires_all_references_and_native_pixel_evidence(self):
+        for rendered in [False, True]:
+            log = complete_log(rendered)
+            for reference in ['female', 'male', 'bodyparts-male-bones-study']:
+                with self.assertRaisesRegex(ValueError, 'scene redraw'):
+                    parse_result(log, rendered, scene_redraw=True)
+                log += '\nPASS bundled scene redraw: ' + reference
+                if rendered:
+                    with self.assertRaisesRegex(ValueError, 'scene redraw'):
+                        parse_result(log, rendered, scene_redraw=True)
+                    log += '\nPASS native scene redraw: ' + reference + ' · pixel pairs'
+            self.assertEqual(len(parse_result(log, rendered, scene_redraw=True)['scene_redraw_references']), 3)
+
+    def test_scene_redraw_rejects_missing_or_different_pixels_and_idle_counts(self):
+        import json
+        digest = 'a' * 64
+        reference = 'bodyparts-male-bones-study'
+        good = {'reference': reference, 'frames': [dict(identical=True, cached_sha256=digest, continuous_sha256=digest)] * 77,
+                'idle': [dict(mode='continuous', scene_sha256=digest, global_draw_calls=[100] * 12),
+                         dict(mode='cached', scene_sha256=digest, global_draw_calls=[20] * 12)]}
+        with tempfile.TemporaryDirectory() as folder:
+            base = pathlib.Path(folder)
+            source = base / 'user-data/PraxisCorporisPrototype'
+            source.mkdir(parents=True)
+            out = base / 'out'
+            out.mkdir()
+            path = source / f'scene-render-{reference}.json'
+            path.write_text(json.dumps(good))
+            self.assertEqual(scene_redraw_reports(base, out, {reference: 203})[reference]['identical_pixel_pairs'], 77)
+            for corrupt in ['missing', 'different', 'same_work', 'incomplete', 'wrong_reference']:
+                bad = copy.deepcopy(good)
+                if corrupt == 'missing': bad['frames'].pop()
+                if corrupt == 'different': bad['frames'][0]['continuous_sha256'] = 'b' * 64
+                if corrupt == 'same_work': bad['idle'][1]['global_draw_calls'] = [100] * 12
+                if corrupt == 'incomplete': bad['idle'][1]['global_draw_calls'].pop()
+                if corrupt == 'wrong_reference': bad['reference'] = 'male'
+                path.write_text(json.dumps(bad))
+                with self.assertRaisesRegex(ValueError, 'Scene redraw'):
+                    scene_redraw_reports(base, out, {reference: 203})
+
     def test_draft_export_requires_every_reference_and_native_capture(self):
         log = complete_log(False)
         for reference in ['female', 'male', 'bodyparts-male-bones-study']:
