@@ -14,13 +14,14 @@ portable views and four independent spinal source studies.
 
 The generated archives are excluded from Git:
 
-- Windows x64: dist/draft-export-improvements/PraxisCorporis-Windows-x64-private.zip
-- Mac Intel/Apple Silicon: dist/draft-export-improvements/PraxisCorporis-macOS-universal-private.zip
+- Windows x64: dist/idle-render-final/PraxisCorporis-Windows-x64-private.zip
+- Mac Intel/Apple Silicon: dist/idle-render-final/PraxisCorporis-macOS-universal-private.zip
 
 Earlier archives retain their previous source identities and their review-label
-corrections. Use the draft-export-improvements build report when verifying the new archives.
-[Unfinished-note export and package verification](audit/DRAFT_EXPORT_VERIFICATION.md)
-records their exact hashes, unfinished-note backup, seven-reference workspace checks,
+corrections. Use the idle-render-final build report when verifying the new archives.
+[Idle-render and package verification](audit/IDLE_RENDER_VERIFICATION.md)
+records their exact hashes, 543 identical cached/continuous image pairs, idle draw-count
+reductions, unfinished-note backup and seven-reference workspace checks,
 early-close checks, four normal launches and remaining Mac/human limits. The Linux-template qualification
 is recorded separately; it is not a clean passing platform check.
 

@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "source_revision": "9dcc16c5c19435e60da91d1c1abbd64089ce79c9",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "python_checks": 83,
+  "checks": [
+    {
+      "script": "tests/scene_render_smoke.gd",
+      "script_sha256": "2118ef38a5c5493a975e28e658c484a08987af59602b82d3ae978b7a213b38e2",
+      "log": "idle-render-development.log.txt",
+      "log_sha256": "6cb78f5f2c9d8e1cd904c69df7a073a75d15dda401b0e7fcc3511f7d323a67ce",
+      "success_marker": "Scene render failures: 0"
+    },
+    {
+      "script": "tests/scene_display_smoke.gd",
+      "script_sha256": "cedf93f850b7c5faece1bde97655e3f75d127ddd7a3e1e9ed1e31a65209cb643",
+      "log": "idle-render-display.log.txt",
+      "log_sha256": "298eaea93cd5570941476b77dda2f9420f11b5d958f1d136c44ab8ff0e951921",
+      "success_marker": "Screen-density display failures: 0"
+    },
+    {
+      "script": "tests/render_profile_smoke.gd",
+      "script_sha256": "9a2bfaa168c34de64183ef29be31ba9a6473d605ec742e25492ab81b6db964af",
+      "log": "idle-render-profile.log.txt",
+      "log_sha256": "9954d90e0c58cc15e6a464608ee202571b059b3a44872d8e9142b240f817633f",
+      "success_marker": "Render profile configuration failures: 0"
+    }
+  ],
+  "references": 7,
+  "native_pixel_pairs": 543,
+  "negative_control": "Expected ERROR lines: deliberately disconnected camera/model invalidation must be rejected.",
+  "software_probe": "Pre-change source; forced draws; software renderer. JSON pixels_sha256 hashes hex-encoded pixel bytes; PNG file identities are retained separately."
+}

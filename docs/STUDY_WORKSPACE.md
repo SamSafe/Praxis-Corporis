@@ -294,6 +294,12 @@ Anatomy snapshots keep their own label settings; restoring a view does not repla
 the stored device defaults. Damaged preferences fall back to defaults. QA uses
 disposable preference paths and does not read or alter the user's preferences.
 
+While the anatomy is still, the viewer reuses its last 3D frame. Camera movement,
+selection, inspection edits and display changes request a fresh frame. This reduces
+repeated rendering while reading and retains the selected scene resolution.
+[Idle-render verification](audit/IDLE_RENDER_VERIFICATION.md) records pixel comparisons
+and draw counts. Battery life and representative-laptop performance remain unmeasured.
+
 Normal desktop launches also remember the windowed client size and maximized state
 on a clean close, in `user://window-state.json`. Reopening centers the window on the
 current display and bounds the saved size to its usable area while retaining the
@@ -417,7 +423,7 @@ preview. Running it with a desktop display also captures the new screens under
 reconstructed collision vertices with source mesh faces. The exported runtime checks
 portable views/notes, preferences and reversible guide state in disposable files.
 Device trials and qualified medical review remain separate from scripted verification.
-[Verification and current private packages](audit/DRAFT_EXPORT_VERIFICATION.md)
+[Verification and current private packages](audit/IDLE_RENDER_VERIFICATION.md)
 retain exact build identities, native Windows evidence, saved-view recovery/search/draft
 and deletion-undo checks, study-preserving cancellation and normal-launch reference/window restoration observations. [Draft content verification](audit/DRAFT_CONTENT_VERIFICATION.md)
 records the learning-content review-stage correction and valve-reference checks.

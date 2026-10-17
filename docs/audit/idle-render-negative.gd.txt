@@ -1,0 +1,24 @@
+extends SceneTree
+
+const Verification = preload("res://scripts/scene_render_verification.gd")
+
+func _initialize() -> void:
+	call_deferred("run")
+
+func run() -> void:
+	var viewer = load("res://scenes/main.tscn").instantiate()
+	root.add_child(viewer)
+	await process_frame
+	while viewer.loading:
+		await process_frame
+	var report := {"frames": []}
+	viewer.orbit.view_changed.disconnect(viewer.request_scene_render)
+	var camera_rejected := not await Verification.step(viewer, func(): viewer.orbit.keyboard_orbit(Vector2.RIGHT), "negative missing camera invalidation", false, report)
+	viewer.orbit.view_changed.connect(viewer.request_scene_render)
+	viewer.model.appearance_changed.disconnect(viewer.request_scene_render)
+	var model_rejected := not await Verification.step(viewer, func(): viewer.model.select("anatomy.heart"), "negative missing appearance invalidation", false, report)
+	viewer.model.appearance_changed.connect(viewer.request_scene_render)
+	viewer.queue_free()
+	await process_frame
+	print("Negative redraw controls rejected: ", camera_rejected and model_rejected)
+	quit(0 if camera_rejected and model_rejected else 1)

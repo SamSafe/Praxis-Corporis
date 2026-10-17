@@ -86,7 +86,8 @@ coverage gaps and exact starting-view restoration. Saved views and notes can be 
 preview that supports keyboard reading and text selection. Damaged text encoding is
 rejected before it can alter saved notes. Export also includes unfinished notes
 without saving or discarding them, including when newer library data blocks Save. Text size, panel layout,
-rendering quality and label preferences are retained.
+rendering quality and label preferences are retained. Unchanged anatomy reuses its last
+3D frame while you read; camera, inspection and display changes request a fresh frame.
 Normal launches also remember window size and maximized state, with size bounds
 for the current display.
 They reopen the last successfully loaded reference after a normal close; saved
@@ -104,7 +105,7 @@ Switching Move on or off also requires a fresh gesture.
 A keyboard movement step ends a held drag and keeps the edits independently reversible.
 Four separate HRA v1.2 spinal-cord/vertebra studies add 108 source meshes across both
 sexes, without registering them to the original bodies. [Study workspace guide](docs/STUDY_WORKSPACE.md),
-[verification and private packages](docs/audit/DRAFT_EXPORT_VERIFICATION.md).
+[verification and private packages](docs/audit/IDLE_RENDER_VERIFICATION.md).
 Pathological geometry, validated cutaways and physiological simulation are future work.
 Private Windows/macOS ZIPs are generated locally under dist/. Target-device testing,
 public signing/notarization, and baseline-laptop performance remain open.

@@ -400,9 +400,16 @@ text is selected, preserving the current anatomy view.
 
 ## Verification
 
+Static anatomy reuses its last rendered frame until the camera, model appearance
+or display changes. Keep those invalidation paths complete when adding controls;
+animated materials or geometry would require a corresponding rendering policy.
+The redraw check compares cached images with continuous rendering on the native
+Windows build and checks the event paths headlessly across all seven references.
+
 ```sh
 python3 tools/fetch_assets.py --verify-only
 python3 -m unittest discover -s tests -v
+godot --headless --path . --script tests/scene_render_smoke.gd
 godot --headless --path . --script tests/viewer_smoke.gd
 godot --headless --path . --script tests/exploration_smoke.gd
 godot --headless --path . --script tests/part_inspection_smoke.gd

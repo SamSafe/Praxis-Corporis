@@ -1,0 +1,49 @@
+extends SceneTree
+
+func _initialize() -> void:
+	call_deferred("run")
+
+func sample(viewer, label: String) -> Dictionary:
+	print("Starting sample ", label, " visible=", root.visible, " drawable=", DisplayServer.window_can_draw())
+	for index in range(3):
+		await process_frame
+		RenderingServer.force_draw()
+	var calls: Array[int] = []
+	var objects: Array[int] = []
+	var intervals: Array[float] = []
+	var previous := Time.get_ticks_usec()
+	for index in range(12):
+		await process_frame
+		RenderingServer.force_draw()
+		var now := Time.get_ticks_usec()
+		intervals.append((now - previous) / 1000.0)
+		previous = now
+		calls.append(RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_TOTAL_DRAW_CALLS_IN_FRAME))
+		objects.append(RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_TOTAL_OBJECTS_IN_FRAME))
+	var picture: Image = viewer.viewport.get_texture().get_image()
+	picture.save_png("user://idle-probe-" + label + ".png")
+	return {"label": label, "draw_calls": calls, "objects": objects, "intervals_ms": intervals,
+		"pixels_sha256": picture.get_data().hex_encode().sha256_text(), "size": [picture.get_width(), picture.get_height()],
+		"focused_at_end": root.has_focus()}
+
+func run() -> void:
+	root.size = Vector2i(1440, 900)
+	root.show()
+	var viewer = load("res://scenes/main.tscn").instantiate()
+	root.add_child(viewer)
+	while viewer.model.body.is_empty() or viewer.loading:
+		await process_frame
+	print("Probe reference loaded")
+	var results := []
+	results.append(await sample(viewer, "always"))
+	viewer.viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
+	results.append(await sample(viewer, "cached"))
+	viewer.viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	results.append(await sample(viewer, "always-again"))
+	var file := FileAccess.open("user://idle-probe.json", FileAccess.WRITE)
+	file.store_string(JSON.stringify({"samples": results, "engine": Engine.get_version_info(), "reference": viewer.model.body.id}, "\t"))
+	file.close()
+	viewer.queue_free()
+	await process_frame
+	print("PASS idle render probe")
+	quit()

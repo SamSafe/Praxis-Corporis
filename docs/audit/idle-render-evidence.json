@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "source_revision": "9dcc16c5c19435e60da91d1c1abbd64089ce79c9",
+  "python_checks": 83,
+  "native_references": 7,
+  "native_pixel_pairs": 543,
+  "native_capture_identities": 107,
+  "native_early_closes": 2,
+  "native_session_independently_checked_absent": true,
+  "mac_content_qa": "Passed on development engine; actual Mac execution pending.",
+  "linux_release_template": "Not rerun; popup-template qualification remains open.",
+  "performance_limits": "Draw-count reduction on static scenes, not GPU time, energy, battery life or representative-hardware validation.",
+  "scene_redraw": {
+    "female": {
+      "file": "scene-render-female.json",
+      "sha256": "82f1526522e0e47bfe2e2ec22b4c2c9ea31a21924347d0ce62be66bd1cf4a11f",
+      "identical_pixel_pairs": 79,
+      "continuous_minimum_draw_calls": 314,
+      "cached_maximum_draw_calls": 175
+    },
+    "male": {
+      "file": "scene-render-male.json",
+      "sha256": "d508d10102d846284032697befca448fcb2e6e02dea6b721d049e3e0138300e1",
+      "identical_pixel_pairs": 79,
+      "continuous_minimum_draw_calls": 346,
+      "cached_maximum_draw_calls": 177
+    },
+    "bodyparts-male-bones-study": {
+      "file": "scene-render-bodyparts-male-bones-study.json",
+      "sha256": "11e5c47690ecd456db0fccb682ee65a96a6af091c9edb4a54b22ac2ac3bc03e8",
+      "identical_pixel_pairs": 77,
+      "continuous_minimum_draw_calls": 579,
+      "cached_maximum_draw_calls": 173
+    },
+    "hra-v1-2-female-cord-study": {
+      "file": "scene-render-hra-v1-2-female-cord-study.json",
+      "sha256": "6a089090f852c3c860ec50dd3933b5aa746af61fcc5c74e155295801d6751b7a",
+      "identical_pixel_pairs": 77,
+      "continuous_minimum_draw_calls": 229,
+      "cached_maximum_draw_calls": 171
+    },
+    "hra-v1-2-female-vertebrae-study": {
+      "file": "scene-render-hra-v1-2-female-vertebrae-study.json",
+      "sha256": "0668996e6ddd802a82e24757b630d901541ba46cf0eb0e9824600d98331551bd",
+      "identical_pixel_pairs": 77,
+      "continuous_minimum_draw_calls": 221,
+      "cached_maximum_draw_calls": 171
+    },
+    "hra-v1-2-male-cord-study": {
+      "file": "scene-render-hra-v1-2-male-cord-study.json",
+      "sha256": "070d25ce20074148758d2bd7d8c9fe90e5d8574510234b273ede56690aac7ff1",
+      "identical_pixel_pairs": 77,
+      "continuous_minimum_draw_calls": 231,
+      "cached_maximum_draw_calls": 171
+    },
+    "hra-v1-2-male-vertebrae-study": {
+      "file": "scene-render-hra-v1-2-male-vertebrae-study.json",
+      "sha256": "aefcb64e84623bd7e6da339767b9a73562fa56d837724ec7d210c041897a1c9a",
+      "identical_pixel_pairs": 77,
+      "continuous_minimum_draw_calls": 219,
+      "cached_maximum_draw_calls": 171
+    }
+  },
+  "files": {
+    "idle-render-artifact-audit.json": {
+      "bytes": 1346,
+      "sha256": "40cef97eef99dc0b0d5b697bbcec30016dc3108179174afc2c51228eedc6178d"
+    },
+    "idle-render-build-report.json": {
+      "bytes": 5179,
+      "sha256": "e98a067c804b9284220abf15a8a3e273057d86e3d87a3baf10b2b23272305977"
+    },
+    "idle-render-build.log.txt": {
+      "bytes": 14070,
+      "sha256": "98097cc053682b59f7796e2a5bf5b2ca5437e74c663c8fb1e9c6f91b1f8de8d7"
+    },
+    "idle-render-development-qa.json": {
+      "bytes": 1550,
+      "sha256": "7690508c5ff295d573e6bf6b75e9f32003e779da58d7062dd7537798fed0fb4f"
+    },
+    "idle-render-development.log.txt": {
+      "bytes": 1094,
+      "sha256": "6cb78f5f2c9d8e1cd904c69df7a073a75d15dda401b0e7fcc3511f7d323a67ce"
+    },
+    "idle-render-display.log.txt": {
+      "bytes": 543,
+      "sha256": "298eaea93cd5570941476b77dda2f9420f11b5d958f1d136c44ab8ff0e951921"
+    },
+    "idle-render-native-initial-anatomy.log.txt": {
+      "bytes": 443,
+      "sha256": "bcec533969375b8dc1a8cc3b7090233269e2ea915b354671229d94b337aa619b"
+    },
+    "idle-render-native-replacement-selection.log.txt": {
+      "bytes": 527,
+      "sha256": "7fbca914640538cdb9053d03681f10d78fb47279845bde649f95bedd292b8267"
+    },
+    "idle-render-negative.gd.txt": {
+      "bytes": 1128,
+      "sha256": "a81f83219b045fe40d4881cbe4883d14d5e7702dab0d5786a870134d0c7af845"
+    },
+    "idle-render-negative.log.txt": {
+      "bytes": 815,
+      "sha256": "81c4b1d112086bed76a69a4007fe23eaa3439efb826e01fc6478f1b1107cf44e"
+    },
+    "idle-render-normal-lifecycle.json": {
+      "bytes": 1648,
+      "sha256": "414fba2ca285882a1f0bad957fac189f867cd0b592e2abd0123e5b8efdf0b4f3"
+    },
+    "idle-render-normal-lifecycle.log.txt": {
+      "bytes": 1092,
+      "sha256": "59a6e7d396157ac834fa1569cc96f0b4a53453c00220a9d1b8a24f59c9ca6bb3"
+    },
+    "idle-render-profile.log.txt": {
+      "bytes": 114,
+      "sha256": "9954d90e0c58cc15e6a464608ee202571b059b3a44872d8e9142b240f817633f"
+    },
+    "idle-render-python.log.txt": {
+      "bytes": 14894,
+      "sha256": "563861d73ced4c4b8e626a07180fbaa52c013fa39252c2ec1478a12935019025"
+    },
+    "idle-render-scene-render-bodyparts-male-bones-study.json": {
+      "bytes": 26573,
+      "sha256": "11e5c47690ecd456db0fccb682ee65a96a6af091c9edb4a54b22ac2ac3bc03e8"
+    },
+    "idle-render-scene-render-female.json": {
+      "bytes": 27237,
+      "sha256": "82f1526522e0e47bfe2e2ec22b4c2c9ea31a21924347d0ce62be66bd1cf4a11f"
+    },
+    "idle-render-scene-render-hra-v1-2-female-cord-study.json": {
+      "bytes": 26573,
+      "sha256": "6a089090f852c3c860ec50dd3933b5aa746af61fcc5c74e155295801d6751b7a"
+    },
+    "idle-render-scene-render-hra-v1-2-female-vertebrae-study.json": {
+      "bytes": 26578,
+      "sha256": "0668996e6ddd802a82e24757b630d901541ba46cf0eb0e9824600d98331551bd"
+    },
+    "idle-render-scene-render-hra-v1-2-male-cord-study.json": {
+      "bytes": 26571,
+      "sha256": "070d25ce20074148758d2bd7d8c9fe90e5d8574510234b273ede56690aac7ff1"
+    },
+    "idle-render-scene-render-hra-v1-2-male-vertebrae-study.json": {
+      "bytes": 26576,
+      "sha256": "aefcb64e84623bd7e6da339767b9a73562fa56d837724ec7d210c041897a1c9a"
+    },
+    "idle-render-scene-render-male.json": {
+      "bytes": 27235,
+      "sha256": "d508d10102d846284032697befca448fcb2e6e02dea6b721d049e3e0138300e1"
+    },
+    "idle-render-software-always-again.png": {
+      "bytes": 70822,
+      "sha256": "3117a595413f80e040c8ef7961572d1ded0dd9453c2a6eab7b08cb79c52514ea"
+    },
+    "idle-render-software-always.png": {
+      "bytes": 70822,
+      "sha256": "3117a595413f80e040c8ef7961572d1ded0dd9453c2a6eab7b08cb79c52514ea"
+    },
+    "idle-render-software-cached.png": {
+      "bytes": 70822,
+      "sha256": "3117a595413f80e040c8ef7961572d1ded0dd9453c2a6eab7b08cb79c52514ea"
+    },
+    "idle-render-software-probe.gd.txt": {
+      "bytes": 2074,
+      "sha256": "b357440819a407803355c69a140b45d66332ed4d66b82cb13b8417a9a9b4ea6b"
+    },
+    "idle-render-software.json": {
+      "bytes": 2199,
+      "sha256": "21fd6ed90537421977499a399139c076c2603336e6c73ce955fe46263ef3c83b"
+    },
+    "idle-render-software.log.txt": {
+      "bytes": 657,
+      "sha256": "71b4aa3eb20b472d9249d40af942e1c0569a6e04eb60b44fbb773ed05e75ad78"
+    },
+    "idle-render-windows-qa.json": {
+      "bytes": 39629,
+      "sha256": "8352a3e17165506154393989ea378fa57ac88bc2e63a7443a89f7da39fb31cf6"
+    },
+    "idle-render-windows-runtime.log.txt": {
+      "bytes": 18947,
+      "sha256": "3ae50e5872d4086333028cfe3fe86d9aebaecf8765c0946a98aec6912d6ac889"
+    },
+    "../prototype/idle-render-chest-windows.png": {
+      "bytes": 330320,
+      "sha256": "d11971255bc691b3aa978eac9168159fd672e02530323c5702baad56a129cf63"
+    }
+  },
+  "native_normal_launches": 4
+}
