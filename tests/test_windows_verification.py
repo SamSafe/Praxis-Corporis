@@ -26,6 +26,15 @@ def complete_log(rendered=True):
 
 
 class WindowsVerificationTests(unittest.TestCase):
+    def test_exploration_return_requires_all_reference_focus_checks(self):
+        log = complete_log(False)
+        for reference in ['female', 'male', 'bodyparts-male-bones-study']:
+            with self.assertRaisesRegex(ValueError, 'exploration return'):
+                parse_result(log, False, exploration_return=True)
+            log += '\nPASS bundled exploration return: ' + reference
+        self.assertEqual(parse_result(log, False, exploration_return=True)['exploration_return_references'],
+                         ['female', 'male', 'bodyparts-male-bones-study'])
+
     def test_study_reader_requires_all_reference_gates_and_native_capture(self):
         log = complete_log(False)
         for reference in ['female', 'male', 'bodyparts-male-bones-study']:

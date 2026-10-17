@@ -5,6 +5,137 @@ const SavedViews = preload("res://scripts/saved_views.gd")
 const Preferences = preload("res://scripts/viewer_preferences.gd")
 
 
+static func verify_exploration_return(viewer: Control) -> bool:
+	var before: Dictionary = viewer.export_view_state().duplicate(true)
+	var undo: Array = viewer.model.undo_stack.duplicate(true)
+	var redo: Array = viewer.model.redo_stack.duplicate(true)
+	var back: Array = viewer.back_views.duplicate(true)
+	var forward: Array = viewer.forward_views.duplicate(true)
+	var preferences: Dictionary = viewer.preference_state()
+	var expanded: bool = viewer.scene_expanded
+	var moving: bool = viewer.orbit.move_mode
+	var old_views: String = viewer.views_path
+	var old_save: String = viewer.save_path
+	var prefix := "user://exploration-return-" + Crypto.new().generate_random_bytes(16).hex_encode()
+	viewer.views_path = prefix + "-views.json"
+	viewer.save_path = prefix + "-legacy.json"
+	var library := SavedViews.new()
+	library.path = viewer.views_path
+	var valid := library.load_library().is_empty()
+	valid = library.add_view("Return to anatomy", before).is_empty() and valid
+	var file := FileAccess.open(viewer.save_path, FileAccess.WRITE)
+	if file == null:
+		valid = false
+	else:
+		file.store_string(JSON.stringify(before, "\t", true, true))
+		file.close()
+	var views_hash := FileAccess.get_sha256(viewer.views_path)
+	var legacy_hash := FileAccess.get_sha256(viewer.save_path)
+	for layout in [false, true]:
+		viewer.set_scene_expanded(layout)
+		for scale in [1.0, 1.3]:
+			var settings := preferences.duplicate(true)
+			settings.text_scale = scale
+			viewer.apply_preferences(settings)
+			for action in ["coverage", "named", "legacy"]:
+				var during: Dictionary = viewer.export_view_state().duplicate(true)
+				var opener: Control = viewer.expanded_menu
+				if not layout:
+					for button in viewer.reference_buttons:
+						if button.text == ("Coverage" if action == "coverage" else "Saved views"):
+							opener = button
+				opener.grab_focus()
+				var canceled: Window = viewer.show_coverage() if action == "coverage" else viewer.show_saved_views()
+				await coverage_key(canceled, KEY_ESCAPE)
+				await viewer.get_tree().process_frame
+				valid = valid and not is_instance_valid(canceled) and opener.has_focus() and viewer.export_view_state() == during
+				var dialog: Window = viewer.show_coverage() if action == "coverage" else viewer.show_saved_views()
+				var target := ""
+				if action == "coverage":
+					for index in dialog.notes.systems.size():
+						var id: String = dialog.notes.systems[index].roots[viewer.model.body.id]
+						if not dialog.structure_for(viewer.model.body.id, id).is_empty():
+							dialog.show_system(index)
+							target = id
+							break
+					valid = valid and not target.is_empty() and not dialog.explore_button.disabled
+					dialog.explore_button.grab_focus()
+				elif action == "named":
+					dialog.view_list.select(0)
+					dialog.select_entry(0)
+					dialog.restore_button.grab_focus()
+				else:
+					var button: Button
+					for child in dialog.find_children("*", "Button", true, false):
+						if child.text == "Restore previous quick save":
+							button = child
+					valid = valid and button != null
+					if button != null:
+						button.grab_focus()
+				await coverage_key(dialog, KEY_ENTER)
+				await viewer.get_tree().process_frame
+				valid = valid and not is_instance_valid(dialog) and viewer.scene_container.has_focus() and viewer.scene_expanded == layout
+				if action == "coverage":
+					valid = valid and viewer.model.selected_id == target and viewer.model.export_state() == during.changes
+				else:
+					valid = valid and SavedViews.same_snapshot(viewer.export_view_state(), before)
+				valid = valid and viewer.model.undo_stack == undo and viewer.model.redo_stack == redo
+				var camera: Dictionary = viewer.orbit.export_state().duplicate(true)
+				var anatomy: Dictionary = viewer.model.export_state().duplicate(true)
+				await movement_key(viewer, KEY_RIGHT)
+				valid = valid and viewer.orbit.export_state() != camera and viewer.model.export_state() == anatomy and viewer.model.undo_stack == undo and viewer.model.redo_stack == redo
+				valid = valid and FileAccess.get_sha256(viewer.views_path) == views_hash and FileAccess.get_sha256(viewer.save_path) == legacy_hash
+	if viewer.model.body.id == "female":
+		viewer.set_scene_expanded(false)
+		var saved_note := ""
+		for choice in ["save", "discard"]:
+			for button in viewer.reference_buttons:
+				if button.text == "Saved views":
+					button.grab_focus()
+			var dialog: Window = viewer.show_saved_views()
+			dialog.view_list.select(0)
+			dialog.select_entry(0)
+			dialog.notes_input.text = "Return-focus note · " + choice
+			dialog.restore_button.grab_focus()
+			await coverage_key(dialog, KEY_ENTER)
+			var prompt: ConfirmationDialog = dialog.unsaved_dialog
+			valid = valid and is_instance_valid(prompt) and prompt.visible
+			if is_instance_valid(prompt):
+				if choice == "save":
+					saved_note = dialog.notes_input.text
+					prompt.get_ok_button().grab_focus()
+					await coverage_key(prompt, KEY_ENTER)
+				else:
+					prompt.custom_action.emit("discard")
+					await viewer.get_tree().process_frame
+			await viewer.get_tree().process_frame
+			valid = valid and not is_instance_valid(dialog) and viewer.scene_container.has_focus() and SavedViews.same_snapshot(viewer.export_view_state(), before)
+			var result := library.read_file(viewer.views_path)
+			valid = result.error.is_empty() and result.entries.size() == 1 and result.entries[0].notes == saved_note and SavedViews.same_snapshot(result.entries[0].state, before) and valid
+			valid = valid and viewer.model.undo_stack == undo and viewer.model.redo_stack == redo and FileAccess.get_sha256(viewer.save_path) == legacy_hash
+	valid = await viewer.restore_view_state(before) and valid
+	viewer.model.undo_stack = undo.duplicate(true)
+	viewer.model.redo_stack = redo.duplicate(true)
+	viewer.back_views = back.duplicate(true)
+	viewer.forward_views = forward.duplicate(true)
+	viewer.apply_preferences(preferences)
+	viewer.set_scene_expanded(expanded)
+	viewer.move_button.button_pressed = moving
+	viewer.orbit.move_mode = moving
+	viewer.refresh_details()
+	for suffix in ["-views.json", "-views.json.bak", "-legacy.json"]:
+		if FileAccess.file_exists(prefix + suffix):
+			DirAccess.remove_absolute(prefix + suffix)
+	viewer.views_path = old_views
+	viewer.save_path = old_save
+	valid = valid and viewer.export_view_state() == before
+	if valid:
+		print("PASS bundled exploration return: ", viewer.model.body.id)
+	else:
+		push_error("Coverage or saved-view restoration lost anatomy focus/history: " + str(viewer.model.body.id))
+	return valid
+
+
 static func study_reader_dialog(viewer: Control) -> Window:
 	for child in viewer.get_children():
 		if child is Window and child.title.ends_with(" · draft study card") and child.visible:
@@ -1238,6 +1369,7 @@ static func run(viewer: Control, rendered: bool) -> bool:
 	valid = await verify_move_mode_boundary(viewer) and valid
 	valid = await verify_nudge_gesture(viewer) and valid
 	valid = await verify_study_reader(viewer, rendered) and valid
+	valid = await verify_exploration_return(viewer) and valid
 	if viewer.model.structures.has("anatomy.heart"):
 		valid = await verify_source_fallback(viewer, rendered) and valid
 		valid = await verify_study_navigation(viewer) and valid

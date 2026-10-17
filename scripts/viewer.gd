@@ -2839,7 +2839,8 @@ func load_view() -> void:
 	if not parsed is Dictionary:
 		status.text = "Saved view is not valid JSON."
 		return
-	await restore_view_state(parsed)
+	if await restore_view_state(parsed):
+		scene_container.grab_focus.call_deferred()
 
 
 func validate_view_state(state: Dictionary) -> String:
@@ -2942,7 +2943,8 @@ func show_saved_views() -> Window:
 	browser.legacy_available = FileAccess.file_exists(save_path)
 	browser.restore_requested.connect(func(state: Dictionary, view_name: String):
 		if await restore_view_state(state):
-			status.text = "Restored “" + view_name + "”")
+			status.text = "Restored “" + view_name + "”"
+			scene_container.grab_focus.call_deferred())
 	browser.legacy_requested.connect(load_view)
 	add_child(browser)
 	scale_text(browser)
@@ -3009,6 +3011,13 @@ func show_sources() -> Window:
 	return dialog
 
 
+func explore_coverage_group(id: String) -> void:
+	if loading or not model.structures.has(id):
+		return
+	select_structure(id)
+	scene_container.grab_focus.call_deferred()
+
+
 func show_coverage() -> Window:
 	if loading or model.body.is_empty():
 		return null
@@ -3022,7 +3031,7 @@ func show_coverage() -> Window:
 		browser.notes = model.body.coverage_notes
 	browser.body_id = str(model.body.id)
 	browser.theme = theme
-	browser.explore_requested.connect(select_structure)
+	browser.explore_requested.connect(explore_coverage_group)
 	add_child(browser)
 	browser.open(Vector2i(940, 620))
 	return browser

@@ -33,7 +33,8 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
                  study_navigation: bool = False, import_preview: bool = False,
                  unchanged_edits: bool = False, movement_history: bool = False,
                  move_mode_boundary: bool = False, nudge_gesture: bool = False,
-                 source_fallback: bool = False, study_reader: bool = False) -> dict:
+                 source_fallback: bool = False, study_reader: bool = False,
+                 exploration_return: bool = False) -> dict:
     if "ERROR:" in log:
         raise ValueError("The native runtime reported an error")
     if re.search(r'ObjectDB instance.*leaked|^Leaked instance:', log, re.M):
@@ -81,6 +82,8 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
             raise ValueError('Native source launch fallback check missing: ' + reference)
         if study_reader and f'PASS bundled study reader: {reference}' not in log.splitlines():
             raise ValueError('Native study reader check missing: ' + reference)
+        if exploration_return and f'PASS bundled exploration return: {reference}' not in log.splitlines():
+            raise ValueError('Native exploration return check missing: ' + reference)
     result = process_observations(log, rendered)
     if information and 'PASS bundled information dialogs: female' not in log.splitlines():
         raise ValueError('Native information dialog check missing')
@@ -126,6 +129,8 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
         result['source_fallback_references'] = [reference for reference in references if reference in ['female', 'male']]
     if study_reader:
         result['study_reader_references'] = list(references)
+    if exploration_return:
+        result['exploration_return_references'] = list(references)
     return result
 
 
@@ -375,6 +380,8 @@ def verify(args: argparse.Namespace) -> dict:
                        and b'PASS bundled source fallback:' in git_bytes(ROOT, build_report['source_revision'], 'scripts/study_verification.gd'))
     study_reader = ('scripts/study_verification.gd' in build_report['source_hashes']
                     and b'PASS bundled study reader:' in git_bytes(ROOT, build_report['source_revision'], 'scripts/study_verification.gd'))
+    exploration_return = ('scripts/study_verification.gd' in build_report['source_hashes']
+                          and b'PASS bundled exploration return:' in git_bytes(ROOT, build_report['source_revision'], 'scripts/study_verification.gd'))
     startup_cases = None
     if reference_state:
         bodies = json.loads(git_bytes(ROOT, build_report['source_revision'], 'content/sample_pack.json'))['bodies']
@@ -402,7 +409,7 @@ def verify(args: argparse.Namespace) -> dict:
             reference_fixture.write_text(reference_fixture_text, encoding='utf-8')
         log = run_native(args, windows_session, windows_session + "\\" + executable_relative)
         result = parse_result(log, args.mode == "rendered", circulation, information, conditions,
-                              find_anatomy, pointer_interruption, saved_view_context, camera_zoom, coverage_keyboard, study_navigation, import_preview, unchanged_edits, movement_history, move_mode_boundary, nudge_gesture, source_fallback, study_reader)
+                              find_anatomy, pointer_interruption, saved_view_context, camera_zoom, coverage_keyboard, study_navigation, import_preview, unchanged_edits, movement_history, move_mode_boundary, nudge_gesture, source_fallback, study_reader, exploration_return)
         if result["engine_actual"] != build_report["engine"]:
             raise ValueError("The native runtime differs from the pinned build engine")
         result.update(schema_version=1, recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
