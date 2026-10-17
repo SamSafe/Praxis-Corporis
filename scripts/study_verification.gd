@@ -5,6 +5,87 @@ const SavedViews = preload("res://scripts/saved_views.gd")
 const Preferences = preload("res://scripts/viewer_preferences.gd")
 
 
+static func verify_nudge_gesture(viewer: Control) -> bool:
+	var before: Dictionary = viewer.export_view_state().duplicate(true)
+	var undo: Array = viewer.model.undo_stack.duplicate(true)
+	var redo: Array = viewer.model.redo_stack.duplicate(true)
+	var back: Array = viewer.back_views.duplicate(true)
+	var forward: Array = viewer.forward_views.duplicate(true)
+	var expanded: bool = viewer.scene_expanded
+	var quality: float = viewer.scene_container.resolution_fraction
+	var moving: bool = viewer.orbit.move_mode
+	var leaf: String = viewer.model.body.get("qa_leaf_id", "anatomy.heart.valve.mitral")
+	if viewer.model.body.id == "bodyparts-male-bones-study":
+		leaf = "source.bodyparts3d-v4-male.FJ3365"
+	viewer.end_isolation()
+	viewer.select_structure(leaf, false)
+	viewer.orbit.yaw = 0.0
+	viewer.orbit.pitch = 0.0
+	viewer.orbit.distance = 2.8
+	viewer.orbit.target = Vector3.ZERO
+	viewer.orbit.update_camera()
+	var valid := true
+	for layout in [false, true]:
+		viewer.set_scene_expanded(layout)
+		for fraction in [1.0, 0.5]:
+			viewer.set_scene_resolution(fraction)
+			await viewer.get_tree().process_frame
+			await viewer.get_tree().process_frame
+			for fine in [false, true]:
+				movement_fixture(viewer, Vector3.ZERO)
+				var original: Dictionary = viewer.model.export_state().duplicate(true)
+				var start := Vector2(40, viewer.scene_container.size.y * 0.6)
+				var finish := start + Vector2(24, 12)
+				pointer_button(viewer, start, true)
+				pointer_motion(viewer, finish, MOUSE_BUTTON_MASK_LEFT)
+				var pointer_change: Dictionary = viewer.model.export_state().duplicate(true)
+				valid = valid and pointer_change != original and viewer.model.undo_stack.size() == 1
+				await movement_key(viewer, KEY_L, fine)
+				var stepped: Dictionary = viewer.model.export_state().duplicate(true)
+				valid = valid and stepped != pointer_change and viewer.model.undo_stack.size() == 2 and viewer.orbit.active_button == 0 and not viewer.pending_move_checkpoint and viewer.orbit.move_mode
+				pointer_motion(viewer, finish + Vector2(24, 12), MOUSE_BUTTON_MASK_LEFT)
+				pointer_button(viewer, finish, false)
+				valid = valid and viewer.model.export_state() == stepped and viewer.model.undo_stack.size() == 2
+				pointer_button(viewer, start, true)
+				pointer_motion(viewer, finish, MOUSE_BUTTON_MASK_LEFT)
+				pointer_button(viewer, finish, false)
+				var fresh: Dictionary = viewer.model.export_state().duplicate(true)
+				valid = valid and fresh != stepped and viewer.model.undo_stack.size() == 3
+				for expected in [stepped, pointer_change, original]:
+					await movement_key(viewer, KEY_Z, false, true)
+					valid = valid and viewer.model.export_state() == expected
+				for expected in [pointer_change, stepped, fresh]:
+					await movement_key(viewer, KEY_Z, true, true)
+					valid = valid and viewer.model.export_state() == expected
+				var previous_redo := movement_fixture(viewer, Vector3(10, -10, 0))
+				var boundary: Dictionary = viewer.model.export_state().duplicate(true)
+				pointer_button(viewer, start, true)
+				pointer_motion(viewer, finish, MOUSE_BUTTON_MASK_LEFT)
+				await movement_key(viewer, KEY_L, fine)
+				pointer_motion(viewer, start - Vector2(24, 12), MOUSE_BUTTON_MASK_LEFT, Vector2(-24, -12))
+				pointer_button(viewer, start, false)
+				valid = valid and viewer.model.export_state() == boundary and viewer.model.undo_stack.is_empty() and viewer.model.redo_stack.size() == 1 and viewer.orbit.active_button == 0
+				viewer.redo_inspection()
+				valid = valid and viewer.model.export_state() == previous_redo
+	viewer.orbit.cancel_drag()
+	valid = await viewer.restore_view_state(before) and valid
+	viewer.model.undo_stack = undo.duplicate(true)
+	viewer.model.redo_stack = redo.duplicate(true)
+	viewer.back_views = back.duplicate(true)
+	viewer.forward_views = forward.duplicate(true)
+	viewer.set_scene_expanded(expanded)
+	viewer.set_scene_resolution(quality)
+	viewer.move_button.button_pressed = moving
+	viewer.orbit.move_mode = moving
+	viewer.refresh_details()
+	valid = valid and viewer.export_view_state() == before
+	if valid:
+		print("PASS bundled nudge gesture: ", viewer.model.body.id)
+	else:
+		push_error("Keyboard nudge inherited a pointer gesture or lost history: " + str(viewer.model.body.id))
+	return valid
+
+
 static func verify_move_mode_boundary(viewer: Control) -> bool:
 	var before: Dictionary = viewer.export_view_state().duplicate(true)
 	var undo: Array = viewer.model.undo_stack.duplicate(true)
@@ -888,6 +969,7 @@ static func run(viewer: Control, rendered: bool) -> bool:
 	viewer.set_scene_expanded(history_layout)
 	valid = await verify_movement_history(viewer) and valid
 	valid = await verify_move_mode_boundary(viewer) and valid
+	valid = await verify_nudge_gesture(viewer) and valid
 	if viewer.model.structures.has("anatomy.heart"):
 		valid = await verify_study_navigation(viewer) and valid
 		viewer.start_guided_chest()

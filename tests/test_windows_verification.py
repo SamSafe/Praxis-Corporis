@@ -26,6 +26,15 @@ def complete_log(rendered=True):
 
 
 class WindowsVerificationTests(unittest.TestCase):
+    def test_nudge_packages_require_keyboard_pointer_checks_for_every_reference(self):
+        log = complete_log(False)
+        for reference in ['female', 'male', 'bodyparts-male-bones-study']:
+            with self.assertRaisesRegex(ValueError, 'keyboard/pointer gesture'):
+                parse_result(log, False, nudge_gesture=True)
+            log += '\nPASS bundled nudge gesture: ' + reference
+        self.assertEqual(parse_result(log, False, nudge_gesture=True)['nudge_gesture_references'],
+                         ['female', 'male', 'bodyparts-male-bones-study'])
+
     def test_move_mode_packages_require_gesture_checks_for_every_reference(self):
         log = complete_log(False)
         for reference in ['female', 'male', 'bodyparts-male-bones-study']:

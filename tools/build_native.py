@@ -159,6 +159,7 @@ def add_notices(folder: pathlib.Path, platform: str) -> None:
         "Repeating visibility/Restore or applying the same saved anatomy keeps Undo/Redo when the anatomy is already in that state.\n"
         "Movement that reaches no new position keeps Undo/Redo too. Undo/Redo ends an active pointer drag; start a fresh gesture to continue moving.\n"
         "Switching Move on or off ends the held gesture too. Press again to begin a deliberate move or camera drag.\n"
+        "A keyboard move ends the pointer gesture first, keeping the drag and keyboard step independently undoable.\n"
         "Saved views keeps named local exploration setups and your study notes outside this folder.\n\n"
         "In Saved views, search names and notes with Ctrl+F; Enter selects a match. Escape clears a focused search.\n"
         "Saved views > Export all views backs up your views and notes to JSON; Import previews compatibility and keeps existing views.\n"

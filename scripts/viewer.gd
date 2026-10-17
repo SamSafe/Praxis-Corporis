@@ -2200,6 +2200,8 @@ func nudge_selection(key: int, fine: bool) -> void:
 	var local: Vector3 = {KEY_I: Vector3.UP, KEY_K: Vector3.DOWN, KEY_J: Vector3.LEFT, KEY_L: Vector3.RIGHT, KEY_U: Vector3.BACK, KEY_O: Vector3.FORWARD}.get(key, Vector3.ZERO)
 	if local == Vector3.ZERO:
 		return
+	orbit.cancel_drag()
+	pending_move_checkpoint = false
 	if not model.offset_selection(orbit.camera.global_basis * local * (0.001 if fine else 0.005), true):
 		status.text = "Movement limit reached · try another direction"
 		return
