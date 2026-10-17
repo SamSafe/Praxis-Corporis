@@ -26,6 +26,15 @@ def complete_log(rendered=True):
 
 
 class WindowsVerificationTests(unittest.TestCase):
+    def test_camera_zoom_packages_require_every_reference_check(self):
+        log = complete_log(False)
+        for reference in ['female', 'male', 'bodyparts-male-bones-study']:
+            with self.assertRaisesRegex(ValueError, 'camera zoom'):
+                parse_result(log, False, camera_zoom=True)
+            log += '\nPASS bundled camera zoom: ' + reference
+        self.assertEqual(parse_result(log, False, camera_zoom=True)['camera_zoom_references'],
+                         ['female', 'male', 'bodyparts-male-bones-study'])
+
     def test_saved_view_context_packages_require_every_reference_check(self):
         log = complete_log(False)
         for reference in ['female', 'male', 'bodyparts-male-bones-study']:

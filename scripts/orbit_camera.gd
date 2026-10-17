@@ -62,7 +62,14 @@ func keyboard_pan(direction: Vector2) -> void:
 
 
 func keyboard_zoom(closer: bool) -> void:
-	distance = clampf(distance * (0.88 if closer else 1.12), 0.018, 12.0)
+	zoom_steps(1.0 if closer else -1.0)
+
+
+func zoom_steps(steps: float) -> void:
+	if not is_finite(steps):
+		return
+	# Equal opposite amounts are reciprocal; cap the exponent before arithmetic.
+	distance = clampf(distance * pow(0.88, clampf(steps, -64.0, 64.0)), 0.018, 12.0)
 	update_camera()
 
 
@@ -88,8 +95,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			cancel_drag()
 			return
 		if event.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN] and event.pressed:
-			distance = clampf(distance * (0.88 if event.button_index == MOUSE_BUTTON_WHEEL_UP else 1.12), 0.018, 12.0)
-			update_camera()
+			if is_finite(event.factor):
+				var amount := absf(event.factor) if event.factor != 0.0 else 1.0
+				zoom_steps(amount if event.button_index == MOUSE_BUTTON_WHEEL_UP else -amount)
 		elif event.button_index in [MOUSE_BUTTON_LEFT, MOUSE_BUTTON_RIGHT, MOUSE_BUTTON_MIDDLE]:
 			if event.pressed:
 				active_button = event.button_index
@@ -126,7 +134,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		target += (-camera.global_basis.x * event.delta.x + camera.global_basis.y * event.delta.y) * pixel_scale() * 12.0
 		update_camera()
 	elif event is InputEventMagnifyGesture:
-		distance = clampf(distance / maxf(event.factor, 0.1), 0.018, 12.0)
+		if not is_finite(event.factor) or event.factor <= 0.0:
+			return
+		distance = clampf(distance / event.factor, 0.018, 12.0)
 		update_camera()
 
 

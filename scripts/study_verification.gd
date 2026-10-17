@@ -5,6 +5,93 @@ const SavedViews = preload("res://scripts/saved_views.gd")
 const Preferences = preload("res://scripts/viewer_preferences.gd")
 
 
+static func wheel_zoom(viewer: Control, closer: bool, amount: float) -> void:
+	var event := InputEventMouseButton.new()
+	event.button_index = MOUSE_BUTTON_WHEEL_UP if closer else MOUSE_BUTTON_WHEEL_DOWN
+	event.pressed = true
+	event.factor = amount
+	event.position = viewer.scene_container.get_global_transform_with_canvas() * Vector2(40, viewer.scene_container.size.y * 0.6)
+	event.global_position = event.position
+	viewer.get_viewport().push_input(event, true)
+
+
+static func pinch_zoom(viewer: Control, amount: float) -> void:
+	var event := InputEventMagnifyGesture.new()
+	event.factor = amount
+	event.position = viewer.scene_container.get_global_transform_with_canvas() * Vector2(40, viewer.scene_container.size.y * 0.6)
+	viewer.get_viewport().push_input(event, true)
+
+
+static func zoom_key(viewer: Control, closer: bool) -> void:
+	var event := InputEventKey.new()
+	event.keycode = KEY_EQUAL if closer else KEY_MINUS
+	event.pressed = true
+	viewer.get_viewport().push_input(event)
+
+
+static func verify_camera_zoom(viewer: Control) -> bool:
+	var before: Dictionary = viewer.export_view_state().duplicate(true)
+	var undo: Array = viewer.model.undo_stack.duplicate(true)
+	var redo: Array = viewer.model.redo_stack.duplicate(true)
+	var back: Array = viewer.back_views.duplicate(true)
+	var forward: Array = viewer.forward_views.duplicate(true)
+	var expanded: bool = viewer.scene_expanded
+	var fraction: float = viewer.scene_container.resolution_fraction
+	var moving: bool = viewer.orbit.move_mode
+	var middle: Dictionary = before.camera.duplicate(true)
+	middle.distance = clampf(float(middle.distance), 0.1, 6.0)
+	var anatomy := before.duplicate(true)
+	anatomy.erase("camera")
+	for layout in [false, true]:
+		viewer.set_scene_expanded(layout)
+		for quality in [1.0, 0.5]:
+			viewer.set_scene_resolution(quality)
+			await viewer.get_tree().process_frame
+			await viewer.get_tree().process_frame
+			viewer.scene_container.update_resolution()
+			viewer.scene_container.grab_focus()
+			viewer.orbit.apply_state(middle)
+			zoom_key(viewer, true)
+			var full_step: float = viewer.orbit.distance
+			var valid: bool = full_step < float(middle.distance)
+			zoom_key(viewer, false)
+			valid = valid and is_equal_approx(viewer.orbit.distance, float(middle.distance))
+			viewer.orbit.apply_state(middle)
+			for repeat in 4:
+				wheel_zoom(viewer, true, 0.25)
+			valid = valid and is_equal_approx(viewer.orbit.distance, full_step)
+			wheel_zoom(viewer, false, 1.0)
+			valid = valid and is_equal_approx(viewer.orbit.distance, float(middle.distance))
+			viewer.move_button.button_pressed = true
+			viewer.orbit.move_mode = true
+			for repeat in 12:
+				wheel_zoom(viewer, true, 0.25)
+				wheel_zoom(viewer, false, 0.25)
+			pinch_zoom(viewer, 1.25)
+			pinch_zoom(viewer, 0.8)
+			valid = valid and is_equal_approx(viewer.orbit.distance, float(middle.distance)) and viewer.orbit.move_mode and viewer.move_button.button_pressed
+			var stopped: Dictionary = viewer.orbit.export_state()
+			for invalid in [0.0, -1.0, NAN, INF]:
+				pinch_zoom(viewer, invalid)
+			valid = valid and viewer.orbit.export_state() == stopped
+			var current: Dictionary = viewer.export_view_state()
+			var camera: Dictionary = current.camera
+			current.erase("camera")
+			valid = valid and current == anatomy and camera.target == middle.target and camera.yaw == middle.yaw and camera.pitch == middle.pitch
+			valid = valid and viewer.model.undo_stack == undo and viewer.model.redo_stack == redo and viewer.back_views == back and viewer.forward_views == forward
+			if not valid:
+				push_error("Camera zoom failed: %s / expanded %s / quality %s" % [viewer.model.body.id, layout, quality])
+				return false
+	viewer.orbit.apply_state(before.camera)
+	viewer.move_button.button_pressed = moving
+	viewer.orbit.move_mode = moving
+	viewer.set_scene_resolution(fraction)
+	viewer.set_scene_expanded(expanded)
+	viewer.refresh_details()
+	print("PASS bundled camera zoom: ", viewer.model.body.id)
+	return true
+
+
 static func pointer_button(viewer: Control, point: Vector2, pressed: bool, canceled: bool = false) -> void:
 	var event := InputEventMouseButton.new()
 	event.button_index = MOUSE_BUTTON_LEFT
@@ -186,6 +273,7 @@ static func run(viewer: Control, rendered: bool) -> bool:
 	if valid:
 		print("PASS bundled keyboard movement: ", viewer.model.body.id)
 	valid = await verify_pointer_interruption(viewer) and valid
+	valid = await verify_camera_zoom(viewer) and valid
 	if viewer.model.structures.has("anatomy.heart"):
 		viewer.start_guided_chest()
 		viewer.apply_chest_step(2)
