@@ -24,9 +24,43 @@ func read_file(file_path: String) -> Dictionary:
 	var hash := HashingContext.new()
 	hash.start(HashingContext.HASH_SHA256)
 	hash.update(bytes)
+	var fingerprint := hash.finish().hex_encode()
+	if not valid_json_utf8(bytes):
+		return {"error": "Saved views are not readable UTF-8 JSON. The file has been kept unchanged.", "fingerprint": fingerprint}
 	var result := parse_contents(bytes.get_string_from_utf8())
-	result.fingerprint = hash.finish().hex_encode()
+	result.fingerprint = fingerprint
 	return result
+
+
+static func valid_json_utf8(bytes: PackedByteArray) -> bool:
+	# Validate before decoding can replace invalid text or stop at a raw NUL.
+	var index := 0
+	while index < bytes.size():
+		var first := int(bytes[index])
+		if first == 0:
+			return false
+		if first < 0x80:
+			index += 1
+			continue
+		var length := 0
+		if first >= 0xc2 and first <= 0xdf:
+			length = 2
+		elif first >= 0xe0 and first <= 0xef:
+			length = 3
+		elif first >= 0xf0 and first <= 0xf4:
+			length = 4
+		else:
+			return false
+		if index + length > bytes.size():
+			return false
+		var second := int(bytes[index + 1])
+		if (first == 0xe0 and second < 0xa0) or (first == 0xed and second > 0x9f) or (first == 0xf0 and second < 0x90) or (first == 0xf4 and second > 0x8f):
+			return false
+		for offset in range(1, length):
+			if bytes[index + offset] < 0x80 or bytes[index + offset] > 0xbf:
+				return false
+		index += length
+	return true
 
 
 func parse_contents(text: String) -> Dictionary:

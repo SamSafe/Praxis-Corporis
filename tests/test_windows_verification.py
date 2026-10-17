@@ -8,7 +8,7 @@ import unittest
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'tools'))
-from verify_windows import MARKERS, RENDERED_MARKERS, artifact_record, parse_loading_shutdown, parse_result, ps_literal
+from verify_windows import MARKERS, RENDERED_MARKERS, artifact_record, parse_loading_shutdown, parse_result, process_observations, ps_literal
 
 
 def complete_log(rendered=True):
@@ -26,6 +26,26 @@ def complete_log(rendered=True):
 
 
 class WindowsVerificationTests(unittest.TestCase):
+    def test_encoding_packages_require_file_checks_for_every_reference(self):
+        log = complete_log(False)
+        for reference in ['female', 'male', 'bodyparts-male-bones-study']:
+            with self.assertRaisesRegex(ValueError, 'text encoding'):
+                parse_result(log, False, text_encoding=True)
+            log += '\nPASS bundled text encoding: ' + reference
+        self.assertEqual(parse_result(log, False, text_encoding=True)['text_encoding_references'],
+                         ['female', 'male', 'bodyparts-male-bones-study'])
+
+    def test_unicode_replacement_diagnostics_cannot_pass_as_clean_execution(self):
+        diagnostic = 'Unicode parsing error, some characters were replaced with � (U+FFFD)'
+        for log in [diagnostic + '\n' + complete_log(), complete_log() + '\n' + diagnostic]:
+            with self.assertRaisesRegex(ValueError, 'error'):
+                parse_result(log, True)
+            with self.assertRaisesRegex(ValueError, 'error'):
+                process_observations(log, True)
+        marker = 'PASS loading shutdown: initial/anatomy · resource true · worker false · staged false'
+        with self.assertRaisesRegex(ValueError, 'error'):
+            parse_loading_shutdown(marker + '\n' + diagnostic, 'initial/anatomy')
+
     def test_exploration_return_requires_all_reference_focus_checks(self):
         log = complete_log(False)
         for reference in ['female', 'male', 'bodyparts-male-bones-study']:

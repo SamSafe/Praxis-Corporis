@@ -5,6 +5,90 @@ const SavedViews = preload("res://scripts/saved_views.gd")
 const Preferences = preload("res://scripts/viewer_preferences.gd")
 
 
+static func write_encoding_fixture(path: String, bytes: PackedByteArray) -> bool:
+	var file := FileAccess.open(path, FileAccess.WRITE)
+	if file == null:
+		return false
+	file.store_buffer(bytes)
+	file.flush()
+	var error := file.get_error()
+	file.close()
+	return error == OK
+
+
+static func verify_text_encoding(snapshot: Dictionary, reference: String, validate: Callable) -> bool:
+	var prefix := "user://text-encoding-" + Crypto.new().generate_random_bytes(16).hex_encode()
+	var library := SavedViews.new()
+	library.path = prefix + ".json"
+	var valid := library.load_library().is_empty()
+	valid = library.add_view("UTF-8 study", snapshot).is_empty() and valid
+	var note := "Keep café · 中文 · Δ · e\u0301 · 🫀 · literal �"
+	valid = library.set_notes(library.entries[0].id, note).is_empty() and valid
+	var known: Array = library.entries.duplicate(true)
+	var healthy := FileAccess.get_file_as_bytes(library.path)
+	valid = write_encoding_fixture(library.path + ".bak", healthy) and valid
+	var template: Dictionary = known[0].duplicate(true)
+	template.notes = "ENCODING_TOKEN"
+	var parts := JSON.stringify({"schema_version": 1, "views": [template]}).split("ENCODING_TOKEN")
+	var invalid := ["ff", "80", "bf", "c2", "e282", "f09f92", "c241", "e228a1", "f0288cbc", "c080", "c1bf", "e080af", "f08080af", "eda080", "edbfbf", "f4908080", "f5808080", "f7bfbfbf", "f888808080", "fc8480808080", "00"]
+	var payloads: Array[PackedByteArray] = []
+	for sequence in invalid:
+		var bytes := parts[0].to_utf8_buffer()
+		bytes.append_array(str(sequence).hex_decode())
+		bytes.append_array(parts[1].to_utf8_buffer())
+		payloads.append(bytes)
+	var truncated := healthy.duplicate()
+	truncated.append(0)
+	truncated.append_array("ignored trailing data".to_utf8_buffer())
+	payloads.append(truncated)
+	for bytes in payloads:
+		var active := FileAccess.get_file_as_bytes(library.path)
+		valid = write_encoding_fixture(prefix + "-import.json", bytes) and valid
+		var plan := library.preview_import(prefix + "-import.json", validate)
+		valid = valid and not plan.error.is_empty() and SavedViews.same_snapshot(library.entries, known) and FileAccess.get_file_as_bytes(library.path) == active and FileAccess.get_file_as_bytes(prefix + "-import.json") == bytes
+		valid = write_encoding_fixture(library.path, bytes) and valid
+		valid = not library.load_library().is_empty() and valid
+		valid = valid and SavedViews.same_snapshot(library.entries, known) and library.recovery_hash == FileAccess.get_sha256(library.path)
+		valid = not library.rename_view(known[0].id, "Blocked rename").is_empty() and not library.set_notes(known[0].id, "Blocked note").is_empty() and valid
+		valid = not library.export_library(prefix + "-blocked.json").is_empty() and valid
+		valid = valid and not FileAccess.file_exists(prefix + "-blocked.json") and FileAccess.get_file_as_bytes(library.path) == bytes and FileAccess.get_file_as_bytes(library.path + ".bak") == healthy
+		valid = library.can_recover() and library.recover_backup().is_empty() and valid
+		valid = valid and FileAccess.get_file_as_bytes(library.recovery_copy_path) == bytes and FileAccess.get_file_as_bytes(library.path + ".bak") == healthy and SavedViews.same_snapshot(library.entries, known)
+		if FileAccess.file_exists(library.recovery_copy_path):
+			DirAccess.remove_absolute(library.recovery_copy_path)
+	# A malformed backup is unavailable; a later healthy replacement invalidates recovery.
+	valid = write_encoding_fixture(library.path, payloads[0]) and valid
+	valid = not library.load_library().is_empty() and valid
+	valid = write_encoding_fixture(library.path + ".bak", payloads[0]) and valid
+	valid = not library.can_recover() and not library.recover_backup().is_empty() and valid
+	valid = valid and FileAccess.get_file_as_bytes(library.path) == payloads[0] and FileAccess.get_file_as_bytes(library.path + ".bak") == payloads[0]
+	valid = write_encoding_fixture(library.path + ".bak", healthy) and write_encoding_fixture(library.path, healthy) and valid
+	valid = not library.recover_backup().is_empty() and FileAccess.get_file_as_bytes(library.path) == healthy and valid
+	valid = library.load_library().is_empty() and valid
+	# Valid Unicode and an optional BOM keep their exact text and input fingerprint.
+	var bom := PackedByteArray([0xef, 0xbb, 0xbf])
+	bom.append_array(healthy)
+	valid = write_encoding_fixture(library.path, bom) and valid
+	valid = library.load_library().is_empty() and library.loaded_hash == FileAccess.get_sha256(library.path) and valid
+	valid = valid and library.entries[0].notes == note and FileAccess.get_file_as_bytes(library.path) == bom
+	valid = library.rename_view(library.entries[0].id, "Unicode survives").is_empty() and valid
+	valid = library.export_library(prefix + "-export.json").is_empty() and valid
+	var imported := SavedViews.new()
+	imported.path = prefix + "-target.json"
+	valid = imported.load_library().is_empty() and valid
+	var plan := imported.preview_import(prefix + "-export.json", validate)
+	valid = plan.error.is_empty() and imported.apply_import(plan, validate).is_empty() and valid
+	valid = valid and imported.entries.size() == 1 and imported.entries[0].notes == note and SavedViews.same_snapshot(imported.entries[0].state, snapshot)
+	for suffix in [".json", ".json.bak", "-import.json", "-blocked.json", "-export.json", "-target.json"]:
+		if FileAccess.file_exists(prefix + suffix):
+			DirAccess.remove_absolute(prefix + suffix)
+	if valid:
+		print("PASS bundled text encoding: ", reference)
+	else:
+		push_error("Saved-view text decoding changed notes, bytes or recovery: " + reference)
+	return valid
+
+
 static func verify_exploration_return(viewer: Control) -> bool:
 	var before: Dictionary = viewer.export_view_state().duplicate(true)
 	var undo: Array = viewer.model.undo_stack.duplicate(true)
@@ -1370,6 +1454,7 @@ static func run(viewer: Control, rendered: bool) -> bool:
 	valid = await verify_nudge_gesture(viewer) and valid
 	valid = await verify_study_reader(viewer, rendered) and valid
 	valid = await verify_exploration_return(viewer) and valid
+	valid = verify_text_encoding(before, viewer.model.body.id, viewer.validate_view_state) and valid
 	if viewer.model.structures.has("anatomy.heart"):
 		valid = await verify_source_fallback(viewer, rendered) and valid
 		valid = await verify_study_navigation(viewer) and valid
