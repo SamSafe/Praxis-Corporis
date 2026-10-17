@@ -17,7 +17,9 @@ static func digest(bytes: PackedByteArray) -> String:
 
 
 static func step(viewer: Control, action: Callable, name: String, rendered: bool, report: Dictionary, deferred_change: bool = false) -> bool:
-	viewer.viewport.render_target_update_mode = SubViewport.UPDATE_DISABLED
+	# A no-op layout/resolution action must not cancel setup's pending frame.
+	if not deferred_change:
+		viewer.viewport.render_target_update_mode = SubViewport.UPDATE_DISABLED
 	action.call()
 	var valid: bool = deferred_change or viewer.viewport.render_target_update_mode == SubViewport.UPDATE_ONCE
 	await settle(viewer, rendered)
