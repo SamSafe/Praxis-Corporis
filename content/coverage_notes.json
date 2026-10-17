@@ -47,7 +47,7 @@
       "label": "Lungs / respiratory anatomy",
       "roots": {"female": "anatomy.system.respiratory", "male": "anatomy.system.respiratory"},
       "supplied": {"female": "Left/right lung groups, regional meshes and tracheobronchial geometry.", "male": "Left/right lung groups, regional meshes and tracheobronchial geometry."},
-      "gaps": "Regional source meshes are not a complete or reviewed respiratory atlas. No heart–lung route or disease representation has been authored."
+      "gaps": "Regional source meshes are not a complete or reviewed respiratory atlas. The separate Heart ↔ lungs study route remains an unreviewed conceptual guide. Pathological geometry is unavailable."
     },
     {
       "id": "digestive",

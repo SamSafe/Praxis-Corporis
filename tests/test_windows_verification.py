@@ -26,6 +26,23 @@ def complete_log(rendered=True):
 
 
 class WindowsVerificationTests(unittest.TestCase):
+    def test_coverage_packages_require_every_reference_keyboard_check(self):
+        log = complete_log(False)
+        for reference in ['female', 'male', 'bodyparts-male-bones-study']:
+            with self.assertRaisesRegex(ValueError, 'coverage keyboard'):
+                parse_result(log, False, coverage_keyboard=True)
+            log += '\nPASS bundled coverage keyboard: ' + reference
+        self.assertEqual(parse_result(log, False, coverage_keyboard=True)['coverage_keyboard_references'],
+                         ['female', 'male', 'bodyparts-male-bones-study'])
+        rendered = complete_log(True)
+        for reference in ['female', 'male', 'bodyparts-male-bones-study']:
+            rendered += '\nPASS bundled coverage keyboard: ' + reference
+        with self.assertRaisesRegex(ValueError, 'native coverage reader'):
+            parse_result(rendered, True, coverage_keyboard=True)
+        for reference in ['female', 'male', 'bodyparts-male-bones-study']:
+            rendered += '\nPASS native coverage reader: ' + reference
+        self.assertEqual(len(parse_result(rendered, True, coverage_keyboard=True)['coverage_keyboard_references']), 3)
+
     def test_camera_zoom_packages_require_every_reference_check(self):
         log = complete_log(False)
         for reference in ['female', 'male', 'bodyparts-male-bones-study']:

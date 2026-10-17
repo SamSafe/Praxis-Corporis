@@ -9,6 +9,8 @@ var body_id := "female"
 var system_list: ItemList
 var information: RichTextLabel
 var explore_button: Button
+var heading: Label
+var close_button: Button
 var current_system: Dictionary = {}
 
 
@@ -31,14 +33,14 @@ func _ready() -> void:
 	var layout := VBoxContainer.new()
 	layout.add_theme_constant_override("separation", 14)
 	margin.add_child(layout)
-	var title_label := Label.new()
-	title_label.text = "ATLAS COVERAGE · " + reference_label(body_id)
-	title_label.add_theme_font_size_override("font_size", 22)
-	layout.add_child(title_label)
+	heading = Label.new()
+	heading.text = "ATLAS COVERAGE · " + reference_label(body_id)
+	heading.add_theme_font_size_override("font_size", 22)
+	heading.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	layout.add_child(heading)
 	var notice := Label.new()
 	notice.text = str(notes.notice)
 	notice.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	notice.add_theme_font_size_override("font_size", 14)
 	notice.add_theme_color_override("font_color", Color("9fb4c7"))
 	layout.add_child(notice)
 	var columns := HBoxContainer.new()
@@ -51,9 +53,13 @@ func _ready() -> void:
 	system_list.item_selected.connect(show_system)
 	columns.add_child(system_list)
 	for system in notes.systems:
-		system_list.add_item(str(system.label))
+		var index := system_list.add_item(str(system.label))
+		system_list.set_item_tooltip(index, str(system.label))
 	information = RichTextLabel.new()
 	information.bbcode_enabled = true
+	information.selection_enabled = true
+	information.focus_mode = Control.FOCUS_ALL
+	information.tooltip_text = "Tab focuses this inventory. Page Up/Down scroll; Ctrl/Cmd+A selects its text. Escape closes Coverage."
 	information.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	information.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	information.add_theme_color_override("default_color", Color("c8d6e3"))
@@ -68,13 +74,18 @@ func _ready() -> void:
 	var spacer := Control.new()
 	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	actions.add_child(spacer)
-	var close := Button.new()
-	close.text = "Close"
-	close.custom_minimum_size = Vector2(100, 38)
-	close.pressed.connect(queue_free)
-	actions.add_child(close)
+	close_button = Button.new()
+	close_button.text = "Close"
+	close_button.custom_minimum_size = Vector2(100, 38)
+	close_button.pressed.connect(queue_free)
+	actions.add_child(close_button)
 	system_list.select(0)
 	show_system(0)
+
+
+func open(preferred_size: Vector2i) -> void:
+	popup_centered_clamped(preferred_size, 0.9)
+	system_list.grab_focus()
 
 
 func structure_for(reference_id: String, id: String) -> Dictionary:
@@ -123,7 +134,7 @@ func explore_current() -> void:
 	queue_free()
 
 
-func _unhandled_key_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
 		queue_free()
 		set_input_as_handled()

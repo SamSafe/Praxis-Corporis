@@ -29,7 +29,7 @@ def ps_literal(value: str) -> str:
 def parse_result(log: str, rendered: bool, circulation: bool = False, information: bool = False,
                  conditions: bool = False, find_anatomy: bool = False,
                  pointer_interruption: bool = False, saved_view_context: bool = False,
-                 camera_zoom: bool = False) -> dict:
+                 camera_zoom: bool = False, coverage_keyboard: bool = False) -> dict:
     if "ERROR:" in log:
         raise ValueError("The native runtime reported an error")
     if re.search(r'ObjectDB instance.*leaked|^Leaked instance:', log, re.M):
@@ -45,7 +45,7 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
     for reference, count in references.items():
         if count <= 0 or frames.get(reference, 0) < 2:
             raise ValueError("Reference geometry/loading evidence is incomplete: " + reference)
-        for marker in MARKERS + (RENDERED_MARKERS if rendered else []):
+        for marker in MARKERS + (RENDERED_MARKERS if rendered else []) + (['native coverage reader'] if rendered and coverage_keyboard else []):
             if not re.search(r"^PASS " + re.escape(marker) + ": " + re.escape(reference) + r"(?: · .*|)$", log, re.M):
                 raise ValueError("Native check missing: " + marker + " / " + reference)
         if any(key.startswith('hra-v1-2-') for key in references) and not re.search(
@@ -59,6 +59,8 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
             raise ValueError('Native saved-view anatomy search check missing: ' + reference)
         if camera_zoom and f'PASS bundled camera zoom: {reference}' not in log.splitlines():
             raise ValueError('Native camera zoom check missing: ' + reference)
+        if coverage_keyboard and f'PASS bundled coverage keyboard: {reference}' not in log.splitlines():
+            raise ValueError('Native coverage keyboard check missing: ' + reference)
     result = process_observations(log, rendered)
     if information and 'PASS bundled information dialogs: female' not in log.splitlines():
         raise ValueError('Native information dialog check missing')
@@ -80,6 +82,8 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
         result['saved_view_anatomy_search_references'] = list(references)
     if camera_zoom:
         result['camera_zoom_references'] = list(references)
+    if coverage_keyboard:
+        result['coverage_keyboard_references'] = list(references)
     return result
 
 
@@ -234,7 +238,7 @@ try {
 
 
 def captures(folder: pathlib.Path, output: pathlib.Path, references: dict, circulation: bool = False,
-             information: bool = False, conditions: bool = False) -> dict:
+             information: bool = False, conditions: bool = False, coverage_keyboard: bool = False) -> dict:
     images = {}
     destination = output / "captures"
     destination.mkdir()
@@ -251,6 +255,8 @@ def captures(folder: pathlib.Path, output: pathlib.Path, references: dict, circu
             prefixes.extend(['native-route', 'native-route-compact'])
         if reference in ['female', 'male'] and conditions:
             prefixes.append('native-condition')
+        if coverage_keyboard:
+            prefixes.append('native-coverage')
         for prefix in prefixes:
             name = f"{prefix}-{reference}.png"
             path = source / name
@@ -301,6 +307,8 @@ def verify(args: argparse.Namespace) -> dict:
                           and b'PASS bundled saved-view anatomy search:' in git_bytes(ROOT, build_report['source_revision'], 'scripts/viewer.gd'))
     camera_zoom = ('scripts/study_verification.gd' in build_report['source_hashes']
                    and b'PASS bundled camera zoom:' in git_bytes(ROOT, build_report['source_revision'], 'scripts/study_verification.gd'))
+    coverage_keyboard = ('scripts/study_verification.gd' in build_report['source_hashes']
+                         and b'PASS bundled coverage keyboard:' in git_bytes(ROOT, build_report['source_revision'], 'scripts/study_verification.gd'))
     startup_cases = None
     if reference_state:
         bodies = json.loads(git_bytes(ROOT, build_report['source_revision'], 'content/sample_pack.json'))['bodies']
@@ -328,7 +336,7 @@ def verify(args: argparse.Namespace) -> dict:
             reference_fixture.write_text(reference_fixture_text, encoding='utf-8')
         log = run_native(args, windows_session, windows_session + "\\" + executable_relative)
         result = parse_result(log, args.mode == "rendered", circulation, information, conditions,
-                              find_anatomy, pointer_interruption, saved_view_context, camera_zoom)
+                              find_anatomy, pointer_interruption, saved_view_context, camera_zoom, coverage_keyboard)
         if result["engine_actual"] != build_report["engine"]:
             raise ValueError("The native runtime differs from the pinned build engine")
         result.update(schema_version=1, recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
@@ -338,7 +346,7 @@ def verify(args: argparse.Namespace) -> dict:
                       limits=["Scripted actions; human input, clipboard and native OS picker acceptance remain open.",
                               "No sustained-performance or maximum-loading-pause claim.", "This checks actual Windows execution; Mac device validation is separate."])
         if args.mode == "rendered":
-            result["captures"] = captures(session, args.output, result["references"], circulation, information, conditions)
+            result["captures"] = captures(session, args.output, result["references"], circulation, information, conditions, coverage_keyboard)
         if (session / "engine.log").exists():
             shutil.copyfile(session / "engine.log", args.output / "engine.log")
         if reference_state:

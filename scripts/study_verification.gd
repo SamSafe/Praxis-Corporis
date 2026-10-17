@@ -5,6 +5,85 @@ const SavedViews = preload("res://scripts/saved_views.gd")
 const Preferences = preload("res://scripts/viewer_preferences.gd")
 
 
+static func coverage_key(dialog: Window, code: int, select_all: bool = false) -> void:
+	var event := InputEventKey.new()
+	event.keycode = code
+	event.pressed = true
+	event.ctrl_pressed = select_all and not OS.has_feature("macos")
+	event.meta_pressed = select_all and OS.has_feature("macos")
+	dialog.push_input(event)
+	await dialog.get_tree().process_frame
+	if is_instance_valid(dialog):
+		event = event.duplicate()
+		event.pressed = false
+		dialog.push_input(event)
+
+
+static func verify_coverage_access(viewer: Control, rendered: bool = false) -> bool:
+	var before: Dictionary = viewer.export_view_state().duplicate(true)
+	var undo: Array = viewer.model.undo_stack.duplicate(true)
+	var redo: Array = viewer.model.redo_stack.duplicate(true)
+	var back: Array = viewer.back_views.duplicate(true)
+	var forward: Array = viewer.forward_views.duplicate(true)
+	var preferences: Dictionary = viewer.preference_state()
+	var window_size := viewer.get_window().size
+	var expanded: bool = viewer.scene_expanded
+	var valid := true
+	for scale in [1.0, 1.3]:
+		var settings := preferences.duplicate(true)
+		settings.text_scale = scale
+		viewer.apply_preferences(settings)
+		viewer.get_window().size = Vector2i(1100, 720)
+		var dialog: Window = viewer.show_coverage()
+		if dialog == null:
+			return false
+		dialog.size = Vector2i(760, 520)
+		await viewer.get_tree().process_frame
+		await viewer.get_tree().process_frame
+		valid = valid and dialog.system_list.has_focus() and dialog.information.selection_enabled
+		var index := 1 if dialog.system_list.item_count > 1 else 0
+		for candidate in dialog.notes.systems.size():
+			if dialog.notes.systems[candidate].get("id", "") == "respiratory":
+				index = candidate
+		for step in index:
+			await coverage_key(dialog, KEY_DOWN)
+		valid = valid and dialog.current_system == dialog.notes.systems[index]
+		await coverage_key(dialog, KEY_TAB)
+		valid = valid and dialog.information.has_focus()
+		if rendered and scale == 1.3:
+			while not dialog.information.is_finished():
+				await viewer.get_tree().process_frame
+			await viewer.get_tree().process_frame
+			await viewer.get_tree().process_frame
+			await RenderingServer.frame_post_draw
+			valid = valid and viewer.get_viewport().get_texture().get_image().save_png("user://native-coverage-%s.png" % str(viewer.model.body.id)) == OK
+			if valid:
+				print("PASS native coverage reader: ", viewer.model.body.id)
+		var bar: VScrollBar = dialog.information.get_v_scroll_bar()
+		valid = valid and bar.max_value > bar.page
+		await coverage_key(dialog, KEY_PAGEDOWN)
+		valid = valid and bar.value > 0.0
+		await coverage_key(dialog, KEY_A, true)
+		valid = valid and "Mesh counts do not establish anatomical completeness" in dialog.information.get_selected_text()
+		var bounds := Rect2(Vector2.ZERO, Vector2(dialog.size))
+		for control in [dialog.heading, dialog.system_list, dialog.information, dialog.explore_button, dialog.close_button]:
+			valid = valid and bounds.encloses(control.get_global_rect())
+		await coverage_key(dialog, KEY_ESCAPE)
+		await viewer.get_tree().process_frame
+		valid = valid and not is_instance_valid(dialog)
+		valid = valid and viewer.export_view_state() == before and viewer.model.undo_stack == undo and viewer.model.redo_stack == redo and viewer.back_views == back and viewer.forward_views == forward and viewer.scene_expanded == expanded
+	viewer.apply_preferences(preferences)
+	viewer.get_window().size = window_size
+	await viewer.get_tree().process_frame
+	await viewer.get_tree().process_frame
+	valid = valid and viewer.export_view_state() == before and viewer.preference_state() == preferences
+	if valid:
+		print("PASS bundled coverage keyboard: ", viewer.model.body.id)
+	else:
+		push_error("Coverage keyboard reading or restoration failed: " + str(viewer.model.body.id))
+	return valid
+
+
 static func wheel_zoom(viewer: Control, closer: bool, amount: float) -> void:
 	var event := InputEventMouseButton.new()
 	event.button_index = MOUSE_BUTTON_WHEEL_UP if closer else MOUSE_BUTTON_WHEEL_DOWN
@@ -274,6 +353,7 @@ static func run(viewer: Control, rendered: bool) -> bool:
 		print("PASS bundled keyboard movement: ", viewer.model.body.id)
 	valid = await verify_pointer_interruption(viewer) and valid
 	valid = await verify_camera_zoom(viewer) and valid
+	valid = await verify_coverage_access(viewer, rendered) and valid
 	if viewer.model.structures.has("anatomy.heart"):
 		viewer.start_guided_chest()
 		viewer.apply_chest_step(2)
