@@ -5,6 +5,123 @@ const SavedViews = preload("res://scripts/saved_views.gd")
 const Preferences = preload("res://scripts/viewer_preferences.gd")
 
 
+static func source_fallback_dialog(viewer: Control) -> Window:
+	for child in viewer.get_children():
+		if child is Window and child.title == "Browser unavailable" and child.visible:
+			return child
+	return null
+
+
+static func tab_to_link(viewer: Control, link: LinkButton) -> bool:
+	var previous := link.find_prev_valid_focus()
+	if previous == null:
+		return false
+	previous.grab_focus()
+	await movement_key(viewer, KEY_TAB)
+	return link.has_focus()
+
+
+static func verify_source_fallback(viewer: Control, rendered: bool = false) -> bool:
+	var before: Dictionary = viewer.export_view_state().duplicate(true)
+	var undo: Array = viewer.model.undo_stack.duplicate(true)
+	var redo: Array = viewer.model.redo_stack.duplicate(true)
+	var back: Array = viewer.back_views.duplicate(true)
+	var forward: Array = viewer.forward_views.duplicate(true)
+	var preferences: Dictionary = viewer.preference_state()
+	var window_size := viewer.get_window().size
+	var expanded: bool = viewer.scene_expanded
+	var launcher: Callable = viewer.source_launcher
+	var calls: Array[String] = []
+	var result := [OK]
+	# Exercise the actual links without opening a browser or accessing the clipboard.
+	viewer.source_launcher = func(url: String):
+		calls.append(url)
+		return result[0]
+	var valid := true
+	for scale in [1.0, 1.3]:
+		var settings := preferences.duplicate(true)
+		settings.text_scale = scale
+		settings.details = true
+		viewer.apply_preferences(settings)
+		viewer.get_window().size = Vector2i(1100, 720)
+		for surface in ["card", "route", "expanded-route"]:
+			viewer.set_scene_expanded(surface == "expanded-route")
+			viewer.select_structure("anatomy.heart.valve.mitral", false)
+			var links: Array = []
+			var source_ids: Array = []
+			if surface == "card":
+				source_ids = viewer.study_content.card(viewer.model.selected_id).source_ids
+				for child in viewer.study_links.get_children():
+					if child is LinkButton and child.tooltip_text.ends_with(" · opens in your browser"):
+						links.append(child)
+			else:
+				viewer.start_circulation_route()
+				links = viewer.guided_chest.citations.get_children()
+				source_ids = viewer.study_content.route("heart-lung").nodes[viewer.guided_chest.route_node].source_ids
+			await viewer.get_tree().process_frame
+			await viewer.get_tree().process_frame
+			if surface == "card":
+				for child in viewer.study_links.get_children() + viewer.condition_links.get_children():
+					if child is LinkButton and not child.tooltip_text.ends_with(" · opens in your browser"):
+						valid = await tab_to_link(viewer, child) and valid
+			var during: Dictionary = viewer.export_view_state().duplicate(true)
+			var route_history: Array = viewer.guided_chest.route_history.duplicate()
+			valid = valid and links.size() == source_ids.size() and not links.is_empty()
+			for index in mini(links.size(), source_ids.size()):
+				var link: LinkButton = links[index]
+				var url: String = viewer.study_content.data.sources[source_ids[index]].url
+				valid = await tab_to_link(viewer, link) and valid
+				result[0] = OK
+				var count := calls.size()
+				await movement_key(viewer, KEY_ENTER)
+				valid = valid and calls.size() == count + 1 and calls.back() == url and source_fallback_dialog(viewer) == null
+				result[0] = ERR_CANT_OPEN
+				await movement_key(viewer, KEY_ENTER)
+				var dialog := source_fallback_dialog(viewer)
+				valid = valid and calls.size() == count + 2 and calls.back() == url and dialog != null
+				if dialog == null:
+					continue
+				await viewer.get_tree().process_frame
+				await viewer.get_tree().process_frame
+				valid = valid and dialog.content.has_focus() and dialog.content.selection_enabled and not dialog.content.bbcode_enabled
+				valid = valid and dialog.message.ends_with(url) and dialog.content.get_parsed_text() == dialog.message
+				valid = valid and dialog.content.get_theme_font_size("normal_font_size") == roundi(15 * scale)
+				valid = valid and dialog.size.x <= viewer.get_window().size.x and dialog.size.y <= viewer.get_window().size.y
+				valid = valid and dialog.get_ok_button().get_global_rect().end.y <= dialog.size.y
+				if rendered and viewer.model.body.id == "female" and surface == "expanded-route" and scale == 1.3 and index == 0:
+					await RenderingServer.frame_post_draw
+					valid = valid and viewer.get_viewport().get_texture().get_image().save_png("user://native-source-fallback.png") == OK
+					print("PASS native source fallback: female")
+				await coverage_key(dialog, KEY_A, true)
+				valid = valid and dialog.content.get_selected_text() == dialog.message
+				if index % 2 == 0:
+					await coverage_key(dialog, KEY_ESCAPE)
+				else:
+					dialog.get_ok_button().pressed.emit()
+					# AcceptDialog handles the real button's pressed signal internally.
+					await viewer.get_tree().process_frame
+				await viewer.get_tree().process_frame
+				valid = valid and not is_instance_valid(dialog) and link.has_focus()
+				valid = valid and viewer.export_view_state() == during and viewer.guided_chest.route_history == route_history
+			if surface != "card":
+				await viewer.finish_guided_chest()
+	viewer.source_launcher = launcher
+	valid = await viewer.restore_view_state(before) and valid
+	viewer.model.undo_stack = undo.duplicate(true)
+	viewer.model.redo_stack = redo.duplicate(true)
+	viewer.back_views = back.duplicate(true)
+	viewer.forward_views = forward.duplicate(true)
+	viewer.apply_preferences(preferences)
+	viewer.get_window().size = window_size
+	viewer.set_scene_expanded(expanded)
+	valid = valid and viewer.export_view_state() == before
+	if valid:
+		print("PASS bundled source fallback: ", viewer.model.body.id)
+	else:
+		push_error("Study source launch fallback lost its address, focus or exploration: " + str(viewer.model.body.id))
+	return valid
+
+
 static func verify_nudge_gesture(viewer: Control) -> bool:
 	var before: Dictionary = viewer.export_view_state().duplicate(true)
 	var undo: Array = viewer.model.undo_stack.duplicate(true)
@@ -971,6 +1088,7 @@ static func run(viewer: Control, rendered: bool) -> bool:
 	valid = await verify_move_mode_boundary(viewer) and valid
 	valid = await verify_nudge_gesture(viewer) and valid
 	if viewer.model.structures.has("anatomy.heart"):
+		valid = await verify_source_fallback(viewer, rendered) and valid
 		valid = await verify_study_navigation(viewer) and valid
 		viewer.start_guided_chest()
 		viewer.apply_chest_step(2)

@@ -109,6 +109,7 @@ var preferences_active := false
 var applying_preferences := false
 var text_scale := 1.0
 var study_content := StudyContent.new()
+var source_launcher: Callable = OS.shell_open
 var study_summary: Label
 var study_links: VBoxContainer
 var condition_links: VBoxContainer
@@ -1133,6 +1134,7 @@ func build_interface() -> void:
 	guided_chest.finish_requested.connect(finish_guided_chest)
 	guided_chest.route_requested.connect(apply_route_step)
 	guided_chest.route_previous_requested.connect(previous_route_step)
+	guided_chest.source_requested.connect(open_study_source)
 	guided_chest.minimum_size_changed.connect(fit_expanded_study)
 	back_button = make_button("Back", func(): navigate_history(true), navigation, "Return to the previous selection and camera view. Alt + Left.")
 	forward_button = make_button("Forward", func(): navigate_history(false), navigation, "Return to the next selection and camera view. Alt + Right.")
@@ -2325,6 +2327,7 @@ func refresh_study_content() -> void:
 		if not model.structures.has(related):
 			continue
 		var link := LinkButton.new()
+		link.focus_mode = Control.FOCUS_ALL
 		link.text = str(model.structures[related].label)
 		link.tooltip_text = "Select this related structure in the current body."
 		link.disabled = loading
@@ -2333,11 +2336,12 @@ func refresh_study_content() -> void:
 	for source_id in card.get("source_ids", []):
 		var source: Dictionary = study_content.data.sources[source_id]
 		var link := LinkButton.new()
+		link.focus_mode = Control.FOCUS_ALL
 		link.text = str(source.title)
 		link.tooltip_text = str(source.url) + " · opens in your browser"
 		link.add_theme_font_size_override("font_size", roundi(12 * text_scale))
 		link.set_meta("base_font_size", 12)
-		link.pressed.connect(func(): OS.shell_open(str(source.url)))
+		link.pressed.connect(open_study_source.bind(str(source.url)))
 		study_links.add_child(link)
 	for child in condition_links.get_children():
 		condition_links.remove_child(child)
@@ -2348,11 +2352,30 @@ func refresh_study_content() -> void:
 		condition_links.add_child(make_label("RELATED CONDITIONS · DRAFT", 12, Color("83cfc9")))
 	for id in available_conditions:
 		var link := LinkButton.new()
+		link.focus_mode = Control.FOCUS_ALL
 		link.text = str(study_content.condition(id).title)
 		link.tooltip_text = "Read the sourced summary and locate its reference anatomy. Pathological geometry is unavailable."
 		link.disabled = loading or not study_content.condition_available(id, model.structures)
 		link.pressed.connect(show_condition.bind(id))
 		condition_links.add_child(link)
+
+
+func open_study_source(url: String) -> Window:
+	if source_launcher.call(url) == OK:
+		return null
+	var focused := get_viewport().gui_get_focus_owner()
+	var dialog := InformationDialog.new()
+	dialog.theme = theme
+	dialog.title = "Browser unavailable"
+	dialog.message = "The system could not open this source in your browser.\nSelect the address below and copy it into your browser.\n\n" + url
+	dialog.visibility_changed.connect(func():
+		if not dialog.visible and is_instance_valid(focused) and focused.is_visible_in_tree():
+			focused.grab_focus())
+	add_child(dialog)
+	scale_text(dialog)
+	dialog.open(Vector2i(720, 360))
+	status.text = "Could not open the browser · source address is available to select."
+	return dialog
 
 
 func show_condition(id: String) -> Window:

@@ -32,7 +32,8 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
                  camera_zoom: bool = False, coverage_keyboard: bool = False,
                  study_navigation: bool = False, import_preview: bool = False,
                  unchanged_edits: bool = False, movement_history: bool = False,
-                 move_mode_boundary: bool = False, nudge_gesture: bool = False) -> dict:
+                 move_mode_boundary: bool = False, nudge_gesture: bool = False,
+                 source_fallback: bool = False) -> dict:
     if "ERROR:" in log:
         raise ValueError("The native runtime reported an error")
     if re.search(r'ObjectDB instance.*leaked|^Leaked instance:', log, re.M):
@@ -76,11 +77,15 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
             raise ValueError('Native Move mode gesture check missing: ' + reference)
         if nudge_gesture and f'PASS bundled nudge gesture: {reference}' not in log.splitlines():
             raise ValueError('Native keyboard/pointer gesture check missing: ' + reference)
+        if source_fallback and reference in ['female', 'male'] and f'PASS bundled source fallback: {reference}' not in log.splitlines():
+            raise ValueError('Native source launch fallback check missing: ' + reference)
     result = process_observations(log, rendered)
     if information and 'PASS bundled information dialogs: female' not in log.splitlines():
         raise ValueError('Native information dialog check missing')
     if import_preview and rendered and 'PASS native import preview: female' not in log.splitlines():
         raise ValueError('Native import preview capture check missing')
+    if source_fallback and rendered and 'PASS native source fallback: female' not in log.splitlines():
+        raise ValueError('Native source launch fallback capture check missing')
     if conditions:
         for reference in ['female', 'male']:
             if f'PASS bundled condition study: {reference}' not in log.splitlines():
@@ -113,6 +118,8 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
         result['move_mode_boundary_references'] = list(references)
     if nudge_gesture:
         result['nudge_gesture_references'] = list(references)
+    if source_fallback:
+        result['source_fallback_references'] = [reference for reference in references if reference in ['female', 'male']]
     return result
 
 
@@ -268,7 +275,7 @@ try {
 
 def captures(folder: pathlib.Path, output: pathlib.Path, references: dict, circulation: bool = False,
              information: bool = False, conditions: bool = False, coverage_keyboard: bool = False,
-             import_preview: bool = False) -> dict:
+             import_preview: bool = False, source_fallback: bool = False) -> dict:
     images = {}
     destination = output / "captures"
     destination.mkdir()
@@ -302,6 +309,8 @@ def captures(folder: pathlib.Path, output: pathlib.Path, references: dict, circu
     dialog_captures = ([f'native-information-{kind}.png' for kind in ['help', 'sources']] if information else [])
     if import_preview:
         dialog_captures.extend(f'native-import-preview-{kind}.png' for kind in ['long', 'duplicates'])
+    if source_fallback:
+        dialog_captures.append('native-source-fallback.png')
     if dialog_captures:
         for name in dialog_captures:
             path = source / name
@@ -353,6 +362,8 @@ def verify(args: argparse.Namespace) -> dict:
                           and b'PASS bundled move mode boundary:' in git_bytes(ROOT, build_report['source_revision'], 'scripts/study_verification.gd'))
     nudge_gesture = ('scripts/study_verification.gd' in build_report['source_hashes']
                      and b'PASS bundled nudge gesture:' in git_bytes(ROOT, build_report['source_revision'], 'scripts/study_verification.gd'))
+    source_fallback = ('scripts/study_verification.gd' in build_report['source_hashes']
+                       and b'PASS bundled source fallback:' in git_bytes(ROOT, build_report['source_revision'], 'scripts/study_verification.gd'))
     startup_cases = None
     if reference_state:
         bodies = json.loads(git_bytes(ROOT, build_report['source_revision'], 'content/sample_pack.json'))['bodies']
@@ -380,7 +391,7 @@ def verify(args: argparse.Namespace) -> dict:
             reference_fixture.write_text(reference_fixture_text, encoding='utf-8')
         log = run_native(args, windows_session, windows_session + "\\" + executable_relative)
         result = parse_result(log, args.mode == "rendered", circulation, information, conditions,
-                              find_anatomy, pointer_interruption, saved_view_context, camera_zoom, coverage_keyboard, study_navigation, import_preview, unchanged_edits, movement_history, move_mode_boundary, nudge_gesture)
+                              find_anatomy, pointer_interruption, saved_view_context, camera_zoom, coverage_keyboard, study_navigation, import_preview, unchanged_edits, movement_history, move_mode_boundary, nudge_gesture, source_fallback)
         if result["engine_actual"] != build_report["engine"]:
             raise ValueError("The native runtime differs from the pinned build engine")
         result.update(schema_version=1, recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
@@ -390,7 +401,7 @@ def verify(args: argparse.Namespace) -> dict:
                       limits=["Scripted actions; human input, clipboard and native OS picker acceptance remain open.",
                               "No sustained-performance or maximum-loading-pause claim.", "This checks actual Windows execution; Mac device validation is separate."])
         if args.mode == "rendered":
-            result["captures"] = captures(session, args.output, result["references"], circulation, information, conditions, coverage_keyboard, import_preview)
+            result["captures"] = captures(session, args.output, result["references"], circulation, information, conditions, coverage_keyboard, import_preview, source_fallback)
         if (session / "engine.log").exists():
             shutil.copyfile(session / "engine.log", args.output / "engine.log")
         if reference_state:

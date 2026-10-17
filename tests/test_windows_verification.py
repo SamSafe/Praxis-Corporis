@@ -26,6 +26,21 @@ def complete_log(rendered=True):
 
 
 class WindowsVerificationTests(unittest.TestCase):
+    def test_source_links_require_both_supported_references_and_native_capture(self):
+        log = complete_log(False)
+        for reference in ['female', 'male']:
+            with self.assertRaisesRegex(ValueError, 'source launch fallback'):
+                parse_result(log, False, source_fallback=True)
+            log += '\nPASS bundled source fallback: ' + reference
+        self.assertEqual(parse_result(log, False, source_fallback=True)['source_fallback_references'],
+                         ['female', 'male'])
+        rendered = complete_log(True) + '\nPASS bundled source fallback: female\nPASS bundled source fallback: male'
+        with self.assertRaisesRegex(ValueError, 'capture check'):
+            parse_result(rendered, True, source_fallback=True)
+        rendered += '\nPASS native source fallback: female'
+        self.assertEqual(parse_result(rendered, True, source_fallback=True)['source_fallback_references'],
+                         ['female', 'male'])
+
     def test_nudge_packages_require_keyboard_pointer_checks_for_every_reference(self):
         log = complete_log(False)
         for reference in ['female', 'male', 'bodyparts-male-bones-study']:

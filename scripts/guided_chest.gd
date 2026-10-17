@@ -5,6 +5,7 @@ signal step_requested(index: int)
 signal finish_requested
 signal route_requested(id: String)
 signal route_previous_requested
+signal source_requested(url: String)
 
 const STEPS := [
 	{"title": "Find the heart", "selection": "anatomy.heart", "mode": "context", "text": "Skin is hidden and lungs are faded. Orbit to locate the heart in its surrounding anatomy."},
@@ -136,7 +137,8 @@ func show_route(id: String, route: Dictionary, sources: Dictionary) -> void:
 		button.tooltip_text = "Follow this authored connection; this does not trace a channel through the meshes."
 	for source in node.source_ids:
 		var link := LinkButton.new()
+		link.focus_mode = Control.FOCUS_ALL
 		link.text = sources[source].title
 		link.tooltip_text = sources[source].url + " · opens in your browser"
-		link.pressed.connect(func(): OS.shell_open(str(sources[source].url)))
+		link.pressed.connect(func(): source_requested.emit(str(sources[source].url)))
 		citations.add_child(link)
