@@ -167,6 +167,7 @@ def add_notices(folder: pathlib.Path, platform: str) -> None:
         "Guided chest offers six reversible steps, including a separated chamber teaching view. Finish restores your starting setup.\n"
         "Heart/lung study cards include primary-source links and retain draft/review status. Source and mesh details expands technical identity.\n"
         "Study links are keyboard reachable. If the system cannot open a source in your browser, a selectable address stays available in the app.\n"
+        "Read study card opens a larger selectable text/source reader. In expanded anatomy use Explore > Read study card; related anatomy links keep its reading action focused.\n"
         "Related conditions offers sourced aortic-stenosis and mitral-regurgitation summaries; Inspect reference anatomy reveals the supplied valve.\n"
         "Learning text remains draft; assistant cross-checks do not establish human source or medical review.\n"
         "View > Preferences adjusts text size. Panel layout, 3D resolution and label preferences are remembered on this computer.\n"

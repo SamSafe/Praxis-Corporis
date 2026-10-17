@@ -5,6 +5,156 @@ const SavedViews = preload("res://scripts/saved_views.gd")
 const Preferences = preload("res://scripts/viewer_preferences.gd")
 
 
+static func study_reader_dialog(viewer: Control) -> Window:
+	for child in viewer.get_children():
+		if child is Window and child.title.ends_with(" · draft study card") and child.visible:
+			return child
+	return null
+
+
+static func verify_study_reader(viewer: Control, rendered: bool = false) -> bool:
+	var before: Dictionary = viewer.export_view_state().duplicate(true)
+	var undo: Array = viewer.model.undo_stack.duplicate(true)
+	var redo: Array = viewer.model.redo_stack.duplicate(true)
+	var back: Array = viewer.back_views.duplicate(true)
+	var forward: Array = viewer.forward_views.duplicate(true)
+	var preferences: Dictionary = viewer.preference_state()
+	var window_size := viewer.get_window().size
+	var expanded: bool = viewer.scene_expanded
+	var valid := true
+	var captured := 0
+	if viewer.model.structures.has("anatomy.heart"):
+		for scale in [1.0, 1.3]:
+			var settings := preferences.duplicate(true)
+			settings.text_scale = scale
+			settings.details = true
+			viewer.apply_preferences(settings)
+			viewer.get_window().size = Vector2i(1100, 720)
+			for layout in [false, true]:
+				viewer.set_scene_expanded(layout)
+				var index := 0
+				for id in viewer.study_content.data.cards:
+					viewer.select_structure(id, false)
+					await viewer.get_tree().process_frame
+					var during: Dictionary = viewer.export_view_state().duplicate(true)
+					var edit_undo: Array = viewer.model.undo_stack.duplicate(true)
+					var edit_redo: Array = viewer.model.redo_stack.duplicate(true)
+					var nav_back: Array = viewer.back_views.duplicate(true)
+					var nav_forward: Array = viewer.forward_views.duplicate(true)
+					if layout:
+						viewer.expanded_menu.grab_focus()
+						viewer.refresh_expanded_menu()
+						var popup: PopupMenu = viewer.expanded_menu.get_popup()
+						valid = valid and not popup.is_item_disabled(popup.get_item_index(viewer.ExpandedAction.READ_STUDY))
+						# Exercise the menu's connected dispatch; viewport key injection
+						# does not enter PopupMenu's native window-input handler.
+						popup.id_pressed.emit(viewer.ExpandedAction.READ_STUDY)
+						await viewer.get_tree().process_frame
+					else:
+						viewer.study_reader_button.grab_focus()
+						await movement_key(viewer, KEY_ENTER)
+					var dialog := study_reader_dialog(viewer)
+					valid = valid and dialog != null
+					if dialog == null:
+						continue
+					await viewer.get_tree().process_frame
+					await viewer.get_tree().process_frame
+					valid = valid and dialog.content.has_focus() and dialog.content.selection_enabled and not dialog.content.bbcode_enabled
+					valid = valid and viewer.study_content.text(id) in dialog.message and str(viewer.model.body.get("short_label", viewer.model.body.label)) in dialog.message
+					valid = valid and str(viewer.model.structures[id].label) in dialog.message and dialog.content.get_parsed_text() == dialog.message
+					for source_id in viewer.study_content.card(id).source_ids:
+						var source: Dictionary = viewer.study_content.data.sources[source_id]
+						valid = valid and str(source.title) in dialog.message and str(source.url) in dialog.message
+					valid = valid and dialog.content.get_theme_font_size("normal_font_size") == roundi(15 * scale)
+					valid = valid and dialog.size.x <= viewer.get_window().size.x and dialog.size.y <= viewer.get_window().size.y
+					valid = valid and dialog.get_ok_button().get_global_rect().end.y <= dialog.size.y
+					if rendered and viewer.model.body.id == "female" and scale == 1.3 and ((not layout and id == "anatomy.heart") or (layout and id == "anatomy.heart.valve.mitral")):
+						await RenderingServer.frame_post_draw
+						valid = valid and viewer.get_viewport().get_texture().get_image().save_png("user://native-study-reader-%s.png" % ("expanded" if layout else "workspace")) == OK
+						captured += 1
+					# Exercise a shorter reader as well as its preferred size.
+					dialog.size.y = 360
+					await viewer.get_tree().process_frame
+					await viewer.get_tree().process_frame
+					var bar: VScrollBar = dialog.content.get_v_scroll_bar()
+					await coverage_key(dialog, KEY_PAGEDOWN)
+					valid = valid and (bar.value > 0 if bar.max_value > bar.page else bar.value == 0)
+					await coverage_key(dialog, KEY_A, true)
+					valid = valid and dialog.content.get_selected_text() == dialog.message
+					if index % 2 == 0:
+						await coverage_key(dialog, KEY_ESCAPE)
+					else:
+						dialog.get_ok_button().grab_focus()
+						await coverage_key(dialog, KEY_ENTER)
+					await viewer.get_tree().process_frame
+					valid = valid and not is_instance_valid(dialog) and (viewer.expanded_menu.has_focus() if layout else viewer.study_reader_button.has_focus())
+					valid = valid and viewer.export_view_state() == during and viewer.model.undo_stack == edit_undo and viewer.model.redo_stack == edit_redo
+					valid = valid and viewer.back_views == nav_back and viewer.forward_views == nav_forward and viewer.scene_expanded == layout
+					index += 1
+		# Every authored related link keeps a useful reading action focused.
+		viewer.set_scene_expanded(false)
+		for id in viewer.study_content.data.cards:
+			for related in viewer.study_content.card(id).related:
+				viewer.select_structure(id, false)
+				var link: LinkButton
+				for child in viewer.study_links.get_children():
+					if child is LinkButton and child.tooltip_text == "Select this related structure in the current body." and child.text == str(viewer.model.structures[related].label):
+						link = child
+				valid = valid and link != null
+				if link != null:
+					link.grab_focus()
+					await movement_key(viewer, KEY_ENTER)
+					valid = valid and viewer.model.selected_id == related and viewer.study_reader_button.has_focus()
+		for mode in ["chest", "circulation"]:
+			if mode == "chest":
+				viewer.start_guided_chest()
+				viewer.apply_chest_step(2)
+			else:
+				viewer.start_circulation_route()
+				for target in ["right-atrium", "tricuspid", "right-ventricle", "pulmonary-valve", "pulmonary-trunk", "left-artery", "left-exchange", "pulmonary-veins", "left-atrium", "mitral"]:
+					viewer.apply_route_step(target)
+			var during: Dictionary = viewer.export_view_state().duplicate(true)
+			var step: int = viewer.guided_chest.step
+			var route: String = viewer.guided_chest.route_node
+			var history: Array = viewer.guided_chest.route_history.duplicate()
+			var dialog: Window = viewer.show_study_card()
+			valid = valid and dialog != null
+			if dialog != null:
+				await coverage_key(dialog, KEY_ESCAPE)
+				await viewer.get_tree().process_frame
+			valid = valid and viewer.guided_chest.active and viewer.guided_chest.mode == mode and viewer.guided_chest.step == step and viewer.guided_chest.route_node == route and viewer.guided_chest.route_history == history
+			valid = valid and viewer.export_view_state() == during
+			await viewer.finish_guided_chest()
+		viewer.select_structure(viewer.model.body.root_id, false)
+		viewer.refresh_expanded_menu()
+		valid = valid and not viewer.study_reader_button.visible and viewer.show_study_card() == null
+		var popup: PopupMenu = viewer.expanded_menu.get_popup()
+		valid = valid and popup.is_item_disabled(popup.get_item_index(viewer.ExpandedAction.READ_STUDY))
+	else:
+		viewer.refresh_expanded_menu()
+		valid = not viewer.study_reader_button.visible and viewer.show_study_card() == null and valid
+		var popup: PopupMenu = viewer.expanded_menu.get_popup()
+		valid = valid and popup.is_item_disabled(popup.get_item_index(viewer.ExpandedAction.READ_STUDY))
+	valid = await viewer.restore_view_state(before) and valid
+	viewer.model.undo_stack = undo.duplicate(true)
+	viewer.model.redo_stack = redo.duplicate(true)
+	viewer.back_views = back.duplicate(true)
+	viewer.forward_views = forward.duplicate(true)
+	viewer.apply_preferences(preferences)
+	viewer.get_window().size = window_size
+	viewer.set_scene_expanded(expanded)
+	valid = valid and viewer.export_view_state() == before
+	if rendered and viewer.model.body.id == "female":
+		valid = valid and captured == 2
+		if valid:
+			print("PASS native study reader: female")
+	if valid:
+		print("PASS bundled study reader: ", viewer.model.body.id)
+	else:
+		push_error("Study reader text, keyboard access or exploration preservation failed: " + str(viewer.model.body.id))
+	return valid
+
+
 static func source_fallback_dialog(viewer: Control) -> Window:
 	for child in viewer.get_children():
 		if child is Window and child.title == "Browser unavailable" and child.visible:
@@ -1087,6 +1237,7 @@ static func run(viewer: Control, rendered: bool) -> bool:
 	valid = await verify_movement_history(viewer) and valid
 	valid = await verify_move_mode_boundary(viewer) and valid
 	valid = await verify_nudge_gesture(viewer) and valid
+	valid = await verify_study_reader(viewer, rendered) and valid
 	if viewer.model.structures.has("anatomy.heart"):
 		valid = await verify_source_fallback(viewer, rendered) and valid
 		valid = await verify_study_navigation(viewer) and valid

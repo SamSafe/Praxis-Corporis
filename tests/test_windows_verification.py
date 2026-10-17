@@ -26,6 +26,22 @@ def complete_log(rendered=True):
 
 
 class WindowsVerificationTests(unittest.TestCase):
+    def test_study_reader_requires_all_reference_gates_and_native_capture(self):
+        log = complete_log(False)
+        for reference in ['female', 'male', 'bodyparts-male-bones-study']:
+            with self.assertRaisesRegex(ValueError, 'study reader'):
+                parse_result(log, False, study_reader=True)
+            log += '\nPASS bundled study reader: ' + reference
+        self.assertEqual(parse_result(log, False, study_reader=True)['study_reader_references'],
+                         ['female', 'male', 'bodyparts-male-bones-study'])
+        rendered = complete_log(True)
+        for reference in ['female', 'male', 'bodyparts-male-bones-study']:
+            rendered += '\nPASS bundled study reader: ' + reference
+        with self.assertRaisesRegex(ValueError, 'capture check'):
+            parse_result(rendered, True, study_reader=True)
+        rendered += '\nPASS native study reader: female'
+        self.assertEqual(len(parse_result(rendered, True, study_reader=True)['study_reader_references']), 3)
+
     def test_source_links_require_both_supported_references_and_native_capture(self):
         log = complete_log(False)
         for reference in ['female', 'male']:

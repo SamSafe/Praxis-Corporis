@@ -22,7 +22,7 @@ const InformationDialog = preload("res://scripts/information_dialog.gd")
 const WindowState = preload("res://scripts/window_state.gd")
 const ReferenceState = preload("res://scripts/reference_state.gd")
 enum ExpandedAction { FOCUS, WHOLE_BODY, INSPECT, RETURN_CONTEXT, SELECTION_LABELS,
-	LOCAL_LABELS, MOVE, UNDO, REDO, SAVED_VIEWS, SCREENSHOT, KEYBOARD_HELP, GUIDED_CHEST, CIRCULATION_ROUTE, FIND_ANATOMY }
+	LOCAL_LABELS, MOVE, UNDO, REDO, SAVED_VIEWS, SCREENSHOT, KEYBOARD_HELP, GUIDED_CHEST, CIRCULATION_ROUTE, FIND_ANATOMY, READ_STUDY }
 var save_path := "user://saved_view.json"
 var views_path := "user://saved_views.json"
 
@@ -111,6 +111,7 @@ var text_scale := 1.0
 var study_content := StudyContent.new()
 var source_launcher: Callable = OS.shell_open
 var study_summary: Label
+var study_reader_button: Button
 var study_links: VBoxContainer
 var condition_links: VBoxContainer
 var study_key := ""
@@ -1272,6 +1273,8 @@ func build_interface() -> void:
 	study_summary = make_label("", 15)
 	study_summary.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	right.add_child(study_summary)
+	study_reader_button = make_button("Read study card…", show_study_card, right, "Open selectable draft study text and its source addresses in a larger window.")
+	study_reader_button.visible = false
 	study_links = VBoxContainer.new()
 	right.add_child(study_links)
 	condition_links = VBoxContainer.new()
@@ -1383,7 +1386,7 @@ func build_interface() -> void:
 	expanded_menu.flat = false
 	expanded_menu.focus_mode = Control.FOCUS_ALL
 	expanded_menu.custom_minimum_size = Vector2(100, 38)
-	expanded_menu.tooltip_text = "Labels, inspection, saved views, screenshots and rendering quality."
+	expanded_menu.tooltip_text = "Study text, labels, inspection, saved views, screenshots and rendering quality."
 	expanded_toolbar.add_child(expanded_menu)
 	var expanded_popup := expanded_menu.get_popup()
 	expanded_popup.add_item("Focus selection", ExpandedAction.FOCUS)
@@ -1398,6 +1401,7 @@ func build_interface() -> void:
 	expanded_popup.add_item("Redo inspection", ExpandedAction.REDO)
 	expanded_popup.add_separator()
 	expanded_popup.add_item("Saved views…", ExpandedAction.SAVED_VIEWS)
+	expanded_popup.add_item("Read study card…", ExpandedAction.READ_STUDY)
 	expanded_popup.add_item("Guided chest…", ExpandedAction.GUIDED_CHEST)
 	expanded_popup.add_item("Heart ↔ lungs route…", ExpandedAction.CIRCULATION_ROUTE)
 	expanded_popup.add_item("Screenshot…", ExpandedAction.SCREENSHOT)
@@ -1929,6 +1933,9 @@ func refresh_expanded_menu() -> void:
 	popup.set_item_disabled(popup.get_item_index(ExpandedAction.SCREENSHOT), unavailable or capture_in_progress)
 	popup.set_item_disabled(popup.get_item_index(ExpandedAction.GUIDED_CHEST), unavailable or not model.structures.has("anatomy.heart"))
 	popup.set_item_disabled(popup.get_item_index(ExpandedAction.CIRCULATION_ROUTE), unavailable or not route_supported)
+	popup.set_item_disabled(popup.get_item_index(ExpandedAction.READ_STUDY), unavailable or study_content.card(model.selected_id).is_empty())
+	popup.set_item_tooltip(popup.get_item_index(ExpandedAction.READ_STUDY),
+		"No authored study card for this structure." if study_content.card(model.selected_id).is_empty() else "Read selectable draft study text and source addresses without leaving expanded anatomy.")
 	popup.set_item_checked(popup.get_item_index(ExpandedAction.SELECTION_LABELS), labels_button.button_pressed)
 	popup.set_item_checked(popup.get_item_index(ExpandedAction.LOCAL_LABELS), local_labels_button.button_pressed)
 	popup.set_item_checked(popup.get_item_index(ExpandedAction.MOVE), orbit.move_mode)
@@ -2024,12 +2031,13 @@ func on_expanded_action(id: int) -> void:
 			ExpandedAction.UNDO: undo_inspection()
 			ExpandedAction.REDO: redo_inspection()
 			ExpandedAction.SAVED_VIEWS: show_saved_views()
+			ExpandedAction.READ_STUDY: show_study_card()
 			ExpandedAction.GUIDED_CHEST: start_guided_chest()
 			ExpandedAction.CIRCULATION_ROUTE: start_circulation_route()
 			ExpandedAction.SCREENSHOT: export_screenshot()
 			ExpandedAction.FIND_ANATOMY: focus_anatomy_search()
 	refresh_expanded_menu()
-	if id not in [ExpandedAction.SAVED_VIEWS, ExpandedAction.SCREENSHOT, ExpandedAction.KEYBOARD_HELP, ExpandedAction.FIND_ANATOMY]:
+	if id not in [ExpandedAction.SAVED_VIEWS, ExpandedAction.SCREENSHOT, ExpandedAction.KEYBOARD_HELP, ExpandedAction.FIND_ANATOMY, ExpandedAction.READ_STUDY]:
 		scene_container.grab_focus()
 
 
@@ -2323,6 +2331,8 @@ func refresh_study_content() -> void:
 		study_links.remove_child(child)
 		child.queue_free()
 	var card := study_content.card(model.selected_id)
+	study_reader_button.visible = not card.is_empty()
+	study_reader_button.disabled = loading or card.is_empty()
 	for related in card.get("related", []):
 		if not model.structures.has(related):
 			continue
@@ -2331,7 +2341,7 @@ func refresh_study_content() -> void:
 		link.text = str(model.structures[related].label)
 		link.tooltip_text = "Select this related structure in the current body."
 		link.disabled = loading
-		link.pressed.connect(select_structure.bind(str(related)))
+		link.pressed.connect(select_related_study.bind(str(related)))
 		study_links.add_child(link)
 	for source_id in card.get("source_ids", []):
 		var source: Dictionary = study_content.data.sources[source_id]
@@ -2358,6 +2368,40 @@ func refresh_study_content() -> void:
 		link.disabled = loading or not study_content.condition_available(id, model.structures)
 		link.pressed.connect(show_condition.bind(id))
 		condition_links.add_child(link)
+
+
+func select_related_study(id: String) -> void:
+	if loading or not model.structures.has(id):
+		return
+	var focused := get_viewport().gui_get_focus_owner()
+	var reading := focused != null and study_links.is_ancestor_of(focused)
+	select_structure(id)
+	if reading:
+		if study_reader_button.is_visible_in_tree() and not study_reader_button.disabled:
+			study_reader_button.grab_focus()
+		else:
+			scene_container.grab_focus()
+
+
+func show_study_card() -> Window:
+	if loading or not model.structures.has(model.selected_id):
+		return null
+	var card := study_content.card(model.selected_id)
+	if card.is_empty():
+		return null
+	var dialog := InformationDialog.new()
+	dialog.theme = theme
+	dialog.title = str(model.structures[model.selected_id].label) + " · draft study card"
+	dialog.message = "Reference: %s\nStructure: %s\n\n%s\n\nSources" % [
+		model.body.get("short_label", model.body.label), model.structures[model.selected_id].label,
+		study_content.text(model.selected_id)]
+	for source_id in card.source_ids:
+		var source: Dictionary = study_content.data.sources[source_id]
+		dialog.message += "\n\n%s\n%s" % [source.title, source.url]
+	add_child(dialog)
+	scale_text(dialog)
+	dialog.open(Vector2i(760, 540))
+	return dialog
 
 
 func open_study_source(url: String) -> Window:
