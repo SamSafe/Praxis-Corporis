@@ -517,6 +517,13 @@ func checkpoint() -> void:
 func set_visibility(id: String, visibility: String) -> void:
 	if not structures.has(id) or visibility not in ["visible", "hidden", "faded"]:
 		return
+	var changed := false
+	for index in structures[id].mesh_nodes:
+		if states[int(index)].visibility != visibility:
+			changed = true
+			break
+	if not changed:
+		return
 	checkpoint()
 	for index in structures[id].mesh_nodes:
 		states[int(index)].visibility = visibility
@@ -535,6 +542,14 @@ func offset_selection(delta: Vector3) -> void:
 
 func restore(id: String = "anatomy.body") -> void:
 	if not structures.has(id):
+		return
+	var changed := false
+	for index in structures[id].mesh_nodes:
+		var state: Dictionary = states[int(index)]
+		if state.visibility != "visible" or state.offset != Vector3.ZERO:
+			changed = true
+			break
+	if not changed:
 		return
 	checkpoint()
 	for index in structures[id].mesh_nodes:
@@ -604,6 +619,8 @@ func apply_saved_state(changes: Dictionary) -> String:
 		var change: Dictionary = changes[id]
 		var offset: Array = change.offset
 		next[index] = {"visibility": change.visibility, "offset": Vector3(float(offset[0]), float(offset[1]), float(offset[2]))}
+	if next == states:
+		return ""
 	checkpoint()
 	states = next
 	refresh_appearance()

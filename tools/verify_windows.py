@@ -30,7 +30,8 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
                  conditions: bool = False, find_anatomy: bool = False,
                  pointer_interruption: bool = False, saved_view_context: bool = False,
                  camera_zoom: bool = False, coverage_keyboard: bool = False,
-                 study_navigation: bool = False, import_preview: bool = False) -> dict:
+                 study_navigation: bool = False, import_preview: bool = False,
+                 unchanged_edits: bool = False) -> dict:
     if "ERROR:" in log:
         raise ValueError("The native runtime reported an error")
     if re.search(r'ObjectDB instance.*leaked|^Leaked instance:', log, re.M):
@@ -66,6 +67,8 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
             raise ValueError('Native study navigation check missing: ' + reference)
         if import_preview and f'PASS bundled import preview: {reference}' not in log.splitlines():
             raise ValueError('Native import preview check missing: ' + reference)
+        if unchanged_edits and f'PASS bundled unchanged edits: {reference}' not in log.splitlines():
+            raise ValueError('Native unchanged-edit history check missing: ' + reference)
     result = process_observations(log, rendered)
     if information and 'PASS bundled information dialogs: female' not in log.splitlines():
         raise ValueError('Native information dialog check missing')
@@ -95,6 +98,8 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
         result['study_navigation_references'] = [reference for reference in references if reference in ['female', 'male']]
     if import_preview:
         result['import_preview_references'] = list(references)
+    if unchanged_edits:
+        result['unchanged_edit_references'] = list(references)
     return result
 
 
@@ -327,6 +332,8 @@ def verify(args: argparse.Namespace) -> dict:
                         and b'PASS bundled study navigation:' in git_bytes(ROOT, build_report['source_revision'], 'scripts/study_verification.gd'))
     import_preview = ('scripts/study_verification.gd' in build_report['source_hashes']
                       and b'PASS bundled import preview:' in git_bytes(ROOT, build_report['source_revision'], 'scripts/study_verification.gd'))
+    unchanged_edits = ('scripts/study_verification.gd' in build_report['source_hashes']
+                       and b'PASS bundled unchanged edits:' in git_bytes(ROOT, build_report['source_revision'], 'scripts/study_verification.gd'))
     startup_cases = None
     if reference_state:
         bodies = json.loads(git_bytes(ROOT, build_report['source_revision'], 'content/sample_pack.json'))['bodies']
@@ -354,7 +361,7 @@ def verify(args: argparse.Namespace) -> dict:
             reference_fixture.write_text(reference_fixture_text, encoding='utf-8')
         log = run_native(args, windows_session, windows_session + "\\" + executable_relative)
         result = parse_result(log, args.mode == "rendered", circulation, information, conditions,
-                              find_anatomy, pointer_interruption, saved_view_context, camera_zoom, coverage_keyboard, study_navigation, import_preview)
+                              find_anatomy, pointer_interruption, saved_view_context, camera_zoom, coverage_keyboard, study_navigation, import_preview, unchanged_edits)
         if result["engine_actual"] != build_report["engine"]:
             raise ValueError("The native runtime differs from the pinned build engine")
         result.update(schema_version=1, recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),

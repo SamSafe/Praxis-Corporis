@@ -156,6 +156,7 @@ def add_notices(folder: pathlib.Path, platform: str) -> None:
         "If included, Male bones / BodyParts3D study is a separate source reference, unregistered to HRA.\n"
         "Move selected enables inspection displacement; blue overlays mark original positions.\n"
         "Undo/Redo reverses or reapplies inspection changes. Restore returns original anatomy.\n"
+        "Repeating visibility/Restore or applying the same saved anatomy keeps Undo/Redo when the anatomy is already in that state.\n"
         "Saved views keeps named local exploration setups and your study notes outside this folder.\n\n"
         "In Saved views, search names and notes with Ctrl+F; Enter selects a match. Escape clears a focused search.\n"
         "Saved views > Export all views backs up your views and notes to JSON; Import previews compatibility and keeps existing views.\n"

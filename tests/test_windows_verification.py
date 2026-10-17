@@ -26,6 +26,15 @@ def complete_log(rendered=True):
 
 
 class WindowsVerificationTests(unittest.TestCase):
+    def test_unchanged_anatomy_requires_history_evidence_for_every_reference(self):
+        log = complete_log(False)
+        for reference in ['female', 'male', 'bodyparts-male-bones-study']:
+            with self.assertRaisesRegex(ValueError, 'unchanged-edit history'):
+                parse_result(log, False, unchanged_edits=True)
+            log += '\nPASS bundled unchanged edits: ' + reference
+        self.assertEqual(parse_result(log, False, unchanged_edits=True)['unchanged_edit_references'],
+                         ['female', 'male', 'bodyparts-male-bones-study'])
+
     def test_import_previews_require_all_reference_checks_and_rendered_capture(self):
         log = complete_log(False)
         for reference in ['female', 'male', 'bodyparts-male-bones-study']:

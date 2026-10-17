@@ -5,6 +5,88 @@ const SavedViews = preload("res://scripts/saved_views.gd")
 const Preferences = preload("res://scripts/viewer_preferences.gd")
 
 
+static func verify_unchanged_edits(viewer: Control) -> bool:
+	var before: Dictionary = viewer.export_view_state().duplicate(true)
+	var undo: Array = viewer.model.undo_stack.duplicate(true)
+	var redo: Array = viewer.model.redo_stack.duplicate(true)
+	var back: Array = viewer.back_views.duplicate(true)
+	var forward: Array = viewer.forward_views.duplicate(true)
+	var leaf: String = viewer.model.body.get("qa_leaf_id", "anatomy.heart.valve.mitral")
+	if viewer.model.body.id == "bodyparts-male-bones-study":
+		leaf = "source.bodyparts3d-v4-male.FJ3365"
+	viewer.end_isolation()
+	viewer.select_structure(leaf, false)
+	var valid := true
+	for action in ["Show", "Hide", "Fade", "Restore selected", "Restore all", "Apply unchanged saved anatomy", "Restore unchanged view"]:
+		valid = viewer.model.apply_saved_state({}).is_empty() and valid
+		if action in ["Hide", "Fade"]:
+			viewer.model.set_visibility(leaf, "hidden" if action == "Hide" else "faded")
+		viewer.model.undo_stack.clear()
+		viewer.model.redo_stack.clear()
+		viewer.model.checkpoint()
+		viewer.model.offset_selection(Vector3(0.02, 0, 0))
+		var moved: Dictionary = viewer.model.export_state().duplicate(true)
+		viewer.model.undo()
+		var unchanged: Dictionary = viewer.export_view_state().duplicate(true)
+		var saved_undo: Array = viewer.model.undo_stack.duplicate(true)
+		var saved_redo: Array = viewer.model.redo_stack.duplicate(true)
+		for repeat in 4:
+			match action:
+				"Show": viewer.change_visibility("visible")
+				"Hide": viewer.change_visibility("hidden")
+				"Fade": viewer.change_visibility("faded")
+				"Restore selected": viewer.restore_selected()
+				"Restore all": viewer.restore_all()
+				"Apply unchanged saved anatomy": valid = viewer.model.apply_saved_state(unchanged.changes).is_empty() and valid
+				"Restore unchanged view": valid = await viewer.restore_view_state(unchanged) and valid
+			valid = valid and viewer.export_view_state() == unchanged and viewer.model.undo_stack == saved_undo and viewer.model.redo_stack == saved_redo
+			valid = valid and not viewer.redo_button.disabled and viewer.undo_button.disabled
+		viewer.model.redo()
+		valid = valid and viewer.model.export_state() == moved
+	# An actual edit still creates one undo step and branches away from redo.
+	valid = viewer.model.apply_saved_state({}).is_empty() and valid
+	viewer.model.set_visibility(leaf, "hidden")
+	var mixed: Dictionary = viewer.model.export_state().duplicate(true)
+	viewer.model.undo_stack.clear()
+	viewer.model.redo_stack.clear()
+	viewer.model.set_visibility(viewer.model.body.root_id, "visible")
+	valid = valid and viewer.model.export_state().is_empty() and viewer.model.undo_stack.size() == 1
+	viewer.model.undo()
+	valid = valid and viewer.model.export_state() == mixed and viewer.model.redo_stack.size() == 1
+	viewer.model.set_visibility(leaf, "faded")
+	valid = valid and viewer.model.redo_stack.is_empty() and viewer.model.undo_stack.size() == 1 and viewer.model.export_state() != mixed
+	var changed: Dictionary = viewer.model.export_state().duplicate(true)
+	viewer.restore_selected()
+	valid = valid and viewer.model.export_state().is_empty() and viewer.model.undo_stack.size() == 2
+	viewer.model.undo()
+	valid = valid and viewer.model.export_state() == changed
+	viewer.model.redo()
+	valid = valid and viewer.model.export_state().is_empty()
+	viewer.model.undo()
+	var saved_undo: Array = viewer.model.undo_stack.duplicate(true)
+	var saved_redo: Array = viewer.model.redo_stack.duplicate(true)
+	valid = not viewer.model.apply_saved_state({"missing.structure": {"visibility": "hidden", "offset": [0, 0, 0]}}).is_empty() and valid
+	valid = valid and viewer.model.export_state() == changed and viewer.model.undo_stack == saved_undo and viewer.model.redo_stack == saved_redo
+	# Empty groups are harmless too, where the source catalogue supplies one.
+	for structure in viewer.model.structures.values():
+		if structure.mesh_nodes.is_empty():
+			viewer.model.set_visibility(structure.id, "hidden")
+			viewer.model.restore(structure.id)
+	valid = valid and viewer.model.export_state() == changed and viewer.model.undo_stack == saved_undo and viewer.model.redo_stack == saved_redo
+	valid = await viewer.restore_view_state(before) and valid
+	viewer.model.undo_stack = undo.duplicate(true)
+	viewer.model.redo_stack = redo.duplicate(true)
+	viewer.back_views = back.duplicate(true)
+	viewer.forward_views = forward.duplicate(true)
+	viewer.refresh_details()
+	valid = valid and viewer.export_view_state() == before
+	if valid:
+		print("PASS bundled unchanged edits: ", viewer.model.body.id)
+	else:
+		push_error("Unchanged anatomy commands lost history or real edits failed: " + str(viewer.model.body.id))
+	return valid
+
+
 static func verify_import_preview(viewer: Control, rendered: bool = false) -> bool:
 	var before: Dictionary = viewer.export_view_state().duplicate(true)
 	var undo: Array = viewer.model.undo_stack.duplicate(true)
@@ -566,6 +648,11 @@ static func run(viewer: Control, rendered: bool) -> bool:
 		viewer.set_scene_expanded(layout)
 		valid = await verify_import_preview(viewer, rendered and not layout) and valid
 	viewer.set_scene_expanded(import_layout)
+	var history_layout: bool = viewer.scene_expanded
+	for layout in [false, true]:
+		viewer.set_scene_expanded(layout)
+		valid = await verify_unchanged_edits(viewer) and valid
+	viewer.set_scene_expanded(history_layout)
 	if viewer.model.structures.has("anatomy.heart"):
 		valid = await verify_study_navigation(viewer) and valid
 		viewer.start_guided_chest()
