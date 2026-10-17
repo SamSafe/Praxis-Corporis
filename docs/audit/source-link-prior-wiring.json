@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "source_revision": "c9e4316af955a4fb2e8baedcab5f4fd8c9139cf0",
+  "note": "Both prior source callbacks discard OS.shell_open return values; source LinkButtons use the engine default focus mode.",
+  "files": {
+    "scripts/viewer.gd": {
+      "sha256": "c5fc795f2f91ae2e9af55eebd621b53735d24fcc91862467f8ec1526bd0285d7",
+      "source_link_sites": [
+        {
+          "line": 2340,
+          "excerpt": "\t\tlink.text = str(source.title)\n\t\tlink.tooltip_text = str(source.url) + \" \u00b7 opens in your browser\"\n\t\tlink.add_theme_font_size_override(\"font_size\", roundi(12 * text_scale))\n\t\tlink.set_meta(\"base_font_size\", 12)\n\t\tlink.pressed.connect(func(): OS.shell_open(str(source.url)))\n\t\tstudy_links.add_child(link)"
+        }
+      ]
+    },
+    "scripts/guided_chest.gd": {
+      "sha256": "c4641b88aa9881696ee2a9f62b1532d6a5337374ccf07dbb28c4cb94c3d9defb",
+      "source_link_sites": [
+        {
+          "line": 141,
+          "excerpt": "\tfor source in node.source_ids:\n\t\tvar link := LinkButton.new()\n\t\tlink.text = sources[source].title\n\t\tlink.tooltip_text = sources[source].url + \" \u00b7 opens in your browser\"\n\t\tlink.pressed.connect(func(): OS.shell_open(str(sources[source].url)))\n\t\tcitations.add_child(link)"
+        }
+      ]
+    }
+  }
+}

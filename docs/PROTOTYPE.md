@@ -133,6 +133,9 @@ I/J/K/L move up/left/down/right in camera coordinates; U/O move toward/away. A p
 moves 5 mm, or 1 mm with Shift. Held repeats are ignored and each step supports Undo.
 A movement key ends any held pointer drag; start a fresh drag to continue. Each
 completed drag and keyboard step remains independently reversible.
+Tab reaches study, related-anatomy/condition and route-source links. Enter opens
+source links in the browser. If the system reports a launch failure, a selectable
+address remains available in the app; closing it returns focus to the link.
 Assistive-technology and human accessibility acceptance remain open.
 
 Wheel zoom uses the amount reported by the input device, so fine scrolling makes

@@ -100,6 +100,13 @@ and histories. Switching between guide and route restores the previous workspace
 before starting the next. Changing reference or restoring a saved view finishes
 the route. A saved snapshot retains its anatomy setup, without route progress.
 
+Study-card links, related anatomy/condition links and route citations support Tab
+navigation. Press Enter on a source link to open your browser. If the system reports
+that it cannot open the browser, the app shows a selectable source address at your
+chosen text size. Close or Escape returns focus to the link and preserves the study
+step. This handles browser-launch errors; it cannot detect a page that fails after
+the browser opens.
+
 ## Precise keyboard movement
 
 Focus the 3D view and press **M** to enter Move mode. Press **I/J/K/L** to move
@@ -352,6 +359,7 @@ godot --headless --path . --script tests/camera_zoom_smoke.gd
 godot --headless --path . --script tests/zoom_workspace_smoke.gd
 godot --headless --path . --script tests/coverage_keyboard_smoke.gd
 godot --headless --path . --script tests/study_navigation_smoke.gd
+godot --headless --path . --script tests/source_fallback_smoke.gd
 godot --headless --path . --script tests/import_preview_smoke.gd
 godot --headless --path . --script tests/unchanged_edits_smoke.gd
 godot --headless --path . --script tests/movement_history_smoke.gd
@@ -379,7 +387,7 @@ preview. Running it with a desktop display also captures the new screens under
 reconstructed collision vertices with source mesh faces. The exported runtime checks
 portable views/notes, preferences and reversible guide state in disposable files.
 Device trials and qualified medical review remain separate from scripted verification.
-[Verification and current private packages](audit/NUDGE_GESTURE_VERIFICATION.md)
+[Verification and current private packages](audit/SOURCE_LINK_VERIFICATION.md)
 retain exact build identities, native Windows evidence, saved-view recovery/search/draft
 and deletion-undo checks, study-preserving cancellation and normal-launch reference/window restoration observations. [Draft content verification](audit/DRAFT_CONTENT_VERIFICATION.md)
 records the learning-content review-stage correction and valve-reference checks.

@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "source_revision": "bfa26916bab8d22bacee450b414313254c39c74e",
+  "python_checks": 76,
+  "native_references": 7,
+  "native_source_fallback_references": [
+    "female",
+    "male"
+  ],
+  "native_source_reading_contexts": 12,
+  "native_capture_identities": 104,
+  "native_normal_launches": 4,
+  "native_early_closes": 2,
+  "native_session_independently_checked_absent": true,
+  "mac_content_qa": "passed on development engine; actual Mac execution pending",
+  "linux_release_template_qa": "not rerun; independent popup-template limitation remains open",
+  "browser_handoff": "Launcher callback simulated; actual OS/browser acceptance pending.",
+  "files": {
+    "source-link-artifact-audit.json": {
+      "bytes": 1346,
+      "sha256": "e8116d6b6c76587fbed5f7f06c535238e6c8bcf0407729160ccd3cf961b8021e"
+    },
+    "source-link-build-report.json": {
+      "bytes": 5067,
+      "sha256": "177d80377d64ff4e97419a89fce95baf144ee7c2a55120f6b94f757a39abe78e"
+    },
+    "source-link-build.log.txt": {
+      "bytes": 12332,
+      "sha256": "6587319320973cef80005febbff020c61ec0622435782f4ab22d7319ca248cdf"
+    },
+    "source-link-development-qa.json": {
+      "bytes": 1826,
+      "sha256": "7afa97d09f6b7a5ae2ed7b2695e01e5262fdacb72fce7e6a59dc217b58b3a71c"
+    },
+    "source-link-development.log.txt": {
+      "bytes": 331,
+      "sha256": "b7ea08d4bf5dbddc350e8e78e1305bb05983c0fd21bcbd8c3938e3daa5d42b03"
+    },
+    "source-link-information.log.txt": {
+      "bytes": 758,
+      "sha256": "3dca7e7e60379891c0f646206bb5ed73156360d5a8341593b3238eb2195160c9"
+    },
+    "source-link-initial-focus-check.log.txt": {
+      "bytes": 5695,
+      "sha256": "fcd6242c5bbfad0fdefd650f25e8c1a1fdc50fd44f9ec5aba58ca167325225ea"
+    },
+    "source-link-native-initial-anatomy.log.txt": {
+      "bytes": 443,
+      "sha256": "909529f70d379aab24144b6c2aaab6d4a21cf280a8e84c49f49aa0b252b3202e"
+    },
+    "source-link-native-replacement-selection.log.txt": {
+      "bytes": 527,
+      "sha256": "72ce0c863ad02a89881cd9cd984d6b445cc7efda67eb9a28be7f065caaa4635a"
+    },
+    "source-link-navigation.log.txt": {
+      "bytes": 334,
+      "sha256": "ac23838fabc073f67e08f77fae3d8067e89b41108f9dc603542992ca66c09989"
+    },
+    "source-link-normal-lifecycle.json": {
+      "bytes": 1648,
+      "sha256": "414fba2ca285882a1f0bad957fac189f867cd0b592e2abd0123e5b8efdf0b4f3"
+    },
+    "source-link-prior-wiring.json": {
+      "bytes": 1314,
+      "sha256": "8dec42054ca8f208e9c035eca80dbac7c82a4c74b0e3808a29abb4de1493e0eb"
+    },
+    "source-link-python.log.txt": {
+      "bytes": 175,
+      "sha256": "5c098c8bda239157bf34c82517e0e33c81a4ed235fa660adc6889641b3d869a1"
+    },
+    "source-link-windows-qa.json": {
+      "bytes": 35620,
+      "sha256": "5dded31b10a756de07bfee59a49c33661979e76e652f2b50e5e6c615eb1cc128"
+    },
+    "source-link-windows-runtime.log.txt": {
+      "bytes": 16451,
+      "sha256": "bae6218c784e5a8599ced4714a964f8783626a57fd3702f326d0d90bbe219367"
+    },
+    "../prototype/source-link-fallback-windows.png": {
+      "bytes": 136469,
+      "sha256": "9a861eae7279aeb1ecb8cd17b6b697ed1d3f090b7a84f0d9fda465a48d6cef50"
+    }
+  }
+}

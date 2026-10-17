@@ -1,0 +1,63 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Loading female reference
+Prepared 801 meshes in 4.80s; 250 frames while loading
+WARNING: This control can grab focus only when screen reader is active. Use set_focus_mode() and set_focus_behavior_recursive() to allow a control to get focus. Use get_tree().is_accessibility_enabled() to check screen-reader state.
+     at: grab_focus (scene/gui/control.cpp:3005)
+     GDScript backtrace (most recent call first):
+         [0] verify_source_fallback (res://scripts/study_verification.gd:59)
+WARNING: This control can grab focus only when screen reader is active. Use set_focus_mode() and set_focus_behavior_recursive() to allow a control to get focus. Use get_tree().is_accessibility_enabled() to check screen-reader state.
+     at: grab_focus (scene/gui/control.cpp:3005)
+     GDScript backtrace (most recent call first):
+         [0] verify_source_fallback (res://scripts/study_verification.gd:59)
+WARNING: This control can grab focus only when screen reader is active. Use set_focus_mode() and set_focus_behavior_recursive() to allow a control to get focus. Use get_tree().is_accessibility_enabled() to check screen-reader state.
+     at: grab_focus (scene/gui/control.cpp:3005)
+     GDScript backtrace (most recent call first):
+         [0] verify_source_fallback (res://scripts/study_verification.gd:59)
+WARNING: This control can grab focus only when screen reader is active. Use set_focus_mode() and set_focus_behavior_recursive() to allow a control to get focus. Use get_tree().is_accessibility_enabled() to check screen-reader state.
+     at: grab_focus (scene/gui/control.cpp:3005)
+     GDScript backtrace (most recent call first):
+         [0] verify_source_fallback (res://scripts/study_verification.gd:59)
+WARNING: This control can grab focus only when screen reader is active. Use set_focus_mode() and set_focus_behavior_recursive() to allow a control to get focus. Use get_tree().is_accessibility_enabled() to check screen-reader state.
+     at: grab_focus (scene/gui/control.cpp:3005)
+     GDScript backtrace (most recent call first):
+         [0] verify_source_fallback (res://scripts/study_verification.gd:59)
+WARNING: This control can grab focus only when screen reader is active. Use set_focus_mode() and set_focus_behavior_recursive() to allow a control to get focus. Use get_tree().is_accessibility_enabled() to check screen-reader state.
+     at: grab_focus (scene/gui/control.cpp:3005)
+     GDScript backtrace (most recent call first):
+         [0] verify_source_fallback (res://scripts/study_verification.gd:59)
+ERROR: Study source launch fallback lost its address, focus or exploration: female
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] verify_source_fallback (res://scripts/study_verification.gd:107)
+Loading male reference
+Prepared 788 meshes in 4.83s; 299 frames while loading
+WARNING: This control can grab focus only when screen reader is active. Use set_focus_mode() and set_focus_behavior_recursive() to allow a control to get focus. Use get_tree().is_accessibility_enabled() to check screen-reader state.
+     at: grab_focus (scene/gui/control.cpp:3005)
+     GDScript backtrace (most recent call first):
+         [0] verify_source_fallback (res://scripts/study_verification.gd:59)
+WARNING: This control can grab focus only when screen reader is active. Use set_focus_mode() and set_focus_behavior_recursive() to allow a control to get focus. Use get_tree().is_accessibility_enabled() to check screen-reader state.
+     at: grab_focus (scene/gui/control.cpp:3005)
+     GDScript backtrace (most recent call first):
+         [0] verify_source_fallback (res://scripts/study_verification.gd:59)
+WARNING: This control can grab focus only when screen reader is active. Use set_focus_mode() and set_focus_behavior_recursive() to allow a control to get focus. Use get_tree().is_accessibility_enabled() to check screen-reader state.
+     at: grab_focus (scene/gui/control.cpp:3005)
+     GDScript backtrace (most recent call first):
+         [0] verify_source_fallback (res://scripts/study_verification.gd:59)
+WARNING: This control can grab focus only when screen reader is active. Use set_focus_mode() and set_focus_behavior_recursive() to allow a control to get focus. Use get_tree().is_accessibility_enabled() to check screen-reader state.
+     at: grab_focus (scene/gui/control.cpp:3005)
+     GDScript backtrace (most recent call first):
+         [0] verify_source_fallback (res://scripts/study_verification.gd:59)
+WARNING: This control can grab focus only when screen reader is active. Use set_focus_mode() and set_focus_behavior_recursive() to allow a control to get focus. Use get_tree().is_accessibility_enabled() to check screen-reader state.
+     at: grab_focus (scene/gui/control.cpp:3005)
+     GDScript backtrace (most recent call first):
+         [0] verify_source_fallback (res://scripts/study_verification.gd:59)
+WARNING: This control can grab focus only when screen reader is active. Use set_focus_mode() and set_focus_behavior_recursive() to allow a control to get focus. Use get_tree().is_accessibility_enabled() to check screen-reader state.
+     at: grab_focus (scene/gui/control.cpp:3005)
+     GDScript backtrace (most recent call first):
+         [0] verify_source_fallback (res://scripts/study_verification.gd:59)
+ERROR: Study source launch fallback lost its address, focus or exploration: male
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] verify_source_fallback (res://scripts/study_verification.gd:107)
+Source fallback failures: 2

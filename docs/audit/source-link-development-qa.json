@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "source_revision": "bfa26916bab8d22bacee450b414313254c39c74e",
+  "before_revision": "c9e4316af955a4fb2e8baedcab5f4fd8c9139cf0",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "python_checks": 76,
+  "checks": [
+    {
+      "script": "tests/source_fallback_smoke.gd",
+      "script_sha256": "14231f57e9247baf3514902c34ea8a72fbae3b10260132ad2a5b0547e1689e41",
+      "log": "source-link-development.log.txt",
+      "log_sha256": "b7ea08d4bf5dbddc350e8e78e1305bb05983c0fd21bcbd8c3938e3daa5d42b03",
+      "success_marker": "Source fallback failures: 0"
+    },
+    {
+      "script": "tests/study_navigation_smoke.gd",
+      "script_sha256": "5dcff75f2479620f5933d984dfa528675e0d9bb8e83c8a3aeced39c75e937ef8",
+      "log": "source-link-navigation.log.txt",
+      "log_sha256": "ac23838fabc073f67e08f77fae3d8067e89b41108f9dc603542992ca66c09989",
+      "success_marker": "Study navigation failures: 0"
+    },
+    {
+      "script": "tests/information_dialog_smoke.gd",
+      "script_sha256": "effffddcaa450ec35148365c41494b77147bb4a606dc9f35eb87ff330e0c970b",
+      "log": "source-link-information.log.txt",
+      "log_sha256": "3dca7e7e60379891c0f646206bb5ed73156360d5a8341593b3238eb2195160c9",
+      "success_marker": "Information dialog failures: 0"
+    }
+  ],
+  "supported_study_references": [
+    "female",
+    "male"
+  ],
+  "text_scales": [
+    1.0,
+    1.3
+  ],
+  "reading_surfaces": [
+    "workspace-card",
+    "workspace-route",
+    "expanded-route"
+  ],
+  "reading_contexts": 12,
+  "launcher": "Success/failure callbacks simulate the OS launcher; no browser or network request is made.",
+  "clipboard": "No clipboard reads/writes. Ctrl/Cmd+A only selects dialog text.",
+  "initial_focus_log": "Intermediate development run before explicit LinkButton focus modes; not a baseline application run."
+}
