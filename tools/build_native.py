@@ -315,6 +315,6 @@ if __name__ == "__main__":
     parser.add_argument("--qa-linux", action="store_true", help="Test an exported Linux runtime; Linux is not a release target")
     parser.add_argument("--qa-mac-content", action="store_true", help="Check embedded Mac content on the development engine, independently of Linux template QA; Mac hardware testing remains pending")
     options = parser.parse_args()
-    options.godot = shutil.which(options.godot) or str(pathlib.Path(options.godot).resolve())
+    options.godot = str(pathlib.Path(shutil.which(options.godot) or options.godot).resolve())
     options.output = options.output.resolve()
     build(options)
