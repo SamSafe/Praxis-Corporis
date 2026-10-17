@@ -1,0 +1,20 @@
+"""Deterministic independent UTF-8 expectations from Python's strict decoder."""
+import hashlib,json,random
+from pathlib import Path
+cases=[b'']+[bytes([x]) for x in range(256)]+[bytes([x,y]) for x in range(256) for y in range(256)]
+cases += [chr(x).encode('utf-8') for x in [0x7f,0x80,0x7ff,0x800,0xd7ff,0xe000,0xffff,0x10000,0x10ffff]]
+cases += [s.encode('utf-8') for s in ['café','中文','e\u0301','🫀','�']]
+rng=random.Random(3629)
+cases += [rng.randbytes(rng.randrange(3,7)) for _ in range(8192)]
+records=[]
+for data in dict.fromkeys(cases):
+ try:
+  data.decode('utf-8',errors='strict');expected=b'\0' not in data
+ except UnicodeDecodeError:expected=False
+ records.append([data.hex(),expected])
+path=Path('build/qa/utf8-oracle-vectors.json')
+path.parent.mkdir(parents=True,exist_ok=True)
+path.write_text(json.dumps(records,separators=(',',':'))+'\n')
+summary={'oracle':'Python bytes.decode(utf-8, errors=strict), with raw NUL excluded for JSON input','seed':3629,'cases':len(records),'accepted':sum(r[1] for r in records),'bytes':path.stat().st_size,'sha256':hashlib.sha256(path.read_bytes()).hexdigest()}
+Path('build/qa/utf8-oracle-generated.json').write_text(json.dumps(summary,indent=2)+'\n')
+print(json.dumps(summary))

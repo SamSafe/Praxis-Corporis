@@ -1,0 +1,319 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 Core Profile Context 25.10.37.03.260407 - Compatibility - Using Device: ATI Technologies Inc. - AMD Radeon(TM) Graphics
+
+PASS private export resource boundary
+Loading female reference
+Prepared 801 meshes in 2.74s; 85 frames while loading
+PASS interface frames while loading: female · 86
+PASS bundled saved-view anatomy search: female
+PASS native saved-view deletion undo: female
+PASS bundled save all study notes: female
+PASS native rendered study notes: female
+PASS bundled local saved view and study notes: female
+Loading male reference
+PASS bundled canceled reference switch
+PASS bundled information dialogs: female
+PASS bundled saved-view recovery
+PASS bundled condition study: female
+PASS bundled keyboard movement: female
+PASS bundled pointer interruption: female
+PASS bundled camera zoom: female
+PASS native coverage reader: female
+PASS bundled coverage keyboard: female
+PASS native import preview: female
+PASS bundled import preview: female
+PASS bundled import preview: female
+PASS bundled unchanged edits: female
+PASS bundled unchanged edits: female
+PASS bundled movement history: female
+PASS bundled move mode boundary: female
+PASS bundled nudge gesture: female
+PASS native study reader: female
+PASS bundled study reader: female
+PASS bundled exploration return: female
+PASS bundled text encoding: female
+PASS native source fallback: female
+PASS bundled source fallback: female
+PASS bundled study navigation: female
+PASS bundled circulation route: female
+PASS bundled export destination guard: female · case-sensitive false
+PASS bundled saved-view deletion undo: female
+PASS bundled study workspace: female
+Loading female reference
+PASS failed replacement preserves exploration: female
+PASS bundled keyboard workspace: female
+PASS bundled find anatomy: female
+PASS bundled source search: female
+PASS native credited screenshot: female · (1440, 1111)
+PASS native rendered reference: female · 1440 × 900
+PASS bundled expanded controls: female
+PASS native orientation: female
+PASS bundled orientation: female
+PASS native part actions: female
+PASS bundled part actions: female
+PASS native expanded anatomy: female · (1440, 900)
+PASS native expanded screenshot: female · (1440, 1111)
+PASS bundled scene display: female
+PASS bundled reference: female · 801 meshes
+Loading male reference
+Prepared 788 meshes in 3.06s; 88 frames while loading
+PASS interface frames while loading: male · 90
+PASS bundled saved-view anatomy search: male
+PASS native saved-view deletion undo: male
+PASS bundled save all study notes: male
+PASS native rendered study notes: male
+PASS bundled local saved view and study notes: male
+PASS bundled condition study: male
+PASS bundled keyboard movement: male
+PASS bundled pointer interruption: male
+PASS bundled camera zoom: male
+PASS native coverage reader: male
+PASS bundled coverage keyboard: male
+PASS bundled import preview: male
+PASS bundled import preview: male
+PASS bundled unchanged edits: male
+PASS bundled unchanged edits: male
+PASS bundled movement history: male
+PASS bundled move mode boundary: male
+PASS bundled nudge gesture: male
+PASS bundled study reader: male
+PASS bundled exploration return: male
+PASS bundled text encoding: male
+PASS bundled source fallback: male
+PASS bundled study navigation: male
+PASS bundled circulation route: male
+PASS bundled export destination guard: male · case-sensitive false
+PASS bundled saved-view deletion undo: male
+PASS bundled study workspace: male
+Loading male reference
+PASS failed replacement preserves exploration: male
+PASS bundled keyboard workspace: male
+PASS bundled find anatomy: male
+PASS bundled source search: male
+PASS native credited screenshot: male · (1440, 1111)
+PASS native rendered reference: male · 1440 × 900
+PASS bundled expanded controls: male
+PASS native orientation: male
+PASS bundled orientation: male
+PASS native part actions: male
+PASS bundled part actions: male
+PASS native expanded anatomy: male · (1440, 900)
+PASS native expanded screenshot: male · (1440, 1111)
+PASS bundled scene display: male
+PASS bundled reference: male · 788 meshes
+Loading bodyparts-male-bones-study reference
+Prepared 203 meshes in 0.52s; 18 frames while loading
+PASS interface frames while loading: bodyparts-male-bones-study · 20
+PASS bundled saved-view anatomy search: bodyparts-male-bones-study
+PASS native saved-view deletion undo: bodyparts-male-bones-study
+PASS bundled save all study notes: bodyparts-male-bones-study
+PASS native rendered study notes: bodyparts-male-bones-study
+PASS bundled local saved view and study notes: bodyparts-male-bones-study
+PASS bundled keyboard movement: bodyparts-male-bones-study
+PASS bundled pointer interruption: bodyparts-male-bones-study
+PASS bundled camera zoom: bodyparts-male-bones-study
+PASS native coverage reader: bodyparts-male-bones-study
+PASS bundled coverage keyboard: bodyparts-male-bones-study
+PASS bundled import preview: bodyparts-male-bones-study
+PASS bundled import preview: bodyparts-male-bones-study
+PASS bundled unchanged edits: bodyparts-male-bones-study
+PASS bundled unchanged edits: bodyparts-male-bones-study
+PASS bundled movement history: bodyparts-male-bones-study
+PASS bundled move mode boundary: bodyparts-male-bones-study
+PASS bundled nudge gesture: bodyparts-male-bones-study
+PASS bundled study reader: bodyparts-male-bones-study
+PASS bundled exploration return: bodyparts-male-bones-study
+PASS bundled text encoding: bodyparts-male-bones-study
+PASS bundled export destination guard: bodyparts-male-bones-study · case-sensitive false
+PASS bundled saved-view deletion undo: bodyparts-male-bones-study
+PASS bundled study workspace: bodyparts-male-bones-study
+Loading bodyparts-male-bones-study reference
+PASS failed replacement preserves exploration: bodyparts-male-bones-study
+PASS bundled keyboard workspace: bodyparts-male-bones-study
+PASS bundled find anatomy: bodyparts-male-bones-study
+PASS bundled source search: bodyparts-male-bones-study
+PASS native credited screenshot: bodyparts-male-bones-study · (1440, 1111)
+PASS native rendered reference: bodyparts-male-bones-study · 1440 × 900
+PASS bundled expanded controls: bodyparts-male-bones-study
+PASS native orientation: bodyparts-male-bones-study
+PASS bundled orientation: bodyparts-male-bones-study
+PASS native part actions: bodyparts-male-bones-study
+PASS bundled part actions: bodyparts-male-bones-study
+PASS native expanded anatomy: bodyparts-male-bones-study · (1440, 900)
+PASS native expanded screenshot: bodyparts-male-bones-study · (1440, 1111)
+PASS bundled scene display: bodyparts-male-bones-study
+PASS bundled reference: bodyparts-male-bones-study · 203 meshes
+Loading hra-v1-2-female-cord-study reference
+Prepared 29 meshes in 0.26s; 8 frames while loading
+PASS interface frames while loading: hra-v1-2-female-cord-study · 10
+PASS bundled saved-view anatomy search: hra-v1-2-female-cord-study
+PASS native saved-view deletion undo: hra-v1-2-female-cord-study
+PASS bundled save all study notes: hra-v1-2-female-cord-study
+PASS native rendered study notes: hra-v1-2-female-cord-study
+PASS bundled local saved view and study notes: hra-v1-2-female-cord-study
+PASS bundled keyboard movement: hra-v1-2-female-cord-study
+PASS bundled pointer interruption: hra-v1-2-female-cord-study
+PASS bundled camera zoom: hra-v1-2-female-cord-study
+PASS native coverage reader: hra-v1-2-female-cord-study
+PASS bundled coverage keyboard: hra-v1-2-female-cord-study
+PASS bundled import preview: hra-v1-2-female-cord-study
+PASS bundled import preview: hra-v1-2-female-cord-study
+PASS bundled unchanged edits: hra-v1-2-female-cord-study
+PASS bundled unchanged edits: hra-v1-2-female-cord-study
+PASS bundled movement history: hra-v1-2-female-cord-study
+PASS bundled move mode boundary: hra-v1-2-female-cord-study
+PASS bundled nudge gesture: hra-v1-2-female-cord-study
+PASS bundled study reader: hra-v1-2-female-cord-study
+PASS bundled exploration return: hra-v1-2-female-cord-study
+PASS bundled text encoding: hra-v1-2-female-cord-study
+PASS bundled export destination guard: hra-v1-2-female-cord-study · case-sensitive false
+PASS bundled saved-view deletion undo: hra-v1-2-female-cord-study
+PASS bundled study workspace: hra-v1-2-female-cord-study
+Loading hra-v1-2-female-cord-study reference
+PASS failed replacement preserves exploration: hra-v1-2-female-cord-study
+PASS bundled keyboard workspace: hra-v1-2-female-cord-study
+PASS bundled find anatomy: hra-v1-2-female-cord-study
+PASS bundled source search: hra-v1-2-female-cord-study
+PASS native credited screenshot: hra-v1-2-female-cord-study · (1440, 1111)
+PASS native rendered reference: hra-v1-2-female-cord-study · 1440 × 900
+PASS bundled expanded controls: hra-v1-2-female-cord-study
+PASS native orientation: hra-v1-2-female-cord-study · unavailable source frame
+PASS bundled orientation: hra-v1-2-female-cord-study · unavailable source frame correctly disabled
+PASS native part actions: hra-v1-2-female-cord-study
+PASS bundled part actions: hra-v1-2-female-cord-study
+PASS native expanded anatomy: hra-v1-2-female-cord-study · (1440, 900)
+PASS native expanded screenshot: hra-v1-2-female-cord-study · (1440, 1111)
+PASS bundled scene display: hra-v1-2-female-cord-study
+PASS bundled reference: hra-v1-2-female-cord-study · 29 meshes
+Loading hra-v1-2-female-vertebrae-study reference
+Prepared 25 meshes in 0.35s; 10 frames while loading
+PASS interface frames while loading: hra-v1-2-female-vertebrae-study · 12
+PASS bundled saved-view anatomy search: hra-v1-2-female-vertebrae-study
+PASS native saved-view deletion undo: hra-v1-2-female-vertebrae-study
+PASS bundled save all study notes: hra-v1-2-female-vertebrae-study
+PASS native rendered study notes: hra-v1-2-female-vertebrae-study
+PASS bundled local saved view and study notes: hra-v1-2-female-vertebrae-study
+PASS bundled keyboard movement: hra-v1-2-female-vertebrae-study
+PASS bundled pointer interruption: hra-v1-2-female-vertebrae-study
+PASS bundled camera zoom: hra-v1-2-female-vertebrae-study
+PASS native coverage reader: hra-v1-2-female-vertebrae-study
+PASS bundled coverage keyboard: hra-v1-2-female-vertebrae-study
+PASS bundled import preview: hra-v1-2-female-vertebrae-study
+PASS bundled import preview: hra-v1-2-female-vertebrae-study
+PASS bundled unchanged edits: hra-v1-2-female-vertebrae-study
+PASS bundled unchanged edits: hra-v1-2-female-vertebrae-study
+PASS bundled movement history: hra-v1-2-female-vertebrae-study
+PASS bundled move mode boundary: hra-v1-2-female-vertebrae-study
+PASS bundled nudge gesture: hra-v1-2-female-vertebrae-study
+PASS bundled study reader: hra-v1-2-female-vertebrae-study
+PASS bundled exploration return: hra-v1-2-female-vertebrae-study
+PASS bundled text encoding: hra-v1-2-female-vertebrae-study
+PASS bundled export destination guard: hra-v1-2-female-vertebrae-study · case-sensitive false
+PASS bundled saved-view deletion undo: hra-v1-2-female-vertebrae-study
+PASS bundled study workspace: hra-v1-2-female-vertebrae-study
+Loading hra-v1-2-female-vertebrae-study reference
+PASS failed replacement preserves exploration: hra-v1-2-female-vertebrae-study
+PASS bundled keyboard workspace: hra-v1-2-female-vertebrae-study
+PASS bundled find anatomy: hra-v1-2-female-vertebrae-study
+PASS bundled source search: hra-v1-2-female-vertebrae-study
+PASS native credited screenshot: hra-v1-2-female-vertebrae-study · (1440, 1111)
+PASS native rendered reference: hra-v1-2-female-vertebrae-study · 1440 × 900
+PASS bundled expanded controls: hra-v1-2-female-vertebrae-study
+PASS native orientation: hra-v1-2-female-vertebrae-study · unavailable source frame
+PASS bundled orientation: hra-v1-2-female-vertebrae-study · unavailable source frame correctly disabled
+PASS native part actions: hra-v1-2-female-vertebrae-study
+PASS bundled part actions: hra-v1-2-female-vertebrae-study
+PASS native expanded anatomy: hra-v1-2-female-vertebrae-study · (1440, 900)
+PASS native expanded screenshot: hra-v1-2-female-vertebrae-study · (1440, 1111)
+PASS bundled scene display: hra-v1-2-female-vertebrae-study
+PASS bundled reference: hra-v1-2-female-vertebrae-study · 25 meshes
+Loading hra-v1-2-male-cord-study reference
+Prepared 30 meshes in 0.08s; 4 frames while loading
+PASS interface frames while loading: hra-v1-2-male-cord-study · 6
+PASS bundled saved-view anatomy search: hra-v1-2-male-cord-study
+PASS native saved-view deletion undo: hra-v1-2-male-cord-study
+PASS bundled save all study notes: hra-v1-2-male-cord-study
+PASS native rendered study notes: hra-v1-2-male-cord-study
+PASS bundled local saved view and study notes: hra-v1-2-male-cord-study
+PASS bundled keyboard movement: hra-v1-2-male-cord-study
+PASS bundled pointer interruption: hra-v1-2-male-cord-study
+PASS bundled camera zoom: hra-v1-2-male-cord-study
+PASS native coverage reader: hra-v1-2-male-cord-study
+PASS bundled coverage keyboard: hra-v1-2-male-cord-study
+PASS bundled import preview: hra-v1-2-male-cord-study
+PASS bundled import preview: hra-v1-2-male-cord-study
+PASS bundled unchanged edits: hra-v1-2-male-cord-study
+PASS bundled unchanged edits: hra-v1-2-male-cord-study
+PASS bundled movement history: hra-v1-2-male-cord-study
+PASS bundled move mode boundary: hra-v1-2-male-cord-study
+PASS bundled nudge gesture: hra-v1-2-male-cord-study
+PASS bundled study reader: hra-v1-2-male-cord-study
+PASS bundled exploration return: hra-v1-2-male-cord-study
+PASS bundled text encoding: hra-v1-2-male-cord-study
+PASS bundled export destination guard: hra-v1-2-male-cord-study · case-sensitive false
+PASS bundled saved-view deletion undo: hra-v1-2-male-cord-study
+PASS bundled study workspace: hra-v1-2-male-cord-study
+Loading hra-v1-2-male-cord-study reference
+PASS failed replacement preserves exploration: hra-v1-2-male-cord-study
+PASS bundled keyboard workspace: hra-v1-2-male-cord-study
+PASS bundled find anatomy: hra-v1-2-male-cord-study
+PASS bundled source search: hra-v1-2-male-cord-study
+PASS native credited screenshot: hra-v1-2-male-cord-study · (1440, 1111)
+PASS native rendered reference: hra-v1-2-male-cord-study · 1440 × 900
+PASS bundled expanded controls: hra-v1-2-male-cord-study
+PASS native orientation: hra-v1-2-male-cord-study · unavailable source frame
+PASS bundled orientation: hra-v1-2-male-cord-study · unavailable source frame correctly disabled
+PASS native part actions: hra-v1-2-male-cord-study
+PASS bundled part actions: hra-v1-2-male-cord-study
+PASS native expanded anatomy: hra-v1-2-male-cord-study · (1440, 900)
+PASS native expanded screenshot: hra-v1-2-male-cord-study · (1440, 1111)
+PASS bundled scene display: hra-v1-2-male-cord-study
+PASS bundled reference: hra-v1-2-male-cord-study · 30 meshes
+Loading hra-v1-2-male-vertebrae-study reference
+Prepared 24 meshes in 0.30s; 10 frames while loading
+PASS interface frames while loading: hra-v1-2-male-vertebrae-study · 12
+PASS bundled saved-view anatomy search: hra-v1-2-male-vertebrae-study
+PASS native saved-view deletion undo: hra-v1-2-male-vertebrae-study
+PASS bundled save all study notes: hra-v1-2-male-vertebrae-study
+PASS native rendered study notes: hra-v1-2-male-vertebrae-study
+PASS bundled local saved view and study notes: hra-v1-2-male-vertebrae-study
+PASS bundled keyboard movement: hra-v1-2-male-vertebrae-study
+PASS bundled pointer interruption: hra-v1-2-male-vertebrae-study
+PASS bundled camera zoom: hra-v1-2-male-vertebrae-study
+PASS native coverage reader: hra-v1-2-male-vertebrae-study
+PASS bundled coverage keyboard: hra-v1-2-male-vertebrae-study
+PASS bundled import preview: hra-v1-2-male-vertebrae-study
+PASS bundled import preview: hra-v1-2-male-vertebrae-study
+PASS bundled unchanged edits: hra-v1-2-male-vertebrae-study
+PASS bundled unchanged edits: hra-v1-2-male-vertebrae-study
+PASS bundled movement history: hra-v1-2-male-vertebrae-study
+PASS bundled move mode boundary: hra-v1-2-male-vertebrae-study
+PASS bundled nudge gesture: hra-v1-2-male-vertebrae-study
+PASS bundled study reader: hra-v1-2-male-vertebrae-study
+PASS bundled exploration return: hra-v1-2-male-vertebrae-study
+PASS bundled text encoding: hra-v1-2-male-vertebrae-study
+PASS bundled export destination guard: hra-v1-2-male-vertebrae-study · case-sensitive false
+PASS bundled saved-view deletion undo: hra-v1-2-male-vertebrae-study
+PASS bundled study workspace: hra-v1-2-male-vertebrae-study
+Loading hra-v1-2-male-vertebrae-study reference
+PASS failed replacement preserves exploration: hra-v1-2-male-vertebrae-study
+PASS bundled keyboard workspace: hra-v1-2-male-vertebrae-study
+PASS bundled find anatomy: hra-v1-2-male-vertebrae-study
+PASS bundled source search: hra-v1-2-male-vertebrae-study
+PASS native credited screenshot: hra-v1-2-male-vertebrae-study · (1440, 1111)
+PASS native rendered reference: hra-v1-2-male-vertebrae-study · 1440 × 900
+PASS bundled expanded controls: hra-v1-2-male-vertebrae-study
+PASS native orientation: hra-v1-2-male-vertebrae-study · unavailable source frame
+PASS bundled orientation: hra-v1-2-male-vertebrae-study · unavailable source frame correctly disabled
+PASS native part actions: hra-v1-2-male-vertebrae-study
+PASS bundled part actions: hra-v1-2-male-vertebrae-study
+PASS native expanded anatomy: hra-v1-2-male-vertebrae-study · (1440, 900)
+PASS native expanded screenshot: hra-v1-2-male-vertebrae-study · (1440, 1111)
+PASS bundled scene display: hra-v1-2-male-vertebrae-study
+PASS bundled reference: hra-v1-2-male-vertebrae-study · 24 meshes
+PASS offline native bundle
+
+
+QA observed peak working set bytes: 1806270464
+QA sampled maximum private bytes: 2087784448
+Windows native exit code: 0

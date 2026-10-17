@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "source_revision": "e3efc07f3efda936ae0d9e974881b8306dda6335",
+  "before_revision": "868474ea455d93833d8b01953622b92e0bf4be47",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "python_checks": 80,
+  "checks": [
+    {
+      "script": "tests/saved_views_utf8_smoke.gd",
+      "script_sha256": "51cd7fd92c94ab626b66ffee5ae85e1bd850455c44b1078b01d58ec90ad733f3",
+      "log": "text-encoding-development.log.txt",
+      "log_sha256": "fe16160aa395aada0b8d2a879a2282fe698ed2771a228bbe0cd9faa3abfc5673",
+      "success_marker": "Saved-view UTF-8 failures: 0"
+    },
+    {
+      "script": "tests/saved_views_recovery_smoke.gd",
+      "script_sha256": "0045a1948b22db788ee3d19a030abd1112dc6cb229243a51583c4e7ec78bccfb",
+      "log": "text-encoding-recovery.log.txt",
+      "log_sha256": "28386b045cde11c94b869c51e2ce435ddd27f1feb6825d9a4c9d77312e8a83bd",
+      "success_marker": "Saved-view recovery failures: 0"
+    },
+    {
+      "script": "tests/portable_views_smoke.gd",
+      "script_sha256": "3e5a287fc1ac98bf0df0dab434e1e995051b7757d3ac5294fe5377d7654e17e2",
+      "log": "text-encoding-portable.log.txt",
+      "log_sha256": "be706251c30f3a10101c6ce9b0de3064c5649c7b6df16ecdc220807c09896af0",
+      "success_marker": "Portable views and preferences failures: 0"
+    },
+    {
+      "script": "tests/saved_views_smoke.gd",
+      "script_sha256": "c3488b43a250418be1cc4d4232e24b02463609682bff3afdbd4c154d8842c531",
+      "log": "text-encoding-library.log.txt",
+      "log_sha256": "8104f50742f6f3f280261171c1bc3a6a3b85ac8e2348064f4f9d9419f6cbd36d",
+      "success_marker": "Named saved-view failures: 0"
+    }
+  ],
+  "malformed_payloads_per_reference": 22,
+  "oracle_cases": 73996,
+  "oracle_sha256": "a6b776028c8e498e40250eae3e3c06389905537b29762a55e1ef3d7759c43fcc",
+  "oracle_scope": "Encoding layer only: strict UTF-8 with raw NUL excluded; JSON/entry validation remains separate.",
+  "oracle_inputs": "Regenerate ignored build/qa/utf8-oracle-vectors.json with the retained generator.",
+  "performance_scope": "One development-engine byte-scan probe; excludes file IO/JSON parsing; not laptop or end-to-end responsiveness evidence."
+}

@@ -1,0 +1,11 @@
+extends SceneTree
+const SavedViews = preload("res://scripts/saved_views.gd")
+func _initialize() -> void:
+ for count in [100000,2000000,32*1024*1024]:
+  var bytes := PackedByteArray()
+  bytes.resize(count)
+  bytes.fill(0x20)
+  var began := Time.get_ticks_usec()
+  var valid: bool = SavedViews.valid_json_utf8(bytes)
+  print("UTF-8 scan ",count," bytes: ",valid," · ", (Time.get_ticks_usec()-began)/1000.0," ms")
+ quit()

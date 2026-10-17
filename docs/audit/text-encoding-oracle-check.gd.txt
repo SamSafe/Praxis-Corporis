@@ -1,0 +1,15 @@
+extends SceneTree
+const SavedViews = preload("res://scripts/saved_views.gd")
+func _initialize() -> void:
+ var cases = JSON.parse_string(FileAccess.get_file_as_string("res://build/qa/utf8-oracle-vectors.json"))
+ var failures := 0
+ for record in cases:
+  if SavedViews.valid_json_utf8(str(record[0]).hex_decode()) != bool(record[1]):
+   if failures < 8:print("Mismatch: ",record)
+   failures += 1
+ var report := {"cases":cases.size(),"failures":failures,"vector_sha256":FileAccess.get_sha256("res://build/qa/utf8-oracle-vectors.json")}
+ var file := FileAccess.open("res://build/qa/utf8-oracle-result.json",FileAccess.WRITE)
+ file.store_string(JSON.stringify(report,"\t"))
+ file.close()
+ print("UTF-8 oracle failures: ",failures," · ",cases.size()," cases")
+ quit(0 if failures==0 else 1)

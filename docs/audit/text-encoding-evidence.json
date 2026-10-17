@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "source_revision": "e3efc07f3efda936ae0d9e974881b8306dda6335",
+  "python_checks": 80,
+  "native_references": 7,
+  "native_text_encoding_references": [
+    "female",
+    "male",
+    "bodyparts-male-bones-study",
+    "hra-v1-2-female-cord-study",
+    "hra-v1-2-female-vertebrae-study",
+    "hra-v1-2-male-cord-study",
+    "hra-v1-2-male-vertebrae-study"
+  ],
+  "malformed_payloads_per_reference": 22,
+  "native_malformed_file_trials": 154,
+  "development_oracle_cases": 73996,
+  "native_capture_identities": 106,
+  "native_normal_launches": 4,
+  "native_early_closes": 2,
+  "native_session_independently_checked_absent": true,
+  "mac_content_qa": "passed on development engine; actual Mac execution pending",
+  "linux_release_template_qa": "not rerun; independent popup-template limitation remains open",
+  "files": {
+    "text-encoding-after.log.txt": {
+      "bytes": 136,
+      "sha256": "91876ff5e92d50a0985ccac131e8dcf6782009d06161a64b6eee842ce7f1c2ef"
+    },
+    "text-encoding-artifact-audit.json": {
+      "bytes": 1346,
+      "sha256": "4829a7bfd5fea1abf61c012e13a19fdb0bd3c0e89886481f8e1498feeb87e08e"
+    },
+    "text-encoding-before.gd.txt": {
+      "bytes": 1161,
+      "sha256": "2d970c7291d4bb847417705c338dd9dbfa7a28f08a7ebe2f78162015a1b16e32"
+    },
+    "text-encoding-before.log.txt": {
+      "bytes": 323,
+      "sha256": "28284bed818a2e3e49cd37ec83f08378d45a7cae534ccfe885ae3aae854c6bab"
+    },
+    "text-encoding-build-report.json": {
+      "bytes": 5067,
+      "sha256": "41356f153a5f86238124fb3dba1e63d685810f67c1d994cbe118891a701d1688"
+    },
+    "text-encoding-build.log.txt": {
+      "bytes": 13413,
+      "sha256": "d58efe0967c517831e2b128b02f35a9108dc188c92cd7e1df341fed4e55493f0"
+    },
+    "text-encoding-development-qa.json": {
+      "bytes": 2163,
+      "sha256": "02263fc731de34c9fc9133ed83b8bb3e9a31d6f1e50fa8cdf6b391326ddd644e"
+    },
+    "text-encoding-development.log.txt": {
+      "bytes": 138,
+      "sha256": "fe16160aa395aada0b8d2a879a2282fe698ed2771a228bbe0cd9faa3abfc5673"
+    },
+    "text-encoding-library.log.txt": {
+      "bytes": 597,
+      "sha256": "8104f50742f6f3f280261171c1bc3a6a3b85ac8e2348064f4f9d9419f6cbd36d"
+    },
+    "text-encoding-native-initial-anatomy.log.txt": {
+      "bytes": 443,
+      "sha256": "6892ef4200c6d2c4375fc0f3d2cea40477ebdb89652c5b6ae4b6fd965df3e1ec"
+    },
+    "text-encoding-native-replacement-selection.log.txt": {
+      "bytes": 526,
+      "sha256": "8128d7e0e2895cadcd6a7dd642ee86ad6273373fb893829ee49ec76e751f4aa5"
+    },
+    "text-encoding-normal-lifecycle.json": {
+      "bytes": 1648,
+      "sha256": "414fba2ca285882a1f0bad957fac189f867cd0b592e2abd0123e5b8efdf0b4f3"
+    },
+    "text-encoding-oracle-check.gd.txt": {
+      "bytes": 787,
+      "sha256": "fdea150b1b69f7d011e8f79f23355526b7bf57ef74977d7aa9d8462743743a87"
+    },
+    "text-encoding-oracle-generated.json": {
+      "bytes": 253,
+      "sha256": "7f6329a154aaf15d75fba577726b7025597098af7ad87585ba4baf379d3ccbf0"
+    },
+    "text-encoding-oracle-generator.py.txt": {
+      "bytes": 1234,
+      "sha256": "2e09414c6bc4c4d950ae8a63c3741b599e29c8ccfda168d08810dc110349b83e"
+    },
+    "text-encoding-oracle-result.json": {
+      "bytes": 121,
+      "sha256": "ef995f62cba26184a619c1e8997ce2080e665ef958e277abcd309075dda1b3f0"
+    },
+    "text-encoding-oracle.log.txt": {
+      "bytes": 113,
+      "sha256": "48591dd57eb863475d6e8fc09d6662bb7ac3d1dae92e485803f3e9bc56788b3b"
+    },
+    "text-encoding-portable.log.txt": {
+      "bytes": 116,
+      "sha256": "be706251c30f3a10101c6ce9b0de3064c5649c7b6df16ecdc220807c09896af0"
+    },
+    "text-encoding-python.log.txt": {
+      "bytes": 179,
+      "sha256": "f77da8af3f10033bcafcf00c76abe33e4cea682efeef2f8412267365126d4a3c"
+    },
+    "text-encoding-recovery.log.txt": {
+      "bytes": 138,
+      "sha256": "28386b045cde11c94b869c51e2ce435ddd27f1feb6825d9a4c9d77312e8a83bd"
+    },
+    "text-encoding-scan-development.log.txt": {
+      "bytes": 207,
+      "sha256": "7f44bceadf4b82802a8c8ab8101c8276ae681778fdde5d404d33f06c9ff6d54f"
+    },
+    "text-encoding-scan-profile.gd.txt": {
+      "bytes": 420,
+      "sha256": "be16a00648bfd4277cc4a38127f85021958e8c1101215b67a15f9599e3948c20"
+    },
+    "text-encoding-windows-qa.json": {
+      "bytes": 36827,
+      "sha256": "f56f79d8ccd50ec013752952d54513281e5fd31bc3eed5ac6f3082b2202ae0e4"
+    },
+    "text-encoding-windows-runtime.log.txt": {
+      "bytes": 17559,
+      "sha256": "705af6cf07446c11e31cc7fbe06d1c25066a953946b81f487b4f2742e226c3fb"
+    }
+  }
+}

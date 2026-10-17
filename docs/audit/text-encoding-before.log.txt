@@ -1,0 +1,8 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (ff)
+Invalid UTF-8 library rejected: false
+Read kept raw bytes: true
+Decoded note: Before � after
+Rename blocked: false
+Rename kept raw bytes: false

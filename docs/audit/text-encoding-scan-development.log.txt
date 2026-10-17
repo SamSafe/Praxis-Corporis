@@ -1,0 +1,5 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+UTF-8 scan 100000 bytes: true · 6.353 ms
+UTF-8 scan 2000000 bytes: true · 127.945 ms
+UTF-8 scan 33554432 bytes: true · 2136.979 ms

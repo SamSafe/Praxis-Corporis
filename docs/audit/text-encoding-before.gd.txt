@@ -1,0 +1,22 @@
+extends SceneTree
+const SavedViews = preload("res://scripts/saved_views.gd")
+func _initialize() -> void:
+ var path := "user://utf8-library-probe-" + Crypto.new().generate_random_bytes(16).hex_encode() + ".json"
+ var bytes := '{"schema_version":1,"views":[{"id":"0123456789abcdef0123456789abcdef","name":"Keep this name","created_unix":1,"state":{},"notes":"Before '.to_utf8_buffer()
+ bytes.append(0xff)
+ bytes.append_array(' after"}]}'.to_utf8_buffer())
+ var file := FileAccess.open(path,FileAccess.WRITE)
+ file.store_buffer(bytes)
+ file.close()
+ var library := SavedViews.new()
+ library.path = path
+ var error := library.load_library()
+ print("Invalid UTF-8 library rejected: ",not error.is_empty())
+ print("Read kept raw bytes: ",FileAccess.get_file_as_bytes(path)==bytes)
+ if not library.entries.is_empty():
+  print("Decoded note: ",library.entries[0].notes)
+  print("Rename blocked: ",not library.rename_view(library.entries[0].id,"New name").is_empty())
+  print("Rename kept raw bytes: ",FileAccess.get_file_as_bytes(path)==bytes)
+ for suffix in ["", ".bak", ".tmp"]:
+  if FileAccess.file_exists(path+suffix):DirAccess.remove_absolute(path+suffix)
+ quit()

@@ -352,7 +352,9 @@ when an earlier copy already exists. The result message names the preserved file
 If the main file changes after the recovery offer, recovery stops and asks you to
 close and reopen Saved views. A healthy loaded library cannot be rolled back through
 this action. Malformed JSON in libraries, imports or backups produces the app's
-readable error message without an engine parser error. Recovery returns the
+readable error message without an engine parser error. Malformed UTF-8 and raw NUL
+bytes are also rejected before decoding; known notes and damaged-file bytes remain
+intact, while valid Unicode and BOM files remain supported. Recovery returns the
 previous version, which may omit the most recent edit. A stale open library detects
 external file changes and asks you to close/reopen before editing. This is local
 storage, without cloud sync or a cross-process transaction service.

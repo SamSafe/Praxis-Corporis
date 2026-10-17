@@ -258,6 +258,11 @@ refuses a stale offer if the main file has changed, and preserves each damaged
 original under its own filename. The result names that copy. Older damaged copies
 and the valid backup remain available. A healthy loaded library does not offer
 recovery. Invalid JSON reports a readable error while keeping the input unchanged.
+Malformed UTF-8 and raw NUL bytes in libraries, imports or backups are rejected
+before decoding can replace note characters or ignore trailing bytes. The known
+library and original file stay intact; explicit recovery still preserves the exact
+damaged copy. Valid Unicode, emoji, combining text and UTF-8 BOM files remain supported.
+
 
 ## Opening and switching references
 
@@ -377,6 +382,7 @@ godot --headless --path . --script tests/study_navigation_smoke.gd
 godot --headless --path . --script tests/source_fallback_smoke.gd
 godot --headless --path . --script tests/study_reader_smoke.gd
 godot --headless --path . --script tests/exploration_return_smoke.gd
+godot --headless --path . --script tests/saved_views_utf8_smoke.gd
 godot --headless --path . --script tests/import_preview_smoke.gd
 godot --headless --path . --script tests/unchanged_edits_smoke.gd
 godot --headless --path . --script tests/movement_history_smoke.gd
@@ -404,7 +410,7 @@ preview. Running it with a desktop display also captures the new screens under
 reconstructed collision vertices with source mesh faces. The exported runtime checks
 portable views/notes, preferences and reversible guide state in disposable files.
 Device trials and qualified medical review remain separate from scripted verification.
-[Verification and current private packages](audit/EXPLORATION_RETURN_VERIFICATION.md)
+[Verification and current private packages](audit/TEXT_ENCODING_VERIFICATION.md)
 retain exact build identities, native Windows evidence, saved-view recovery/search/draft
 and deletion-undo checks, study-preserving cancellation and normal-launch reference/window restoration observations. [Draft content verification](audit/DRAFT_CONTENT_VERIFICATION.md)
 records the learning-content review-stage correction and valve-reference checks.
