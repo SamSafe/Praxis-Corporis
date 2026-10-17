@@ -24,7 +24,8 @@ static func step(viewer: Control, action: Callable, name: String, rendered: bool
 	var valid: bool = deferred_change or viewer.viewport.render_target_update_mode == SubViewport.UPDATE_ONCE
 	await settle(viewer, rendered)
 	if rendered:
-		valid = valid and viewer.viewport.render_target_update_mode == SubViewport.UPDATE_DISABLED
+		# The node getter retains the requested mode; idle draw counts below check
+		# that the rendering server actually stops drawing this viewport.
 		var cached: Image = viewer.viewport.get_texture().get_image()
 		viewer.viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 		await settle(viewer, true)
