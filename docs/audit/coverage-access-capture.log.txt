@@ -1,0 +1,16 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+WARNING: Could not set V-Sync mode, as changing V-Sync mode is not supported by the graphics driver.
+     at: set_use_vsync (platform/linuxbsd/x11/gl_manager_x11.cpp:372)
+OpenGL API 4.5 (Core Profile) Mesa 25.2.8-0ubuntu0.24.04.2 - Compatibility - Using Device: Mesa - llvmpipe (LLVM 20.1.2, 256 bits)
+
+Loading female reference
+Prepared 801 meshes in 9.61s; 211 frames while loading
+Coverage text ready: female · Lungs / respiratory anatomy /  / HRA United v1.1 · technical inventory · anatomy review pending /  / Gaps and limits /  / Regional source meshes are not a complete or reviewed respiratory atlas. The separate Heart ↔ lungs study route remains an unrevie
+PASS native coverage reader: female
+PASS bundled coverage keyboard: female
+Loading hra-v1-2-female-cord-study reference
+Prepared 29 meshes in 23.10s; 23 frames while loading
+Coverage text ready: hra-v1-2-female-cord-study · Supplied spinal source geometry /  / HRA separate v1.2 source file · technical inventory · anatomy review pending /  / Gaps and limits /  / This isolated source study does not complete a whole-body skeleton, establish registration, or supply reviewed n
+PASS native coverage reader: hra-v1-2-female-cord-study
+PASS bundled coverage keyboard: hra-v1-2-female-cord-study
+PASS coverage keyboard captures at minimum size and 130% text

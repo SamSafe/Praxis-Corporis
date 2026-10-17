@@ -117,7 +117,7 @@ is used by the viewer.
 | Save/load | Saved views opens named local exploration setups with Save current view, Restore, Rename and Delete. |
 | Find a saved view | Search its name, notes, reference or selected anatomy name/source ID. This reference narrows the library; the heading shows matches out of all views. |
 | Study notes | Select a saved view, type your observations/questions, then Save notes. |
-| Coverage | Coverage opens the technical inventory for both reference bodies, known gaps and a shortcut to select a supplied group. |
+| Coverage | Coverage opens the technical inventory and known gaps. Arrows choose groups; Tab reaches selectable text and Explore; Page Up/Down scroll; Escape closes it. |
 | Workspace panels | View toggles the anatomy explorer and structure details independently; Keyboard controls opens the shortcut reference. |
 | Expanded anatomy | View > Expand anatomy or F11 fills the window with the live anatomy view. Escape or Return to workspace brings the panels back. |
 | Expanded controls | Explore keeps labels, focus/whole body, Inspect alone/Return to context, Move, Undo/Redo, Saved views, Screenshot and keyboard help available. Selection, Move mode and action feedback remain visible. |
@@ -352,6 +352,10 @@ unestablished coverage has no exploration shortcut. The inventory does not assig
 completeness percentages or promote draft labels to medical review. Its notes are
 bound to the pinned catalogue/source commit in
 [coverage_notes.json](../content/coverage_notes.json).
+The group list receives focus when Coverage opens. Use arrows to choose a group,
+Tab to reach its inventory text, Page Up/Down to scroll, and Ctrl/Cmd+A to select
+the text. Tab also reaches Explore and Close. Escape closes the window even while
+text is selected, preserving the current anatomy view.
 
 - Both samples provide surrounding body context and separately named organ geometry.
 - Full skeleton/muscle/peripheral-nerve coverage is absent from these samples.

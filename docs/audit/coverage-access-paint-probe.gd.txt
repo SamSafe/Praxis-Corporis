@@ -1,0 +1,53 @@
+extends SceneTree
+
+func _initialize() -> void:
+	call_deferred("run")
+
+func redraw_tree(node: Node) -> void:
+	if node is CanvasItem:
+		node.queue_redraw()
+	for child in node.get_children():
+		redraw_tree(child)
+
+func capture(label: String) -> void:
+	await RenderingServer.frame_post_draw
+	var path := "/tmp/medicine-viewer-feasibility/coverage-paint-" + label + ".png"
+	if root.get_texture().get_image().save_png(path) != OK:
+		push_error("Paint probe could not save " + label)
+
+func run() -> void:
+	var viewer = load("res://scenes/main.tscn").instantiate()
+	root.add_child(viewer)
+	await process_frame
+	while viewer.loading:
+		await process_frame
+	root.size = Vector2i(1100, 720)
+	for id in ["female", "bodyparts-male-bones-study", "hra-v1-2-female-cord-study"]:
+		await viewer.switch_body(id)
+		for scale in [1.0, 1.3]:
+			var settings: Dictionary = viewer.preference_state()
+			settings.text_scale = scale
+			viewer.apply_preferences(settings)
+			var dialog: Window = viewer.show_coverage()
+			dialog.size = Vector2i(760, 520)
+			await process_frame
+			await process_frame
+			dialog.information.grab_focus()
+			if scale == 1.3:
+				while not dialog.information.is_finished():
+					await process_frame
+				await process_frame
+				await process_frame
+				await capture(id + "-initial")
+				await create_timer(0.6).timeout
+				await capture(id + "-late")
+				redraw_tree(dialog)
+				await process_frame
+				await process_frame
+				await capture(id + "-redrawn")
+				print("PASS paint stages: ", id)
+			dialog.queue_free()
+			await process_frame
+	viewer.queue_free()
+	await process_frame
+	quit()

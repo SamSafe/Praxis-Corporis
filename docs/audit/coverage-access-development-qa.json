@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "source_revision": "07d23cedb30bd31c7a9aad8eddf692f46a8631f0",
+  "before_revision": "603c90407d27e652117568ddb4bbe3a991a95705",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": [
+    {
+      "script": "tests/coverage_keyboard_smoke.gd",
+      "script_sha256": "c5e8ad7b1f8bcf87f83463753033cbf93a0f34dd0b5b2c9dd2c7084c581422a7",
+      "log": "coverage-access-workspace.log.txt",
+      "log_sha256": "411d157358091c4f09f3ee2783289016eb3135d488db394698ede9b654e51936",
+      "success_marker": "Coverage keyboard failures: 0"
+    },
+    {
+      "script": "tests/coverage_smoke.gd",
+      "script_sha256": "a9448173d90c7affe177edf6e8373276589e3e60aa1cdbe4692e194fdf28f37a",
+      "log": "coverage-access-legacy.log.txt",
+      "log_sha256": "365e5eb0672e53937f47d09136f93919d3639544311bfba1b20f72976efee544",
+      "success_marker": "Coverage failures: 0"
+    },
+    {
+      "script": "tests/capture_coverage_access.gd",
+      "script_sha256": "85960c20a779c74ce8720b16ee3b0e1435bc7b2c6ad706000fe25978b651b574",
+      "log": "coverage-access-capture.log.txt",
+      "log_sha256": "933353a4758b75b857bc2af76d27d6da0185daaf20bfe5c9a9fa5ee0a3f88a9d",
+      "success_marker": "PASS coverage keyboard captures at minimum size and 130% text"
+    }
+  ],
+  "python_checks": 69,
+  "keyboard_selection_only": true,
+  "clipboard_read_or_copy_exercised": false,
+  "packaging_followup_revision": "8586934deca135b0fab6d6baff711408c4eb80da"
+}

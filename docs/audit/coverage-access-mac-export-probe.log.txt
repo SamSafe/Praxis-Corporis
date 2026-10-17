@@ -1,0 +1,239 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ERROR: Condition "_sock == -1" is true. Returning: FAILED
+   at: _inet_open (drivers/unix/net_socket_unix.cpp:288)
+ERROR: Condition "err != OK" is true. Returning: ERR_CANT_CREATE
+   at: listen (core/io/tcp_server.cpp:56)
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Scanning file structure...[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Loading global class names...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Verifying GDExtensions...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Creating autoload scripts...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Initializing plugins...[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mexport[22m | Started Exporting for macOS (3 steps)[39m[0m
+[   0% ] [90m[1mexport[22m | Creating app bundle[39m[0m
+[  25% ] [90m[1mexport[22m | Making PKG[39m[0m
+[   0% ] [90m[1msavepack[22m | Started Packing (102 steps)[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/hra/female.glb[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2.scn[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection.json[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0000.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0001.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0002.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0003.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0004.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0005.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0006.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0007.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0008.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0009.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0010.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0011.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0012.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0013.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0014.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0015.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0016.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0017.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0018.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0019.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0020.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0021.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0022.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0023.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0024.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0025.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0026.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0027.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0028.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0029.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0030.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0031.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0032.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0033.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0034.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0035.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0036.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0037.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0038.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0039.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0040.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0041.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0042.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0043.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0044.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0045.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0046.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/female-149c9dade4a9-geometry-v2-selection-0047.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/hra/male.glb[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2.scn[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection.json[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0000.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0001.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0002.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0003.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0004.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0005.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0006.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0007.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0008.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0009.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0010.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0011.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0012.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0013.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0014.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0015.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0016.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0017.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0018.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0019.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0020.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0021.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0022.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0023.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0024.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0025.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0026.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0027.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0028.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0029.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0030.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0031.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0032.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0033.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0034.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0035.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0036.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0037.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0038.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0039.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0040.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0041.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0042.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0043.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0044.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0045.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0046.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0047.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0048.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0049.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0050.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/male-f8dce99e28b6-geometry-v2-selection-0051.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://third_party/HRA-LICENSE.txt[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://third_party/HRA-README.md[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/bodyparts3d/bone-study.glb[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2.scn[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection.json[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0000.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0001.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0002.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0003.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0004.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0005.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0006.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/bodyparts-male-bones-study-30f8982452c0-geometry-v2-selection-0007.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/hra-spinal/VH_F_Spinal_Cord.glb[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/hra-v1-2-female-cord-study-d9bfc840783a-geometry-v2.scn[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/hra-v1-2-female-cord-study-d9bfc840783a-geometry-v2-selection.json[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/hra-v1-2-female-cord-study-d9bfc840783a-geometry-v2-selection-0000.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/hra-v1-2-female-cord-study-d9bfc840783a-geometry-v2-selection-0001.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/hra-v1-2-female-cord-study-d9bfc840783a-geometry-v2-selection-0002.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/hra-v1-2-female-cord-study-d9bfc840783a-geometry-v2-selection-0003.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/hra-spinal/VH_F_Vertebrae.glb[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2.scn[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2-selection.json[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2-selection-0000.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2-selection-0001.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2-selection-0002.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2-selection-0003.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2-selection-0004.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/hra-v1-2-female-vertebrae-study-bdbea49a40e9-geometry-v2-selection-0005.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/hra-spinal/VH_M_Spinal_Cord.glb[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/hra-v1-2-male-cord-study-a7858d88c223-geometry-v2.scn[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/hra-v1-2-male-cord-study-a7858d88c223-geometry-v2-selection.json[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/hra-v1-2-male-cord-study-a7858d88c223-geometry-v2-selection-0000.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/hra-spinal/VH_M_Vertebrae.glb[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2.scn[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2-selection.json[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2-selection-0000.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2-selection-0001.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2-selection-0002.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2-selection-0003.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/prepared/hra-v1-2-male-vertebrae-study-981041904438-geometry-v2-selection-0004.res[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://scripts/reference_state.gdc[39m[0m
+[   3% ] [90m[1msavepack[22m | Storing File: res://content/bodyparts3d_bone_study.json[39m[0m
+[   6% ] [90m[1msavepack[22m | Storing File: res://content/bodyparts3d_source_manifest.json[39m[0m
+[   9% ] [90m[1msavepack[22m | Storing File: res://content/coverage_notes.json[39m[0m
+[  12% ] [90m[1msavepack[22m | Storing File: res://content/reference_frames.json[39m[0m
+[  15% ] [90m[1msavepack[22m | Storing File: res://content/sample_pack.json[39m[0m
+[  18% ] [90m[1msavepack[22m | Storing File: res://content/source_manifest.json[39m[0m
+[  21% ] [90m[1msavepack[22m | Storing File: res://content/spinal_source_manifest.json[39m[0m
+[  23% ] [90m[1msavepack[22m | Storing File: res://content/spinal_studies.json[39m[0m
+[  26% ] [90m[1msavepack[22m | Storing File: res://content/study_content.json[39m[0m
+[  29% ] [90m[1msavepack[22m | Storing File: res://content/toolchain_manifest.json[39m[0m
+[  32% ] [90m[1msavepack[22m | Storing File: res://scripts/saved_views_browser.gdc[39m[0m
+[  34% ] [90m[1msavepack[22m | Storing File: res://scripts/reference_orientation.gdc[39m[0m
+[  37% ] [90m[1msavepack[22m | Storing File: res://scripts/anatomy_model.gdc[39m[0m
+[  40% ] [90m[1msavepack[22m | Storing File: res://scripts/content_bundle.gdc[39m[0m
+[  42% ] [90m[1msavepack[22m | Storing File: res://scripts/anatomy_labels.gdc[39m[0m
+[  45% ] [90m[1msavepack[22m | Storing File: res://scripts/study_verification.gdc[39m[0m
+[  48% ] [90m[1msavepack[22m | Storing File: res://scripts/scene_surface.gdc[39m[0m
+[  51% ] [90m[1msavepack[22m | Storing File: res://scripts/part_actions.gdc[39m[0m
+[  54% ] [90m[1msavepack[22m | Storing File: res://scripts/render_profile.gdc[39m[0m
+[  57% ] [90m[1msavepack[22m | Storing File: res://scripts/prepared_selection.gdc[39m[0m
+[  60% ] [90m[1msavepack[22m | Storing File: res://scripts/information_dialog.gdc[39m[0m
+[  62% ] [90m[1msavepack[22m | Storing File: res://scripts/viewer_preferences.gdc[39m[0m
+[  65% ] [90m[1msavepack[22m | Storing File: res://scripts/saved_views.gdc[39m[0m
+[  67% ] [90m[1msavepack[22m | Storing File: res://scripts/viewer.gdc[39m[0m
+[  70% ] [90m[1msavepack[22m | Storing File: res://scripts/coverage_browser.gdc[39m[0m
+[  73% ] [90m[1msavepack[22m | Storing File: res://scripts/view_capture.gdc[39m[0m
+[  76% ] [90m[1msavepack[22m | Storing File: res://scripts/source_index_extension.gdc[39m[0m
+[  79% ] [90m[1msavepack[22m | Storing File: res://scripts/source_record.gdc[39m[0m
+[  81% ] [90m[1msavepack[22m | Storing File: res://scripts/guided_chest.gdc[39m[0m
+[  84% ] [90m[1msavepack[22m | Storing File: res://.godot/exported/133200997/export-3ad5c15c4f3250da0cc7c1af1770d85f-main.scn[39m[0m
+[  87% ] [90m[1msavepack[22m | Storing File: res://scripts/anatomy_search.gdc[39m[0m
+[  90% ] [90m[1msavepack[22m | Storing File: res://scripts/study_content.gdc[39m[0m
+[  93% ] [90m[1msavepack[22m | Storing File: res://scripts/orbit_camera.gdc[39m[0m
+[  96% ] [90m[1msavepack[22m | Storing File: res://scripts/window_state.gdc[39m[0m
+[  96% ] [90m[1msavepack[22m | Storing File: res://scripts/reference_state.gd.remap[39m[0m
+[  96% ] [90m[1msavepack[22m | Storing File: res://scripts/saved_views_browser.gd.remap[39m[0m
+[  96% ] [90m[1msavepack[22m | Storing File: res://scripts/reference_orientation.gd.remap[39m[0m
+[  96% ] [90m[1msavepack[22m | Storing File: res://scripts/anatomy_model.gd.remap[39m[0m
+[  96% ] [90m[1msavepack[22m | Storing File: res://scripts/content_bundle.gd.remap[39m[0m
+[  96% ] [90m[1msavepack[22m | Storing File: res://scripts/anatomy_labels.gd.remap[39m[0m
+[  96% ] [90m[1msavepack[22m | Storing File: res://scripts/study_verification.gd.remap[39m[0m
+[  96% ] [90m[1msavepack[22m | Storing File: res://scripts/scene_surface.gd.remap[39m[0m
+[  96% ] [90m[1msavepack[22m | Storing File: res://scripts/part_actions.gd.remap[39m[0m
+[  96% ] [90m[1msavepack[22m | Storing File: res://scripts/render_profile.gd.remap[39m[0m
+[  96% ] [90m[1msavepack[22m | Storing File: res://scripts/prepared_selection.gd.remap[39m[0m
+[  96% ] [90m[1msavepack[22m | Storing File: res://scripts/information_dialog.gd.remap[39m[0m
+[  96% ] [90m[1msavepack[22m | Storing File: res://scripts/viewer_preferences.gd.remap[39m[0m
+[  96% ] [90m[1msavepack[22m | Storing File: res://scripts/saved_views.gd.remap[39m[0m
+[  96% ] [90m[1msavepack[22m | Storing File: res://scripts/viewer.gd.remap[39m[0m
+[  96% ] [90m[1msavepack[22m | Storing File: res://scripts/coverage_browser.gd.remap[39m[0m
+[  96% ] [90m[1msavepack[22m | Storing File: res://scripts/view_capture.gd.remap[39m[0m
+[  96% ] [90m[1msavepack[22m | Storing File: res://scripts/source_index_extension.gd.remap[39m[0m
+[  96% ] [90m[1msavepack[22m | Storing File: res://scripts/source_record.gd.remap[39m[0m
+[  96% ] [90m[1msavepack[22m | Storing File: res://scripts/guided_chest.gd.remap[39m[0m
+[  96% ] [90m[1msavepack[22m | Storing File: res://scenes/main.tscn.remap[39m[0m
+[  96% ] [90m[1msavepack[22m | Storing File: res://scripts/anatomy_search.gd.remap[39m[0m
+[  96% ] [90m[1msavepack[22m | Storing File: res://scripts/study_content.gd.remap[39m[0m
+[  96% ] [90m[1msavepack[22m | Storing File: res://scripts/orbit_camera.gd.remap[39m[0m
+[  96% ] [90m[1msavepack[22m | Storing File: res://scripts/window_state.gd.remap[39m[0m
+[  96% ] [90m[1msavepack[22m | Storing File: res://.godot/global_script_class_cache.cfg[39m[0m
+[  96% ] [90m[1msavepack[22m | Storing File: res://.godot/uid_cache.bin[39m[0m
+[  96% ] [90m[1msavepack[22m | Storing File: res://project.binary[39m[0m
+[92m[ DONE ][39m [1msavepack[22m
+[0m
+[  50% ] [90m[1mexport[22m | Code signing bundle[39m[0m
+[  75% ] [90m[1mexport[22m | Making ZIP[39m[0m
+[92m[ DONE ][39m [1mexport[22m
+[0m
+ERROR: Condition "_sock == -1" is true. Returning: FAILED
+   at: _inet_open (drivers/unix/net_socket_unix.cpp:288)
+ERROR: Condition "err != OK" is true. Returning: ERR_CANT_CREATE
+   at: listen (core/io/tcp_server.cpp:56)

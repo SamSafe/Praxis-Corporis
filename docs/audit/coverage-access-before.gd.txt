@@ -1,0 +1,36 @@
+extends SceneTree
+func _initialize() -> void:
+	call_deferred("run")
+func key(window: Window, code: int) -> void:
+	var event := InputEventKey.new()
+	event.pressed = true
+	event.keycode = code
+	window.push_input(event)
+	await process_frame
+func run() -> void:
+	var viewer = load("res://scenes/main.tscn").instantiate()
+	root.add_child(viewer)
+	await process_frame
+	while viewer.loading:
+		await process_frame
+	var preferences: Dictionary = viewer.preference_state()
+	preferences.text_scale = 1.3
+	viewer.apply_preferences(preferences)
+	root.size = Vector2i(1100, 720)
+	var coverage: Window = viewer.show_coverage()
+	coverage.size = Vector2i(760, 520)
+	await process_frame
+	await process_frame
+	coverage.system_list.grab_focus()
+	await key(coverage, KEY_TAB)
+	print("Coverage text focus mode: ", coverage.information.focus_mode)
+	print("Coverage text selectable: ", coverage.information.selection_enabled)
+	print("Focus after list Tab: ", coverage.gui_get_focus_owner().get_class())
+	var bar: VScrollBar = coverage.information.get_v_scroll_bar()
+	print("Scroll before: ", bar.value, " · extent ", bar.max_value, " · page ", bar.page)
+	await key(coverage, KEY_PAGEDOWN)
+	print("Scroll after Page Down: ", bar.value)
+	coverage.queue_free()
+	viewer.queue_free()
+	await process_frame
+	quit()

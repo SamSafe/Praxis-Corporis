@@ -321,6 +321,7 @@ godot --headless --path . --script tests/circulation_route_smoke.gd
 godot --headless --path . --script tests/keyboard_movement_smoke.gd
 godot --headless --path . --script tests/camera_zoom_smoke.gd
 godot --headless --path . --script tests/zoom_workspace_smoke.gd
+godot --headless --path . --script tests/coverage_keyboard_smoke.gd
 godot --headless --path . --script tests/pointer_interruption_smoke.gd
 godot --headless --path . --script tests/pointer_workspace_smoke.gd
 godot --headless --path . --script tests/information_dialog_smoke.gd
@@ -343,7 +344,7 @@ preview. Running it with a desktop display also captures the new screens under
 reconstructed collision vertices with source mesh faces. The exported runtime checks
 portable views/notes, preferences and reversible guide state in disposable files.
 Device trials and qualified medical review remain separate from scripted verification.
-[Verification and current private packages](audit/CAMERA_ZOOM_VERIFICATION.md)
+[Verification and current private packages](audit/COVERAGE_KEYBOARD_VERIFICATION.md)
 retain exact build identities, native Windows evidence, saved-view recovery/search/draft
 and deletion-undo checks, study-preserving cancellation and normal-launch reference/window restoration observations. [Draft content verification](audit/DRAFT_CONTENT_VERIFICATION.md)
 records the learning-content review-stage correction and valve-reference checks.

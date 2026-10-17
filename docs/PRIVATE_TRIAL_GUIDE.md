@@ -46,6 +46,7 @@ restarting. Repeat the HRA tasks for both female and male references.
 | Reopen and restore | Close/reopen the app and restore a named isolated part. | Does Return to context still work? |
 | Export a screenshot | Save a PNG through the native picker, reopen it and check the source/status footer. Cancel another export. | Any missing label, clipped credit, unclear overwrite or changed session? |
 | Check a coverage gap | Open Coverage and inspect skeletal coverage for both HRA bodies. | Do counts look like a completeness claim? |
+| Read Coverage with keys | At 130% text in a small window, use arrows to choose a group, Tab to reach the inventory, Page Up/Down to read it and Ctrl/Cmd+A to select its text. Close with Escape; reopen and Tab to Explore. If useful, copy selected text into your own editor. | Is all text reachable, focus clear and the original view preserved on close? Is the copied inventory understandable? |
 | Explore the bone study | Choose the separate male study, find Right femur, inspect and restore it. | Is its lack of HRA/female alignment clear? |
 | Use a smaller window | Repeat selection, Save/Restore and inspection return. | Any unreadable text, clipped actions or blocked anatomy? |
 | Explore with the panels away | Expand anatomy with View or F11. Use Explore to toggle labels, inspect/return, save/restore a view and export a credited PNG. Escape dismisses an open menu before returning to the workspace. | Are selection, Move mode and action feedback clear? Can you keep exploring without reopening panels? |

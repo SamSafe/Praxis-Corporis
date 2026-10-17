@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "application_source_revision": "07d23cedb30bd31c7a9aad8eddf692f46a8631f0",
+  "package_source_revision": "8586934deca135b0fab6d6baff711408c4eb80da",
+  "python_checks": 69,
+  "native_references": 7,
+  "native_capture_identities": 101,
+  "coverage_captures_inspected": [
+    "female",
+    "male",
+    "bodyparts-male-bones-study",
+    "hra-v1-2-female-cord-study",
+    "hra-v1-2-female-vertebrae-study",
+    "hra-v1-2-male-cord-study",
+    "hra-v1-2-male-vertebrae-study"
+  ],
+  "native_normal_launches": 4,
+  "native_early_closes": 2,
+  "native_session_independently_checked_absent": true,
+  "mac_content_qa": "passed on development engine; actual Mac execution pending",
+  "linux_release_template_qa": "not rerun; independent popup-template limitation remains open",
+  "clipboard_read_or_copy_exercised": false,
+  "files": {
+    "coverage-access-artifact-audit.json": {
+      "bytes": 1346,
+      "sha256": "002d4db6a5d89c3188e425edbd19c1071f09d4ae27198b74261b17d5cc20d82f"
+    },
+    "coverage-access-before.gd.txt": {
+      "bytes": 1287,
+      "sha256": "1c0171e6b2fac7baac0c3f344e85852be90b5440af58dcc08eedda3bbf9f6fc8"
+    },
+    "coverage-access-before.log.txt": {
+      "bytes": 319,
+      "sha256": "7a9ccd414cd163c835f8603582605872e216ed8efb4a6da2ba44c7cc85182e98"
+    },
+    "coverage-access-build-report.json": {
+      "bytes": 4966,
+      "sha256": "56dddca94b36e6361d5ebc6121f584575409f0b8053c357c793f6135817859a6"
+    },
+    "coverage-access-build-timeout.log.txt": {
+      "bytes": 3355,
+      "sha256": "31baed8a6fe1d989c3755ed554dbfad8ee7d66dfaf0f1141339b63b78d90d06c"
+    },
+    "coverage-access-build.log.txt": {
+      "bytes": 9642,
+      "sha256": "b8061332722f8932bb6388f4685baa896c4171cbd6de686daaf7eccfec783991"
+    },
+    "coverage-access-capture.log.txt": {
+      "bytes": 1400,
+      "sha256": "933353a4758b75b857bc2af76d27d6da0185daaf20bfe5c9a9fa5ee0a3f88a9d"
+    },
+    "coverage-access-development-qa.json": {
+      "bytes": 1460,
+      "sha256": "49815f39d7958821ed30290e6aeb3b7aba2a931d70336406b4c809afa322f60f"
+    },
+    "coverage-access-legacy.log.txt": {
+      "bytes": 310,
+      "sha256": "365e5eb0672e53937f47d09136f93919d3639544311bfba1b20f72976efee544"
+    },
+    "coverage-access-mac-export-probe.log.txt": {
+      "bytes": 26800,
+      "sha256": "a6654b0a431b90a75a37c3082992bde336db49c9cb358539310e28dd7b6cf3fc"
+    },
+    "coverage-access-native-initial-anatomy.log.txt": {
+      "bytes": 443,
+      "sha256": "6053cfbd6433a0b9a9bd5ee790d47f30c5eddb0245f6a9dff1331b4b46bab7db"
+    },
+    "coverage-access-native-replacement-selection.log.txt": {
+      "bytes": 527,
+      "sha256": "8ce5c434d5bec5a7aaf1e877a5739855e32e13c26797df30373eda277736c8e9"
+    },
+    "coverage-access-normal-lifecycle.json": {
+      "bytes": 1648,
+      "sha256": "414fba2ca285882a1f0bad957fac189f867cd0b592e2abd0123e5b8efdf0b4f3"
+    },
+    "coverage-access-paint-probe.gd.txt": {
+      "bytes": 1594,
+      "sha256": "054f16f7931ee8a9f4908b1f294d4f8b19201355384f65edb79a78e1fde0f0b6"
+    },
+    "coverage-access-paint-probe.log.txt": {
+      "bytes": 851,
+      "sha256": "7d410a448e16b49311f7426f04db3e4b3daca467c08c9526bb4d5d89ed2abc77"
+    },
+    "coverage-access-pixel-inspection.log.txt": {
+      "bytes": 1688,
+      "sha256": "9dfb402249c7e48028a6f6281597ab51cc688eacdb2570fd45a56eb188806809"
+    },
+    "coverage-access-pixel-inspection.py.txt": {
+      "bytes": 3106,
+      "sha256": "7ea78499ac867475dbc3fc046e5073c83133b2efc7735ec8b5143055922b285b"
+    },
+    "coverage-access-python.log.txt": {
+      "bytes": 168,
+      "sha256": "1f9bfd584d51449f156ed2d7624e58c7810fcf53391b82c23d54f5d72cad7a36"
+    },
+    "coverage-access-windows-qa.json": {
+      "bytes": 33567,
+      "sha256": "708359d3577479e6c290db5e600405f9e38f7d589f91db6941bc6efe608ba938"
+    },
+    "coverage-access-windows-runtime.log.txt": {
+      "bytes": 13693,
+      "sha256": "9603f6f3234ed0f776fe19fc4efb91f05ca6ce9b17b80b840c7b37f9ce0e335a"
+    },
+    "coverage-access-workspace.log.txt": {
+      "bytes": 1591,
+      "sha256": "411d157358091c4f09f3ee2783289016eb3135d488db394698ede9b654e51936"
+    },
+    "../prototype/coverage-keyboard-female.png": {
+      "bytes": 337303,
+      "sha256": "dd7e4848c459fe73da27425bfe41cc1cd9c3f51c44d0c57f77ff8e7f56174ce4"
+    },
+    "../prototype/coverage-keyboard-male.png": {
+      "bytes": 340695,
+      "sha256": "5a7268d71965be73bdde51583639ee57336b36a62413d06beec24a2b86df5422"
+    },
+    "../prototype/coverage-keyboard-bodyparts-male-bones-study.png": {
+      "bytes": 305732,
+      "sha256": "64140919fb4cfe9b01be4517eea710e0025617ec8fe485eae6b89e6aace1e339"
+    },
+    "../prototype/coverage-keyboard-hra-v1-2-female-cord-study.png": {
+      "bytes": 306050,
+      "sha256": "d738e845fec2e4e5025b1657f9f48bb8e73dc3ad2e202082e71a5070cf0e4328"
+    },
+    "../prototype/coverage-keyboard-hra-v1-2-female-vertebrae-study.png": {
+      "bytes": 315731,
+      "sha256": "aed931e692bdfbe73b1efb63f8f4ed83d11dbe2fd2c095a61ec0ab7643a1ccde"
+    },
+    "../prototype/coverage-keyboard-hra-v1-2-male-cord-study.png": {
+      "bytes": 304559,
+      "sha256": "06321e67c06bc4e61380488cb22abf83d19a19740cc79713975c50728bd3491f"
+    },
+    "../prototype/coverage-keyboard-hra-v1-2-male-vertebrae-study.png": {
+      "bytes": 310944,
+      "sha256": "e857ffd30bcb4ea6ab5f8054e74836beaf8387c97ff0648d76eb74e77a6eed76"
+    }
+  }
+}
