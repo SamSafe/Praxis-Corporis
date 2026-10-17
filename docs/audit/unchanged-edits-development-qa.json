@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "source_revision": "5a75e63733beac151f8f22c4248f97c100198b2b",
+  "before_revision": "336870e75c06a3e73689f1ef5d138d5945023181",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "checks": [
+    {
+      "script": "tests/unchanged_edits_smoke.gd",
+      "script_sha256": "affd863a81a2d4b273f25dc067d2f2a55498ce8838df72f9c792b8e3f2a4736f",
+      "log": "unchanged-edits-workspace.log.txt",
+      "log_sha256": "651bced8da895378baf3dbc264ea4c17f5333cb83be28b0a5cf424adb48cd45a",
+      "success_marker": "Unchanged edit failures: 0"
+    },
+    {
+      "script": "tests/viewer_smoke.gd",
+      "script_sha256": "1a273a0430745a0f49c5a0640fa89c4faabff0a026d595b80d70cf5bc82bc6ca",
+      "log": "unchanged-edits-viewer.log.txt",
+      "log_sha256": "69c271ec81e2e1181e3beb96e2f23b536a2ae4f79854b3336b01af11e3dc79ae",
+      "success_marker": "Integration failures: 0"
+    },
+    {
+      "script": "tests/study_workspace_smoke.gd",
+      "script_sha256": "a103d60e330906f6ceb829a127c1ae131f601e9d145972118d48538e28b0ba84",
+      "log": "unchanged-edits-study.log.txt",
+      "log_sha256": "ed42cac4dc852521d107ec2a30bae595217c1e4bb1ed2769fb72132d8ebe6ab5",
+      "success_marker": "Study workspace failures: 0"
+    },
+    {
+      "script": "tests/pointer_workspace_smoke.gd",
+      "script_sha256": "84040f54cc2e6ae66f8086710cc4eef8587a8b093b5b875a55641110d2cc6895",
+      "log": "unchanged-edits-pointer.log.txt",
+      "log_sha256": "231d373f7c554580805474a730b3946b0a59a93b15bfd6e2549c584db5231172",
+      "success_marker": "Pointer workspace failures: 0"
+    }
+  ],
+  "python_checks": 72,
+  "references": 7,
+  "layouts": [
+    "workspace",
+    "expanded"
+  ],
+  "concurrent_attempts": {
+    "scripts": [
+      "tests/viewer_smoke.gd",
+      "tests/study_workspace_smoke.gd",
+      "tests/pointer_workspace_smoke.gd"
+    ],
+    "exit_code_each": 124,
+    "timeout_seconds_each": 150,
+    "result": "incomplete concurrent runs; successful sequential reruns recorded above; cause not established"
+  }
+}

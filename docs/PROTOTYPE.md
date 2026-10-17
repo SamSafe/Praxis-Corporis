@@ -182,6 +182,10 @@ attaching the wrong source context. Images remain local.
 Faded structures are click-through; hidden structures have no active pick collision.
 Choose either in the tree and use Show to make it directly selectable again.
 Viewer undo/redo restores visibility and inspection displacements, not camera navigation.
+Visibility and Restore add an anatomy undo step only when a mesh state changes.
+Applying the same saved anatomy also preserves existing undo/redo. A real change
+still creates a step and clears redo from the old branch. Restore all retains its
+return-to-context behavior and the separate navigation history.
 New inspection edits discard redo history. Original-position overlays are separate
 from anatomy and do not intercept clicks; restoring a part hides its overlay.
 Ordinary selection of a hidden structure focuses its position without revealing it.

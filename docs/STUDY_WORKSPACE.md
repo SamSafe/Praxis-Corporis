@@ -118,6 +118,11 @@ stops the current drag without discarding completed edits. A canceled click does
 Start a fresh drag to continue; Undo reverses each completed gesture independently.
 The selected Move setting stays in place.
 
+Visibility and Restore preserve anatomy undo/redo when the requested mesh state
+is already present. Restoring a view with the same saved anatomy does so too;
+its camera, selection and other viewing controls still restore normally. A real
+anatomy change creates an undo step and clears the previous redo branch.
+
 ## Camera zoom
 
 Wheel zoom honors fine scroll amounts where the platform supplies them. Equal
@@ -337,6 +342,7 @@ godot --headless --path . --script tests/zoom_workspace_smoke.gd
 godot --headless --path . --script tests/coverage_keyboard_smoke.gd
 godot --headless --path . --script tests/study_navigation_smoke.gd
 godot --headless --path . --script tests/import_preview_smoke.gd
+godot --headless --path . --script tests/unchanged_edits_smoke.gd
 godot --headless --path . --script tests/pointer_interruption_smoke.gd
 godot --headless --path . --script tests/pointer_workspace_smoke.gd
 godot --headless --path . --script tests/information_dialog_smoke.gd
@@ -359,7 +365,7 @@ preview. Running it with a desktop display also captures the new screens under
 reconstructed collision vertices with source mesh faces. The exported runtime checks
 portable views/notes, preferences and reversible guide state in disposable files.
 Device trials and qualified medical review remain separate from scripted verification.
-[Verification and current private packages](audit/IMPORT_PREVIEW_VERIFICATION.md)
+[Verification and current private packages](audit/UNCHANGED_EDITS_VERIFICATION.md)
 retain exact build identities, native Windows evidence, saved-view recovery/search/draft
 and deletion-undo checks, study-preserving cancellation and normal-launch reference/window restoration observations. [Draft content verification](audit/DRAFT_CONTENT_VERIFICATION.md)
 records the learning-content review-stage correction and valve-reference checks.

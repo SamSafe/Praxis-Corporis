@@ -1,0 +1,2 @@
+PASS native Windows archive: 5a75e63733beac151f8f22c4248f97c100198b2b
+Retained report: dist/unchanged-edit-history-windows-qa/report.json

@@ -38,6 +38,7 @@ restarting. Repeat the HRA tasks for both female and male references.
 | Identify a supplied part | Enable local labels or choose a component in the list. | Can you reach a small/covered part without a direct click? |
 | Inspect and return | Inspect alone, choose a component, then Return to context. | Does the temporary view and return action make sense? |
 | Move and recover | Enable Move, displace a part, use Undo/Redo and Restore selected. | Is original placement clear? Did navigation ever move anatomy? |
+| Keep redo through an unchanged command | Move a supplied part and Undo it. Choose Show or Restore while it is already in that state, then Redo. Also try restoring a saved view with the same anatomy. | Is the undone movement still recoverable? Do real new edits correctly start another undo branch? |
 | Interrupt a pointer drag | During orbit/pan and Move, switch away from the app, release the mouse, return and move the pointer without pressing. Also focus anatomy search during a drag. Start a fresh drag and use Undo. | Did motion stop, selection stay put, and each deliberate Move gesture keep its own undo step? |
 | Revisit anatomy | Select the heart/lung and use Back/Forward. | Were camera and inspection changes retained as expected? |
 | Save two views | Give two different setups distinct names in Saved views. | Are reference and structure easy to distinguish? |

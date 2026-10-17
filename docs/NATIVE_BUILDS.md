@@ -14,13 +14,13 @@ portable views and four independent spinal source studies.
 
 The generated archives are excluded from Git:
 
-- Windows x64: dist/import-preview-improvements/PraxisCorporis-Windows-x64-private.zip
-- Mac Intel/Apple Silicon: dist/import-preview-improvements/PraxisCorporis-macOS-universal-private.zip
+- Windows x64: dist/unchanged-edit-history/PraxisCorporis-Windows-x64-private.zip
+- Mac Intel/Apple Silicon: dist/unchanged-edit-history/PraxisCorporis-macOS-universal-private.zip
 
 Earlier archives retain their previous source identities and their review-label
-corrections. Use the import-preview-improvements build report when verifying the new archives.
-[Import preview and package verification](audit/IMPORT_PREVIEW_VERIFICATION.md)
-records their exact hashes, seven-reference import/workspace checks, early-close checks,
+corrections. Use the unchanged-edit-history build report when verifying the new archives.
+[Unchanged-command history and package verification](audit/UNCHANGED_EDITS_VERIFICATION.md)
+records their exact hashes, seven-reference history/workspace checks, early-close checks,
 four normal launches and remaining Mac/human limits. The Linux-template qualification
 is recorded separately; it is not a clean passing platform check.
 

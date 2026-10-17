@@ -1,0 +1,33 @@
+extends SceneTree
+
+func _initialize() -> void:
+	call_deferred("run")
+
+func run() -> void:
+	var viewer = load("res://scenes/main.tscn").instantiate()
+	root.add_child(viewer)
+	await process_frame
+	while viewer.loading:
+		await process_frame
+	viewer.select_structure("anatomy.heart.valve.mitral")
+	for action in ["Show", "Restore selected", "Restore all", "Apply unchanged saved anatomy"]:
+		viewer.model.apply_saved_state({})
+		viewer.model.undo_stack.clear()
+		viewer.model.redo_stack.clear()
+		viewer.model.checkpoint()
+		viewer.model.offset_selection(Vector3(0.02, 0, 0))
+		var moved: Dictionary = viewer.model.export_state().duplicate(true)
+		viewer.model.undo()
+		var before: Dictionary = viewer.model.export_state().duplicate(true)
+		print(action, " before: undo ", viewer.model.undo_stack.size(), " · redo ", viewer.model.redo_stack.size())
+		match action:
+			"Show": viewer.change_visibility("visible")
+			"Restore selected": viewer.restore_selected()
+			"Restore all": viewer.restore_all()
+			"Apply unchanged saved anatomy": viewer.model.apply_saved_state(before)
+		print(action, " after: undo ", viewer.model.undo_stack.size(), " · redo ", viewer.model.redo_stack.size(), " · anatomy unchanged ", viewer.model.export_state() == before)
+		viewer.model.redo()
+		print(action, " · original movement recovered ", viewer.model.export_state() == moved)
+	viewer.queue_free()
+	await process_frame
+	quit()
