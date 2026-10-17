@@ -111,7 +111,8 @@ func _ready() -> void:
 	var transfer := HBoxContainer.new()
 	layout.add_child(transfer)
 	import_button = button("Import views…", func(): request_action(open_import), transfer)
-	export_button = button("Export all views…", func(): request_action(open_export), transfer)
+	export_button = button("Export all views…", open_export, transfer)
+	export_button.tooltip_text = "Export this window's saved views, including all unfinished note drafts. The library and drafts stay unchanged."
 	save_all_notes_button = button("Save all notes", save_all_notes, transfer)
 	save_all_notes_button.tooltip_text = "Save every unfinished note in this library and keep the window open. Ctrl / Cmd + S."
 	var filter_row := HBoxContainer.new()
@@ -432,19 +433,31 @@ func transfer_picker(save: bool) -> FileDialog:
 	picker.use_native_dialog = true
 	picker.filters = PackedStringArray(["*.json ; Saved views"])
 	if save:
-		picker.current_file = "praxis-corporis-views.json"
+		picker.current_file = "praxis-corporis-views-and-drafts.json" if not draft_notes.is_empty() else "praxis-corporis-views.json"
+		if not draft_notes.is_empty():
+			picker.title = "Export views and unfinished notes"
 	picker.canceled.connect(picker.queue_free)
 	add_child(picker)
 	return picker
 
 
 func open_export() -> void:
+	remember_notes_draft()
 	var picker := transfer_picker(true)
 	picker.file_selected.connect(func(destination: String):
-		var error: String = library.export_library(destination)
-		message.text = error if not error.is_empty() else "Exported %d views with saved study notes." % library.entries.size()
+		export_views(destination)
 		picker.queue_free())
 	picker.popup_file_dialog()
+
+
+func export_views(destination: String) -> String:
+	remember_notes_draft()
+	var error: String = library.export_library(destination, draft_notes)
+	message.text = error
+	if error.is_empty():
+		message.text = "Exported this window’s %d views" % library.entries.size()
+		message.text += " with %d unfinished note draft%s. Drafts remain open." % [draft_notes.size(), "s" if draft_notes.size() != 1 else ""] if not draft_notes.is_empty() else " with saved study notes."
+	return error
 
 
 func open_import() -> void:

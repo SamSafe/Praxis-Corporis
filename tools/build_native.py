@@ -164,6 +164,7 @@ def add_notices(folder: pathlib.Path, platform: str) -> None:
         "Saved views keeps named local exploration setups and your study notes outside this folder.\n\n"
         "In Saved views, search names and notes with Ctrl+F; Enter selects a match. Escape clears a focused search.\n"
         "Saved views > Export all views backs up your views and notes to JSON; Import previews compatibility and keeps existing views.\n"
+        "Export includes unfinished notes, including hidden drafts, without saving/discarding them. It can preserve this window's work when a newer library blocks Save.\n"
         "Damaged text encoding in libraries, imports and backups is rejected without replacing note characters; valid Unicode and UTF-8 BOM files remain supported.\n"
         "Import preview: Page Up/Down reads the list; Ctrl/Cmd+A selects it. Tab reaches Import/Cancel; Escape cancels without changing your library.\n"
         "Guided chest offers six reversible steps, including a separated chamber teaching view. Finish restores your starting setup.\n"

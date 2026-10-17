@@ -5,6 +5,128 @@ const SavedViews = preload("res://scripts/saved_views.gd")
 const Preferences = preload("res://scripts/viewer_preferences.gd")
 
 
+class DraftExportBrowser extends "res://scripts/saved_views_browser.gd":
+	var picker_requested := false
+
+	func open_export() -> void:
+		picker_requested = true
+
+
+static func verify_draft_export(viewer: Control, rendered: bool = false) -> bool:
+	var before: Dictionary = viewer.export_view_state().duplicate(true)
+	var undo: Array = viewer.model.undo_stack.duplicate(true)
+	var redo: Array = viewer.model.redo_stack.duplicate(true)
+	var back: Array = viewer.back_views.duplicate(true)
+	var forward: Array = viewer.forward_views.duplicate(true)
+	var preferences: Dictionary = viewer.preference_state()
+	var window_size := viewer.get_window().size
+	var prefix := "user://draft-export-" + Crypto.new().generate_random_bytes(16).hex_encode()
+	var library := SavedViews.new()
+	library.path = prefix + ".json"
+	var valid := library.load_library().is_empty()
+	for name in ["First study", "Second study", "Third study"]:
+		valid = library.add_view(name, before).is_empty() and valid
+	var known: Array = library.entries.duplicate(true)
+	var first: String = known[0].id
+	var second: String = known[1].id
+	var browser := DraftExportBrowser.new()
+	browser.library = SavedViews.new()
+	browser.library.path = library.path
+	browser.pack = viewer.pack
+	browser.current_state = before
+	browser.validate_state = viewer.validate_view_state
+	browser.theme = viewer.theme
+	viewer.add_child(browser)
+	var settings := preferences.duplicate(true)
+	settings.text_scale = 1.3
+	viewer.apply_preferences(settings)
+	viewer.get_window().size = Vector2i(1100, 720)
+	viewer.scale_text(browser)
+	browser.popup_centered_clamped(Vector2i(920, 620), 0.9)
+	browser.view_list.select(0)
+	browser.select_entry(0)
+	browser.notes_input.text = "Hidden first draft · café 🫀"
+	browser.on_notes_changed()
+	browser.view_list.select(1)
+	browser.select_entry(1)
+	browser.notes_input.text = "Second draft\nKeep this unfinished work"
+	browser.on_notes_changed()
+	browser.filter_input.text = "Second"
+	browser.apply_filter("Second")
+	browser.name_input.text = "Name still being typed"
+	browser.notes_input.set_caret_line(1)
+	browser.notes_input.set_caret_column(3)
+	var drafts: Dictionary = browser.draft_notes.duplicate(true)
+	valid = valid and drafts.size() == 2 and browser.view_list.item_count == 1
+	var other := SavedViews.new()
+	other.path = library.path
+	valid = other.load_library().is_empty() and valid
+	valid = other.set_notes(first, "Newer note on disk").is_empty() and other.add_view("Newer fourth study", before).is_empty() and valid
+	var latest: Array = other.entries.duplicate(true)
+	var active := FileAccess.get_file_as_bytes(library.path)
+	var backup := FileAccess.get_file_as_bytes(library.path + ".bak")
+	browser.save_all_notes()
+	valid = valid and "changed elsewhere" in browser.message.text and browser.draft_notes == drafts
+	# The actual button/Enter path must reach the picker without a save/discard gate.
+	# Only the platform picker handoff is replaced by the probe subclass.
+	browser.export_button.grab_focus()
+	await coverage_key(browser, KEY_ENTER)
+	valid = valid and browser.picker_requested and (not is_instance_valid(browser.unsaved_dialog) or not browser.unsaved_dialog.visible)
+	var picker: FileDialog = browser.transfer_picker(true)
+	valid = valid and picker.current_file == "praxis-corporis-views-and-drafts.json" and picker.title == "Export views and unfinished notes"
+	picker.queue_free()
+	valid = browser.export_views(prefix + "-export.json").is_empty() and valid
+	var exported := library.read_file(prefix + "-export.json")
+	valid = valid and exported.error.is_empty() and exported.entries.size() == known.size()
+	for entry in exported.get("entries", []):
+		for original in known:
+			if entry.id == original.id:
+				var expected: Dictionary = original.duplicate(true)
+				expected.notes = drafts.get(original.id, original.get("notes", ""))
+				valid = valid and SavedViews.same_snapshot(entry, expected)
+	valid = valid and SavedViews.same_snapshot(browser.library.entries, known) and browser.draft_notes == drafts
+	valid = valid and FileAccess.get_file_as_bytes(library.path) == active and FileAccess.get_file_as_bytes(library.path + ".bak") == backup
+	valid = valid and browser.name_input.text == "Name still being typed" and browser.filter_input.text == "Second" and browser.editing_id == second and browser.notes_input.get_caret_line() == 1 and browser.notes_input.get_caret_column() == 3
+	if rendered and viewer.model.body.id == "female":
+		await viewer.get_tree().process_frame
+		await RenderingServer.frame_post_draw
+		valid = valid and viewer.get_viewport().get_texture().get_image().save_png("user://native-draft-export.png") == OK
+		if valid:
+			print("PASS native draft export: female")
+	# Invalid drafts and protected destinations keep existing bytes and every draft.
+	var exported_bytes := FileAccess.get_file_as_bytes(prefix + "-export.json")
+	for updates in [{first: "x".repeat(10001)}, {"missing-view": "Keep this note"}, {first: "bad" + String.chr(1)}]:
+		valid = not browser.library.export_library(prefix + "-export.json", updates).is_empty() and valid
+		valid = valid and FileAccess.get_file_as_bytes(prefix + "-export.json") == exported_bytes
+	valid = "outside the active" in browser.export_views(library.path) and valid
+	valid = valid and FileAccess.get_file_as_bytes(library.path) == active and browser.draft_notes == drafts
+	valid = not browser.export_views(prefix + "-absent/export.json").is_empty() and browser.draft_notes == drafts and valid
+	# Importing this backup into the newer library keeps its records and both note versions.
+	var plan := other.preview_import(prefix + "-export.json", viewer.validate_view_state)
+	valid = plan.error.is_empty() and plan.imported == 2 and plan.skipped == 1 and valid
+	valid = other.apply_import(plan, viewer.validate_view_state).is_empty() and valid
+	valid = valid and other.entries.size() == latest.size() + 2
+	for entry in latest:
+		var retained := false
+		for current in other.entries:
+			if current.id == entry.id:
+				retained = SavedViews.same_snapshot(current, entry)
+		valid = retained and valid
+	valid = valid and browser.draft_notes == drafts and viewer.export_view_state() == before and viewer.model.undo_stack == undo and viewer.model.redo_stack == redo and viewer.back_views == back and viewer.forward_views == forward
+	browser.queue_free()
+	await viewer.get_tree().process_frame
+	viewer.apply_preferences(preferences)
+	viewer.get_window().size = window_size
+	for suffix in [".json", ".json.bak", "-export.json"]:
+		if FileAccess.file_exists(prefix + suffix):
+			DirAccess.remove_absolute(prefix + suffix)
+	if valid:
+		print("PASS bundled draft export: ", viewer.model.body.id)
+	else:
+		push_error("Draft export lost work, changed newer data or bypassed limits: " + str(viewer.model.body.id))
+	return valid
+
+
 static func write_encoding_fixture(path: String, bytes: PackedByteArray) -> bool:
 	var file := FileAccess.open(path, FileAccess.WRITE)
 	if file == null:
@@ -1455,6 +1577,7 @@ static func run(viewer: Control, rendered: bool) -> bool:
 	valid = await verify_study_reader(viewer, rendered) and valid
 	valid = await verify_exploration_return(viewer) and valid
 	valid = verify_text_encoding(before, viewer.model.body.id, viewer.validate_view_state) and valid
+	valid = await verify_draft_export(viewer, rendered) and valid
 	if viewer.model.structures.has("anatomy.heart"):
 		valid = await verify_source_fallback(viewer, rendered) and valid
 		valid = await verify_study_navigation(viewer) and valid

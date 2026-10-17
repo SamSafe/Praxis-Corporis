@@ -210,21 +210,26 @@ func update_notes(updates: Dictionary) -> String:
 	# All draft notes are written together; view snapshots and names remain intact.
 	if not read_error.is_empty():
 		return read_error
+	if updates.is_empty():
+		return ""
+	var result := notes_snapshot(updates)
+	return result.error if not str(result.error).is_empty() else persist(result.entries)
+
+
+func notes_snapshot(updates: Dictionary) -> Dictionary:
 	var next := entries.duplicate(true)
 	for id in updates:
 		var error := notes_format(updates[id])
 		if not error.is_empty():
-			return error
+			return {"error": error}
 		var found := false
 		for entry in next:
 			if entry.id == id:
 				entry.notes = updates[id]
 				found = true
 		if not found:
-			return "That saved view is no longer available."
-	if updates.is_empty():
-		return ""
-	return persist(next)
+			return {"error": "That saved view is no longer available."}
+	return {"error": "", "entries": next}
 
 
 func delete_view(id: String) -> String:
@@ -300,9 +305,12 @@ static func filesystem_path(value: String) -> String:
 	return absolute
 
 
-func export_library(destination: String) -> String:
+func export_library(destination: String, note_updates: Dictionary = {}) -> String:
 	if not read_error.is_empty():
 		return read_error
+	var snapshot := notes_snapshot(note_updates)
+	if not str(snapshot.error).is_empty():
+		return snapshot.error
 	if not destination.to_lower().ends_with(".json"):
 		return "Choose a JSON file for your saved views."
 	var absolute := filesystem_path(destination)
@@ -329,11 +337,14 @@ func export_library(destination: String) -> String:
 		# Compare parents too, so a missing active file cannot be recreated via an alias.
 		if absolute == protected or directory.is_equivalent(absolute, protected) or (same_name and directory.is_equivalent(absolute.get_base_dir(), protected.get_base_dir())):
 			return "Choose a file outside the active saved-view library."
+	var text := JSON.stringify({"schema_version": 1, "views": snapshot.entries}, "\t", true, true)
+	if text.to_utf8_buffer().size() > MAX_BYTES:
+		return "This export exceeds the saved-view file size limit. Use fewer or shorter notes."
 	var temporary := destination + "." + Crypto.new().generate_random_bytes(16).hex_encode() + ".tmp"
 	var file := FileAccess.open(temporary, FileAccess.WRITE)
 	if file == null:
 		return "Could not open the export file."
-	file.store_string(JSON.stringify({"schema_version": 1, "views": entries}, "\t", true, true))
+	file.store_string(text)
 	file.flush()
 	var error := file.get_error()
 	file.close()

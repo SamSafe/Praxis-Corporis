@@ -26,6 +26,22 @@ def complete_log(rendered=True):
 
 
 class WindowsVerificationTests(unittest.TestCase):
+    def test_draft_export_requires_every_reference_and_native_capture(self):
+        log = complete_log(False)
+        for reference in ['female', 'male', 'bodyparts-male-bones-study']:
+            with self.assertRaisesRegex(ValueError, 'draft export'):
+                parse_result(log, False, draft_export=True)
+            log += '\nPASS bundled draft export: ' + reference
+        self.assertEqual(parse_result(log, False, draft_export=True)['draft_export_references'],
+                         ['female', 'male', 'bodyparts-male-bones-study'])
+        rendered = complete_log(True)
+        for reference in ['female', 'male', 'bodyparts-male-bones-study']:
+            rendered += '\nPASS bundled draft export: ' + reference
+        with self.assertRaisesRegex(ValueError, 'capture check'):
+            parse_result(rendered, True, draft_export=True)
+        self.assertEqual(len(parse_result(rendered + '\nPASS native draft export: female', True,
+                                         draft_export=True)['draft_export_references']), 3)
+
     def test_encoding_packages_require_file_checks_for_every_reference(self):
         log = complete_log(False)
         for reference in ['female', 'male', 'bodyparts-male-bones-study']:
