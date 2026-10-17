@@ -26,6 +26,15 @@ def complete_log(rendered=True):
 
 
 class WindowsVerificationTests(unittest.TestCase):
+    def test_saved_view_context_packages_require_every_reference_check(self):
+        log = complete_log(False)
+        for reference in ['female', 'male', 'bodyparts-male-bones-study']:
+            with self.assertRaisesRegex(ValueError, 'saved-view anatomy search'):
+                parse_result(log, False, saved_view_context=True)
+            log += '\nPASS bundled saved-view anatomy search: ' + reference
+        self.assertEqual(parse_result(log, False, saved_view_context=True)['saved_view_anatomy_search_references'],
+                         ['female', 'male', 'bodyparts-male-bones-study'])
+
     def test_pointer_packages_require_every_reference_check(self):
         log = complete_log(False)
         for reference in ['female', 'male', 'bodyparts-male-bones-study']:

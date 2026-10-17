@@ -520,6 +520,31 @@ func verify_note_editor(library_path: String, snapshot: Dictionary, rendered: bo
 	browser.push_input(clear)
 	await get_tree().process_frame
 	valid = valid and browser.filter_input.text.is_empty() and browser.view_list.item_count == 1 and FileAccess.get_file_as_bytes(library_path) == library_bytes and export_view_state() == before
+	# Filter real reference metadata; a disposable in-memory row checks exact scope.
+	var anatomy_query := AnatomySearch.identifier(str(model.structures[snapshot.selection].get("ontology", "")))
+	if anatomy_query.is_empty():
+		anatomy_query = str(snapshot.selection)
+	browser.filter_input.text = anatomy_query
+	browser.filter_input.text_changed.emit(anatomy_query)
+	valid = valid and browser.view_list.item_count == 1 and browser.selected_entry().get("id") == reopened.entries[0].id
+	valid = valid and str(model.structures[snapshot.selection].label) in browser.information.text
+	var records: Array = browser.library.entries.duplicate(true)
+	var other_reference: Dictionary = records[0].duplicate(true)
+	other_reference.id = Crypto.new().generate_random_bytes(16).hex_encode()
+	other_reference.name = "Other reference QA fixture"
+	other_reference.state.body = "qa-other-reference"
+	browser.library.entries.append(other_reference)
+	browser.filter_input.text = ""
+	browser.filter_input.text_changed.emit("")
+	valid = valid and browser.view_list.item_count == 2
+	browser.reference_only.button_pressed = true
+	valid = valid and browser.view_list.item_count == 1 and browser.selected_entry().get("id") == records[0].id and browser.notes_input.text == expected
+	browser.reference_only.button_pressed = false
+	valid = valid and browser.view_list.item_count == 2 and export_view_state() == before and FileAccess.get_file_as_bytes(library_path) == library_bytes
+	browser.library.entries.assign(records)
+	browser.refresh_list(str(records[0].id))
+	if valid:
+		print("PASS bundled saved-view anatomy search: ", model.body.id)
 	var saved: Dictionary = browser.library.entries[0].duplicate(true)
 	var recovered_draft := expected + "\nUnfinished note recovered with Undo delete."
 	browser.notes_input.text = recovered_draft

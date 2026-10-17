@@ -1,5 +1,7 @@
 extends Window
 
+const AnatomySearch = preload("res://scripts/anatomy_search.gd")
+
 signal restore_requested(state: Dictionary, view_name: String)
 signal legacy_requested
 
@@ -18,6 +20,7 @@ var rename_button: Button
 var delete_button: Button
 var recovery_button: Button
 var delete_pending := ""
+var delete_prompt := ""
 var notes_input: TextEdit
 var notes_button: Button
 var save_all_notes_button: Button
@@ -37,6 +40,8 @@ var content_scroll: ScrollContainer
 var close_button: Button
 var undo_delete_button: Button
 var last_deleted: Dictionary = {}
+var reference_only: CheckBox
+var references: Dictionary = {}
 
 
 func button(text: String, callback: Callable, parent: Node) -> Button:
@@ -67,10 +72,17 @@ func _ready() -> void:
 	var frame := VBoxContainer.new()
 	frame.add_theme_constant_override("separation", 12)
 	margin.add_child(frame)
+	var heading := HBoxContainer.new()
+	frame.add_child(heading)
 	var title_label := Label.new()
 	title_label.text = "SAVED VIEWS"
 	title_label.add_theme_font_size_override("font_size", 22)
-	frame.add_child(title_label)
+	title_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	heading.add_child(title_label)
+	filter_summary = Label.new()
+	filter_summary.add_theme_color_override("font_color", Color("a1b7c9"))
+	filter_summary.tooltip_text = "Matching views after search and reference filtering, out of the whole library."
+	heading.add_child(filter_summary)
 	content_scroll = ScrollContainer.new()
 	content_scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	content_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
@@ -104,15 +116,18 @@ func _ready() -> void:
 	var filter_row := HBoxContainer.new()
 	layout.add_child(filter_row)
 	filter_input = LineEdit.new()
-	filter_input.placeholder_text = "Search views and notes…"
-	filter_input.tooltip_text = "Search view names and study notes. All words must match. Ctrl + F."
+	filter_input.placeholder_text = "Names, notes or anatomy…"
+	filter_input.tooltip_text = "Search view names, notes, references and selected anatomy names or source IDs. All words must match. Ctrl / Cmd + F."
 	filter_input.clear_button_enabled = true
 	filter_input.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	filter_input.text_changed.connect(apply_filter)
 	filter_input.text_submitted.connect(func(_text: String): focus_first_match())
 	filter_row.add_child(filter_input)
-	filter_summary = Label.new()
-	filter_row.add_child(filter_summary)
+	reference_only = CheckBox.new()
+	reference_only.text = "This reference"
+	reference_only.disabled = str(current_state.get("body", "")).is_empty()
+	reference_only.toggled.connect(func(_enabled: bool): apply_filter(""))
+	filter_row.add_child(reference_only)
 	var content := HBoxContainer.new()
 	content.add_theme_constant_override("separation", 18)
 	content.size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -176,6 +191,8 @@ func _ready() -> void:
 	close_button = button("Close", request_close, actions)
 	if legacy_available:
 		button("Restore previous quick save", restore_legacy, layout)
+	build_reference_index()
+	reference_only.tooltip_text = "Only show views for " + str(view_context(current_state).reference) + ". Restore still checks compatibility."
 	library.load_library()
 	refresh_list()
 	message.text = library.read_error
@@ -197,8 +214,47 @@ static func search_text(value: String) -> String:
 	return value.to_lower().replace("\t", " ").replace("\n", " ").replace("\r", " ")
 
 
+func build_reference_index() -> void:
+	references.clear()
+	for body in pack.get("bodies", []):
+		var structures := {}
+		for structure in body.get("structures", []):
+			structures[str(structure.id)] = structure
+		references[str(body.id)] = {"body": body, "structures": structures}
+
+
+func view_context(state: Dictionary) -> Dictionary:
+	var body_id := str(state.get("body", ""))
+	var selection := str(state.get("selection", ""))
+	var reference := body_id if not body_id.is_empty() else "Unavailable reference"
+	var part := selection
+	var searchable := body_id + " " + selection + " " + AnatomySearch.identifier(selection)
+	var indexed: Dictionary = references.get(body_id, {})
+	if not indexed.is_empty():
+		var body: Dictionary = indexed.body
+		# Resolve current labels only for the recorded pack and source geometry.
+		var same_source: bool = state.get("pack_id", "") == pack.get("id", "")
+		same_source = same_source and state.get("reference_hash", body.get("sha256", "")) == body.get("sha256", "")
+		same_source = same_source and (state.has("reference_hash") or not body.get("study", false))
+		if same_source:
+			reference = str(body.get("short_label", body.get("label", body_id)))
+			searchable += " " + str(body.get("label", "")) + " " + reference
+			var structure: Dictionary = indexed.structures.get(selection, {})
+			if not structure.is_empty():
+				part = str(structure.label)
+				var ontology := str(structure.get("ontology", ""))
+				searchable += " " + part + " " + str(structure.get("source_name", "")) + " " + ontology + " " + AnatomySearch.identifier(ontology)
+	return {"reference": reference, "summary": reference + (" · " + part if not part.is_empty() else ""), "search": searchable}
+
+
+func matches_reference(entry: Dictionary) -> bool:
+	return not reference_only.button_pressed or entry.state.get("body", "") == current_state.get("body", "")
+
+
 func matches_filter(entry: Dictionary) -> bool:
-	var text := search_text(str(entry.name) + " " + str(entry.get("notes", "")) + " " + str(draft_notes.get(entry.id, "")))
+	if not matches_reference(entry):
+		return false
+	var text := search_text(str(entry.name) + " " + str(entry.get("notes", "")) + " " + str(draft_notes.get(entry.id, "")) + " " + str(view_context(entry.state).search))
 	for word in search_text(filter_input.text).split(" ", false):
 		if word not in text:
 			return false
@@ -222,8 +278,11 @@ func refresh_list(selected_id: String = "", reveal: bool = false) -> void:
 	remember_notes_draft()
 	if reveal:
 		for entry in library.entries:
-			if entry.id == selected_id and not matches_filter(entry):
-				filter_input.text = ""
+			if entry.id == selected_id:
+				if not matches_reference(entry):
+					reference_only.set_pressed_no_signal(false)
+				if not matches_filter(entry):
+					filter_input.text = ""
 	view_list.clear()
 	for entry in library.entries:
 		if not matches_filter(entry):
@@ -231,7 +290,7 @@ func refresh_list(selected_id: String = "", reveal: bool = false) -> void:
 		view_list.add_item(entry.name)
 		var index := view_list.item_count - 1
 		view_list.set_item_metadata(index, entry.id)
-		view_list.set_item_tooltip(index, entry.name)
+		view_list.set_item_tooltip(index, str(entry.name) + "\n" + str(view_context(entry.state).summary))
 		if entry.id == selected_id:
 			view_list.select(index)
 	filter_summary.text = "%d of %d view%s" % [view_list.item_count, library.entries.size(), "" if library.entries.size() == 1 else "s"]
@@ -245,10 +304,13 @@ func refresh_list(selected_id: String = "", reveal: bool = false) -> void:
 	if library.entries.is_empty() and library.read_error.is_empty():
 		information.text = "No named views yet. Enter a name to save the current setup."
 	elif view_list.item_count == 0:
-		information.text = "No matching views. Try another search or clear the search."
+		information.text = "No matching views. Try another search or turn off This reference."
 
 
 func cancel_delete() -> void:
+	if not delete_prompt.is_empty() and message and message.text == delete_prompt:
+		message.text = ""
+	delete_prompt = ""
 	delete_pending = ""
 	if delete_button:
 		delete_button.text = "Delete"
@@ -274,15 +336,7 @@ func select_entry(index: int) -> void:
 	refresh_notes_status()
 	if entry.is_empty():
 		return
-	var body_label := str(entry.state.get("body", "Unavailable reference"))
-	var part_label := str(entry.state.get("selection", ""))
-	for body in pack.bodies:
-		if body.id == entry.state.get("body"):
-			body_label = str(body.get("short_label", body.label))
-			for structure in body.structures:
-				if structure.id == entry.state.get("selection"):
-					part_label = str(structure.label)
-	information.text = body_label + (" · " + part_label if not part_label.is_empty() else "")
+	information.text = str(view_context(entry.state).summary)
 	var error: String = validate_state.call(entry.state)
 	if not error.is_empty():
 		information.text += "\n" + error
@@ -327,7 +381,8 @@ func delete_selected() -> void:
 	if delete_pending != entry.id:
 		delete_pending = entry.id
 		delete_button.text = "Confirm delete"
-		message.text = "Delete “" + str(entry.name) + "”? Click Confirm delete, or select another view to cancel."
+		delete_prompt = "Delete “" + str(entry.name) + "”? Click Confirm delete, or select another view to cancel."
+		message.text = delete_prompt
 		return
 	remember_notes_draft()
 	var deleted := {"entry": entry.duplicate(true), "position": library.entries.find(entry),

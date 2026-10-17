@@ -149,6 +149,7 @@ def add_notices(folder: pathlib.Path, platform: str) -> None:
         "Heart <-> lungs follows a sourced conceptual route with either lung branch and explicit anatomy gaps. Finish restores your setup.\n"
         "Search names/source IDs; Enter selects the first ranked result. Copy source record retains the reference identity.\n"
         "Ctrl/Cmd+F opens anatomy search and reveals its panel. Escape clears the query; press again to return focus to 3D.\n"
+        "Saved views searches names, notes, references and selected anatomy names/IDs. This reference narrows the library to the current reference.\n"
         "If included, Male bones / BodyParts3D study is a separate source reference, unregistered to HRA.\n"
         "Move selected enables inspection displacement; blue overlays mark original positions.\n"
         "Undo/Redo reverses or reapplies inspection changes. Restore returns original anatomy.\n"
