@@ -333,6 +333,9 @@ func select_entry(index: int) -> void:
 	var note := str(draft_notes.get(editing_id, entry.get("notes", ""))) if not entry.is_empty() else ""
 	if notes_input.text != note:
 		notes_input.text = note
+	if previous_id != editing_id:
+		# Equal text can still belong to a different note; its edits must stay separate.
+		notes_input.clear_undo_history()
 	syncing_notes = false
 	notes_input.editable = not unavailable
 	refresh_notes_status()

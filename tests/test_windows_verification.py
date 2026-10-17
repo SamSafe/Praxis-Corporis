@@ -26,6 +26,15 @@ def complete_log(rendered=True):
 
 
 class WindowsVerificationTests(unittest.TestCase):
+    def test_note_history_requires_all_reference_checks(self):
+        log = complete_log(False)
+        for reference in ['female', 'male', 'bodyparts-male-bones-study']:
+            with self.assertRaisesRegex(ValueError, 'note history'):
+                parse_result(log, False, note_history=True)
+            log += '\nPASS bundled note history: ' + reference
+        self.assertEqual(parse_result(log, False, note_history=True)['note_history_references'],
+                         ['female', 'male', 'bodyparts-male-bones-study'])
+
     def test_scene_redraw_requires_all_references_and_native_pixel_evidence(self):
         for rendered in [False, True]:
             log = complete_log(rendered)

@@ -12,6 +12,124 @@ class DraftExportBrowser extends "res://scripts/saved_views_browser.gd":
 		picker_requested = true
 
 
+static func note_history_key(browser: Window, redo: bool = false) -> void:
+	# Exercise the editor's configured keyboard shortcut, without clipboard access.
+	var action := "ui_redo" if redo else "ui_undo"
+	var event: InputEventKey = InputMap.action_get_events(action)[0].duplicate()
+	event.pressed = true
+	browser.notes_input.grab_focus()
+	browser.push_input(event)
+	await browser.get_tree().process_frame
+	event = event.duplicate()
+	event.pressed = false
+	browser.push_input(event)
+	await browser.get_tree().process_frame
+
+
+static func type_note(browser: Window, suffix: String) -> void:
+	var editor: TextEdit = browser.notes_input
+	var line := editor.get_line_count() - 1
+	editor.set_caret_line(line)
+	editor.set_caret_column(editor.get_line(line).length())
+	editor.insert_text_at_caret(suffix)
+	await browser.get_tree().process_frame
+
+
+static func choose_note(browser: Window, index: int) -> void:
+	browser.view_list.select(index)
+	browser.select_entry(index)
+
+
+static func verify_note_history(viewer: Control) -> bool:
+	var before: Dictionary = viewer.export_view_state().duplicate(true)
+	var undo: Array = viewer.model.undo_stack.duplicate(true)
+	var redo: Array = viewer.model.redo_stack.duplicate(true)
+	var back: Array = viewer.back_views.duplicate(true)
+	var forward: Array = viewer.forward_views.duplicate(true)
+	var preferences: Dictionary = viewer.preference_state()
+	var expanded: bool = viewer.scene_expanded
+	var valid := true
+	var context := 0
+	for layout in [false, true]:
+		viewer.set_scene_expanded(layout)
+		for scale in [1.0, 1.3]:
+			var prefix: String = ["Review", "Review café 🫀\nSecond line", "", "α β e\u0301"][context]
+			context += 1
+			var settings := preferences.duplicate(true)
+			settings.text_scale = scale
+			viewer.apply_preferences(settings)
+			var library := SavedViews.new()
+			library.path = "user://note-history-" + Crypto.new().generate_random_bytes(16).hex_encode() + ".json"
+			valid = library.load_library().is_empty() and valid
+			for name in ["Fourth", "Third", "Second", "First"]:
+				valid = library.add_view(name, before).is_empty() and valid
+			var entries: Array = library.entries.duplicate(true)
+			var first: String = entries[0].id
+			var second: String = entries[1].id
+			var third: String = entries[2].id
+			var fourth: String = entries[3].id
+			valid = library.update_notes({first: prefix, second: prefix + "!", third: prefix, fourth: prefix}).is_empty() and valid
+			var browser := preload("res://scripts/saved_views_browser.gd").new()
+			browser.library = library
+			browser.pack = viewer.pack
+			browser.current_state = before
+			browser.validate_state = viewer.validate_view_state
+			browser.theme = viewer.theme
+			viewer.add_child(browser)
+			viewer.scale_text(browser)
+			browser.popup_centered_clamped(Vector2i(920, 620), 0.9)
+			choose_note(browser, 0)
+			await type_note(browser, "!")
+			valid = valid and browser.notes_input.has_undo() and browser.draft_notes.get(first) == prefix + "!"
+			var disk := FileAccess.get_file_as_bytes(library.path)
+			var backup := FileAccess.get_file_as_bytes(library.path + ".bak")
+			choose_note(browser, 1)
+			valid = valid and browser.notes_input.text == prefix + "!" and not browser.notes_input.has_undo() and not browser.notes_input.has_redo()
+			await note_history_key(browser)
+			await note_history_key(browser, true)
+			valid = valid and browser.notes_input.text == prefix + "!" and not browser.draft_notes.has(second) and browser.draft_notes.get(first) == prefix + "!"
+			valid = valid and FileAccess.get_file_as_bytes(library.path) == disk and FileAccess.get_file_as_bytes(library.path + ".bak") == backup
+			# Refreshing and saving this same note retain its own editor history.
+			choose_note(browser, 0)
+			await type_note(browser, "?")
+			browser.filter_input.text = "First"
+			browser.apply_filter("First")
+			valid = valid and browser.editing_id == first and browser.notes_input.has_undo()
+			browser.name_input.text = "First renamed"
+			browser.rename_selected()
+			valid = valid and browser.editing_id == first and browser.notes_input.has_undo()
+			browser.save_notes()
+			valid = valid and not browser.draft_notes.has(first) and browser.notes_input.has_undo()
+			await note_history_key(browser)
+			valid = valid and browser.notes_input.text == prefix + "!" and browser.draft_notes.get(first) == prefix + "!" and browser.notes_input.has_redo()
+			await note_history_key(browser, true)
+			valid = valid and browser.notes_input.text == prefix + "!?" and not browser.draft_notes.has(first)
+			browser.filter_input.text = ""
+			browser.apply_filter("")
+			# A redo chain cannot move to another note with equal current text either.
+			choose_note(browser, 2)
+			await type_note(browser, "!")
+			await note_history_key(browser)
+			valid = valid and browser.notes_input.text == prefix and browser.notes_input.has_redo()
+			choose_note(browser, 3)
+			valid = valid and browser.notes_input.text == prefix and not browser.notes_input.has_redo() and not browser.notes_input.has_undo()
+			await note_history_key(browser, true)
+			valid = valid and browser.notes_input.text == prefix and not browser.draft_notes.has(fourth) and not browser.draft_notes.has(third)
+			valid = valid and viewer.export_view_state() == before and viewer.model.undo_stack == undo and viewer.model.redo_stack == redo and viewer.back_views == back and viewer.forward_views == forward
+			browser.queue_free()
+			await viewer.get_tree().process_frame
+			for suffix in ["", ".tmp", ".bak", ".bak.tmp"]:
+				DirAccess.remove_absolute(library.path + suffix)
+	viewer.apply_preferences(preferences)
+	viewer.set_scene_expanded(expanded)
+	viewer.scene_container.grab_focus()
+	if valid:
+		print("PASS bundled note history: ", viewer.model.body.id)
+	else:
+		push_error("Saved-note undo/redo crossed note identities or lost same-note history: " + str(viewer.model.body.id))
+	return valid
+
+
 static func verify_draft_export(viewer: Control, rendered: bool = false) -> bool:
 	var before: Dictionary = viewer.export_view_state().duplicate(true)
 	var undo: Array = viewer.model.undo_stack.duplicate(true)
@@ -1578,6 +1696,7 @@ static func run(viewer: Control, rendered: bool) -> bool:
 	valid = await verify_exploration_return(viewer) and valid
 	valid = verify_text_encoding(before, viewer.model.body.id, viewer.validate_view_state) and valid
 	valid = await verify_draft_export(viewer, rendered) and valid
+	valid = await verify_note_history(viewer) and valid
 	valid = await preload("res://scripts/scene_render_verification.gd").run(viewer, rendered) and valid
 	if viewer.model.structures.has("anatomy.heart"):
 		valid = await verify_source_fallback(viewer, rendered) and valid
