@@ -28,6 +28,7 @@ var title_label: Label
 var description: Label
 var previous: Button
 var next: Button
+var finish: Button
 var branches: HFlowContainer
 var citations: HFlowContainer
 
@@ -50,11 +51,46 @@ func _ready() -> void:
 	layout.add_child(citations)
 	var navigation := HFlowContainer.new()
 	layout.add_child(navigation)
-	previous = make_button("Previous", func():
-		if mode == "chest": step_requested.emit(step - 1)
-		else: route_previous_requested.emit(), navigation)
-	next = make_button("Next", func(): step_requested.emit(step + 1), navigation)
-	make_button("Finish and restore", func(): finish_requested.emit(), navigation)
+	previous = make_button("Previous", request_previous, navigation)
+	next = make_button("Next", request_next, navigation)
+	finish = make_button("Finish and restore", func(): finish_requested.emit(), navigation)
+
+
+func focus_forward_navigation() -> void:
+	if mode == "chest" and not next.disabled:
+		next.grab_focus()
+	elif mode == "circulation" and branches.get_child_count() > 0:
+		branches.get_child(0).grab_focus()
+	else:
+		finish.grab_focus()
+
+
+func request_previous() -> void:
+	var keep_focus := previous.has_focus()
+	if mode == "chest":
+		step_requested.emit(step - 1)
+	else:
+		route_previous_requested.emit()
+	if keep_focus:
+		if not previous.disabled:
+			previous.grab_focus()
+		else:
+			focus_forward_navigation()
+
+
+func request_next() -> void:
+	var keep_focus := next.has_focus()
+	step_requested.emit(step + 1)
+	if keep_focus:
+		focus_forward_navigation()
+
+
+func request_route(id: String) -> void:
+	var focused := get_viewport().gui_get_focus_owner()
+	var keep_focus := focused != null and branches.is_ancestor_of(focused)
+	route_requested.emit(id)
+	if keep_focus:
+		focus_forward_navigation()
 
 
 func make_button(text: String, action: Callable, parent: Node) -> Button:
@@ -96,7 +132,7 @@ func show_route(id: String, route: Dictionary, sources: Dictionary) -> void:
 			child.queue_free()
 		container.visible = true
 	for target in node.next:
-		var button := make_button(("Choose: " if node.next.size() > 1 else "Next: ") + str(route.nodes[target].title), route_requested.emit.bind(str(target)), branches)
+		var button := make_button(("Choose: " if node.next.size() > 1 else "Next: ") + str(route.nodes[target].title), request_route.bind(str(target)), branches)
 		button.tooltip_text = "Follow this authored connection; this does not trace a channel through the meshes."
 	for source in node.source_ids:
 		var link := LinkButton.new()

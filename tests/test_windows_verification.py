@@ -26,6 +26,17 @@ def complete_log(rendered=True):
 
 
 class WindowsVerificationTests(unittest.TestCase):
+    def test_study_packages_require_both_supported_reference_navigation_checks(self):
+        log = complete_log(False)
+        with self.assertRaisesRegex(ValueError, 'study navigation'):
+            parse_result(log, False, study_navigation=True)
+        log += '\nPASS bundled study navigation: female'
+        with self.assertRaisesRegex(ValueError, 'study navigation'):
+            parse_result(log, False, study_navigation=True)
+        log += '\nPASS bundled study navigation: male'
+        self.assertEqual(parse_result(log, False, study_navigation=True)['study_navigation_references'],
+                         ['female', 'male'])
+
     def test_coverage_packages_require_every_reference_keyboard_check(self):
         log = complete_log(False)
         for reference in ['female', 'male', 'bodyparts-male-bones-study']:

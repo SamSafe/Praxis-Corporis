@@ -2606,6 +2606,7 @@ func finish_guided_chest() -> void:
 		forward_views = guided_chest.original_forward.duplicate(true)
 		status.text = "Study finished · your starting setup and histories are restored"
 	refresh_details()
+	scene_container.grab_focus()
 
 
 func change_visibility(visibility: String) -> void:

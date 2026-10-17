@@ -148,6 +148,7 @@ def add_notices(folder: pathlib.Path, platform: str) -> None:
         "Back/Forward (Alt + Left/Right) restore selections and camera views without resetting inspection.\n"
         "Peel away skin, choose Show chest, or select anatomy in the list.\n"
         "Heart <-> lungs follows a sourced conceptual route with either lung branch and explicit anatomy gaps. Finish restores your setup.\n"
+        "Study Next/Previous retain keyboard focus. At a lung branch, Tab reaches the other choice; Enter follows the focused choice. Finish returns focus to 3D.\n"
         "Search names/source IDs; Enter selects the first ranked result. Copy source record retains the reference identity.\n"
         "Ctrl/Cmd+F opens anatomy search and reveals its panel. Escape clears the query; press again to return focus to 3D.\n"
         "Saved views searches names, notes, references and selected anatomy names/IDs. This reference narrows the library to the current reference.\n"

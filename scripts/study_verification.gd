@@ -5,6 +5,101 @@ const SavedViews = preload("res://scripts/saved_views.gd")
 const Preferences = preload("res://scripts/viewer_preferences.gd")
 
 
+static func study_navigation_key(viewer: Control, code: int) -> void:
+	if code == KEY_ENTER and not viewer.get_window().gui_get_focus_owner() is Button:
+		push_error("Study navigation must focus an action button before Enter")
+		return
+	await coverage_key(viewer.get_window(), code)
+	await viewer.get_tree().process_frame
+
+
+static func verify_study_navigation(viewer: Control) -> bool:
+	var before: Dictionary = viewer.export_view_state().duplicate(true)
+	var undo: Array = viewer.model.undo_stack.duplicate(true)
+	var redo: Array = viewer.model.redo_stack.duplicate(true)
+	var back: Array = viewer.back_views.duplicate(true)
+	var forward: Array = viewer.forward_views.duplicate(true)
+	var preferences: Dictionary = viewer.preference_state()
+	var expanded: bool = viewer.scene_expanded
+	var window_size := viewer.get_window().size
+	var guide: Control = viewer.guided_chest
+	var valid := true
+	for layout in [false, true]:
+		viewer.set_scene_expanded(layout)
+		for scale in [1.0, 1.3]:
+			var settings := preferences.duplicate(true)
+			settings.text_scale = scale
+			viewer.apply_preferences(settings)
+			viewer.get_window().size = Vector2i(1100, 720)
+			viewer.start_guided_chest()
+			valid = valid and viewer.scene_container.has_focus() and guide.step == 0
+			guide.next.grab_focus()
+			for index in range(1, guide.STEPS.size()):
+				await study_navigation_key(viewer, KEY_ENTER)
+				valid = valid and guide.step == index
+				valid = valid and (guide.next.has_focus() if index < guide.STEPS.size() - 1 else guide.finish.has_focus())
+			await study_navigation_key(viewer, KEY_ENTER)
+			valid = valid and not guide.active and viewer.scene_container.has_focus() and viewer.export_view_state() == before
+			viewer.start_guided_chest()
+			viewer.apply_chest_step(2)
+			guide.previous.grab_focus()
+			await study_navigation_key(viewer, KEY_ENTER)
+			valid = valid and guide.step == 1 and guide.previous.has_focus()
+			await study_navigation_key(viewer, KEY_ENTER)
+			valid = valid and guide.step == 0 and guide.previous.disabled and guide.next.has_focus()
+			guide.finish.grab_focus()
+			await study_navigation_key(viewer, KEY_ENTER)
+			valid = valid and not guide.active and viewer.scene_container.has_focus() and viewer.export_view_state() == before
+			viewer.start_circulation_route()
+			guide.branches.get_child(0).grab_focus()
+			await study_navigation_key(viewer, KEY_ENTER)
+			valid = valid and guide.route_node == "right-atrium" and guide.branches.get_child(0).has_focus()
+			guide.previous.grab_focus()
+			await study_navigation_key(viewer, KEY_ENTER)
+			valid = valid and guide.route_node == "vena-cava" and guide.previous.disabled and guide.branches.get_child(0).has_focus()
+			for target in ["right-atrium", "tricuspid", "right-ventricle", "pulmonary-valve", "pulmonary-trunk"]:
+				await study_navigation_key(viewer, KEY_ENTER)
+				valid = valid and guide.route_node == target and guide.branches.get_child(0).has_focus()
+			if guide.route_node == "pulmonary-trunk" and guide.branches.get_child_count() == 2:
+				await study_navigation_key(viewer, KEY_TAB)
+				var right_branch: Button = guide.branches.get_child(1)
+				valid = valid and right_branch.has_focus()
+				if right_branch.has_focus():
+					await study_navigation_key(viewer, KEY_ENTER)
+			else:
+				valid = false
+			valid = valid and guide.route_node == "right-artery" and guide.branches.get_child(0).has_focus()
+			guide.previous.grab_focus()
+			await study_navigation_key(viewer, KEY_ENTER)
+			valid = valid and guide.route_node == "pulmonary-trunk" and guide.previous.has_focus()
+			guide.branches.get_child(0).grab_focus()
+			await study_navigation_key(viewer, KEY_ENTER)
+			valid = valid and guide.route_node == "left-artery" and guide.branches.get_child(0).has_focus()
+			var route: Dictionary = viewer.study_content.route("heart-lung")
+			var steps := 0
+			while guide.route_node != "vena-cava" and steps < route.nodes.size():
+				var target: String = route.nodes[guide.route_node].next[0]
+				await study_navigation_key(viewer, KEY_ENTER)
+				valid = valid and guide.route_node == target and guide.branches.get_child(0).has_focus()
+				steps += 1
+			valid = valid and guide.route_node == "vena-cava"
+			guide.finish.grab_focus()
+			await study_navigation_key(viewer, KEY_ENTER)
+			valid = valid and not guide.active and viewer.scene_container.has_focus() and viewer.export_view_state() == before
+			valid = valid and viewer.model.undo_stack == undo and viewer.model.redo_stack == redo and viewer.back_views == back and viewer.forward_views == forward
+	viewer.apply_preferences(preferences)
+	viewer.set_scene_expanded(expanded)
+	viewer.get_window().size = window_size
+	await viewer.get_tree().process_frame
+	await viewer.get_tree().process_frame
+	valid = valid and viewer.export_view_state() == before and viewer.preference_state() == preferences
+	if valid:
+		print("PASS bundled study navigation: ", viewer.model.body.id)
+	else:
+		push_error("Study keyboard navigation or restoration failed: " + str(viewer.model.body.id))
+	return valid
+
+
 static func coverage_key(dialog: Window, code: int, select_all: bool = false) -> void:
 	var event := InputEventKey.new()
 	event.keycode = code
@@ -355,6 +450,7 @@ static func run(viewer: Control, rendered: bool) -> bool:
 	valid = await verify_camera_zoom(viewer) and valid
 	valid = await verify_coverage_access(viewer, rendered) and valid
 	if viewer.model.structures.has("anatomy.heart"):
+		valid = await verify_study_navigation(viewer) and valid
 		viewer.start_guided_chest()
 		viewer.apply_chest_step(2)
 		valid = valid and viewer.guided_chest.active and viewer.validate_view_state(viewer.export_view_state()).is_empty()
