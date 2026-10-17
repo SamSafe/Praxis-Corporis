@@ -1,0 +1,22 @@
+Packing prepared anatomy…
+Anatomy package complete: /home/king-/projects/3d_medicine_viewer/dist/movement-history-improvements/native-build-z63cb230/anatomy.pck
+Exporting windows…
+Built /home/king-/projects/3d_medicine_viewer/dist/movement-history-improvements/PraxisCorporis-Windows-x64-private.zip
+Exporting macos…
+Checking the embedded Mac content using the development engine…
+Traceback (most recent call last):
+  File "/home/king-/projects/3d_medicine_viewer/tools/build_native.py", line 320, in <module>
+    build(options)
+  File "/home/king-/projects/3d_medicine_viewer/tools/build_native.py", line 282, in build
+    run([args.godot, "--headless", "--audio-driver", "Dummy", "--main-pack", str(core_packs[0]),
+  File "/home/king-/projects/3d_medicine_viewer/tools/build_native.py", line 32, in run
+    result = subprocess.run(command, cwd=cwd, env=env, text=True, stdout=subprocess.PIPE,
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib/python3.12/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'build/toolchain/engine/Godot_v4.7.2-stable_linux.x86_64'

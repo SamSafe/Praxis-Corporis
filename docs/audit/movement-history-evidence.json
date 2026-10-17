@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "application_source_revision": "4fcdd911886555a412ed170be14addeaae86239d",
+  "packaging_source_revision": "3b4ad089862df2e51a63b005d944ba188722054f",
+  "python_checks": 73,
+  "native_references": 7,
+  "native_movement_history_references": [
+    "female",
+    "male",
+    "bodyparts-male-bones-study",
+    "hra-v1-2-female-cord-study",
+    "hra-v1-2-female-vertebrae-study",
+    "hra-v1-2-male-cord-study",
+    "hra-v1-2-male-vertebrae-study"
+  ],
+  "native_layout_resolution_combinations": 28,
+  "native_capture_identities": 103,
+  "native_normal_launches": 4,
+  "native_early_closes": 2,
+  "native_session_independently_checked_absent": true,
+  "mac_content_qa": "passed on development engine; actual Mac execution pending",
+  "linux_release_template_qa": "not rerun; independent popup-template limitation remains open",
+  "files": {
+    "movement-history-artifact-audit.json": {
+      "bytes": 1346,
+      "sha256": "8d9faae7bf5992b6897ff46365738b09c570ad665ef7c05ec870e579e53a0009"
+    },
+    "movement-history-before-cancel-patch.json": {
+      "bytes": 4227,
+      "sha256": "25c9eb2a4a57fe299adc345ee1d6a5b9d6224bc13fa1ea0a54de82c229fb31f3"
+    },
+    "movement-history-build-report.json": {
+      "bytes": 5067,
+      "sha256": "91e9d92b8b40472f517fa62058231e9d8d804f0db8691f3132275533a58bdc71"
+    },
+    "movement-history-build.log.txt": {
+      "bytes": 11530,
+      "sha256": "9500e64d7a35bc4b87014f1420c6a523b5fbbbe3ce3781220e54bd1938d1f720"
+    },
+    "movement-history-development-qa.json": {
+      "bytes": 2498,
+      "sha256": "709a9099a2d7bbfdd19898d5fd5201ad81b62f99ac22e9fa42932f0d69134f8d"
+    },
+    "movement-history-drag-undo-after.log.txt": {
+      "bytes": 276,
+      "sha256": "95c7b2bcec663fcb1e696e5546eb7f8651ce7671afdb450f5bd0343c0be0a971"
+    },
+    "movement-history-drag-undo-before.gd.txt": {
+      "bytes": 1520,
+      "sha256": "f70cd71958b8e0f9a09a62a4b6cef25ba781826a54f129537bc25f813c685e92"
+    },
+    "movement-history-drag-undo-before.log.txt": {
+      "bytes": 277,
+      "sha256": "ee80acf5ed887a283f9834f064a9d889103610de2f62b773f4c952033dae3bcf"
+    },
+    "movement-history-keyboard.log.txt": {
+      "bytes": 757,
+      "sha256": "69ac412eb22b88ce4bdc1a4460849026252e0777e867c1a58674c602938cf9d8"
+    },
+    "movement-history-limit-after.log.txt": {
+      "bytes": 365,
+      "sha256": "e865c400ecf4dd030504a0f96e33453e501c96636e5fd93e5ff49eedbd1475d6"
+    },
+    "movement-history-limit-before.gd.txt": {
+      "bytes": 2231,
+      "sha256": "26619f5aab81d0170b1280bd3464d3520a399fece091d82a0afb715c2fa25ee5"
+    },
+    "movement-history-limit-before.log.txt": {
+      "bytes": 367,
+      "sha256": "a0063017bfeb738f554fe7006bd947e2da041b88e759b7c1ea6e560dc2197b87"
+    },
+    "movement-history-native-initial-anatomy.log.txt": {
+      "bytes": 443,
+      "sha256": "d48009c0c9c0e1ca02aa38f23d58fcd2dc344ba3509ae83e5f8d397d112b83f0"
+    },
+    "movement-history-native-replacement-selection.log.txt": {
+      "bytes": 527,
+      "sha256": "9749c34a117cfcf4842d91345ffc1a4e02f1efb2e93ac578632d761a553dc9ed"
+    },
+    "movement-history-normal-lifecycle.json": {
+      "bytes": 1648,
+      "sha256": "414fba2ca285882a1f0bad957fac189f867cd0b592e2abd0123e5b8efdf0b4f3"
+    },
+    "movement-history-pointer.log.txt": {
+      "bytes": 1235,
+      "sha256": "3eb042b5c674f990f0ea8009d83cbc4e8293bd5f0ff308066d9149fb4bc5d9f8"
+    },
+    "movement-history-python.log.txt": {
+      "bytes": 172,
+      "sha256": "4896e6153c0c1e5a121933b758bb33e70db52711e9666b0cc0ff44899059070d"
+    },
+    "movement-history-relative-engine-failure.log.txt": {
+      "bytes": 1524,
+      "sha256": "3f96b0827392edf19321e81b7266ff5f97c5f5db4e2fc062e990cba550cfe454"
+    },
+    "movement-history-study.log.txt": {
+      "bytes": 736,
+      "sha256": "c705dc04dece7b71bfe9e737f271e05a92755e89ad3c4b61832c051459a32585"
+    },
+    "movement-history-viewer.log.txt": {
+      "bytes": 351,
+      "sha256": "cc01030d178a391bd47dbcb80fd832a13598a3b2fdf62704e7a38123e70fa5ee"
+    },
+    "movement-history-windows-qa.json": {
+      "bytes": 34843,
+      "sha256": "195a684dbcdf549c3a835806418fd9bc59b28707a0b97bf347a75e8af450deaf"
+    },
+    "movement-history-windows-runtime.log.txt": {
+      "bytes": 15610,
+      "sha256": "c56ca3c48f204e74943709dfcf7c56e03cecf1d575935ab6d95190b1cde71496"
+    },
+    "movement-history-workspace.log.txt": {
+      "bytes": 1126,
+      "sha256": "f0f95ce6e50dd5922a933a0bed4e73d3cb7501c23feff04b6aafc43a565ab891"
+    }
+  }
+}

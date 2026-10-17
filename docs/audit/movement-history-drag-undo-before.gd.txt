@@ -1,0 +1,35 @@
+extends SceneTree
+const Verification = preload("res://scripts/study_verification.gd")
+
+func _initialize() -> void:
+	call_deferred("run")
+
+func run() -> void:
+	var viewer = load("res://scenes/main.tscn").instantiate()
+	root.add_child(viewer)
+	await process_frame
+	while viewer.loading:
+		await process_frame
+	viewer.select_structure("anatomy.heart.valve.mitral")
+	viewer.model.apply_saved_state({})
+	viewer.model.undo_stack.clear()
+	viewer.model.redo_stack.clear()
+	viewer.move_button.button_pressed = true
+	viewer.orbit.move_mode = true
+	viewer.scene_container.grab_focus()
+	var original: Dictionary = viewer.model.export_state().duplicate(true)
+	var start := Vector2(40, viewer.scene_container.size.y * 0.6)
+	Verification.pointer_button(viewer, start, true)
+	Verification.pointer_motion(viewer, start + Vector2(24, 12), MOUSE_BUTTON_MASK_LEFT)
+	var event := InputEventKey.new()
+	event.keycode = KEY_Z
+	event.ctrl_pressed = true
+	event.pressed = true
+	root.push_input(event)
+	await process_frame
+	print("After Undo: original ", viewer.model.export_state() == original, " · active drag ", viewer.orbit.active_button, " · undo ", viewer.model.undo_stack.size(), " · redo ", viewer.model.redo_stack.size())
+	Verification.pointer_motion(viewer, start + Vector2(48, 24), MOUSE_BUTTON_MASK_LEFT)
+	print("After held-button motion: original ", viewer.model.export_state() == original, " · undo ", viewer.model.undo_stack.size(), " · redo ", viewer.model.redo_stack.size())
+	viewer.queue_free()
+	await process_frame
+	quit()

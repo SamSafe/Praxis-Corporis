@@ -186,6 +186,10 @@ Visibility and Restore add an anatomy undo step only when a mesh state changes.
 Applying the same saved anatomy also preserves existing undo/redo. A real change
 still creates a step and clears redo from the old branch. Restore all retains its
 return-to-context behavior and the separate navigation history.
+Movement records history only when an offset changes. An ineffective movement at
+the displacement limit keeps Undo/Redo; a drag that first reaches a limit can
+reverse into available space with one undo step. Undo/Redo ends the active pointer
+gesture and keeps Move selected, so a fresh drag continues deliberately.
 New inspection edits discard redo history. Original-position overlays are separate
 from anatomy and do not intercept clicks; restoring a part hides its overlay.
 Ordinary selection of a hidden structure focuses its position without revealing it.

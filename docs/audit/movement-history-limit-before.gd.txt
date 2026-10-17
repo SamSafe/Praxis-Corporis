@@ -1,0 +1,51 @@
+extends SceneTree
+const Verification = preload("res://scripts/study_verification.gd")
+
+func _initialize() -> void:
+	call_deferred("run")
+
+func prepare(viewer: Control) -> Dictionary:
+	viewer.model.apply_saved_state({"anatomy.heart.valve.mitral":{"visibility":"visible","offset":[10,-10,0]}})
+	viewer.model.undo_stack.clear()
+	viewer.model.redo_stack.clear()
+	viewer.model.set_visibility("anatomy.heart.valve.mitral", "faded")
+	var redo_state: Dictionary = viewer.model.export_state().duplicate(true)
+	viewer.model.undo()
+	viewer.move_button.button_pressed = true
+	viewer.orbit.move_mode = true
+	viewer.scene_container.grab_focus()
+	return redo_state
+
+func run() -> void:
+	var viewer = load("res://scenes/main.tscn").instantiate()
+	root.add_child(viewer)
+	await process_frame
+	while viewer.loading:
+		await process_frame
+	viewer.select_structure("anatomy.heart.valve.mitral")
+	viewer.orbit.yaw = 0
+	viewer.orbit.pitch = 0
+	viewer.orbit.update_camera()
+	var redo_state := prepare(viewer)
+	var before: Dictionary = viewer.model.export_state().duplicate(true)
+	print("Keyboard before: undo ", viewer.model.undo_stack.size(), " · redo ", viewer.model.redo_stack.size())
+	var event := InputEventKey.new()
+	event.keycode = KEY_L
+	event.pressed = true
+	root.push_input(event)
+	await process_frame
+	print("Keyboard after: undo ", viewer.model.undo_stack.size(), " · redo ", viewer.model.redo_stack.size(), " · unchanged ", viewer.model.export_state() == before)
+	viewer.model.redo()
+	print("Keyboard previous edit recovered: ", viewer.model.export_state() == redo_state)
+	redo_state = prepare(viewer)
+	before = viewer.model.export_state().duplicate(true)
+	var start: Vector2 = viewer.scene_container.size * 0.5
+	Verification.pointer_button(viewer, start, true)
+	Verification.pointer_motion(viewer, start + Vector2(16, 0), MOUSE_BUTTON_MASK_LEFT)
+	Verification.pointer_button(viewer, start + Vector2(16, 0), false)
+	print("Pointer after: undo ", viewer.model.undo_stack.size(), " · redo ", viewer.model.redo_stack.size(), " · unchanged ", viewer.model.export_state() == before)
+	viewer.model.redo()
+	print("Pointer previous edit recovered: ", viewer.model.export_state() == redo_state)
+	viewer.queue_free()
+	await process_frame
+	quit()
