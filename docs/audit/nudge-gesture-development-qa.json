@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "source_revision": "32b740ad99a479f4292208f758ea6626bb05588e",
+  "before_revision": "9f9ef5cb3b031b33dc34590ab443da8dc892b171",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "python_checks": 75,
+  "checks": [
+    {
+      "script": "tests/nudge_gesture_smoke.gd",
+      "script_sha256": "97c1c309703bf43b4b00d0b1342433de4f0d44faad569ddc8bfbddc825baec44",
+      "log": "nudge-gesture-workspace.log.txt",
+      "log_sha256": "e84cf26ea5cf0fd0a92ee7f887673bc0875b84ff8bee812c30d257b20b8f3f51",
+      "success_marker": "Nudge gesture failures: 0"
+    },
+    {
+      "script": "tests/keyboard_movement_smoke.gd",
+      "script_sha256": "5676d24f4bfee028ec675041f7bf764f456d0c5a08e59ab2267a88de10416894",
+      "log": "nudge-gesture-keyboard.log.txt",
+      "log_sha256": "05fe8fefcf60f7ed5569c708a1c97e3f12691d687ff0a6fb4ee37183d4074262",
+      "success_marker": "Keyboard movement failures: 0"
+    },
+    {
+      "script": "tests/pointer_workspace_smoke.gd",
+      "script_sha256": "84040f54cc2e6ae66f8086710cc4eef8587a8b093b5b875a55641110d2cc6895",
+      "log": "nudge-gesture-pointer.log.txt",
+      "log_sha256": "86558b36e4096debec1696f8ad0ed40e8bf7750382ffa96af09c7168685b450b",
+      "success_marker": "Pointer workspace failures: 0"
+    }
+  ],
+  "references": 7,
+  "layout_resolution_combinations": 28,
+  "keyboard_step_sizes": 2,
+  "mixed_input_cases": 56
+}

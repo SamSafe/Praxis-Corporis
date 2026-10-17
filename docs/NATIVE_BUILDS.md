@@ -14,12 +14,12 @@ portable views and four independent spinal source studies.
 
 The generated archives are excluded from Git:
 
-- Windows x64: dist/move-mode-improvements/PraxisCorporis-Windows-x64-private.zip
-- Mac Intel/Apple Silicon: dist/move-mode-improvements/PraxisCorporis-macOS-universal-private.zip
+- Windows x64: dist/nudge-gesture-improvements/PraxisCorporis-Windows-x64-private.zip
+- Mac Intel/Apple Silicon: dist/nudge-gesture-improvements/PraxisCorporis-macOS-universal-private.zip
 
 Earlier archives retain their previous source identities and their review-label
-corrections. Use the move-mode-improvements build report when verifying the new archives.
-[Move-mode gesture and package verification](audit/MOVE_MODE_VERIFICATION.md)
+corrections. Use the nudge-gesture-improvements build report when verifying the new archives.
+[Mixed-input movement and package verification](audit/NUDGE_GESTURE_VERIFICATION.md)
 records their exact hashes, seven-reference gesture/workspace checks, early-close checks,
 four normal launches and remaining Mac/human limits. The Linux-template qualification
 is recorded separately; it is not a clean passing platform check.

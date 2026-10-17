@@ -1,0 +1,32 @@
+extends SceneTree
+const Verification = preload("res://scripts/study_verification.gd")
+
+func _initialize() -> void:
+	call_deferred("run")
+
+func run() -> void:
+	var viewer = load("res://scenes/main.tscn").instantiate()
+	root.add_child(viewer)
+	await process_frame
+	while viewer.loading:
+		await process_frame
+	viewer.select_structure("anatomy.heart.valve.mitral")
+	viewer.move_button.button_pressed = true
+	viewer.toggle_move()
+	viewer.scene_container.grab_focus()
+	viewer.model.undo_stack.clear()
+	viewer.model.redo_stack.clear()
+	var start := Vector2(40, viewer.scene_container.size.y * 0.6)
+	Verification.pointer_button(viewer, start, true)
+	Verification.pointer_motion(viewer, start + Vector2(24,12), MOUSE_BUTTON_MASK_LEFT)
+	var before_key: Dictionary = viewer.model.export_state().duplicate(true)
+	await Verification.movement_key(viewer, KEY_L)
+	var after_key: Dictionary = viewer.model.export_state().duplicate(true)
+	print("After nudge: active drag ", viewer.orbit.active_button, " · undo ", viewer.model.undo_stack.size())
+	Verification.pointer_motion(viewer, start + Vector2(48,24), MOUSE_BUTTON_MASK_LEFT)
+	print("After held motion: nudge position preserved ", viewer.model.export_state() == after_key, " · undo ", viewer.model.undo_stack.size())
+	await Verification.movement_key(viewer, KEY_Z, false, true)
+	print("Undo returns to first completed pointer change: ", viewer.model.export_state() == before_key)
+	viewer.queue_free()
+	await process_frame
+	quit()

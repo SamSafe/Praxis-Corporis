@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "source_revision": "32b740ad99a479f4292208f758ea6626bb05588e",
+  "python_checks": 75,
+  "native_references": 7,
+  "native_nudge_gesture_references": [
+    "female",
+    "male",
+    "bodyparts-male-bones-study",
+    "hra-v1-2-female-cord-study",
+    "hra-v1-2-female-vertebrae-study",
+    "hra-v1-2-male-cord-study",
+    "hra-v1-2-male-vertebrae-study"
+  ],
+  "native_layout_resolution_combinations": 28,
+  "native_mixed_input_cases": 56,
+  "native_capture_identities": 103,
+  "native_normal_launches": 4,
+  "native_early_closes": 2,
+  "native_session_independently_checked_absent": true,
+  "mac_content_qa": "passed on development engine; actual Mac execution pending",
+  "linux_release_template_qa": "not rerun; independent popup-template limitation remains open",
+  "files": {
+    "nudge-gesture-after.log.txt": {
+      "bytes": 302,
+      "sha256": "36dd12d7ea9ff0d290c6870e000532ac62831a35d17aaf50101bf93d2212c345"
+    },
+    "nudge-gesture-artifact-audit.json": {
+      "bytes": 1346,
+      "sha256": "0067f09d7aab93c67c4b4cb966e93c4b1cc59564738057df9dd6cf88dd76f25b"
+    },
+    "nudge-gesture-before.gd.txt": {
+      "bytes": 1471,
+      "sha256": "dc2dc027d8ec1abcb71c0f57c39798c48db7e9f76f550c668a3e8a9559a1d44d"
+    },
+    "nudge-gesture-before.log.txt": {
+      "bytes": 303,
+      "sha256": "9a8d831dd85df05fbc9263a447474d3a1459f33e629278d162037ca9141bdd34"
+    },
+    "nudge-gesture-build-report.json": {
+      "bytes": 5067,
+      "sha256": "e8d803c407274fe89b5748b2c21bcf4806a1d92cd9759b13fe81b0b9d3e3ca5b"
+    },
+    "nudge-gesture-build.log.txt": {
+      "bytes": 12266,
+      "sha256": "263e13416071ac5dca2726e8616e9efbab61862eb814bc48c7fd1c9b338d3fac"
+    },
+    "nudge-gesture-development-qa.json": {
+      "bytes": 1391,
+      "sha256": "b28636187461653ad950222c2d8a2c5ad1b4bf159d5d6e53170fbd010394a376"
+    },
+    "nudge-gesture-keyboard.log.txt": {
+      "bytes": 757,
+      "sha256": "05fe8fefcf60f7ed5569c708a1c97e3f12691d687ff0a6fb4ee37183d4074262"
+    },
+    "nudge-gesture-native-initial-anatomy.log.txt": {
+      "bytes": 443,
+      "sha256": "19bc88e4f926257a6958d3358787b7dc0987ca723490a0903b10cedcebac46fe"
+    },
+    "nudge-gesture-native-replacement-selection.log.txt": {
+      "bytes": 526,
+      "sha256": "a4eaa004f1490da4be10602c00908844bdf8165f1a8ecd869873f79f2ab31b5a"
+    },
+    "nudge-gesture-normal-lifecycle.json": {
+      "bytes": 1648,
+      "sha256": "414fba2ca285882a1f0bad957fac189f867cd0b592e2abd0123e5b8efdf0b4f3"
+    },
+    "nudge-gesture-pointer.log.txt": {
+      "bytes": 1235,
+      "sha256": "86558b36e4096debec1696f8ad0ed40e8bf7750382ffa96af09c7168685b450b"
+    },
+    "nudge-gesture-python.log.txt": {
+      "bytes": 174,
+      "sha256": "8bba75e5fffea77c08c56107a2ad1e677441d34923933033717b2a29b203c5ae"
+    },
+    "nudge-gesture-windows-qa.json": {
+      "bytes": 35323,
+      "sha256": "aff54847556b933c932cdbfab5a73dfb08d39fddf1d8e26e024f85bbe859ae93"
+    },
+    "nudge-gesture-windows-runtime.log.txt": {
+      "bytes": 16343,
+      "sha256": "866188425b9b15da0866439d5aa3f2d43f58be4964009120392eed9ddc69e076"
+    },
+    "nudge-gesture-workspace.log.txt": {
+      "bytes": 1102,
+      "sha256": "e84cf26ea5cf0fd0a92ee7f887673bc0875b84ff8bee812c30d257b20b8f3f51"
+    }
+  }
+}

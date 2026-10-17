@@ -130,6 +130,9 @@ held-button motion leaves anatomy in its restored state. Start a fresh drag to
 continue. Move stays selected when the supplied geometry is still available.
 Switching Move on or off also ends the held gesture. Release and press again to
 start moving anatomy or navigating in the newly chosen mode.
+A movement key also ends the held pointer gesture before applying its step. The
+completed drag, keyboard step and next fresh drag each have their own Undo step.
+A key press at the movement limit ends the drag while preserving Redo.
 
 ## Camera zoom
 
@@ -353,6 +356,7 @@ godot --headless --path . --script tests/import_preview_smoke.gd
 godot --headless --path . --script tests/unchanged_edits_smoke.gd
 godot --headless --path . --script tests/movement_history_smoke.gd
 godot --headless --path . --script tests/move_mode_smoke.gd
+godot --headless --path . --script tests/nudge_gesture_smoke.gd
 godot --headless --path . --script tests/pointer_interruption_smoke.gd
 godot --headless --path . --script tests/pointer_workspace_smoke.gd
 godot --headless --path . --script tests/information_dialog_smoke.gd
@@ -375,7 +379,7 @@ preview. Running it with a desktop display also captures the new screens under
 reconstructed collision vertices with source mesh faces. The exported runtime checks
 portable views/notes, preferences and reversible guide state in disposable files.
 Device trials and qualified medical review remain separate from scripted verification.
-[Verification and current private packages](audit/MOVE_MODE_VERIFICATION.md)
+[Verification and current private packages](audit/NUDGE_GESTURE_VERIFICATION.md)
 retain exact build identities, native Windows evidence, saved-view recovery/search/draft
 and deletion-undo checks, study-preserving cancellation and normal-launch reference/window restoration observations. [Draft content verification](audit/DRAFT_CONTENT_VERIFICATION.md)
 records the learning-content review-stage correction and valve-reference checks.
