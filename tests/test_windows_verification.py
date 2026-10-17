@@ -26,6 +26,21 @@ def complete_log(rendered=True):
 
 
 class WindowsVerificationTests(unittest.TestCase):
+    def test_import_previews_require_all_reference_checks_and_rendered_capture(self):
+        log = complete_log(False)
+        for reference in ['female', 'male', 'bodyparts-male-bones-study']:
+            with self.assertRaisesRegex(ValueError, 'import preview'):
+                parse_result(log, False, import_preview=True)
+            log += '\nPASS bundled import preview: ' + reference
+        self.assertEqual(len(parse_result(log, False, import_preview=True)['import_preview_references']), 3)
+        rendered = complete_log(True)
+        for reference in ['female', 'male', 'bodyparts-male-bones-study']:
+            rendered += '\nPASS bundled import preview: ' + reference
+        with self.assertRaisesRegex(ValueError, 'capture check'):
+            parse_result(rendered, True, import_preview=True)
+        rendered += '\nPASS native import preview: female'
+        self.assertEqual(len(parse_result(rendered, True, import_preview=True)['import_preview_references']), 3)
+
     def test_study_packages_require_both_supported_reference_navigation_checks(self):
         log = complete_log(False)
         with self.assertRaisesRegex(ValueError, 'study navigation'):

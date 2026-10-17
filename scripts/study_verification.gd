@@ -5,6 +5,118 @@ const SavedViews = preload("res://scripts/saved_views.gd")
 const Preferences = preload("res://scripts/viewer_preferences.gd")
 
 
+static func verify_import_preview(viewer: Control, rendered: bool = false) -> bool:
+	var before: Dictionary = viewer.export_view_state().duplicate(true)
+	var undo: Array = viewer.model.undo_stack.duplicate(true)
+	var redo: Array = viewer.model.redo_stack.duplicate(true)
+	var back: Array = viewer.back_views.duplicate(true)
+	var forward: Array = viewer.forward_views.duplicate(true)
+	var preferences: Dictionary = viewer.preference_state()
+	var original_path: String = viewer.views_path
+	var window_size := viewer.get_window().size
+	var directory := "user://import-preview-check-" + Crypto.new().generate_random_bytes(16).hex_encode()
+	var valid := DirAccess.make_dir_recursive_absolute(directory) == OK
+	for scale in [1.0, 1.3]:
+		var settings := preferences.duplicate(true)
+		settings.text_scale = scale
+		viewer.apply_preferences(settings)
+		viewer.get_window().size = Vector2i(1100, 720)
+		viewer.views_path = directory + "/library-%s.json" % str(scale)
+		var original := SavedViews.new()
+		original.path = viewer.views_path
+		valid = original.load_library().is_empty() and valid
+		valid = original.add_view("Keep original", before).is_empty() and valid
+		valid = original.set_notes(original.entries[0].id, "Original saved notes").is_empty() and valid
+		valid = original.add_view("Collision view", before).is_empty() and valid
+		var saved: Array = original.entries.duplicate(true)
+		var kept: Dictionary = original.entries[1].duplicate(true)
+		var incoming: Array[Dictionary] = [kept.duplicate(true)]
+		for index in 32:
+			var entry := kept.duplicate(true)
+			entry.id = Crypto.new().generate_random_bytes(16).hex_encode()
+			entry.name = "Incoming [b]literal[/b] %02d" % index
+			entry.notes = "Incoming notes %02d" % index
+			if index == 0:
+				entry.name = "Collision view"
+			if index == 31:
+				entry.state.reference_hash = "different source version"
+			incoming.append(entry)
+		var source := directory + "/incoming-%s.json" % str(scale)
+		var file := FileAccess.open(source, FileAccess.WRITE)
+		file.store_string(JSON.stringify({"schema_version": 1, "views": incoming}))
+		file.close()
+		var digest := FileAccess.get_sha256(viewer.views_path)
+		var browser: Window = viewer.show_saved_views()
+		browser.preview_import(source)
+		await viewer.get_tree().process_frame
+		await viewer.get_tree().process_frame
+		if not str(browser.import_plan.get("error", "Missing import plan")).is_empty():
+			push_error("Import preview fixture failed: " + str(browser.import_plan.get("error")))
+			valid = false
+			browser.queue_free()
+			await viewer.get_tree().process_frame
+			continue
+		var dialog: Window = browser.import_dialog
+		valid = valid and browser.import_plan.imported == 31 and browser.import_plan.skipped == 2
+		valid = valid and dialog.content.has_focus() and dialog.content.selection_enabled and not dialog.content.bbcode_enabled
+		var bar: VScrollBar = dialog.content.get_v_scroll_bar()
+		valid = valid and bar.max_value > bar.page
+		if rendered and viewer.model.body.id == "female" and scale == 1.3:
+			await RenderingServer.frame_post_draw
+			valid = viewer.get_viewport().get_texture().get_image().save_png("user://native-import-preview-long.png") == OK and valid
+		await coverage_key(dialog, KEY_PAGEDOWN)
+		valid = valid and bar.value > 0.0
+		await coverage_key(dialog, KEY_A, true)
+		valid = valid and "[b]literal[/b]" in dialog.content.get_selected_text() and "renamed to keep both views" in dialog.content.get_selected_text()
+		for code in [KEY_ENTER, KEY_SPACE]:
+			await coverage_key(dialog, code)
+			valid = valid and dialog.visible and SavedViews.same_snapshot(browser.library.entries, saved) and FileAccess.get_sha256(viewer.views_path) == digest
+		await coverage_key(dialog, KEY_ESCAPE)
+		valid = valid and not dialog.visible and browser.visible and SavedViews.same_snapshot(browser.library.entries, saved) and FileAccess.get_sha256(viewer.views_path) == digest
+		browser.preview_import(source)
+		await viewer.get_tree().process_frame
+		dialog = browser.import_dialog
+		for step in 3:
+			if dialog.get_ok_button().has_focus():
+				break
+			await coverage_key(dialog, KEY_TAB)
+		valid = valid and dialog.get_ok_button().has_focus()
+		if dialog.get_ok_button().has_focus():
+			await coverage_key(dialog, KEY_ENTER)
+		valid = valid and not dialog.visible and browser.library.entries.size() == 33 and SavedViews.same_snapshot(browser.library.entries.slice(0, 2), saved)
+		for index in range(2, browser.library.entries.size()):
+			valid = valid and browser.library.entries[index].notes == incoming[index - 1].notes and SavedViews.same_snapshot(browser.library.entries[index].state, before)
+		browser.preview_import(source)
+		await viewer.get_tree().process_frame
+		dialog = browser.import_dialog
+		valid = valid and browser.import_plan.imported == 0 and browser.import_plan.skipped == 33 and dialog.get_ok_button().disabled and dialog.content.has_focus()
+		if rendered and viewer.model.body.id == "female" and scale == 1.3:
+			await RenderingServer.frame_post_draw
+			valid = viewer.get_viewport().get_texture().get_image().save_png("user://native-import-preview-duplicates.png") == OK and valid
+			if valid:
+				print("PASS native import preview: female")
+		await coverage_key(dialog, KEY_A, true)
+		await coverage_key(dialog, KEY_ESCAPE)
+		valid = valid and not dialog.visible and browser.visible
+		browser.queue_free()
+		await viewer.get_tree().process_frame
+		valid = valid and viewer.export_view_state() == before and viewer.model.undo_stack == undo and viewer.model.redo_stack == redo and viewer.back_views == back and viewer.forward_views == forward
+	viewer.views_path = original_path
+	viewer.apply_preferences(preferences)
+	viewer.get_window().size = window_size
+	for name in DirAccess.get_files_at(directory):
+		DirAccess.remove_absolute(directory.path_join(name))
+	DirAccess.remove_absolute(directory)
+	await viewer.get_tree().process_frame
+	await viewer.get_tree().process_frame
+	valid = valid and viewer.export_view_state() == before and viewer.preference_state() == preferences
+	if valid:
+		print("PASS bundled import preview: ", viewer.model.body.id)
+	else:
+		push_error("Import preview reading, confirmation or preservation failed: " + str(viewer.model.body.id))
+	return valid
+
+
 static func study_navigation_key(viewer: Control, code: int) -> void:
 	if code == KEY_ENTER and not viewer.get_window().gui_get_focus_owner() is Button:
 		push_error("Study navigation must focus an action button before Enter")
@@ -449,6 +561,11 @@ static func run(viewer: Control, rendered: bool) -> bool:
 	valid = await verify_pointer_interruption(viewer) and valid
 	valid = await verify_camera_zoom(viewer) and valid
 	valid = await verify_coverage_access(viewer, rendered) and valid
+	var import_layout: bool = viewer.scene_expanded
+	for layout in [false, true]:
+		viewer.set_scene_expanded(layout)
+		valid = await verify_import_preview(viewer, rendered and not layout) and valid
+	viewer.set_scene_expanded(import_layout)
 	if viewer.model.structures.has("anatomy.heart"):
 		valid = await verify_study_navigation(viewer) and valid
 		viewer.start_guided_chest()

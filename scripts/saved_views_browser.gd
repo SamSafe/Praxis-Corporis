@@ -1,6 +1,7 @@
 extends Window
 
 const AnatomySearch = preload("res://scripts/anatomy_search.gd")
+const ImportPreview = preload("res://scripts/import_preview.gd")
 
 signal restore_requested(state: Dictionary, view_name: String)
 signal legacy_requested
@@ -31,7 +32,7 @@ var syncing_notes := false
 var pending_action: Callable
 var unsaved_dialog: ConfirmationDialog
 var import_plan: Dictionary = {}
-var import_dialog: ConfirmationDialog
+var import_dialog: ImportPreview
 var import_button: Button
 var export_button: Button
 var filter_input: LineEdit
@@ -459,22 +460,15 @@ func preview_import(source: String) -> void:
 		return
 	if is_instance_valid(import_dialog):
 		import_dialog.queue_free()
-	import_dialog = ConfirmationDialog.new()
+	import_dialog = ImportPreview.new()
+	import_dialog.theme = theme
 	import_dialog.title = "Import preview"
 	import_dialog.ok_button_text = "Import %d views" % import_plan.imported
 	import_dialog.get_ok_button().disabled = import_plan.imported == 0
-	var scroll := ScrollContainer.new()
-	scroll.custom_minimum_size = Vector2(540, 240)
-	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	var preview := Label.new()
-	preview.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	preview.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	preview.text = "%d compatible views to add · %d skipped\nYour current views stay in the library.\n\n%s" % [import_plan.imported, import_plan.skipped, import_plan.summary]
-	scroll.add_child(preview)
-	import_dialog.add_child(scroll)
+	import_dialog.message = "%d compatible views to add · %d skipped\nYour current views stay in the library.\n\n%s" % [import_plan.imported, import_plan.skipped, import_plan.summary]
 	import_dialog.confirmed.connect(confirm_import)
 	add_child(import_dialog)
-	import_dialog.popup_centered_clamped(Vector2i(600, 360), 0.9)
+	import_dialog.open(Vector2i(600, 360))
 
 
 func confirm_import() -> void:

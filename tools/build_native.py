@@ -159,6 +159,7 @@ def add_notices(folder: pathlib.Path, platform: str) -> None:
         "Saved views keeps named local exploration setups and your study notes outside this folder.\n\n"
         "In Saved views, search names and notes with Ctrl+F; Enter selects a match. Escape clears a focused search.\n"
         "Saved views > Export all views backs up your views and notes to JSON; Import previews compatibility and keeps existing views.\n"
+        "Import preview: Page Up/Down reads the list; Ctrl/Cmd+A selects it. Tab reaches Import/Cancel; Escape cancels without changing your library.\n"
         "Guided chest offers six reversible steps, including a separated chamber teaching view. Finish restores your starting setup.\n"
         "Heart/lung study cards include primary-source links and retain draft/review status. Source and mesh details expands technical identity.\n"
         "Related conditions offers sourced aortic-stenosis and mitral-regurgitation summaries; Inspect reference anatomy reveals the supplied valve.\n"

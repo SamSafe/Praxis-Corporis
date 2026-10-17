@@ -30,7 +30,7 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
                  conditions: bool = False, find_anatomy: bool = False,
                  pointer_interruption: bool = False, saved_view_context: bool = False,
                  camera_zoom: bool = False, coverage_keyboard: bool = False,
-                 study_navigation: bool = False) -> dict:
+                 study_navigation: bool = False, import_preview: bool = False) -> dict:
     if "ERROR:" in log:
         raise ValueError("The native runtime reported an error")
     if re.search(r'ObjectDB instance.*leaked|^Leaked instance:', log, re.M):
@@ -64,9 +64,13 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
             raise ValueError('Native coverage keyboard check missing: ' + reference)
         if study_navigation and reference in ['female', 'male'] and f'PASS bundled study navigation: {reference}' not in log.splitlines():
             raise ValueError('Native study navigation check missing: ' + reference)
+        if import_preview and f'PASS bundled import preview: {reference}' not in log.splitlines():
+            raise ValueError('Native import preview check missing: ' + reference)
     result = process_observations(log, rendered)
     if information and 'PASS bundled information dialogs: female' not in log.splitlines():
         raise ValueError('Native information dialog check missing')
+    if import_preview and rendered and 'PASS native import preview: female' not in log.splitlines():
+        raise ValueError('Native import preview capture check missing')
     if conditions:
         for reference in ['female', 'male']:
             if f'PASS bundled condition study: {reference}' not in log.splitlines():
@@ -89,6 +93,8 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
         result['coverage_keyboard_references'] = list(references)
     if study_navigation:
         result['study_navigation_references'] = [reference for reference in references if reference in ['female', 'male']]
+    if import_preview:
+        result['import_preview_references'] = list(references)
     return result
 
 
@@ -243,7 +249,8 @@ try {
 
 
 def captures(folder: pathlib.Path, output: pathlib.Path, references: dict, circulation: bool = False,
-             information: bool = False, conditions: bool = False, coverage_keyboard: bool = False) -> dict:
+             information: bool = False, conditions: bool = False, coverage_keyboard: bool = False,
+             import_preview: bool = False) -> dict:
     images = {}
     destination = output / "captures"
     destination.mkdir()
@@ -274,17 +281,19 @@ def captures(folder: pathlib.Path, output: pathlib.Path, references: dict, circu
                 raise ValueError("Native capture has invalid dimensions: " + name)
             shutil.copyfile(path, destination / name)
             images[name] = {"file": "captures/" + name, "pixels": pixels, "sha256": sha256(path)}
-    if information:
-        for kind in ['help', 'sources']:
-            name = f'native-information-{kind}.png'
+    dialog_captures = ([f'native-information-{kind}.png' for kind in ['help', 'sources']] if information else [])
+    if import_preview:
+        dialog_captures.extend(f'native-import-preview-{kind}.png' for kind in ['long', 'duplicates'])
+    if dialog_captures:
+        for name in dialog_captures:
             path = source / name
             with path.open('rb') as stream:
                 header = stream.read(24)
             if len(header) != 24 or header[:8] != b'\x89PNG\r\n\x1a\n':
-                raise ValueError('Native information capture is invalid: ' + name)
+                raise ValueError('Native dialog capture is invalid: ' + name)
             pixels = list(struct.unpack('>II', header[16:24]))
             if not all(v > 0 for v in pixels):
-                raise ValueError('Native information capture dimensions are invalid')
+                raise ValueError('Native dialog capture dimensions are invalid')
             shutil.copyfile(path, destination / name)
             images[name] = {'file': 'captures/' + name, 'pixels': pixels, 'sha256': sha256(path)}
     return images
@@ -316,6 +325,8 @@ def verify(args: argparse.Namespace) -> dict:
                          and b'PASS bundled coverage keyboard:' in git_bytes(ROOT, build_report['source_revision'], 'scripts/study_verification.gd'))
     study_navigation = ('scripts/study_verification.gd' in build_report['source_hashes']
                         and b'PASS bundled study navigation:' in git_bytes(ROOT, build_report['source_revision'], 'scripts/study_verification.gd'))
+    import_preview = ('scripts/study_verification.gd' in build_report['source_hashes']
+                      and b'PASS bundled import preview:' in git_bytes(ROOT, build_report['source_revision'], 'scripts/study_verification.gd'))
     startup_cases = None
     if reference_state:
         bodies = json.loads(git_bytes(ROOT, build_report['source_revision'], 'content/sample_pack.json'))['bodies']
@@ -343,7 +354,7 @@ def verify(args: argparse.Namespace) -> dict:
             reference_fixture.write_text(reference_fixture_text, encoding='utf-8')
         log = run_native(args, windows_session, windows_session + "\\" + executable_relative)
         result = parse_result(log, args.mode == "rendered", circulation, information, conditions,
-                              find_anatomy, pointer_interruption, saved_view_context, camera_zoom, coverage_keyboard, study_navigation)
+                              find_anatomy, pointer_interruption, saved_view_context, camera_zoom, coverage_keyboard, study_navigation, import_preview)
         if result["engine_actual"] != build_report["engine"]:
             raise ValueError("The native runtime differs from the pinned build engine")
         result.update(schema_version=1, recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
@@ -353,7 +364,7 @@ def verify(args: argparse.Namespace) -> dict:
                       limits=["Scripted actions; human input, clipboard and native OS picker acceptance remain open.",
                               "No sustained-performance or maximum-loading-pause claim.", "This checks actual Windows execution; Mac device validation is separate."])
         if args.mode == "rendered":
-            result["captures"] = captures(session, args.output, result["references"], circulation, information, conditions, coverage_keyboard)
+            result["captures"] = captures(session, args.output, result["references"], circulation, information, conditions, coverage_keyboard, import_preview)
         if (session / "engine.log").exists():
             shutil.copyfile(session / "engine.log", args.output / "engine.log")
         if reference_state:
