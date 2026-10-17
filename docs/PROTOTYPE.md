@@ -115,10 +115,10 @@ is used by the viewer.
 | Original position | Show original positions toggles faint blue, non-selectable copies of moved anatomy at its baseline location. |
 | Leave Move mode | Escape or Whole body returns to navigation and preserves inspection changes. |
 | Body reference | Select Female reference or Male reference; shared canonical selections are retained where mapped. |
-| Save/load | Saved views opens named local exploration setups with Save current view, Restore, Rename and Delete. |
+| Save/load | Saved views opens named local exploration setups with Save current view, Restore, Rename and Delete. A successful Restore or previous quick save returns keyboard focus to anatomy. |
 | Find a saved view | Search its name, notes, reference or selected anatomy name/source ID. This reference narrows the library; the heading shows matches out of all views. |
 | Study notes | Select a saved view, type your observations/questions, then Save notes. |
-| Coverage | Coverage opens the technical inventory and known gaps. Arrows choose groups; Tab reaches selectable text and Explore; Page Up/Down scroll; Escape closes it. |
+| Coverage | Coverage opens the technical inventory and known gaps. Arrows choose groups; Tab reaches selectable text and Explore; Page Up/Down scroll; Escape closes it. Explore returns focus to anatomy for camera keys. |
 | Workspace panels | View toggles the anatomy explorer and structure details independently; Keyboard controls opens the shortcut reference. |
 | Expanded anatomy | View > Expand anatomy or F11 fills the window with the live anatomy view. Escape or Return to workspace brings the panels back. |
 | Expanded controls | Explore keeps labels, focus/whole body, Inspect alone/Return to context, Move, Undo/Redo, Saved views, Screenshot and keyboard help available. Selection, Move mode and action feedback remain visible. |

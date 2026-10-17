@@ -1,0 +1,38 @@
+extends SceneTree
+const V = preload("res://scripts/study_verification.gd")
+func _initialize() -> void:
+ call_deferred("run")
+func run() -> void:
+ var viewer = load("res://scenes/main.tscn").instantiate()
+ root.add_child(viewer)
+ await process_frame
+ while viewer.loading: await process_frame
+ for button in viewer.reference_buttons:
+  if button.text == "Coverage": button.grab_focus()
+ var coverage: Window = viewer.show_coverage()
+ coverage.explore_button.grab_focus()
+ await V.coverage_key(coverage, KEY_ENTER)
+ await process_frame
+ print("Coverage Explore: closed ", not is_instance_valid(coverage), " · scene focused ", viewer.scene_container.has_focus(), " · root focus ", str(root.gui_get_focus_owner()))
+ viewer.select_structure("anatomy.heart.valve.mitral")
+ var snapshot: Dictionary = viewer.export_view_state().duplicate(true)
+ viewer.views_path = "user://return-probe-" + Crypto.new().generate_random_bytes(16).hex_encode() + ".json"
+ var library = viewer.SavedViews.new()
+ library.path = viewer.views_path
+ library.load_library()
+ library.add_view("Return probe",snapshot)
+ viewer.select_structure("anatomy.lungs")
+ for button in viewer.reference_buttons:
+  if button.text == "Saved views": button.grab_focus()
+ var browser: Window = viewer.show_saved_views()
+ browser.view_list.select(0)
+ browser.select_entry(0)
+ browser.restore_button.grab_focus()
+ await V.coverage_key(browser, KEY_ENTER)
+ await process_frame
+ print("Saved Restore: closed ", not is_instance_valid(browser), " · scene focused ", viewer.scene_container.has_focus(), " · restored ", viewer.export_view_state() == snapshot, " · root focus ", str(root.gui_get_focus_owner()))
+ for suffix in ["", ".bak"]:
+  if FileAccess.file_exists(viewer.views_path + suffix): DirAccess.remove_absolute(viewer.views_path + suffix)
+ viewer.queue_free()
+ await process_frame
+ quit()

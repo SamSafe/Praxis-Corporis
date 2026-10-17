@@ -178,6 +178,10 @@ Find is unavailable while a reference opens. The search field stays read-only
 until its reference index is available. Dialogs keep their own keyboard input;
 Ctrl/Cmd+F inside Saved views searches the saved-view library.
 
+After **Explore supplied group** in Coverage or a successful named-view or **Restore previous quick save** action, keyboard focus returns to the 3D view. Camera keys work immediately.
+Escape/cancel keeps focus on the control that opened the dialog. These focus changes
+add no inspection edit or undo step.
+
 ## Portable saved views
 
 In **Saved views**, the search field finds view names, saved notes, unsaved note
@@ -372,6 +376,7 @@ godot --headless --path . --script tests/coverage_keyboard_smoke.gd
 godot --headless --path . --script tests/study_navigation_smoke.gd
 godot --headless --path . --script tests/source_fallback_smoke.gd
 godot --headless --path . --script tests/study_reader_smoke.gd
+godot --headless --path . --script tests/exploration_return_smoke.gd
 godot --headless --path . --script tests/import_preview_smoke.gd
 godot --headless --path . --script tests/unchanged_edits_smoke.gd
 godot --headless --path . --script tests/movement_history_smoke.gd
@@ -399,7 +404,7 @@ preview. Running it with a desktop display also captures the new screens under
 reconstructed collision vertices with source mesh faces. The exported runtime checks
 portable views/notes, preferences and reversible guide state in disposable files.
 Device trials and qualified medical review remain separate from scripted verification.
-[Verification and current private packages](audit/STUDY_READER_VERIFICATION.md)
+[Verification and current private packages](audit/EXPLORATION_RETURN_VERIFICATION.md)
 retain exact build identities, native Windows evidence, saved-view recovery/search/draft
 and deletion-undo checks, study-preserving cancellation and normal-launch reference/window restoration observations. [Draft content verification](audit/DRAFT_CONTENT_VERIFICATION.md)
 records the learning-content review-stage correction and valve-reference checks.

@@ -1,0 +1,15 @@
+extends SceneTree
+const V = preload("res://scripts/study_verification.gd")
+func _initialize() -> void:
+ call_deferred("run")
+func run() -> void:
+ var viewer = load("res://scenes/main.tscn").instantiate()
+ viewer.set_script(load("res://build/qa/exploration_return_baseline_viewer.gd"))
+ root.add_child(viewer)
+ await process_frame
+ while viewer.loading: await process_frame
+ var passed: bool = await V.verify_exploration_return(viewer)
+ viewer.queue_free()
+ await process_frame
+ print("Pre-fix return-focus check rejected baseline: ",not passed)
+ quit(1 if passed else 0)

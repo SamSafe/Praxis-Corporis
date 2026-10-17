@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "source_revision": "5313611fc7c5458651af7c53754dcab132645520",
+  "before_revision": "1a729a5684589aff0d4193990fdec462568301fe",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "python_checks": 78,
+  "checks": [
+    {
+      "script": "tests/exploration_return_smoke.gd",
+      "script_sha256": "076d3b80411987313e088715a831b6b1130749fc542d6ecbaff5d5e80da7baed",
+      "log": "exploration-return-development.log.txt",
+      "log_sha256": "bc062cf1b74b05c0df5260bd38d05ca0ce1575076495231a470bd16507cd2cfc",
+      "success_marker": "Exploration return failures: 0"
+    },
+    {
+      "script": "tests/coverage_keyboard_smoke.gd",
+      "script_sha256": "c5e8ad7b1f8bcf87f83463753033cbf93a0f34dd0b5b2c9dd2c7084c581422a7",
+      "log": "exploration-return-coverage.log.txt",
+      "log_sha256": "6f9ecb0ffdc1cae478b131f451c8b44eb3510cc7ab58fbecb822c5a80e53dca4",
+      "success_marker": "Coverage keyboard failures: 0"
+    },
+    {
+      "script": "tests/exploration_smoke.gd",
+      "script_sha256": "29fe5f98991ddf8727d04c143d4d83106345f738c4423ccc210a7f38bdbeb2f6",
+      "log": "exploration-return-legacy.log.txt",
+      "log_sha256": "d11207e245d858eb72544d26ad82f208cb8948aec87dc91d135609fee4694190",
+      "success_marker": "Exploration failures: 0"
+    }
+  ],
+  "references": 7,
+  "layouts": [
+    "workspace",
+    "expanded"
+  ],
+  "text_scales": [
+    1.0,
+    1.3
+  ],
+  "actions": [
+    "coverage-explore-first-supplied-group",
+    "named-restore-same-reference",
+    "previous-quick-save-same-reference"
+  ],
+  "action_returns": 84,
+  "cancel_returns": 84,
+  "notes_prompt_returns": 2,
+  "notes_prompt_scope": "Female reference, workspace at 130%; Save uses Enter, Discard dispatches its connected custom-action signal.",
+  "baseline": {
+    "source_revision": "1a729a5684589aff0d4193990fdec462568301fe",
+    "viewer_sha256": "500dff6ab7f52be606ebabf347e2558cac08f91facdadb859d75ebd0dcb626f8",
+    "verifier_sha256": "90860a320b0019dcdcd32036075eef2e95585ae7d6cf2a3c6880a451618fabca",
+    "result": "Expected regression rejected; log contains the intentional focus/history error.",
+    "recreate_viewer": "git show 1a729a5684589aff0d4193990fdec462568301fe:scripts/viewer.gd > build/qa/exploration_return_baseline_viewer.gd"
+  }
+}
