@@ -1,0 +1,4 @@
+extends "res://scripts/saved_views_browser.gd"
+var picker_requested := false
+func open_export() -> void:
+ picker_requested = true

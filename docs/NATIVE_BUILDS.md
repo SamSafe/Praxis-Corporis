@@ -14,13 +14,13 @@ portable views and four independent spinal source studies.
 
 The generated archives are excluded from Git:
 
-- Windows x64: dist/text-encoding-improvements/PraxisCorporis-Windows-x64-private.zip
-- Mac Intel/Apple Silicon: dist/text-encoding-improvements/PraxisCorporis-macOS-universal-private.zip
+- Windows x64: dist/draft-export-improvements/PraxisCorporis-Windows-x64-private.zip
+- Mac Intel/Apple Silicon: dist/draft-export-improvements/PraxisCorporis-macOS-universal-private.zip
 
 Earlier archives retain their previous source identities and their review-label
-corrections. Use the text-encoding-improvements build report when verifying the new archives.
-[Saved-view text protection and package verification](audit/TEXT_ENCODING_VERIFICATION.md)
-records their exact hashes, saved-view encoding/recovery protection, seven-reference workspace checks,
+corrections. Use the draft-export-improvements build report when verifying the new archives.
+[Unfinished-note export and package verification](audit/DRAFT_EXPORT_VERIFICATION.md)
+records their exact hashes, unfinished-note backup, seven-reference workspace checks,
 early-close checks, four normal launches and remaining Mac/human limits. The Linux-template qualification
 is recorded separately; it is not a clean passing platform check.
 

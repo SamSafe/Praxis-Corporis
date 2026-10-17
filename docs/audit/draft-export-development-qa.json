@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "source_revision": "04300ba172d89ff32c404d08892ac53f539c2577",
+  "before_revision": "41138fc7f916bd9d41fd4029d4ab3cd29346ad90",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "python_checks": 81,
+  "checks": [
+    {
+      "script": "tests/draft_export_smoke.gd",
+      "script_sha256": "9ebda7f13e53320b9827de8898f441849445b2a663c2025ded60a04d786336c3",
+      "log": "draft-export-development.log.txt",
+      "log_sha256": "a24d29ae1cf26222d5b0b979aa9fe56bd48cb4b795920aa4cbae0db9dad645e0",
+      "success_marker": "Draft export failures: 0"
+    },
+    {
+      "script": "tests/draft_export_limits_smoke.gd",
+      "script_sha256": "8c4aeaefd663bedb124334cce2a42a0b4bae8f8439f7cd72525f91ac66232161",
+      "log": "draft-export-limits.log.txt",
+      "log_sha256": "40768012ba2948d7b1e4fbb1d406ff4194bbfcb38286d285478c8296240ed009",
+      "success_marker": "Draft export size-limit failures: 0"
+    },
+    {
+      "script": "tests/export_safeguards_smoke.gd",
+      "script_sha256": "808451365d153faf582ef3ca484006bbad4b25016b26a7748cc34dc64d457570",
+      "log": "draft-export-safeguards.log.txt",
+      "log_sha256": "b8a613fa965a57206b05dd6acdc56a471a1a9718c014d02721c359bf4739ef20",
+      "success_marker": "Export safeguard failures: 0"
+    },
+    {
+      "script": "tests/study_notes_smoke.gd",
+      "script_sha256": "83dd815eb82e972d6ac5d1ad0d7da9601ef61c30e419d73521da957be3f544b3",
+      "log": "draft-export-notes.log.txt",
+      "log_sha256": "972f4b9f85bd918d2823312ab6697f678b88444207185184dd835150797fb9b2",
+      "success_marker": "Study notes failures: 0"
+    },
+    {
+      "script": "tests/saved_views_utf8_smoke.gd",
+      "script_sha256": "51cd7fd92c94ab626b66ffee5ae85e1bd850455c44b1078b01d58ec90ad733f3",
+      "log": "draft-export-encoding.log.txt",
+      "log_sha256": "fe16160aa395aada0b8d2a879a2282fe698ed2771a228bbe0cd9faa3abfc5673",
+      "success_marker": "Saved-view UTF-8 failures: 0"
+    },
+    {
+      "script": "tests/portable_views_smoke.gd",
+      "script_sha256": "3e5a287fc1ac98bf0df0dab434e1e995051b7757d3ac5294fe5377d7654e17e2",
+      "log": "draft-export-portable.log.txt",
+      "log_sha256": "be706251c30f3a10101c6ce9b0de3064c5649c7b6df16ecdc220807c09896af0",
+      "success_marker": "Portable views and preferences failures: 0"
+    }
+  ],
+  "references": 7,
+  "working_views_per_reference": 3,
+  "note_drafts_per_reference": 2,
+  "visible_filtered_views": 1,
+  "newer_disk_views": 4,
+  "compatible_changed_note_copies_on_import": 2,
+  "unchanged_records_skipped_on_import": 1,
+  "picker_scope": "Actual Export button and Enter; only picker handoff spied. Real FileDialog title/default filename checked without opening it. OS picker acceptance pending.",
+  "export_limit_scope": "Development-only component check: valid snapshot under 32 MiB plus a valid 10,000-character emoji draft exceeds byte limit; existing output is retained."
+}

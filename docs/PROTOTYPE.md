@@ -325,7 +325,10 @@ Closing Saved views, restoring a view/older quick save, or normally closing the 
 protects unsaved drafts with **Save notes**, **Discard notes**, or **Keep editing**.
 Save writes every pending draft in one library update before continuing. A failed
 write leaves the dialog and typed text open. Drafts live in memory until saved; a
-forced process stop or crash cannot recover them. Deleting a view also deletes its
+forced process stop or crash loses work that has not been saved or exported. **Export all views** includes
+unfinished notes in a separate JSON copy and leaves them open, including drafts
+hidden by filtering. It requires no Save/Discard decision, so work can be backed
+up when a newer library blocks Save. The active library and its backup stay intact. Deleting a view also deletes its
 notes after the existing explicit confirmation. Older libraries without notes
 remain readable without being rewritten just by opening them.
 

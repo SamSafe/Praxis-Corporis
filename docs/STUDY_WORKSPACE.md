@@ -231,8 +231,13 @@ this temporary undo record.
 
 In **Saved views**, **Export all views** writes a local JSON file containing named
 snapshots and their saved notes. There are no anatomy meshes, accounts or uploads
-in this export. Unsaved notes use the existing save/discard/keep-editing choices.
-Export includes the whole library, including views hidden by search/reference filters.
+in this export. Export includes every unfinished note draft without asking to save or discard it,
+including drafts hidden by search/reference filters. It writes this window's views
+and working notes to a separate JSON copy, leaving the library, drafts and editor
+state unchanged. The picker names unfinished notes and suggests a `views-and-drafts`
+filename. This works when a newer on-disk library blocks Save. Importing that copy
+later keeps changed-note versions as additional compatible views after preview.
+Export includes the whole library known to this window, including hidden views.
 
 Export refuses paths that identify the active library or its backup, including
 directory/file links and case aliases on case-insensitive directories. A missing
@@ -383,6 +388,8 @@ godot --headless --path . --script tests/source_fallback_smoke.gd
 godot --headless --path . --script tests/study_reader_smoke.gd
 godot --headless --path . --script tests/exploration_return_smoke.gd
 godot --headless --path . --script tests/saved_views_utf8_smoke.gd
+godot --headless --path . --script tests/draft_export_smoke.gd
+godot --headless --path . --script tests/draft_export_limits_smoke.gd
 godot --headless --path . --script tests/import_preview_smoke.gd
 godot --headless --path . --script tests/unchanged_edits_smoke.gd
 godot --headless --path . --script tests/movement_history_smoke.gd
@@ -410,7 +417,7 @@ preview. Running it with a desktop display also captures the new screens under
 reconstructed collision vertices with source mesh faces. The exported runtime checks
 portable views/notes, preferences and reversible guide state in disposable files.
 Device trials and qualified medical review remain separate from scripted verification.
-[Verification and current private packages](audit/TEXT_ENCODING_VERIFICATION.md)
+[Verification and current private packages](audit/DRAFT_EXPORT_VERIFICATION.md)
 retain exact build identities, native Windows evidence, saved-view recovery/search/draft
 and deletion-undo checks, study-preserving cancellation and normal-launch reference/window restoration observations. [Draft content verification](audit/DRAFT_CONTENT_VERIFICATION.md)
 records the learning-content review-stage correction and valve-reference checks.

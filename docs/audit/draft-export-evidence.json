@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "source_revision": "04300ba172d89ff32c404d08892ac53f539c2577",
+  "python_checks": 81,
+  "native_references": 7,
+  "native_draft_export_references": [
+    "female",
+    "male",
+    "bodyparts-male-bones-study",
+    "hra-v1-2-female-cord-study",
+    "hra-v1-2-female-vertebrae-study",
+    "hra-v1-2-male-cord-study",
+    "hra-v1-2-male-vertebrae-study"
+  ],
+  "working_views_per_reference": 3,
+  "note_drafts_per_reference": 2,
+  "visible_filtered_views": 1,
+  "newer_disk_views": 4,
+  "native_capture_identities": 107,
+  "native_normal_launches": 4,
+  "native_early_closes": 2,
+  "native_session_independently_checked_absent": true,
+  "mac_content_qa": "passed on development engine; actual Mac execution pending",
+  "linux_release_template_qa": "not rerun; independent popup-template limitation remains open",
+  "picker_acceptance": "Platform picker handoff spied; title/default name checked without opening it. Human OS picker acceptance pending.",
+  "files": {
+    "draft-export-after.log.txt": {
+      "bytes": 311,
+      "sha256": "8fb71bae4553f3eb6c6c5b5c9a61a6d76a945424a8317d86d92f7e257332787f"
+    },
+    "draft-export-artifact-audit.json": {
+      "bytes": 1346,
+      "sha256": "57ffda8d9c1cdfc052dc82dc4ba69d9ed6577b15b0b49757983773ff95e3d359"
+    },
+    "draft-export-before.gd.txt": {
+      "bytes": 2358,
+      "sha256": "fcbaa293cd2e09f6650195cc88bc5ac84770102e580c1a193394cd7b9f7944c6"
+    },
+    "draft-export-before.log.txt": {
+      "bytes": 312,
+      "sha256": "f9348509eca9d3b39fc41cccddc8b57e7e2dd5d5512b9a39093ae5bfbc285617"
+    },
+    "draft-export-build-report.json": {
+      "bytes": 5067,
+      "sha256": "6bd451382a2af154351d62e1af6297f700583bcfe9d6adc2c34113b071af197f"
+    },
+    "draft-export-build.log.txt": {
+      "bytes": 13752,
+      "sha256": "08ee163c4e61a2aa91e9d370994df44970cd3f13bcf430ccd3f5381dda715835"
+    },
+    "draft-export-development-qa.json": {
+      "bytes": 2908,
+      "sha256": "53697281dbb2293439f3390ea67aede7a35d1e7247e681be14ba1ab9ecd381df"
+    },
+    "draft-export-development.log.txt": {
+      "bytes": 1094,
+      "sha256": "a24d29ae1cf26222d5b0b979aa9fe56bd48cb4b795920aa4cbae0db9dad645e0"
+    },
+    "draft-export-encoding.log.txt": {
+      "bytes": 138,
+      "sha256": "fe16160aa395aada0b8d2a879a2282fe698ed2771a228bbe0cd9faa3abfc5673"
+    },
+    "draft-export-limits.log.txt": {
+      "bytes": 109,
+      "sha256": "40768012ba2948d7b1e4fbb1d406ff4194bbfcb38286d285478c8296240ed009"
+    },
+    "draft-export-native-initial-anatomy.log.txt": {
+      "bytes": 443,
+      "sha256": "ac747ec94f7d9942ef6c01d23c21bd40460a1e15e97088097346793c8e75583f"
+    },
+    "draft-export-native-replacement-selection.log.txt": {
+      "bytes": 527,
+      "sha256": "fae2dcace01de0dff527a0862a212b1669dccd9407e62cf56f24df51126d553d"
+    },
+    "draft-export-normal-lifecycle.json": {
+      "bytes": 1648,
+      "sha256": "414fba2ca285882a1f0bad957fac189f867cd0b592e2abd0123e5b8efdf0b4f3"
+    },
+    "draft-export-notes.log.txt": {
+      "bytes": 177,
+      "sha256": "972f4b9f85bd918d2823312ab6697f678b88444207185184dd835150797fb9b2"
+    },
+    "draft-export-picker-probe.gd.txt": {
+      "bytes": 130,
+      "sha256": "43933e7f309c3712715d1317b579144fe7b0e42cf30cc8416213811cb031f9b5"
+    },
+    "draft-export-portable.log.txt": {
+      "bytes": 116,
+      "sha256": "be706251c30f3a10101c6ce9b0de3064c5649c7b6df16ecdc220807c09896af0"
+    },
+    "draft-export-python.log.txt": {
+      "bytes": 180,
+      "sha256": "f35baee32dc47c3ccc2c871691f12903accd13438fe6e05ed620bb94d06f30c2"
+    },
+    "draft-export-safeguards.log.txt": {
+      "bytes": 229,
+      "sha256": "b8a613fa965a57206b05dd6acdc56a471a1a9718c014d02721c359bf4739ef20"
+    },
+    "draft-export-windows-qa.json": {
+      "bytes": 37291,
+      "sha256": "3518547e17b78761fbca1b00f3d7867ead0e6f14845e3206f2107097546fcd7d"
+    },
+    "draft-export-windows-runtime.log.txt": {
+      "bytes": 17934,
+      "sha256": "eb976d27ee0288083ed33f2eebae6d064c8872f127db1ccee647760b951de0ed"
+    },
+    "../prototype/draft-export-windows.png": {
+      "bytes": 257884,
+      "sha256": "719644cceacf73a1f035b1cc35fa98664f5e3abb0323afb83d153925bcd8adab"
+    }
+  }
+}

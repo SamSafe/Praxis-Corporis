@@ -1,0 +1,49 @@
+extends SceneTree
+const SavedViews = preload("res://scripts/saved_views.gd")
+const Browser = preload("res://build/qa/draft_export_probe_browser.gd")
+const V = preload("res://scripts/study_verification.gd")
+func _initialize() -> void:
+ call_deferred("run")
+func run() -> void:
+ var viewer = load("res://scenes/main.tscn").instantiate()
+ root.add_child(viewer)
+ await process_frame
+ while viewer.loading:await process_frame
+ var prefix := "user://draft-export-probe-" + Crypto.new().generate_random_bytes(16).hex_encode()
+ viewer.views_path = prefix + ".json"
+ var original := SavedViews.new()
+ original.path=viewer.views_path
+ original.load_library()
+ original.add_view("Keep this study", viewer.export_view_state())
+ var browser := Browser.new()
+ browser.library = SavedViews.new()
+ browser.library.path = viewer.views_path
+ browser.pack = viewer.pack
+ browser.current_state = viewer.export_view_state()
+ browser.validate_state = viewer.validate_view_state
+ browser.theme = viewer.theme
+ viewer.add_child(browser)
+ browser.popup_centered_clamped(Vector2i(780,660),0.9)
+ browser.view_list.select(0)
+ browser.select_entry(0)
+ browser.notes_input.text="Keep this unfinished note 🫀"
+ browser.on_notes_changed()
+ var other := SavedViews.new()
+ other.path=viewer.views_path
+ other.load_library()
+ other.set_notes(other.entries[0].id,"Newer note from another window")
+ browser.save_all_notes()
+ print("Stale save blocked: ","changed elsewhere" in browser.message.text," · draft retained ",browser.draft_notes.size()==1)
+ browser.export_button.grab_focus()
+ await V.coverage_key(browser,KEY_ENTER)
+ print("Export needs a note decision: ",is_instance_valid(browser.unsaved_dialog) and browser.unsaved_dialog.visible," · picker requested ",browser.picker_requested)
+ var error: String = browser.export_views(prefix+"-export.json") if browser.has_method("export_views") else browser.library.export_library(prefix+"-export.json")
+ var exported: Dictionary = browser.library.read_file(prefix+"-export.json")
+ print("Saved-only export contains unfinished note: ",error.is_empty() and exported.entries[0].notes==browser.notes_input.text)
+ browser.queue_free()
+ await process_frame
+ for suffix in [".json",".json.bak","-export.json"]:
+  if FileAccess.file_exists(prefix+suffix):DirAccess.remove_absolute(prefix+suffix)
+ viewer.queue_free()
+ await process_frame
+ quit()
