@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "source_revision": "b5c8266355410ce8973331430307b854cb006e19",
+  "python_checks": 70,
+  "native_references": 7,
+  "native_study_navigation_references": [
+    "female",
+    "male"
+  ],
+  "native_study_layout_text_combinations": 8,
+  "native_capture_identities": 101,
+  "native_normal_launches": 4,
+  "native_early_closes": 2,
+  "native_session_independently_checked_absent": true,
+  "mac_content_qa": "passed on development engine; actual Mac execution pending",
+  "linux_release_template_qa": "not rerun; independent popup-template limitation remains open",
+  "files": {
+    "study-navigation-after.log.txt": {
+      "bytes": 752,
+      "sha256": "8f12f1ad0c84ec9486cf33cd48a760ddaac3e0c314d744a3cb7d739d18667c20"
+    },
+    "study-navigation-artifact-audit.json": {
+      "bytes": 1346,
+      "sha256": "c416cdb6a56b2ccc4575c9977da90fc306576efa969af24553d356d9fbccc16b"
+    },
+    "study-navigation-before.gd.txt": {
+      "bytes": 1501,
+      "sha256": "a42ffda5247012e5b4283d62eded33508f41252b9fce5c0143b15f57f2cad669"
+    },
+    "study-navigation-before.log.txt": {
+      "bytes": 773,
+      "sha256": "be81eac2415260b4a4c0ab725d48377c931285b6e9c76ab1a5a23c8a78bb364f"
+    },
+    "study-navigation-build-report.json": {
+      "bytes": 4966,
+      "sha256": "4d85af6095a747c54fb6ee1f40db3d6c13091fd6e552fabe1d3427f2de3d3ba0"
+    },
+    "study-navigation-build.log.txt": {
+      "bytes": 9734,
+      "sha256": "34eda103f0f61b7733d5d4c3b82c9fec98c342c02c107b43a64155faded75051"
+    },
+    "study-navigation-development-qa.json": {
+      "bytes": 1507,
+      "sha256": "97c1fa5eff4e8fae6a5f610929be5b69ba3258bf825b0aae3eedf6e19e832e1a"
+    },
+    "study-navigation-guide-regression.log.txt": {
+      "bytes": 736,
+      "sha256": "6c5270dbc0189906f45a5aa2db43cc68009a6901cde038e5b92ee15b96432cf6"
+    },
+    "study-navigation-native-initial-anatomy.log.txt": {
+      "bytes": 443,
+      "sha256": "f1988b95a40e27ed94bd75a17dad372e7dd7bde267061a3fe1b3e221141a2ff4"
+    },
+    "study-navigation-native-replacement-selection.log.txt": {
+      "bytes": 527,
+      "sha256": "4530cecc7a583b19c7ec3cbd213363754537e2bacaf2f827128df8899dc1edf9"
+    },
+    "study-navigation-normal-lifecycle.json": {
+      "bytes": 1648,
+      "sha256": "414fba2ca285882a1f0bad957fac189f867cd0b592e2abd0123e5b8efdf0b4f3"
+    },
+    "study-navigation-python.log.txt": {
+      "bytes": 169,
+      "sha256": "57accf85f73cdc304453b8df1099f9585e66807f182cd782dba459fd1ac97b19"
+    },
+    "study-navigation-route-regression.log.txt": {
+      "bytes": 440,
+      "sha256": "a7e6e462730b9fe11b5a41f48a06b2d39d5c3c9b913d02112107c545abc8e5be"
+    },
+    "study-navigation-windows-qa.json": {
+      "bytes": 33632,
+      "sha256": "51d6217b5cc845862dc83f54048357c3701f763a97ad35da6ba686fb52b77fd7"
+    },
+    "study-navigation-windows-runtime.log.txt": {
+      "bytes": 13767,
+      "sha256": "797eef7d08bf547647e1aab8428c5e8c995536f8e903f275b02612158d1f9c64"
+    },
+    "study-navigation-workspace.log.txt": {
+      "bytes": 334,
+      "sha256": "d45526cc8a37f169f0b9b79bd4bb57e1505ab87d487c78d95114475c2922de65"
+    }
+  }
+}

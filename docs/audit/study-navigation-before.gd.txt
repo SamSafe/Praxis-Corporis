@@ -1,0 +1,45 @@
+extends SceneTree
+
+func _initialize() -> void:
+	call_deferred("run")
+
+func key(code: int) -> void:
+	var event := InputEventKey.new()
+	event.keycode = code
+	event.pressed = true
+	root.push_input(event)
+	await process_frame
+	event = event.duplicate()
+	event.pressed = false
+	root.push_input(event)
+	await process_frame
+
+func report(label: String, viewer: Control) -> void:
+	var focus := root.gui_get_focus_owner()
+	print(label, " · step ", viewer.guided_chest.step, " · route ", viewer.guided_chest.route_node,
+		" · scene focused ", viewer.scene_container.has_focus(), " · Next focused ", viewer.guided_chest.next.has_focus(),
+		" · Previous focused ", viewer.guided_chest.previous.has_focus(), " · focus class ", focus.get_class() if focus else "none")
+
+func run() -> void:
+	var viewer = load("res://scenes/main.tscn").instantiate()
+	root.add_child(viewer)
+	await process_frame
+	while viewer.loading:
+		await process_frame
+	viewer.start_guided_chest()
+	viewer.guided_chest.next.grab_focus()
+	await key(KEY_ENTER)
+	report("After Next with Enter", viewer)
+	await key(KEY_ENTER)
+	report("After Enter again without retabbing", viewer)
+	await viewer.finish_guided_chest()
+	viewer.start_circulation_route()
+	viewer.guided_chest.branches.get_child(0).grab_focus()
+	await key(KEY_ENTER)
+	report("After route Next with Enter", viewer)
+	await key(KEY_ENTER)
+	report("After route Enter again without retabbing", viewer)
+	await viewer.finish_guided_chest()
+	viewer.queue_free()
+	await process_frame
+	quit()

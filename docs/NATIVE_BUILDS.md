@@ -14,13 +14,14 @@ portable views and four independent spinal source studies.
 
 The generated archives are excluded from Git:
 
-- Windows x64: dist/coverage-keyboard-final/PraxisCorporis-Windows-x64-private.zip
-- Mac Intel/Apple Silicon: dist/coverage-keyboard-final/PraxisCorporis-macOS-universal-private.zip
+- Windows x64: dist/study-navigation-improvements/PraxisCorporis-Windows-x64-private.zip
+- Mac Intel/Apple Silicon: dist/study-navigation-improvements/PraxisCorporis-macOS-universal-private.zip
 
 Earlier archives retain their previous source identities and their review-label
-corrections. Use the coverage-keyboard-final build report when verifying the new archives.
-[Coverage keyboard and package verification](audit/COVERAGE_KEYBOARD_VERIFICATION.md)
-records their exact hashes, seven-reference keyboard/workspace checks, early-close checks,
+corrections. Use the study-navigation-improvements build report when verifying the new archives.
+[Study navigation and package verification](audit/STUDY_NAVIGATION_VERIFICATION.md)
+records their exact hashes, study navigation in both HRA references, seven-reference
+workspace checks, early-close checks,
 four normal launches and remaining Mac/human limits. The Linux-template qualification
 is recorded separately; it is not a clean passing platform check.
 

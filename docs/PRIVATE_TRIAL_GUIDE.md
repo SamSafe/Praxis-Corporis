@@ -57,6 +57,9 @@ Also try the new [study workspace](STUDY_WORKSPACE.md) tasks:
 
 - Follow all six Guided chest steps in both HRA bodies. Finish and check that your
   original edits/camera return; try the guide in expanded anatomy.
+- Focus Next and press Enter through the chest steps. Check that focus reaches
+  Finish at the end and returns to 3D after restoring. In Heart ↔ lungs, use Tab at
+  the lung choices and Enter to follow either branch; retrace it with Previous.
 - Read a heart/valve/lung card, follow a related-structure link, and open a source.
 - Follow Heart ↔ lungs through each branch. Use Previous to change branches, read
   the lung/systemic coverage gaps, and finish to recover your starting view.

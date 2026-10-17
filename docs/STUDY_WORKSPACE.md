@@ -54,6 +54,11 @@ anatomy. Six steps show chest context, supplied heart parts, separated chamber m
 a supplied valve, both lungs, and chest context again. Use Previous/Next while freely
 orbiting, selecting and inspecting the supplied geometry.
 
+Next and Previous keep keyboard focus as the step changes, so Enter continues
+without repeatedly finding the action. At the last step, focus moves to
+**Finish and restore**. Returning to the first step focuses Next when Previous
+becomes unavailable. Finishing returns focus to the 3D view.
+
 The chamber layout is a teaching displacement, with blue original-position ghosts.
 It is not a pathological model or a validated anatomical cutaway. Each step resets
 the temporary teaching edits. **Finish and restore** restores the starting camera,
@@ -72,6 +77,9 @@ The authored sequence visits the vena cava, right heart, pulmonary vessels, lung
 left heart and aorta before a conceptual return through the body. At the pulmonary
 trunk, choose either lung branch. **Previous** retraces the branch you took; at the
 branch choice you can try the other lung. Every step links its supporting source.
+Following a route button focuses the next available route action. At the two lung
+choices, Tab focuses the other branch; Enter follows the focused choice. Previous
+keeps focus while retracing steps, or returns it to the forward action at the start.
 
 Source selections are mapped separately to the exact female and male records,
 including source names and ontology IDs. A mismatched record disables the route.
@@ -322,6 +330,7 @@ godot --headless --path . --script tests/keyboard_movement_smoke.gd
 godot --headless --path . --script tests/camera_zoom_smoke.gd
 godot --headless --path . --script tests/zoom_workspace_smoke.gd
 godot --headless --path . --script tests/coverage_keyboard_smoke.gd
+godot --headless --path . --script tests/study_navigation_smoke.gd
 godot --headless --path . --script tests/pointer_interruption_smoke.gd
 godot --headless --path . --script tests/pointer_workspace_smoke.gd
 godot --headless --path . --script tests/information_dialog_smoke.gd
@@ -344,7 +353,7 @@ preview. Running it with a desktop display also captures the new screens under
 reconstructed collision vertices with source mesh faces. The exported runtime checks
 portable views/notes, preferences and reversible guide state in disposable files.
 Device trials and qualified medical review remain separate from scripted verification.
-[Verification and current private packages](audit/COVERAGE_KEYBOARD_VERIFICATION.md)
+[Verification and current private packages](audit/STUDY_NAVIGATION_VERIFICATION.md)
 retain exact build identities, native Windows evidence, saved-view recovery/search/draft
 and deletion-undo checks, study-preserving cancellation and normal-launch reference/window restoration observations. [Draft content verification](audit/DRAFT_CONTENT_VERIFICATION.md)
 records the learning-content review-stage correction and valve-reference checks.

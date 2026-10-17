@@ -78,7 +78,8 @@ An optional BodyParts3D male bone study adds separately selectable source bones 
 its own unregistered reference. [Source audit and preparation](docs/audit/BODYPARTS3D_FINDINGS.md).
 Fifteen draft heart/lung study cards now include related-structure
 links and primary sources. A six-step Guided chest view includes reversible chamber
-separation. A sourced Heart ↔ lungs route offers either lung branch, explicit
+separation. Study navigation keeps keyboard focus as you advance; finishing returns
+focus to 3D. A sourced Heart ↔ lungs route offers either lung branch, explicit
 coverage gaps and exact starting-view restoration. Saved views and notes can be exported/imported with a compatibility
 preview. Text size, panel layout, rendering quality and label preferences are retained.
 Normal launches also remember window size and maximized state, with size bounds
@@ -92,7 +93,7 @@ reference anatomy, with explicit depiction limits; human source and medical revi
 Precise keyboard movement supports 5 mm and 1 mm inspection steps with undo/redo.
 Four separate HRA v1.2 spinal-cord/vertebra studies add 108 source meshes across both
 sexes, without registering them to the original bodies. [Study workspace guide](docs/STUDY_WORKSPACE.md),
-[verification and private packages](docs/audit/COVERAGE_KEYBOARD_VERIFICATION.md).
+[verification and private packages](docs/audit/STUDY_NAVIGATION_VERIFICATION.md).
 Pathological geometry, validated cutaways and physiological simulation are future work.
 Private Windows/macOS ZIPs are generated locally under dist/. Target-device testing,
 public signing/notarization, and baseline-laptop performance remain open.

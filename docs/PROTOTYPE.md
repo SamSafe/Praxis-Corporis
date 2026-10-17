@@ -362,12 +362,14 @@ text is selected, preserving the current anatomy view.
 - Source labels, grouping and ontology fields remain draft import metadata.
 - Heart parts exist, but prepared cutaways, caps, reviewed interiors and tissue
   explanations are not implemented.
-- There is no authored disease list, comparison, injury simulation, animation or
-  reviewed heart–lung pathway. Vessel geometry alone is not a route graph.
+- Two draft valve-condition summaries and an unreviewed conceptual heart–lung route
+  are available. Pathological geometry, disease comparisons, injury simulation and
+  physiological animation are not implemented.
 - Source labels remain unreviewed. Broader system sets, authored label anchors,
   comprehensive visibility sampling and fully stable layout during motion remain work.
-- Movement is a camera-plane inspection displacement with optional original-position
-  overlays. Handles and guided exploded views remain future work.
+- Movement is an inspection displacement with optional original-position overlays.
+  Guided chest adds a temporary chamber teaching layout; transformation handles
+  remain future work.
 - No signed Windows or Mac installer, minimum-hardware claim, qualified medical
   review, accessibility acceptance or public-release readiness is established.
 
