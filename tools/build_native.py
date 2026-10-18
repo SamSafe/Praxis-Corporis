@@ -15,6 +15,8 @@ import subprocess
 import tempfile
 import zipfile
 
+from native_sources import SNAPSHOT_VERSION, discover_sources
+
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 
 
@@ -196,10 +198,11 @@ def ensure_unchanged_sources(recorded: dict, root: pathlib.Path = ROOT) -> None:
         if not path.is_file() or sha256(path) != expected:
             raise ValueError("Runtime source changed during build: " + relative
                              + ". Rebuild before using these archives.")
-    scripts = {path.relative_to(root).as_posix() for path in (root / "scripts").glob("*.gd")}
-    recorded_scripts = {name for name in recorded if name.startswith("scripts/") and name.endswith(".gd")}
-    if scripts != recorded_scripts:
-        raise ValueError("Runtime scripts changed during build. Rebuild before using these archives.")
+    actual = discover_sources(root)
+    if actual != set(recorded):
+        changed = sorted(actual ^ set(recorded))
+        raise ValueError("Runtime source file set changed during build: " + ", ".join(changed[:5])
+                         + ". Import the project, retain generated UIDs and rebuild before using these archives.")
 
 
 def build(args: argparse.Namespace) -> dict:
@@ -210,15 +213,8 @@ def build(args: argparse.Namespace) -> dict:
     report = {"engine": version, "content_pack": "hra-united-v1-1-prototype-1", "artifacts": [],
               "target_device_testing": "pending", "publication": "local private artifacts only"}
     report["source_revision"] = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
-    report["source_hashes"] = {path.relative_to(ROOT).as_posix(): sha256(path) for path in
-                               [ROOT / "project.godot", ROOT / "export_presets.cfg", ROOT / "content/sample_pack.json",
-                                ROOT / "content/source_manifest.json", ROOT / "content/toolchain_manifest.json",
-                                ROOT / "content/coverage_notes.json",
-                                ROOT / "content/reference_frames.json", ROOT / "content/study_content.json",
-                                ROOT / "content/spinal_studies.json", ROOT / "content/spinal_source_manifest.json",
-                                ROOT / "content/bodyparts3d_bone_study.json", ROOT / "content/bodyparts3d_source_manifest.json",
-                                ROOT / "addons/private_native_export/plugin.gd",
-                                *sorted((ROOT / "scripts").glob("*.gd"))]}
+    report["source_snapshot_version"] = SNAPSHOT_VERSION
+    report["source_hashes"] = {name: sha256(ROOT / name) for name in sorted(discover_sources(ROOT))}
     with tempfile.TemporaryDirectory(prefix="native-build-", dir=args.output) as workspace:
         temporary = pathlib.Path(workspace)
         data_pack = temporary / "anatomy.pck"

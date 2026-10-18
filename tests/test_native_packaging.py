@@ -14,6 +14,7 @@ import zipfile
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 from build_native import binary_architectures, ensure_unchanged_sources, make_zip, run, sha256, unpack_zip
+from native_sources import discover_sources
 
 
 class NativePackagingTests(unittest.TestCase):
@@ -60,8 +61,50 @@ class NativePackagingTests(unittest.TestCase):
             script.write_text("original script")
             recorded = {"scripts/viewer.gd": sha256(script)}
             (root / "scripts/added.gd").write_text("new runtime resource")
-            with self.assertRaisesRegex(ValueError, "Runtime scripts changed"):
+            with self.assertRaisesRegex(ValueError, "Runtime source file set changed"):
                 ensure_unchanged_sources(recorded, root)
+
+    def test_scene_uid_and_plugin_changes_cannot_finish_a_build(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = pathlib.Path(folder)
+            names = ['scenes/main.tscn', 'scenes/nested/panel.tres', 'scripts/viewer.gd.uid',
+                     'addons/private_native_export/plugin.cfg', 'tools/pack_anatomy.gd']
+            for name in names:
+                path = root / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text('original ' + name)
+            recorded = {name: sha256(root / name) for name in discover_sources(root)}
+            ensure_unchanged_sources(recorded, root)
+            for name in names:
+                with self.subTest(name=name):
+                    path = root / name
+                    original = path.read_bytes()
+                    path.write_text('changed during export')
+                    with self.assertRaisesRegex(ValueError, name):
+                        ensure_unchanged_sources(recorded, root)
+                    path.unlink()
+                    with self.assertRaisesRegex(ValueError, name):
+                        ensure_unchanged_sources(recorded, root)
+                    path.write_bytes(original)
+            ensure_unchanged_sources(recorded, root)
+
+    def test_new_nested_resources_and_uids_invalidate_snapshot_but_docs_do_not(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = pathlib.Path(folder)
+            (root / 'project.godot').write_text('original project')
+            recorded = {'project.godot': sha256(root / 'project.godot')}
+            for name in ['scripts/nested/added.gd', 'scenes/new.tscn', 'scripts/new.gd.uid',
+                         'content/new.json', 'addons/private_native_export/extra.cfg']:
+                with self.subTest(name=name):
+                    path = root / name
+                    path.parent.mkdir(parents=True, exist_ok=True)
+                    path.write_text('added during export')
+                    with self.assertRaisesRegex(ValueError, 'source file set changed'):
+                        ensure_unchanged_sources(recorded, root)
+                    path.unlink()
+            (root / 'docs').mkdir()
+            (root / 'docs/review.md').write_text('Independent review notes')
+            ensure_unchanged_sources(recorded, root)
 
     def test_mac_executable_permissions_survive_archive_round_trip(self):
         with tempfile.TemporaryDirectory() as folder:

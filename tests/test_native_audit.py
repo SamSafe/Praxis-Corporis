@@ -13,12 +13,18 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'tools'))
 from audit_native import FIXED_SOURCES, NOTICES, TARGETS, audit, source_snapshot
 from build_native import make_zip, sha256
+from native_sources import SNAPSHOT_VERSION
 
 
-def fixture(root, mac=False):
+def fixture(root, mac=False, modern=False):
     repository = root / 'repository'
     repository.mkdir()
     sources = FIXED_SOURCES | {'scripts/viewer.gd'}
+    if modern:
+        sources |= {'scenes/main.tscn', 'scenes/nested/panel.tres', 'scripts/viewer.gd.uid',
+                    'scripts/nested/extra.gd', 'scripts/nested/extra.gd.uid',
+                    'addons/private_native_export/plugin.cfg', 'addons/private_native_export/plugin.gd.uid',
+                    'tools/native_sources.py', 'tools/build_native.py', 'tools/pack_anatomy.gd'}
     for relative in sources | set(NOTICES.values()):
         path = repository / relative
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -63,6 +69,8 @@ def fixture(root, mac=False):
     item = {'file': name, 'architectures': TARGETS[name], 'bytes': archive.stat().st_size, 'sha256': sha256(archive)}
     report = {'source_revision': revision, 'source_hashes': {p: sha256(repository / p) for p in sources},
               'artifacts': [item], 'anatomy_package': {'bytes': len(anatomy), 'sha256': hashlib.sha256(anatomy).hexdigest()}}
+    if modern:
+        report['source_snapshot_version'] = SNAPSHOT_VERSION
     return repository, folder, archive, report, modes
 
 
@@ -71,6 +79,29 @@ def refresh(archive, report):
 
 
 class NativeAuditTests(unittest.TestCase):
+    def test_modern_snapshot_requires_scenes_uids_nested_resources_and_build_inputs(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            repository, _, _, report, _ = fixture(pathlib.Path(temporary), modern=True)
+            self.assertEqual(source_snapshot(report, repository), report['source_revision'])
+            result = audit(report, pathlib.Path(temporary), repository)
+            self.assertEqual(result['source_snapshot_version'], SNAPSHOT_VERSION)
+            for name in ['scenes/main.tscn', 'scenes/nested/panel.tres', 'scripts/viewer.gd.uid',
+                         'scripts/nested/extra.gd', 'addons/private_native_export/plugin.cfg',
+                         'tools/native_sources.py', 'tools/build_native.py', 'tools/pack_anatomy.gd']:
+                with self.subTest(name=name):
+                    bad = copy.deepcopy(report)
+                    bad['source_hashes'].pop(name)
+                    with self.assertRaisesRegex(ValueError, 'required runtime files'):
+                        source_snapshot(bad, repository)
+            for version in [None, 1, 3]:
+                bad = copy.deepcopy(report)
+                if version is None:
+                    bad.pop('source_snapshot_version')
+                else:
+                    bad['source_snapshot_version'] = version
+                with self.assertRaisesRegex(ValueError, 'snapshot version 2'):
+                    source_snapshot(bad, repository)
+
     def test_source_record_requires_every_runtime_file_and_the_committed_bytes(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = pathlib.Path(temporary)
@@ -104,7 +135,10 @@ class NativeAuditTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temporary:
             root = pathlib.Path(temporary)
             repository, folder, archive, report, modes = fixture(root)
-            self.assertEqual(audit(report, root, repository)['artifacts'][0]['crc'], 'passed every extracted entry')
+            result = audit(report, root, repository)
+            self.assertEqual(result['artifacts'][0]['crc'], 'passed every extracted entry')
+            self.assertEqual(result['source_snapshot_version'], 1)
+            self.assertIn('startup scene and UIDs were not recorded', result['source_snapshot_scope'])
             notice = folder / 'NOTICES/HRA-LICENSE.txt'
             original = notice.read_bytes()
             notice.write_bytes(b'Changed notice')

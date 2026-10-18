@@ -12,6 +12,7 @@ import tempfile
 import zipfile
 
 from build_native import ROOT, binary_architectures, sha256, unpack_zip
+from native_sources import SNAPSHOT_VERSION, source_paths
 
 FIXED_SOURCES = {
     'project.godot', 'export_presets.cfg', 'content/sample_pack.json', 'content/source_manifest.json',
@@ -43,7 +44,14 @@ def source_snapshot(report: dict, repository: pathlib.Path = ROOT) -> str:
     # present in that commit without silently redefining historical packages.
     additional = {'content/reference_frames.json', 'content/study_content.json',
                   'content/spinal_studies.json', 'content/spinal_source_manifest.json'} & set(tracked)
-    if not scripts or set(report['source_hashes']) != FIXED_SOURCES | scripts | additional:
+    required = FIXED_SOURCES | scripts | additional
+    if 'tools/native_sources.py' in tracked:
+        if report.get('source_snapshot_version') != SNAPSHOT_VERSION:
+            raise ValueError('This source revision requires native source snapshot version 2')
+        required = source_paths(tracked)
+    elif report.get('source_snapshot_version', 1) != 1:
+        raise ValueError('Historical source revisions require their original snapshot version')
+    if not scripts or set(report['source_hashes']) != required:
         raise ValueError('Source snapshot omits or changes the set of required runtime files')
     for relative, expected in report['source_hashes'].items():
         if hashlib.sha256(git_bytes(repository, revision, relative)).hexdigest() != expected:
@@ -102,6 +110,10 @@ def audit(report: dict, directory: pathlib.Path, repository: pathlib.Path = ROOT
         artifacts.append(dict(item, crc='passed every extracted entry', notices='all match committed source', content=content_check))
     return {'schema_version': 1, 'recorded_at_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(),
             'source_snapshot_verified_against_revision': revision, 'runtime_source_files': len(report['source_hashes']),
+            'source_snapshot_version': report.get('source_snapshot_version', 1),
+            'source_snapshot_scope': ('Project/export configuration, resource directories, UIDs and native build inputs.'
+                                      if report.get('source_snapshot_version') == SNAPSHOT_VERSION else
+                                      'Legacy recorded scripts/configuration/content; startup scene and UIDs were not recorded.'),
             'auditor_sha256': sha256(pathlib.Path(__file__)), 'artifacts': artifacts,
             'scope': 'Archive/source audit only; native execution, resource-boundary checks, content fidelity and device performance have separate evidence.'}
 
