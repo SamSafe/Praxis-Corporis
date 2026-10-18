@@ -1,0 +1,61 @@
+extends SceneTree
+
+const SavedViews = preload("res://scripts/saved_views.gd")
+const Browser = preload("res://scripts/saved_views_browser.gd")
+
+func _initialize() -> void:
+	call_deferred("run")
+
+func run() -> void:
+	var viewer = load("res://scenes/main.tscn").instantiate()
+	root.add_child(viewer)
+	await process_frame
+	while viewer.loading:
+		await process_frame
+	var library := SavedViews.new()
+	library.path = "user://note-selection-probe-" + Crypto.new().generate_random_bytes(16).hex_encode() + ".json"
+	library.load_library()
+	library.add_view("Second", viewer.export_view_state())
+	library.add_view("First", viewer.export_view_state())
+	library.update_notes({library.entries[0].id: "First line\nSecond line", library.entries[1].id: "First line\nSecond line"})
+	var browser := Browser.new()
+	browser.library = library
+	browser.pack = viewer.pack
+	browser.current_state = viewer.export_view_state()
+	browser.validate_state = viewer.validate_view_state
+	browser.theme = viewer.theme
+	viewer.add_child(browser)
+	browser.popup_centered_clamped(Vector2i(920, 620), 0.9)
+	browser.view_list.select(0)
+	browser.select_entry(0)
+	browser.notes_input.grab_focus()
+	browser.notes_input.set_caret_line(0)
+	browser.notes_input.set_caret_column(2)
+	browser.notes_input.add_caret(1, 3)
+	print("First note carets: ", browser.notes_input.get_caret_count())
+	browser.view_list.grab_focus()
+	await process_frame
+	var key: InputEventKey = InputMap.action_get_events("ui_down")[0].duplicate()
+	key.pressed = true
+	browser.push_input(key)
+	await process_frame
+	key = key.duplicate()
+	key.pressed = false
+	browser.push_input(key)
+	await process_frame
+	print("Second note selected: ", browser.editing_id == library.entries[1].id)
+	browser.notes_input.grab_focus()
+	print("Second note carets: ", browser.notes_input.get_caret_count())
+	key = InputEventKey.new()
+	key.keycode = KEY_X
+	key.unicode = 120
+	key.pressed = true
+	browser.push_input(key)
+	await process_frame
+	print("Second note after typing: ", browser.notes_input.text)
+	browser.queue_free()
+	for suffix in ["", ".bak", ".tmp", ".bak.tmp"]:
+		DirAccess.remove_absolute(library.path + suffix)
+	viewer.queue_free()
+	await process_frame
+	quit()

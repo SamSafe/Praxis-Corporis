@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "source_revision": "c6830a05cfce1a6e54a344c4f4d73388dab900be",
+  "python_checks": 85,
+  "native_note_caret_references": [
+    "female",
+    "male",
+    "bodyparts-male-bones-study",
+    "hra-v1-2-female-cord-study",
+    "hra-v1-2-female-vertebrae-study",
+    "hra-v1-2-male-cord-study",
+    "hra-v1-2-male-vertebrae-study"
+  ],
+  "note_caret_contexts": 28,
+  "native_capture_identities": 107,
+  "native_identical_scene_pairs": 543,
+  "native_normal_launches": 4,
+  "native_early_closes": 2,
+  "native_session_independently_checked_absent": true,
+  "mac_content_qa": "Passed on development engine; actual Mac execution pending.",
+  "files": {
+    "note-carets-after.log.txt": {
+      "bytes": 273,
+      "sha256": "a231ff7ac000adafe9b33a123041b10eef55d5ef4b91f5594150eb3b14e58c0e"
+    },
+    "note-carets-artifact-audit.json": {
+      "bytes": 1346,
+      "sha256": "0a25be515f1e7ee103c2f7eee8445f0340328acd4b68a56a87803fe3dee5c7f7"
+    },
+    "note-carets-before.log.txt": {
+      "bytes": 274,
+      "sha256": "23808d6c09e77b3295c9d908eba55dca879dc63fc3fb7253c8c408c8f72afd80"
+    },
+    "note-carets-build-report.json": {
+      "bytes": 5179,
+      "sha256": "4de49ab054efd2ad7e9b6e8688f96fbd9b136a10de68c1bc9f77ec4709c4420a"
+    },
+    "note-carets-build.log.txt": {
+      "bytes": 14765,
+      "sha256": "b385c58175bee58a008a94b231e9aaf4a7eccaa232e5b17bdc68c29a8d8e046c"
+    },
+    "note-carets-development-qa.json": {
+      "bytes": 1914,
+      "sha256": "c0845a0b23bfcf3a692916c8b0993a7dc5caf1f45a16fc11de07699138c5215d"
+    },
+    "note-carets-development.log.txt": {
+      "bytes": 1085,
+      "sha256": "0660fb675650549c38830c6e6e22d9a69dd380888078bba8eecddf16b2917558"
+    },
+    "note-carets-export.log.txt": {
+      "bytes": 1094,
+      "sha256": "908578f9240f35bfe7b53fc8d8b45f9519634785301d8af038230c90eff4a838"
+    },
+    "note-carets-history.log.txt": {
+      "bytes": 1094,
+      "sha256": "b467d23e87c6d7647fba0096ce2c85d5eec3cf31db78d1327d08036c977e3d03"
+    },
+    "note-carets-native-initial-anatomy.log.txt": {
+      "bytes": 443,
+      "sha256": "8609cc6375c8455051b909771503bdf27437ddc36b7b3bb95349c6e05b414725"
+    },
+    "note-carets-native-replacement-selection.log.txt": {
+      "bytes": 527,
+      "sha256": "fa9768bccc2a88a390e1c589f60aaed79c74eab847e8cc8e93fe66c12de09c45"
+    },
+    "note-carets-normal-lifecycle.json": {
+      "bytes": 1648,
+      "sha256": "414fba2ca285882a1f0bad957fac189f867cd0b592e2abd0123e5b8efdf0b4f3"
+    },
+    "note-carets-notes.log.txt": {
+      "bytes": 177,
+      "sha256": "e89f7c5de90cc39a1d72b787375871c0deb5a8f51f04a7541be0c4e44eb47c54"
+    },
+    "note-carets-probe.gd.txt": {
+      "bytes": 2182,
+      "sha256": "067c3aec88fa725fa960f10d84489f00df99678d5cb3ccbf70b5166c38692317"
+    },
+    "note-carets-python.log.txt": {
+      "bytes": 15202,
+      "sha256": "06aabc5afc95073fecdef6b1f4e0cb217d490f0830c1b6aa325f9253b19e080b"
+    },
+    "note-carets-scene-render-bodyparts-male-bones-study.json": {
+      "bytes": 26573,
+      "sha256": "11e5c47690ecd456db0fccb682ee65a96a6af091c9edb4a54b22ac2ac3bc03e8"
+    },
+    "note-carets-scene-render-female.json": {
+      "bytes": 27237,
+      "sha256": "82f1526522e0e47bfe2e2ec22b4c2c9ea31a21924347d0ce62be66bd1cf4a11f"
+    },
+    "note-carets-scene-render-hra-v1-2-female-cord-study.json": {
+      "bytes": 26573,
+      "sha256": "6a089090f852c3c860ec50dd3933b5aa746af61fcc5c74e155295801d6751b7a"
+    },
+    "note-carets-scene-render-hra-v1-2-female-vertebrae-study.json": {
+      "bytes": 26578,
+      "sha256": "0668996e6ddd802a82e24757b630d901541ba46cf0eb0e9824600d98331551bd"
+    },
+    "note-carets-scene-render-hra-v1-2-male-cord-study.json": {
+      "bytes": 26571,
+      "sha256": "070d25ce20074148758d2bd7d8c9fe90e5d8574510234b273ede56690aac7ff1"
+    },
+    "note-carets-scene-render-hra-v1-2-male-vertebrae-study.json": {
+      "bytes": 26576,
+      "sha256": "aefcb64e84623bd7e6da339767b9a73562fa56d837724ec7d210c041897a1c9a"
+    },
+    "note-carets-scene-render-male.json": {
+      "bytes": 27235,
+      "sha256": "d508d10102d846284032697befca448fcb2e6e02dea6b721d049e3e0138300e1"
+    },
+    "note-carets-windows-qa.json": {
+      "bytes": 40101,
+      "sha256": "71474a186e14445b7ddf4a39423eb0c9ef5904f6f4fa449b5f76e04a308276d0"
+    },
+    "note-carets-windows-runtime.log.txt": {
+      "bytes": 19624,
+      "sha256": "8c4bf96ec8b2102f72914558726d9f56fe24bf0b159284714151ee7200d9f377"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "source_revision": "c6830a05cfce1a6e54a344c4f4d73388dab900be",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "before_revision": "4b23c93c967138d775839667df5daadaf66f7e13",
+  "python_checks": 85,
+  "checks": [
+    {
+      "script": "tests/note_carets_smoke.gd",
+      "script_sha256": "b9d48189c87fe067327fd5f00a306f63d27874f7884e860a08d5b6825754691c",
+      "log": "note-carets-development.log.txt",
+      "log_sha256": "0660fb675650549c38830c6e6e22d9a69dd380888078bba8eecddf16b2917558",
+      "success_marker": "Note caret failures: 0"
+    },
+    {
+      "script": "tests/note_history_smoke.gd",
+      "script_sha256": "2caeeb14709be39aa1d521f5ee4b00e85a73c1d3ab0b0a789c4e667cf51a220f",
+      "log": "note-carets-history.log.txt",
+      "log_sha256": "b467d23e87c6d7647fba0096ce2c85d5eec3cf31db78d1327d08036c977e3d03",
+      "success_marker": "Note history failures: 0"
+    },
+    {
+      "script": "tests/study_notes_smoke.gd",
+      "script_sha256": "83dd815eb82e972d6ac5d1ad0d7da9601ef61c30e419d73521da957be3f544b3",
+      "log": "note-carets-notes.log.txt",
+      "log_sha256": "e89f7c5de90cc39a1d72b787375871c0deb5a8f51f04a7541be0c4e44eb47c54",
+      "success_marker": "Study notes failures: 0"
+    },
+    {
+      "script": "tests/draft_export_smoke.gd",
+      "script_sha256": "9ebda7f13e53320b9827de8898f441849445b2a663c2025ded60a04d786336c3",
+      "log": "note-carets-export.log.txt",
+      "log_sha256": "908578f9240f35bfe7b53fc8d8b45f9519634785301d8af038230c90eff4a838",
+      "success_marker": "Draft export failures: 0"
+    }
+  ],
+  "references": 7,
+  "contexts": 28,
+  "fixture": "Three saved notes per disposable library; multiline, Unicode, combining characters and emoji.",
+  "input": "API setup of two real editor carets; configured list navigation, text selection and Undo plus ordinary character-key events through the browser window. No clipboard operations."
+}
