@@ -314,6 +314,9 @@ choose **Save notes**. Notes are plain local text, up to 10,000 characters per v
 they do not modify the body snapshot or provide authored disease information.
 Creating another view starts with empty notes. Selecting a different view preserves
 any unsaved drafts until you return to them.
+The note editor's Undo/Redo applies to the selected saved view. Switching views
+starts fresh editor history, including when both notes have identical text.
+Filtering, renaming or saving the same selected note keeps its Undo/Redo history.
 
 Search the library by view name or note text, including drafts. **Ctrl+F** focuses
 search, **Enter** selects a matching row, and **Escape** clears a nonempty focused

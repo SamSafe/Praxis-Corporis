@@ -1,0 +1,46 @@
+extends SceneTree
+
+const SavedViews = preload("res://scripts/saved_views.gd")
+const Browser = preload("res://scripts/saved_views_browser.gd")
+
+func _initialize() -> void:
+	call_deferred("run")
+
+func run() -> void:
+	var viewer = load("res://scenes/main.tscn").instantiate()
+	root.add_child(viewer)
+	await process_frame
+	while viewer.loading:
+		await process_frame
+	var library := SavedViews.new()
+	library.path = "user://note-undo-probe-" + Crypto.new().generate_random_bytes(16).hex_encode() + ".json"
+	library.load_library()
+	library.add_view("First", viewer.export_view_state())
+	library.add_view("Second", viewer.export_view_state())
+	library.set_notes(library.entries[0].id, "Review")
+	library.set_notes(library.entries[1].id, "Review!")
+	var browser := Browser.new()
+	browser.library = library
+	browser.pack = viewer.pack
+	browser.current_state = viewer.export_view_state()
+	browser.validate_state = viewer.validate_view_state
+	browser.theme = viewer.theme
+	viewer.add_child(browser)
+	browser.view_list.select(0)
+	browser.select_entry(0)
+	browser.notes_input.set_caret_column(6)
+	browser.notes_input.insert_text_at_caret("!")
+	await process_frame
+	print("First draft: ", browser.notes_input.text, " undo=", browser.notes_input.has_undo())
+	browser.view_list.select(1)
+	browser.select_entry(1)
+	print("Second before Undo: ", browser.notes_input.text, " undo=", browser.notes_input.has_undo())
+	browser.notes_input.undo()
+	await process_frame
+	print("Second after Undo: ", browser.notes_input.text, " draft=", browser.draft_notes.has(library.entries[1].id))
+	browser.queue_free()
+	for suffix in ["", ".bak", ".tmp", ".bak.tmp"]:
+		DirAccess.remove_absolute(library.path + suffix)
+	viewer.queue_free()
+	await process_frame
+	quit()

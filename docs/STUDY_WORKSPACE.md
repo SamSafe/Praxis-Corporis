@@ -184,6 +184,11 @@ add no inspection edit or undo step.
 
 ## Portable saved views
 
+Note-editor Undo/Redo belongs to the selected saved view. Switching views starts
+fresh editor history even if the displayed notes match; their unfinished text
+remains attached to each view. Filtering, renaming and saving the same note retain
+its editor history, so Undo after Save can create another draft.
+
 In **Saved views**, the search field finds view names, saved notes, unsaved note
 drafts, reference names and selected anatomy names/source IDs. Ontology IDs work
 with or without their colon. Words can appear in any order and combine these
@@ -423,7 +428,7 @@ preview. Running it with a desktop display also captures the new screens under
 reconstructed collision vertices with source mesh faces. The exported runtime checks
 portable views/notes, preferences and reversible guide state in disposable files.
 Device trials and qualified medical review remain separate from scripted verification.
-[Verification and current private packages](audit/IDLE_RENDER_VERIFICATION.md)
+[Verification and current private packages](audit/NOTE_HISTORY_VERIFICATION.md)
 retain exact build identities, native Windows evidence, saved-view recovery/search/draft
 and deletion-undo checks, study-preserving cancellation and normal-launch reference/window restoration observations. [Draft content verification](audit/DRAFT_CONTENT_VERIFICATION.md)
 records the learning-content review-stage correction and valve-reference checks.

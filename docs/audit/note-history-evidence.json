@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "source_revision": "00df914362d2fafb24a7ba30a7171adf064c2355",
+  "python_checks": 84,
+  "native_note_history_references": [
+    "female",
+    "male",
+    "bodyparts-male-bones-study",
+    "hra-v1-2-female-cord-study",
+    "hra-v1-2-female-vertebrae-study",
+    "hra-v1-2-male-cord-study",
+    "hra-v1-2-male-vertebrae-study"
+  ],
+  "note_history_contexts": 28,
+  "native_capture_identities": 107,
+  "native_identical_scene_pairs": 543,
+  "native_normal_launches": 4,
+  "native_early_closes": 2,
+  "native_session_independently_checked_absent": true,
+  "mac_content_qa": "Passed on development engine; actual Mac execution pending.",
+  "files": {
+    "note-history-after.log.txt": {
+      "bytes": 262,
+      "sha256": "8da4e45f5ab4e82db8b2b77e63d844b23da53423ec16eb0c47b0464afddf550f"
+    },
+    "note-history-artifact-audit.json": {
+      "bytes": 1346,
+      "sha256": "9c259f07f88462990db33830ad012758a4108618501254bcb8a3b02226533734"
+    },
+    "note-history-before.log.txt": {
+      "bytes": 259,
+      "sha256": "f18cee3c60ac2d269183a6142ec25d4cd5fa23c1936234b21e0c9ff365066cca"
+    },
+    "note-history-build-report.json": {
+      "bytes": 5179,
+      "sha256": "17ad0769451a738a18398e34fd437b584f3edd24f487b45ee7cbbbd4abfc69b6"
+    },
+    "note-history-build.log.txt": {
+      "bytes": 14436,
+      "sha256": "aa545685aadf8657b58cfdd1588f894ed516c8a5038fcf33623f201093b17756"
+    },
+    "note-history-development-qa.json": {
+      "bytes": 1534,
+      "sha256": "fc754e592bb508ab6b46d36445c11ccdff14e484607b11a8436508049c16f0bc"
+    },
+    "note-history-development.log.txt": {
+      "bytes": 1094,
+      "sha256": "f238cf3fe0cfd344ef8978d26caf69682f9ac0ab4c69f5855c8701bab7e9716b"
+    },
+    "note-history-export.log.txt": {
+      "bytes": 1094,
+      "sha256": "fdecd939a8a11a82b4be007df8f752bb8143f17a4ef921e2e9c32ca358c4cc3f"
+    },
+    "note-history-native-initial-anatomy.log.txt": {
+      "bytes": 443,
+      "sha256": "03a32b5643847cc207122117e7375069878bea66bf407d255e36f876f67d215b"
+    },
+    "note-history-native-replacement-selection.log.txt": {
+      "bytes": 527,
+      "sha256": "ff393bb88049070654102dbcefde93f21a06654fede72d311d61c823fe874c4e"
+    },
+    "note-history-normal-lifecycle.json": {
+      "bytes": 1648,
+      "sha256": "414fba2ca285882a1f0bad957fac189f867cd0b592e2abd0123e5b8efdf0b4f3"
+    },
+    "note-history-notes.log.txt": {
+      "bytes": 177,
+      "sha256": "9f7106715371392201d42c042376724324bead0ff07202b7ee941c8ad77618e7"
+    },
+    "note-history-probe.gd.txt": {
+      "bytes": 1733,
+      "sha256": "2226424a7b2b01905b35ffe3e88ce918420d4ba49744a84a300f03ff282ce16b"
+    },
+    "note-history-python.log.txt": {
+      "bytes": 15050,
+      "sha256": "727dc592d75e646603e9ba78788376654bcfdcb841cc1ddbdc339bccb4478fb4"
+    },
+    "note-history-scene-render-bodyparts-male-bones-study.json": {
+      "bytes": 26573,
+      "sha256": "11e5c47690ecd456db0fccb682ee65a96a6af091c9edb4a54b22ac2ac3bc03e8"
+    },
+    "note-history-scene-render-female.json": {
+      "bytes": 27237,
+      "sha256": "82f1526522e0e47bfe2e2ec22b4c2c9ea31a21924347d0ce62be66bd1cf4a11f"
+    },
+    "note-history-scene-render-hra-v1-2-female-cord-study.json": {
+      "bytes": 26573,
+      "sha256": "6a089090f852c3c860ec50dd3933b5aa746af61fcc5c74e155295801d6751b7a"
+    },
+    "note-history-scene-render-hra-v1-2-female-vertebrae-study.json": {
+      "bytes": 26578,
+      "sha256": "0668996e6ddd802a82e24757b630d901541ba46cf0eb0e9824600d98331551bd"
+    },
+    "note-history-scene-render-hra-v1-2-male-cord-study.json": {
+      "bytes": 26571,
+      "sha256": "070d25ce20074148758d2bd7d8c9fe90e5d8574510234b273ede56690aac7ff1"
+    },
+    "note-history-scene-render-hra-v1-2-male-vertebrae-study.json": {
+      "bytes": 26576,
+      "sha256": "aefcb64e84623bd7e6da339767b9a73562fa56d837724ec7d210c041897a1c9a"
+    },
+    "note-history-scene-render-male.json": {
+      "bytes": 27235,
+      "sha256": "d508d10102d846284032697befca448fcb2e6e02dea6b721d049e3e0138300e1"
+    },
+    "note-history-windows-qa.json": {
+      "bytes": 39866,
+      "sha256": "a32c6191eaefa5d0c5b4dd49c528abf4a5911550684de0ed82aa668f9bd2763d"
+    },
+    "note-history-windows-runtime.log.txt": {
+      "bytes": 19289,
+      "sha256": "1c435796cd09a70887aacdb1e71170eb459d6bacd2ef48b7bef250c20664ec08"
+    }
+  }
+}

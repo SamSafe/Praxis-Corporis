@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "source_revision": "00df914362d2fafb24a7ba30a7171adf064c2355",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "before_revision": "56f286b2ff1bd7f567b7344133ed0c5530aa83f0",
+  "python_checks": 84,
+  "checks": [
+    {
+      "script": "tests/note_history_smoke.gd",
+      "script_sha256": "2caeeb14709be39aa1d521f5ee4b00e85a73c1d3ab0b0a789c4e667cf51a220f",
+      "log": "note-history-development.log.txt",
+      "log_sha256": "f238cf3fe0cfd344ef8978d26caf69682f9ac0ab4c69f5855c8701bab7e9716b",
+      "success_marker": "Note history failures: 0"
+    },
+    {
+      "script": "tests/study_notes_smoke.gd",
+      "script_sha256": "83dd815eb82e972d6ac5d1ad0d7da9601ef61c30e419d73521da957be3f544b3",
+      "log": "note-history-notes.log.txt",
+      "log_sha256": "9f7106715371392201d42c042376724324bead0ff07202b7ee941c8ad77618e7",
+      "success_marker": "Study notes failures: 0"
+    },
+    {
+      "script": "tests/draft_export_smoke.gd",
+      "script_sha256": "9ebda7f13e53320b9827de8898f441849445b2a663c2025ded60a04d786336c3",
+      "log": "note-history-export.log.txt",
+      "log_sha256": "fdecd939a8a11a82b4be007df8f752bb8143f17a4ef921e2e9c32ca358c4cc3f",
+      "success_marker": "Draft export failures: 0"
+    }
+  ],
+  "references": 7,
+  "contexts": 28,
+  "fixture": "Four saved notes per disposable library; ASCII, Unicode/combining, multiline and empty notes.",
+  "input": "TextEdit insertion followed by its configured Undo/Redo key events through the real browser window; no clipboard operations."
+}

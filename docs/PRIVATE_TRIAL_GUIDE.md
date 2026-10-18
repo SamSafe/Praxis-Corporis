@@ -47,6 +47,7 @@ restarting. Repeat the HRA tasks for both female and male references.
 | Revisit anatomy | Select the heart/lung and use Back/Forward. | Were camera and inspection changes retained as expected? |
 | Save two views | Give two different setups distinct names in Saved views. | Are reference and structure easy to distinguish? |
 | Add study notes | Select each saved view, save different notes, and reopen them. Try Keep editing after closing an unsaved draft. | Did text stay attached to the right view? Were the choices clear? |
+| Keep note Undo/Redo with its view | Edit one note until it matches another. Switch to the other note and try Undo/Redo. Return, make a new edit, then filter, rename and save that same view before Undo/Redo. | Does switching start fresh editor history while retaining drafts? Do refreshes and Save keep the same note's history? |
 | Find a saved view | Search a name, note word, selected anatomy name or source ID. Toggle This reference in a mixed-reference library. Filter away a draft, clear search and return to it. Try Ctrl/Cmd+F, Enter and Escape at 130% text. | Were context/counts clear, drafts retained and actions reachable in a small dialog? |
 | Reopen and restore | Close/reopen the app and restore a named isolated part. | Does Return to context still work? |
 | Export a screenshot | Save a PNG through the native picker, reopen it and check the source/status footer. Cancel another export. | Any missing label, clipped credit, unclear overwrite or changed session? |
