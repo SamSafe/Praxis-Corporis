@@ -291,7 +291,7 @@ def build(args: argparse.Namespace) -> dict:
                         required_marker="PASS standalone packed resource boundary")
                     run([args.godot, "--headless", "--audio-driver", "Dummy", "--main-pack", str(core_packs[0]),
                          "--", "--verify-bundle", "--verify-export-boundary"], cwd=folder, env=qa_environment,
-                        required_marker="PASS offline native bundle")
+                        required_marker="PASS offline native bundle", timeout=300)
                     report["mac_content_qa"] = "passed every bundled reference in embedded content on the development engine; Mac device testing pending"
                     report['mac_loading_shutdown_content_qa'] = check_loading_shutdown(
                         [args.godot, '--headless', '--audio-driver', 'Dummy', '--main-pack', str(core_packs[0])],
