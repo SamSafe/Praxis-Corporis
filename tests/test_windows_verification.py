@@ -26,6 +26,15 @@ def complete_log(rendered=True):
 
 
 class WindowsVerificationTests(unittest.TestCase):
+    def test_note_carets_require_all_reference_checks(self):
+        log = complete_log(False)
+        for reference in ['female', 'male', 'bodyparts-male-bones-study']:
+            with self.assertRaisesRegex(ValueError, 'note caret'):
+                parse_result(log, False, note_carets=True)
+            log += '\nPASS bundled note carets: ' + reference
+        self.assertEqual(parse_result(log, False, note_carets=True)['note_caret_references'],
+                         ['female', 'male', 'bodyparts-male-bones-study'])
+
     def test_note_history_requires_all_reference_checks(self):
         log = complete_log(False)
         for reference in ['female', 'male', 'bodyparts-male-bones-study']:

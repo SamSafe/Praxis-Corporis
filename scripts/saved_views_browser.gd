@@ -335,6 +335,11 @@ func select_entry(index: int) -> void:
 		notes_input.text = note
 	if previous_id != editing_id:
 		# Equal text can still belong to a different note; its edits must stay separate.
+		notes_input.start_action(TextEdit.ACTION_NONE)
+		notes_input.remove_secondary_carets()
+		notes_input.deselect()
+		notes_input.set_caret_line(0)
+		notes_input.set_caret_column(0)
 		notes_input.clear_undo_history()
 	syncing_notes = false
 	notes_input.editable = not unavailable

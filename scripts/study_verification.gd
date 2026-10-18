@@ -40,6 +40,125 @@ static func choose_note(browser: Window, index: int) -> void:
 	browser.select_entry(index)
 
 
+static func note_caret_key(browser: Window, action: String, character: String = "") -> void:
+	var event: InputEventKey
+	if character.is_empty():
+		event = InputMap.action_get_events(action)[0].duplicate()
+	else:
+		event = InputEventKey.new()
+		event.keycode = character.to_upper().unicode_at(0)
+		event.unicode = character.unicode_at(0)
+	event.pressed = true
+	browser.push_input(event)
+	await browser.get_tree().process_frame
+	event = event.duplicate()
+	event.pressed = false
+	browser.push_input(event)
+	await browser.get_tree().process_frame
+
+
+static func verify_note_carets(viewer: Control) -> bool:
+	var before: Dictionary = viewer.export_view_state().duplicate(true)
+	var undo: Array = viewer.model.undo_stack.duplicate(true)
+	var redo: Array = viewer.model.redo_stack.duplicate(true)
+	var back: Array = viewer.back_views.duplicate(true)
+	var forward: Array = viewer.forward_views.duplicate(true)
+	var preferences: Dictionary = viewer.preference_state()
+	var expanded: bool = viewer.scene_expanded
+	var valid := true
+	var context := 0
+	for layout in [false, true]:
+		viewer.set_scene_expanded(layout)
+		for scale in [1.0, 1.3]:
+			var text: String = ["First line\nSecond line", "Café 🫀\nGreek α β", "é e\u0301 🫀\nShort", "First\nSecond\nThird"][context]
+			context += 1
+			var settings := preferences.duplicate(true)
+			settings.text_scale = scale
+			viewer.apply_preferences(settings)
+			var library := SavedViews.new()
+			library.path = "user://note-carets-" + Crypto.new().generate_random_bytes(16).hex_encode() + ".json"
+			valid = library.load_library().is_empty() and valid
+			for name in ["Third", "Second", "First"]:
+				valid = library.add_view(name, before).is_empty() and valid
+			var first: String = library.entries[0].id
+			var second: String = library.entries[1].id
+			var third: String = library.entries[2].id
+			valid = library.update_notes({first: text, second: text, third: "Different note"}).is_empty() and valid
+			var browser := preload("res://scripts/saved_views_browser.gd").new()
+			browser.library = library
+			browser.pack = viewer.pack
+			browser.current_state = before
+			browser.validate_state = viewer.validate_view_state
+			browser.theme = viewer.theme
+			viewer.add_child(browser)
+			viewer.scale_text(browser)
+			browser.popup_centered_clamped(Vector2i(920, 620), 0.9)
+			choose_note(browser, 0)
+			browser.notes_input.grab_focus()
+			browser.notes_input.set_caret_line(0)
+			browser.notes_input.set_caret_column(2)
+			browser.notes_input.add_caret(1, 2)
+			await note_caret_key(browser, "", "x")
+			valid = valid and browser.notes_input.get_caret_count() == 2 and browser.notes_input.text.count("x") == 2
+			browser.filter_input.text = "First"
+			browser.apply_filter("First")
+			browser.name_input.text = "First renamed"
+			browser.rename_selected()
+			browser.save_notes()
+			valid = valid and browser.notes_input.get_caret_count() == 2 and browser.notes_input.get_caret_column(0) == 3 and browser.notes_input.get_caret_column(1) == 3 and browser.notes_input.has_undo()
+			await note_caret_key(browser, "", "y")
+			var draft: String = browser.notes_input.text
+			valid = valid and draft.count("y") == 2 and browser.draft_notes.get(first) == draft
+			# The next saved note has equal current text, but no relation to these carets.
+			valid = library.set_notes(second, draft).is_empty() and valid
+			browser.filter_input.text = ""
+			browser.apply_filter("")
+			var disk := FileAccess.get_file_as_bytes(library.path)
+			var backup := FileAccess.get_file_as_bytes(library.path + ".bak")
+			browser.view_list.grab_focus()
+			await note_caret_key(browser, "ui_down")
+			valid = valid and browser.editing_id == second and browser.notes_input.get_caret_count() == 1 and not browser.notes_input.has_selection() and browser.notes_input.get_caret_line() == 0 and browser.notes_input.get_caret_column() == 0
+			browser.notes_input.grab_focus()
+			await note_caret_key(browser, "", "z")
+			valid = valid and browser.notes_input.text == "z" + draft and browser.draft_notes.get(first) == draft
+			await note_history_key(browser)
+			valid = valid and browser.notes_input.text == draft and not browser.draft_notes.has(second)
+			valid = valid and FileAccess.get_file_as_bytes(library.path) == disk and FileAccess.get_file_as_bytes(library.path + ".bak") == backup
+			browser.view_list.grab_focus()
+			await note_caret_key(browser, "ui_up")
+			browser.notes_input.grab_focus()
+			await note_caret_key(browser, "ui_text_select_all")
+			valid = valid and browser.editing_id == first and browser.notes_input.get_selected_text() == draft
+			browser.refresh_list(first)
+			browser.save_notes()
+			valid = valid and browser.notes_input.get_selected_text() == draft
+			# Programmatic identity changes also clear a selection without relying on focus loss.
+			choose_note(browser, 1)
+			valid = valid and not browser.notes_input.has_selection() and browser.notes_input.get_caret_count() == 1
+			browser.notes_input.grab_focus()
+			await note_caret_key(browser, "", "x")
+			choose_note(browser, 2)
+			valid = valid and browser.editing_id == third and browser.notes_input.text == "Different note" and browser.notes_input.get_caret_count() == 1 and browser.notes_input.get_caret_line() == 0 and browser.notes_input.get_caret_column() == 0
+			browser.notes_input.grab_focus()
+			await note_caret_key(browser, "", "w")
+			valid = valid and browser.notes_input.text == "wDifferent note"
+			await note_history_key(browser)
+			valid = valid and browser.notes_input.text == "Different note" and not browser.draft_notes.has(third) and browser.draft_notes.get(second) == "x" + draft
+			valid = valid and viewer.export_view_state() == before and viewer.model.undo_stack == undo and viewer.model.redo_stack == redo and viewer.back_views == back and viewer.forward_views == forward
+			browser.queue_free()
+			await viewer.get_tree().process_frame
+			for suffix in ["", ".tmp", ".bak", ".bak.tmp"]:
+				DirAccess.remove_absolute(library.path + suffix)
+	viewer.apply_preferences(preferences)
+	viewer.set_scene_expanded(expanded)
+	viewer.scene_container.grab_focus()
+	if valid:
+		print("PASS bundled note carets: ", viewer.model.body.id)
+	else:
+		push_error("Saved-note carets crossed identities or same-note editor state was lost: " + str(viewer.model.body.id))
+	return valid
+
+
 static func verify_note_history(viewer: Control) -> bool:
 	var before: Dictionary = viewer.export_view_state().duplicate(true)
 	var undo: Array = viewer.model.undo_stack.duplicate(true)
@@ -1697,6 +1816,7 @@ static func run(viewer: Control, rendered: bool) -> bool:
 	valid = verify_text_encoding(before, viewer.model.body.id, viewer.validate_view_state) and valid
 	valid = await verify_draft_export(viewer, rendered) and valid
 	valid = await verify_note_history(viewer) and valid
+	valid = await verify_note_carets(viewer) and valid
 	valid = await preload("res://scripts/scene_render_verification.gd").run(viewer, rendered) and valid
 	if viewer.model.structures.has("anatomy.heart"):
 		valid = await verify_source_fallback(viewer, rendered) and valid

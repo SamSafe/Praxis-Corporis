@@ -36,7 +36,7 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
                  source_fallback: bool = False, study_reader: bool = False,
                  exploration_return: bool = False, text_encoding: bool = False,
                  draft_export: bool = False, scene_redraw: bool = False,
-                 note_history: bool = False) -> dict:
+                 note_history: bool = False, note_carets: bool = False) -> dict:
     if "ERROR:" in log or "Unicode parsing error" in log:
         raise ValueError("The native runtime reported an error")
     if re.search(r'ObjectDB instance.*leaked|^Leaked instance:', log, re.M):
@@ -95,6 +95,8 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
             raise ValueError('Native scene redraw check missing: ' + reference)
         if note_history and f'PASS bundled note history: {reference}' not in log.splitlines():
             raise ValueError('Native note history check missing: ' + reference)
+        if note_carets and f'PASS bundled note carets: {reference}' not in log.splitlines():
+            raise ValueError('Native note caret check missing: ' + reference)
     result = process_observations(log, rendered)
     if information and 'PASS bundled information dialogs: female' not in log.splitlines():
         raise ValueError('Native information dialog check missing')
@@ -152,6 +154,8 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
         result['scene_redraw_references'] = list(references)
     if note_history:
         result['note_history_references'] = list(references)
+    if note_carets:
+        result['note_caret_references'] = list(references)
     return result
 
 
@@ -444,6 +448,8 @@ def verify(args: argparse.Namespace) -> dict:
     scene_redraw = 'scripts/scene_render_verification.gd' in build_report['source_hashes']
     note_history = ('scripts/study_verification.gd' in build_report['source_hashes']
                     and b'PASS bundled note history:' in git_bytes(ROOT, build_report['source_revision'], 'scripts/study_verification.gd'))
+    note_carets = ('scripts/study_verification.gd' in build_report['source_hashes']
+                   and b'PASS bundled note carets:' in git_bytes(ROOT, build_report['source_revision'], 'scripts/study_verification.gd'))
     startup_cases = None
     if reference_state:
         bodies = json.loads(git_bytes(ROOT, build_report['source_revision'], 'content/sample_pack.json'))['bodies']
@@ -472,7 +478,7 @@ def verify(args: argparse.Namespace) -> dict:
         log = run_native(args, windows_session, windows_session + "\\" + executable_relative,
                          process_timeout=300 if scene_redraw else 180)
         result = parse_result(log, args.mode == "rendered", circulation, information, conditions,
-                              find_anatomy, pointer_interruption, saved_view_context, camera_zoom, coverage_keyboard, study_navigation, import_preview, unchanged_edits, movement_history, move_mode_boundary, nudge_gesture, source_fallback, study_reader, exploration_return, text_encoding, draft_export, scene_redraw, note_history)
+                              find_anatomy, pointer_interruption, saved_view_context, camera_zoom, coverage_keyboard, study_navigation, import_preview, unchanged_edits, movement_history, move_mode_boundary, nudge_gesture, source_fallback, study_reader, exploration_return, text_encoding, draft_export, scene_redraw, note_history, note_carets)
         if result["engine_actual"] != build_report["engine"]:
             raise ValueError("The native runtime differs from the pinned build engine")
         result.update(schema_version=1, recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
