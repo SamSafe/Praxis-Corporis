@@ -213,7 +213,7 @@ func selected_entry() -> Dictionary:
 
 
 static func search_text(value: String) -> String:
-	return value.to_lower().replace("\t", " ").replace("\n", " ").replace("\r", " ")
+	return AnatomySearch.normalize_spaces(value.to_lower())
 
 
 func build_reference_index() -> void:

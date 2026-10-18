@@ -2,14 +2,17 @@ extends RefCounted
 ## Search supplied records only; identifier normalization adds no anatomical aliases.
 
 const RESULT_LIMIT := 100
+## Unicode White_Space: separators plus TAB–CR and NEXT LINE. Compile once.
+static var spaces := RegEx.create_from_string(r"[\x{0009}-\x{000D}\x{0085}\p{Z}]+")
 var entries: Array[Dictionary] = []
 
 
+static func normalize_spaces(value: String) -> String:
+	return spaces.sub(value, " ", true).strip_edges()
+
+
 static func words(value: String) -> String:
-	var result := value.to_lower().replace("_", " ").replace("\t", " ").replace("\n", " ").replace("\r", " ")
-	while "  " in result:
-		result = result.replace("  ", " ")
-	return result.strip_edges()
+	return normalize_spaces(value.to_lower().replace("_", " "))
 
 
 static func identifier(value: String) -> String:

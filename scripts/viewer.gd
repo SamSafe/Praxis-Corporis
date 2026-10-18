@@ -348,6 +348,7 @@ func verify_bundle() -> void:
 
 func verify_search(rendered: bool) -> bool:
 	var before := export_view_state()
+	var spacing_valid: bool = await preload("res://scripts/search_spacing_verification.gd").run(self)
 	var query := "UBERON0002135" if model.structures.has("anatomy.heart") else "FMA24474"
 	var expected := "anatomy.heart.valve.mitral" if model.structures.has("anatomy.heart") else "source.bodyparts3d-v4-male.FJ3365"
 	if model.body.has("qa_leaf_id"):
@@ -355,7 +356,7 @@ func verify_search(rendered: bool) -> bool:
 		query = expected
 	search.text = query
 	rebuild_tree()
-	var valid: bool = search_total >= 1 and search_results.get_item_metadata(0) == expected and export_view_state() == before
+	var valid: bool = spacing_valid and search_total >= 1 and search_results.get_item_metadata(0) == expected and export_view_state() == before
 	var previous_expanded := scene_expanded
 	var explorer_visible := explorer_panel.visible
 	var undo: Array = model.undo_stack.duplicate(true)
@@ -1106,7 +1107,7 @@ func build_interface() -> void:
 	search_results.focus_entered.connect(queue_selection_scroll)
 	search_results.resized.connect(func():
 		search_results.fixed_column_width = maxi(int(search_results.size.x) - 18, 1)
-		if not search.text.strip_edges().is_empty():
+		if not AnatomySearch.normalize_spaces(search.text).is_empty():
 			rebuild_tree())
 	left.add_child(search_results)
 	tree = Tree.new()
@@ -1558,16 +1559,17 @@ func rebuild_tree() -> void:
 	tree_items.clear()
 	search_results.clear()
 	search_items.clear()
-	var query := search.text.strip_edges()
-	tree.visible = query.is_empty()
-	search_results.visible = not query.is_empty()
-	search_summary.visible = not query.is_empty()
-	if query.is_empty() and model.structures.has("anatomy.body"):
+	var query := search.text
+	var empty_query := AnatomySearch.normalize_spaces(query).is_empty()
+	tree.visible = empty_query
+	search_results.visible = not empty_query
+	search_summary.visible = not empty_query
+	if empty_query and model.structures.has("anatomy.body"):
 		var root := tree.create_item()
 		for id in model.structures["anatomy.body"].children:
 			append_tree_branch(id, root, 0)
 		search_total = 0
-	elif not query.is_empty():
+	elif not empty_query:
 		var result := search_index.find(query)
 		search_total = result.total
 		for match_record in result.results:
@@ -1606,7 +1608,7 @@ func search_line(value: String, keep_suffix: bool) -> String:
 
 
 func activate_first_search_result() -> void:
-	if loading or search.text.strip_edges().is_empty() or search_results.item_count == 0:
+	if loading or AnatomySearch.normalize_spaces(search.text).is_empty() or search_results.item_count == 0:
 		return
 	search_results.select(0)
 	on_search_selected(0)

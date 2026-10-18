@@ -37,7 +37,7 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
                  exploration_return: bool = False, text_encoding: bool = False,
                  draft_export: bool = False, scene_redraw: bool = False,
                  note_history: bool = False, note_carets: bool = False,
-                 label_reuse: bool = False) -> dict:
+                 label_reuse: bool = False, search_spacing: bool = False) -> dict:
     if "ERROR:" in log or "Unicode parsing error" in log:
         raise ValueError("The native runtime reported an error")
     if re.search(r'ObjectDB instance.*leaked|^Leaked instance:', log, re.M):
@@ -100,6 +100,8 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
             raise ValueError('Native note caret check missing: ' + reference)
         if label_reuse and f'PASS bundled label reuse: {reference} · 112 placement pairs' not in log.splitlines():
             raise ValueError('Native label reuse check missing: ' + reference)
+        if search_spacing and f'PASS bundled search spacing: {reference} · 25 Unicode spaces' not in log.splitlines():
+            raise ValueError('Native search spacing check missing: ' + reference)
     result = process_observations(log, rendered)
     if information and 'PASS bundled information dialogs: female' not in log.splitlines():
         raise ValueError('Native information dialog check missing')
@@ -161,6 +163,8 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
         result['note_caret_references'] = list(references)
     if label_reuse:
         result['label_reuse_references'] = list(references)
+    if search_spacing:
+        result['search_spacing_references'] = list(references)
     return result
 
 
@@ -490,6 +494,7 @@ def verify(args: argparse.Namespace) -> dict:
     note_carets = ('scripts/study_verification.gd' in build_report['source_hashes']
                    and b'PASS bundled note carets:' in git_bytes(ROOT, build_report['source_revision'], 'scripts/study_verification.gd'))
     label_reuse = 'scripts/label_reuse_verification.gd' in build_report['source_hashes']
+    search_spacing = 'scripts/search_spacing_verification.gd' in build_report['source_hashes']
     startup_cases = None
     if reference_state:
         bodies = json.loads(git_bytes(ROOT, build_report['source_revision'], 'content/sample_pack.json'))['bodies']
@@ -519,7 +524,7 @@ def verify(args: argparse.Namespace) -> dict:
         log = run_native(args, windows_session, windows_session + "\\" + executable_relative,
                          process_timeout=verification_timeout)
         result = parse_result(log, args.mode == "rendered", circulation, information, conditions,
-                              find_anatomy, pointer_interruption, saved_view_context, camera_zoom, coverage_keyboard, study_navigation, import_preview, unchanged_edits, movement_history, move_mode_boundary, nudge_gesture, source_fallback, study_reader, exploration_return, text_encoding, draft_export, scene_redraw, note_history, note_carets, label_reuse)
+                              find_anatomy, pointer_interruption, saved_view_context, camera_zoom, coverage_keyboard, study_navigation, import_preview, unchanged_edits, movement_history, move_mode_boundary, nudge_gesture, source_fallback, study_reader, exploration_return, text_encoding, draft_export, scene_redraw, note_history, note_carets, label_reuse, search_spacing)
         if result["engine_actual"] != build_report["engine"]:
             raise ValueError("The native runtime differs from the pinned build engine")
         result.update(schema_version=1, recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),

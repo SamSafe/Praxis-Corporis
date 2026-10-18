@@ -26,6 +26,15 @@ def complete_log(rendered=True):
 
 
 class WindowsVerificationTests(unittest.TestCase):
+    def test_search_spacing_requires_all_reference_checks(self):
+        log = complete_log(False)
+        for reference in ['female', 'male', 'bodyparts-male-bones-study']:
+            with self.assertRaisesRegex(ValueError, 'search spacing'):
+                parse_result(log, False, search_spacing=True)
+            log += f'\nPASS bundled search spacing: {reference} · 25 Unicode spaces'
+        self.assertEqual(parse_result(log, False, search_spacing=True)['search_spacing_references'],
+                         ['female', 'male', 'bodyparts-male-bones-study'])
+
     def test_label_reuse_requires_every_reference_and_placement_picking_evidence(self):
         import json
         log = complete_log(False)
