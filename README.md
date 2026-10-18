@@ -90,6 +90,7 @@ Note-editor Undo/Redo stays with the selected view even when notes have equal te
 Each newly selected note starts with one cursor at the beginning. Text size, panel layout,
 rendering quality and label preferences are retained. Unchanged anatomy reuses its last
 3D frame while you read; camera, inspection and display changes request a fresh frame.
+Labels also reuse stable placements, avoiding repeated surface queries until their inputs change.
 Normal launches also remember window size and maximized state, with size bounds
 for the current display.
 They reopen the last successfully loaded reference after a normal close; saved
@@ -107,7 +108,7 @@ Switching Move on or off also requires a fresh gesture.
 A keyboard movement step ends a held drag and keeps the edits independently reversible.
 Four separate HRA v1.2 spinal-cord/vertebra studies add 108 source meshes across both
 sexes, without registering them to the original bodies. [Study workspace guide](docs/STUDY_WORKSPACE.md),
-[verification and private packages](docs/audit/NOTE_CARET_VERIFICATION.md).
+[verification and private packages](docs/audit/LABEL_REUSE_VERIFICATION.md).
 Pathological geometry, validated cutaways and physiological simulation are future work.
 Private Windows/macOS ZIPs are generated locally under dist/. Target-device testing,
 public signing/notarization, and baseline-laptop performance remain open.

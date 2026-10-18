@@ -14,13 +14,14 @@ portable views and four independent spinal source studies.
 
 The generated archives are excluded from Git:
 
-- Windows x64: dist/note-caret-improvements/PraxisCorporis-Windows-x64-private.zip
-- Mac Intel/Apple Silicon: dist/note-caret-improvements/PraxisCorporis-macOS-universal-private.zip
+- Windows x64: dist/label-reuse-verified/PraxisCorporis-Windows-x64-private.zip
+- Mac Intel/Apple Silicon: dist/label-reuse-verified/PraxisCorporis-macOS-universal-private.zip
 
 Earlier archives retain their previous source identities and their review-label
-corrections. Use the note-caret-improvements build report when verifying the new archives.
-[Note-cursor and package verification](audit/NOTE_CARET_VERIFICATION.md)
-records their exact hashes, note-specific cursor/Undo/Redo keyboard checks, 543 identical
+corrections. Use the label-reuse-verified build report when verifying the new archives.
+[Label-reuse and package verification](audit/LABEL_REUSE_VERIFICATION.md)
+records their exact hashes, 784 label-placement/picking comparisons, note-specific
+cursor/Undo/Redo keyboard checks, 543 identical
 cached/continuous image pairs, unfinished-note backup and seven-reference workspace checks,
 early-close checks, four normal launches and remaining Mac/human limits. The Linux-template qualification
 is recorded separately; it is not a clean passing platform check.

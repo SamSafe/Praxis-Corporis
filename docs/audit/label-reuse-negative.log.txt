@@ -1,0 +1,11 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Loading female reference
+Prepared 801 meshes in 5.61s; 270 frames while loading
+LABEL MISMATCH female {"action":"negative disconnected appearance","cached":{"action_anchor":[414.0,305.5],"actions_anchored":true,"actions_rect":[550.0,288.5,90.0,38.0],"actions_visible":true,"pills":[{"anchor":[414.0,305.5],"id":"anatomy.heart.valve.mitral","rect":[436.0,288.5,108.0,36.0]}]},"first_hits_valid":false,"fresh":{"action_anchor":[515.973205566406,203.526885986328],"actions_anchored":true,"actions_rect":[651.973205566406,186.526885986328,90.0,38.0],"actions_visible":true,"pills":[{"anchor":[515.973205566406,203.526885986328],"id":"anatomy.heart.valve.mitral","rect":[537.973205566406,186.526885986328,108.0,36.0]}]}}
+ERROR: Label reuse failed: female / negative disconnected appearance
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] step (res://scripts/label_reuse_verification.gd:68)
+       [1] settle (res://scripts/label_reuse_verification.gd:42)
+Negative label invalidation rejected: true

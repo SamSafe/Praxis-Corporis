@@ -1,0 +1,62 @@
+extends SceneTree
+
+func _initialize() -> void:
+	call_deferred("run")
+
+func wait_seconds(seconds: float) -> void:
+	var end := Time.get_ticks_usec() + int(seconds * 1000000)
+	while Time.get_ticks_usec() < end:
+		await physics_frame
+
+func run() -> void:
+	root.size = Vector2i(1440, 900)
+	var viewer = load("res://scenes/main.tscn").instantiate()
+	root.add_child(viewer)
+	await process_frame
+	while viewer.loading:
+		await process_frame
+	viewer.select_structure("anatomy.heart")
+	viewer.chest_view()
+	viewer.local_labels_button.button_pressed = true
+	var previous: Control = viewer.anatomy_labels
+	var label_script := "res://build/qa/counting_labels_before.gd" if "--baseline-labels" in OS.get_cmdline_user_args() else "res://build/qa/counting_labels.gd"
+	var labels = load(label_script).new()
+	labels.model = viewer.model
+	labels.camera = viewer.orbit.camera
+	labels.scene_surface = viewer.scene_container
+	labels.context_id = previous.context_id
+	labels.selection_enabled = previous.selection_enabled
+	labels.local_enabled = previous.local_enabled
+	labels.density = previous.density
+	labels.text_scale = previous.text_scale
+	labels.exclusion_controls = previous.exclusion_controls.duplicate()
+	labels.selection_actions = viewer.part_actions
+	viewer.part_actions.reparent(labels)
+	previous.queue_free()
+	viewer.anatomy_labels = labels
+	viewer.scene_container.add_child(labels)
+	labels.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	labels.selected.connect(viewer.select_structure)
+	await wait_seconds(1.0)
+	labels.calls = 0
+	labels.ray_queries = 0
+	labels.work_usec = 0
+	labels.maximum_usec = 0
+	var camera: Dictionary = viewer.orbit.export_state()
+	var state: Dictionary = viewer.model.export_state()
+	var started := Time.get_ticks_usec()
+	await wait_seconds(3.0)
+	var report := {"seconds": (Time.get_ticks_usec() - started) / 1000000.0,
+		"layout_calls": labels.calls, "ray_queries": labels.ray_queries,
+		"layout_work_usec": labels.work_usec, "maximum_layout_usec": labels.maximum_usec,
+		"visible_ids": labels.visible_ids, "selected": viewer.model.selected_id,
+		"local_context": labels.context_id, "local_enabled": labels.local_enabled,
+		"scene_pixels": [viewer.viewport.size.x, viewer.viewport.size.y],
+		"camera_unchanged": viewer.orbit.export_state() == camera,
+		"anatomy_unchanged": viewer.model.export_state() == state,
+		"layout": preload("res://scripts/label_reuse_verification.gd").snapshot(viewer),
+		"camera": camera, "anatomy_sha256": JSON.stringify(state, "", true, true).sha256_text()}
+	print("IDLE LABEL PROBE ", JSON.stringify(report))
+	viewer.queue_free()
+	await process_frame
+	quit()

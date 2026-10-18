@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "source_revision": "9d249d27fee3342a81cce63375e97020ad2b38dd",
+  "python_checks": 86,
+  "native_label_reuse_references": [
+    "female",
+    "male",
+    "bodyparts-male-bones-study",
+    "hra-v1-2-female-cord-study",
+    "hra-v1-2-female-vertebrae-study",
+    "hra-v1-2-male-cord-study",
+    "hra-v1-2-male-vertebrae-study"
+  ],
+  "identical_placement_pairs": 784,
+  "native_capture_identities": 107,
+  "native_identical_scene_pairs": 543,
+  "native_normal_launches": 4,
+  "native_early_closes": 2,
+  "native_session_independently_checked_absent": true,
+  "mac_content_qa": "Passed on development engine; actual Mac execution pending.",
+  "idle_measurement": "Placement-only development engine sample; no battery, GPU, overall-CPU or representative-hardware claim.",
+  "files": {
+    "label-reuse-actions.log.txt": {
+      "bytes": 1209,
+      "sha256": "b26f8f6a0bbd44aa6c5a0f44650965f95de53adc538d12fbb4336a0f57e766f4"
+    },
+    "label-reuse-artifact-audit.json": {
+      "bytes": 1346,
+      "sha256": "1145cddb2bcc82a70c01ac48d58d47aa0f9382ddfda4b08832af900aa98eed57"
+    },
+    "label-reuse-baseline.log.txt": {
+      "bytes": 1386,
+      "sha256": "a364575a20c258e8f8a58aec38f6ed392c57f24ca804a63454c5dc7dc292cf75"
+    },
+    "label-reuse-before.gd.txt": {
+      "bytes": 9241,
+      "sha256": "6079975044081e9482ff9815e7d914428d2b7a97d828d364de4e6db5e37642cf"
+    },
+    "label-reuse-build-report.json": {
+      "bytes": 5290,
+      "sha256": "730e59a9be294e8581d8dd9cf6f6f34fb81182024ab2a29a1b179559701fbfd8"
+    },
+    "label-reuse-build.log.txt": {
+      "bytes": 15252,
+      "sha256": "e8e436843d2c1da081e13f85f795a8b24d4a75434b0b9a6400acb4b15e746548"
+    },
+    "label-reuse-cached.log.txt": {
+      "bytes": 1374,
+      "sha256": "9cdd20de66a6e97dee8ee340e6d5041b622241301141b8ee3f8efd30b75a6d73"
+    },
+    "label-reuse-counter-before.gd.txt": {
+      "bytes": 374,
+      "sha256": "f459ba7baa697c4ec24d0e7232b780052667bba92a415e6e0598806950a0597f"
+    },
+    "label-reuse-counter.gd.txt": {
+      "bytes": 366,
+      "sha256": "97167a6f37f41d47af68aa34ff8b0837e93095ce7ed6d9f6e037425a4f07ca63"
+    },
+    "label-reuse-development-qa.json": {
+      "bytes": 2372,
+      "sha256": "6d027ad532433192db4bd6d1a835bc1d98d2e51dae3c6fc100fb11f1ae904fc4"
+    },
+    "label-reuse-development.log.txt": {
+      "bytes": 1247,
+      "sha256": "07d4c81a590a199b7d577c2741a2af547eae96f80cf9dc2600e5482e4efa83c9"
+    },
+    "label-reuse-display.log.txt": {
+      "bytes": 543,
+      "sha256": "36a2f39e72ed2c16bb4bb8faabf200fb63f4519a0e0f6662cb34dc0591568906"
+    },
+    "label-reuse-idle-comparison.json": {
+      "bytes": 4405,
+      "sha256": "1d0e269a27c27ba7f72538dff63838bbaf2050ef0bfefcf518d7ce272067f593"
+    },
+    "label-reuse-native-initial-anatomy.log.txt": {
+      "bytes": 443,
+      "sha256": "1481191a4738114b8ee11607ef879b4fdbc7da6a465a495d3c48fa70c908654d"
+    },
+    "label-reuse-native-replacement-selection.log.txt": {
+      "bytes": 527,
+      "sha256": "a90d02a94e395d03df93531d3c95ad959e3bbb5721f5c26b596695200e4796cf"
+    },
+    "label-reuse-negative.gd.txt": {
+      "bytes": 1218,
+      "sha256": "cc38e86be15b15aa497977041f82f06e7ba5a5f78c124f688c4fe6279ee5bc36"
+    },
+    "label-reuse-negative.log.txt": {
+      "bytes": 1135,
+      "sha256": "dec904a5fbfa99c5c40d212a038a2574e88ee681004d90ae409586f0b12e94d5"
+    },
+    "label-reuse-normal-lifecycle.json": {
+      "bytes": 1648,
+      "sha256": "414fba2ca285882a1f0bad957fac189f867cd0b592e2abd0123e5b8efdf0b4f3"
+    },
+    "label-reuse-orientation.log.txt": {
+      "bytes": 865,
+      "sha256": "f8745ebea68c617c0195065aa7a38f957091b36ccceed8e61daca49e7f341e72"
+    },
+    "label-reuse-probe.gd.txt": {
+      "bytes": 2616,
+      "sha256": "738def5d2361477fa3c2088ce31c077b33bc58c7c7c1771a8fa575f908cad1a6"
+    },
+    "label-reuse-python.log.txt": {
+      "bytes": 15408,
+      "sha256": "6958dd551e84937a3685dc5cbd06acada9b7dd49cfe23f4a14c4aa49b6b20eaf"
+    },
+    "label-reuse-scene-render-bodyparts-male-bones-study.json": {
+      "bytes": 26573,
+      "sha256": "11e5c47690ecd456db0fccb682ee65a96a6af091c9edb4a54b22ac2ac3bc03e8"
+    },
+    "label-reuse-scene-render-female.json": {
+      "bytes": 27237,
+      "sha256": "82f1526522e0e47bfe2e2ec22b4c2c9ea31a21924347d0ce62be66bd1cf4a11f"
+    },
+    "label-reuse-scene-render-hra-v1-2-female-cord-study.json": {
+      "bytes": 26573,
+      "sha256": "6a089090f852c3c860ec50dd3933b5aa746af61fcc5c74e155295801d6751b7a"
+    },
+    "label-reuse-scene-render-hra-v1-2-female-vertebrae-study.json": {
+      "bytes": 26578,
+      "sha256": "0668996e6ddd802a82e24757b630d901541ba46cf0eb0e9824600d98331551bd"
+    },
+    "label-reuse-scene-render-hra-v1-2-male-cord-study.json": {
+      "bytes": 26571,
+      "sha256": "070d25ce20074148758d2bd7d8c9fe90e5d8574510234b273ede56690aac7ff1"
+    },
+    "label-reuse-scene-render-hra-v1-2-male-vertebrae-study.json": {
+      "bytes": 26576,
+      "sha256": "aefcb64e84623bd7e6da339767b9a73562fa56d837724ec7d210c041897a1c9a"
+    },
+    "label-reuse-scene-render-male.json": {
+      "bytes": 27235,
+      "sha256": "d508d10102d846284032697befca448fcb2e6e02dea6b721d049e3e0138300e1"
+    },
+    "label-reuse-spinal.log.txt": {
+      "bytes": 963,
+      "sha256": "53110d8dc3e480733e619482c920ef72b588e6d5ecffa2813c0dd599c397a2a9"
+    },
+    "label-reuse-windows-qa.json": {
+      "bytes": 42101,
+      "sha256": "3b7ca9fd5ca937b33e0835d34917bf3c48e1c1189fd4d6a81f56538a09f691e3"
+    },
+    "label-reuse-windows-runtime.log.txt": {
+      "bytes": 20120,
+      "sha256": "2df59e6b9e0772231ce111e39972cea1d2e40ba53a97acc1fb9ab72f347d2a42"
+    },
+    "label-reuse-bodyparts-male-bones-study.json": {
+      "bytes": 39653,
+      "sha256": "9c1e2379138c439257a8ec73609031f12dcceb2734f76663ff6e31e105868d27"
+    },
+    "label-reuse-female.json": {
+      "bytes": 39633,
+      "sha256": "bee15b0110b45956b9693ecaf024249040cddefef774f6eb68c6db520f26da5d"
+    },
+    "label-reuse-hra-v1-2-female-cord-study.json": {
+      "bytes": 39653,
+      "sha256": "02aec5e1f59f3c2dcd2e2331cf7c3a11cad581c75b64d422336ced2d01b58320"
+    },
+    "label-reuse-hra-v1-2-female-vertebrae-study.json": {
+      "bytes": 39658,
+      "sha256": "7ab6f846fd3ae1f144096116254517f85537b053e74defc7dfa50d3086d50172"
+    },
+    "label-reuse-hra-v1-2-male-cord-study.json": {
+      "bytes": 39651,
+      "sha256": "84b7598cdf7b352e0ee6ce20a70fb16ad5a53989bda48abf888df060f4d1d262"
+    },
+    "label-reuse-hra-v1-2-male-vertebrae-study.json": {
+      "bytes": 39656,
+      "sha256": "25f6a718e544fc01bdb1fb3106f86d53144c1961f5545f9be6f99c916d3cc398"
+    },
+    "label-reuse-male.json": {
+      "bytes": 39631,
+      "sha256": "31138ab82f6e0355f8c7c8c53a64149466b506672af50120271b53ee7786ebb2"
+    },
+    "../prototype/label-reuse-chest-windows.png": {
+      "bytes": 330320,
+      "sha256": "d11971255bc691b3aa978eac9168159fd672e02530323c5702baad56a129cf63"
+    }
+  }
+}

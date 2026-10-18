@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "source_revision": "9d249d27fee3342a81cce63375e97020ad2b38dd",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "before_revision": "f0a8c28cb021be8688645a340577fbd42178ba9b",
+  "python_checks": 86,
+  "checks": [
+    {
+      "script": "tests/label_reuse_smoke.gd",
+      "script_sha256": "4073db527e0ba28b1e92ec15fe7e312b1d461149fe8d2f94e8774dda799b756a",
+      "log": "label-reuse-development.log.txt",
+      "log_sha256": "07d4c81a590a199b7d577c2741a2af547eae96f80cf9dc2600e5482e4efa83c9",
+      "success_marker": "Label reuse failures: 0"
+    },
+    {
+      "script": "tests/scene_display_smoke.gd",
+      "script_sha256": "cedf93f850b7c5faece1bde97655e3f75d127ddd7a3e1e9ed1e31a65209cb643",
+      "log": "label-reuse-display.log.txt",
+      "log_sha256": "36a2f39e72ed2c16bb4bb8faabf200fb63f4519a0e0f6662cb34dc0591568906",
+      "success_marker": "Screen-density display failures: 0"
+    },
+    {
+      "script": "tests/orientation_smoke.gd",
+      "script_sha256": "6754104fa4586a3d1055724a94e24d5c3fd33ae1c620fe5d7692109d3fc9f51d",
+      "log": "label-reuse-orientation.log.txt",
+      "log_sha256": "f8745ebea68c617c0195065aa7a38f957091b36ccceed8e61daca49e7f341e72",
+      "success_marker": "Orientation failures: 0"
+    },
+    {
+      "script": "tests/part_actions_smoke.gd",
+      "script_sha256": "418eed957471556b6b72fec3a025929e9df461f440adad5fe73a0c46148038a4",
+      "log": "label-reuse-actions.log.txt",
+      "log_sha256": "b26f8f6a0bbd44aa6c5a0f44650965f95de53adc538d12fbb4336a0f57e766f4",
+      "success_marker": "PASS part action menus: actual GUI events, sizes, densities, guards and restoration"
+    },
+    {
+      "script": "tests/spinal_picking_smoke.gd",
+      "script_sha256": "2653400ce5f16dbb970240c103b5b134b0de2df007f65bdf1804b7789f9e9ee7",
+      "log": "label-reuse-spinal.log.txt",
+      "log_sha256": "53110d8dc3e480733e619482c920ef72b588e6d5ecffa2813c0dd599c397a2a9",
+      "success_marker": "Spinal picking failures: 0"
+    }
+  ],
+  "references": 7,
+  "contexts_per_reference": 4,
+  "placement_pairs": 784,
+  "negative_control": "Expected error: disconnect appearance invalidation, move geometry with camera unchanged, reject stale label output.",
+  "idle_scope": "Counting subclasses of original/current labels, development-engine physics/layout only; guard and other app work excluded from placement timing."
+}

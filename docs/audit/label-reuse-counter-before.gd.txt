@@ -1,0 +1,15 @@
+extends "res://build/qa/anatomy_labels_before.gd"
+
+var calls := 0
+var ray_queries := 0
+var work_usec := 0
+var maximum_usec := 0
+
+func update_labels() -> void:
+	var started := Time.get_ticks_usec()
+	super.update_labels()
+	var took := Time.get_ticks_usec() - started
+	calls += 1
+	ray_queries += MAX_RAYS - rays_left
+	work_usec += took
+	maximum_usec = maxi(maximum_usec, took)

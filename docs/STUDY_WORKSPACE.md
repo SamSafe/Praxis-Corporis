@@ -305,6 +305,10 @@ selection, inspection edits and display changes request a fresh frame. This redu
 repeated rendering while reading and retains the selected scene resolution.
 [Idle-render verification](audit/IDLE_RENDER_VERIFICATION.md) records pixel comparisons
 and draw counts. Battery life and representative-laptop performance remain unmeasured.
+Anatomy labels also reuse stable positions while you read, avoiding repeated
+surface queries until their scene or layout inputs change.
+[Label-reuse verification](audit/LABEL_REUSE_VERIFICATION.md) records the idle
+measurement, placement comparisons and first-hit checks.
 
 Normal desktop launches also remember the windowed client size and maximized state
 on a clean close, in `user://window-state.json`. Reopening centers the window on the
@@ -429,7 +433,7 @@ preview. Running it with a desktop display also captures the new screens under
 reconstructed collision vertices with source mesh faces. The exported runtime checks
 portable views/notes, preferences and reversible guide state in disposable files.
 Device trials and qualified medical review remain separate from scripted verification.
-[Verification and current private packages](audit/NOTE_CARET_VERIFICATION.md)
+[Verification and current private packages](audit/LABEL_REUSE_VERIFICATION.md)
 retain exact build identities, native Windows evidence, saved-view recovery/search/draft
 and deletion-undo checks, study-preserving cancellation and normal-launch reference/window restoration observations. [Draft content verification](audit/DRAFT_CONTENT_VERIFICATION.md)
 records the learning-content review-stage correction and valve-reference checks.

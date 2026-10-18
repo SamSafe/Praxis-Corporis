@@ -1,0 +1,30 @@
+extends SceneTree
+
+const Checks = preload("res://scripts/label_reuse_verification.gd")
+
+func _initialize() -> void:
+	call_deferred("run")
+
+func run() -> void:
+	root.size = Vector2i(1440, 900)
+	var viewer = load("res://scenes/main.tscn").instantiate()
+	root.add_child(viewer)
+	await process_frame
+	while viewer.loading:
+		await process_frame
+	var leaf := "anatomy.heart.valve.mitral"
+	viewer.select_structure(leaf, false)
+	viewer.inspect_alone()
+	await Checks.settle(viewer)
+	viewer.anatomy_labels._physics_process(0.11)
+	var visible: bool = viewer.anatomy_labels.visible_ids.has(leaf)
+	var original := {}
+	for index in viewer.model.structures[leaf].mesh_nodes:
+		original[int(index)] = viewer.model.states[int(index)].offset
+	viewer.model.disconnect("appearance_changed", viewer.anatomy_labels.invalidate_layout)
+	var rejected := not await Checks.step(viewer, func(): Checks.raw_offset(viewer, original, Vector3(0.01, 0.01, 0)), "negative disconnected appearance", {"cases": []})
+	viewer.model.connect("appearance_changed", viewer.anatomy_labels.invalidate_layout)
+	viewer.queue_free()
+	await process_frame
+	print("Negative label invalidation rejected: ", visible and rejected)
+	quit(0 if visible and rejected else 1)

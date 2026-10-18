@@ -409,11 +409,17 @@ or display changes. Keep those invalidation paths complete when adding controls;
 animated materials or geometry would require a corresponding rendering policy.
 The redraw check compares cached images with continuous rendering on the native
 Windows build and checks the event paths headlessly across all seven references.
+Label placement also reuses unchanged results. Keep its camera/display/settings
+and overlay inputs complete; model appearance and theme changes invalidate it.
+Explicit `update_labels()` still solves immediately and leaves a periodic check
+after physics/layout settles. The label-reuse check compares periodic placement
+with a fresh solve and validates real source-mesh hits.
 
 ```sh
 python3 tools/fetch_assets.py --verify-only
 python3 -m unittest discover -s tests -v
 godot --headless --path . --script tests/scene_render_smoke.gd
+godot --headless --path . --script tests/label_reuse_smoke.gd
 godot --headless --path . --script tests/viewer_smoke.gd
 godot --headless --path . --script tests/exploration_smoke.gd
 godot --headless --path . --script tests/part_inspection_smoke.gd
