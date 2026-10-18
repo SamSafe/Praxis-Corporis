@@ -2,6 +2,7 @@ extends Window
 
 const AnatomySearch = preload("res://scripts/anatomy_search.gd")
 const ImportPreview = preload("res://scripts/import_preview.gd")
+const UiAccessibility = preload("res://scripts/ui_accessibility.gd")
 
 signal restore_requested(state: Dictionary, view_name: String)
 signal legacy_requested
@@ -100,7 +101,8 @@ func _ready() -> void:
 	layout.add_child(hint)
 	var new_view := HBoxContainer.new()
 	layout.add_child(new_view)
-	name_input = LineEdit.new()
+	name_input = UiAccessibility.ValueInput.new()
+	UiAccessibility.describe(name_input, "Saved view name", "Name a new view or rename the selected saved view. Maximum 80 characters.")
 	name_input.placeholder_text = "Name this view…"
 	name_input.max_length = 80
 	name_input.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -117,9 +119,10 @@ func _ready() -> void:
 	save_all_notes_button.tooltip_text = "Save every unfinished note in this library and keep the window open. Ctrl / Cmd + S."
 	var filter_row := HBoxContainer.new()
 	layout.add_child(filter_row)
-	filter_input = LineEdit.new()
+	filter_input = UiAccessibility.ValueInput.new()
 	filter_input.placeholder_text = "Names, notes or anatomy…"
 	filter_input.tooltip_text = "Search view names, notes, references and selected anatomy names or source IDs. All words must match. Ctrl / Cmd + F."
+	UiAccessibility.describe(filter_input, "Find saved views")
 	filter_input.clear_button_enabled = true
 	filter_input.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	filter_input.text_changed.connect(apply_filter)
@@ -139,6 +142,7 @@ func _ready() -> void:
 	saved_column.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	content.add_child(saved_column)
 	view_list = ItemList.new()
+	UiAccessibility.describe(view_list, "Saved views", "Select a view to read or edit its notes. Restore applies the selected anatomy and camera setup.")
 	view_list.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	view_list.custom_minimum_size.y = 160
 	view_list.item_selected.connect(select_entry)
@@ -161,6 +165,7 @@ func _ready() -> void:
 	notes_header.add_child(notes_title)
 	notes_button = button("Save notes", save_notes, notes_header)
 	notes_input = TextEdit.new()
+	UiAccessibility.describe(notes_input, "Study notes", "Notes belong to the selected saved view. Save notes keeps them on this computer; unfinished notes are protected when closing.")
 	notes_input.placeholder_text = "Select a saved view to add observations or questions."
 	notes_input.wrap_mode = TextEdit.LINE_WRAPPING_BOUNDARY
 	notes_input.size_flags_vertical = Control.SIZE_EXPAND_FILL

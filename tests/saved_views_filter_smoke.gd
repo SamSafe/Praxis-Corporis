@@ -17,8 +17,7 @@ func _initialize() -> void:
 
 
 func filter(browser, text: String) -> void:
-	browser.filter_input.text = text
-	browser.filter_input.text_changed.emit(text)
+	browser.filter_input.set_accessible_value(text)
 
 
 func choose(browser, id: String) -> void:

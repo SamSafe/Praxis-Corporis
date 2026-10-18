@@ -1,6 +1,8 @@
 extends Window
 ## Technical coverage notes are bound to the pinned catalogue, separate from review.
 
+const UiAccessibility = preload("res://scripts/ui_accessibility.gd")
+
 signal explore_requested(id: String)
 
 var pack: Dictionary
@@ -48,6 +50,7 @@ func _ready() -> void:
 	columns.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	layout.add_child(columns)
 	system_list = ItemList.new()
+	UiAccessibility.describe(system_list, "Anatomy coverage groups", "Choose a group to read its supplied source records and known gaps.")
 	system_list.custom_minimum_size.x = 230
 	system_list.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	system_list.item_selected.connect(show_system)

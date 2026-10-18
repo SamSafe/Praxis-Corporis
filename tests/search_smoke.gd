@@ -15,8 +15,7 @@ func _initialize() -> void:
 
 
 func query(viewer, text: String) -> void:
-	viewer.search.text = text
-	viewer.rebuild_tree()
+	viewer.search.set_accessible_value(text)
 
 
 func run() -> void:

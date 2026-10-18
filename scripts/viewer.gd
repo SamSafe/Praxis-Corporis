@@ -12,6 +12,7 @@ const ViewCapture = preload("res://scripts/view_capture.gd")
 const AnatomySearch = preload("res://scripts/anatomy_search.gd")
 const SourceRecord = preload("res://scripts/source_record.gd")
 const SceneSurface = preload("res://scripts/scene_surface.gd")
+const UiAccessibility = preload("res://scripts/ui_accessibility.gd")
 const ReferenceOrientation = preload("res://scripts/reference_orientation.gd")
 const PartActions = preload("res://scripts/part_actions.gd")
 const ViewerPreferences = preload("res://scripts/viewer_preferences.gd")
@@ -38,6 +39,11 @@ var search_results: ItemList
 var search_summary: Label
 var search_items: Dictionary = {}
 var search_total := 0
+var list_view_button: CheckButton
+var browse_pager: HBoxContainer
+var browse_previous: Button
+var browse_next: Button
+var browse_page := 0
 var tree: Tree
 var tree_items: Dictionary = {}
 var heading: Label
@@ -1078,7 +1084,7 @@ func build_interface() -> void:
 	left.add_theme_constant_override("separation", 10)
 	columns.add_child(left)
 	left.add_child(make_label("EXPLORE ANATOMY", 13, Color("83cfc9")))
-	search = LineEdit.new()
+	search = UiAccessibility.ValueInput.new()
 	search.placeholder_text = "Name or source ID…"
 	search.max_length = 256
 	search.tooltip_text = "Find structures in this reference by name, source name, ontology ID or catalogue ID. Ctrl/Cmd+F opens search; Enter selects the first result. Escape clears search, then returns to anatomy."
@@ -1087,12 +1093,22 @@ func build_interface() -> void:
 	search.text_changed.connect(func(_text: String): rebuild_tree())
 	search.text_submitted.connect(func(_text: String): activate_first_search_result())
 	search.gui_input.connect(on_search_input)
+	UiAccessibility.describe(search, "Find anatomy")
 	left.add_child(search)
+	list_view_button = CheckButton.new()
+	list_view_button.text = "List view"
+	list_view_button.tooltip_text = "Browse every catalogue record in pages of 100. Search still finds names and source IDs. Uncheck for the hierarchy."
+	UiAccessibility.describe(list_view_button, "List view")
+	list_view_button.toggled.connect(func(_enabled: bool):
+		browse_page = 0
+		rebuild_tree())
+	left.add_child(list_view_button)
 	search_summary = make_label("", 12, Color("83cfc9"))
 	search_summary.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	search_summary.visible = false
 	left.add_child(search_summary)
 	search_results = ItemList.new()
+	UiAccessibility.describe(search_results, "Anatomy records", "Select a catalogue record to focus its supplied anatomy. Records retain their original source names.")
 	search_results.gui_input.connect(on_search_input)
 	search_results.visible = false
 	search_results.size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -1107,10 +1123,20 @@ func build_interface() -> void:
 	search_results.focus_entered.connect(queue_selection_scroll)
 	search_results.resized.connect(func():
 		search_results.fixed_column_width = maxi(int(search_results.size.x) - 18, 1)
-		if not AnatomySearch.normalize_spaces(search.text).is_empty():
+		if list_view_button.button_pressed or not AnatomySearch.normalize_spaces(search.text).is_empty():
 			rebuild_tree())
 	left.add_child(search_results)
+	browse_pager = HBoxContainer.new()
+	browse_previous = make_button("Previous", browse_records.bind(-1), browse_pager, "Browse the previous page of anatomy records.")
+	browse_next = make_button("Next", browse_records.bind(1), browse_pager, "Browse the next page of anatomy records.")
+	UiAccessibility.describe(browse_previous, "Previous anatomy records")
+	UiAccessibility.describe(browse_next, "Next anatomy records")
+	browse_previous.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	browse_next.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	browse_pager.visible = false
+	left.add_child(browse_pager)
 	tree = Tree.new()
+	UiAccessibility.describe(tree, "Anatomy hierarchy", "Use arrow keys to browse supplied source groups. Search finds names and source IDs.")
 	tree.hide_root = true
 	tree.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	tree.custom_minimum_size.x = 255
@@ -1173,6 +1199,7 @@ func build_interface() -> void:
 	scene_container = container
 	container.focus_mode = Control.FOCUS_ALL
 	container.tooltip_text = "Focus the 3D view with Tab or a click. Arrows orbit; Shift-arrows pan; +/- zoom; F focuses selection; Home shows the body. M toggles Move; I/J/K/L/U/O nudge in Move mode."
+	UiAccessibility.describe(container, "3D anatomy view")
 	container.gui_input.connect(on_scene_input)
 	container.focus_entered.connect(func():
 		frame.add_theme_stylebox_override("panel", panel_style(Color("0e1926"), Color("83d9d2")))
@@ -1310,6 +1337,7 @@ func build_interface() -> void:
 	parts_heading.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	parts_section.add_child(parts_heading)
 	parts_tree = Tree.new()
+	UiAccessibility.describe(parts_tree, "Parts of selected anatomy", "Browse supplied parts, then use Inspect alone to reveal covered geometry.")
 	parts_tree.hide_root = true
 	parts_tree.custom_minimum_size.y = 180
 	parts_tree.item_selected.connect(on_part_selected)
@@ -1334,6 +1362,7 @@ func build_interface() -> void:
 	var density_row := HBoxContainer.new()
 	density_row.add_child(make_label("Maximum labels", 13))
 	label_density = SpinBox.new()
+	UiAccessibility.describe(label_density, "Local label density", "Maximum nearby labels, from 1 to 12. The selection label is independent.")
 	label_density.min_value = 1
 	label_density.max_value = 12
 	label_density.value = 8
@@ -1500,6 +1529,7 @@ func switch_body(id: String) -> void:
 	select_body_choice(id)
 	move_button.button_pressed = false
 	orbit.move_mode = false
+	browse_page = 0
 	search_index.build(model.structures)
 	rebuild_tree()
 	if model.structures.has(previous_selection) and previous_selection != "anatomy.body":
@@ -1561,16 +1591,18 @@ func rebuild_tree() -> void:
 	search_items.clear()
 	var query := search.text
 	var empty_query := AnatomySearch.normalize_spaces(query).is_empty()
-	tree.visible = empty_query
-	search_results.visible = not empty_query
-	search_summary.visible = not empty_query
-	if empty_query and model.structures.has("anatomy.body"):
+	var list_all := empty_query and list_view_button.button_pressed
+	tree.visible = empty_query and not list_all
+	search_results.visible = not empty_query or list_all
+	search_summary.visible = not empty_query or list_all
+	browse_pager.visible = list_all
+	if empty_query and not list_all and model.structures.has("anatomy.body"):
 		var root := tree.create_item()
 		for id in model.structures["anatomy.body"].children:
 			append_tree_branch(id, root, 0)
 		search_total = 0
-	elif not empty_query:
-		var result := search_index.find(query)
+	elif not empty_query or list_all:
+		var result := search_index.page(browse_page * AnatomySearch.RESULT_LIMIT) if list_all else search_index.find(query)
 		search_total = result.total
 		for match_record in result.results:
 			var record: Dictionary = model.structures[match_record.id]
@@ -1580,7 +1612,12 @@ func rebuild_tree() -> void:
 			search_results.set_item_tooltip(index, SourceRecord.tooltip(model.structures, match_record.id))
 			search_items[match_record.id] = index
 		var reference := str(model.body.get("short_label", model.body.get("label", "Current reference")))
-		if search_total == 0:
+		if list_all:
+			var start := browse_page * AnatomySearch.RESULT_LIMIT
+			search_summary.text = "Records %d–%d of %d · %s" % [start + 1, start + result.results.size(), search_total, reference]
+			browse_previous.disabled = loading or browse_page == 0
+			browse_next.disabled = loading or start + result.results.size() >= search_total
+		elif search_total == 0:
 			search_summary.text = "No matches · " + reference + "\nTry another name or source ID."
 		elif search_total > AnatomySearch.RESULT_LIMIT:
 			search_summary.text = "First %d of %d matches · %s\nRefine your search for more specific results." % [AnatomySearch.RESULT_LIMIT, search_total, reference]
@@ -1588,6 +1625,15 @@ func rebuild_tree() -> void:
 			search_summary.text = "%d match%s · %s" % [search_total, "es" if search_total != 1 else "", reference]
 	syncing_tree = false
 	sync_selection_tree()
+
+
+func browse_records(direction: int) -> void:
+	if loading or not list_view_button.button_pressed or not AnatomySearch.normalize_spaces(search.text).is_empty():
+		return
+	var last_page := maxi(ceili(float(search_index.records.size()) / AnatomySearch.RESULT_LIMIT) - 1, 0)
+	browse_page = clampi(browse_page + direction, 0, last_page)
+	rebuild_tree()
+	search_results.grab_focus()
 
 
 func search_line(value: String, keep_suffix: bool) -> String:
@@ -2268,6 +2314,11 @@ func refresh_details() -> void:
 		label_density.editable = not loading
 	if search:
 		search.editable = not loading and not model.body.is_empty()
+	if list_view_button:
+		list_view_button.disabled = loading or model.body.is_empty()
+	if browse_previous:
+		browse_previous.disabled = loading or browse_page == 0
+		browse_next.disabled = loading or (browse_page + 1) * AnatomySearch.RESULT_LIMIT >= search_index.records.size()
 	panels_menu.get_popup().set_item_disabled(panels_menu.get_popup().get_item_index(5), loading or model.body.is_empty())
 	var selected: bool = model.structures.has(model.selected_id)
 	if guide_button:
