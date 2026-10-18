@@ -1,0 +1,32 @@
+[
+  {
+    "control": "record/source_revision",
+    "rejected": true,
+    "reason": "Private build identity differs from its recorded source, version, engine or content"
+  },
+  {
+    "control": "record/source_snapshot_sha256",
+    "rejected": true,
+    "reason": "Private build identity differs from its recorded source, version, engine or content"
+  },
+  {
+    "control": "record/application_version",
+    "rejected": true,
+    "reason": "Private build identity differs from its recorded source, version, engine or content"
+  },
+  {
+    "control": "record/engine",
+    "rejected": true,
+    "reason": "Private build identity differs from its recorded source, version, engine or content"
+  },
+  {
+    "control": "record/content_pack",
+    "rejected": true,
+    "reason": "Private build identity differs from its recorded source, version, engine or content"
+  },
+  {
+    "control": "actual native log/wrong build ID",
+    "rejected": true,
+    "reason": "Native build identity differs from the recorded private build"
+  }
+]

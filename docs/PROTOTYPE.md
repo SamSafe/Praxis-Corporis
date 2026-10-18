@@ -419,6 +419,15 @@ text is selected, preserving the current anatomy view.
 - No signed Windows or Mac installer, minimum-hardware claim, qualified medical
   review, accessibility acceptance or public-release readiness is established.
 
+## Build identification
+
+Open **Sources** to read the private version/build ID, source revision, source-input
+fingerprint, engine, runtime platform and content-pack ID. `START_HERE.txt` carries
+the same identity for launch failures. Include the build ID with trial observations.
+A development checkout identifies itself without claiming an exported build ID.
+These fields identify the candidate; medical review and release acceptance remain
+separate. [Private build identity](audit/BUILD_IDENTITY_VERIFICATION.md).
+
 ## Verification
 
 Static anatomy reuses its last rendered frame until the camera, model appearance
@@ -435,6 +444,7 @@ with a fresh solve and validates real source-mesh hits.
 ```sh
 python3 tools/fetch_assets.py --verify-only
 python3 -m unittest discover -s tests -v
+godot --headless --path . --script tests/build_identity_smoke.gd
 godot --headless --path . --script tests/accessibility_input_smoke.gd
 godot --headless --path . --script tests/anatomy_list_smoke.gd
 godot --headless --path . --script tests/search_spacing_smoke.gd

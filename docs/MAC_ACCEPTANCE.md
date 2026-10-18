@@ -3,16 +3,19 @@
 Use the current private candidate. This is an actual-device test of the app and
 controls; it does not establish medical accuracy or complete anatomy coverage.
 
-- Archive: `dist/accessible-surface-improvements/PraxisCorporis-macOS-universal-private.zip`
-- Bytes: `350666985`
-- SHA-256: `6d682ca8db50ae0ef9bee50e720716a08f673ed6bac0fe7fa693524a82fb45e0`
-- Runtime source: `9e864a0df24a973ce1245b7db420fb2a4354bb1f`
-- Build/audit: [verification](audit/ACCESSIBILITY_VERIFICATION.md)
+- Archive: `dist/build-identity-improvements/PraxisCorporis-macOS-universal-private.zip`
+- Bytes: `350671781`
+- SHA-256: `7d900e32b30ffd4a46639bfc6f5b082799260c3b3d0de4994dec3fea98f57bd4`
+- Build ID: `f962ce195f324c89a400cf07d8767c9d`
+- Version: `0.1.0` (private)
+- Runtime source: `c86cfba1e544b20917b66c14ea405f0b74abfd47`
+- Build/audit: [verification](audit/BUILD_IDENTITY_VERIFICATION.md)
 
-This supersedes the earlier `6a878b7` test packet. Its [results template](trials/MAC_6A878B7_TEMPLATE.md)
-remains available if that run has already begun; include the tested source/hash
-with observations so evidence stays attached to the right version. No Mac results
-have yet been recorded.
+This packet identifies the newly stamped candidate. If testing an earlier package
+has begun, keep its [9e864a0 template](trials/MAC_9E864A0_TEMPLATE.md) or
+[6a878b7 template](trials/MAC_6A878B7_TEMPLATE.md), and include that source/hash with
+observations. Earlier observations remain attached to their tested version.
+No Mac results have yet been recorded.
 
 Copy the complete ZIP to the Mac, extract it and open `PraxisCorporis.app` inside
 `PraxisCorporis`. Anatomy is inside the app bundle. Follow the existing
@@ -20,12 +23,12 @@ Copy the complete ZIP to the Mac, extract it and open `PraxisCorporis.app` insid
 ad-hoc-signed application. Record the exact message if it will not open.
 
 Use throwaway saved views and fictional notes for these checks. Keep a copy of the
-[results template](trials/MAC_9E864A0_TEMPLATE.md). Mark each task Pass, Fail or
+[results template](trials/MAC_C86CFBA_TEMPLATE.md). Mark each task Pass, Fail or
 Blocked and describe any unexpected behavior. A failed task is useful evidence.
 
 | Task | Expected result |
 | --- | --- |
-| Launch without network access | The app opens a reference from its bundled content. Coverage and private-draft status are visible. |
+| Launch without network access | The app opens a reference from its bundled content. Coverage and private-draft status are visible. Sources shows the build ID above; it also appears in START_HERE.txt. |
 | Female and male exploration | Both HRA references open. Orbit, pan and zoom work with the actual mouse/trackpad. Select, focus and Back return to useful anatomy views. |
 | Search and keyboard | Cmd+F opens anatomy search; Enter selects a source result; Escape clears search then returns to anatomy. Try `left atrium` and `UBERON0002135` in either HRA body. |
 | Paged records | Turn on List view; browse Previous/Next and select a real source record. Search still finds it; clearing search returns to the chosen mode. Turn List view off to return to the hierarchy. |

@@ -114,6 +114,7 @@ Four separate HRA v1.2 spinal-cord/vertebra studies add 108 source meshes across
 sexes, without registering them to the original bodies. [Study workspace guide](docs/STUDY_WORKSPACE.md),
 [verification and private packages](docs/audit/LABEL_REUSE_VERIFICATION.md).
 Pathological geometry, validated cutaways and physiological simulation are future work.
+Sources and START_HERE identify each private build so trial observations can name the tested version.
 Private Windows/macOS ZIPs are generated locally under dist/. Target-device testing,
 public signing/notarization, and baseline-laptop performance remain open.
 The [full-resolution Windows measurement report](docs/audit/WINDOWS_FULLHD_PROFILE.md)

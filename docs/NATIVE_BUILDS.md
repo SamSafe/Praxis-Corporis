@@ -14,18 +14,21 @@ portable views and four independent spinal source studies.
 
 The generated archives are excluded from Git:
 
-- Windows x64: dist/accessible-surface-improvements/PraxisCorporis-Windows-x64-private.zip
-- Mac Intel/Apple Silicon: dist/accessible-surface-improvements/PraxisCorporis-macOS-universal-private.zip
+- Windows x64: dist/build-identity-improvements/PraxisCorporis-Windows-x64-private.zip
+- Mac Intel/Apple Silicon: dist/build-identity-improvements/PraxisCorporis-macOS-universal-private.zip
 
-Use the accessible-surface-improvements build report for these archives. Earlier
+Use the build-identity-improvements build report for these archives. Earlier
 archives retain their own source/artifact identities.
-[Accessibility and package verification](audit/ACCESSIBILITY_VERIFICATION.md)
-records the complete 77-file input audit, both archive hashes, native accessibility
-names/search/page actions, and fresh native Windows workflows across seven references.
-The rendered suite checks 784 placement comparisons, 543 redraw comparisons, four
-normal launches and two early-close cases. Mac resource checks run on the development
-engine; actual Mac acceptance remains pending. Native assistive scrolling, row
-activation and human screen-reader trials remain open.
+[Build identification and verification](audit/BUILD_IDENTITY_VERIFICATION.md)
+records the 79-file source audit, archive hashes and private build ID. Sources and
+START_HERE.txt identify the same builder run, declared version and source inputs.
+Sources also shows the recorded engine, runtime platform and content pack. The packaged runtime identity must match the build report.
+Fresh Windows workflows cover seven references, 784 placement comparisons,
+543 redraw comparisons, four normal launches and two early-close cases.
+Mac resource checks run on the development engine; actual Mac acceptance remains
+pending. Native assistive scrolling, row activation and screen-reader trials also
+remain open; the [accessibility batch](audit/ACCESSIBILITY_VERIFICATION.md) records
+that work and its limits.
 The separate Linux-template qualification remains open.
 
 The [production-readiness checkpoint](PRODUCTION_READINESS.md) distinguishes the
@@ -67,6 +70,10 @@ collector. It checks their hashes and complete file set again before recording
 success. Changes, additions or removals stop the build; rebuild from stable inputs
 before using intermediate ZIPs. Documentation and QA output can change independently.
 Archive auditing checks these inputs against the recorded committed revision.
+The builder stamps a unique private build ID into both core packs and their startup
+instructions. Direct editor exports remain usable, but Sources identifies an
+unstamped export as unrecorded; it cannot pass recorded private-bundle verification.
+The stamp contains no user notes, personal paths or telemetry.
 
 On Windows, use the Python executable and full Godot executable path available on
 that machine. --platform windows or --platform macos builds a single target.
@@ -127,7 +134,7 @@ marker and reject errors or object leaks, including errors mixed into progress l
 The focused native accessibility verifier uses an exact recorded Windows archive:
 
 ```sh
-python3 tools/accessibility_windows.py --archive dist/accessible-surface-improvements/PraxisCorporis-Windows-x64-private.zip --build-report dist/accessible-surface-improvements/build-report.json --output dist/new-accessibility-qa
+python3 tools/accessibility_windows.py --archive dist/build-identity-improvements/PraxisCorporis-Windows-x64-private.zip --build-report dist/build-identity-improvements/build-report.json --output dist/new-accessibility-qa
 ```
 
 Use a fresh output folder. In WSL, pass `--powershell` with the actual Windows

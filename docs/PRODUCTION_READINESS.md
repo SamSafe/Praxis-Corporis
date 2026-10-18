@@ -3,7 +3,7 @@
 Checked 2026-10-18. **The project is a tested private candidate, not yet production
 ready against the agreed release requirements.** The current archive/source
 identities are in [native builds](NATIVE_BUILDS.md) and the
-[accessibility/package verification](audit/ACCESSIBILITY_VERIFICATION.md).
+[build-identity/package verification](audit/BUILD_IDENTITY_VERIFICATION.md).
 
 The user's stopping rule is to finish material improvements and stop when further
 work offers noticeably less benefit. Apply that rule to verified failures, missing
@@ -17,17 +17,18 @@ a smaller product or promote private draft content to reviewed content.
 
 ## Current engineering evidence
 
-Runtime source `9e864a0df24a973ce1245b7db420fb2a4354bb1f` has fresh private Windows
-and universal Mac archives. The 77-file source audit and all 90 Python checks pass.
+Runtime source `c86cfba1e544b20917b66c14ea405f0b74abfd47` has fresh private Windows
+and universal Mac archives. The 79-file source audit and all 94 Python checks pass.
 The exact Windows archive passes seven-reference workflows, 784 placement
 comparisons, 543 redraw comparisons, four normal launches and two early closes.
-Native accessibility names, 3D focus, input-driven search, paged rows and library
-filtering also pass in an isolated copy. The marked verification sessions are
-removed. The embedded Mac resource pack passes the development-engine workflow; this does not execute the Mac binary.
+The embedded private build ID, declared version, source inputs, engine and
+content identity match the build record. Native accessibility names, 3D focus,
+query updates and page/filter actions also pass in an isolated copy. The marked
+verification sessions are removed. The embedded Mac resource pack passes the development-engine workflow; this does not execute the Mac binary.
 
-[Build/source audit](audit/accessibility-artifact-audit.json),
-[native Windows report](audit/accessibility-windows-qa.json),
-[Python checks](audit/accessibility-python.log.txt).
+[Build/source audit](audit/build-identity-artifact-audit.json),
+[native Windows report](audit/build-identity-windows-qa.json),
+[Python checks](audit/build-identity-python.log.txt).
 
 ## Personal-prototype requirements
 
@@ -75,16 +76,17 @@ tasks. Its presence is a plan, not a completed trial record.
 | Offline behavior and downloads | Starter content is bundled; local behavior is implemented. Confirm the actual device experience and document any eventual update/download flow. |
 | Content and application rights | [Attributions](../ATTRIBUTIONS.md) retain pinned notices. Public rights review and an application-code license decision remain open; source access does not close these gates. |
 | Distribution | Windows remains unsigned; Mac is ad-hoc signed and not notarized. Actual Mac execution and the intended public signing/distribution process require acceptance. Linux is outside the target and its separate release-template issue remains open. |
-| Corrections, versions and updates | Trial/issue templates exist. A public correction route, release identity and tested update/recovery process are not yet established. No reporting service or publication is implied. |
+| Corrections, versions and updates | Trial/issue templates exist. Private exports now expose a unique build ID and source fingerprint in Sources and START_HERE, checked against their build record. A public correction route, release policy and tested update/recovery process remain open. No reporting service or publication is implied. |
 
 ## Next work and stopping point
 
 1. Complete the [Mac acceptance run](MAC_ACCEPTANCE.md) against the exact current
    archive; record failures and fix material issues it reveals. The user has a Mac
    available for this run.
-2. Address release-identification/update gaps and material native-accessibility
-   findings within a bounded local scope. The current names/search/list batch has
-   native API evidence; assistive scrolling and actual human trials remain open.
+2. Exercise release-to-release persistence and rollback, then address material
+   native-accessibility findings within a bounded local scope. Private build
+   identification is implemented; public release policy and actual human trials
+   remain open.
 3. Complete physical-device/performance acceptance and arrange qualified content
    review and release decisions before a production-ready claim.
 

@@ -1,0 +1,76 @@
+{
+  "source_revision": "c86cfba1e544b20917b66c14ea405f0b74abfd47",
+  "build_identity": {
+    "schema_version": 1,
+    "channel": "private",
+    "build_id": "f962ce195f324c89a400cf07d8767c9d",
+    "application_version": "0.1.0",
+    "source_revision": "c86cfba1e544b20917b66c14ea405f0b74abfd47",
+    "source_snapshot_sha256": "72347b3bb7ef35baf9eae06dd7cb5bb10f3fa8ca6e7064e63eb3353e10af4bb0",
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "content_pack": "hra-united-v1-1-prototype-1"
+  },
+  "retained": {
+    "build-identity-artifact-audit.json": {
+      "bytes": 1920,
+      "sha256": "07ce75d81ed10e526835e5bf8b9610929fe1dee10a7228f4db1f639e59342efa"
+    },
+    "build-identity-build-report.json": {
+      "bytes": 9888,
+      "sha256": "26404a57cf13a74bc9746fb4cf6a7e6ba4e56dd5ad505c49731056b18e2bdd47"
+    },
+    "build-identity-build.log.txt": {
+      "bytes": 16307,
+      "sha256": "72fb66c84813158bde8371ec330475312d5df85123ee84a57ee139b55a1d2f23"
+    },
+    "build-identity-development.log.txt": {
+      "bytes": 180,
+      "sha256": "90d26a338461316f187d112cda4cc8be00987778b5a93ca1fab11e49eb3ac0eb"
+    },
+    "build-identity-information-development.log.txt": {
+      "bytes": 758,
+      "sha256": "7607eb5f98cd793626e9cbaf624e0a574ece9e8986e9eb2a6beb27b94a248e6c"
+    },
+    "build-identity-native-initial-anatomy.log.txt": {
+      "bytes": 443,
+      "sha256": "340c566ba356df5b25d856c05c54445481163d3700ceb166e2fb900d2f7e0f21"
+    },
+    "build-identity-native-replacement-selection.log.txt": {
+      "bytes": 527,
+      "sha256": "da04f6e79b94a749b079fd058deb4c7147b05fec259d5f23aea94f8ad0b1eb40"
+    },
+    "build-identity-negative-controls.json": {
+      "bytes": 1022,
+      "sha256": "260e1e026a3f669b775ea6776dbb7c83b3256324463e5fb14028c0fa018d53d9"
+    },
+    "build-identity-normal-lifecycle.json": {
+      "bytes": 1648,
+      "sha256": "414fba2ca285882a1f0bad957fac189f867cd0b592e2abd0123e5b8efdf0b4f3"
+    },
+    "build-identity-python.log.txt": {
+      "bytes": 16834,
+      "sha256": "8aa0c355796753bf994ab067306d5ee38286b8a2c87175d75558baf7833c1b8f"
+    },
+    "build-identity-windows-qa.json": {
+      "bytes": 42770,
+      "sha256": "68499da36991f4b45be7ef431ee5d2ed3c4e2f575ca2e8b0db08559379cad068"
+    },
+    "build-identity-windows-runtime.log.txt": {
+      "bytes": 21012,
+      "sha256": "4e7af2bb1777f6ca76bd644e9e609896efef75fbc33df2c64a39a2cdb687f2fb"
+    },
+    "build-identity-windows-uia-runtime.log.txt": {
+      "bytes": 289,
+      "sha256": "b8f59c9a584d6b08af58135df5e9d59669eee1b01b1594d6c3784932260feb39"
+    },
+    "build-identity-windows-uia.json": {
+      "bytes": 2691,
+      "sha256": "523d2fa46451f28613a7531805f423689570ae0970be795846556a85aaaa471d"
+    }
+  },
+  "native_workflow_session_independently_absent": true,
+  "native_api_session_independently_absent": true,
+  "detailed_native_evidence": "dist/build-identity-windows-qa/report.json",
+  "detailed_api_evidence": "dist/build-identity-windows-uia/report.json",
+  "scope": "Exact private archive evidence; actual Mac, upgrades, human accessibility and release requirements remain separate."
+}
