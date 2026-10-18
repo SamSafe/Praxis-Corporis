@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-10-18T16:42:50.198086+00:00",
+  "source_snapshot_verified_against_revision": "9e864a0df24a973ce1245b7db420fb2a4354bb1f",
+  "runtime_source_files": 77,
+  "source_snapshot_version": 2,
+  "source_snapshot_scope": "Project/export configuration, resource directories, UIDs and native build inputs.",
+  "auditor_sha256": "fb7a487cc8988c2cb367197c1d4cbe752a40ea344de077756e3acb52eb3488bf",
+  "artifacts": [
+    {
+      "file": "PraxisCorporis-Windows-x64-private.zip",
+      "bytes": 328221352,
+      "sha256": "33fc0c1e06fd4515dc55f764408839b51ea6f49265b0fa58f34bdbf985614310",
+      "architectures": [
+        "x86_64"
+      ],
+      "crc": "passed every extracted entry",
+      "notices": "all match committed source",
+      "content": "Companion anatomy package bytes/SHA-256 match the build record."
+    },
+    {
+      "file": "PraxisCorporis-macOS-universal-private.zip",
+      "bytes": 350666985,
+      "sha256": "6d682ca8db50ae0ef9bee50e720716a08f673ed6bac0fe7fa693524a82fb45e0",
+      "architectures": [
+        "x86_64",
+        "arm64"
+      ],
+      "crc": "passed every extracted entry",
+      "notices": "all match committed source",
+      "content": "Embedded content size, executable modes and resource-seal presence checked; no signature or content execution claim."
+    }
+  ],
+  "scope": "Archive/source audit only; native execution, resource-boundary checks, content fidelity and device performance have separate evidence."
+}

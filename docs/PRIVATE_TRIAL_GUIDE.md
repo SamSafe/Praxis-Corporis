@@ -62,6 +62,7 @@ restarting. Repeat the HRA tasks for both female and male references.
 | Read a study card | Select the heart, a valve and a lung. Open Read study card in workspace and expanded anatomy, try 130% text, select/scroll the text and close it. Follow a related-anatomy link, then press Enter. Repeat during a guide or route. | Are the text, reference, draft status and sources clear? Does focus stay useful and the original study/view remain intact? |
 | Follow study links | Tab to a related structure, condition summary and source citation; activate with Enter. Read a citation in your browser and return to the app. If a launch failure occurs, read/select the fallback address and close it. | Are the links reachable and focus clear? Does returning preserve the study step? Is any fallback readable at 130% text size? |
 | Use keyboard alternatives | Tab through actions; focus the teal-bordered 3D view and orbit/pan/zoom with keys; operate tree/search. | Is focus clear? Which action still requires a pointer? |
+| Browse with assistive technology | Try List view, Previous/Next, anatomy search, the saved-view filter and notes with the device's screen reader. | Are names, source rows, selection and page changes understandable and operable? Record the app version and assistive tool. |
 
 Also try the new [study workspace](STUDY_WORKSPACE.md) tasks:
 

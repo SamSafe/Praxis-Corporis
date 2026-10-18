@@ -14,16 +14,18 @@ portable views and four independent spinal source studies.
 
 The generated archives are excluded from Git:
 
-- Windows x64: dist/source-snapshot-improvements/PraxisCorporis-Windows-x64-private.zip
-- Mac Intel/Apple Silicon: dist/source-snapshot-improvements/PraxisCorporis-macOS-universal-private.zip
+- Windows x64: dist/accessible-surface-improvements/PraxisCorporis-Windows-x64-private.zip
+- Mac Intel/Apple Silicon: dist/accessible-surface-improvements/PraxisCorporis-macOS-universal-private.zip
 
-Use the source-snapshot-improvements build report for these archives. Earlier
+Use the accessible-surface-improvements build report for these archives. Earlier
 archives retain their own source/artifact identities.
-[Source-snapshot and package verification](audit/SOURCE_SNAPSHOT_VERIFICATION.md)
-records the expanded 75-file input audit, both archive hashes, fresh native Windows
-verification across seven references, 784 placement comparisons, 543 redraw
-comparisons, four normal launches and two early-close cases. The Mac resource
-checks run on the development engine; actual Mac acceptance remains pending.
+[Accessibility and package verification](audit/ACCESSIBILITY_VERIFICATION.md)
+records the complete 77-file input audit, both archive hashes, native accessibility
+names/search/page actions, and fresh native Windows workflows across seven references.
+The rendered suite checks 784 placement comparisons, 543 redraw comparisons, four
+normal launches and two early-close cases. Mac resource checks run on the development
+engine; actual Mac acceptance remains pending. Native assistive scrolling, row
+activation and human screen-reader trials remain open.
 The separate Linux-template qualification remains open.
 
 The [production-readiness checkpoint](PRODUCTION_READINESS.md) distinguishes the
@@ -121,6 +123,19 @@ This runs the compiled Mac resource pack with the development engine, checks its
 private resource boundary, every reference/workflow and two loading shutdowns.
 It does not execute the Mac binary. All runtime checks require their completion
 marker and reject errors or object leaks, including errors mixed into progress lines.
+
+The focused native accessibility verifier uses an exact recorded Windows archive:
+
+```sh
+python3 tools/accessibility_windows.py --archive dist/accessible-surface-improvements/PraxisCorporis-Windows-x64-private.zip --build-report dist/accessible-surface-improvements/build-report.json --output dist/new-accessibility-qa
+```
+
+Use a fresh output folder. In WSL, pass `--powershell` with the actual Windows
+PowerShell executable path. It starts only a marked QA copy, isolates fictional
+saved views, checks its own window's names/focus/search/page/filter actions, then
+closes normally and removes the generated folder after retaining evidence. It does
+not change OS accessibility settings or access clipboard contents. This API check
+does not establish screen-reader usability or conformance.
 
 `--qa-linux` additionally exercises the temporary Linux export:
 

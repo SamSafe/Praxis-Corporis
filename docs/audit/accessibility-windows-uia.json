@@ -1,0 +1,53 @@
+{
+  "result": "passed",
+  "checked_at": "2026-10-18T16:49:23.170294+00:00",
+  "artifact": {
+    "file": "PraxisCorporis-Windows-x64-private.zip",
+    "bytes": 328221352,
+    "sha256": "33fc0c1e06fd4515dc55f764408839b51ea6f49265b0fa58f34bdbf985614310",
+    "architectures": [
+      "x86_64"
+    ]
+  },
+  "source_revision": "9e864a0df24a973ce1245b7db420fb2a4354bb1f",
+  "verifier_sha256": "278d97331670e7faf634775770250136dd5113a7688674be8f7707c9ba68429c",
+  "controller_sha256": "c7af8119cd7576545a94b34e80fe30c06bb4dcacad308e24ce243053b0bebec5",
+  "build_report_sha256": "1cd751b97dabaeb7f0ba122d6d0d61b8a10f9d651484f5086dd5da841715a872",
+  "checks": {
+    "search_results": 1,
+    "page_size": 100,
+    "native_pages_compared": 3,
+    "library_before": 2,
+    "library_after": 1,
+    "scope": "Windows UI Automation names, search and page actions; list scrolling, row activation, human screen-reader and Mac checks remain pending"
+  },
+  "isolated_library_unchanged": true,
+  "exit": {
+    "pid": 23624,
+    "closed": true,
+    "exit_code": 0
+  },
+  "evidence": {
+    "stdout.log": "c2cc1e7ed6fabbab1708fafea3facefe8947a3fd2c7e7f813aa8ca42aa532a04",
+    "page-two.json": "63d52afa1b74a48e5e2eedea487b4ae7bb7fa414f08f0599b180657af6320f64",
+    "exit.json": "433934bae79f2cabca792c940b4903f47da31f087975f1fcaa534e1ed1be3d19",
+    "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "session.json": "26cd11fb5cff614d564c21fc630ec8bb7607c2df57bfb15b5aacee9f9c07c69c",
+    "page-return.json": "2b3870ab7ccfa7dfaaee202df83a761da72b3196fb6b8a498d988dfaa9bb8842",
+    "library-filter.json": "d81248efc1b2c5765c951170f7e3813d643520e7f93eb3887159cf41b36cac85",
+    "search.json": "d22fa534c9aaa6cc5b3cca72ed830a89522ed8a89f20c900f7bd0167dd27f038",
+    "baseline.json": "9d48a243cb7f0f697fa80ac9d1b1bcd14a3d638caaed7710b1fe690075f352f5",
+    "hierarchy-return.json": "017e623e7834f2fa396eae0c882ac175ab6911d7c57d3cb1a4a23925a285082b",
+    "library.json": "89b463150347be4074f600ae281714e769c8d168851d79dfb452736b52b14b91",
+    "page-one.json": "2b3870ab7ccfa7dfaaee202df83a761da72b3196fb6b8a498d988dfaa9bb8842",
+    "controller-stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "controller-stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "launched.json": "1b3ed654aa11a6e473fa37d8641be98f951efdfb21dfd1ad41b4eddfea8f1f6d",
+    "engine.log": "0bb46c4974e4fda3d5d737ff877b5d4b2abed543250355ad03651aed4225ea74"
+  },
+  "cleanup": {
+    "status": "removed",
+    "path": "/mnt/c/Users/king-/AppData/Local/Temp/PraxisCorporis-QA-ea53a54d2aee44bcbcd7a94aefd74776",
+    "independently_absent": true
+  }
+}

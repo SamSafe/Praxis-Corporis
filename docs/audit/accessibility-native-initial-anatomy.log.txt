@@ -1,0 +1,10 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 Core Profile Context 25.10.37.03.260407 - Compatibility - Using Device: ATI Technologies Inc. - AMD Radeon(TM) Graphics
+
+Loading female reference
+PASS loading shutdown: initial/anatomy · resource true · worker false · staged false
+
+
+QA observed peak working set bytes: 327708672
+QA sampled maximum private bytes: 304926720
+Windows native exit code: 0

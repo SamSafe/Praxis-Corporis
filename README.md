@@ -60,6 +60,7 @@ hide/fade controls, inspection movement with original-position overlays, restora
 undo/redo and local saved views with personal study notes.
 The saved-view library searches names, notes and selected anatomy IDs, with a This reference filter and preserved drafts.
 Ctrl/Cmd+F opens anatomy search from the workspace or expanded view; Escape clears search and then returns focus to 3D.
+List view pages through every source record, with named native controls for assistive input.
 Undo delete recovers the last deleted view and its unfinished notes while the library stays open.
 Save all notes, or Ctrl/Cmd+S in the library, retains every pending note without closing it.
 Export safeguards recognize alternate paths to the active library and protect newer notes.

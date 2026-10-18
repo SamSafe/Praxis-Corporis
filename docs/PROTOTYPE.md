@@ -96,6 +96,7 @@ is used by the viewer.
 | Keyboard camera | Tab/click to focus the 3D view (teal border). Arrows orbit; Shift-arrows pan; +/- zoom; F fits selection; Home shows the body. |
 | Orient the camera | Camera views offers Front, Back, From body left/right and angled Above/Below around the current focus. The direction cue rotates with the camera; L/R refer to the body's sides. |
 | Find a source record | Ctrl/Cmd+F or View/Explore > Find anatomy opens search. Search names, source names, ontology IDs or catalogue IDs; Enter selects the first ranked result. Escape clears the query, then returns focus to 3D. |
+| Browse all source records | Turn on List view. Previous/Next pages through every catalogue record, 100 at a time. Select a row to focus it; turn List view off to return to the hierarchy. |
 | Read study text | Read study card opens selectable draft text and source addresses. Explore offers the same action in expanded anatomy when a card exists. Close/Escape preserves the view. |
 | Trace source identity | Copy source record in the details panel copies the selected record and reference fingerprint. |
 | Select and focus | Click visible geometry or a surface label, choose a tree item, or select a search result. |
@@ -241,7 +242,7 @@ whitespace and common identifier separators are normalized for lookup. Search us
 only names and identifiers present in the catalogue.
 Unicode spaces, including nonbreaking and narrow nonbreaking spaces copied from
 other text, work like ordinary spaces. A query containing only spaces shows the
-hierarchy.
+chosen browsing mode: hierarchy by default, or the paged list.
 
 Results show the display label and source name on separate lines. Repeated labels
 remain distinct records; their original left/right names or file IDs stay visible.
@@ -253,12 +254,22 @@ Click a result to select/focus the actual geometry, or press Enter in the search
 to select the first result and move keyboard focus to the list. Filtering leaves
 camera, selection and inspection history unchanged until you select a result. Search
 selection uses the same isolation, labels and Back/Forward behaviour as the tree.
-Clearing the query restores the hierarchy and current selection. The list caps at
+Clearing the query restores the chosen browsing mode and current selection. Search caps at
 100 results and reports the full match count; the empty state identifies the reference
 and suggests another name/source ID. Switching references searches that body's records.
 A failed body load retains the prior index/results.
 See [Unicode search verification](audit/SEARCH_SPACING_VERIFICATION.md) for the
 copied-space reproduction and checks across all seven references.
+
+**List view** offers every catalogue record, including source grouping records,
+in alphabetically ordered pages of 100. Previous/Next changes the page without
+selecting or moving anatomy. Search still uses its ordinary ranking; clear it to
+return to the chosen page. Changing references starts at the first page. The mode
+is temporary for this window and is separate from saved anatomy snapshots.
+The native list also provides an alternative to hierarchy rows that the pinned
+Windows accessibility backend does not expose. Search, saved-view fields and core
+controls have explicit accessible names/descriptions. Native API checks do not
+establish screen-reader usability or conformance.
 
 **Copy source record** copies the selected label, original source name, ontology,
 catalogue ID, reference identity/hash, supplied mesh count, coverage notice and draft
@@ -424,6 +435,8 @@ with a fresh solve and validates real source-mesh hits.
 ```sh
 python3 tools/fetch_assets.py --verify-only
 python3 -m unittest discover -s tests -v
+godot --headless --path . --script tests/accessibility_input_smoke.gd
+godot --headless --path . --script tests/anatomy_list_smoke.gd
 godot --headless --path . --script tests/search_spacing_smoke.gd
 godot --headless --path . --script tests/scene_render_smoke.gd
 godot --headless --path . --script tests/label_reuse_smoke.gd

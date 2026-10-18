@@ -1,0 +1,144 @@
+{
+  "runtime_source_revision": "9e864a0df24a973ce1245b7db420fb2a4354bb1f",
+  "final_native_archive": {
+    "file": "PraxisCorporis-Windows-x64-private.zip",
+    "bytes": 328221352,
+    "sha256": "33fc0c1e06fd4515dc55f764408839b51ea6f49265b0fa58f34bdbf985614310",
+    "architectures": [
+      "x86_64"
+    ]
+  },
+  "retained": {
+    "accessibility-artifact-audit.json": {
+      "bytes": 1490,
+      "sha256": "7ad9116d94353cffa286d6f8271f9fa6f2f67fca34413c0f64c2a4bac14d9a24"
+    },
+    "accessibility-before-search-tree.json": {
+      "bytes": 9526,
+      "sha256": "f2a206bba2c7c546384a86a13dfb0132210359d02d418e6de28ff0e905568cf3"
+    },
+    "accessibility-before-tree.json": {
+      "bytes": 9757,
+      "sha256": "0455fd4c94991abe156362e986ea81f1fee1d071cc152efd6e65046d9735c638"
+    },
+    "accessibility-build-report.json": {
+      "bytes": 9252,
+      "sha256": "1cd751b97dabaeb7f0ba122d6d0d61b8a10f9d651484f5086dd5da841715a872"
+    },
+    "accessibility-build.log.txt": {
+      "bytes": 15788,
+      "sha256": "c5c5e6512866438c7473dd7a29725d3583f61355096f655adfaf6b37c3bec1b5"
+    },
+    "accessibility-development-checks.json": {
+      "bytes": 508,
+      "sha256": "f1727d622477a140983a95081aa3820ce4792b560e5f060d7ac010dd074aa71e"
+    },
+    "accessibility-display-development.log.txt": {
+      "bytes": 543,
+      "sha256": "f638819467d3852239370eebb23f444d0706265d691e0339f123f8ee1dd951c3"
+    },
+    "accessibility-input-development.log.txt": {
+      "bytes": 102,
+      "sha256": "07b76eb22c2d60c7b61f27192a8a36d2482ab0084a8032cfd22712a08b677e0c"
+    },
+    "accessibility-input-fixture-after.json": {
+      "bytes": 1427,
+      "sha256": "2befec246eeb306ac5c0e7bf14e4781c4a7686098d1ad350ccd5a799caab042a"
+    },
+    "accessibility-input-fixture-before.json": {
+      "bytes": 1589,
+      "sha256": "c28bd2b6800bcf659a23c09105e8990c74de0c84b810c12c841b3ce37e049a9b"
+    },
+    "accessibility-input-fixture-exit.json": {
+      "bytes": 41,
+      "sha256": "866a2cfb321f6e3f5d965deb7e6d65d7b860010887588252a1a8c9e1ed4637bb"
+    },
+    "accessibility-library-development.log.txt": {
+      "bytes": 103,
+      "sha256": "9854807cf0dc138e17f7634f384fb1bd30e09d36f8268bc5723775eecbffb1de"
+    },
+    "accessibility-list-development.log.txt": {
+      "bytes": 1202,
+      "sha256": "63f34318ccb0d8aee5bd726124f06e5445788bd621b2c231729c8b58ec85ebdf"
+    },
+    "accessibility-native-initial-anatomy.log.txt": {
+      "bytes": 443,
+      "sha256": "19d4ffd224be866a02930877302f139a28255e77186834d3b4ce9fe9263aa61c"
+    },
+    "accessibility-native-replacement-selection.log.txt": {
+      "bytes": 527,
+      "sha256": "d16aa6c2c3b8a07b043a4cf58e550ac4bd9eaf2f12ef5d3fcc7e83ca060eaa81"
+    },
+    "accessibility-normal-lifecycle.json": {
+      "bytes": 1648,
+      "sha256": "414fba2ca285882a1f0bad957fac189f867cd0b592e2abd0123e5b8efdf0b4f3"
+    },
+    "accessibility-normal-lifecycle.log.txt": {
+      "bytes": 1092,
+      "sha256": "59a6e7d396157ac834fa1569cc96f0b4a53453c00220a9d1b8a24f59c9ca6bb3"
+    },
+    "accessibility-python.log.txt": {
+      "bytes": 16122,
+      "sha256": "d06911032e7270f1b38f3711c5655a7349a0aa4c61fad9df046c242879f055de"
+    },
+    "accessibility-search-development.log.txt": {
+      "bytes": 411,
+      "sha256": "ebc7063babae1b99f65e1a16180efad9704f09b67f88cc03846153ad66ea13e2"
+    },
+    "accessibility-uia-baseline.json": {
+      "bytes": 6829,
+      "sha256": "9d48a243cb7f0f697fa80ac9d1b1bcd14a3d638caaed7710b1fe690075f352f5"
+    },
+    "accessibility-uia-hierarchy-return.json": {
+      "bytes": 7143,
+      "sha256": "017e623e7834f2fa396eae0c882ac175ab6911d7c57d3cb1a4a23925a285082b"
+    },
+    "accessibility-uia-library-filter.json": {
+      "bytes": 10080,
+      "sha256": "d81248efc1b2c5765c951170f7e3813d643520e7f93eb3887159cf41b36cac85"
+    },
+    "accessibility-uia-library.json": {
+      "bytes": 10227,
+      "sha256": "89b463150347be4074f600ae281714e769c8d168851d79dfb452736b52b14b91"
+    },
+    "accessibility-uia-page-one.json": {
+      "bytes": 8088,
+      "sha256": "2b3870ab7ccfa7dfaaee202df83a761da72b3196fb6b8a498d988dfaa9bb8842"
+    },
+    "accessibility-uia-page-return.json": {
+      "bytes": 8088,
+      "sha256": "2b3870ab7ccfa7dfaaee202df83a761da72b3196fb6b8a498d988dfaa9bb8842"
+    },
+    "accessibility-uia-page-two.json": {
+      "bytes": 8088,
+      "sha256": "63d52afa1b74a48e5e2eedea487b4ae7bb7fa414f08f0599b180657af6320f64"
+    },
+    "accessibility-uia-search.json": {
+      "bytes": 6737,
+      "sha256": "d22fa534c9aaa6cc5b3cca72ed830a89522ed8a89f20c900f7bd0167dd27f038"
+    },
+    "accessibility-windows-qa.json": {
+      "bytes": 42340,
+      "sha256": "c891029d62cb510f978cf3221aee5ddf104f4db0b2b1b1f0b86eff7c7aa3a2ef"
+    },
+    "accessibility-windows-runtime.log.txt": {
+      "bytes": 20623,
+      "sha256": "7f65341bdcf7c4640ba99149b06cfdec915ba66c2816b94521e918e1dc71df6d"
+    },
+    "accessibility-windows-uia-runtime.log.txt": {
+      "bytes": 289,
+      "sha256": "0bb46c4974e4fda3d5d737ff877b5d4b2abed543250355ad03651aed4225ea74"
+    },
+    "accessibility-windows-uia.json": {
+      "bytes": 2692,
+      "sha256": "e410ebb33c396c8d3dfeff56001402102db7c3feb97ccd5c60869a620f846b8b"
+    }
+  },
+  "detailed_native_evidence": "dist/accessible-surface-windows-qa/report.json",
+  "native_workflow_session_independently_absent": true,
+  "baseline_probe_archive": {
+    "source_revision": "6a878b7e5c0d65f7b5525ffbc84da7af43608205",
+    "sha256": "1fc5546f0a89f2f41eb0921072590e1082cb89d966d55c99a673a6bed6ce34d6"
+  },
+  "limits": "Native API checks do not establish assistive scrolling/row activation, actual screen-reader or Mac acceptance."
+}

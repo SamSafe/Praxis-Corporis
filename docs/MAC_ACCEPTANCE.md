@@ -3,11 +3,16 @@
 Use the current private candidate. This is an actual-device test of the app and
 controls; it does not establish medical accuracy or complete anatomy coverage.
 
-- Archive: `dist/source-snapshot-improvements/PraxisCorporis-macOS-universal-private.zip`
-- Bytes: `350662703`
-- SHA-256: `f507220195e6928d8257d29cbb25b3baac1bf8a45a4235b55cb275c1eb179fa4`
-- Runtime source: `6a878b7e5c0d65f7b5525ffbc84da7af43608205`
-- Build/audit: [verification](audit/SOURCE_SNAPSHOT_VERIFICATION.md)
+- Archive: `dist/accessible-surface-improvements/PraxisCorporis-macOS-universal-private.zip`
+- Bytes: `350666985`
+- SHA-256: `6d682ca8db50ae0ef9bee50e720716a08f673ed6bac0fe7fa693524a82fb45e0`
+- Runtime source: `9e864a0df24a973ce1245b7db420fb2a4354bb1f`
+- Build/audit: [verification](audit/ACCESSIBILITY_VERIFICATION.md)
+
+This supersedes the earlier `6a878b7` test packet. Its [results template](trials/MAC_6A878B7_TEMPLATE.md)
+remains available if that run has already begun; include the tested source/hash
+with observations so evidence stays attached to the right version. No Mac results
+have yet been recorded.
 
 Copy the complete ZIP to the Mac, extract it and open `PraxisCorporis.app` inside
 `PraxisCorporis`. Anatomy is inside the app bundle. Follow the existing
@@ -15,7 +20,7 @@ Copy the complete ZIP to the Mac, extract it and open `PraxisCorporis.app` insid
 ad-hoc-signed application. Record the exact message if it will not open.
 
 Use throwaway saved views and fictional notes for these checks. Keep a copy of the
-[results template](trials/MAC_6A878B7_TEMPLATE.md). Mark each task Pass, Fail or
+[results template](trials/MAC_9E864A0_TEMPLATE.md). Mark each task Pass, Fail or
 Blocked and describe any unexpected behavior. A failed task is useful evidence.
 
 | Task | Expected result |
@@ -23,6 +28,7 @@ Blocked and describe any unexpected behavior. A failed task is useful evidence.
 | Launch without network access | The app opens a reference from its bundled content. Coverage and private-draft status are visible. |
 | Female and male exploration | Both HRA references open. Orbit, pan and zoom work with the actual mouse/trackpad. Select, focus and Back return to useful anatomy views. |
 | Search and keyboard | Cmd+F opens anatomy search; Enter selects a source result; Escape clears search then returns to anatomy. Try `left atrium` and `UBERON0002135` in either HRA body. |
+| Paged records | Turn on List view; browse Previous/Next and select a real source record. Search still finds it; clearing search returns to the chosen mode. Turn List view off to return to the hierarchy. |
 | Inspect and restore | Inspect a supplied part alone, then Return to context. Turn Move on, move a part, Undo, then restore it. Ordinary orbit does not move anatomy. |
 | Separate studies | Open the bone study and all four spinal studies. Each loads, can select/focus a supplied part and clearly identifies its separate, unregistered source status. |
 | Compact/expanded layouts | Resize the window; try expanded anatomy and 130% text. Reach study text, actions, labels and a clear return path without clipped controls. |
@@ -31,7 +37,7 @@ Blocked and describe any unexpected behavior. A failed task is useful evidence.
 | Unfinished-note protection | Change a test note, then try closing the library and quitting the app. Keep editing preserves the draft. Save notes persists it. Test the actual Cmd+Q route too. |
 | Screenshot | Use Screenshot and the native save picker. Reopen the PNG: anatomy, source credits and draft/review status are present. |
 | Restart | Close normally and reopen. The last successful reference/window layout returns; named saved views and notes can be reopened. |
-| Accessibility observation | If available, try VoiceOver on core buttons, lists and the note editor. Record missing names, unusable focus or actions. This observation does not by itself establish conformance. |
+| Accessibility observation | If available, try VoiceOver on named core controls, List view records/paging, anatomy search, the saved-view filter and the note editor. Record missing names, unusable focus or actions. This observation does not by itself establish conformance. |
 
 Record stalls, loading problems, heat/noise or responsiveness issues as observations.
 This short run does not measure sustained FPS or pass the separate

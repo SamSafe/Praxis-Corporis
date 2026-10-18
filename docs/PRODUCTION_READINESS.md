@@ -3,7 +3,7 @@
 Checked 2026-10-18. **The project is a tested private candidate, not yet production
 ready against the agreed release requirements.** The current archive/source
 identities are in [native builds](NATIVE_BUILDS.md) and the
-[source-snapshot verification](audit/SOURCE_SNAPSHOT_VERIFICATION.md).
+[accessibility/package verification](audit/ACCESSIBILITY_VERIFICATION.md).
 
 The user's stopping rule is to finish material improvements and stop when further
 work offers noticeably less benefit. Apply that rule to verified failures, missing
@@ -17,16 +17,17 @@ a smaller product or promote private draft content to reviewed content.
 
 ## Current engineering evidence
 
-Runtime source `6a878b7e5c0d65f7b5525ffbc84da7af43608205` has fresh private Windows
-and universal Mac archives. The 75-file source audit and all 90 Python checks pass.
+Runtime source `9e864a0df24a973ce1245b7db420fb2a4354bb1f` has fresh private Windows
+and universal Mac archives. The 77-file source audit and all 90 Python checks pass.
 The exact Windows archive passes seven-reference workflows, 784 placement
 comparisons, 543 redraw comparisons, four normal launches and two early closes.
-Its marked verification session is removed. The embedded Mac resource pack passes
-the development-engine workflow; this does not execute the Mac binary.
+Native accessibility names, 3D focus, input-driven search, paged rows and library
+filtering also pass in an isolated copy. The marked verification sessions are
+removed. The embedded Mac resource pack passes the development-engine workflow; this does not execute the Mac binary.
 
-[Build/source audit](audit/source-snapshot-artifact-audit.json),
-[native Windows report](audit/source-snapshot-windows-qa.json),
-[Python checks](audit/source-snapshot-python.log.txt).
+[Build/source audit](audit/accessibility-artifact-audit.json),
+[native Windows report](audit/accessibility-windows-qa.json),
+[Python checks](audit/accessibility-python.log.txt).
 
 ## Personal-prototype requirements
 
@@ -38,7 +39,7 @@ These rows map every numbered requirement in
 | 1. Open and identify a whole-body reference | Both HRA references and explicit Coverage/gap descriptions pass native workflows. | Human understanding; coverage remains partial. |
 | 2. Orbit, pan, zoom, select, focus and return | Camera, pointer interruption, keyboard navigation and history checks pass. | Actual Mac and physical mouse/trackpad trials. |
 | 3. Reveal deeper anatomy and undo visibility | Supplied-group hide/fade/show, Undo/Redo and isolation/return checks pass. | Human task completion and interpretation. |
-| 4. Select small/overlapping anatomy through lists | Source search, hierarchy, part lists and tiny spinal picking checks pass. | Physical-device usability and ambiguous-target expectations. |
+| 4. Select small/overlapping anatomy through lists | Source search, complete paged records, hierarchy, part lists and tiny spinal picking checks pass. | Physical-device usability and ambiguous-target expectations. |
 | 5. Explicit Move and exact restoration | Mode/gesture boundaries, keyboard steps, Undo and restoration pass. | Human mode awareness and trackpad use. |
 | 6. Labels/panels retain navigation | Expanded/workspace controls, label placement, text scales and return focus pass. | Actual assistive-technology and human layout trials. |
 | 7. Save/reopen and recover when content is absent | Named views, notes/drafts, transfer, conflicts, damaged input and reference fallback are checked. | Native picker/clipboard use and release-to-release upgrade acceptance. |
@@ -69,7 +70,7 @@ tasks. Its presence is a plan, not a completed trial record.
 | Qualified review of published content | [Study content](../content/study_content.json) retains 15 cards, two conditions and one route as drafts, with human source and expert reviews pending. Geometry/labels also remain unreviewed. Obtain version-specific review; automated checks cannot supply it. |
 | Private pilot | Complete and retain actual task observations on representative Windows and Mac devices, including keyboard and trackpad use. No completed acceptance record is supplied by the automated runtime reports. |
 | Performance | [Historical full-HD measurements](audit/WINDOWS_FULLHD_PROFILE.md) cover source `ae600197`, one Windows host and eight workloads. They do not qualify the current archives, Mac, every label density or all release workloads. Follow the [performance protocol](PERFORMANCE_PROTOCOL.md), including agreed load/memory budgets and device evidence. |
-| Accessibility | Keyboard, focus, scalable text and text alternatives are implemented and checked. Actual assistive-technology trials and conformance evidence remain open. |
+| Accessibility | Keyboard, focus, scalable text and text alternatives are implemented and checked. Native names, 3D focus, query updates and page/filter actions pass. Native assistive scrolling/row activation, actual screen-reader trials and conformance evidence remain open. |
 | Persistence and upgrades | Current-version save/reopen/recovery is tested. A defined release-to-release upgrade/rollback trial remains required. |
 | Offline behavior and downloads | Starter content is bundled; local behavior is implemented. Confirm the actual device experience and document any eventual update/download flow. |
 | Content and application rights | [Attributions](../ATTRIBUTIONS.md) retain pinned notices. Public rights review and an application-code license decision remain open; source access does not close these gates. |
@@ -81,8 +82,9 @@ tasks. Its presence is a plan, not a completed trial record.
 1. Complete the [Mac acceptance run](MAC_ACCEPTANCE.md) against the exact current
    archive; record failures and fix material issues it reveals. The user has a Mac
    available for this run.
-2. Examine native accessibility and release-identification/update gaps that can be
-   addressed locally. Retain actual evidence and keep the public requirements open.
+2. Address release-identification/update gaps and material native-accessibility
+   findings within a bounded local scope. The current names/search/list batch has
+   native API evidence; assistive scrolling and actual human trials remain open.
 3. Complete physical-device/performance acceptance and arrange qualified content
    review and release decisions before a production-ready claim.
 

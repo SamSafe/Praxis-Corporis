@@ -1,0 +1,21 @@
+[
+  {
+    "test": "accessibility_input_smoke",
+    "exit_code": 0,
+    "passed": true,
+    "log": "build/qa/accessibility-final-accessibility_input_smoke.log"
+  },
+  {
+    "test": "search_smoke",
+    "exit_code": 0,
+    "passed": true,
+    "log": "build/qa/accessibility-final-search_smoke.log"
+  },
+  {
+    "test": "saved_views_filter_smoke",
+    "exit_code": 0,
+    "passed": true,
+    "log": "build/qa/accessibility-final-saved_views_filter_smoke.log",
+    "marker": "Saved-view search failures: 0"
+  }
+]
