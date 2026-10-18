@@ -1,6 +1,7 @@
 """Check archive containment, executable metadata and target architecture inspection."""
 
 import os
+import json
 import pathlib
 import stat
 import struct
@@ -18,6 +19,16 @@ from native_sources import discover_sources
 
 
 class NativePackagingTests(unittest.TestCase):
+    def test_bundle_completion_cannot_hide_a_missing_or_changed_build_identity(self):
+        identity = {'build_id': 'a' * 32}
+        marker = 'PASS offline native bundle'
+        identity_line = 'PASS private build identity: ' + json.dumps(identity)
+        for output in [marker, marker + '\n' + identity_line + '\n' + identity_line,
+                       marker + '\nPASS private build identity: ' + json.dumps({'build_id': 'b' * 32})]:
+            with self.subTest(output=output), patch('build_native.subprocess.run', return_value=SimpleNamespace(returncode=0, stdout=output)):
+                with self.assertRaises(RuntimeError):
+                    run(['fixture-engine'], required_marker=marker, expected_identity=identity)
+
     def test_shutdown_build_checks_cannot_accept_missing_checks_or_late_leaks(self):
         marker = 'PASS loading shutdown: initial/anatomy · resource true · worker false · staged false'
         for output in ['', marker + '\n' + marker, marker + '\nERROR: Resource failed',

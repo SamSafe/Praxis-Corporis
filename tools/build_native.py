@@ -14,8 +14,9 @@ import struct
 import subprocess
 import tempfile
 import zipfile
+import uuid
 
-from native_sources import SNAPSHOT_VERSION, discover_sources
+from native_sources import SNAPSHOT_VERSION, discover_sources, identity_record
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 
@@ -29,7 +30,8 @@ def sha256(path: pathlib.Path) -> str:
 
 
 def run(command: list[str], cwd: pathlib.Path = ROOT, env: dict | None = None,
-        required_marker: str | None = None, timeout: int = 120) -> None:
+        required_marker: str | None = None, timeout: int = 120,
+        expected_identity: dict | None = None) -> None:
     try:
         result = subprocess.run(command, cwd=cwd, env=env, text=True, stdout=subprocess.PIPE,
                                 stderr=subprocess.STDOUT, timeout=timeout)
@@ -38,6 +40,9 @@ def run(command: list[str], cwd: pathlib.Path = ROOT, env: dict | None = None,
         raise RuntimeError(f"Build step timed out: {command[0]}\n{output}") from error
     incomplete = required_marker is not None and (result.stdout.splitlines().count(required_marker) != 1
                   or re.search(r'ERROR:|ObjectDB instance.*leaked|^Leaked instance:', result.stdout, re.M))
+    if expected_identity is not None:
+        identities = re.findall(r'^PASS private build identity: (.+)$', result.stdout, re.M)
+        incomplete = incomplete or len(identities) != 1 or json.loads(identities[0]) != expected_identity
     if result.returncode or "SCRIPT ERROR:" in result.stdout or incomplete:
         raise RuntimeError(f"Command failed ({result.returncode}): {command[0]}\n{result.stdout}")
     # Keep successful build output compact; retained reports describe verified results.
@@ -118,7 +123,7 @@ def binary_architectures(path: pathlib.Path) -> list[str]:
         return architectures
 
 
-def add_notices(folder: pathlib.Path, platform: str) -> None:
+def add_notices(folder: pathlib.Path, platform: str, identity: dict) -> None:
     notices = folder / "NOTICES"
     notices.mkdir()
     for name in ["HRA-LICENSE.txt", "HRA-README.md", "Godot-LICENSE.txt", "Godot-COPYRIGHT.txt"]:
@@ -129,6 +134,9 @@ def add_notices(folder: pathlib.Path, platform: str) -> None:
     shutil.copyfile(ROOT / "ATTRIBUTIONS.md", notices / "ATTRIBUTIONS.md")
     (folder / "START_HERE.txt").write_text(
         "PRAXIS CORPORIS — PRIVATE ANATOMY PROTOTYPE\n\n"
+        + f"Version: {identity['application_version']}\nBuild ID: {identity['build_id']}\n"
+        + f"Source revision: {identity['source_revision']}\nSource inputs SHA-256: {identity['source_snapshot_sha256']}\n\n"
+        + "Sources inside the app shows this identity. Include the build ID with trial observations.\n\n"
         + ("Open PraxisCorporis.exe.\n" if platform == "windows" else "Open PraxisCorporis.app.\n")
         + ("Extract this complete folder first. Keep anatomy.pck beside the executable.\n" if platform == "windows" else
            "Extract the ZIP first. Anatomy is included inside the application bundle.\n")
@@ -153,6 +161,7 @@ def add_notices(folder: pathlib.Path, platform: str) -> None:
         "Study Next/Previous retain keyboard focus. At a lung branch, Tab reaches the other choice; Enter follows the focused choice. Finish returns focus to 3D.\n"
         "Search names/source IDs; Enter selects the first ranked result. Copy source record retains the reference identity.\n"
         "Ctrl/Cmd+F opens anatomy search and reveals its panel. Escape clears the query; press again to return focus to 3D.\n"
+        "List view browses every catalogue record. Previous/Next changes pages without selecting anatomy.\n"
         "Saved views searches names, notes, references and selected anatomy names/IDs. This reference narrows the library to the current reference.\n"
         "Coverage opens with its group list focused. Tab reaches selectable inventory text; Page Up/Down scroll and Escape closes it.\n"
         "Explore supplied group and successful saved/previous-quick-save restoration return keyboard focus to anatomy, so camera keys work immediately.\n"
@@ -215,6 +224,10 @@ def build(args: argparse.Namespace) -> dict:
     report["source_revision"] = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
     report["source_snapshot_version"] = SNAPSHOT_VERSION
     report["source_hashes"] = {name: sha256(ROOT / name) for name in sorted(discover_sources(ROOT))}
+    report['build_identity'] = identity_record(report, (ROOT / 'export_presets.cfg').read_text(), uuid.uuid4().hex)
+    export_environment = os.environ.copy()
+    export_environment['PRAXIS_PRIVATE_BUILD_IDENTITY'] = json.dumps(report['build_identity'], separators=(',', ':'))
+    export_marker = 'PASS private build identity resource: ' + report['build_identity']['build_id']
     with tempfile.TemporaryDirectory(prefix="native-build-", dir=args.output) as workspace:
         temporary = pathlib.Path(workspace)
         data_pack = temporary / "anatomy.pck"
@@ -232,12 +245,13 @@ def build(args: argparse.Namespace) -> dict:
             qa.mkdir()
             executable = qa / "PraxisCorporis.x86_64"
             print("Exporting and checking the Linux QA runtime…", flush=True)
-            run([args.godot, "--headless", "--path", str(ROOT), "--export-release", "Linux Bundle QA", str(executable)])
+            run([args.godot, "--headless", "--path", str(ROOT), "--export-release", "Linux Bundle QA", str(executable)],
+                env=export_environment, required_marker=export_marker)
             shutil.copyfile(data_pack, qa / "anatomy.pck")
             executable.chmod(0o755)
             # Run outside the source project; every anatomy read must come from the bundle.
             run([str(executable), "--headless", "--audio-driver", "Dummy", "--", "--verify-bundle"], cwd=qa, env=qa_environment,
-                required_marker="PASS offline native bundle")
+                required_marker="PASS offline native bundle", expected_identity=report['build_identity'])
             report['linux_loading_shutdown_qa'] = check_loading_shutdown(
                 [str(executable), '--headless', '--audio-driver', 'Dummy'], qa, qa_environment)
             (qa / "anatomy.pck").rename(qa / "anatomy.unavailable")
@@ -254,11 +268,13 @@ def build(args: argparse.Namespace) -> dict:
             print(f"Exporting {platform}…", flush=True)
             if platform == "windows":
                 executable = folder / "PraxisCorporis.exe"
-                run([args.godot, "--headless", "--path", str(ROOT), "--export-release", "Windows Private", str(executable)])
+                run([args.godot, "--headless", "--path", str(ROOT), "--export-release", "Windows Private", str(executable)],
+                    env=export_environment, required_marker=export_marker)
                 architectures = binary_architectures(executable)
             else:
                 app_archive = temporary / "macos-app.zip"
-                run([args.godot, "--headless", "--path", str(ROOT), "--export-release", "macOS Private", str(app_archive)], timeout=300)
+                run([args.godot, "--headless", "--path", str(ROOT), "--export-release", "macOS Private", str(app_archive)],
+                    timeout=300, env=export_environment, required_marker=export_marker)
                 modes = unpack_zip(app_archive, folder)
                 applications = list(folder.glob("*.app"))
                 if len(applications) != 1:
@@ -287,14 +303,14 @@ def build(args: argparse.Namespace) -> dict:
                         required_marker="PASS standalone packed resource boundary")
                     run([args.godot, "--headless", "--audio-driver", "Dummy", "--main-pack", str(core_packs[0]),
                          "--", "--verify-bundle", "--verify-export-boundary"], cwd=folder, env=qa_environment,
-                        required_marker="PASS offline native bundle", timeout=300)
+                        required_marker="PASS offline native bundle", timeout=300, expected_identity=report['build_identity'])
                     report["mac_content_qa"] = "passed every bundled reference in embedded content on the development engine; Mac device testing pending"
                     report['mac_loading_shutdown_content_qa'] = check_loading_shutdown(
                         [args.godot, '--headless', '--audio-driver', 'Dummy', '--main-pack', str(core_packs[0])],
                         folder, qa_environment)
             if platform == "windows":
                 shutil.copyfile(data_pack, folder / "anatomy.pck")
-            add_notices(folder, platform)
+            add_notices(folder, platform, report['build_identity'])
             name = "PraxisCorporis-Windows-x64-private.zip" if platform == "windows" else "PraxisCorporis-macOS-universal-private.zip"
             archive = temporary / name
             make_zip(folder, archive, modes)

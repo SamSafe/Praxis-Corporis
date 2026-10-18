@@ -37,9 +37,14 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
                  exploration_return: bool = False, text_encoding: bool = False,
                  draft_export: bool = False, scene_redraw: bool = False,
                  note_history: bool = False, note_carets: bool = False,
-                 label_reuse: bool = False, search_spacing: bool = False) -> dict:
+                 label_reuse: bool = False, search_spacing: bool = False,
+                 build_identity: dict | None = None) -> dict:
     if "ERROR:" in log or "Unicode parsing error" in log:
         raise ValueError("The native runtime reported an error")
+    if build_identity is not None:
+        identities = re.findall(r'^PASS private build identity: (.+)$', log, re.M)
+        if len(identities) != 1 or json.loads(identities[0]) != build_identity:
+            raise ValueError('Native build identity differs from the recorded private build')
     if re.search(r'ObjectDB instance.*leaked|^Leaked instance:', log, re.M):
         raise ValueError('The native runtime leaked an object at exit')
     if "PASS offline native bundle" not in log or "Windows native exit code: 0" not in log:
@@ -524,10 +529,11 @@ def verify(args: argparse.Namespace) -> dict:
         log = run_native(args, windows_session, windows_session + "\\" + executable_relative,
                          process_timeout=verification_timeout)
         result = parse_result(log, args.mode == "rendered", circulation, information, conditions,
-                              find_anatomy, pointer_interruption, saved_view_context, camera_zoom, coverage_keyboard, study_navigation, import_preview, unchanged_edits, movement_history, move_mode_boundary, nudge_gesture, source_fallback, study_reader, exploration_return, text_encoding, draft_export, scene_redraw, note_history, note_carets, label_reuse, search_spacing)
+                              find_anatomy, pointer_interruption, saved_view_context, camera_zoom, coverage_keyboard, study_navigation, import_preview, unchanged_edits, movement_history, move_mode_boundary, nudge_gesture, source_fallback, study_reader, exploration_return, text_encoding, draft_export, scene_redraw, note_history, note_carets, label_reuse, search_spacing, build_identity=build_report.get('build_identity'))
         if result["engine_actual"] != build_report["engine"]:
             raise ValueError("The native runtime differs from the pinned build engine")
         result.update(schema_version=1, recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
+                      build_identity=build_report.get('build_identity'),
                       mode=args.mode, result="passed; native exit code 0", source_revision=build_report["source_revision"],
                       artifact=item, engine_expected=build_report["engine"], verifier_sha256=sha256(pathlib.Path(__file__)),
                       archive_crc="passed during extraction", user_data="APPDATA and LOCALAPPDATA isolated in a generated QA session; user libraries untouched.",

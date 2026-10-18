@@ -6,10 +6,19 @@ var anatomy_export: EditorExportPlugin
 
 class AnatomyExport extends EditorExportPlugin:
 	const ContentBundle = preload("res://scripts/content_bundle.gd")
+	const BuildIdentity = preload("res://scripts/build_identity.gd")
 	func _get_name() -> String:
 		return "PraxisPrivateAnatomy"
 
 	func _export_begin(features: PackedStringArray, _is_debug: bool, _path: String, _flags: int) -> void:
+		var identity_text := OS.get_environment("PRAXIS_PRIVATE_BUILD_IDENTITY")
+		if not identity_text.is_empty():
+			var identity = JSON.parse_string(identity_text)
+			if identity_text.to_utf8_buffer().size() > BuildIdentity.MAX_BYTES or not BuildIdentity.valid(identity):
+				push_error("Private export build identity is invalid")
+				return
+			add_file(BuildIdentity.RESOURCE_PATH, identity_text.to_utf8_buffer(), false)
+			print("PASS private build identity resource: ", identity.build_id)
 		if not features.has("macos"):
 			return
 		var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://content/source_manifest.json"))

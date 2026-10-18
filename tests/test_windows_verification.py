@@ -1,6 +1,7 @@
 """Require complete native evidence and a matching artifact before launch."""
 import copy
 import hashlib
+import json
 import pathlib
 import sys
 import tempfile
@@ -26,6 +27,16 @@ def complete_log(rendered=True):
 
 
 class WindowsVerificationTests(unittest.TestCase):
+    def test_native_identity_must_match_the_exact_build_record_once(self):
+        identity = {'build_id': 'a' * 32, 'source_revision': 'b' * 40}
+        marker = '\nPASS private build identity: ' + json.dumps(identity)
+        log = complete_log(False)
+        for altered in [log, log + marker + marker,
+                        log + '\nPASS private build identity: ' + json.dumps(dict(identity, build_id='c' * 32))]:
+            with self.assertRaisesRegex(ValueError, 'build identity'):
+                parse_result(altered, False, build_identity=identity)
+        self.assertIn('female', parse_result(log + marker, False, build_identity=identity)['references'])
+
     def test_search_spacing_requires_all_reference_checks(self):
         log = complete_log(False)
         for reference in ['female', 'male', 'bodyparts-male-bones-study']:

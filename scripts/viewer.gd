@@ -20,6 +20,7 @@ const StudyContent = preload("res://scripts/study_content.gd")
 const GuidedChest = preload("res://scripts/guided_chest.gd")
 const StudyVerification = preload("res://scripts/study_verification.gd")
 const InformationDialog = preload("res://scripts/information_dialog.gd")
+const BuildIdentity = preload("res://scripts/build_identity.gd")
 const WindowState = preload("res://scripts/window_state.gd")
 const ReferenceState = preload("res://scripts/reference_state.gd")
 enum ExpandedAction { FOCUS, WHOLE_BODY, INSPECT, RETURN_CONTEXT, SELECTION_LABELS,
@@ -237,6 +238,12 @@ func verify_bundle() -> void:
 		push_error(boundary_error)
 		get_tree().quit(1)
 		return
+	var build_identity := BuildIdentity.read(pack.id)
+	if build_identity.is_empty():
+		push_error("Private bundle build identity is unavailable or mismatched")
+		get_tree().quit(1)
+		return
+	print("PASS private build identity: ", JSON.stringify(build_identity))
 	var rendered := "--verify-rendered-bundle" in OS.get_cmdline_user_args()
 	if rendered and DisplayServer.get_name() == "headless":
 		push_error("Rendered bundle verification needs a desktop display")
@@ -3066,6 +3073,7 @@ func show_sources() -> Window:
 		dialog.message += "\n\nStudy explanations and circulation route\nOriginal summaries. Assistant source cross-check: %s. Human source and qualified medical review are pending. No source illustrations or videos are reused.\n" % str(study_content.data.assistant_checks.checked_on)
 		for source in study_content.data.sources.values():
 			dialog.message += "\n%s\n%s\n" % [source.title, source.url]
+	dialog.message = BuildIdentity.describe(pack.id) + "\n\n" + dialog.message
 	add_child(dialog)
 	scale_text(dialog)
 	dialog.open(Vector2i(760, 500))

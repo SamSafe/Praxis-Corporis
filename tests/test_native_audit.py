@@ -13,7 +13,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'tools'))
 from audit_native import FIXED_SOURCES, NOTICES, TARGETS, audit, source_snapshot
 from build_native import make_zip, sha256
-from native_sources import SNAPSHOT_VERSION
+from native_sources import SNAPSHOT_VERSION, identity_record, private_application_version, source_paths
 
 
 def fixture(root, mac=False, modern=False):
@@ -79,6 +79,56 @@ def refresh(archive, report):
 
 
 class NativeAuditTests(unittest.TestCase):
+    def test_private_platform_versions_cannot_disagree(self):
+        presets = (ROOT / 'export_presets.cfg').read_text()
+        version = private_application_version(presets)
+        changed = presets.replace('application/short_version="' + version + '"', 'application/short_version="9.9.9"' if version != '9.9.9' else 'application/short_version="9.9.8"')
+        with self.assertRaisesRegex(ValueError, 'versions must agree'):
+            private_application_version(changed)
+
+    def test_current_identity_requires_the_recorded_source_version_engine_and_content(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            repository, folder, archive, report, modes = fixture(pathlib.Path(temporary), modern=True)
+            (repository / 'scripts/build_identity.gd').write_text('Fixture runtime identity reader')
+            presets = (ROOT / 'export_presets.cfg').read_text()
+            (repository / 'export_presets.cfg').write_text(presets)
+            subprocess.run(['git', 'add', 'scripts/build_identity.gd', 'export_presets.cfg'], cwd=repository, check=True)
+            subprocess.run(['git', '-c', 'user.name=Archive Fixture', '-c', 'user.email=fixture@invalid', 'commit', '-qm', 'Identity fixture'], cwd=repository, check=True)
+            report['source_revision'] = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=repository, text=True).strip()
+            tracked = subprocess.check_output(['git', 'ls-tree', '-r', '--name-only', 'HEAD'], cwd=repository, text=True).splitlines()
+            report['source_hashes'] = {p: sha256(repository / p) for p in source_paths(tracked)}
+            report.update(engine='4.7.2.stable.official.ed1daf0bf', content_pack='fixture')
+            with self.assertRaisesRegex(ValueError, 'build identity'):
+                source_snapshot(report, repository)
+            report['build_identity'] = identity_record(report, presets, 'a' * 32)
+            self.assertEqual(source_snapshot(report, repository), report['source_revision'])
+            with self.assertRaisesRegex(ValueError, 'Startup instructions'):
+                audit(report, pathlib.Path(temporary), repository)
+            labels = [('Version', 'application_version'), ('Build ID', 'build_id'),
+                      ('Source revision', 'source_revision'), ('Source inputs SHA-256', 'source_snapshot_sha256')]
+            (folder / 'START_HERE.txt').write_text('\n'.join(label + ': ' + report['build_identity'][key] for label, key in labels))
+            make_zip(folder, archive, modes)
+            refresh(archive, report)
+            self.assertEqual(audit(report, pathlib.Path(temporary), repository)['build_identity'], report['build_identity'])
+            wrong_run = copy.deepcopy(report)
+            wrong_run['build_identity']['build_id'] = 'd' * 32
+            with self.assertRaisesRegex(ValueError, 'Startup instructions'):
+                audit(wrong_run, pathlib.Path(temporary), repository)
+            for key, value in [('source_revision', 'b' * 40), ('source_snapshot_sha256', 'b' * 64),
+                               ('application_version', '9.9.9'), ('engine', 'different'),
+                               ('content_pack', 'different'), ('channel', 'public'), ('build_id', 'invalid')]:
+                bad = copy.deepcopy(report)
+                bad['build_identity'][key] = value
+                with self.subTest(key=key), self.assertRaises(ValueError):
+                    source_snapshot(bad, repository)
+            # The fingerprint is canonical and reflects actual source changes.
+            reordered = dict(report, source_hashes=dict(reversed(list(report['source_hashes'].items()))))
+            self.assertEqual(identity_record(reordered, presets, 'a' * 32), report['build_identity'])
+            changed = copy.deepcopy(report)
+            changed['source_hashes']['project.godot'] = 'f' * 64
+            self.assertNotEqual(identity_record(changed, presets, 'a' * 32)['source_snapshot_sha256'],
+                                report['build_identity']['source_snapshot_sha256'])
+
     def test_modern_snapshot_requires_scenes_uids_nested_resources_and_build_inputs(self):
         with tempfile.TemporaryDirectory() as temporary:
             repository, _, _, report, _ = fixture(pathlib.Path(temporary), modern=True)

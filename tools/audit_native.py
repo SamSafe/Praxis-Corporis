@@ -12,7 +12,7 @@ import tempfile
 import zipfile
 
 from build_native import ROOT, binary_architectures, sha256, unpack_zip
-from native_sources import SNAPSHOT_VERSION, source_paths
+from native_sources import SNAPSHOT_VERSION, source_paths, verify_identity_record
 
 FIXED_SOURCES = {
     'project.godot', 'export_presets.cfg', 'content/sample_pack.json', 'content/source_manifest.json',
@@ -56,6 +56,10 @@ def source_snapshot(report: dict, repository: pathlib.Path = ROOT) -> str:
     for relative, expected in report['source_hashes'].items():
         if hashlib.sha256(git_bytes(repository, revision, relative)).hexdigest() != expected:
             raise ValueError('Recorded source hash differs from its commit: ' + relative)
+    if 'scripts/build_identity.gd' in tracked:
+        verify_identity_record(report, git_bytes(repository, revision, 'export_presets.cfg').decode('utf-8'))
+    elif 'build_identity' in report:
+        raise ValueError('Build identity is not supported by this historical source revision')
     return revision
 
 
@@ -87,6 +91,12 @@ def audit(report: dict, directory: pathlib.Path, repository: pathlib.Path = ROOT
                     raise ValueError('Native notice differs from the committed source: ' + notice)
             if not (folder / 'START_HERE.txt').stat().st_size:
                 raise ValueError('Private startup instructions are missing')
+            if report.get('build_identity'):
+                instructions = (folder / 'START_HERE.txt').read_text(encoding='utf-8').splitlines()
+                for label, key in [('Version', 'application_version'), ('Build ID', 'build_id'),
+                                   ('Source revision', 'source_revision'), ('Source inputs SHA-256', 'source_snapshot_sha256')]:
+                    if label + ': ' + report['build_identity'][key] not in instructions:
+                        raise ValueError('Startup instructions do not identify the recorded private build')
             if 'Windows' in name:
                 executable = folder / 'PraxisCorporis.exe'
                 anatomy = folder / 'anatomy.pck'
@@ -115,6 +125,7 @@ def audit(report: dict, directory: pathlib.Path, repository: pathlib.Path = ROOT
                                       if report.get('source_snapshot_version') == SNAPSHOT_VERSION else
                                       'Legacy recorded scripts/configuration/content; startup scene and UIDs were not recorded.'),
             'auditor_sha256': sha256(pathlib.Path(__file__)), 'artifacts': artifacts,
+            'build_identity': report.get('build_identity'),
             'scope': 'Archive/source audit only; native execution, resource-boundary checks, content fidelity and device performance have separate evidence.'}
 
 

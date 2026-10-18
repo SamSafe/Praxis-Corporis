@@ -3,6 +3,7 @@ extends RefCounted
 
 const SavedViews = preload("res://scripts/saved_views.gd")
 const Preferences = preload("res://scripts/viewer_preferences.gd")
+const BuildIdentity = preload("res://scripts/build_identity.gd")
 
 
 class DraftExportBrowser extends "res://scripts/saved_views_browser.gd":
@@ -2025,6 +2026,12 @@ static func verify_information(viewer: Control, rendered: bool) -> bool:
 		await viewer.get_tree().process_frame
 		await viewer.get_tree().process_frame
 		valid = valid and dialog.content.get_parsed_text() == dialog.message and dialog.size.y <= viewer.get_window().size.y
+		if kind == "sources":
+			var identity: Dictionary = BuildIdentity.read(viewer.pack.id)
+			if identity.is_empty():
+				valid = valid and "build identity unavailable" in dialog.message
+			else:
+				valid = valid and identity.build_id in dialog.message and identity.source_revision in dialog.message and identity.source_snapshot_sha256 in dialog.message
 		valid = valid and dialog.get_ok_button().get_global_rect().end.y <= dialog.size.y
 		var key := InputEventKey.new()
 		key.pressed = true
