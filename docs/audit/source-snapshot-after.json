@@ -1,0 +1,7 @@
+{
+  "startup_scene_recorded": true,
+  "scene_before_sha256": "80e03072cfcde52ff7a5ca7dca9fa2889ae2161061d440d31f4617c9809234f7",
+  "scene_modified_sha256": "99666525ed3eb791baf1d6b3aea534daa3f0d6aff00569c828dbf5dd66db6b7d",
+  "scene_change_rejected": true,
+  "error": "Runtime source changed during build: scenes/main.tscn. Rebuild before using these archives."
+}

@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "source_revision": "6a878b7e5c0d65f7b5525ffbc84da7af43608205",
+  "source_snapshot_version": 2,
+  "source_inputs": 75,
+  "prior_source_inputs": 41,
+  "python_checks": 90,
+  "negative_audit_controls": 6,
+  "prior_41_runtime_hashes_unchanged": true,
+  "native_archive_executed": {
+    "file": "PraxisCorporis-Windows-x64-private.zip",
+    "bytes": 328218038,
+    "sha256": "1fc5546f0a89f2f41eb0921072590e1082cb89d966d55c99a673a6bed6ce34d6",
+    "architectures": [
+      "x86_64"
+    ]
+  },
+  "native_identical_placement_pairs": 784,
+  "native_identical_scene_pairs": 543,
+  "native_capture_identities": 107,
+  "native_normal_launches": 4,
+  "native_early_closes": 2,
+  "native_session_independently_checked_absent": true,
+  "native_details_location": "dist/source-snapshot-windows-qa/",
+  "mac_content_qa": "Development engine; actual Mac execution pending.",
+  "files": {
+    "source-snapshot-probe.py.txt": {
+      "bytes": 1503,
+      "sha256": "6cdbe710beabd3ca6a5b2bc310e27c03aae5a7fdf21e86b5fa94d2757edc5944"
+    },
+    "source-snapshot-before.json": {
+      "bytes": 275,
+      "sha256": "3338571fa250d19677409b2bbc88c59f74b095f3ea3278c0dbaeb197575f1571"
+    },
+    "source-snapshot-after.json": {
+      "bytes": 364,
+      "sha256": "608e5f843bf758d95b9e3a68a6db5e4b1252acbeb0a527d88fb886833e4ae639"
+    },
+    "source-snapshot-python.log.txt": {
+      "bytes": 16122,
+      "sha256": "450b1bfbfa9afd70e29b7e967aad7c623ec8eb1f127af576306e1a1015746fef"
+    },
+    "source-snapshot-negative-audits.json": {
+      "bytes": 1018,
+      "sha256": "746f9edc499d76611c57d5197bec616db752dda07ab13992c6b3dd231d1ba43e"
+    },
+    "source-snapshot-package-comparison.py.txt": {
+      "bytes": 2331,
+      "sha256": "a6c1138d5b0204d973ece16a0607989ee9a0e2a6f372faefbb975f1cfeb47d89"
+    },
+    "source-snapshot-package-comparison.json": {
+      "bytes": 10311,
+      "sha256": "a339507cc2c895336894bd4c3271372a1a9b309c72880c4c4a29c32c24384963"
+    },
+    "source-snapshot-build.log.txt": {
+      "bytes": 15779,
+      "sha256": "c21cba537638e7549f6ce850332673ff091dd92bd131a4133a86447deff30b7e"
+    },
+    "source-snapshot-build-report.json": {
+      "bytes": 9042,
+      "sha256": "67e1958204092ce12cef34f26c6ed46db47290c796ad06c78e8ad008049f2005"
+    },
+    "source-snapshot-artifact-audit.json": {
+      "bytes": 1490,
+      "sha256": "23287141efd3324bcb8c5df0c5d80a49fac252d3b309e042ab59f43f3f533395"
+    },
+    "source-snapshot-legacy-audit.json": {
+      "bytes": 1497,
+      "sha256": "1c20b777f46bca8badfed12eafdb209fa6b7f1f32a6581dc7a90ab8c90c6fb1f"
+    },
+    "source-snapshot-windows-qa.json": {
+      "bytes": 42339,
+      "sha256": "46935dddaf6142a32bf6d411c1d2292569009981789a2a911ea06b8c6a0bf734"
+    },
+    "source-snapshot-windows-runtime.log.txt": {
+      "bytes": 20623,
+      "sha256": "cb08f3ebe851947eeed8877930a924939a618367381e72d3cb17f7c211fc103c"
+    },
+    "source-snapshot-normal-lifecycle.json": {
+      "bytes": 1648,
+      "sha256": "414fba2ca285882a1f0bad957fac189f867cd0b592e2abd0123e5b8efdf0b4f3"
+    },
+    "source-snapshot-native-initial-anatomy.log.txt": {
+      "bytes": 443,
+      "sha256": "ad84d0f9814e18b2520c8e16d19828384c156c69f9a6660248a6a227ebf0bf4e"
+    },
+    "source-snapshot-native-replacement-selection.log.txt": {
+      "bytes": 526,
+      "sha256": "77887cf2e7f8e7de6fabbefaa9e16ad479c0172eaa29a03cff055c595f28c8c6"
+    }
+  }
+}

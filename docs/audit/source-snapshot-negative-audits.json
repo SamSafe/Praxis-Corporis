@@ -1,0 +1,36 @@
+{
+  "source_revision": "6a878b7e5c0d65f7b5525ffbc84da7af43608205",
+  "valid_inputs": 75,
+  "cases": [
+    {
+      "case": "missing_scene",
+      "rejected": true,
+      "error": "Source snapshot omits or changes the set of required runtime files"
+    },
+    {
+      "case": "missing_uid",
+      "rejected": true,
+      "error": "Source snapshot omits or changes the set of required runtime files"
+    },
+    {
+      "case": "changed_scene_hash",
+      "rejected": true,
+      "error": "Recorded source hash differs from its commit: scenes/main.tscn"
+    },
+    {
+      "case": "downgrade",
+      "rejected": true,
+      "error": "This source revision requires native source snapshot version 2"
+    },
+    {
+      "case": "missing_version",
+      "rejected": true,
+      "error": "This source revision requires native source snapshot version 2"
+    },
+    {
+      "case": "extra_uncommitted_scene",
+      "rejected": true,
+      "error": "Source snapshot omits or changes the set of required runtime files"
+    }
+  ]
+}

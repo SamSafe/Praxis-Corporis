@@ -1,0 +1,35 @@
+import hashlib,json,pathlib,zipfile
+root=pathlib.Path(__file__).resolve().parents[2]
+old=root/'dist/search-spacing-improvements'
+new=root/'dist/source-snapshot-improvements'
+def file_sha(path):
+ h=hashlib.sha256()
+ with path.open('rb') as stream:
+  while chunk:=stream.read(1024*1024):h.update(chunk)
+ return h.hexdigest()
+def member_sha(package,name):
+ h=hashlib.sha256()
+ with package.open(name) as stream:
+  while chunk:=stream.read(1024*1024):h.update(chunk)
+ return h.hexdigest()
+prior=json.loads((root/'dist/search-spacing-windows-qa/report.json').read_text())
+before=json.loads((old/'build-report.json').read_text())
+after=json.loads((new/'build-report.json').read_text())
+assert file_sha(old/prior['artifact']['file'])==prior['artifact']['sha256']
+assert set(before['source_hashes']).issubset(after['source_hashes'])
+assert all(after['source_hashes'][name]==value for name,value in before['source_hashes'].items())
+report=dict(schema_version=1,source_revision=after['source_revision'],snapshot_version=after['source_snapshot_version'],prior_source_revision=before['source_revision'],prior_native_report_sha256=file_sha(root/'dist/search-spacing-windows-qa/report.json'),prior_native_archive_sha256=prior['artifact']['sha256'],all_prior_41_runtime_inputs_identical=True,source_inputs=len(after['source_hashes']),archives=[])
+for name in [a['file'] for a in after['artifacts']]:
+ rows=[]
+ with zipfile.ZipFile(old/name) as p,zipfile.ZipFile(new/name) as q:
+  assert set(p.namelist())==set(q.namelist()),name
+  for path in sorted(p.namelist()):
+   a,b=p.getinfo(path),q.getinfo(path)
+   ah,bh=member_sha(p,path),member_sha(q,path)
+   rows.append(dict(path=path,bytes=b.file_size,previous_sha256=ah,current_sha256=bh,identical=ah==bh and a.file_size==b.file_size and a.external_attr==b.external_attr))
+ report['archives'].append(dict(file=name,previous_archive_sha256=file_sha(old/name),archive_sha256=file_sha(new/name),all_member_bytes_and_modes_identical=all(r['identical'] for r in rows),members=rows))
+(root/'build/qa/source-snapshot-package-comparison.json').write_text(json.dumps(report,indent=2)+'\n')
+for row in report['archives']:
+ print(row['file'], 'all member bytes/modes identical:',row['all_member_bytes_and_modes_identical'])
+ for r in row['members']:
+  if not r['identical']:print('Changed member:',r['path'])

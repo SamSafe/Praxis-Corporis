@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "source_revision": "6a878b7e5c0d65f7b5525ffbc84da7af43608205",
+  "snapshot_version": 2,
+  "prior_source_revision": "e41d05c7d858da6b8e342566d6f257e9ab135bc6",
+  "prior_native_report_sha256": "0cb52f9f7afe8f0e1fc9d017b3ec9e945a4b5e113e193b226f0962a7778bba37",
+  "prior_native_archive_sha256": "3470f35929fa5b42cc3edaf99d515b67001470b9308c36e792c8d3c3cda2257e",
+  "all_prior_41_runtime_inputs_identical": true,
+  "source_inputs": 75,
+  "archives": [
+    {
+      "file": "PraxisCorporis-Windows-x64-private.zip",
+      "previous_archive_sha256": "3470f35929fa5b42cc3edaf99d515b67001470b9308c36e792c8d3c3cda2257e",
+      "archive_sha256": "1fc5546f0a89f2f41eb0921072590e1082cb89d966d55c99a673a6bed6ce34d6",
+      "all_member_bytes_and_modes_identical": false,
+      "members": [
+        {
+          "path": "PraxisCorporis/NOTICES/ATTRIBUTIONS.md",
+          "bytes": 5882,
+          "previous_sha256": "5bb1704c195e1da307d07a569fe5aa7aaec0ff21e62a32c37fb4759f58e5f0fb",
+          "current_sha256": "5bb1704c195e1da307d07a569fe5aa7aaec0ff21e62a32c37fb4759f58e5f0fb",
+          "identical": true
+        },
+        {
+          "path": "PraxisCorporis/NOTICES/BodyParts3D-CURRENT-LICENSE.html",
+          "bytes": 14694,
+          "previous_sha256": "b53d18d247405cb8cedac96aa26ae348719381926bc6bd994284fc6b48450181",
+          "current_sha256": "b53d18d247405cb8cedac96aa26ae348719381926bc6bd994284fc6b48450181",
+          "identical": true
+        },
+        {
+          "path": "PraxisCorporis/NOTICES/BodyParts3D-LEGACY-OBJ-NOTICE.txt",
+          "bytes": 299,
+          "previous_sha256": "dc1b63f05c7a3a70692c75f82fb29cfae6455069e92ba705b5ee06c12882b596",
+          "current_sha256": "dc1b63f05c7a3a70692c75f82fb29cfae6455069e92ba705b5ee06c12882b596",
+          "identical": true
+        },
+        {
+          "path": "PraxisCorporis/NOTICES/BodyParts3D-README.html",
+          "bytes": 19263,
+          "previous_sha256": "f9a90b4d945ad0fe50db45c712e931aa54e52667187b30d7085b6cc394f40107",
+          "current_sha256": "f9a90b4d945ad0fe50db45c712e931aa54e52667187b30d7085b6cc394f40107",
+          "identical": true
+        },
+        {
+          "path": "PraxisCorporis/NOTICES/Godot-COPYRIGHT.txt",
+          "bytes": 100108,
+          "previous_sha256": "cb1980c88089573bcacd7221d777c689bb8bbd778799f24c27fca0fe5f774d6d",
+          "current_sha256": "cb1980c88089573bcacd7221d777c689bb8bbd778799f24c27fca0fe5f774d6d",
+          "identical": true
+        },
+        {
+          "path": "PraxisCorporis/NOTICES/Godot-LICENSE.txt",
+          "bytes": 1149,
+          "previous_sha256": "b0435e3b3e4e55238f05f4b306f30524a1b2e20147810d436eaa554fa6855c80",
+          "current_sha256": "b0435e3b3e4e55238f05f4b306f30524a1b2e20147810d436eaa554fa6855c80",
+          "identical": true
+        },
+        {
+          "path": "PraxisCorporis/NOTICES/HRA-LICENSE.txt",
+          "bytes": 18657,
+          "previous_sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+          "current_sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+          "identical": true
+        },
+        {
+          "path": "PraxisCorporis/NOTICES/HRA-README.md",
+          "bytes": 761,
+          "previous_sha256": "57519f4cfbb2b12b8bf75654231b28b44802b611e85092b1044701fa640179f6",
+          "current_sha256": "57519f4cfbb2b12b8bf75654231b28b44802b611e85092b1044701fa640179f6",
+          "identical": true
+        },
+        {
+          "path": "PraxisCorporis/PraxisCorporis.exe",
+          "bytes": 110596080,
+          "previous_sha256": "fdc2a6a0ca016117fb7ade9b604bcf5e634af559525c753fc3ed96a80a720817",
+          "current_sha256": "c92e0de623279b7d2a6c590d06976e7635445b0855965e8a2df35202c7f5c707",
+          "identical": false
+        },
+        {
+          "path": "PraxisCorporis/START_HERE.txt",
+          "bytes": 6107,
+          "previous_sha256": "80d0e3d2df4d4b89b7f3af3e25945df0a6fcdb2acb1ac0bd78f34eab10df300f",
+          "current_sha256": "80d0e3d2df4d4b89b7f3af3e25945df0a6fcdb2acb1ac0bd78f34eab10df300f",
+          "identical": true
+        },
+        {
+          "path": "PraxisCorporis/anatomy.pck",
+          "bytes": 624166432,
+          "previous_sha256": "5db1ab9a5e8d4630a63cfa68e701232ace4fc751dd9f8e8bab094e8b1317e109",
+          "current_sha256": "5db1ab9a5e8d4630a63cfa68e701232ace4fc751dd9f8e8bab094e8b1317e109",
+          "identical": true
+        }
+      ]
+    },
+    {
+      "file": "PraxisCorporis-macOS-universal-private.zip",
+      "previous_archive_sha256": "1b901e158e511ad465fb3939964785909e4975f509b719a0d0fa5455bb30f6fc",
+      "archive_sha256": "f507220195e6928d8257d29cbb25b3baac1bf8a45a4235b55cb275c1eb179fa4",
+      "all_member_bytes_and_modes_identical": false,
+      "members": [
+        {
+          "path": "PraxisCorporis/NOTICES/ATTRIBUTIONS.md",
+          "bytes": 5882,
+          "previous_sha256": "5bb1704c195e1da307d07a569fe5aa7aaec0ff21e62a32c37fb4759f58e5f0fb",
+          "current_sha256": "5bb1704c195e1da307d07a569fe5aa7aaec0ff21e62a32c37fb4759f58e5f0fb",
+          "identical": true
+        },
+        {
+          "path": "PraxisCorporis/NOTICES/BodyParts3D-CURRENT-LICENSE.html",
+          "bytes": 14694,
+          "previous_sha256": "b53d18d247405cb8cedac96aa26ae348719381926bc6bd994284fc6b48450181",
+          "current_sha256": "b53d18d247405cb8cedac96aa26ae348719381926bc6bd994284fc6b48450181",
+          "identical": true
+        },
+        {
+          "path": "PraxisCorporis/NOTICES/BodyParts3D-LEGACY-OBJ-NOTICE.txt",
+          "bytes": 299,
+          "previous_sha256": "dc1b63f05c7a3a70692c75f82fb29cfae6455069e92ba705b5ee06c12882b596",
+          "current_sha256": "dc1b63f05c7a3a70692c75f82fb29cfae6455069e92ba705b5ee06c12882b596",
+          "identical": true
+        },
+        {
+          "path": "PraxisCorporis/NOTICES/BodyParts3D-README.html",
+          "bytes": 19263,
+          "previous_sha256": "f9a90b4d945ad0fe50db45c712e931aa54e52667187b30d7085b6cc394f40107",
+          "current_sha256": "f9a90b4d945ad0fe50db45c712e931aa54e52667187b30d7085b6cc394f40107",
+          "identical": true
+        },
+        {
+          "path": "PraxisCorporis/NOTICES/Godot-COPYRIGHT.txt",
+          "bytes": 100108,
+          "previous_sha256": "cb1980c88089573bcacd7221d777c689bb8bbd778799f24c27fca0fe5f774d6d",
+          "current_sha256": "cb1980c88089573bcacd7221d777c689bb8bbd778799f24c27fca0fe5f774d6d",
+          "identical": true
+        },
+        {
+          "path": "PraxisCorporis/NOTICES/Godot-LICENSE.txt",
+          "bytes": 1149,
+          "previous_sha256": "b0435e3b3e4e55238f05f4b306f30524a1b2e20147810d436eaa554fa6855c80",
+          "current_sha256": "b0435e3b3e4e55238f05f4b306f30524a1b2e20147810d436eaa554fa6855c80",
+          "identical": true
+        },
+        {
+          "path": "PraxisCorporis/NOTICES/HRA-LICENSE.txt",
+          "bytes": 18657,
+          "previous_sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+          "current_sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+          "identical": true
+        },
+        {
+          "path": "PraxisCorporis/NOTICES/HRA-README.md",
+          "bytes": 761,
+          "previous_sha256": "57519f4cfbb2b12b8bf75654231b28b44802b611e85092b1044701fa640179f6",
+          "current_sha256": "57519f4cfbb2b12b8bf75654231b28b44802b611e85092b1044701fa640179f6",
+          "identical": true
+        },
+        {
+          "path": "PraxisCorporis/PraxisCorporis.app/Contents/Info.plist",
+          "bytes": 1865,
+          "previous_sha256": "b1053c88bdde0817edb3efbce9f84868ddb89b85e95242c812327f8c3be376b5",
+          "current_sha256": "b1053c88bdde0817edb3efbce9f84868ddb89b85e95242c812327f8c3be376b5",
+          "identical": true
+        },
+        {
+          "path": "PraxisCorporis/PraxisCorporis.app/Contents/MacOS/Praxis Corporis \u2014 Anatomy Prototype",
+          "bytes": 170963648,
+          "previous_sha256": "10851028eedc790c190567fdee759ab28f9aa378632c997efe7333ca3df2758b",
+          "current_sha256": "9298829db5afa15fa933f6f3cd0a6905fe3a15d86955dfd2f3f19b9ebddfa71a",
+          "identical": false
+        },
+        {
+          "path": "PraxisCorporis/PraxisCorporis.app/Contents/PkgInfo",
+          "bytes": 9,
+          "previous_sha256": "7e50a30efad50208a173203ced60818d693bb61266b75aa10927d1a2adce80cb",
+          "current_sha256": "7e50a30efad50208a173203ced60818d693bb61266b75aa10927d1a2adce80cb",
+          "identical": true
+        },
+        {
+          "path": "PraxisCorporis/PraxisCorporis.app/Contents/Resources/Praxis Corporis \u2014 Anatomy Prototype.pck",
+          "bytes": 625633664,
+          "previous_sha256": "7a728a26da147d193e1afdedc162e7e1440f6c873e062c63a35dd3e84f850b6b",
+          "current_sha256": "649a58b59ab9524705890810f42737a124bc73023c88368d54a550d00555c830",
+          "identical": false
+        },
+        {
+          "path": "PraxisCorporis/PraxisCorporis.app/Contents/Resources/PrivacyInfo.xcprivacy",
+          "bytes": 229,
+          "previous_sha256": "0535353bb08c25b8ce5ed9ac7e442a5994f402e0f6cbc4bed668cfc63c2ceac3",
+          "current_sha256": "0535353bb08c25b8ce5ed9ac7e442a5994f402e0f6cbc4bed668cfc63c2ceac3",
+          "identical": true
+        },
+        {
+          "path": "PraxisCorporis/PraxisCorporis.app/Contents/Resources/icon.icns",
+          "bytes": 67500,
+          "previous_sha256": "779ff524928785811d6d4c61f47a26491160b1092db9b610e85fcdfd9b2d2b2a",
+          "current_sha256": "779ff524928785811d6d4c61f47a26491160b1092db9b610e85fcdfd9b2d2b2a",
+          "identical": true
+        },
+        {
+          "path": "PraxisCorporis/PraxisCorporis.app/Contents/_CodeSignature/CodeResources",
+          "bytes": 3231,
+          "previous_sha256": "4f8389deeda931d911d81faf11a7c11bd65203e284774bf9f7d758f919ee6096",
+          "current_sha256": "62d45a8d3266b0c6933531b2a7c62aaba667fb2f6dc8faa8ffc5bf2977ffa1da",
+          "identical": false
+        },
+        {
+          "path": "PraxisCorporis/START_HERE.txt",
+          "bytes": 6127,
+          "previous_sha256": "5c76ccacc962863c5625afc3d66cff865f6bd9ca16967c353e312338291f86bb",
+          "current_sha256": "5c76ccacc962863c5625afc3d66cff865f6bd9ca16967c353e312338291f86bb",
+          "identical": true
+        }
+      ]
+    }
+  ]
+}

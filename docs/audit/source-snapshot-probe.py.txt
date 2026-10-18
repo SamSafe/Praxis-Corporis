@@ -1,0 +1,27 @@
+import hashlib,json,pathlib,shutil,sys,tempfile
+root=pathlib.Path(__file__).resolve().parents[2]
+sys.path.insert(0,str(root/'tools'))
+from build_native import ensure_unchanged_sources
+report=json.loads((root/'dist/search-spacing-improvements/build-report.json').read_text())
+recorded=report['source_hashes']
+if '--current-snapshot' in sys.argv:
+ from native_sources import discover_sources
+ recorded={name:hashlib.sha256((root/name).read_bytes()).hexdigest() for name in discover_sources(root)}
+with tempfile.TemporaryDirectory(prefix='source-snapshot-probe-',dir=root/'build/qa') as folder:
+ fixture=pathlib.Path(folder)
+ for relative in recorded:
+  target=fixture/relative;target.parent.mkdir(parents=True,exist_ok=True)
+  shutil.copyfile(root/relative,target)
+ scene=fixture/'scenes/main.tscn';scene.parent.mkdir(parents=True,exist_ok=True)
+ scene.write_bytes((root/'scenes/main.tscn').read_bytes())
+ ensure_unchanged_sources(recorded,fixture)
+ original=hashlib.sha256(scene.read_bytes()).hexdigest()
+ scene.write_text(scene.read_text().replace('anchor_right = 1.0','anchor_right = 0.5'))
+ modified=hashlib.sha256(scene.read_bytes()).hexdigest()
+ assert modified!=original
+ try:
+  ensure_unchanged_sources(recorded,fixture)
+  rejected=False;error=''
+ except ValueError as exc:
+  rejected=True;error=str(exc)
+ print(json.dumps(dict(startup_scene_recorded='scenes/main.tscn' in recorded,scene_before_sha256=original,scene_modified_sha256=modified,scene_change_rejected=rejected,error=error),indent=2))

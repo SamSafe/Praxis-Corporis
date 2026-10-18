@@ -14,17 +14,17 @@ portable views and four independent spinal source studies.
 
 The generated archives are excluded from Git:
 
-- Windows x64: dist/label-reuse-verified/PraxisCorporis-Windows-x64-private.zip
-- Mac Intel/Apple Silicon: dist/label-reuse-verified/PraxisCorporis-macOS-universal-private.zip
+- Windows x64: dist/source-snapshot-improvements/PraxisCorporis-Windows-x64-private.zip
+- Mac Intel/Apple Silicon: dist/source-snapshot-improvements/PraxisCorporis-macOS-universal-private.zip
 
-Earlier archives retain their previous source identities and their review-label
-corrections. Use the label-reuse-verified build report when verifying the new archives.
-[Label-reuse and package verification](audit/LABEL_REUSE_VERIFICATION.md)
-records their exact hashes, 784 label-placement/picking comparisons, note-specific
-cursor/Undo/Redo keyboard checks, 543 identical
-cached/continuous image pairs, unfinished-note backup and seven-reference workspace checks,
-early-close checks, four normal launches and remaining Mac/human limits. The Linux-template qualification
-is recorded separately; it is not a clean passing platform check.
+Use the source-snapshot-improvements build report for these archives. Earlier
+archives retain their own source/artifact identities.
+[Source-snapshot and package verification](audit/SOURCE_SNAPSHOT_VERIFICATION.md)
+records the expanded 75-file input audit, both archive hashes, fresh native Windows
+verification across seven references, 784 placement comparisons, 543 redraw
+comparisons, four normal launches and two early-close cases. The Mac resource
+checks run on the development engine; actual Mac acceptance remains pending.
+The separate Linux-template qualification remains open.
 
 Extract the complete ZIP. In its PraxisCorporis folder, open PraxisCorporis.exe
 on Windows or PraxisCorporis.app on Mac. On Windows, keep anatomy.pck beside the
@@ -52,10 +52,14 @@ First fetch and prepare anatomy using [PROTOTYPE.md](PROTOTYPE.md), then:
 python3 tools/build_native.py --godot /path/to/godot
 ```
 
-The builder compares runtime hashes and the script set again before recording a
-successful build report. If inputs have changed, it stops with an error; rebuild
-from a stable working tree before using those intermediate ZIPs. Archive auditing
-still checks that the recorded inputs match their committed source revision.
+Import the project before committing new scripts so Godot generates their `.uid`
+files. Keep those files with the source. The builder records snapshot version 2:
+project/export settings, every file under `scripts/`, `scenes/`, `content/` and the
+private export-plugin directory, plus the native builder, anatomy packer and input
+collector. It checks their hashes and complete file set again before recording
+success. Changes, additions or removals stop the build; rebuild from stable inputs
+before using intermediate ZIPs. Documentation and QA output can change independently.
+Archive auditing checks these inputs against the recorded committed revision.
 
 On Windows, use the Python executable and full Godot executable path available on
 that machine. --platform windows or --platform macos builds a single target.
@@ -98,6 +102,9 @@ python3 tools/audit_native.py --output dist/native-artifact-audit.json
 Use a new evidence path. `--build-report` and `--artifact-dir` can select another
 recorded build. This command does not run the app, verify a public signature or prove
 the contents of the Mac resource pack; runtime/content checks remain separate.
+Reports for revisions using the new input collector must include version 2 and its
+complete resource set. Historical reports keep their original version 1 scope;
+the audit explicitly notes that their startup scene and UID files were not recorded.
 
 To check embedded Mac content on the Linux development host, add `--qa-mac-content`:
 
