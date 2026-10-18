@@ -22,11 +22,23 @@ var rays_left := 0
 var exclusion_controls: Array[Control] = []
 var selection_actions
 var action_anchor := Vector2(INF, INF)
+var last_periodic_inputs: Array = []
 
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	clip_contents = true
+	if model != null and model.has_signal("appearance_changed"):
+		model.connect("appearance_changed", invalidate_layout)
+
+
+func invalidate_layout() -> void:
+	last_periodic_inputs = []
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_THEME_CHANGED:
+		invalidate_layout()
 
 
 func set_selection(id: String) -> void:
@@ -73,6 +85,7 @@ func local_ids() -> Array[String]:
 
 
 func clear_labels() -> void:
+	invalidate_layout()
 	action_anchor = Vector2(INF, INF)
 	for button in buttons.values():
 		button.free()
@@ -144,6 +157,8 @@ func make_button(id: String) -> Button:
 
 
 func update_labels() -> void:
+	# Explicit updates stay immediate, followed by one check after physics/layout settles.
+	invalidate_layout()
 	rays_left = MAX_RAYS
 	visible_ids.clear()
 	anchors.clear()
@@ -241,12 +256,37 @@ func place_rect(point: Vector2, extent: Vector2, occupied: Array[Rect2]) -> Vect
 	return Vector2(INF, INF)
 
 
+func placement_inputs() -> Array:
+	var result: Array = [suspended, context_id, selection_enabled, local_enabled,
+		density, text_scale, size, get_global_transform(), is_visible_in_tree()]
+	if model != null:
+		result.append_array([model.get_instance_id(), model.selected_id])
+	if camera != null:
+		result.append_array([camera.get_instance_id(), camera.global_transform,
+			camera.projection, camera.fov, camera.size, camera.near, camera.far,
+			camera.keep_aspect, camera.h_offset, camera.v_offset,
+			camera.get_viewport().get_visible_rect().size])
+	if scene_surface != null:
+		result.append_array([scene_surface.get_instance_id(), scene_surface.size,
+			scene_surface.viewport.size, scene_surface.get_global_transform_with_canvas()])
+	if is_instance_valid(selection_actions):
+		result.append_array([selection_actions.get_instance_id(), selection_actions.visible,
+			selection_actions.fallback, selection_actions.get_combined_minimum_size()])
+	for control in exclusion_controls:
+		if is_instance_valid(control) and control.is_visible_in_tree():
+			result.append_array([control.get_instance_id(), control.global_position, control.size])
+	return result
+
+
 func _physics_process(delta: float) -> void:
 	# Bound both ray-query frequency and candidate count, independent of atlas size.
 	elapsed += delta
 	if elapsed >= 0.1:
 		elapsed = 0.0
-		update_labels()
+		var inputs := placement_inputs()
+		if inputs != last_periodic_inputs:
+			update_labels()
+			last_periodic_inputs = inputs
 
 
 func _draw() -> void:

@@ -1817,6 +1817,7 @@ static func run(viewer: Control, rendered: bool) -> bool:
 	valid = await verify_draft_export(viewer, rendered) and valid
 	valid = await verify_note_history(viewer) and valid
 	valid = await verify_note_carets(viewer) and valid
+	valid = await preload("res://scripts/label_reuse_verification.gd").run(viewer, rendered) and valid
 	valid = await preload("res://scripts/scene_render_verification.gd").run(viewer, rendered) and valid
 	if viewer.model.structures.has("anatomy.heart"):
 		valid = await verify_source_fallback(viewer, rendered) and valid

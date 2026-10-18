@@ -8,7 +8,7 @@ import unittest
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'tools'))
-from verify_windows import MARKERS, RENDERED_MARKERS, artifact_record, parse_loading_shutdown, parse_result, process_observations, ps_literal, scene_redraw_reports
+from verify_windows import LABEL_REUSE_ACTIONS, MARKERS, RENDERED_MARKERS, artifact_record, label_reuse_reports, parse_loading_shutdown, parse_result, process_observations, ps_literal, scene_redraw_reports
 
 
 def complete_log(rendered=True):
@@ -26,6 +26,41 @@ def complete_log(rendered=True):
 
 
 class WindowsVerificationTests(unittest.TestCase):
+    def test_label_reuse_requires_every_reference_and_placement_picking_evidence(self):
+        import json
+        log = complete_log(False)
+        for reference in ['female', 'male', 'bodyparts-male-bones-study']:
+            with self.assertRaisesRegex(ValueError, 'label reuse'):
+                parse_result(log, False, label_reuse=True)
+            log += f'\nPASS bundled label reuse: {reference} · 112 placement pairs'
+        self.assertEqual(len(parse_result(log, False, label_reuse=True)['label_reuse_references']), 3)
+        reference = 'female'
+        contexts = [(False, 1.0, 1.0), (False, 1.3, 0.5), (True, 1.0, 1.0), (True, 1.3, 0.5)]
+        rows = [dict(action=action, identical=True, first_hits_valid=True, cached_sha256='a' * 64,
+                     fresh_sha256='a' * 64, visible_labels=1, expanded=layout, text_scale=scale,
+                     resolution=resolution) for layout, scale, resolution in contexts for action in LABEL_REUSE_ACTIONS]
+        good = dict(reference=reference, cases=rows)
+        with tempfile.TemporaryDirectory() as folder:
+            base = pathlib.Path(folder)
+            source = base / 'user-data/PraxisCorporisPrototype'
+            source.mkdir(parents=True)
+            out = base / 'out'
+            out.mkdir()
+            path = source / f'label-reuse-{reference}.json'
+            path.write_text(json.dumps(good))
+            self.assertEqual(label_reuse_reports(base, out, {reference: 801})[reference]['identical_placement_pairs'], 112)
+            for damage in ['missing', 'hash', 'picking', 'empty_leaf', 'wrong_action', 'wrong_context']:
+                bad = copy.deepcopy(good)
+                if damage == 'missing': bad['cases'].pop()
+                if damage == 'hash': bad['cases'][0]['fresh_sha256'] = 'b' * 64
+                if damage == 'picking': bad['cases'][0]['first_hits_valid'] = False
+                if damage == 'empty_leaf': bad['cases'][10]['visible_labels'] = 0
+                if damage == 'wrong_action': bad['cases'][0]['action'] = 'other'
+                if damage == 'wrong_context': bad['cases'][0]['expanded'] = True
+                path.write_text(json.dumps(bad))
+                with self.assertRaisesRegex(ValueError, 'Label reuse'):
+                    label_reuse_reports(base, out, {reference: 801})
+
     def test_note_carets_require_all_reference_checks(self):
         log = complete_log(False)
         for reference in ['female', 'male', 'bodyparts-male-bones-study']:

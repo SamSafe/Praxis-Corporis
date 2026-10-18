@@ -36,7 +36,8 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
                  source_fallback: bool = False, study_reader: bool = False,
                  exploration_return: bool = False, text_encoding: bool = False,
                  draft_export: bool = False, scene_redraw: bool = False,
-                 note_history: bool = False, note_carets: bool = False) -> dict:
+                 note_history: bool = False, note_carets: bool = False,
+                 label_reuse: bool = False) -> dict:
     if "ERROR:" in log or "Unicode parsing error" in log:
         raise ValueError("The native runtime reported an error")
     if re.search(r'ObjectDB instance.*leaked|^Leaked instance:', log, re.M):
@@ -97,6 +98,8 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
             raise ValueError('Native note history check missing: ' + reference)
         if note_carets and f'PASS bundled note carets: {reference}' not in log.splitlines():
             raise ValueError('Native note caret check missing: ' + reference)
+        if label_reuse and f'PASS bundled label reuse: {reference} · 112 placement pairs' not in log.splitlines():
+            raise ValueError('Native label reuse check missing: ' + reference)
     result = process_observations(log, rendered)
     if information and 'PASS bundled information dialogs: female' not in log.splitlines():
         raise ValueError('Native information dialog check missing')
@@ -156,6 +159,8 @@ def parse_result(log: str, rendered: bool, circulation: bool = False, informatio
         result['note_history_references'] = list(references)
     if note_carets:
         result['note_caret_references'] = list(references)
+    if label_reuse:
+        result['label_reuse_references'] = list(references)
     return result
 
 
@@ -188,6 +193,40 @@ def scene_redraw_reports(folder: pathlib.Path, output: pathlib.Path, references:
         result[reference] = {'file': source.name, 'sha256': sha256(source), 'identical_pixel_pairs': len(frames),
                              'continuous_minimum_draw_calls': min(idle[0]['global_draw_calls']),
                              'cached_maximum_draw_calls': max(idle[1]['global_draw_calls'])}
+    return result
+
+
+LABEL_REUSE_ACTIONS = ['group setup', 'orbit', 'pan', 'zoom', 'local labels off', 'local labels on',
+                       'density one', 'density eight', 'selection label off', 'selection label on',
+                       'leaf selection', 'raw appearance movement', 'raw appearance reset',
+                       'visibility fixture', 'fade', 'hide', 'show', 'actions hidden', 'actions shown',
+                       'action fallback', 'action minimum', 'overlay covering label', 'overlay moved',
+                       'overlay hidden', 'overlay shown', 'labels suspended', 'labels resumed', 'window resized']
+
+
+def label_reuse_reports(folder: pathlib.Path, output: pathlib.Path, references: dict) -> dict:
+    result = {}
+    for reference in references:
+        source = folder / 'user-data/PraxisCorporisPrototype' / f'label-reuse-{reference}.json'
+        report = json.loads(source.read_text(encoding='utf-8'))
+        cases = report.get('cases', [])
+        if (report.get('reference') != reference or len(cases) != 112
+                or [row.get('action') for row in cases] != LABEL_REUSE_ACTIONS * 4):
+            raise ValueError('Label reuse placement evidence incomplete: ' + reference)
+        contexts = [(False, 1.0, 1.0), (False, 1.3, 0.5), (True, 1.0, 1.0), (True, 1.3, 0.5)]
+        for index, row in enumerate(cases):
+            layout, scale, resolution = contexts[index // len(LABEL_REUSE_ACTIONS)]
+            if (row.get('identical') is not True or row.get('first_hits_valid') is not True
+                    or row.get('expanded') is not layout or row.get('text_scale') != scale
+                    or row.get('resolution') != resolution
+                    or not re.fullmatch(r'[0-9a-f]{64}', row.get('cached_sha256', ''))
+                    or row.get('cached_sha256') != row.get('fresh_sha256')
+                    or type(row.get('visible_labels')) is not int or row['visible_labels'] < 0
+                    or row['action'] in ['leaf selection', 'raw appearance reset', 'show'] and row['visible_labels'] == 0):
+                raise ValueError('Label reuse placement/picking evidence failed: ' + reference)
+        shutil.copyfile(source, output / source.name)
+        result[reference] = {'file': source.name, 'sha256': sha256(source),
+                             'identical_placement_pairs': 112, 'first_hits_valid': True}
     return result
 
 
@@ -450,6 +489,7 @@ def verify(args: argparse.Namespace) -> dict:
                     and b'PASS bundled note history:' in git_bytes(ROOT, build_report['source_revision'], 'scripts/study_verification.gd'))
     note_carets = ('scripts/study_verification.gd' in build_report['source_hashes']
                    and b'PASS bundled note carets:' in git_bytes(ROOT, build_report['source_revision'], 'scripts/study_verification.gd'))
+    label_reuse = 'scripts/label_reuse_verification.gd' in build_report['source_hashes']
     startup_cases = None
     if reference_state:
         bodies = json.loads(git_bytes(ROOT, build_report['source_revision'], 'content/sample_pack.json'))['bodies']
@@ -475,10 +515,11 @@ def verify(args: argparse.Namespace) -> dict:
         if reference_state:
             reference_fixture.parent.mkdir(parents=True, exist_ok=True)
             reference_fixture.write_text(reference_fixture_text, encoding='utf-8')
+        verification_timeout = 450 if label_reuse else 300 if scene_redraw else 180
         log = run_native(args, windows_session, windows_session + "\\" + executable_relative,
-                         process_timeout=300 if scene_redraw else 180)
+                         process_timeout=verification_timeout)
         result = parse_result(log, args.mode == "rendered", circulation, information, conditions,
-                              find_anatomy, pointer_interruption, saved_view_context, camera_zoom, coverage_keyboard, study_navigation, import_preview, unchanged_edits, movement_history, move_mode_boundary, nudge_gesture, source_fallback, study_reader, exploration_return, text_encoding, draft_export, scene_redraw, note_history, note_carets)
+                              find_anatomy, pointer_interruption, saved_view_context, camera_zoom, coverage_keyboard, study_navigation, import_preview, unchanged_edits, movement_history, move_mode_boundary, nudge_gesture, source_fallback, study_reader, exploration_return, text_encoding, draft_export, scene_redraw, note_history, note_carets, label_reuse)
         if result["engine_actual"] != build_report["engine"]:
             raise ValueError("The native runtime differs from the pinned build engine")
         result.update(schema_version=1, recorded_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
@@ -491,6 +532,8 @@ def verify(args: argparse.Namespace) -> dict:
             result["captures"] = captures(session, args.output, result["references"], circulation, information, conditions, coverage_keyboard, import_preview, source_fallback, study_reader, draft_export)
             if scene_redraw:
                 result['scene_redraw'] = scene_redraw_reports(session, args.output, result['references'])
+            if label_reuse:
+                result['label_reuse'] = label_reuse_reports(session, args.output, result['references'])
         if (session / "engine.log").exists():
             shutil.copyfile(session / "engine.log", args.output / "engine.log")
         if reference_state:
