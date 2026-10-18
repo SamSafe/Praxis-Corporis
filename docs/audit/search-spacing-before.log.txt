@@ -1,0 +1,12 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+SOURCE SEARCH U+0020: 2 matches
+LIBRARY TOKENS U+0020: ["left", "atrium"]
+SOURCE SEARCH U+00A0: 0 matches
+LIBRARY TOKENS U+00A0: ["left atrium"]
+SOURCE SEARCH U+202F: 0 matches
+LIBRARY TOKENS U+202F: ["left atrium"]
+SOURCE SEARCH U+2003: 0 matches
+LIBRARY TOKENS U+2003: ["left atrium"]
+SOURCE SEARCH U+3000: 0 matches
+LIBRARY TOKENS U+3000: ["left　atrium"]

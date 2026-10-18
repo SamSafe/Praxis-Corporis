@@ -239,6 +239,9 @@ example, `UBERON:0002135` or `UBERON0002135` finds the supplied mitral valve in 
 HRA body; `FMA24474` or `FJ3365` finds Right femur in the separate bone study. Case,
 whitespace and common identifier separators are normalized for lookup. Search uses
 only names and identifiers present in the catalogue.
+Unicode spaces, including nonbreaking and narrow nonbreaking spaces copied from
+other text, work like ordinary spaces. A query containing only spaces shows the
+hierarchy.
 
 Results show the display label and source name on separate lines. Repeated labels
 remain distinct records; their original left/right names or file IDs stay visible.
@@ -254,6 +257,8 @@ Clearing the query restores the hierarchy and current selection. The list caps a
 100 results and reports the full match count; the empty state identifies the reference
 and suggests another name/source ID. Switching references searches that body's records.
 A failed body load retains the prior index/results.
+See [Unicode search verification](audit/SEARCH_SPACING_VERIFICATION.md) for the
+copied-space reproduction and checks across all seven references.
 
 **Copy source record** copies the selected label, original source name, ontology,
 catalogue ID, reference identity/hash, supplied mesh count, coverage notice and draft
@@ -321,9 +326,10 @@ same selected note keeps its cursor positions and Undo/Redo history.
 
 Search the library by view name or note text, including drafts. **Ctrl+F** focuses
 search, **Enter** selects a matching row, and **Escape** clears a nonempty focused
-search. Filtering preserves drafts and does not restore anatomy. The result count
-includes the full library; clear search to return to every view. The dialog's
-action buttons stay visible while its content can scroll at compact sizes.
+search. Unicode spaces work like ordinary spaces; stored names and notes retain
+their original text. Filtering preserves drafts and does not restore anatomy. The
+result count includes the full library; clear search to return to every view. The
+dialog's action buttons stay visible while its content can scroll at compact sizes.
 
 Closing Saved views, restoring a view/older quick save, or normally closing the app
 protects unsaved drafts with **Save notes**, **Discard notes**, or **Keep editing**.
@@ -418,6 +424,7 @@ with a fresh solve and validates real source-mesh hits.
 ```sh
 python3 tools/fetch_assets.py --verify-only
 python3 -m unittest discover -s tests -v
+godot --headless --path . --script tests/search_spacing_smoke.gd
 godot --headless --path . --script tests/scene_render_smoke.gd
 godot --headless --path . --script tests/label_reuse_smoke.gd
 godot --headless --path . --script tests/viewer_smoke.gd

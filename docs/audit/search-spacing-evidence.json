@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "source_revision": "e41d05c7d858da6b8e342566d6f257e9ab135bc6",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "before_revision": "2ea0744",
+  "script_hashes": {
+    "tests/search_spacing_smoke.gd": "93463bd70b04752d365cd85a541d3f7383721d1b93b0e126da7e4d63a3728a4c",
+    "tests/search_smoke.gd": "04e987347696f329dc3dd9488b8b37da544fd84ab402c6fa7a62e1357838adf4",
+    "tests/saved_views_filter_smoke.gd": "bf16e0ec0a1a0d1b2b3db6bd0b70f28ff5af0faab7693e986a0f66ee76f716d8",
+    "scripts/search_spacing_verification.gd": "e9195ed1617d7f2d6f6b993b4ce391abeebf16e4d85764902ad42d09c01ac76c"
+  },
+  "python_checks": 87,
+  "search_spacing_references": [
+    "female",
+    "male",
+    "bodyparts-male-bones-study",
+    "hra-v1-2-female-cord-study",
+    "hra-v1-2-female-vertebrae-study",
+    "hra-v1-2-male-cord-study",
+    "hra-v1-2-male-vertebrae-study"
+  ],
+  "unicode_spaces": 25,
+  "format_character_boundaries": 6,
+  "native_capture_identities": 107,
+  "native_identical_scene_pairs": 543,
+  "native_identical_placement_pairs": 784,
+  "native_normal_launches": 4,
+  "native_early_closes": 2,
+  "native_session_independently_checked_absent": true,
+  "mac_content_qa": "Development engine only; actual Mac execution pending.",
+  "files": {
+    "search-spacing-before.log.txt": {
+      "bytes": 438,
+      "sha256": "a21f9868965dde0c6c54a43a143e753690ed3eb21678daf06541246d6d712818"
+    },
+    "search-spacing-after.log.txt": {
+      "bytes": 443,
+      "sha256": "42e13d8cd0f3200f6e4031fcd278ca5cf7c032cb6b76f07ef783e981d834df8a"
+    },
+    "search-spacing-probe.gd.txt": {
+      "bytes": 727,
+      "sha256": "7e6c930c83c6f603afde8e0b0dca3191ff63d4575dc22382602855e4521fb9c2"
+    },
+    "search-spacing-development.log.txt": {
+      "bytes": 1257,
+      "sha256": "511ecd89afb0ad00037260449487b4c504b2965da0a9513e7c1c8577e367dd7d"
+    },
+    "search-spacing-search.log.txt": {
+      "bytes": 411,
+      "sha256": "f6b4a38b11fe5c8251aa210c66241616b9e3831577390edc6ec1f294256ab5ac"
+    },
+    "search-spacing-library.log.txt": {
+      "bytes": 103,
+      "sha256": "9854807cf0dc138e17f7634f384fb1bd30e09d36f8268bc5723775eecbffb1de"
+    },
+    "search-spacing-python.log.txt": {
+      "bytes": 15568,
+      "sha256": "807f7927f1ccc22926b6c2e1c90c75104cf0c9bb8d5c20f25215d6a2368b2b21"
+    },
+    "search-spacing-checks.json": {
+      "bytes": 475,
+      "sha256": "4c15574e695f2b810368485a40c57db78147c488e860e6335c79b21d6fd4cd9f"
+    },
+    "search-spacing-build.log.txt": {
+      "bytes": 15776,
+      "sha256": "325427bb442217a856b21a4f5a66a1b2c655925d41c19541b147cb930fdf218d"
+    },
+    "search-spacing-build-report.json": {
+      "bytes": 5404,
+      "sha256": "cfaa49d38412d568527cbbf065e81376651132cb2ba110c2ab592d581a4fae7f"
+    },
+    "search-spacing-artifact-audit.json": {
+      "bytes": 1346,
+      "sha256": "9216d9dd1aaef4e314bbb659a6a035be9333a2242c2ba3a2291d7713cf367d55"
+    },
+    "search-spacing-windows-qa.json": {
+      "bytes": 42340,
+      "sha256": "0cb52f9f7afe8f0e1fc9d017b3ec9e945a4b5e113e193b226f0962a7778bba37"
+    },
+    "search-spacing-windows-runtime.log.txt": {
+      "bytes": 20623,
+      "sha256": "663ee794f898b20ea884d205db3d4365e0c32347dd75605062d930f8f2701e5c"
+    },
+    "search-spacing-normal-lifecycle.json": {
+      "bytes": 1648,
+      "sha256": "414fba2ca285882a1f0bad957fac189f867cd0b592e2abd0123e5b8efdf0b4f3"
+    },
+    "search-spacing-native-initial-anatomy.log.txt": {
+      "bytes": 443,
+      "sha256": "c6b337edacb8cee3f7949d038570488a7dbbdf62e260e6b5975ebc6f20ae2dd2"
+    },
+    "search-spacing-native-replacement-selection.log.txt": {
+      "bytes": 527,
+      "sha256": "07ef66e9c09531a48575acbe162d22838a4488d9a3ce03a17becd7cc4163ebd0"
+    },
+    "search-spacing-label-reuse-female.json": {
+      "bytes": 39633,
+      "sha256": "bee15b0110b45956b9693ecaf024249040cddefef774f6eb68c6db520f26da5d"
+    },
+    "search-spacing-label-reuse-male.json": {
+      "bytes": 39631,
+      "sha256": "31138ab82f6e0355f8c7c8c53a64149466b506672af50120271b53ee7786ebb2"
+    },
+    "search-spacing-label-reuse-bodyparts-male-bones-study.json": {
+      "bytes": 39653,
+      "sha256": "9c1e2379138c439257a8ec73609031f12dcceb2734f76663ff6e31e105868d27"
+    },
+    "search-spacing-label-reuse-hra-v1-2-female-cord-study.json": {
+      "bytes": 39653,
+      "sha256": "02aec5e1f59f3c2dcd2e2331cf7c3a11cad581c75b64d422336ced2d01b58320"
+    },
+    "search-spacing-label-reuse-hra-v1-2-female-vertebrae-study.json": {
+      "bytes": 39658,
+      "sha256": "7ab6f846fd3ae1f144096116254517f85537b053e74defc7dfa50d3086d50172"
+    },
+    "search-spacing-label-reuse-hra-v1-2-male-cord-study.json": {
+      "bytes": 39651,
+      "sha256": "84b7598cdf7b352e0ee6ce20a70fb16ad5a53989bda48abf888df060f4d1d262"
+    },
+    "search-spacing-label-reuse-hra-v1-2-male-vertebrae-study.json": {
+      "bytes": 39656,
+      "sha256": "25f6a718e544fc01bdb1fb3106f86d53144c1961f5545f9be6f99c916d3cc398"
+    },
+    "search-spacing-scene-render-female.json": {
+      "bytes": 27237,
+      "sha256": "82f1526522e0e47bfe2e2ec22b4c2c9ea31a21924347d0ce62be66bd1cf4a11f"
+    },
+    "search-spacing-scene-render-male.json": {
+      "bytes": 27235,
+      "sha256": "d508d10102d846284032697befca448fcb2e6e02dea6b721d049e3e0138300e1"
+    },
+    "search-spacing-scene-render-bodyparts-male-bones-study.json": {
+      "bytes": 26573,
+      "sha256": "11e5c47690ecd456db0fccb682ee65a96a6af091c9edb4a54b22ac2ac3bc03e8"
+    },
+    "search-spacing-scene-render-hra-v1-2-female-cord-study.json": {
+      "bytes": 26573,
+      "sha256": "6a089090f852c3c860ec50dd3933b5aa746af61fcc5c74e155295801d6751b7a"
+    },
+    "search-spacing-scene-render-hra-v1-2-female-vertebrae-study.json": {
+      "bytes": 26578,
+      "sha256": "0668996e6ddd802a82e24757b630d901541ba46cf0eb0e9824600d98331551bd"
+    },
+    "search-spacing-scene-render-hra-v1-2-male-cord-study.json": {
+      "bytes": 26571,
+      "sha256": "070d25ce20074148758d2bd7d8c9fe90e5d8574510234b273ede56690aac7ff1"
+    },
+    "search-spacing-scene-render-hra-v1-2-male-vertebrae-study.json": {
+      "bytes": 26576,
+      "sha256": "aefcb64e84623bd7e6da339767b9a73562fa56d837724ec7d210c041897a1c9a"
+    }
+  }
+}

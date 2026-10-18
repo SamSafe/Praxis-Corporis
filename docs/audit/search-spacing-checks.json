@@ -1,0 +1,20 @@
+[
+  {
+    "script": "tests/search_smoke.gd",
+    "exit_code": 0,
+    "log": "build/qa/search-spacing-search.log",
+    "marker": "Search failures: 0"
+  },
+  {
+    "script": "tests/saved_views_filter_smoke.gd",
+    "exit_code": 0,
+    "log": "build/qa/search-spacing-library.log",
+    "marker": "Saved-view search failures: 0"
+  },
+  {
+    "script": "build/qa/search_spacing_probe.gd",
+    "exit_code": 0,
+    "log": "build/qa/search-spacing-after.log",
+    "marker": ""
+  }
+]

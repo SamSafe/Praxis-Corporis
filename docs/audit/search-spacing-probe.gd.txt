@@ -1,0 +1,17 @@
+extends SceneTree
+
+const Search = preload("res://scripts/anatomy_search.gd")
+const Content = preload("res://scripts/content_bundle.gd")
+const Browser = preload("res://scripts/saved_views_browser.gd")
+
+func _initialize() -> void:
+	var structures := {}
+	for record in Content.catalogue().bodies[0].structures:
+		structures[str(record.id)] = record
+	var index := Search.new()
+	index.build(structures)
+	for separator in [" ", "\u00a0", "\u202f", "\u2003", "\u3000"]:
+		var query: String = "left" + separator + "atrium"
+		print("SOURCE SEARCH U+%04X: %d matches" % [separator.unicode_at(0), index.find(query).total])
+		print("LIBRARY TOKENS U+%04X: " % separator.unicode_at(0), Browser.search_text(query).split(" ", false))
+	quit()
