@@ -6,11 +6,14 @@ A desktop anatomy explorer for aspiring doctors and medical students. Reveal bod
 layers, select and label structures, move parts aside, inspect internal anatomy,
 follow connections, and explore related diseases within one continuous body scene.
 
-**Status: private Godot feasibility prototype, 2026-10-15.**
+**Status: private Godot feasibility prototype, 2026-10-18.**
 The user authorised work after the planning/documentation stage. Both reference
 samples are imported; coverage is partial and anatomical review is pending.
 [Prototype guide](docs/PROTOTYPE.md) explains setup, controls, checks and limitations.
 [Private desktop builds](docs/NATIVE_BUILDS.md) describes the Windows/Mac archives.
+[Production readiness](docs/PRODUCTION_READINESS.md) maps current evidence and
+remaining release requirements; [Mac acceptance](docs/MAC_ACCEPTANCE.md) is ready
+for the actual-device trial.
 [Planning status](docs/PLANNING_STATUS.md) separates decisions from unverified evidence.
 
 ## Agreed direction

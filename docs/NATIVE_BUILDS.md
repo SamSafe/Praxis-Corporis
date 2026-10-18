@@ -26,6 +26,11 @@ comparisons, four normal launches and two early-close cases. The Mac resource
 checks run on the development engine; actual Mac acceptance remains pending.
 The separate Linux-template qualification remains open.
 
+The [production-readiness checkpoint](PRODUCTION_READINESS.md) distinguishes the
+passing engineering checks from remaining release acceptance. The
+[Mac acceptance run](MAC_ACCEPTANCE.md) identifies this exact archive and supplies
+a results template for the actual-device trial.
+
 Extract the complete ZIP. In its PraxisCorporis folder, open PraxisCorporis.exe
 on Windows or PraxisCorporis.app on Mac. On Windows, keep anatomy.pck beside the
 executable; it contains both reference bodies and the compiled scenes. The Mac app
