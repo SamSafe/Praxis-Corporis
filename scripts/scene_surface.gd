@@ -10,6 +10,15 @@ var resolution_limited := false
 var last_display_size := Vector2.ZERO
 
 
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_ACCESSIBILITY_UPDATE:
+		var element := get_accessibility_element()
+		if element.is_valid():
+			# TextureRect has no native semantic role. A named panel keeps the
+			# keyboard camera surface exposed in the accessibility tree.
+			AccessibilityServer.update_set_role(element, AccessibilityServer.ROLE_PANEL)
+
+
 func _ready() -> void:
 	expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	stretch_mode = TextureRect.STRETCH_SCALE
