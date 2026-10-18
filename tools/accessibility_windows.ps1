@@ -2,7 +2,8 @@
 param([Parameter(Mandatory=$true)][string]$QaFolder)
 $ErrorActionPreference = 'Stop'
 [Console]::OutputEncoding = [Text.UTF8Encoding]::new($false)
-if ([IO.File]::ReadAllText((Join-Path $QaFolder '.praxis-qa-owned')) -cne "Generated private verification session`n") {
+$qaMarker = [IO.File]::ReadAllText((Join-Path $QaFolder '.praxis-qa-owned')).Replace("`r`n", "`n")
+if ($qaMarker -cne "Generated private verification session`n") {
     throw 'Unrecognized QA session'
 }
 Add-Type -AssemblyName UIAutomationClient
