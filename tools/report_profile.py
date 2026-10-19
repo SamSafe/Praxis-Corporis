@@ -36,6 +36,11 @@ def markdown(report: dict, evidence: dict) -> str:
     config = report['configuration']
     host = evidence['host']
     artifact = evidence['artifact']
+    workload_count = sum(len(item['scenes']) for item in report['measurement_plan'])
+    densities = [scene.get('label_density') for scene in report['scenes']]
+    density_note = ('Recorded label densities: ' + ', '.join(str(value) for value in sorted(set(densities))) + '.'
+                    if all(type(value) is int and 1 <= value <= 12 for value in densities)
+                    else 'Label density is not recorded for every sample.')
     lines = ['# Native Windows rendering observations', '',
              f"Recorded UTC: {text(evidence['recorded_at_utc'])}.", '',
              f"Source revision: `{text(evidence['source_revision'])}`. Archive: `{text(artifact['file'])}`",
@@ -103,8 +108,8 @@ def markdown(report: dict, evidence: dict) -> str:
               'This does not establish AC/battery or thermal state.', '',
               'Workspace views include controls and panels; expanded native views cover the requested window pixels. '
               'These are frame-callback cadence and process-gap observations, not GPU execution or display latency.',
-              'The eight-scene suite uses label density 8; additional densities, moved-organ overlays and saved-view '
-              'transitions remain outside this run. One Windows host leaves representative hardware, Mac, '
+              f'The measurement plan contains {workload_count} distinct reference/workload pairs. ' + density_note,
+              'These results cover only the listed workloads and settings. One Windows host leaves representative hardware, Mac, '
               'human-input, accessibility and qualified medical review gates open.', '',
               'Source geometry fingerprints:', '']
     for item in report['measurement_plan']:

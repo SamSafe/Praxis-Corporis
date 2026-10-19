@@ -31,6 +31,27 @@ def report_fixture():
 
 
 class ProfileReportTests(unittest.TestCase):
+    def test_summary_uses_the_actual_plan_and_recorded_label_settings(self):
+        _, report, evidence = report_fixture()
+        summary = markdown(report, evidence)
+        self.assertIn('1 distinct reference/workload pairs', summary)
+        self.assertIn('Label density is not recorded for every sample.', summary)
+        report['scenes'][0]['label_density'] = 12
+        self.assertIn('Recorded label densities: 12.', markdown(report, evidence))
+        self.assertNotIn('eight-scene', markdown(report, evidence))
+        second_plan = copy.deepcopy(report['measurement_plan'][0])
+        second_plan['reference'] = 'male'
+        second_load = copy.deepcopy(report['loads'][0])
+        second_load['reference'] = 'male'
+        second_scene = copy.deepcopy(report['scenes'][0])
+        second_scene.update(reference='male', label_density=1)
+        report['measurement_plan'].append(second_plan)
+        report['loads'].append(second_load)
+        report['scenes'].append(second_scene)
+        summary = markdown(report, evidence)
+        self.assertIn('2 distinct reference/workload pairs', summary)
+        self.assertIn('Recorded label densities: 1, 12.', summary)
+
     def test_summary_preserves_raw_outliers_and_separates_measurement_scopes(self):
         raw, report, evidence = report_fixture()
         native_binding(raw, report, evidence)
