@@ -1,0 +1,333 @@
+{
+  "engine_actual": "4.7.2.stable.official.ed1daf0bf",
+  "renderer": "OpenGL API 3.3.0 Core Profile Context 25.10.37.03.260407 - Compatibility - Using Device: ATI Technologies Inc. - AMD Radeon(TM) Graphics",
+  "process_memory_observations": {
+    "peak_working_set_bytes_observed": 1759461376,
+    "maximum_private_bytes_sampled": 1945595904,
+    "sampling_interval_ms": 500,
+    "scope": "Entire native process; not per-scene or GPU memory."
+  },
+  "schema_version": 1,
+  "result": "passed raw measurement/complete workload validation; native exit code 0",
+  "recorded_at_utc": "2026-10-19T05:39:15.125221+00:00",
+  "source_revision": "c86cfba1e544b20917b66c14ea405f0b74abfd47",
+  "artifact": {
+    "file": "PraxisCorporis-Windows-x64-private.zip",
+    "bytes": 328224510,
+    "sha256": "7518559369a6b55f20fbcf37363b47edb5013e666136b675469426e35b649ec4",
+    "architectures": [
+      "x86_64"
+    ]
+  },
+  "host": {
+    "os_caption": "Microsoft Windows 11 Home",
+    "cpus": [
+      {
+        "Name": "AMD Ryzen 5 PRO 6650U with Radeon Graphics     ",
+        "NumberOfLogicalProcessors": 12
+      }
+    ],
+    "total_physical_ram_bytes": 15859003392,
+    "active_power_scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)",
+    "os_build": "26300",
+    "reported_graphics_adapters": [
+      {
+        "Name": "AMD Radeon(TM) Graphics",
+        "DriverVersion": "32.0.21037.3009"
+      }
+    ],
+    "os_version": "10.0.26300"
+  },
+  "configuration": {
+    "seconds": 5.0,
+    "warmup_seconds": 1.0,
+    "repetitions": 1,
+    "window_pixels": [
+      1920,
+      1080
+    ],
+    "scene_view": "expanded",
+    "render_fraction": 1.0
+  },
+  "started_at_utc": "2026-10-19T05:37:14.453398+00:00",
+  "profiler_sha256": "42696b2889643f75774a36dbca809981ddb9b0c26fc9c427fd54ce73ae90cb4c",
+  "verifier_sha256": "10c7fa81383976caa6903fbdcd7cfd0207d1c740bc9f565379fa329f8482abbd",
+  "validator_sha256": "bf85f5992659d0238370a5df4004961e6876db65bcd74a07744adfaef690165d",
+  "raw_profile": {
+    "file": "render-profile.json",
+    "sha256": "d406ba764c72751470a9d75d0cdeb7499052f6178a8a07a04b4eb8e30e490106"
+  },
+  "scene_summary": [
+    {
+      "reference": "female",
+      "scene": "whole-body orbit",
+      "frames": 300,
+      "seconds": 5.00785,
+      "fps": 59.90594766217039,
+      "p95_ms": 17.813,
+      "p99_ms": 18.781,
+      "maximum_ms": 20.963,
+      "repetition": 1,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "female",
+      "scene": "chest orbit with faded lungs and local labels",
+      "frames": 301,
+      "seconds": 5.008379,
+      "fps": 60.099285617162764,
+      "p95_ms": 22.513,
+      "p99_ms": 26.6,
+      "maximum_ms": 30.506,
+      "repetition": 1,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "female",
+      "scene": "isolated supplied-part orbit",
+      "frames": 300,
+      "seconds": 5.009101,
+      "fps": 59.89098642650647,
+      "p95_ms": 18.054,
+      "p99_ms": 18.908,
+      "maximum_ms": 19.742,
+      "repetition": 1,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "male",
+      "scene": "whole-body orbit",
+      "frames": 298,
+      "seconds": 5.0071,
+      "fps": 59.515488007030015,
+      "p95_ms": 18.51,
+      "p99_ms": 23.382,
+      "maximum_ms": 29.145,
+      "repetition": 1,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "male",
+      "scene": "chest orbit with faded lungs and local labels",
+      "frames": 300,
+      "seconds": 5.006689,
+      "fps": 59.91983923906598,
+      "p95_ms": 23.529,
+      "p99_ms": 25.826,
+      "maximum_ms": 35.388,
+      "repetition": 1,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.33333333333333337
+    },
+    {
+      "reference": "male",
+      "scene": "isolated supplied-part orbit",
+      "frames": 300,
+      "seconds": 5.008955,
+      "fps": 59.892732116778845,
+      "p95_ms": 17.998,
+      "p99_ms": 19.041,
+      "maximum_ms": 19.959,
+      "repetition": 1,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "bodyparts-male-bones-study",
+      "scene": "whole-body orbit",
+      "frames": 300,
+      "seconds": 5.007576,
+      "fps": 59.90922554145958,
+      "p95_ms": 18.234,
+      "p99_ms": 18.928,
+      "maximum_ms": 19.998,
+      "repetition": 1,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "bodyparts-male-bones-study",
+      "scene": "isolated supplied-part orbit",
+      "frames": 300,
+      "seconds": 5.007123,
+      "fps": 59.9146455958841,
+      "p95_ms": 18.36,
+      "p99_ms": 18.926,
+      "maximum_ms": 26.885,
+      "repetition": 1,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "hra-v1-2-female-cord-study",
+      "scene": "whole-body orbit",
+      "frames": 300,
+      "seconds": 5.00722,
+      "fps": 59.91348492776431,
+      "p95_ms": 18.186,
+      "p99_ms": 19.321,
+      "maximum_ms": 19.767,
+      "repetition": 1,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "hra-v1-2-female-cord-study",
+      "scene": "isolated supplied-part orbit",
+      "frames": 300,
+      "seconds": 5.006,
+      "fps": 59.92808629644426,
+      "p95_ms": 18.338,
+      "p99_ms": 18.915,
+      "maximum_ms": 19.269,
+      "repetition": 1,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "hra-v1-2-female-vertebrae-study",
+      "scene": "whole-body orbit",
+      "frames": 300,
+      "seconds": 5.004801,
+      "fps": 59.94244326597602,
+      "p95_ms": 18.38,
+      "p99_ms": 18.87,
+      "maximum_ms": 19.604,
+      "repetition": 1,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "hra-v1-2-female-vertebrae-study",
+      "scene": "isolated supplied-part orbit",
+      "frames": 300,
+      "seconds": 5.00666,
+      "fps": 59.92018631183264,
+      "p95_ms": 18.592,
+      "p99_ms": 19.233,
+      "maximum_ms": 19.998,
+      "repetition": 1,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "hra-v1-2-male-cord-study",
+      "scene": "whole-body orbit",
+      "frames": 300,
+      "seconds": 5.004941,
+      "fps": 59.9407665345106,
+      "p95_ms": 17.831,
+      "p99_ms": 18.906,
+      "maximum_ms": 19.62,
+      "repetition": 1,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "hra-v1-2-male-cord-study",
+      "scene": "isolated supplied-part orbit",
+      "frames": 300,
+      "seconds": 5.00655,
+      "fps": 59.92150283129101,
+      "p95_ms": 17.51,
+      "p99_ms": 17.924,
+      "maximum_ms": 18.429,
+      "repetition": 1,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "hra-v1-2-male-vertebrae-study",
+      "scene": "whole-body orbit",
+      "frames": 300,
+      "seconds": 5.006694,
+      "fps": 59.91977939934016,
+      "p95_ms": 17.534,
+      "p99_ms": 18.015,
+      "maximum_ms": 18.346,
+      "repetition": 1,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    },
+    {
+      "reference": "hra-v1-2-male-vertebrae-study",
+      "scene": "isolated supplied-part orbit",
+      "frames": 300,
+      "seconds": 5.007809,
+      "fps": 59.90643812493647,
+      "p95_ms": 17.676,
+      "p99_ms": 18.024,
+      "maximum_ms": 18.121,
+      "repetition": 1,
+      "frames_over_100_ms": 0,
+      "slow_percent": 0.0
+    }
+  ],
+  "load_summary": [
+    {
+      "reference": "female",
+      "repetition": 1,
+      "wall_seconds": 3.421052,
+      "maximum_process_gap_ms": 294.451,
+      "intervals_over_100_ms": 5
+    },
+    {
+      "reference": "male",
+      "repetition": 1,
+      "wall_seconds": 3.780596,
+      "maximum_process_gap_ms": 147.247,
+      "intervals_over_100_ms": 4
+    },
+    {
+      "reference": "bodyparts-male-bones-study",
+      "repetition": 1,
+      "wall_seconds": 0.771415,
+      "maximum_process_gap_ms": 140.904,
+      "intervals_over_100_ms": 1
+    },
+    {
+      "reference": "hra-v1-2-female-cord-study",
+      "repetition": 1,
+      "wall_seconds": 0.404354,
+      "maximum_process_gap_ms": 94.126,
+      "intervals_over_100_ms": 0
+    },
+    {
+      "reference": "hra-v1-2-female-vertebrae-study",
+      "repetition": 1,
+      "wall_seconds": 0.579921,
+      "maximum_process_gap_ms": 87.462,
+      "intervals_over_100_ms": 0
+    },
+    {
+      "reference": "hra-v1-2-male-cord-study",
+      "repetition": 1,
+      "wall_seconds": 0.117483,
+      "maximum_process_gap_ms": 27.634,
+      "intervals_over_100_ms": 0
+    },
+    {
+      "reference": "hra-v1-2-male-vertebrae-study",
+      "repetition": 1,
+      "wall_seconds": 0.386555,
+      "maximum_process_gap_ms": 65.303,
+      "intervals_over_100_ms": 0
+    }
+  ],
+  "context": "Exact current c86cfba private archive; expanded Native 1920x1080 diagnostic. No other build or test workloads during sampling. Background applications, power source and thermal state uncontrolled; actual window focus recorded per sample.",
+  "limits": [
+    "Repeated runs in one process; later references/repetitions can reuse resources and OS file caches.",
+    "Process memory sampled every 500ms across the full run; not GPU or per-scene memory.",
+    "Workspace windows include side panels; expanded native scenes are checked against the full requested window pixels.",
+    "Frame-callback cadence and load gaps are observations, not GPU timestamps or presentation latency.",
+    "One Windows host does not close Mac, representative-hardware, human-input or anatomy-review gates."
+  ],
+  "session_cleanup": {
+    "status": "removed",
+    "path": "/mnt/c/Users/king-/AppData/Local/Temp/PraxisCorporis-QA-53060b3d4d7e426e84ad99a460f0c809"
+  }
+}

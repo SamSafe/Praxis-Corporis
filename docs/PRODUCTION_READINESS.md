@@ -29,8 +29,14 @@ verification sessions are removed. The embedded Mac resource pack passes the dev
 The older `9e864a0` and current `c86cfba` Windows archives also pass a native
 upgrade/rollback/reopen cycle: 10 normal launches, 28 saved views and 21 complete
 scene comparisons across seven references. Notes/identities, preferences and window
-state are preserved. All 98 current Python checks pass; seven altered real-data
+state are preserved. The batch's 98 Python checks pass; seven altered real-data
 controls are rejected. [Exact pair, evidence and limits](audit/PRIVATE_UPGRADE_VERIFICATION.md).
+
+Current-build rendering diagnostics cover all sixteen workloads at actual 1080p;
+the profile formatter now derives scope and label settings from the measurements.
+All 99 Python checks pass. [Diagnostic observations](audit/WINDOWS_CURRENT_DIAGNOSTIC.md),
+[Python checks](audit/current-profile-python.log.txt). Sustained and representative-device
+performance acceptance remain separate.
 
 [Build/source audit](audit/build-identity-artifact-audit.json),
 [native Windows report](audit/build-identity-windows-qa.json),
@@ -76,7 +82,7 @@ tasks. Its presence is a plan, not a completed trial record.
 | Declared scope and coverage in both bodies | [Coverage inventory](../content/coverage_notes.json) and [scope](SCOPE.md) explicitly retain missing skeleton/muscle/nerve coverage, unregistered studies, unavailable cutaways/comparisons and injury scenarios. Final release inventory and required content remain unresolved. |
 | Qualified review of published content | [Study content](../content/study_content.json) retains 15 cards, two conditions and one route as drafts, with human source and expert reviews pending. Geometry/labels also remain unreviewed. Obtain version-specific review; automated checks cannot supply it. |
 | Private pilot | Complete and retain actual task observations on representative Windows and Mac devices, including keyboard and trackpad use. No completed acceptance record is supplied by the automated runtime reports. |
-| Performance | [Historical full-HD measurements](audit/WINDOWS_FULLHD_PROFILE.md) cover source `ae600197`, one Windows host and eight workloads. They do not qualify the current archives, Mac, every label density or all release workloads. Follow the [performance protocol](PERFORMANCE_PROTOCOL.md), including agreed load/memory budgets and device evidence. |
+| Performance | [Current five-second diagnostics](audit/WINDOWS_CURRENT_DIAGNOSTIC.md) cover `c86cfba`, sixteen workloads and actual 1080p on one Windows host. [Historical sustained measurements](audit/WINDOWS_FULLHD_PROFILE.md) cover `ae600197` and eight workloads. Current sustained, representative Windows/Mac, additional-density/overlay/transition and agreed load/memory-budget evidence remain required by the [protocol](PERFORMANCE_PROTOCOL.md). |
 | Accessibility | Keyboard, focus, scalable text and text alternatives are implemented and checked. Native names, 3D focus, query updates and page/filter actions pass. Native assistive scrolling/row activation, actual screen-reader trials and conformance evidence remain open. |
 | Persistence and upgrades | Current-version save/reopen/recovery and the [exact Windows private pair](audit/PRIVATE_UPGRADE_VERIFICATION.md) pass. The [update/rollback guide](PRIVATE_UPDATE_TRIAL.md) covers backups and preserving later notes. Actual Mac, future schema/content changes and the public update process remain open. |
 | Offline behavior and downloads | Starter content is bundled; local behavior is implemented. Confirm the actual device experience and document any eventual update/download flow. |

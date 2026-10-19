@@ -1,0 +1,47 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 Core Profile Context 25.10.37.03.260407 - Compatibility - Using Device: ATI Technologies Inc. - AMD Radeon(TM) Graphics
+
+PASS private export resource boundary
+Loading female reference
+Prepared 801 meshes in 3.35s; 94 frames while loading
+PROFILE LOAD 1 / female: 3.42 s · largest process gap 294.45 ms
+PROFILE 1 / female / whole-body orbit: 59.9 frame-cadence FPS · p95 17.81 ms
+PROFILE 1 / female / chest orbit with faded lungs and local labels: 60.1 frame-cadence FPS · p95 22.51 ms
+PROFILE 1 / female / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 18.05 ms
+Loading male reference
+Prepared 788 meshes in 3.71s; 110 frames while loading
+PROFILE LOAD 1 / male: 3.78 s · largest process gap 147.25 ms
+PROFILE 1 / male / whole-body orbit: 59.5 frame-cadence FPS · p95 18.51 ms
+PROFILE 1 / male / chest orbit with faded lungs and local labels: 59.9 frame-cadence FPS · p95 23.53 ms
+PROFILE 1 / male / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 18.00 ms
+Loading bodyparts-male-bones-study reference
+Prepared 203 meshes in 0.74s; 20 frames while loading
+PROFILE LOAD 1 / bodyparts-male-bones-study: 0.77 s · largest process gap 140.90 ms
+PROFILE 1 / bodyparts-male-bones-study / whole-body orbit: 59.9 frame-cadence FPS · p95 18.23 ms
+PROFILE 1 / bodyparts-male-bones-study / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 18.36 ms
+Loading hra-v1-2-female-cord-study reference
+Prepared 29 meshes in 0.39s; 9 frames while loading
+PROFILE LOAD 1 / hra-v1-2-female-cord-study: 0.40 s · largest process gap 94.13 ms
+PROFILE 1 / hra-v1-2-female-cord-study / whole-body orbit: 59.9 frame-cadence FPS · p95 18.19 ms
+PROFILE 1 / hra-v1-2-female-cord-study / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 18.34 ms
+Loading hra-v1-2-female-vertebrae-study reference
+Prepared 25 meshes in 0.56s; 12 frames while loading
+PROFILE LOAD 1 / hra-v1-2-female-vertebrae-study: 0.58 s · largest process gap 87.46 ms
+PROFILE 1 / hra-v1-2-female-vertebrae-study / whole-body orbit: 59.9 frame-cadence FPS · p95 18.38 ms
+PROFILE 1 / hra-v1-2-female-vertebrae-study / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 18.59 ms
+Loading hra-v1-2-male-cord-study reference
+Prepared 30 meshes in 0.10s; 4 frames while loading
+PROFILE LOAD 1 / hra-v1-2-male-cord-study: 0.12 s · largest process gap 27.63 ms
+PROFILE 1 / hra-v1-2-male-cord-study / whole-body orbit: 59.9 frame-cadence FPS · p95 17.83 ms
+PROFILE 1 / hra-v1-2-male-cord-study / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 17.51 ms
+Loading hra-v1-2-male-vertebrae-study reference
+Prepared 24 meshes in 0.37s; 11 frames while loading
+PROFILE LOAD 1 / hra-v1-2-male-vertebrae-study: 0.39 s · largest process gap 65.30 ms
+PROFILE 1 / hra-v1-2-male-vertebrae-study / whole-body orbit: 59.9 frame-cadence FPS · p95 17.53 ms
+PROFILE 1 / hra-v1-2-male-vertebrae-study / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 17.68 ms
+PASS rendering profile recorded: user://render-profile.json
+
+
+QA observed peak working set bytes: 1759461376
+QA sampled maximum private bytes: 1945595904
+Windows native exit code: 0

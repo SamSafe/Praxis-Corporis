@@ -343,6 +343,8 @@ launches do not profile or collect telemetry. Headless mode is rejected.
 Each scene has a stationary warmup and scripted orbit at 0.5 rad/s.
 HRA scenes are whole body, chest with faded lungs/local labels, and an isolated supplied
 valve. The separate study measures whole bones and an isolated source femur. The report
+also measures whole-reference and isolated-part orbits in each of the four spinal
+studies: sixteen workloads in total. It
 retains raw frame intervals, counts/duration, average cadence, nearest-rank interval
 percentiles, counts above 33.33/100 ms, viewport size, source hashes and graphics/CPU identity.
 Load observations include source verification in both the outer wall-time figure and
@@ -375,6 +377,9 @@ requires actual display and buffer dimensions to match those choices; expanded/n
 at a 1920 × 1080 window must render exactly 1920 × 1080 pixels. Historical schema-1/2
 profiles remain independently readable. A small developer progress file records the
 last completed sample; full raw evidence is written at completion or interruption.
+The `c86cfba` progress file's planned count still uses the earlier eight-workload
+suite. Completion is checked against the final report's actual sixteen-workload
+plan and every required repetition, independently of that progress counter.
 
 ```sh
 python3 tools/profile_windows.py \
@@ -393,6 +398,11 @@ all 24 one-minute samples at actual 1920 × 1080 3D resolution with focus held t
 Average frame cadence ranged from 59.5 to 59.9 FPS on the native Ryzen/Radeon host.
 This meets the proposed 30-FPS baseline for the eight measured scenes on that machine;
 representative devices, additional workloads and Mac execution remain open.
+The exact current `c86cfba` archive separately passes a
+[five-second diagnostic](audit/WINDOWS_CURRENT_DIAGNOSTIC.md) across all sixteen
+workloads at actual 1920 × 1080, with focus retained in every sample and average
+frame cadence of 59.5–60.1 FPS. That short observation does not establish sustained
+performance for the current build. [Raw evidence identities](audit/current-diagnostic-evidence.json).
 Every repetition reloads each reference and reconstructs the ordinary scene before
 profiling. The 3D viewport dimensions are recorded separately from the entire window.
 Developer profiling fixes its own window's bounds and disables its resize controls.

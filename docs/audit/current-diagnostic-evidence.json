@@ -1,0 +1,31 @@
+{
+  "scope": "Five-second current-build diagnostic only; sustained acceptance remains separate.",
+  "files": {
+    "current-diagnostic-profile.json": {
+      "sha256": "d406ba764c72751470a9d75d0cdeb7499052f6178a8a07a04b4eb8e30e490106",
+      "bytes": 95702
+    },
+    "current-diagnostic-profile-qa.json": {
+      "sha256": "8c53e438fce159cb933512f19de53773929980bb35ecd8990a249c73728f9620",
+      "bytes": 9792
+    },
+    "current-diagnostic-profile-runtime.log.txt": {
+      "sha256": "745282b533ce75d4219281bbb666e55e06ed87da2b1f0ba4a8b3eb01f82ed0a8",
+      "bytes": 3111
+    },
+    "current-diagnostic-profile-controller.log.txt": {
+      "sha256": "66a79b85a56c11fc28b52e3711792a946422577a34c5d972d1581d4ee9155b72",
+      "bytes": 3233
+    },
+    "WINDOWS_CURRENT_DIAGNOSTIC.md": {
+      "sha256": "eec0f49c2d9ae24a1a6c717aa66e95d3adc591a4b0adfe69c040a80b2e1ae6fc",
+      "bytes": 9286
+    },
+    "current-profile-python.log.txt": {
+      "sha256": "7683e51317a3a55a6bdebee177127d1ddce8c3349858eb1a59221a03813f2384",
+      "bytes": 17802
+    }
+  },
+  "formatter_sha256": "93bb335fa09199c638fb8fac0c448bb2eefc9d6ea1deff1ce5c19d1a24a20190",
+  "formatter_revision": "a13654c"
+}

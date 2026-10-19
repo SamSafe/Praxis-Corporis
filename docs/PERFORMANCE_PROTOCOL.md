@@ -23,6 +23,13 @@ frame-cadence FPS. It meets the proposed 30-FPS baseline for the eight measured 
 on that host. Representative Windows/Mac devices and the additional workloads below
 remain required; historical measurements are retained unchanged.
 
+The current `c86cfba` archive has a separate
+[five-second diagnostic](audit/WINDOWS_CURRENT_DIAGNOSTIC.md): all sixteen workloads
+across seven references at actual 1920 × 1080, with focus retained in 16/16 samples
+and observed average frame cadence of 59.5–60.1 FPS. Its raw measurements and exact
+artifact binding are retained. This short run does not meet the sustained protocol;
+the current sixteen-workload plan requires 48 one-minute samples for three repeats.
+
 ## Identify the test
 
 Record the actual archive/hash and source revision, source geometry hashes, engine,
@@ -61,12 +68,17 @@ Do not infer sustained performance from an isolated peak FPS value. Report frame
 actual duration, average frame cadence, p50/p95/p99/maximum interval, and counts over
 33.33 ms and 100 ms. Retain the raw intervals and percentile convention.
 
-The profiler defaults to eight five-second scenes after one-second warmups. Explicit
+The profiler defaults to sixteen five-second scenes after one-second warmups. Explicit
 options can request 60 seconds, two-second warmups, three repetitions and a
-1920 × 1080 window. Each repetition reloads all three references before reconstructing
-the same workloads; later loads may reuse resources and OS caches. This initial suite
+1920 × 1080 window. Each repetition reloads all seven references before reconstructing
+the same workloads; later loads may reuse resources and OS caches. This suite
 uses label density 8; densities 1/12, moved-organ overlays and saved-view transitions
 remain additional acceptance workloads.
+Current bundles add two scenes for each of four separate spinal references, so the
+plan now contains sixteen workloads. The final report's measurement plan and full
+scene/repetition validation determine completion. The `c86cfba` developer progress
+file still reports the earlier eight-workload planned count; that counter is not
+acceptance evidence.
 It samples intervals between rendered `frame_post_draw` callbacks during scripted
 orbit. This reflects application frame cadence, including scheduling and VSync;
 it is not GPU execution time or display presentation latency. Its interval percentiles
