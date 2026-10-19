@@ -1,0 +1,6 @@
+Verified assets/bodyparts3d/raw/isa_parts_list_e.txt
+Verified assets/bodyparts3d/raw/isa_element_parts.txt
+Verified assets/bodyparts3d/raw/isa_inclusion_relation_list.txt
+Verified assets/bodyparts3d/raw/README_e.html
+Verified assets/bodyparts3d/raw/license.html
+Verified assets/bodyparts3d/raw/isa_BP3D_4.0_obj_99.zip

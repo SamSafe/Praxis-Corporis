@@ -44,6 +44,12 @@ throughout, so controlled foreground acceptance remains open. The formatter expo
 each workload's focus count and retains all samples/outliers. All 100 Python checks
 pass. [Current evidence and limits](audit/CURRENT_PERFORMANCE_VERIFICATION.md).
 
+The [fresh-source setup](audit/SOURCE_CHECKOUT_VERIFICATION.md) also passes from
+the committed tree without prior engine/geometry caches on the development host.
+All seven references prepare, the bone study reproduces its pinned geometry, and
+source interaction/study/persistence checks pass without altering tracked files.
+This supports the future checkout handoff; Mac execution remains deferred.
+
 [Build/source audit](audit/build-identity-artifact-audit.json),
 [native Windows report](audit/build-identity-windows-qa.json),
 [Python checks](audit/build-identity-python.log.txt).

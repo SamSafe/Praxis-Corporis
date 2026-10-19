@@ -86,6 +86,10 @@ The GLBs, compiled scenes and .godot/ directory are excluded from Git. After fet
 and preparing, exploration and saves work offline. No login or network connection
 is used by the viewer.
 
+The [fresh-source verification](audit/SOURCE_CHECKOUT_VERIFICATION.md) checks this
+workflow without existing engine or geometry caches on the development host,
+including the optional studies. Mac execution is deferred.
+
 ### Mac source checkout
 
 Mac testing is deferred until the user's future checkout. After cloning, open

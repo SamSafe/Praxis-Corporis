@@ -1,0 +1,4 @@
+Verified assets/hra-spinal/VH_F_Spinal_Cord.glb
+Verified assets/hra-spinal/VH_F_Vertebrae.glb
+Verified assets/hra-spinal/VH_M_Spinal_Cord.glb
+Verified assets/hra-spinal/VH_M_Vertebrae.glb
