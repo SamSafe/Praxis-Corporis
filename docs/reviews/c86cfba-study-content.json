@@ -1,0 +1,754 @@
+{
+  "schema_version": 1,
+  "revision": "chest-study-3-draft",
+  "review_status": "draft",
+  "expert_review": "pending",
+  "scope": "Private draft explanations. General anatomy is separate from completeness and accuracy of the supplied source meshes. No source illustrations or video are reused.",
+  "sources": {
+    "heart-anatomy": {
+      "title": "NHLBI: Heart anatomy",
+      "url": "https://www.nhlbi.nih.gov/health/heart/anatomy"
+    },
+    "heart-flow": {
+      "title": "NHLBI: Blood flow through the heart",
+      "url": "https://www.nhlbi.nih.gov/health/heart/blood-flow"
+    },
+    "lungs": {
+      "title": "NHLBI: The respiratory system",
+      "url": "https://www.nhlbi.nih.gov/health/lungs/respiratory-system"
+    },
+    "gas-exchange": {
+      "title": "NHLBI: Breathing and gas exchange",
+      "url": "https://www.nhlbi.nih.gov/health/lungs/breathing-benefits"
+    },
+    "pulmonary-branches": {
+      "title": "NCBI Bookshelf: Pulmonary arteries",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK534812/"
+    },
+    "valve-disease-types": {
+      "title": "NHLBI: Types of heart valve disease",
+      "url": "https://www.nhlbi.nih.gov/health/heart-valve-diseases/types"
+    }
+  },
+  "cards": {
+    "anatomy.heart": {
+      "overview": "A muscular organ in the chest between the lungs.",
+      "function": "Pumps blood through the lungs and the body.",
+      "related": [
+        "anatomy.heart.chambers",
+        "anatomy.heart.valves",
+        "anatomy.lungs"
+      ],
+      "source_ids": [
+        "heart-anatomy",
+        "heart-flow"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    },
+    "anatomy.heart.chambers": {
+      "overview": "The heart has two atria and two ventricles.",
+      "function": "Atria receive blood; ventricles pump it onward.",
+      "related": [
+        "anatomy.heart.atrium.right",
+        "anatomy.heart.ventricle.right",
+        "anatomy.heart.atrium.left",
+        "anatomy.heart.ventricle.left"
+      ],
+      "source_ids": [
+        "heart-anatomy"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    },
+    "anatomy.heart.septum": {
+      "overview": "A wall separates the right and left sides of the heart.",
+      "function": "The interventricular portion separates the ventricles.",
+      "related": [
+        "anatomy.heart.ventricle.left",
+        "anatomy.heart.ventricle.right"
+      ],
+      "source_ids": [
+        "heart-anatomy"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    },
+    "anatomy.heart.atrium.right": {
+      "overview": "The right atrium is one of the upper chambers.",
+      "function": "Receives blood returning from the body.",
+      "related": [
+        "anatomy.heart.valve.tricuspid",
+        "anatomy.heart.ventricle.right"
+      ],
+      "source_ids": [
+        "heart-anatomy",
+        "heart-flow"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    },
+    "anatomy.heart.atrium.left": {
+      "overview": "The left atrium is one of the upper chambers.",
+      "function": "Receives blood returning from the lungs.",
+      "related": [
+        "anatomy.heart.valve.mitral",
+        "anatomy.heart.ventricle.left"
+      ],
+      "source_ids": [
+        "heart-anatomy",
+        "heart-flow"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    },
+    "anatomy.heart.ventricle.right": {
+      "overview": "The right ventricle is a lower chamber.",
+      "function": "Pumps blood toward the lungs through the pulmonary valve.",
+      "related": [
+        "anatomy.heart.valve.pulmonary",
+        "anatomy.lungs"
+      ],
+      "source_ids": [
+        "heart-anatomy",
+        "heart-flow"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    },
+    "anatomy.heart.ventricle.left": {
+      "overview": "The left ventricle is a lower chamber.",
+      "function": "Pumps blood through the aortic valve toward the body.",
+      "related": [
+        "anatomy.heart.valve.aortic",
+        "anatomy.heart.atrium.left"
+      ],
+      "source_ids": [
+        "heart-anatomy",
+        "heart-flow"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    },
+    "anatomy.heart.valves": {
+      "overview": "Four valves control forward flow through the heart.",
+      "function": "Their leaflets open and close to limit backward flow.",
+      "related": [
+        "anatomy.heart.valve.tricuspid",
+        "anatomy.heart.valve.pulmonary",
+        "anatomy.heart.valve.mitral",
+        "anatomy.heart.valve.aortic"
+      ],
+      "source_ids": [
+        "heart-flow"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    },
+    "anatomy.heart.valve.tricuspid": {
+      "overview": "Between the right atrium and right ventricle.",
+      "function": "Helps prevent backward blood flow.",
+      "related": [
+        "anatomy.heart.atrium.right",
+        "anatomy.heart.ventricle.right"
+      ],
+      "source_ids": [
+        "heart-flow"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    },
+    "anatomy.heart.valve.pulmonary": {
+      "overview": "Between the right ventricle and pulmonary artery.",
+      "function": "Helps prevent backward blood flow.",
+      "related": [
+        "anatomy.heart.ventricle.right",
+        "anatomy.lungs"
+      ],
+      "source_ids": [
+        "heart-flow"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    },
+    "anatomy.heart.valve.mitral": {
+      "overview": "Between the left atrium and left ventricle.",
+      "function": "Helps prevent backward blood flow.",
+      "related": [
+        "anatomy.heart.atrium.left",
+        "anatomy.heart.ventricle.left"
+      ],
+      "source_ids": [
+        "heart-flow"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    },
+    "anatomy.heart.valve.aortic": {
+      "overview": "Between the left ventricle and aorta.",
+      "function": "Helps prevent backward blood flow.",
+      "related": [
+        "anatomy.heart.ventricle.left",
+        "anatomy.heart"
+      ],
+      "source_ids": [
+        "heart-flow"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    },
+    "anatomy.lungs": {
+      "overview": "Paired organs in the chest connected to the airways.",
+      "function": "Exchange oxygen and carbon dioxide between air and blood.",
+      "related": [
+        "anatomy.lung.left",
+        "anatomy.lung.right",
+        "anatomy.heart"
+      ],
+      "source_ids": [
+        "lungs",
+        "gas-exchange"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    },
+    "anatomy.lung.left": {
+      "overview": "The left lung has two lobes and shares chest space with the heart.",
+      "function": "Participates in gas exchange.",
+      "related": [
+        "anatomy.lungs",
+        "anatomy.heart"
+      ],
+      "source_ids": [
+        "lungs",
+        "gas-exchange"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    },
+    "anatomy.lung.right": {
+      "overview": "The right lung has three lobes.",
+      "function": "Participates in gas exchange.",
+      "related": [
+        "anatomy.lungs",
+        "anatomy.heart"
+      ],
+      "source_ids": [
+        "lungs",
+        "gas-exchange"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    }
+  },
+  "routes": {
+    "heart-lung": {
+      "title": "Heart ↔ lungs",
+      "start": "vena-cava",
+      "reference_ids": [
+        "female",
+        "male"
+      ],
+      "source_ids": [
+        "heart-flow",
+        "gas-exchange",
+        "pulmonary-branches"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "scope": "A conceptual sequence with explicit source selections. Mesh shape and proximity do not establish flow or vessel continuity. No flow simulation or internal channel is drawn.",
+      "nodes": {
+        "vena-cava": {
+          "title": "Vena cava",
+          "text": "Blood returns from the body toward the right atrium.",
+          "geometry": {
+            "female": {
+              "id": "source.hra-v1-1.female.n748",
+              "source_name": "VH_F_vena_cava",
+              "ontology": ""
+            },
+            "male": {
+              "id": "source.hra-v1-1.male.n255",
+              "source_name": "VH_M_vena_cava",
+              "ontology": ""
+            }
+          },
+          "next": [
+            "right-atrium"
+          ],
+          "source_ids": [
+            "heart-flow"
+          ],
+          "coverage": "supplied_mesh",
+          "gap": ""
+        },
+        "right-atrium": {
+          "title": "Right atrium",
+          "text": "The right atrium receives this returning blood.",
+          "geometry": {
+            "female": {
+              "id": "anatomy.heart.atrium.right",
+              "source_name": "VH_F_right_cardiac_atrium",
+              "ontology": "UBERON:0002078"
+            },
+            "male": {
+              "id": "anatomy.heart.atrium.right",
+              "source_name": "VH_M_right_cardiac_atrium",
+              "ontology": "UBERON:0002078"
+            }
+          },
+          "next": [
+            "tricuspid"
+          ],
+          "source_ids": [
+            "heart-flow"
+          ],
+          "coverage": "supplied_mesh",
+          "gap": ""
+        },
+        "tricuspid": {
+          "title": "Tricuspid valve",
+          "text": "Blood passes toward the right ventricle through this valve.",
+          "geometry": {
+            "female": {
+              "id": "anatomy.heart.valve.tricuspid",
+              "source_name": "VH_F_tricuspid_valve",
+              "ontology": "UBERON:0002134"
+            },
+            "male": {
+              "id": "anatomy.heart.valve.tricuspid",
+              "source_name": "VH_M_tricuspid_valve",
+              "ontology": "UBERON:0002134"
+            }
+          },
+          "next": [
+            "right-ventricle"
+          ],
+          "source_ids": [
+            "heart-flow"
+          ],
+          "coverage": "supplied_mesh",
+          "gap": ""
+        },
+        "right-ventricle": {
+          "title": "Right ventricle",
+          "text": "The right ventricle pumps blood toward the lungs.",
+          "geometry": {
+            "female": {
+              "id": "anatomy.heart.ventricle.right",
+              "source_name": "VH_F_right_ventricle",
+              "ontology": "UBERON:0002080"
+            },
+            "male": {
+              "id": "anatomy.heart.ventricle.right",
+              "source_name": "VH_M_heart_right_ventricle",
+              "ontology": "UBERON:0002080"
+            }
+          },
+          "next": [
+            "pulmonary-valve"
+          ],
+          "source_ids": [
+            "heart-flow"
+          ],
+          "coverage": "supplied_mesh",
+          "gap": ""
+        },
+        "pulmonary-valve": {
+          "title": "Pulmonary valve",
+          "text": "This valve lies on the way to the pulmonary artery.",
+          "geometry": {
+            "female": {
+              "id": "anatomy.heart.valve.pulmonary",
+              "source_name": "VH_F_pulmonary_valve",
+              "ontology": "UBERON:0002146"
+            },
+            "male": {
+              "id": "anatomy.heart.valve.pulmonary",
+              "source_name": "VH_M_pulmonary_valve",
+              "ontology": "UBERON:0002146"
+            }
+          },
+          "next": [
+            "pulmonary-trunk"
+          ],
+          "source_ids": [
+            "heart-flow"
+          ],
+          "coverage": "supplied_mesh",
+          "gap": ""
+        },
+        "pulmonary-trunk": {
+          "title": "Toward either lung",
+          "text": "Follow a pulmonary arterial branch toward either lung.",
+          "geometry": {
+            "female": {
+              "id": "source.hra-v1-1.female.n765",
+              "source_name": "VH_F_pulmonary_trunk",
+              "ontology": "UBERON:0002333"
+            },
+            "male": {
+              "id": "source.hra-v1-1.male.n237",
+              "source_name": "VH_M_pulmonary_trunk",
+              "ontology": "UBERON:0002333"
+            }
+          },
+          "next": [
+            "left-artery",
+            "right-artery"
+          ],
+          "source_ids": [
+            "heart-flow",
+            "pulmonary-branches"
+          ],
+          "coverage": "supplied_mesh",
+          "gap": ""
+        },
+        "left-artery": {
+          "title": "Left pulmonary artery",
+          "text": "The pulmonary arteries carry oxygen-poor blood toward the lungs.",
+          "geometry": {
+            "female": {
+              "id": "source.hra-v1-1.female.n764",
+              "source_name": "VH_F_pulmonary_artery_L",
+              "ontology": "UBERON:0001652"
+            },
+            "male": {
+              "id": "source.hra-v1-1.male.n235",
+              "source_name": "VH_M_pulmonary_artery_L",
+              "ontology": "UBERON:0001652"
+            }
+          },
+          "next": [
+            "left-exchange"
+          ],
+          "source_ids": [
+            "heart-flow"
+          ],
+          "coverage": "supplied_mesh",
+          "gap": ""
+        },
+        "right-artery": {
+          "title": "Right pulmonary artery",
+          "text": "The pulmonary arteries carry oxygen-poor blood toward the lungs.",
+          "geometry": {
+            "female": {
+              "id": "source.hra-v1-1.female.n766",
+              "source_name": "VH_F_pulmonary_artery_R",
+              "ontology": "UBERON:0001651"
+            },
+            "male": {
+              "id": "source.hra-v1-1.male.n236",
+              "source_name": "VH_M_pulmonary_artery_R",
+              "ontology": "UBERON:0001651"
+            }
+          },
+          "next": [
+            "right-exchange"
+          ],
+          "source_ids": [
+            "heart-flow"
+          ],
+          "coverage": "supplied_mesh",
+          "gap": ""
+        },
+        "left-exchange": {
+          "title": "Left lung: gas exchange",
+          "text": "Oxygen enters blood across the alveoli; carbon dioxide moves into the air spaces.",
+          "geometry": {
+            "female": {
+              "id": "anatomy.lung.left",
+              "source_name": "VH_F_left_lungs_L",
+              "ontology": ""
+            },
+            "male": {
+              "id": "anatomy.lung.left",
+              "source_name": "VH_M_lungs_L",
+              "ontology": ""
+            }
+          },
+          "next": [
+            "pulmonary-veins"
+          ],
+          "source_ids": [
+            "gas-exchange"
+          ],
+          "coverage": "context_only",
+          "gap": "Lung surface shown for context. Individual alveoli and the capillary network are not supplied by this atlas."
+        },
+        "right-exchange": {
+          "title": "Right lung: gas exchange",
+          "text": "Oxygen enters blood across the alveoli; carbon dioxide moves into the air spaces.",
+          "geometry": {
+            "female": {
+              "id": "anatomy.lung.right",
+              "source_name": "VH_F_lungs_R",
+              "ontology": ""
+            },
+            "male": {
+              "id": "anatomy.lung.right",
+              "source_name": "VH_M_lungs_R",
+              "ontology": ""
+            }
+          },
+          "next": [
+            "pulmonary-veins"
+          ],
+          "source_ids": [
+            "gas-exchange"
+          ],
+          "coverage": "context_only",
+          "gap": "Lung surface shown for context. Individual alveoli and the capillary network are not supplied by this atlas."
+        },
+        "pulmonary-veins": {
+          "title": "Pulmonary veins",
+          "text": "Oxygen-rich blood returns from the lungs through these veins.",
+          "geometry": {
+            "female": {
+              "id": "source.hra-v1-1.female.n734",
+              "source_name": "VH_F_pulmonary_vein",
+              "ontology": ""
+            },
+            "male": {
+              "id": "source.hra-v1-1.male.n247",
+              "source_name": "VH_M_pulmonary_vein",
+              "ontology": ""
+            }
+          },
+          "next": [
+            "left-atrium"
+          ],
+          "source_ids": [
+            "heart-flow"
+          ],
+          "coverage": "supplied_mesh",
+          "gap": ""
+        },
+        "left-atrium": {
+          "title": "Left atrium",
+          "text": "Blood returning from the lungs enters the left atrium.",
+          "geometry": {
+            "female": {
+              "id": "anatomy.heart.atrium.left",
+              "source_name": "VH_F_left_cardiac_atrium",
+              "ontology": "UBERON:0002079"
+            },
+            "male": {
+              "id": "anatomy.heart.atrium.left",
+              "source_name": "VH_M_left_cardiac_atrium",
+              "ontology": "UBERON:0002079"
+            }
+          },
+          "next": [
+            "mitral"
+          ],
+          "source_ids": [
+            "heart-flow"
+          ],
+          "coverage": "supplied_mesh",
+          "gap": ""
+        },
+        "mitral": {
+          "title": "Mitral valve",
+          "text": "Blood passes through this valve toward the left ventricle.",
+          "geometry": {
+            "female": {
+              "id": "anatomy.heart.valve.mitral",
+              "source_name": "VH_F_mitral_valve",
+              "ontology": "UBERON:0002135"
+            },
+            "male": {
+              "id": "anatomy.heart.valve.mitral",
+              "source_name": "VH_M_mitral_valve",
+              "ontology": "UBERON:0002135"
+            }
+          },
+          "next": [
+            "left-ventricle"
+          ],
+          "source_ids": [
+            "heart-flow"
+          ],
+          "coverage": "supplied_mesh",
+          "gap": ""
+        },
+        "left-ventricle": {
+          "title": "Left ventricle",
+          "text": "The left ventricle pumps blood toward the body.",
+          "geometry": {
+            "female": {
+              "id": "anatomy.heart.ventricle.left",
+              "source_name": "VH_F_left_ventricle",
+              "ontology": "UBERON:0002084"
+            },
+            "male": {
+              "id": "anatomy.heart.ventricle.left",
+              "source_name": "VH_M_heart_left_ventricle",
+              "ontology": "UBERON:0002084"
+            }
+          },
+          "next": [
+            "aortic-valve"
+          ],
+          "source_ids": [
+            "heart-flow"
+          ],
+          "coverage": "supplied_mesh",
+          "gap": ""
+        },
+        "aortic-valve": {
+          "title": "Aortic valve",
+          "text": "This valve lies between the left ventricle and aorta.",
+          "geometry": {
+            "female": {
+              "id": "anatomy.heart.valve.aortic",
+              "source_name": "VH_F_aortic_valve",
+              "ontology": "UBERON:0002137"
+            },
+            "male": {
+              "id": "anatomy.heart.valve.aortic",
+              "source_name": "VH_M_aortic_valve",
+              "ontology": "UBERON:0002137"
+            }
+          },
+          "next": [
+            "aorta"
+          ],
+          "source_ids": [
+            "heart-flow"
+          ],
+          "coverage": "supplied_mesh",
+          "gap": ""
+        },
+        "aorta": {
+          "title": "Aorta",
+          "text": "Blood leaves the heart through the aorta.",
+          "geometry": {
+            "female": {
+              "id": "source.hra-v1-1.female.n767",
+              "source_name": "VH_F_aorta",
+              "ontology": ""
+            },
+            "male": {
+              "id": "source.hra-v1-1.male.n210",
+              "source_name": "VH_M_aorta",
+              "ontology": ""
+            }
+          },
+          "next": [
+            "systemic-gap"
+          ],
+          "source_ids": [
+            "heart-flow"
+          ],
+          "coverage": "supplied_mesh",
+          "gap": ""
+        },
+        "systemic-gap": {
+          "title": "Through the body and back",
+          "text": "Blood circulates through the body before returning to the heart.",
+          "geometry": {
+            "female": {
+              "id": "anatomy.body",
+              "source_name": "VH_F",
+              "ontology": ""
+            },
+            "male": {
+              "id": "anatomy.body",
+              "source_name": "VH_M",
+              "ontology": ""
+            }
+          },
+          "next": [
+            "vena-cava"
+          ],
+          "source_ids": [
+            "heart-flow"
+          ],
+          "coverage": "context_only",
+          "gap": "Whole-body context only. A complete systemic vessel and tissue-capillary route is not mapped here."
+        }
+      },
+      "human_source_review": "pending"
+    }
+  },
+  "conditions": {
+    "condition.aortic-stenosis": {
+      "title": "Aortic stenosis",
+      "summary": "Narrowing of the aortic-valve opening can obstruct forward blood flow.",
+      "location": "The aortic valve is at the outlet from the left ventricle into the aorta.",
+      "focus_id": "anatomy.heart.valve.aortic",
+      "related_anatomy": [
+        "anatomy.heart.valve.aortic",
+        "anatomy.heart.ventricle.left"
+      ],
+      "display_on": [
+        "anatomy.heart",
+        "anatomy.heart.valves",
+        "anatomy.heart.valve.aortic"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "valve-disease-types",
+        "heart-flow"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    },
+    "condition.mitral-regurgitation": {
+      "title": "Mitral regurgitation",
+      "summary": "An incompletely closed mitral valve can allow blood to pass backward.",
+      "location": "The mitral valve connects the left atrium and left ventricle.",
+      "focus_id": "anatomy.heart.valve.mitral",
+      "related_anatomy": [
+        "anatomy.heart.valve.mitral",
+        "anatomy.heart.atrium.left",
+        "anatomy.heart.ventricle.left"
+      ],
+      "display_on": [
+        "anatomy.heart",
+        "anatomy.heart.valves",
+        "anatomy.heart.valve.mitral"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "valve-disease-types",
+        "heart-flow"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    }
+  },
+  "assistant_checks": {
+    "actor": "assistant",
+    "kind": "preliminary_source_cross_check",
+    "checked_on": "2026-10-15",
+    "scope": "Preliminary comparison of the short explanations, route order and condition associations with the linked sources. This is not human reviewer evidence and does not establish anatomical mesh accuracy.",
+    "source_ids": [
+      "heart-anatomy",
+      "heart-flow",
+      "lungs",
+      "gas-exchange",
+      "pulmonary-branches",
+      "valve-disease-types"
+    ]
+  },
+  "human_source_review": "pending"
+}

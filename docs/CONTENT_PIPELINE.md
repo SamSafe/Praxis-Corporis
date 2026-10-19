@@ -112,6 +112,11 @@ Public medical content requires the review evidence specified in
 [RELEASE_CRITERIA.md](RELEASE_CRITERIA.md). Review access is currently unresolved;
 private drafts remain useful for development but cannot be silently promoted.
 
+The [current private-candidate review packet](CONTENT_REVIEW_PACKET.md) supplies a
+frozen copy of the authored study JSON, exact archive/source identities, an item
+inventory and a results template. It prepares scoped human review; all current
+source/expert review outcomes remain pending.
+
 ## Ongoing corrections
 
 Track versions and changed claims. Invalidate affected reviews on substantive
