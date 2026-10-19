@@ -31,6 +31,22 @@ def report_fixture():
 
 
 class ProfileReportTests(unittest.TestCase):
+    def test_focus_counts_retain_unfocused_samples_and_their_stalls(self):
+        _, report, evidence = report_fixture()
+        report['configuration']['repetitions'] = 2
+        second_scene = copy.deepcopy(report['scenes'][0])
+        second_scene.update(repetition=2, window_focused_throughout_sample=False)
+        second_load = copy.deepcopy(report['loads'][0])
+        second_load['repetition'] = 2
+        report['scenes'].append(second_scene)
+        report['loads'].append(second_load)
+        summary = markdown(report, evidence)
+        self.assertIn('| Focused samples |', summary)
+        self.assertIn('FPS ranges retain all samples.', summary)
+        self.assertIn('| female | whole-body orbit | 1/2 | 3.7 | 1000.00 | 1000.00 | 1000.00 | 4 | 2 |', summary)
+        self.assertIn('2 samples retain 8 rendered intervals', summary)
+        self.assertIn('Window focus held throughout 1/2 samples.', summary)
+
     def test_summary_uses_the_actual_plan_and_recorded_label_settings(self):
         _, report, evidence = report_fixture()
         summary = markdown(report, evidence)

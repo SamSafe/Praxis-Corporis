@@ -59,17 +59,19 @@ def markdown(report: dict, evidence: dict) -> str:
              '## Navigation cadence', '',
              'Ranges below are the minimum/maximum across separate repetitions, not pooled percentiles. '
              'The maximum interval and >100 ms counts retain outliers.', '',
-             '| Reference | Scene | Cadence FPS range | p95 ms range | p99 ms range | Maximum ms | >33.33 ms frames | >100 ms frames |',
-             '|---|---|---:|---:|---:|---:|---:|---:|']
+             'Focused samples retained window focus throughout the entire sample. FPS ranges retain all samples.', '',
+             '| Reference | Scene | Focused samples | Cadence FPS range | p95 ms range | p99 ms range | Maximum ms | >33.33 ms frames | >100 ms frames |',
+             '|---|---|---:|---:|---:|---:|---:|---:|---:|']
     groups = {}
     for row in rows:
         groups.setdefault((row['reference'], row['scene']), []).append(row)
     for (reference, scene), group in groups.items():
         # Counts are recomputed from each raw scene, not rounded percentages.
         raw_group = [s for s in report['scenes'] if s['reference'] == reference and s['scene'] == scene]
+        focused_count = sum(s['window_focused_throughout_sample'] for s in raw_group)
         slow = sum(s['frames_over_33_33_ms'] for s in raw_group)
         stalled = sum(s['frames_over_100_ms'] for s in raw_group)
-        lines.append(f"| {text(reference)} | {text(scene)} | {span([r['fps'] for r in group], 1)} | "
+        lines.append(f"| {text(reference)} | {text(scene)} | {focused_count}/{len(raw_group)} | {span([r['fps'] for r in group], 1)} | "
                      f"{span([r['p95_ms'] for r in group])} | {span([r['p99_ms'] for r in group])} | "
                      f"{max(r['maximum_ms'] for r in group):.2f} | {slow} | {stalled} |")
     pixels = sorted({tuple(s['scene_viewport_pixels']) for s in report['scenes']})
