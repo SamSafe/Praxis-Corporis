@@ -13,7 +13,8 @@ samples are imported; coverage is partial and anatomical review is pending.
 [Private desktop builds](docs/NATIVE_BUILDS.md) describes the Windows/Mac archives.
 [Production readiness](docs/PRODUCTION_READINESS.md) maps current evidence and
 remaining release requirements; [Mac acceptance](docs/MAC_ACCEPTANCE.md) is ready
-for the actual-device trial.
+for a future actual-device trial. Mac testing is deferred at the user's request;
+the [Mac source setup](docs/PROTOTYPE.md#mac-source-checkout) covers a later Git checkout.
 [Planning status](docs/PLANNING_STATUS.md) separates decisions from unverified evidence.
 
 ## Agreed direction

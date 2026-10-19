@@ -15,6 +15,12 @@ The target remains [the agreed scope](SCOPE.md): Windows/macOS, both adult refer
 bodies and continuous exploration. This checkpoint does not replace that scope with
 a smaller product or promote private draft content to reviewed content.
 
+On 2026-10-19 the user deferred Mac acceptance until a future Git checkout on their
+Mac. That trial is not a prerequisite for continued private development. Mac support
+remains in scope; actual Mac execution is unverified and remains a release
+requirement. Use the [Mac source setup](PROTOTYPE.md#mac-source-checkout) for that
+later checkout rather than assuming the local packaged archive is included in Git.
+
 ## Current engineering evidence
 
 Runtime source `c86cfba1e544b20917b66c14ea405f0b74abfd47` has fresh private Windows
@@ -92,14 +98,14 @@ tasks. Its presence is a plan, not a completed trial record.
 
 ## Next work and stopping point
 
-1. Complete the [Mac acceptance run](MAC_ACCEPTANCE.md) against the exact current
-   archive; record failures and fix material issues it reveals. The user has a Mac
-   available for this run and confirmed on 2026-10-19 that it has not yet been tested.
-2. Use the recorded Windows compatibility pair and backup procedure for private
+1. Use the recorded Windows compatibility pair and backup procedure for private
    trials. Address material failures from actual-device and assistive-technology
    trials; public release policy and future migrations remain open.
-3. Complete physical-device/performance acceptance and arrange qualified content
+2. Complete physical-device/performance acceptance and arrange qualified content
    review and release decisions before a production-ready claim.
+3. Mac acceptance is deferred at the user's request. When their future Mac checkout
+   is available, record its actual revision and observations using the
+   [acceptance guide](MAC_ACCEPTANCE.md); fix material issues it reveals then.
 
 Stop optional feature growth at this checkpoint. The engineering candidate is ready
 for those acceptance steps; the production goal remains open until its material

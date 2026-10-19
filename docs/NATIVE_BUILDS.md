@@ -26,9 +26,11 @@ Sources also shows the recorded engine, runtime platform and content pack. The p
 Fresh Windows workflows cover seven references, 784 placement comparisons,
 543 redraw comparisons, four normal launches and two early-close cases.
 Mac resource checks run on the development engine; actual Mac acceptance remains
-pending. Native assistive scrolling, row activation and screen-reader trials also
-remain open; the [accessibility batch](audit/ACCESSIBILITY_VERIFICATION.md) records
-that work and its limits.
+unverified and is deferred at the user's request until a future Mac Git checkout.
+The [source setup](PROTOTYPE.md#mac-source-checkout) covers that route; the local
+archives above are excluded from Git. Native assistive scrolling, row activation
+and screen-reader trials also remain open; the
+[accessibility batch](audit/ACCESSIBILITY_VERIFICATION.md) records that work and its limits.
 The separate Linux-template qualification remains open.
 
 The exact older/current Windows pair passes upgrade, rollback and reopening across
@@ -39,7 +41,7 @@ geometry/schema scope. Mac and future migrations remain separate acceptance work
 The [production-readiness checkpoint](PRODUCTION_READINESS.md) distinguishes the
 passing engineering checks from remaining release acceptance. The
 [Mac acceptance run](MAC_ACCEPTANCE.md) identifies this exact archive and supplies
-a results template for the actual-device trial.
+a results template for a later actual-device trial.
 
 Extract the complete ZIP. In its PraxisCorporis folder, open PraxisCorporis.exe
 on Windows or PraxisCorporis.app on Mac. On Windows, keep anatomy.pck beside the

@@ -86,6 +86,46 @@ The GLBs, compiled scenes and .godot/ directory are excluded from Git. After fet
 and preparing, exploration and saves work offline. No login or network connection
 is used by the viewer.
 
+### Mac source checkout
+
+Mac testing is deferred until the user's future checkout. After cloning, open
+Terminal in the repository folder. Install Python 3.10 or newer and Godot 4.7.2
+Standard as above. If Godot is in Applications, run the following; adjust
+`praxis_godot` if you unpacked it elsewhere:
+
+```sh
+praxis_godot="/Applications/Godot.app/Contents/MacOS/Godot"
+git rev-parse HEAD
+"$praxis_godot" --version
+python3 tools/fetch_assets.py
+"$praxis_godot" --headless --path . --script tools/prepare_assets.gd
+"$praxis_godot" --path .
+```
+
+Keep the printed Git revision and engine version with any later observations.
+The source project shows a development-checkout identity, rather than the build
+ID of a previously exported archive. Export templates are needed only to create
+desktop packages, not to run this source project. The first fetch needs network
+access and the first preparation can take several minutes.
+
+The commands above prepare the two HRA body references. To also reproduce the
+separate bone study and four spinal studies available in the private packages,
+close the viewer, then run:
+
+```sh
+python3 tools/fetch_assets.py --manifest content/bodyparts3d_source_manifest.json
+python3 tools/build_bone_study.py assets/bodyparts3d/raw
+python3 tools/fetch_assets.py --manifest content/spinal_source_manifest.json
+"$praxis_godot" --headless --path . --script tools/prepare_assets.gd
+"$praxis_godot" --path .
+```
+
+The study catalogues are already versioned. Preparation discovers studies whose
+geometry is present; leaving these optional downloads out keeps the two HRA body
+references usable. These studies remain separate and unregistered to either body.
+Use the [Mac acceptance guide](MAC_ACCEPTANCE.md) when ready; report the actual
+checkout revision and only the references prepared in that checkout.
+
 ## Controls
 
 | Action | Control |

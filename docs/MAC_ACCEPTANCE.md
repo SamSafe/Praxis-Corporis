@@ -1,7 +1,19 @@
 # Mac acceptance run
 
-Use the current private candidate. This is an actual-device test of the app and
-controls; it does not establish medical accuracy or complete anatomy coverage.
+**Deferred by the user on 2026-10-19.** They plan to clone the repository on their
+Mac at a future date. This run does not block continued private development; no
+Mac result is claimed.
+
+For that future checkout, use [Mac source setup](PROTOTYPE.md#mac-source-checkout).
+Git does not include the downloaded anatomy, prepared geometry or packaged apps.
+Record `git rev-parse HEAD`, the Godot version and Mac/macOS version with any
+observations. A source checkout identifies itself as a development checkout;
+do not assign it the archive build ID below. The following packet remains tied
+to its original packaged candidate.
+
+For the packaged trial below, use the identified private candidate. This is an
+actual-device test of the app and controls; it does not establish medical accuracy
+or complete anatomy coverage.
 
 - Archive: `dist/build-identity-improvements/PraxisCorporis-macOS-universal-private.zip`
 - Bytes: `350671781`

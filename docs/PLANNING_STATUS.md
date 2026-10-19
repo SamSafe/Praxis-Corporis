@@ -1,6 +1,12 @@
 # Planning Status
 
-Updated: 2026-10-15, using the America/Edmonton client date.
+Updated: 2026-10-19, using the America/Edmonton client date.
+
+The user deferred Mac acceptance on 2026-10-19 and plans a future Git checkout on
+their Mac. Continue private development without waiting for that run. Mac remains
+a target platform with execution unverified; this deferral does not establish
+release acceptance. [Source setup](PROTOTYPE.md#mac-source-checkout) and the
+[acceptance packet](MAC_ACCEPTANCE.md) cover the later handoff.
 
 Planning established the product direction, and the user authorised the first
 private feasibility prototype. Both pinned HRA samples have been downloaded,
