@@ -1,0 +1,43 @@
+{
+  "result": "complete raw measurement validation; foreground acceptance not established",
+  "source_revision": "c86cfba1e544b20917b66c14ea405f0b74abfd47",
+  "artifact": {
+    "file": "PraxisCorporis-Windows-x64-private.zip",
+    "bytes": 328224510,
+    "sha256": "7518559369a6b55f20fbcf37363b47edb5013e666136b675469426e35b649ec4",
+    "architectures": [
+      "x86_64"
+    ]
+  },
+  "samples": 48,
+  "loads": 21,
+  "distinct_workloads": 16,
+  "focus": {
+    "focused_throughout": {
+      "samples": 18,
+      "minimum_fps": 59.77476860523834,
+      "maximum_fps": 59.91183877099237
+    },
+    "focus_interrupted": {
+      "samples": 30,
+      "minimum_fps": 39.93082920889681,
+      "maximum_fps": 59.92578667926419
+    }
+  },
+  "measured_seconds": 2880.379585,
+  "frames": 169448,
+  "intervals_over_33_33_ms": 1078,
+  "intervals_over_100_ms": 1,
+  "maximum_interval_ms": 111.366,
+  "all_scene_buffers_native_1920x1080": true,
+  "session_cleanup": {
+    "status": "removed",
+    "path": "/mnt/c/Users/king-/AppData/Local/Temp/PraxisCorporis-QA-67ba7c2ec2044454b8f6ef359341420c",
+    "independently_absent": true
+  },
+  "limitations": [
+    "Focus flags record whether focus held throughout, not the duration or cause of interruptions.",
+    "No causal conclusion about the slower samples; host/background/power/thermal conditions were uncontrolled.",
+    "No Mac, representative-device, additional-workload or minimum-hardware acceptance is established."
+  ]
+}

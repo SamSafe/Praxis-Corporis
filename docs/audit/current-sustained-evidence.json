@@ -1,0 +1,42 @@
+{
+  "scope": "Exact current private Windows archive, 48 one-minute measurements; mixed focus prevents uninterrupted foreground qualification.",
+  "formatter_revision": "8d2a175",
+  "formatter_sha256": "e46f730bdd77362806e8ca65f0b552195f9c994c1d65b911d9330dce5ad21bbc",
+  "profiler_sha256": "42696b2889643f75774a36dbca809981ddb9b0c26fc9c427fd54ce73ae90cb4c",
+  "verifier_sha256": "10c7fa81383976caa6903fbdcd7cfd0207d1c740bc9f565379fa329f8482abbd",
+  "validator_sha256": "bf85f5992659d0238370a5df4004961e6876db65bcd74a07744adfaef690165d",
+  "files": {
+    "current-sustained-profile.json": {
+      "sha256": "090827aedb2396adf0a0229d6b26271a0a8a6bbdb57b1705bf9a4f931e564238",
+      "bytes": 2124674
+    },
+    "current-sustained-profile-qa.json": {
+      "sha256": "7e63096b6910882c764e4c933980f369993f91cf422b231f2f648da427822367",
+      "bytes": 23441
+    },
+    "current-sustained-profile-runtime.log.txt": {
+      "sha256": "4c3986bf3a41483d4b779c63bf7c364702cfea8871035e3cba5f496b4ef08c78",
+      "bytes": 8718
+    },
+    "current-sustained-profile-controller.log.txt": {
+      "sha256": "d80a6614b7e0e1317bbe21141a225252070afee7c9ea528bb9fb8a9f92749bfb",
+      "bytes": 8840
+    },
+    "current-sustained-profile-attempt.json": {
+      "sha256": "fb29c4aeb46bd570b9c3806e24180d4a52325358462a02fe3c8d5f7b89018f80",
+      "bytes": 1768
+    },
+    "WINDOWS_CURRENT_SUSTAINED.md": {
+      "sha256": "e2f81ca378ab65ca9827504145dd588ecddc441df25dde3c786f123ae2609cc4",
+      "bytes": 17389
+    },
+    "current-sustained-validation.json": {
+      "sha256": "9aae3dd953edb22d873e77347a7a5b423f860d7914c9ef45702847f579362055",
+      "bytes": 1462
+    },
+    "current-sustained-python.log.txt": {
+      "sha256": "ee4092d3258a1ee4cbe1a72ad3ddd37f4433a7a34be7129f9ce7a9607cc3ad6e",
+      "bytes": 17971
+    }
+  }
+}
