@@ -1,0 +1,46 @@
+import copy,json,pathlib,sys,tempfile,shutil
+sys.path.insert(0,'tools')
+from upgrade_windows import entries_by_id,verify_entries,inspect_run
+from build_native import sha256
+from verify_windows import write_report
+out=pathlib.Path('dist/upgrade-candidate-pair')
+report=json.loads((out/'report.json').read_text());assert report['result']=='passed'
+before=entries_by_id(out/'profiles/baseline-06');after=entries_by_id(out/'profiles/forward')
+restored={e['name']:e for e in before.values()}
+cases=[]
+for index,body in enumerate(report['references']):
+ token=f' qa_ref_{index:02d}'
+ old=restored['QA baseline '+body+token]
+ cases.append(dict(id=body,sha256=old['state']['reference_hash'],leaf=old['state']['selection'],
+                   name='QA current '+body+token,restore_name=old['name'],note='Current QA only · '+body+'\nCafé λ 🫀'))
+verify_entries(before,after,cases,restored)
+original=next(e for e in before.values() if e['state']['body']=='female')
+new=next(e for e in after.values() if e['name']=='QA current female qa_ref_00')
+controls=[]
+for change in ['missing_original','changed_original_note','lost_new_unicode','camera','movement','inspection_return']:
+ damaged=copy.deepcopy(after)
+ if change=='missing_original':del damaged[original['id']]
+ if change=='changed_original_note':damaged[original['id']]['notes']='Changed original'
+ target=damaged[new['id']]
+ if change=='lost_new_unicode':target['notes']='Current QA only female Cafe'
+ if change=='camera':target['state']['camera']['distance']+=0.001
+ if change=='movement':
+  for item in target['state']['changes'].values():item['offset']=[0,0,0]
+ if change=='inspection_return':target['state']['inspection_return']['camera']['distance']+=0.001
+ try:verify_entries(before,damaged,cases,restored)
+ except ValueError as error:controls.append(dict(control=change,result='rejected',reason=str(error)))
+ else:raise AssertionError('Accepted damaged real profile: '+change)
+with tempfile.TemporaryDirectory() as folder:
+ run=pathlib.Path(folder);shutil.copytree(out/'runs/forward',run,dirs_exist_ok=True)
+ expected=next(r['ready']['title'] for r in report['runs'] if r['tag']=='forward')
+ engine=json.loads(pathlib.Path('dist/build-identity-improvements/build-report.json').read_text())['engine']
+ inspect_run(run,7,engine,expected)
+ p=run/'engine.log';p.write_text(p.read_text()+'\nERROR: negative control only\n')
+ try:inspect_run(run,7,engine,expected)
+ except ValueError as error:controls.append(dict(control='interleaved_engine_error',result='rejected',reason=str(error)))
+ else:raise AssertionError('Accepted damaged engine log')
+result=dict(result='passed',baseline_profile_sha256=sha256(out/'profiles/baseline-06/saved_views.json'),
+            forward_profile_sha256=sha256(out/'profiles/forward/saved_views.json'),
+            native_report_sha256=sha256(out/'report.json'),controls=controls)
+write_report(out/'negative-controls.json',result)
+print('PASS',len(controls),'altered real-profile/runtime controls rejected')

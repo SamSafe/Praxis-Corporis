@@ -13,6 +13,9 @@ or trackpad. Use the actual ZIP that matches that record. Later source commits d
 retroactively validate earlier packages. Extract the complete archive before opening it.
 See [native setup](NATIVE_BUILDS.md).
 
+Before switching app builds, follow the [update and rollback guide](PRIVATE_UPDATE_TRIAL.md)
+to keep a complete data backup and retain notes written during the trial.
+
 Record whether the app started, the first visible body/loading time, and any failure
 message. Screenshot the relevant state for a reproducible bug. Screenshots and saved
 views stay local; no reporting/upload service is installed.

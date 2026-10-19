@@ -1,0 +1,3281 @@
+{
+	"schema_version": 1,
+	"views": [
+		{
+			"created_unix": 1792387954,
+			"id": "e5efa9949ae2e29450208a4fd7efe63a",
+			"name": "QA reopened hra-v1-2-male-vertebrae-study qa_ref_06",
+			"notes": "Reopened QA only · hra-v1-2-male-vertebrae-study\nCafé λ 🫀",
+			"state": {
+				"body": "hra-v1-2-male-vertebrae-study",
+				"camera": {
+					"distance": 0.16399887630628723,
+					"pitch": 0.0,
+					"target": [
+						-0.0019850954413414,
+						0.7496004104614258,
+						-0.0054592229425907135
+					],
+					"yaw": 0.0
+				},
+				"changes": {
+					"source.hra-v1-2-male-vertebrae-study.n1": {
+						"offset": [
+							0.004999999888241291,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					}
+				},
+				"inspection_return": {
+					"camera": {
+						"distance": 0.16399887630628723,
+						"pitch": 0.0,
+						"target": [
+							-0.0019850954413414,
+							0.7496004104614258,
+							-0.00545922294259071
+						],
+						"yaw": 0.0
+					},
+					"label_context": "anatomy.body",
+					"selection": "source.hra-v1-2-male-vertebrae-study.n1"
+				},
+				"isolation": "source.hra-v1-2-male-vertebrae-study.n1",
+				"label_context": "anatomy.body",
+				"label_density": 5,
+				"labels": false,
+				"local_labels": true,
+				"original_positions": true,
+				"pack_id": "hra-united-v1-1-prototype-1",
+				"reference_hash": "981041904438bd74c14d671af8f87b3f407b675294bbf297af673c8df7144451",
+				"schema_version": 1,
+				"selection": "source.hra-v1-2-male-vertebrae-study.n1"
+			}
+		},
+		{
+			"created_unix": 1792387949.0,
+			"id": "5ae0b6a66e16d4bc91414a42f262471b",
+			"name": "QA reopened hra-v1-2-male-cord-study qa_ref_05",
+			"notes": "Reopened QA only · hra-v1-2-male-cord-study\nCafé λ 🫀",
+			"state": {
+				"body": "hra-v1-2-male-cord-study",
+				"camera": {
+					"distance": 0.0506806325314945,
+					"pitch": 0.0,
+					"target": [
+						-0.00301126483827829,
+						0.7469099760055542,
+						-0.0078815221786499
+					],
+					"yaw": 0.0
+				},
+				"changes": {
+					"source.hra-v1-2-male-cord-study.n1": {
+						"offset": [
+							0.00499999988824129,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					}
+				},
+				"inspection_return": {
+					"camera": {
+						"distance": 0.0506806325314945,
+						"pitch": 0.0,
+						"target": [
+							-0.00301126483827829,
+							0.7469099760055542,
+							-0.0078815221786499
+						],
+						"yaw": 0.0
+					},
+					"label_context": "anatomy.body",
+					"selection": "source.hra-v1-2-male-cord-study.n1"
+				},
+				"isolation": "source.hra-v1-2-male-cord-study.n1",
+				"label_context": "anatomy.body",
+				"label_density": 5.0,
+				"labels": false,
+				"local_labels": true,
+				"original_positions": true,
+				"pack_id": "hra-united-v1-1-prototype-1",
+				"reference_hash": "a7858d88c2237aa7d559c4c1d638923d213d2a9f46c575dea03d6ba67a9975c0",
+				"schema_version": 1.0,
+				"selection": "source.hra-v1-2-male-cord-study.n1"
+			}
+		},
+		{
+			"created_unix": 1792387945.0,
+			"id": "1fd6451dcfeb3bd672f618c737b6f068",
+			"name": "QA reopened hra-v1-2-female-vertebrae-study qa_ref_04",
+			"notes": "Reopened QA only · hra-v1-2-female-vertebrae-study\nCafé λ 🫀",
+			"state": {
+				"body": "hra-v1-2-female-vertebrae-study",
+				"camera": {
+					"distance": 0.2205519104281533,
+					"pitch": 0.0,
+					"target": [
+						-0.00287939980626106,
+						0.30786409974098206,
+						-0.13058239221572876
+					],
+					"yaw": 0.0
+				},
+				"changes": {
+					"source.hra-v1-2-female-vertebrae-study.n1": {
+						"offset": [
+							0.00499999988824129,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					}
+				},
+				"inspection_return": {
+					"camera": {
+						"distance": 0.2205519104281533,
+						"pitch": 0.0,
+						"target": [
+							-0.00287939980626106,
+							0.30786409974098206,
+							-0.13058239221572876
+						],
+						"yaw": 0.0
+					},
+					"label_context": "anatomy.body",
+					"selection": "source.hra-v1-2-female-vertebrae-study.n1"
+				},
+				"isolation": "source.hra-v1-2-female-vertebrae-study.n1",
+				"label_context": "anatomy.body",
+				"label_density": 5.0,
+				"labels": false,
+				"local_labels": true,
+				"original_positions": true,
+				"pack_id": "hra-united-v1-1-prototype-1",
+				"reference_hash": "bdbea49a40e9e64cac1c8f0d67b6483686a3cc9617f7cae645e58159e4b02984",
+				"schema_version": 1.0,
+				"selection": "source.hra-v1-2-female-vertebrae-study.n1"
+			}
+		},
+		{
+			"created_unix": 1792387940.0,
+			"id": "e3bb4e3add2ae9cb38fa9b0758f4e877",
+			"name": "QA reopened hra-v1-2-female-cord-study qa_ref_03",
+			"notes": "Reopened QA only · hra-v1-2-female-cord-study\nCafé λ 🫀",
+			"state": {
+				"body": "hra-v1-2-female-cord-study",
+				"camera": {
+					"distance": 0.0506806325314945,
+					"pitch": 0.0,
+					"target": [
+						-0.01073908247053623,
+						0.7045739889144897,
+						-0.0704563558101654
+					],
+					"yaw": 0.0
+				},
+				"changes": {
+					"source.hra-v1-2-female-cord-study.n1": {
+						"offset": [
+							0.00499999988824129,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					}
+				},
+				"inspection_return": {
+					"camera": {
+						"distance": 0.0506806325314945,
+						"pitch": 0.0,
+						"target": [
+							-0.01073908247053623,
+							0.7045739889144897,
+							-0.0704563558101654
+						],
+						"yaw": 0.0
+					},
+					"label_context": "anatomy.body",
+					"selection": "source.hra-v1-2-female-cord-study.n1"
+				},
+				"isolation": "source.hra-v1-2-female-cord-study.n1",
+				"label_context": "anatomy.body",
+				"label_density": 5.0,
+				"labels": false,
+				"local_labels": true,
+				"original_positions": true,
+				"pack_id": "hra-united-v1-1-prototype-1",
+				"reference_hash": "d9bfc840783a415068e34b8a1a9343fff40ad03d0025fafabf74f9d8664887f8",
+				"schema_version": 1.0,
+				"selection": "source.hra-v1-2-female-cord-study.n1"
+			}
+		},
+		{
+			"created_unix": 1792387935.0,
+			"id": "2c5365f44ec70cbf2dc3b456afe5ed4a",
+			"name": "QA reopened bodyparts-male-bones-study qa_ref_02",
+			"notes": "Reopened QA only · bodyparts-male-bones-study\nCafé λ 🫀",
+			"state": {
+				"body": "bodyparts-male-bones-study",
+				"camera": {
+					"distance": 0.8192205655699055,
+					"pitch": 0.0,
+					"target": [
+						-0.09101414680480956,
+						0.6012009978294373,
+						0.08086109906435013
+					],
+					"yaw": 0.0
+				},
+				"changes": {
+					"source.bodyparts3d-v4-male.FJ3365": {
+						"offset": [
+							0.00499999988824129,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					}
+				},
+				"inspection_return": {
+					"camera": {
+						"distance": 0.8192205655699055,
+						"pitch": 0.0,
+						"target": [
+							-0.09101414680480956,
+							0.6012009978294373,
+							0.08086109906435013
+						],
+						"yaw": 0.0
+					},
+					"label_context": "",
+					"selection": "source.bodyparts3d-v4-male.FJ3365"
+				},
+				"isolation": "source.bodyparts3d-v4-male.FJ3365",
+				"label_context": "",
+				"label_density": 5.0,
+				"labels": false,
+				"local_labels": true,
+				"original_positions": true,
+				"pack_id": "hra-united-v1-1-prototype-1",
+				"reference_hash": "30f8982452c0b4091652d14b523d7063a59aa0443e5ae766e79eb95112514c27",
+				"schema_version": 1.0,
+				"selection": "source.bodyparts3d-v4-male.FJ3365"
+			}
+		},
+		{
+			"created_unix": 1792387931.0,
+			"id": "fab3bba529b704043800316c6fceeb5f",
+			"name": "QA reopened male qa_ref_01",
+			"notes": "Reopened QA only · male\nCafé λ 🫀",
+			"state": {
+				"body": "male",
+				"camera": {
+					"distance": 0.10624064323927744,
+					"pitch": 0.0,
+					"target": [
+						0.02267277613282203,
+						0.4770716428756714,
+						0.01168901566416025
+					],
+					"yaw": 0.0
+				},
+				"changes": {
+					"anatomy.heart.valve.mitral": {
+						"offset": [
+							0.00499999988824129,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"anatomy.skin": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "hidden"
+					},
+					"source.hra-v1-1.male.n1001": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1002": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1003": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1004": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1005": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1006": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1008": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1010": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1011": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1012": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1014": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1015": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1016": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1017": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1018": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1019": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1021": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1022": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1023": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1024": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n992": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n994": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n995": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n996": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n997": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n998": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n999": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					}
+				},
+				"inspection_return": {
+					"camera": {
+						"distance": 0.10624064323927744,
+						"pitch": 0.0,
+						"target": [
+							0.02267277613282203,
+							0.4770716428756714,
+							0.01168901566416025
+						],
+						"yaw": 0.0
+					},
+					"label_context": "anatomy.heart",
+					"selection": "anatomy.heart.valve.mitral"
+				},
+				"isolation": "anatomy.heart.valve.mitral",
+				"label_context": "anatomy.heart",
+				"label_density": 5.0,
+				"labels": false,
+				"local_labels": true,
+				"original_positions": true,
+				"pack_id": "hra-united-v1-1-prototype-1",
+				"reference_hash": "f8dce99e28b64109b4419b579f8c53bb3af5b6d7739eb1f0406c34289b4f5863",
+				"schema_version": 1.0,
+				"selection": "anatomy.heart.valve.mitral"
+			}
+		},
+		{
+			"created_unix": 1792387923.0,
+			"id": "b79c65d5fe41569b51a69b5d5e9dcccc",
+			"name": "QA reopened female qa_ref_00",
+			"notes": "Reopened QA only · female\nCafé λ 🫀",
+			"state": {
+				"body": "female",
+				"camera": {
+					"distance": 0.08700681245493314,
+					"pitch": 0.0,
+					"target": [
+						0.02671793848276138,
+						0.44482675194740295,
+						-0.06826073676347733
+					],
+					"yaw": 0.0
+				},
+				"changes": {
+					"anatomy.heart.valve.mitral": {
+						"offset": [
+							0.00499999988824129,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"anatomy.skin": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "hidden"
+					},
+					"source.hra-v1-1.female.n784": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n786": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n787": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n788": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n789": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n790": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n791": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n793": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n794": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n795": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n796": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n797": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n798": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n800": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n802": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n803": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n804": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n805": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n806": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n807": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n809": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n810": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n811": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n813": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n814": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n815": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n816": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					}
+				},
+				"inspection_return": {
+					"camera": {
+						"distance": 0.08700681245493314,
+						"pitch": 0.0,
+						"target": [
+							0.02671793848276138,
+							0.44482675194740295,
+							-0.06826073676347733
+						],
+						"yaw": 0.0
+					},
+					"label_context": "anatomy.heart",
+					"selection": "anatomy.heart.valve.mitral"
+				},
+				"isolation": "anatomy.heart.valve.mitral",
+				"label_context": "anatomy.heart",
+				"label_density": 5.0,
+				"labels": false,
+				"local_labels": true,
+				"original_positions": true,
+				"pack_id": "hra-united-v1-1-prototype-1",
+				"reference_hash": "149c9dade4a914c02f73eed96cef68079fc98e70019fcf69185cae24050dcfe5",
+				"schema_version": 1.0,
+				"selection": "anatomy.heart.valve.mitral"
+			}
+		},
+		{
+			"created_unix": 1792387910.0,
+			"id": "e70e126d9551073fe6f6f5fa0bd834d0",
+			"name": "QA rollback hra-v1-2-male-vertebrae-study qa_ref_06",
+			"notes": "Rollback QA only · hra-v1-2-male-vertebrae-study\nCafé λ 🫀",
+			"state": {
+				"body": "hra-v1-2-male-vertebrae-study",
+				"camera": {
+					"distance": 0.16399887630628723,
+					"pitch": 0.0,
+					"target": [
+						-0.0019850954413414,
+						0.7496004104614258,
+						-0.00545922294259071
+					],
+					"yaw": 0.0
+				},
+				"changes": {
+					"source.hra-v1-2-male-vertebrae-study.n1": {
+						"offset": [
+							0.00499999988824129,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					}
+				},
+				"inspection_return": {
+					"camera": {
+						"distance": 0.16399887630628723,
+						"pitch": 0.0,
+						"target": [
+							-0.0019850954413414,
+							0.7496004104614258,
+							-0.00545922294259071
+						],
+						"yaw": 0.0
+					},
+					"label_context": "anatomy.body",
+					"selection": "source.hra-v1-2-male-vertebrae-study.n1"
+				},
+				"isolation": "source.hra-v1-2-male-vertebrae-study.n1",
+				"label_context": "anatomy.body",
+				"label_density": 5.0,
+				"labels": false,
+				"local_labels": true,
+				"original_positions": true,
+				"pack_id": "hra-united-v1-1-prototype-1",
+				"reference_hash": "981041904438bd74c14d671af8f87b3f407b675294bbf297af673c8df7144451",
+				"schema_version": 1.0,
+				"selection": "source.hra-v1-2-male-vertebrae-study.n1"
+			}
+		},
+		{
+			"created_unix": 1792387906.0,
+			"id": "df7234e16f9fab39bfdaa527010b92ae",
+			"name": "QA rollback hra-v1-2-male-cord-study qa_ref_05",
+			"notes": "Rollback QA only · hra-v1-2-male-cord-study\nCafé λ 🫀",
+			"state": {
+				"body": "hra-v1-2-male-cord-study",
+				"camera": {
+					"distance": 0.0506806325314945,
+					"pitch": 0.0,
+					"target": [
+						-0.00301126483827829,
+						0.7469099760055542,
+						-0.0078815221786499
+					],
+					"yaw": 0.0
+				},
+				"changes": {
+					"source.hra-v1-2-male-cord-study.n1": {
+						"offset": [
+							0.00499999988824129,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					}
+				},
+				"inspection_return": {
+					"camera": {
+						"distance": 0.0506806325314945,
+						"pitch": 0.0,
+						"target": [
+							-0.00301126483827829,
+							0.7469099760055542,
+							-0.0078815221786499
+						],
+						"yaw": 0.0
+					},
+					"label_context": "anatomy.body",
+					"selection": "source.hra-v1-2-male-cord-study.n1"
+				},
+				"isolation": "source.hra-v1-2-male-cord-study.n1",
+				"label_context": "anatomy.body",
+				"label_density": 5.0,
+				"labels": false,
+				"local_labels": true,
+				"original_positions": true,
+				"pack_id": "hra-united-v1-1-prototype-1",
+				"reference_hash": "a7858d88c2237aa7d559c4c1d638923d213d2a9f46c575dea03d6ba67a9975c0",
+				"schema_version": 1.0,
+				"selection": "source.hra-v1-2-male-cord-study.n1"
+			}
+		},
+		{
+			"created_unix": 1792387901.0,
+			"id": "429ebc083e1b6df97a047809bd65bf51",
+			"name": "QA rollback hra-v1-2-female-vertebrae-study qa_ref_04",
+			"notes": "Rollback QA only · hra-v1-2-female-vertebrae-study\nCafé λ 🫀",
+			"state": {
+				"body": "hra-v1-2-female-vertebrae-study",
+				"camera": {
+					"distance": 0.2205519104281533,
+					"pitch": 0.0,
+					"target": [
+						-0.00287939980626106,
+						0.30786409974098206,
+						-0.13058239221572876
+					],
+					"yaw": 0.0
+				},
+				"changes": {
+					"source.hra-v1-2-female-vertebrae-study.n1": {
+						"offset": [
+							0.00499999988824129,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					}
+				},
+				"inspection_return": {
+					"camera": {
+						"distance": 0.2205519104281533,
+						"pitch": 0.0,
+						"target": [
+							-0.00287939980626106,
+							0.30786409974098206,
+							-0.13058239221572876
+						],
+						"yaw": 0.0
+					},
+					"label_context": "anatomy.body",
+					"selection": "source.hra-v1-2-female-vertebrae-study.n1"
+				},
+				"isolation": "source.hra-v1-2-female-vertebrae-study.n1",
+				"label_context": "anatomy.body",
+				"label_density": 5.0,
+				"labels": false,
+				"local_labels": true,
+				"original_positions": true,
+				"pack_id": "hra-united-v1-1-prototype-1",
+				"reference_hash": "bdbea49a40e9e64cac1c8f0d67b6483686a3cc9617f7cae645e58159e4b02984",
+				"schema_version": 1.0,
+				"selection": "source.hra-v1-2-female-vertebrae-study.n1"
+			}
+		},
+		{
+			"created_unix": 1792387897.0,
+			"id": "3f6680513370e459371669854c9a088d",
+			"name": "QA rollback hra-v1-2-female-cord-study qa_ref_03",
+			"notes": "Rollback QA only · hra-v1-2-female-cord-study\nCafé λ 🫀",
+			"state": {
+				"body": "hra-v1-2-female-cord-study",
+				"camera": {
+					"distance": 0.0506806325314945,
+					"pitch": 0.0,
+					"target": [
+						-0.01073908247053623,
+						0.7045739889144897,
+						-0.0704563558101654
+					],
+					"yaw": 0.0
+				},
+				"changes": {
+					"source.hra-v1-2-female-cord-study.n1": {
+						"offset": [
+							0.00499999988824129,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					}
+				},
+				"inspection_return": {
+					"camera": {
+						"distance": 0.0506806325314945,
+						"pitch": 0.0,
+						"target": [
+							-0.01073908247053623,
+							0.7045739889144897,
+							-0.0704563558101654
+						],
+						"yaw": 0.0
+					},
+					"label_context": "anatomy.body",
+					"selection": "source.hra-v1-2-female-cord-study.n1"
+				},
+				"isolation": "source.hra-v1-2-female-cord-study.n1",
+				"label_context": "anatomy.body",
+				"label_density": 5.0,
+				"labels": false,
+				"local_labels": true,
+				"original_positions": true,
+				"pack_id": "hra-united-v1-1-prototype-1",
+				"reference_hash": "d9bfc840783a415068e34b8a1a9343fff40ad03d0025fafabf74f9d8664887f8",
+				"schema_version": 1.0,
+				"selection": "source.hra-v1-2-female-cord-study.n1"
+			}
+		},
+		{
+			"created_unix": 1792387892.0,
+			"id": "9868043c1c7469d93bd9bf575d7eb875",
+			"name": "QA rollback bodyparts-male-bones-study qa_ref_02",
+			"notes": "Rollback QA only · bodyparts-male-bones-study\nCafé λ 🫀",
+			"state": {
+				"body": "bodyparts-male-bones-study",
+				"camera": {
+					"distance": 0.8192205655699055,
+					"pitch": 0.0,
+					"target": [
+						-0.09101414680480956,
+						0.6012009978294373,
+						0.08086109906435013
+					],
+					"yaw": 0.0
+				},
+				"changes": {
+					"source.bodyparts3d-v4-male.FJ3365": {
+						"offset": [
+							0.00499999988824129,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					}
+				},
+				"inspection_return": {
+					"camera": {
+						"distance": 0.8192205655699055,
+						"pitch": 0.0,
+						"target": [
+							-0.09101414680480956,
+							0.6012009978294373,
+							0.08086109906435013
+						],
+						"yaw": 0.0
+					},
+					"label_context": "",
+					"selection": "source.bodyparts3d-v4-male.FJ3365"
+				},
+				"isolation": "source.bodyparts3d-v4-male.FJ3365",
+				"label_context": "",
+				"label_density": 5.0,
+				"labels": false,
+				"local_labels": true,
+				"original_positions": true,
+				"pack_id": "hra-united-v1-1-prototype-1",
+				"reference_hash": "30f8982452c0b4091652d14b523d7063a59aa0443e5ae766e79eb95112514c27",
+				"schema_version": 1.0,
+				"selection": "source.bodyparts3d-v4-male.FJ3365"
+			}
+		},
+		{
+			"created_unix": 1792387887.0,
+			"id": "01320c753bcb19013d50d92e2df198da",
+			"name": "QA rollback male qa_ref_01",
+			"notes": "Rollback QA only · male\nCafé λ 🫀",
+			"state": {
+				"body": "male",
+				"camera": {
+					"distance": 0.10624064323927744,
+					"pitch": 0.0,
+					"target": [
+						0.02267277613282203,
+						0.4770716428756714,
+						0.01168901566416025
+					],
+					"yaw": 0.0
+				},
+				"changes": {
+					"anatomy.heart.valve.mitral": {
+						"offset": [
+							0.00499999988824129,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"anatomy.skin": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "hidden"
+					},
+					"source.hra-v1-1.male.n1001": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1002": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1003": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1004": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1005": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1006": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1008": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1010": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1011": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1012": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1014": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1015": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1016": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1017": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1018": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1019": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1021": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1022": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1023": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1024": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n992": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n994": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n995": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n996": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n997": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n998": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n999": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					}
+				},
+				"inspection_return": {
+					"camera": {
+						"distance": 0.10624064323927744,
+						"pitch": 0.0,
+						"target": [
+							0.02267277613282203,
+							0.4770716428756714,
+							0.01168901566416025
+						],
+						"yaw": 0.0
+					},
+					"label_context": "anatomy.heart",
+					"selection": "anatomy.heart.valve.mitral"
+				},
+				"isolation": "anatomy.heart.valve.mitral",
+				"label_context": "anatomy.heart",
+				"label_density": 5.0,
+				"labels": false,
+				"local_labels": true,
+				"original_positions": true,
+				"pack_id": "hra-united-v1-1-prototype-1",
+				"reference_hash": "f8dce99e28b64109b4419b579f8c53bb3af5b6d7739eb1f0406c34289b4f5863",
+				"schema_version": 1.0,
+				"selection": "anatomy.heart.valve.mitral"
+			}
+		},
+		{
+			"created_unix": 1792387880.0,
+			"id": "9241f369564bb078e6a71714ebe7cb82",
+			"name": "QA rollback female qa_ref_00",
+			"notes": "Rollback QA only · female\nCafé λ 🫀",
+			"state": {
+				"body": "female",
+				"camera": {
+					"distance": 0.08700681245493314,
+					"pitch": 0.0,
+					"target": [
+						0.02671793848276138,
+						0.44482675194740295,
+						-0.06826073676347733
+					],
+					"yaw": 0.0
+				},
+				"changes": {
+					"anatomy.heart.valve.mitral": {
+						"offset": [
+							0.00499999988824129,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"anatomy.skin": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "hidden"
+					},
+					"source.hra-v1-1.female.n784": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n786": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n787": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n788": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n789": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n790": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n791": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n793": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n794": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n795": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n796": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n797": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n798": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n800": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n802": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n803": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n804": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n805": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n806": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n807": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n809": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n810": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n811": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n813": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n814": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n815": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n816": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					}
+				},
+				"inspection_return": {
+					"camera": {
+						"distance": 0.08700681245493314,
+						"pitch": 0.0,
+						"target": [
+							0.02671793848276138,
+							0.44482675194740295,
+							-0.06826073676347733
+						],
+						"yaw": 0.0
+					},
+					"label_context": "anatomy.heart",
+					"selection": "anatomy.heart.valve.mitral"
+				},
+				"isolation": "anatomy.heart.valve.mitral",
+				"label_context": "anatomy.heart",
+				"label_density": 5.0,
+				"labels": false,
+				"local_labels": true,
+				"original_positions": true,
+				"pack_id": "hra-united-v1-1-prototype-1",
+				"reference_hash": "149c9dade4a914c02f73eed96cef68079fc98e70019fcf69185cae24050dcfe5",
+				"schema_version": 1.0,
+				"selection": "anatomy.heart.valve.mitral"
+			}
+		},
+		{
+			"created_unix": 1792387867.0,
+			"id": "81afcb91d8aa91e77226d892baf03f0f",
+			"name": "QA current hra-v1-2-male-vertebrae-study qa_ref_06",
+			"notes": "Current QA only · hra-v1-2-male-vertebrae-study\nCafé λ 🫀",
+			"state": {
+				"body": "hra-v1-2-male-vertebrae-study",
+				"camera": {
+					"distance": 0.16399887630628723,
+					"pitch": 0.0,
+					"target": [
+						-0.0019850954413414,
+						0.7496004104614258,
+						-0.00545922294259071
+					],
+					"yaw": 0.0
+				},
+				"changes": {
+					"source.hra-v1-2-male-vertebrae-study.n1": {
+						"offset": [
+							0.00499999988824129,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					}
+				},
+				"inspection_return": {
+					"camera": {
+						"distance": 0.16399887630628723,
+						"pitch": 0.0,
+						"target": [
+							-0.0019850954413414,
+							0.7496004104614258,
+							-0.00545922294259071
+						],
+						"yaw": 0.0
+					},
+					"label_context": "anatomy.body",
+					"selection": "source.hra-v1-2-male-vertebrae-study.n1"
+				},
+				"isolation": "source.hra-v1-2-male-vertebrae-study.n1",
+				"label_context": "anatomy.body",
+				"label_density": 5.0,
+				"labels": false,
+				"local_labels": true,
+				"original_positions": true,
+				"pack_id": "hra-united-v1-1-prototype-1",
+				"reference_hash": "981041904438bd74c14d671af8f87b3f407b675294bbf297af673c8df7144451",
+				"schema_version": 1.0,
+				"selection": "source.hra-v1-2-male-vertebrae-study.n1"
+			}
+		},
+		{
+			"created_unix": 1792387862.0,
+			"id": "0383d08d1f624505301f602fef9a15e1",
+			"name": "QA current hra-v1-2-male-cord-study qa_ref_05",
+			"notes": "Current QA only · hra-v1-2-male-cord-study\nCafé λ 🫀",
+			"state": {
+				"body": "hra-v1-2-male-cord-study",
+				"camera": {
+					"distance": 0.0506806325314945,
+					"pitch": 0.0,
+					"target": [
+						-0.00301126483827829,
+						0.7469099760055542,
+						-0.0078815221786499
+					],
+					"yaw": 0.0
+				},
+				"changes": {
+					"source.hra-v1-2-male-cord-study.n1": {
+						"offset": [
+							0.00499999988824129,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					}
+				},
+				"inspection_return": {
+					"camera": {
+						"distance": 0.0506806325314945,
+						"pitch": 0.0,
+						"target": [
+							-0.00301126483827829,
+							0.7469099760055542,
+							-0.0078815221786499
+						],
+						"yaw": 0.0
+					},
+					"label_context": "anatomy.body",
+					"selection": "source.hra-v1-2-male-cord-study.n1"
+				},
+				"isolation": "source.hra-v1-2-male-cord-study.n1",
+				"label_context": "anatomy.body",
+				"label_density": 5.0,
+				"labels": false,
+				"local_labels": true,
+				"original_positions": true,
+				"pack_id": "hra-united-v1-1-prototype-1",
+				"reference_hash": "a7858d88c2237aa7d559c4c1d638923d213d2a9f46c575dea03d6ba67a9975c0",
+				"schema_version": 1.0,
+				"selection": "source.hra-v1-2-male-cord-study.n1"
+			}
+		},
+		{
+			"created_unix": 1792387858.0,
+			"id": "4751c1a9f3f03b5f7c681148dde32e82",
+			"name": "QA current hra-v1-2-female-vertebrae-study qa_ref_04",
+			"notes": "Current QA only · hra-v1-2-female-vertebrae-study\nCafé λ 🫀",
+			"state": {
+				"body": "hra-v1-2-female-vertebrae-study",
+				"camera": {
+					"distance": 0.2205519104281533,
+					"pitch": 0.0,
+					"target": [
+						-0.00287939980626106,
+						0.30786409974098206,
+						-0.13058239221572876
+					],
+					"yaw": 0.0
+				},
+				"changes": {
+					"source.hra-v1-2-female-vertebrae-study.n1": {
+						"offset": [
+							0.00499999988824129,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					}
+				},
+				"inspection_return": {
+					"camera": {
+						"distance": 0.2205519104281533,
+						"pitch": 0.0,
+						"target": [
+							-0.00287939980626106,
+							0.30786409974098206,
+							-0.13058239221572876
+						],
+						"yaw": 0.0
+					},
+					"label_context": "anatomy.body",
+					"selection": "source.hra-v1-2-female-vertebrae-study.n1"
+				},
+				"isolation": "source.hra-v1-2-female-vertebrae-study.n1",
+				"label_context": "anatomy.body",
+				"label_density": 5.0,
+				"labels": false,
+				"local_labels": true,
+				"original_positions": true,
+				"pack_id": "hra-united-v1-1-prototype-1",
+				"reference_hash": "bdbea49a40e9e64cac1c8f0d67b6483686a3cc9617f7cae645e58159e4b02984",
+				"schema_version": 1.0,
+				"selection": "source.hra-v1-2-female-vertebrae-study.n1"
+			}
+		},
+		{
+			"created_unix": 1792387853.0,
+			"id": "f222e7aabf25700afd4484227b7f9471",
+			"name": "QA current hra-v1-2-female-cord-study qa_ref_03",
+			"notes": "Current QA only · hra-v1-2-female-cord-study\nCafé λ 🫀",
+			"state": {
+				"body": "hra-v1-2-female-cord-study",
+				"camera": {
+					"distance": 0.0506806325314945,
+					"pitch": 0.0,
+					"target": [
+						-0.01073908247053623,
+						0.7045739889144897,
+						-0.0704563558101654
+					],
+					"yaw": 0.0
+				},
+				"changes": {
+					"source.hra-v1-2-female-cord-study.n1": {
+						"offset": [
+							0.00499999988824129,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					}
+				},
+				"inspection_return": {
+					"camera": {
+						"distance": 0.0506806325314945,
+						"pitch": 0.0,
+						"target": [
+							-0.01073908247053623,
+							0.7045739889144897,
+							-0.0704563558101654
+						],
+						"yaw": 0.0
+					},
+					"label_context": "anatomy.body",
+					"selection": "source.hra-v1-2-female-cord-study.n1"
+				},
+				"isolation": "source.hra-v1-2-female-cord-study.n1",
+				"label_context": "anatomy.body",
+				"label_density": 5.0,
+				"labels": false,
+				"local_labels": true,
+				"original_positions": true,
+				"pack_id": "hra-united-v1-1-prototype-1",
+				"reference_hash": "d9bfc840783a415068e34b8a1a9343fff40ad03d0025fafabf74f9d8664887f8",
+				"schema_version": 1.0,
+				"selection": "source.hra-v1-2-female-cord-study.n1"
+			}
+		},
+		{
+			"created_unix": 1792387849.0,
+			"id": "bef42eabca246f049815ec919b14c9e0",
+			"name": "QA current bodyparts-male-bones-study qa_ref_02",
+			"notes": "Current QA only · bodyparts-male-bones-study\nCafé λ 🫀",
+			"state": {
+				"body": "bodyparts-male-bones-study",
+				"camera": {
+					"distance": 0.8192205655699055,
+					"pitch": 0.0,
+					"target": [
+						-0.09101414680480956,
+						0.6012009978294373,
+						0.08086109906435013
+					],
+					"yaw": 0.0
+				},
+				"changes": {
+					"source.bodyparts3d-v4-male.FJ3365": {
+						"offset": [
+							0.00499999988824129,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					}
+				},
+				"inspection_return": {
+					"camera": {
+						"distance": 0.8192205655699055,
+						"pitch": 0.0,
+						"target": [
+							-0.09101414680480956,
+							0.6012009978294373,
+							0.08086109906435013
+						],
+						"yaw": 0.0
+					},
+					"label_context": "",
+					"selection": "source.bodyparts3d-v4-male.FJ3365"
+				},
+				"isolation": "source.bodyparts3d-v4-male.FJ3365",
+				"label_context": "",
+				"label_density": 5.0,
+				"labels": false,
+				"local_labels": true,
+				"original_positions": true,
+				"pack_id": "hra-united-v1-1-prototype-1",
+				"reference_hash": "30f8982452c0b4091652d14b523d7063a59aa0443e5ae766e79eb95112514c27",
+				"schema_version": 1.0,
+				"selection": "source.bodyparts3d-v4-male.FJ3365"
+			}
+		},
+		{
+			"created_unix": 1792387844.0,
+			"id": "612d0ca3f8318116257701de10d642c5",
+			"name": "QA current male qa_ref_01",
+			"notes": "Current QA only · male\nCafé λ 🫀",
+			"state": {
+				"body": "male",
+				"camera": {
+					"distance": 0.10624064323927744,
+					"pitch": 0.0,
+					"target": [
+						0.02267277613282203,
+						0.4770716428756714,
+						0.01168901566416025
+					],
+					"yaw": 0.0
+				},
+				"changes": {
+					"anatomy.heart.valve.mitral": {
+						"offset": [
+							0.00499999988824129,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"anatomy.skin": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "hidden"
+					},
+					"source.hra-v1-1.male.n1001": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1002": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1003": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1004": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1005": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1006": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1008": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1010": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1011": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1012": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1014": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1015": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1016": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1017": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1018": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1019": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1021": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1022": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1023": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1024": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n992": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n994": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n995": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n996": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n997": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n998": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n999": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					}
+				},
+				"inspection_return": {
+					"camera": {
+						"distance": 0.10624064323927744,
+						"pitch": 0.0,
+						"target": [
+							0.02267277613282203,
+							0.4770716428756714,
+							0.01168901566416025
+						],
+						"yaw": 0.0
+					},
+					"label_context": "anatomy.heart",
+					"selection": "anatomy.heart.valve.mitral"
+				},
+				"isolation": "anatomy.heart.valve.mitral",
+				"label_context": "anatomy.heart",
+				"label_density": 5.0,
+				"labels": false,
+				"local_labels": true,
+				"original_positions": true,
+				"pack_id": "hra-united-v1-1-prototype-1",
+				"reference_hash": "f8dce99e28b64109b4419b579f8c53bb3af5b6d7739eb1f0406c34289b4f5863",
+				"schema_version": 1.0,
+				"selection": "anatomy.heart.valve.mitral"
+			}
+		},
+		{
+			"created_unix": 1792387836.0,
+			"id": "1971afbe31344faf216401498545018f",
+			"name": "QA current female qa_ref_00",
+			"notes": "Current QA only · female\nCafé λ 🫀",
+			"state": {
+				"body": "female",
+				"camera": {
+					"distance": 0.08700681245493314,
+					"pitch": 0.0,
+					"target": [
+						0.02671793848276138,
+						0.44482675194740295,
+						-0.06826073676347733
+					],
+					"yaw": 0.0
+				},
+				"changes": {
+					"anatomy.heart.valve.mitral": {
+						"offset": [
+							0.00499999988824129,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"anatomy.skin": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "hidden"
+					},
+					"source.hra-v1-1.female.n784": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n786": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n787": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n788": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n789": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n790": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n791": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n793": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n794": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n795": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n796": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n797": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n798": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n800": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n802": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n803": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n804": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n805": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n806": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n807": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n809": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n810": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n811": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n813": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n814": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n815": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n816": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					}
+				},
+				"inspection_return": {
+					"camera": {
+						"distance": 0.08700681245493314,
+						"pitch": 0.0,
+						"target": [
+							0.02671793848276138,
+							0.44482675194740295,
+							-0.06826073676347733
+						],
+						"yaw": 0.0
+					},
+					"label_context": "anatomy.heart",
+					"selection": "anatomy.heart.valve.mitral"
+				},
+				"isolation": "anatomy.heart.valve.mitral",
+				"label_context": "anatomy.heart",
+				"label_density": 5.0,
+				"labels": false,
+				"local_labels": true,
+				"original_positions": true,
+				"pack_id": "hra-united-v1-1-prototype-1",
+				"reference_hash": "149c9dade4a914c02f73eed96cef68079fc98e70019fcf69185cae24050dcfe5",
+				"schema_version": 1.0,
+				"selection": "anatomy.heart.valve.mitral"
+			}
+		},
+		{
+			"created_unix": 1792387823.0,
+			"id": "8e9d9e52e70b1900a4475481f4c11715",
+			"name": "QA baseline hra-v1-2-male-vertebrae-study qa_ref_06",
+			"notes": "Baseline QA only · hra-v1-2-male-vertebrae-study\nCafé λ 🫀",
+			"state": {
+				"body": "hra-v1-2-male-vertebrae-study",
+				"camera": {
+					"distance": 0.16399887630628723,
+					"pitch": 0.0,
+					"target": [
+						-0.0019850954413414,
+						0.7496004104614258,
+						-0.00545922294259071
+					],
+					"yaw": 0.0
+				},
+				"changes": {
+					"source.hra-v1-2-male-vertebrae-study.n1": {
+						"offset": [
+							0.00499999988824129,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					}
+				},
+				"inspection_return": {
+					"camera": {
+						"distance": 0.16399887630628723,
+						"pitch": 0.0,
+						"target": [
+							-0.0019850954413414,
+							0.7496004104614258,
+							-0.00545922294259071
+						],
+						"yaw": 0.0
+					},
+					"label_context": "anatomy.body",
+					"selection": "source.hra-v1-2-male-vertebrae-study.n1"
+				},
+				"isolation": "source.hra-v1-2-male-vertebrae-study.n1",
+				"label_context": "anatomy.body",
+				"label_density": 5.0,
+				"labels": false,
+				"local_labels": true,
+				"original_positions": true,
+				"pack_id": "hra-united-v1-1-prototype-1",
+				"reference_hash": "981041904438bd74c14d671af8f87b3f407b675294bbf297af673c8df7144451",
+				"schema_version": 1.0,
+				"selection": "source.hra-v1-2-male-vertebrae-study.n1"
+			}
+		},
+		{
+			"created_unix": 1792387813.0,
+			"id": "a0e4e2c00a04331046ede631b18d3c92",
+			"name": "QA baseline hra-v1-2-male-cord-study qa_ref_05",
+			"notes": "Baseline QA only · hra-v1-2-male-cord-study\nCafé λ 🫀",
+			"state": {
+				"body": "hra-v1-2-male-cord-study",
+				"camera": {
+					"distance": 0.0506806325314945,
+					"pitch": 0.0,
+					"target": [
+						-0.00301126483827829,
+						0.7469099760055542,
+						-0.0078815221786499
+					],
+					"yaw": 0.0
+				},
+				"changes": {
+					"source.hra-v1-2-male-cord-study.n1": {
+						"offset": [
+							0.00499999988824129,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					}
+				},
+				"inspection_return": {
+					"camera": {
+						"distance": 0.0506806325314945,
+						"pitch": 0.0,
+						"target": [
+							-0.00301126483827829,
+							0.7469099760055542,
+							-0.0078815221786499
+						],
+						"yaw": 0.0
+					},
+					"label_context": "anatomy.body",
+					"selection": "source.hra-v1-2-male-cord-study.n1"
+				},
+				"isolation": "source.hra-v1-2-male-cord-study.n1",
+				"label_context": "anatomy.body",
+				"label_density": 5.0,
+				"labels": false,
+				"local_labels": true,
+				"original_positions": true,
+				"pack_id": "hra-united-v1-1-prototype-1",
+				"reference_hash": "a7858d88c2237aa7d559c4c1d638923d213d2a9f46c575dea03d6ba67a9975c0",
+				"schema_version": 1.0,
+				"selection": "source.hra-v1-2-male-cord-study.n1"
+			}
+		},
+		{
+			"created_unix": 1792387804.0,
+			"id": "04cd080b78b48234ae8013364ec5cc73",
+			"name": "QA baseline hra-v1-2-female-vertebrae-study qa_ref_04",
+			"notes": "Baseline QA only · hra-v1-2-female-vertebrae-study\nCafé λ 🫀",
+			"state": {
+				"body": "hra-v1-2-female-vertebrae-study",
+				"camera": {
+					"distance": 0.2205519104281533,
+					"pitch": 0.0,
+					"target": [
+						-0.00287939980626106,
+						0.30786409974098206,
+						-0.13058239221572876
+					],
+					"yaw": 0.0
+				},
+				"changes": {
+					"source.hra-v1-2-female-vertebrae-study.n1": {
+						"offset": [
+							0.00499999988824129,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					}
+				},
+				"inspection_return": {
+					"camera": {
+						"distance": 0.2205519104281533,
+						"pitch": 0.0,
+						"target": [
+							-0.00287939980626106,
+							0.30786409974098206,
+							-0.13058239221572876
+						],
+						"yaw": 0.0
+					},
+					"label_context": "anatomy.body",
+					"selection": "source.hra-v1-2-female-vertebrae-study.n1"
+				},
+				"isolation": "source.hra-v1-2-female-vertebrae-study.n1",
+				"label_context": "anatomy.body",
+				"label_density": 5.0,
+				"labels": false,
+				"local_labels": true,
+				"original_positions": true,
+				"pack_id": "hra-united-v1-1-prototype-1",
+				"reference_hash": "bdbea49a40e9e64cac1c8f0d67b6483686a3cc9617f7cae645e58159e4b02984",
+				"schema_version": 1.0,
+				"selection": "source.hra-v1-2-female-vertebrae-study.n1"
+			}
+		},
+		{
+			"created_unix": 1792387792.0,
+			"id": "acf7396e8a5d7a1a999ab6a4f1969ca1",
+			"name": "QA baseline hra-v1-2-female-cord-study qa_ref_03",
+			"notes": "Baseline QA only · hra-v1-2-female-cord-study\nCafé λ 🫀",
+			"state": {
+				"body": "hra-v1-2-female-cord-study",
+				"camera": {
+					"distance": 0.0506806325314945,
+					"pitch": 0.0,
+					"target": [
+						-0.01073908247053623,
+						0.7045739889144897,
+						-0.0704563558101654
+					],
+					"yaw": 0.0
+				},
+				"changes": {
+					"source.hra-v1-2-female-cord-study.n1": {
+						"offset": [
+							0.00499999988824129,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					}
+				},
+				"inspection_return": {
+					"camera": {
+						"distance": 0.0506806325314945,
+						"pitch": 0.0,
+						"target": [
+							-0.01073908247053623,
+							0.7045739889144897,
+							-0.0704563558101654
+						],
+						"yaw": 0.0
+					},
+					"label_context": "anatomy.body",
+					"selection": "source.hra-v1-2-female-cord-study.n1"
+				},
+				"isolation": "source.hra-v1-2-female-cord-study.n1",
+				"label_context": "anatomy.body",
+				"label_density": 5.0,
+				"labels": false,
+				"local_labels": true,
+				"original_positions": true,
+				"pack_id": "hra-united-v1-1-prototype-1",
+				"reference_hash": "d9bfc840783a415068e34b8a1a9343fff40ad03d0025fafabf74f9d8664887f8",
+				"schema_version": 1.0,
+				"selection": "source.hra-v1-2-female-cord-study.n1"
+			}
+		},
+		{
+			"created_unix": 1792387783.0,
+			"id": "8ae39a8e418b49811baae98288e739ab",
+			"name": "QA baseline bodyparts-male-bones-study qa_ref_02",
+			"notes": "Baseline QA only · bodyparts-male-bones-study\nCafé λ 🫀",
+			"state": {
+				"body": "bodyparts-male-bones-study",
+				"camera": {
+					"distance": 0.8192205655699055,
+					"pitch": 0.0,
+					"target": [
+						-0.09101414680480956,
+						0.6012009978294373,
+						0.08086109906435013
+					],
+					"yaw": 0.0
+				},
+				"changes": {
+					"source.bodyparts3d-v4-male.FJ3365": {
+						"offset": [
+							0.00499999988824129,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					}
+				},
+				"inspection_return": {
+					"camera": {
+						"distance": 0.8192205655699055,
+						"pitch": 0.0,
+						"target": [
+							-0.09101414680480956,
+							0.6012009978294373,
+							0.08086109906435013
+						],
+						"yaw": 0.0
+					},
+					"label_context": "",
+					"selection": "source.bodyparts3d-v4-male.FJ3365"
+				},
+				"isolation": "source.bodyparts3d-v4-male.FJ3365",
+				"label_context": "",
+				"label_density": 5.0,
+				"labels": false,
+				"local_labels": true,
+				"original_positions": true,
+				"pack_id": "hra-united-v1-1-prototype-1",
+				"reference_hash": "30f8982452c0b4091652d14b523d7063a59aa0443e5ae766e79eb95112514c27",
+				"schema_version": 1.0,
+				"selection": "source.bodyparts3d-v4-male.FJ3365"
+			}
+		},
+		{
+			"created_unix": 1792387774.0,
+			"id": "c85e48f0ecaad18ffb7ce497abdf04c1",
+			"name": "QA baseline male qa_ref_01",
+			"notes": "Baseline QA only · male\nCafé λ 🫀",
+			"state": {
+				"body": "male",
+				"camera": {
+					"distance": 0.10624064323927744,
+					"pitch": 0.0,
+					"target": [
+						0.02267277613282203,
+						0.4770716428756714,
+						0.01168901566416025
+					],
+					"yaw": 0.0
+				},
+				"changes": {
+					"anatomy.heart.valve.mitral": {
+						"offset": [
+							0.00499999988824129,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"anatomy.skin": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "hidden"
+					},
+					"source.hra-v1-1.male.n1001": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1002": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1003": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1004": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1005": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1006": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1008": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1010": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1011": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1012": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1014": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1015": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1016": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1017": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1018": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1019": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1021": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1022": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1023": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n1024": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n992": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n994": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n995": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n996": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n997": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n998": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.male.n999": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					}
+				},
+				"inspection_return": {
+					"camera": {
+						"distance": 0.10624064323927744,
+						"pitch": 0.0,
+						"target": [
+							0.02267277613282203,
+							0.4770716428756714,
+							0.01168901566416025
+						],
+						"yaw": 0.0
+					},
+					"label_context": "anatomy.heart",
+					"selection": "anatomy.heart.valve.mitral"
+				},
+				"isolation": "anatomy.heart.valve.mitral",
+				"label_context": "anatomy.heart",
+				"label_density": 5.0,
+				"labels": false,
+				"local_labels": true,
+				"original_positions": true,
+				"pack_id": "hra-united-v1-1-prototype-1",
+				"reference_hash": "f8dce99e28b64109b4419b579f8c53bb3af5b6d7739eb1f0406c34289b4f5863",
+				"schema_version": 1.0,
+				"selection": "anatomy.heart.valve.mitral"
+			}
+		},
+		{
+			"created_unix": 1792387761.0,
+			"id": "88b493721199f88a9732706dce8c672b",
+			"name": "QA baseline female qa_ref_00",
+			"notes": "Baseline QA only · female\nCafé λ 🫀",
+			"state": {
+				"body": "female",
+				"camera": {
+					"distance": 0.08700681245493314,
+					"pitch": 0.0,
+					"target": [
+						0.02671793848276138,
+						0.44482675194740295,
+						-0.06826073676347733
+					],
+					"yaw": 0.0
+				},
+				"changes": {
+					"anatomy.heart.valve.mitral": {
+						"offset": [
+							0.00499999988824129,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"anatomy.skin": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "hidden"
+					},
+					"source.hra-v1-1.female.n784": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n786": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n787": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n788": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n789": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n790": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n791": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n793": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n794": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n795": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n796": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n797": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n798": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n800": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n802": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n803": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n804": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n805": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n806": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n807": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n809": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n810": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n811": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n813": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n814": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n815": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					},
+					"source.hra-v1-1.female.n816": {
+						"offset": [
+							0.0,
+							0.0,
+							0.0
+						],
+						"visibility": "faded"
+					}
+				},
+				"inspection_return": {
+					"camera": {
+						"distance": 0.08700681245493314,
+						"pitch": 0.0,
+						"target": [
+							0.02671793848276138,
+							0.44482675194740295,
+							-0.06826073676347733
+						],
+						"yaw": 0.0
+					},
+					"label_context": "anatomy.heart",
+					"selection": "anatomy.heart.valve.mitral"
+				},
+				"isolation": "anatomy.heart.valve.mitral",
+				"label_context": "anatomy.heart",
+				"label_density": 5.0,
+				"labels": false,
+				"local_labels": true,
+				"original_positions": true,
+				"pack_id": "hra-united-v1-1-prototype-1",
+				"reference_hash": "149c9dade4a914c02f73eed96cef68079fc98e70019fcf69185cae24050dcfe5",
+				"schema_version": 1.0,
+				"selection": "anatomy.heart.valve.mitral"
+			}
+		}
+	]
+}

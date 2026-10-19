@@ -1,0 +1,43 @@
+{
+  "result": "passed",
+  "baseline_profile_sha256": "545d64617e0072e03be8de960cbdd0f0e66abf9911437ab16518ae403291b74a",
+  "forward_profile_sha256": "4760a46091f6a935d4b90dd92431645cb4e018a1e01829b4a41e2b2bac2a48ba",
+  "native_report_sha256": "aad3fa0e76cf3fb9d33a2e94ad70b0ff52bca73fa0ac8ffa539d51acb2ac26c7",
+  "controls": [
+    {
+      "control": "missing_original",
+      "result": "rejected",
+      "reason": "An existing view, note or identity changed"
+    },
+    {
+      "control": "changed_original_note",
+      "result": "rejected",
+      "reason": "An existing view, note or identity changed"
+    },
+    {
+      "control": "lost_new_unicode",
+      "result": "rejected",
+      "reason": "Multiline Unicode note differs: female"
+    },
+    {
+      "control": "camera",
+      "result": "rejected",
+      "reason": "Restored camera/anatomy/labels differ: female"
+    },
+    {
+      "control": "movement",
+      "result": "rejected",
+      "reason": "No real movement was captured: female"
+    },
+    {
+      "control": "inspection_return",
+      "result": "rejected",
+      "reason": "Restored camera/anatomy/labels differ: female"
+    },
+    {
+      "control": "interleaved_engine_error",
+      "result": "rejected",
+      "reason": "Native step reported an error or leak"
+    }
+  ]
+}

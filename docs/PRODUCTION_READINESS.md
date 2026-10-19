@@ -26,6 +26,12 @@ content identity match the build record. Native accessibility names, 3D focus,
 query updates and page/filter actions also pass in an isolated copy. The marked
 verification sessions are removed. The embedded Mac resource pack passes the development-engine workflow; this does not execute the Mac binary.
 
+The older `9e864a0` and current `c86cfba` Windows archives also pass a native
+upgrade/rollback/reopen cycle: 10 normal launches, 28 saved views and 21 complete
+scene comparisons across seven references. Notes/identities, preferences and window
+state are preserved. All 98 current Python checks pass; seven altered real-data
+controls are rejected. [Exact pair, evidence and limits](audit/PRIVATE_UPGRADE_VERIFICATION.md).
+
 [Build/source audit](audit/build-identity-artifact-audit.json),
 [native Windows report](audit/build-identity-windows-qa.json),
 [Python checks](audit/build-identity-python.log.txt).
@@ -43,7 +49,7 @@ These rows map every numbered requirement in
 | 4. Select small/overlapping anatomy through lists | Source search, complete paged records, hierarchy, part lists and tiny spinal picking checks pass. | Physical-device usability and ambiguous-target expectations. |
 | 5. Explicit Move and exact restoration | Mode/gesture boundaries, keyboard steps, Undo and restoration pass. | Human mode awareness and trackpad use. |
 | 6. Labels/panels retain navigation | Expanded/workspace controls, label placement, text scales and return focus pass. | Actual assistive-technology and human layout trials. |
-| 7. Save/reopen and recover when content is absent | Named views, notes/drafts, transfer, conflicts, damaged input and reference fallback are checked. | Native picker/clipboard use and release-to-release upgrade acceptance. |
+| 7. Save/reopen and recover when content is absent | Named views, notes/drafts, transfer, conflicts, damaged input and reference fallback are checked. The recorded Windows private pair passes upgrade/rollback/reopen. | Native picker/clipboard use, actual Mac and future changed-content/schema acceptance. |
 | 8. Installed starter content works offline | Bundled resources, source identities, export boundaries and local persistence pass. | Actual Mac launch and offline trial. |
 
 The [private trial guide](PRIVATE_TRIAL_GUIDE.md) describes the physical-device
@@ -72,7 +78,7 @@ tasks. Its presence is a plan, not a completed trial record.
 | Private pilot | Complete and retain actual task observations on representative Windows and Mac devices, including keyboard and trackpad use. No completed acceptance record is supplied by the automated runtime reports. |
 | Performance | [Historical full-HD measurements](audit/WINDOWS_FULLHD_PROFILE.md) cover source `ae600197`, one Windows host and eight workloads. They do not qualify the current archives, Mac, every label density or all release workloads. Follow the [performance protocol](PERFORMANCE_PROTOCOL.md), including agreed load/memory budgets and device evidence. |
 | Accessibility | Keyboard, focus, scalable text and text alternatives are implemented and checked. Native names, 3D focus, query updates and page/filter actions pass. Native assistive scrolling/row activation, actual screen-reader trials and conformance evidence remain open. |
-| Persistence and upgrades | Current-version save/reopen/recovery is tested. A defined release-to-release upgrade/rollback trial remains required. |
+| Persistence and upgrades | Current-version save/reopen/recovery and the [exact Windows private pair](audit/PRIVATE_UPGRADE_VERIFICATION.md) pass. The [update/rollback guide](PRIVATE_UPDATE_TRIAL.md) covers backups and preserving later notes. Actual Mac, future schema/content changes and the public update process remain open. |
 | Offline behavior and downloads | Starter content is bundled; local behavior is implemented. Confirm the actual device experience and document any eventual update/download flow. |
 | Content and application rights | [Attributions](../ATTRIBUTIONS.md) retain pinned notices. Public rights review and an application-code license decision remain open; source access does not close these gates. |
 | Distribution | Windows remains unsigned; Mac is ad-hoc signed and not notarized. Actual Mac execution and the intended public signing/distribution process require acceptance. Linux is outside the target and its separate release-template issue remains open. |
@@ -83,10 +89,9 @@ tasks. Its presence is a plan, not a completed trial record.
 1. Complete the [Mac acceptance run](MAC_ACCEPTANCE.md) against the exact current
    archive; record failures and fix material issues it reveals. The user has a Mac
    available for this run.
-2. Exercise release-to-release persistence and rollback, then address material
-   native-accessibility findings within a bounded local scope. Private build
-   identification is implemented; public release policy and actual human trials
-   remain open.
+2. Use the recorded Windows compatibility pair and backup procedure for private
+   trials. Address material failures from actual-device and assistive-technology
+   trials; public release policy and future migrations remain open.
 3. Complete physical-device/performance acceptance and arrange qualified content
    review and release decisions before a production-ready claim.
 

@@ -1,0 +1,96 @@
+{
+  "scope": "Retained native Windows private-build compatibility evidence; all library notes are fictional QA fixtures.",
+  "checked_at": "2026-10-19T05:32:36.639921+00:00",
+  "verifier_sha256": "473cfb78cfc9ce53e74b37fc5311ceb007786bfde9823c1348dd93ab7c9e8726",
+  "controller_sha256": "302fe489e88504bd947534f3899de067f5313525c396cef84bbe66a091217efa",
+  "files": {
+    "private-upgrade-windows-report.json": {
+      "sha256": "aad3fa0e76cf3fb9d33a2e94ad70b0ff52bca73fa0ac8ffa539d51acb2ac26c7",
+      "bytes": 27779
+    },
+    "private-upgrade-negative-controls.json": {
+      "sha256": "221073d8c39c69b29f94e3747adce243ee007e4fbd47914467cbddaf516fc7da",
+      "bytes": 1293
+    },
+    "private-upgrade-python.log.txt": {
+      "sha256": "d50884b305c69e24470fd2c77b5bd4cea603cbdb1d8fabd7bb9bca7a96150b08",
+      "bytes": 17630
+    },
+    "private-upgrade-controller.log.txt": {
+      "sha256": "00151b4e9f7c24a1236ea936f0eef1c36fc134724d0ac6e118c490be16da8017",
+      "bytes": 495
+    },
+    "private-upgrade-negative-controls.py.txt": {
+      "sha256": "e1f3ba78f390b582053f0f097ffc58928dc60feb574153403c23b2d716008cde",
+      "bytes": 2990
+    },
+    "private-upgrade-baseline-library.json": {
+      "sha256": "545d64617e0072e03be8de960cbdd0f0e66abf9911437ab16518ae403291b74a",
+      "bytes": 17409
+    },
+    "private-upgrade-forward-library.json": {
+      "sha256": "4760a46091f6a935d4b90dd92431645cb4e018a1e01829b4a41e2b2bac2a48ba",
+      "bytes": 34764
+    },
+    "private-upgrade-rollback-library.json": {
+      "sha256": "9e6fcb7b72aa4350cb58ed1c93f873e4c48cbdb0b3a5903380bcf70f267b3204",
+      "bytes": 52135
+    },
+    "private-upgrade-reopen-library.json": {
+      "sha256": "c0bb24ca16d1fcb44d2dc761a0e98bfc64b68697de277cf7b0f69121092c9981",
+      "bytes": 69506
+    },
+    "private-upgrade-preferences.json": {
+      "sha256": "fbc94043f40209d242921ba287417fa15392181785a49ea6a858106a91292e01",
+      "bytes": 177
+    },
+    "private-upgrade-window-state.json": {
+      "sha256": "294f9c0437828a0416ab6d74d5f1f722fc0ffbadf7bee9f19ed3fadf25bbeb6a",
+      "bytes": 74
+    },
+    "private-upgrade-reference-state.json": {
+      "sha256": "ab8805b82906ee5bce710ab71c34fb7d556aab0481072a7d28bbc5cd1f43019a",
+      "bytes": 155
+    },
+    "private-upgrade-runtime-00-baseline-00.log.txt": {
+      "sha256": "40d76c068ed633d40e03ac34edde3b873226bf9a7296452f7a7f09cf4ea04c0b",
+      "bytes": 289
+    },
+    "private-upgrade-runtime-01-baseline-01.log.txt": {
+      "sha256": "9655358773b72c2738c0e9963c981c1e4123112230c5945d03e72f12f4ce5be9",
+      "bytes": 288
+    },
+    "private-upgrade-runtime-02-baseline-02.log.txt": {
+      "sha256": "e031a62423e1eff8ffed5cd1eb840e2e132536cc986fa6d1cf87918e8ae752a9",
+      "bytes": 309
+    },
+    "private-upgrade-runtime-03-baseline-03.log.txt": {
+      "sha256": "d28e74feb50705794f453759afe7a5f3c6671898f403a5e56b548676d99fb327",
+      "bytes": 308
+    },
+    "private-upgrade-runtime-04-baseline-04.log.txt": {
+      "sha256": "4a547f49a4d3feb9950747e551b82be36a8db36311dba0d5b670cdc3786c6b81",
+      "bytes": 313
+    },
+    "private-upgrade-runtime-05-baseline-05.log.txt": {
+      "sha256": "b1e2541bbadac8873045eafe3a5a8141b304cb2596c215aca2dd331ec9d045a3",
+      "bytes": 305
+    },
+    "private-upgrade-runtime-06-baseline-06.log.txt": {
+      "sha256": "7de086568f2e5c097e9bf539e8271da1b16e1c4614590b2e1d1ec0e13110d1d8",
+      "bytes": 311
+    },
+    "private-upgrade-runtime-07-forward.log.txt": {
+      "sha256": "51ff64d987fdfaed6faa5ce2eb91cd0cf46284230807b2f1913189ae57641cef",
+      "bytes": 965
+    },
+    "private-upgrade-runtime-08-rollback.log.txt": {
+      "sha256": "c5237044025af5afdf0182cc14018fff4c904dd2629d74c12f25d6ddf1033f6a",
+      "bytes": 965
+    },
+    "private-upgrade-runtime-09-reopen.log.txt": {
+      "sha256": "7a8231b27a177d387a2b0fa73d8b6142a636f18c45a6ab22406f5369a7b3e197",
+      "bytes": 965
+    }
+  }
+}

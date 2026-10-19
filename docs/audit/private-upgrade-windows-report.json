@@ -1,0 +1,556 @@
+{
+  "result": "passed",
+  "checked_at": "2026-10-19T05:32:36.639921+00:00",
+  "artifacts": {
+    "baseline": {
+      "file": "PraxisCorporis-Windows-x64-private.zip",
+      "bytes": 328221352,
+      "sha256": "33fc0c1e06fd4515dc55f764408839b51ea6f49265b0fa58f34bdbf985614310",
+      "architectures": [
+        "x86_64"
+      ]
+    },
+    "candidate": {
+      "file": "PraxisCorporis-Windows-x64-private.zip",
+      "bytes": 328224510,
+      "sha256": "7518559369a6b55f20fbcf37363b47edb5013e666136b675469426e35b649ec4",
+      "architectures": [
+        "x86_64"
+      ]
+    }
+  },
+  "source_revisions": {
+    "baseline": "9e864a0df24a973ce1245b7db420fb2a4354bb1f",
+    "candidate": "c86cfba1e544b20917b66c14ea405f0b74abfd47"
+  },
+  "build_identities": {
+    "baseline": null,
+    "candidate": {
+      "schema_version": 1,
+      "channel": "private",
+      "build_id": "f962ce195f324c89a400cf07d8767c9d",
+      "application_version": "0.1.0",
+      "source_revision": "c86cfba1e544b20917b66c14ea405f0b74abfd47",
+      "source_snapshot_sha256": "72347b3bb7ef35baf9eae06dd7cb5bb10f3fa8ca6e7064e63eb3353e10af4bb0",
+      "engine": "4.7.2.stable.official.ed1daf0bf",
+      "content_pack": "hra-united-v1-1-prototype-1"
+    }
+  },
+  "verifier_sha256": "473cfb78cfc9ce53e74b37fc5311ceb007786bfde9823c1348dd93ab7c9e8726",
+  "controller_sha256": "302fe489e88504bd947534f3899de067f5313525c396cef84bbe66a091217efa",
+  "references": [
+    "female",
+    "male",
+    "bodyparts-male-bones-study",
+    "hra-v1-2-female-cord-study",
+    "hra-v1-2-female-vertebrae-study",
+    "hra-v1-2-male-cord-study",
+    "hra-v1-2-male-vertebrae-study"
+  ],
+  "normal_launches": 10,
+  "runs": [
+    {
+      "tag": "baseline-00",
+      "version": "baseline",
+      "exit": {
+        "forced": false,
+        "exit_code": 0,
+        "completed": 1,
+        "closed": true
+      },
+      "ready": {
+        "client_size": [
+          1300,
+          800
+        ],
+        "title": "Praxis Corporis \u00b7 Female reference (HRA v1.1)"
+      },
+      "completed": [
+        {
+          "reference": "female",
+          "name": "QA baseline female qa_ref_00",
+          "restored": ""
+        }
+      ],
+      "engine_log_sha256": "40d76c068ed633d40e03ac34edde3b873226bf9a7296452f7a7f09cf4ea04c0b"
+    },
+    {
+      "tag": "baseline-01",
+      "version": "baseline",
+      "exit": {
+        "forced": false,
+        "exit_code": 0,
+        "completed": 1,
+        "closed": true
+      },
+      "ready": {
+        "client_size": [
+          1300,
+          800
+        ],
+        "title": "Praxis Corporis \u00b7 Male reference (HRA v1.1)"
+      },
+      "completed": [
+        {
+          "reference": "male",
+          "name": "QA baseline male qa_ref_01",
+          "restored": ""
+        }
+      ],
+      "engine_log_sha256": "9655358773b72c2738c0e9963c981c1e4123112230c5945d03e72f12f4ce5be9"
+    },
+    {
+      "tag": "baseline-02",
+      "version": "baseline",
+      "exit": {
+        "forced": false,
+        "exit_code": 0,
+        "completed": 1,
+        "closed": true
+      },
+      "ready": {
+        "client_size": [
+          1300,
+          800
+        ],
+        "title": "Praxis Corporis \u00b7 Male bones \u00b7 BodyParts3D study"
+      },
+      "completed": [
+        {
+          "reference": "bodyparts-male-bones-study",
+          "name": "QA baseline bodyparts-male-bones-study qa_ref_02",
+          "restored": ""
+        }
+      ],
+      "engine_log_sha256": "e031a62423e1eff8ffed5cd1eb840e2e132536cc986fa6d1cf87918e8ae752a9"
+    },
+    {
+      "tag": "baseline-03",
+      "version": "baseline",
+      "exit": {
+        "forced": false,
+        "exit_code": 0,
+        "completed": 1,
+        "closed": true
+      },
+      "ready": {
+        "client_size": [
+          1300,
+          800
+        ],
+        "title": "Praxis Corporis \u00b7 Female cord \u00b7 HRA study"
+      },
+      "completed": [
+        {
+          "reference": "hra-v1-2-female-cord-study",
+          "name": "QA baseline hra-v1-2-female-cord-study qa_ref_03",
+          "restored": ""
+        }
+      ],
+      "engine_log_sha256": "d28e74feb50705794f453759afe7a5f3c6671898f403a5e56b548676d99fb327"
+    },
+    {
+      "tag": "baseline-04",
+      "version": "baseline",
+      "exit": {
+        "forced": false,
+        "exit_code": 0,
+        "completed": 1,
+        "closed": true
+      },
+      "ready": {
+        "client_size": [
+          1300,
+          800
+        ],
+        "title": "Praxis Corporis \u00b7 Female vertebrae \u00b7 HRA study"
+      },
+      "completed": [
+        {
+          "reference": "hra-v1-2-female-vertebrae-study",
+          "name": "QA baseline hra-v1-2-female-vertebrae-study qa_ref_04",
+          "restored": ""
+        }
+      ],
+      "engine_log_sha256": "4a547f49a4d3feb9950747e551b82be36a8db36311dba0d5b670cdc3786c6b81"
+    },
+    {
+      "tag": "baseline-05",
+      "version": "baseline",
+      "exit": {
+        "forced": false,
+        "exit_code": 0,
+        "completed": 1,
+        "closed": true
+      },
+      "ready": {
+        "client_size": [
+          1300,
+          800
+        ],
+        "title": "Praxis Corporis \u00b7 Male cord \u00b7 HRA study"
+      },
+      "completed": [
+        {
+          "reference": "hra-v1-2-male-cord-study",
+          "name": "QA baseline hra-v1-2-male-cord-study qa_ref_05",
+          "restored": ""
+        }
+      ],
+      "engine_log_sha256": "b1e2541bbadac8873045eafe3a5a8141b304cb2596c215aca2dd331ec9d045a3"
+    },
+    {
+      "tag": "baseline-06",
+      "version": "baseline",
+      "exit": {
+        "forced": false,
+        "exit_code": 0,
+        "completed": 1,
+        "closed": true
+      },
+      "ready": {
+        "client_size": [
+          1300,
+          800
+        ],
+        "title": "Praxis Corporis \u00b7 Male vertebrae \u00b7 HRA study"
+      },
+      "completed": [
+        {
+          "reference": "hra-v1-2-male-vertebrae-study",
+          "name": "QA baseline hra-v1-2-male-vertebrae-study qa_ref_06",
+          "restored": ""
+        }
+      ],
+      "engine_log_sha256": "7de086568f2e5c097e9bf539e8271da1b16e1c4614590b2e1d1ec0e13110d1d8"
+    },
+    {
+      "tag": "forward",
+      "version": "candidate",
+      "exit": {
+        "forced": false,
+        "exit_code": 0,
+        "completed": 7,
+        "closed": true
+      },
+      "ready": {
+        "client_size": [
+          1300,
+          800
+        ],
+        "title": "Praxis Corporis \u00b7 Male vertebrae \u00b7 HRA study"
+      },
+      "completed": [
+        {
+          "reference": "female",
+          "name": "QA current female qa_ref_00",
+          "restored": "QA baseline female qa_ref_00"
+        },
+        {
+          "reference": "male",
+          "name": "QA current male qa_ref_01",
+          "restored": "QA baseline male qa_ref_01"
+        },
+        {
+          "reference": "bodyparts-male-bones-study",
+          "name": "QA current bodyparts-male-bones-study qa_ref_02",
+          "restored": "QA baseline bodyparts-male-bones-study qa_ref_02"
+        },
+        {
+          "reference": "hra-v1-2-female-cord-study",
+          "name": "QA current hra-v1-2-female-cord-study qa_ref_03",
+          "restored": "QA baseline hra-v1-2-female-cord-study qa_ref_03"
+        },
+        {
+          "reference": "hra-v1-2-female-vertebrae-study",
+          "name": "QA current hra-v1-2-female-vertebrae-study qa_ref_04",
+          "restored": "QA baseline hra-v1-2-female-vertebrae-study qa_ref_04"
+        },
+        {
+          "reference": "hra-v1-2-male-cord-study",
+          "name": "QA current hra-v1-2-male-cord-study qa_ref_05",
+          "restored": "QA baseline hra-v1-2-male-cord-study qa_ref_05"
+        },
+        {
+          "reference": "hra-v1-2-male-vertebrae-study",
+          "name": "QA current hra-v1-2-male-vertebrae-study qa_ref_06",
+          "restored": "QA baseline hra-v1-2-male-vertebrae-study qa_ref_06"
+        }
+      ],
+      "engine_log_sha256": "51ff64d987fdfaed6faa5ce2eb91cd0cf46284230807b2f1913189ae57641cef"
+    },
+    {
+      "tag": "rollback",
+      "version": "baseline",
+      "exit": {
+        "forced": false,
+        "exit_code": 0,
+        "completed": 7,
+        "closed": true
+      },
+      "ready": {
+        "client_size": [
+          1300,
+          800
+        ],
+        "title": "Praxis Corporis \u00b7 Male vertebrae \u00b7 HRA study"
+      },
+      "completed": [
+        {
+          "reference": "female",
+          "name": "QA rollback female qa_ref_00",
+          "restored": "QA current female qa_ref_00"
+        },
+        {
+          "reference": "male",
+          "name": "QA rollback male qa_ref_01",
+          "restored": "QA current male qa_ref_01"
+        },
+        {
+          "reference": "bodyparts-male-bones-study",
+          "name": "QA rollback bodyparts-male-bones-study qa_ref_02",
+          "restored": "QA current bodyparts-male-bones-study qa_ref_02"
+        },
+        {
+          "reference": "hra-v1-2-female-cord-study",
+          "name": "QA rollback hra-v1-2-female-cord-study qa_ref_03",
+          "restored": "QA current hra-v1-2-female-cord-study qa_ref_03"
+        },
+        {
+          "reference": "hra-v1-2-female-vertebrae-study",
+          "name": "QA rollback hra-v1-2-female-vertebrae-study qa_ref_04",
+          "restored": "QA current hra-v1-2-female-vertebrae-study qa_ref_04"
+        },
+        {
+          "reference": "hra-v1-2-male-cord-study",
+          "name": "QA rollback hra-v1-2-male-cord-study qa_ref_05",
+          "restored": "QA current hra-v1-2-male-cord-study qa_ref_05"
+        },
+        {
+          "reference": "hra-v1-2-male-vertebrae-study",
+          "name": "QA rollback hra-v1-2-male-vertebrae-study qa_ref_06",
+          "restored": "QA current hra-v1-2-male-vertebrae-study qa_ref_06"
+        }
+      ],
+      "engine_log_sha256": "c5237044025af5afdf0182cc14018fff4c904dd2629d74c12f25d6ddf1033f6a"
+    },
+    {
+      "tag": "reopen",
+      "version": "candidate",
+      "exit": {
+        "forced": false,
+        "exit_code": 0,
+        "completed": 7,
+        "closed": true
+      },
+      "ready": {
+        "client_size": [
+          1300,
+          800
+        ],
+        "title": "Praxis Corporis \u00b7 Male vertebrae \u00b7 HRA study"
+      },
+      "completed": [
+        {
+          "reference": "female",
+          "name": "QA reopened female qa_ref_00",
+          "restored": "QA rollback female qa_ref_00"
+        },
+        {
+          "reference": "male",
+          "name": "QA reopened male qa_ref_01",
+          "restored": "QA rollback male qa_ref_01"
+        },
+        {
+          "reference": "bodyparts-male-bones-study",
+          "name": "QA reopened bodyparts-male-bones-study qa_ref_02",
+          "restored": "QA rollback bodyparts-male-bones-study qa_ref_02"
+        },
+        {
+          "reference": "hra-v1-2-female-cord-study",
+          "name": "QA reopened hra-v1-2-female-cord-study qa_ref_03",
+          "restored": "QA rollback hra-v1-2-female-cord-study qa_ref_03"
+        },
+        {
+          "reference": "hra-v1-2-female-vertebrae-study",
+          "name": "QA reopened hra-v1-2-female-vertebrae-study qa_ref_04",
+          "restored": "QA rollback hra-v1-2-female-vertebrae-study qa_ref_04"
+        },
+        {
+          "reference": "hra-v1-2-male-cord-study",
+          "name": "QA reopened hra-v1-2-male-cord-study qa_ref_05",
+          "restored": "QA rollback hra-v1-2-male-cord-study qa_ref_05"
+        },
+        {
+          "reference": "hra-v1-2-male-vertebrae-study",
+          "name": "QA reopened hra-v1-2-male-vertebrae-study qa_ref_06",
+          "restored": "QA rollback hra-v1-2-male-vertebrae-study qa_ref_06"
+        }
+      ],
+      "engine_log_sha256": "7a8231b27a177d387a2b0fa73d8b6142a636f18c45a6ab22406f5369a7b3e197"
+    }
+  ],
+  "saved_views": 28,
+  "snapshot_comparisons": 21,
+  "original_ids_and_entries_preserved": true,
+  "exact_multiline_unicode_notes": true,
+  "preferences_file_unchanged": true,
+  "window_client_size": [
+    1300,
+    800
+  ],
+  "state_number_tolerance": {
+    "absolute": 1e-12,
+    "relative": 1e-12,
+    "scope": "Scene numbers only; JSON decimal reserialization. Entry IDs, notes and timestamps compare exactly."
+  },
+  "scope": "Native Windows controls and owned-window input, same geometry and save schema. Mac, changed schemas/content, installers and human device acceptance remain separate.",
+  "evidence": {
+    "session.json": "a8c97d45e06adb736e6a31d403dda607540e856c3f2cb36be9e2d9789da461cd",
+    "runs/baseline-00/stdout.log": "4226faeb84e3a9e4cb7b96922d27479a0af7d0e9442e16c2d5a14d0d9852ee5f",
+    "runs/baseline-00/exit.json": "f798d7e0ad3444a111e25213cbfa826f0fa440f804352811f3f8eb8830f376bd",
+    "runs/baseline-00/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/baseline-00/ready.json": "ad129541d0a0011c89dee471419bdcc4f9c9667bc2c150b459c2fa214f81fb49",
+    "runs/baseline-00/controller-stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/baseline-00/controller-stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/baseline-00/launched.json": "1961ea3ec7d9e76584804f04023f76295c1f17005b734b3858c5402c5cec6a04",
+    "runs/baseline-00/progress.json": "63b5ec218ce62d6d0b74f9dd94baa3659e7e0dc8d450b000784621f8cd643268",
+    "runs/baseline-00/engine.log": "40d76c068ed633d40e03ac34edde3b873226bf9a7296452f7a7f09cf4ea04c0b",
+    "runs/baseline-05/stdout.log": "64fa473891203e6a083638ca6c88627ecbc1570c77b468b29ab49ffebd2ee73a",
+    "runs/baseline-05/exit.json": "f798d7e0ad3444a111e25213cbfa826f0fa440f804352811f3f8eb8830f376bd",
+    "runs/baseline-05/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/baseline-05/ready.json": "0e81cc59ce01aa71b79810045aad64a00c4ada4284eedf4a773e8237c41585c7",
+    "runs/baseline-05/controller-stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/baseline-05/controller-stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/baseline-05/launched.json": "a4d2aaae7a24ebf062846efdbfa423af2daed1f44a1eed9744659657de84d887",
+    "runs/baseline-05/progress.json": "3449df52a9b119b1b04f4eab5dd71282e9c691005a109d487b5dcf872990b301",
+    "runs/baseline-05/engine.log": "b1e2541bbadac8873045eafe3a5a8141b304cb2596c215aca2dd331ec9d045a3",
+    "runs/baseline-02/stdout.log": "19195c3e31e7f1c63b02e275dbd9838f37f6ab72d0cfcaf97e72989ba26a5895",
+    "runs/baseline-02/exit.json": "f798d7e0ad3444a111e25213cbfa826f0fa440f804352811f3f8eb8830f376bd",
+    "runs/baseline-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/baseline-02/ready.json": "2bcfb20b3b4c9a0b3db8266230766cef11af17f56932d450234b5d49222fc207",
+    "runs/baseline-02/controller-stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/baseline-02/controller-stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/baseline-02/launched.json": "b240e16ffad28ef193707037202095b17c223c61389576cd48c29dfc119f5756",
+    "runs/baseline-02/progress.json": "936ee0aa715e6fc632ba2fc880b2ae98fd58df3d20e7b7f806cee60fbd4f41ad",
+    "runs/baseline-02/engine.log": "e031a62423e1eff8ffed5cd1eb840e2e132536cc986fa6d1cf87918e8ae752a9",
+    "runs/baseline-03/stdout.log": "f96a804c816b07039263e228987ca0ecd31ba1f97b43e898368b88b26a2b4400",
+    "runs/baseline-03/exit.json": "f798d7e0ad3444a111e25213cbfa826f0fa440f804352811f3f8eb8830f376bd",
+    "runs/baseline-03/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/baseline-03/ready.json": "c7d09901ecf14ad757076ea1fe7a4ecca90c085a2a63f5488260c927980d66f9",
+    "runs/baseline-03/controller-stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/baseline-03/controller-stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/baseline-03/launched.json": "08bcdd5a667c5c642d5c928ee656f9087998ec9ed04284d9a1e2f824df0fbdd2",
+    "runs/baseline-03/progress.json": "0f5405d068a599490cbb2207f3de7d4a2e3210203434891b1ff32becbc4703ea",
+    "runs/baseline-03/engine.log": "d28e74feb50705794f453759afe7a5f3c6671898f403a5e56b548676d99fb327",
+    "runs/baseline-04/stdout.log": "4710e0180f220ac3ecc7531a348af871fde2de4d07eecd3a9517dbce5dbf2d24",
+    "runs/baseline-04/exit.json": "f798d7e0ad3444a111e25213cbfa826f0fa440f804352811f3f8eb8830f376bd",
+    "runs/baseline-04/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/baseline-04/ready.json": "476e9771d2244016910552c87b121f1ab1dcb7152cc8257dd70e8cd7201a52f8",
+    "runs/baseline-04/controller-stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/baseline-04/controller-stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/baseline-04/launched.json": "49a8341d6fbec4f2ddcad78b5fa1252d5f51ff31e71873562f05c77c0e2da905",
+    "runs/baseline-04/progress.json": "7dcf3976da6daca1006fdc219ed05b5a719f853aa8e48a48285abb2ef6aaba47",
+    "runs/baseline-04/engine.log": "4a547f49a4d3feb9950747e551b82be36a8db36311dba0d5b670cdc3786c6b81",
+    "runs/rollback/stdout.log": "dc904ba239630ea5aa31edff290e503c645b02d80f19ca3cf4eebc51d27a82f3",
+    "runs/rollback/exit.json": "b7fa9c7d63fcb58a766d2b392a013c61130413827fe3ec89f704638ac8ae9b0f",
+    "runs/rollback/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/rollback/ready.json": "13febf754afda4fa63772365fd4f00884aff778bafaa86ba23c9fba55920b47e",
+    "runs/rollback/controller-stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/rollback/controller-stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/rollback/launched.json": "02a848de2c67fe31b85d39f1a82863a10ac86547632bc1de8d96bd2d6817eb72",
+    "runs/rollback/progress.json": "b671a23c11a57d849979c0d1614c04a61bf53cd6e3a89e1cefeb24e4fa30115f",
+    "runs/rollback/engine.log": "c5237044025af5afdf0182cc14018fff4c904dd2629d74c12f25d6ddf1033f6a",
+    "runs/baseline-01/stdout.log": "ce34380137c2dfa5ec3fa9a9d2c43a2cc66c3a607e5728381d527751914d296b",
+    "runs/baseline-01/exit.json": "f798d7e0ad3444a111e25213cbfa826f0fa440f804352811f3f8eb8830f376bd",
+    "runs/baseline-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/baseline-01/ready.json": "6a3d0688b158c8d574d523f75556566653a10b806d889485b86f3908fe078099",
+    "runs/baseline-01/controller-stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/baseline-01/controller-stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/baseline-01/launched.json": "8c227ca5c5b34802f94bd71c007b2334ee96b42b37560c90cae296fbe516081e",
+    "runs/baseline-01/progress.json": "ea01d651021761aae424e1944599bc7715fbd853c23643d8016a0c1689440b51",
+    "runs/baseline-01/engine.log": "9655358773b72c2738c0e9963c981c1e4123112230c5945d03e72f12f4ce5be9",
+    "runs/baseline-06/stdout.log": "e47b9b62be5d6e6acf35442d55fbfbc78d3f09a705c548be54c36d738ac3e153",
+    "runs/baseline-06/exit.json": "f798d7e0ad3444a111e25213cbfa826f0fa440f804352811f3f8eb8830f376bd",
+    "runs/baseline-06/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/baseline-06/ready.json": "13febf754afda4fa63772365fd4f00884aff778bafaa86ba23c9fba55920b47e",
+    "runs/baseline-06/controller-stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/baseline-06/controller-stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/baseline-06/launched.json": "f513aaff17d54b01221742255a93cfc47bd0ae473f49b1d90953a6e6453b823c",
+    "runs/baseline-06/progress.json": "f27b4ed2423bd90d323eff13a4221a03b92d5368e9ad8e7af6db854716493aad",
+    "runs/baseline-06/engine.log": "7de086568f2e5c097e9bf539e8271da1b16e1c4614590b2e1d1ec0e13110d1d8",
+    "runs/reopen/stdout.log": "f11d360433da01b89f644eb7ae8d71cadb1daad74e4bb0d072bf5855bd867900",
+    "runs/reopen/exit.json": "b7fa9c7d63fcb58a766d2b392a013c61130413827fe3ec89f704638ac8ae9b0f",
+    "runs/reopen/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/reopen/ready.json": "13febf754afda4fa63772365fd4f00884aff778bafaa86ba23c9fba55920b47e",
+    "runs/reopen/controller-stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/reopen/controller-stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/reopen/launched.json": "94a13fe3e67fd103444687133c2965929faac3b44d2874d0a4e08012658068ed",
+    "runs/reopen/progress.json": "cd44335e2fea49a1f2589eb38e13e676f5282ea00208150b162209171fc07740",
+    "runs/reopen/engine.log": "7a8231b27a177d387a2b0fa73d8b6142a636f18c45a6ab22406f5369a7b3e197",
+    "runs/forward/stdout.log": "1c77f64051312e0cbb605f1b3b03b549c1b34f1bebe3df3210bf1469bbcf4ff8",
+    "runs/forward/exit.json": "b7fa9c7d63fcb58a766d2b392a013c61130413827fe3ec89f704638ac8ae9b0f",
+    "runs/forward/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/forward/ready.json": "13febf754afda4fa63772365fd4f00884aff778bafaa86ba23c9fba55920b47e",
+    "runs/forward/controller-stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/forward/controller-stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/forward/launched.json": "ad89386bfae86c16a91f96eff5e28d26f0c211e135faf4d063bfc065c7910a86",
+    "runs/forward/progress.json": "5c6412064bb85dcc64bc8cde4b49449a67faa40bf6b7a13991382d32d3cc27df",
+    "runs/forward/engine.log": "51ff64d987fdfaed6faa5ce2eb91cd0cf46284230807b2f1913189ae57641cef",
+    "profiles/baseline-00/reference-state.json": "c67a0861e22e4e248f83af1de10f67ed2aa67fadabb0c5545efa97db68c339d6",
+    "profiles/baseline-00/preferences.json": "fbc94043f40209d242921ba287417fa15392181785a49ea6a858106a91292e01",
+    "profiles/baseline-00/saved_views.json.bak": "bdcc243a672ce34f24c407165bf9b5d4c52470816cb2ad4417b2cbc7ebdea106",
+    "profiles/baseline-00/window-state.json": "294f9c0437828a0416ab6d74d5f1f722fc0ffbadf7bee9f19ed3fadf25bbeb6a",
+    "profiles/baseline-00/saved_views.json": "9fff05d0f809daba3da24ca8cedd76ba82731c8cf572de447b23a33edca0493d",
+    "profiles/baseline-05/reference-state.json": "ff44ae4b9d688d947b7a145a2f7c8b54f7df023cc5e463deddadda001dc2b062",
+    "profiles/baseline-05/preferences.json": "fbc94043f40209d242921ba287417fa15392181785a49ea6a858106a91292e01",
+    "profiles/baseline-05/saved_views.json.bak": "c39b126418b78d8cb779c58505fd721ffa257d88fbdb0661fd67fa717639f0f5",
+    "profiles/baseline-05/window-state.json": "294f9c0437828a0416ab6d74d5f1f722fc0ffbadf7bee9f19ed3fadf25bbeb6a",
+    "profiles/baseline-05/saved_views.json": "fc4908092331c452c2617ef919eb729e91c70d8798323b7095c2134dcbbabba2",
+    "profiles/baseline-02/reference-state.json": "e3a9ec5e4c3c44ad41898fce3c2888083872421676d551e38887ec49158d84f4",
+    "profiles/baseline-02/preferences.json": "fbc94043f40209d242921ba287417fa15392181785a49ea6a858106a91292e01",
+    "profiles/baseline-02/saved_views.json.bak": "ab8e6693935c4b3aa5f7067c4d44c7d1b000d67dcfe8fe13ccd014d4ac79ff59",
+    "profiles/baseline-02/window-state.json": "294f9c0437828a0416ab6d74d5f1f722fc0ffbadf7bee9f19ed3fadf25bbeb6a",
+    "profiles/baseline-02/saved_views.json": "d1a02f05371b7ca3dd5d29b7eb652b4de683c2c7850e07ff9bbbc4241d6cebb0",
+    "profiles/baseline-03/reference-state.json": "caa6915f8614a07f13e861ac013ec2e80d59b78ecb7a6cfd6c242aa47feedd02",
+    "profiles/baseline-03/preferences.json": "fbc94043f40209d242921ba287417fa15392181785a49ea6a858106a91292e01",
+    "profiles/baseline-03/saved_views.json.bak": "52e6a5c008f1e9acebd62e979c5e2b8c84e9296789a42f22bfc87df9b5726a45",
+    "profiles/baseline-03/window-state.json": "294f9c0437828a0416ab6d74d5f1f722fc0ffbadf7bee9f19ed3fadf25bbeb6a",
+    "profiles/baseline-03/saved_views.json": "9e80ae15756df84c6f033702c8acb993c3516555bacbcd895239b30fd3b71284",
+    "profiles/baseline-04/reference-state.json": "0cc3578a6660595d21b24a828f5140b905f94ff5f31c3ed3af4fa5d9ab318881",
+    "profiles/baseline-04/preferences.json": "fbc94043f40209d242921ba287417fa15392181785a49ea6a858106a91292e01",
+    "profiles/baseline-04/saved_views.json.bak": "abf5b5269bdef290bd986f713bdfac8c71a7ae5744640a0829082c7b2e6673b0",
+    "profiles/baseline-04/window-state.json": "294f9c0437828a0416ab6d74d5f1f722fc0ffbadf7bee9f19ed3fadf25bbeb6a",
+    "profiles/baseline-04/saved_views.json": "dd0d4823ea228d39cf53c5d8e119368021ddb8f2a55b34f082e68d3d22add0d2",
+    "profiles/rollback/reference-state.json": "ab8805b82906ee5bce710ab71c34fb7d556aab0481072a7d28bbc5cd1f43019a",
+    "profiles/rollback/preferences.json": "fbc94043f40209d242921ba287417fa15392181785a49ea6a858106a91292e01",
+    "profiles/rollback/saved_views.json.bak": "85a5d123db19eee11ac8ac30031c97b749d0892f7147a62a78de69fa2fa77be1",
+    "profiles/rollback/window-state.json": "294f9c0437828a0416ab6d74d5f1f722fc0ffbadf7bee9f19ed3fadf25bbeb6a",
+    "profiles/rollback/saved_views.json": "9e6fcb7b72aa4350cb58ed1c93f873e4c48cbdb0b3a5903380bcf70f267b3204",
+    "profiles/baseline-01/reference-state.json": "a5404395636b62b040d358b78eaab88c764b651692f40606f61d2b800318b534",
+    "profiles/baseline-01/preferences.json": "fbc94043f40209d242921ba287417fa15392181785a49ea6a858106a91292e01",
+    "profiles/baseline-01/saved_views.json.bak": "e4f4877713ae8f5eec57eddbeb000f0fac726c35ebb3cf7e444acc31d3dcfcdd",
+    "profiles/baseline-01/window-state.json": "294f9c0437828a0416ab6d74d5f1f722fc0ffbadf7bee9f19ed3fadf25bbeb6a",
+    "profiles/baseline-01/saved_views.json": "088f793ec895a7eca55437d9c44f1aeac5c776bfa398dfe4beeee201382e757e",
+    "profiles/baseline-06/reference-state.json": "ab8805b82906ee5bce710ab71c34fb7d556aab0481072a7d28bbc5cd1f43019a",
+    "profiles/baseline-06/preferences.json": "fbc94043f40209d242921ba287417fa15392181785a49ea6a858106a91292e01",
+    "profiles/baseline-06/saved_views.json.bak": "b55be366fd0166a0c1d411d28987e45de81337aa708a19cd50e5c44b3566160d",
+    "profiles/baseline-06/window-state.json": "294f9c0437828a0416ab6d74d5f1f722fc0ffbadf7bee9f19ed3fadf25bbeb6a",
+    "profiles/baseline-06/saved_views.json": "545d64617e0072e03be8de960cbdd0f0e66abf9911437ab16518ae403291b74a",
+    "profiles/reopen/reference-state.json": "ab8805b82906ee5bce710ab71c34fb7d556aab0481072a7d28bbc5cd1f43019a",
+    "profiles/reopen/preferences.json": "fbc94043f40209d242921ba287417fa15392181785a49ea6a858106a91292e01",
+    "profiles/reopen/saved_views.json.bak": "14a8dbc52630d8257cff4ffc46602b5463f66c45ae848ac07fce13446b90927d",
+    "profiles/reopen/window-state.json": "294f9c0437828a0416ab6d74d5f1f722fc0ffbadf7bee9f19ed3fadf25bbeb6a",
+    "profiles/reopen/saved_views.json": "c0bb24ca16d1fcb44d2dc761a0e98bfc64b68697de277cf7b0f69121092c9981",
+    "profiles/forward/reference-state.json": "ab8805b82906ee5bce710ab71c34fb7d556aab0481072a7d28bbc5cd1f43019a",
+    "profiles/forward/preferences.json": "fbc94043f40209d242921ba287417fa15392181785a49ea6a858106a91292e01",
+    "profiles/forward/saved_views.json.bak": "a3f46814b936fb3ae2ab30d10a2173acf43dab5d084a6b165eaeeb315f176b0f",
+    "profiles/forward/window-state.json": "294f9c0437828a0416ab6d74d5f1f722fc0ffbadf7bee9f19ed3fadf25bbeb6a",
+    "profiles/forward/saved_views.json": "4760a46091f6a935d4b90dd92431645cb4e018a1e01829b4a41e2b2bac2a48ba"
+  },
+  "cleanup": {
+    "status": "removed",
+    "path": "/mnt/c/Users/king-/AppData/Local/Temp/PraxisCorporis-QA-8be6013a682142838a07b86e6c297030",
+    "independently_absent": true
+  }
+}

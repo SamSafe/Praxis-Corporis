@@ -1,0 +1,11 @@
+PASS native compatibility step: baseline-00
+PASS native compatibility step: baseline-01
+PASS native compatibility step: baseline-02
+PASS native compatibility step: baseline-03
+PASS native compatibility step: baseline-04
+PASS native compatibility step: baseline-05
+PASS native compatibility step: baseline-06
+PASS native compatibility step: forward
+PASS native compatibility step: rollback
+PASS native compatibility step: reopen
+PASS native upgrade/rollback: 10 launches; 21 snapshot comparisons

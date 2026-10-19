@@ -31,6 +31,11 @@ remain open; the [accessibility batch](audit/ACCESSIBILITY_VERIFICATION.md) reco
 that work and its limits.
 The separate Linux-template qualification remains open.
 
+The exact older/current Windows pair passes upgrade, rollback and reopening across
+seven references. [Compatibility evidence](audit/PRIVATE_UPGRADE_VERIFICATION.md)
+records 10 normal launches, 28 views, preserved notes/settings and the unchanged
+geometry/schema scope. Mac and future migrations remain separate acceptance work.
+
 The [production-readiness checkpoint](PRODUCTION_READINESS.md) distinguishes the
 passing engineering checks from remaining release acceptance. The
 [Mac acceptance run](MAC_ACCEPTANCE.md) identifies this exact archive and supplies
@@ -44,6 +49,10 @@ contains anatomy inside its signed bundle, so moving the .app preserves its data
 START_HERE.txt describes controls. NOTICES/ retains atlas credits, CC BY 4.0 terms,
 and the engine's licence/third-party notices. Saved views go to the app's local
 user-data directory, outside this folder.
+
+Follow the [private update/rollback guide](PRIVATE_UPDATE_TRIAL.md) before switching
+builds. It covers a complete data-folder backup, identifying both archives,
+checking restored views/notes and preserving later notes during rollback.
 
 The Windows executable is unsigned. The Mac app uses Godot's built-in ad-hoc
 signature and is not notarized. macOS may require explicit approval for a private
@@ -143,6 +152,21 @@ saved views, checks its own window's names/focus/search/page/filter actions, the
 closes normally and removes the generated folder after retaining evidence. It does
 not change OS accessibility settings or access clipboard contents. This API check
 does not establish screen-reader usability or conformance.
+
+To exercise a specific pair of private Windows builds through native controls:
+
+```sh
+python3 tools/upgrade_windows.py --baseline-archive dist/accessible-surface-improvements/PraxisCorporis-Windows-x64-private.zip --baseline-build-report dist/accessible-surface-improvements/build-report.json --candidate-archive dist/build-identity-improvements/PraxisCorporis-Windows-x64-private.zip --candidate-build-report dist/build-identity-improvements/build-report.json --output dist/new-upgrade-qa
+```
+
+Use a fresh output folder and the same WSL `--powershell` option when needed. The
+verifier checks both recorded archives and source snapshots before extracting
+marked temporary copies. Only their generated child processes share fictional
+user data. It captures views/notes in the older build, then restores and adds views
+in the new, old and new builds. It records normal exits, full scene comparisons,
+preferences and window/reference persistence before removing the marked session.
+Failed sessions remain for diagnosis. This cycle requires unchanged geometry and
+save schemas; it does not qualify Mac, an installer or future migrations.
 
 `--qa-linux` additionally exercises the temporary Linux export:
 

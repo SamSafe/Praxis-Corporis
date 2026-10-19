@@ -108,5 +108,7 @@ The anatomy package remains 624,166,432 bytes, SHA-256
 Medical text, geometry, mappings, portable saved-state schemas and review status
 remain unchanged. The [Mac packet](../MAC_ACCEPTANCE.md) identifies this candidate
 and preserves earlier templates for observations already begun. Upgrade/rollback
-trials, actual Mac execution, assistive technology, qualified content review and
-public release decisions remain open.
+trials for the exact Windows private pair now pass in the
+[separate compatibility record](PRIVATE_UPGRADE_VERIFICATION.md). Actual Mac
+execution, assistive technology, qualified content review and public release
+decisions remain open.
