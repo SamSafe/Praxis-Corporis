@@ -48,6 +48,8 @@ without opening a disconnected organ scene.
 9. [Roadmap](docs/ROADMAP.md) and [Acceptance criteria](docs/RELEASE_CRITERIA.md).
 10. [Decisions](docs/decisions/), [Glossary](docs/GLOSSARY.md), and
     [Research notes](docs/COMPETITIVE_LANDSCAPE.md).
+11. [Vision Pro concept (archived)](docs/archive/vision-pro-concept/) — the earlier
+    headset-first design, kept for a future VR/visionOS port.
 
 ## Licensing and implementation
 
