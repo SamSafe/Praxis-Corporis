@@ -1,9 +1,9 @@
 # Run the private anatomy prototype
 
 The viewer uses real, separate HRA male and female reference samples inside
-one continuous scene. It is a partial atlas with medical review pending. Two draft
-valve-condition summaries provide reference locations; pathological geometry is
-unavailable. Detailed source findings are in [the sample audit](audit/HRA_SAMPLE_FINDINGS.md).
+one continuous scene. It is a partial atlas with medical review pending. Draft
+study cards and 25 condition summaries ([body study content](BODY_STUDY_CONTENT.md))
+provide reference locations; pathological geometry is unavailable. Detailed source findings are in [the sample audit](audit/HRA_SAMPLE_FINDINGS.md).
 
 The [study workspace guide](STUDY_WORKSPACE.md) covers portable saved views/notes,
 the six-step guided chest exploration, fifteen draft study cards, text sizing and
@@ -452,8 +452,8 @@ text is selected, preserving the current anatomy view.
 - Source labels, grouping and ontology fields remain draft import metadata.
 - Heart parts exist, but prepared cutaways, caps, reviewed interiors and tissue
   explanations are not implemented.
-- Two draft valve-condition summaries and an unreviewed conceptual heart–lung route
-  are available. Pathological geometry, disease comparisons, injury simulation and
+- Draft condition summaries for 25 conditions and an unreviewed conceptual
+  heart–lung route are available. Pathological geometry, disease comparisons, injury simulation and
   physiological animation are not implemented.
 - Source labels remain unreviewed. Broader system sets, authored label anchors,
   comprehensive visibility sampling and fully stable layout during motion remain work.

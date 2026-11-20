@@ -72,8 +72,8 @@ func run() -> void:
 		for identity in viewer.study_content.data.conditions:
 			if viewer.study_content.condition_available(identity, viewer.model.structures):
 				available.append(str(identity))
-		# Both bodies share 13 conditions; each has one sex-specific condition.
-		check(available.size() == 13 and ("condition.bph" in available) == (reference == "male") and ("condition.endometriosis" in available) == (reference == "female"), "Each body offers exactly the conditions its supplied anatomy supports")
+		# Both bodies share 23 conditions; each has one sex-specific condition.
+		check(available.size() == 24 and ("condition.bph" in available) == (reference == "male") and ("condition.endometriosis" in available) == (reference == "female"), "Each body offers exactly the conditions its supplied anatomy supports")
 		for identity in available:
 			undo = viewer.model.undo_stack.duplicate(true)
 			dialog = viewer.show_condition(identity)
@@ -97,6 +97,14 @@ func run() -> void:
 				titles.append(child.text)
 		check(viewer.condition_links.visible and titles == ["Gallstones"], "Gallbladder lists its mapped draft condition")
 		check("Stores bile" in viewer.study_summary.text, "Mapped organ shows its authored card")
+		# Either side of a paired part shows the shared card and its conditions.
+		var lenses: Array = viewer.study_content.data.cards["anatomy.lens"].geometry[reference]
+		viewer.select_structure(lenses[1].id)
+		titles.clear()
+		for child in viewer.condition_links.get_children():
+			if child is LinkButton:
+				titles.append(child.text)
+		check(titles == ["Cataracts"] and "focus light" in viewer.study_summary.text, "Second lens shows the shared lens card and its condition")
 		await viewer.restore_view_state(before)
 		viewer.inspect_alone("anatomy.heart")
 		var isolated: Dictionary = viewer.export_view_state().duplicate(true)

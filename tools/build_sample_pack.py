@@ -47,11 +47,16 @@ SHARED = {
 
 
 def source_label(node: dict) -> str:
-    label = node.get("extras", {}).get("label")
-    if label:
-        return str(label).strip().replace("\n", " ").capitalize()
+    label = str(node.get("extras", {}).get("label") or "").strip()
+    # Some source nodes carry a literal "-" placeholder instead of a label.
+    if label and label != "-":
+        return label.replace("\n", " ").capitalize()
     # Cosmetic fallback only; no ontology or medical correspondence is inferred.
-    name = re.sub(r"^VH_[MF]_", "", node.get("name", "Unnamed source node"))
+    name = re.sub(r"^(VH_[MF]|Allen|Yao)_", "", node.get("name", "Unnamed source node"))
+    name = name.replace("_HTH", "_hypothalamus")
+    side = re.search(r"_([LR])$", name)
+    if side:
+        name = name[:-2] + (", left" if side.group(1) == "L" else ", right")
     return name.replace("_", " ").strip().capitalize()
 
 

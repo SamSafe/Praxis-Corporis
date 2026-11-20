@@ -1272,7 +1272,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n5",
-          "label": "Eye l",
+          "label": "Eye, left",
           "source_node": 5,
           "source_name": "VH_F_eye_L",
           "ontology": "",
@@ -1550,7 +1550,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n23",
-          "label": "Ciliary processes l",
+          "label": "Ciliary processes, left",
           "source_node": 23,
           "source_name": "VH_F_ciliary_processes_L",
           "ontology": "",
@@ -1633,7 +1633,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n29",
-          "label": "Eye r",
+          "label": "Eye, right",
           "source_node": 29,
           "source_name": "VH_F_eye_R",
           "ontology": "",
@@ -1872,7 +1872,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n44",
-          "label": "Ciliary processes r",
+          "label": "Ciliary processes, right",
           "source_node": 44,
           "source_name": "VH_F_ciliary_processes_R",
           "ontology": "",
@@ -2013,7 +2013,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n54",
-          "label": "Nerves of eye r",
+          "label": "Nerves of eye, right",
           "source_node": 54,
           "source_name": "VH_F_nerves_of_eye_R",
           "ontology": "",
@@ -2056,7 +2056,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n57",
-          "label": "Nerves of eye l",
+          "label": "Nerves of eye, left",
           "source_node": 57,
           "source_name": "VH_F_nerves_of_eye_L",
           "ontology": "",
@@ -2099,7 +2099,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n60",
-          "label": "Allen brain",
+          "label": "Brain",
           "source_node": 60,
           "source_name": "Allen_brain",
           "ontology": "",
@@ -2411,7 +2411,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n62",
-          "label": "Allen brain hemisphere l",
+          "label": "Brain hemisphere, left",
           "source_node": 62,
           "source_name": "Allen_brain_hemisphere_L",
           "ontology": "",
@@ -2733,7 +2733,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n66",
-          "label": "-",
+          "label": "Frontal agranular insular cortex area fl, left",
           "source_node": 66,
           "source_name": "Allen_frontal_agranular_insular_cortex_area_Fl_L",
           "ontology": "-",
@@ -2746,7 +2746,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n67",
-          "label": "-",
+          "label": "Temporal agranular insular cortex area tl, left",
           "source_node": 67,
           "source_name": "Allen_temporal_agranular_insular_cortex_area_Tl_L",
           "ontology": "-",
@@ -2759,7 +2759,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n68",
-          "label": "-",
+          "label": "Head of caudate, left",
           "source_node": 68,
           "source_name": "Allen_head_of_caudate_L",
           "ontology": "-",
@@ -2772,7 +2772,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n69",
-          "label": "-",
+          "label": "Body of caudate, left",
           "source_node": 69,
           "source_name": "Allen_body_of_caudate_L",
           "ontology": "-",
@@ -2785,7 +2785,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n70",
-          "label": "-",
+          "label": "Tail of caudate, left",
           "source_node": 70,
           "source_name": "Allen_tail_of_caudate_L",
           "ontology": "-",
@@ -2811,7 +2811,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n72",
-          "label": "-",
+          "label": "Nucleus accumbens, left",
           "source_node": 72,
           "source_name": "Allen_nucleus_accumbens_L",
           "ontology": "-",
@@ -2824,7 +2824,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n73",
-          "label": "-",
+          "label": "External segment of globus pallidus, left",
           "source_node": 73,
           "source_name": "Allen_external_segment_of_globus_pallidus_L",
           "ontology": "-",
@@ -2837,7 +2837,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n74",
-          "label": "-",
+          "label": "Internal segment of globus pallidus, left",
           "source_node": 74,
           "source_name": "Allen_internal_segment_of_globus_pallidus_L",
           "ontology": "-",
@@ -2850,7 +2850,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n75",
-          "label": "-",
+          "label": "Claustrum, left",
           "source_node": 75,
           "source_name": "Allen_claustrum_L",
           "ontology": "-",
@@ -2863,7 +2863,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n76",
-          "label": "-",
+          "label": "Basal forebrain, left",
           "source_node": 76,
           "source_name": "Allen_basal_forebrain_L",
           "ontology": "-",
@@ -2876,7 +2876,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n77",
-          "label": "-",
+          "label": "Septal nuclei, left",
           "source_node": 77,
           "source_name": "Allen_septal_nuclei_L",
           "ontology": "-",
@@ -2889,7 +2889,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n78",
-          "label": "-",
+          "label": "Amygdaloid complex, left",
           "source_node": 78,
           "source_name": "Allen_amygdaloid_complex_L",
           "ontology": "-",
@@ -2902,7 +2902,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n79",
-          "label": "-",
+          "label": "Anterior amygdaloid area, left",
           "source_node": 79,
           "source_name": "Allen_anterior_amygdaloid_area_L",
           "ontology": "-",
@@ -2915,7 +2915,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n80",
-          "label": "-",
+          "label": "Central nuclear group, left",
           "source_node": 80,
           "source_name": "Allen_central_nuclear_group_L",
           "ontology": "-",
@@ -2928,7 +2928,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n81",
-          "label": "-",
+          "label": "Lateral nucleus, left",
           "source_node": 81,
           "source_name": "Allen_lateral_nucleus_L",
           "ontology": "-",
@@ -2941,7 +2941,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n82",
-          "label": "-",
+          "label": "Basolateral nucleus basal nucleus, left",
           "source_node": 82,
           "source_name": "Allen_basolateral_nucleus_basal_nucleus_L",
           "ontology": "-",
@@ -2954,7 +2954,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n83",
-          "label": "-",
+          "label": "Basomedial nucleus accessory basal nucleus, left",
           "source_node": 83,
           "source_name": "Allen_basomedial_nucleus_accessory_basal_nucleus_L",
           "ontology": "-",
@@ -2967,7 +2967,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n84",
-          "label": "-",
+          "label": "Anterior cortical nucleus, left",
           "source_node": 84,
           "source_name": "Allen_anterior_cortical_nucleus_L",
           "ontology": "-",
@@ -2980,7 +2980,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n85",
-          "label": "-",
+          "label": "Posterior cortical nucleus, left",
           "source_node": 85,
           "source_name": "Allen_posterior_cortical_nucleus_L",
           "ontology": "-",
@@ -2993,7 +2993,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n86",
-          "label": "-",
+          "label": "Medial nucleus, left",
           "source_node": 86,
           "source_name": "Allen_medial_nucleus_L",
           "ontology": "-",
@@ -3006,7 +3006,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n87",
-          "label": "-",
+          "label": "Amygdalohippocampal area, left",
           "source_node": 87,
           "source_name": "Allen_amygdalohippocampal_area_L",
           "ontology": "-",
@@ -3019,7 +3019,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n88",
-          "label": "-",
+          "label": "Bed nucleus of stria terminalis, left",
           "source_node": 88,
           "source_name": "Allen_bed_nucleus_of_stria_terminalis_L",
           "ontology": "-",
@@ -3032,7 +3032,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n89",
-          "label": "-",
+          "label": "Thalamus, left",
           "source_node": 89,
           "source_name": "Allen_thalamus_L",
           "ontology": "-",
@@ -3045,7 +3045,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n90",
-          "label": "-",
+          "label": "Anterior nuclear complex of thalamus, left",
           "source_node": 90,
           "source_name": "Allen_anterior_nuclear_complex_of_thalamus_L",
           "ontology": "-",
@@ -3058,7 +3058,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n91",
-          "label": "-",
+          "label": "Lateral dorsal nucleus of thalamus, left",
           "source_node": 91,
           "source_name": "Allen_lateral_dorsal_nucleus_of_thalamus_L",
           "ontology": "-",
@@ -3071,7 +3071,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n92",
-          "label": "-",
+          "label": "Mediodorsal nucleus of thalamus, left",
           "source_node": 92,
           "source_name": "Allen_mediodorsal_nucleus_of_thalamus_L",
           "ontology": "-",
@@ -3084,7 +3084,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n93",
-          "label": "-",
+          "label": "Reuniens nucleus medioventral nucleus of thalamus, left",
           "source_node": 93,
           "source_name": "Allen_reuniens_nucleus_medioventral_nucleus_of_thalamus_L",
           "ontology": "-",
@@ -3097,7 +3097,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n94",
-          "label": "-",
+          "label": "Lateral posterior nucleus of thalamus, left",
           "source_node": 94,
           "source_name": "Allen_lateral_posterior_nucleus_of_thalamus_L",
           "ontology": "-",
@@ -3110,7 +3110,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n95",
-          "label": "-",
+          "label": "Pulvinar of thalamus, left",
           "source_node": 95,
           "source_name": "Allen_pulvinar_of_thalamus_L",
           "ontology": "-",
@@ -3123,7 +3123,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n96",
-          "label": "-",
+          "label": "Ventral anterior nucleus of thalamus, left",
           "source_node": 96,
           "source_name": "Allen_ventral_anterior_nucleus_of_thalamus_L",
           "ontology": "-",
@@ -3136,7 +3136,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n97",
-          "label": "-",
+          "label": "Ventral lateral nucleus of thalamus, left",
           "source_node": 97,
           "source_name": "Allen_ventral_lateral_nucleus_of_thalamus_L",
           "ontology": "-",
@@ -3149,7 +3149,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n98",
-          "label": "-",
+          "label": "Ventral posterior lateral nucleus, left",
           "source_node": 98,
           "source_name": "Allen_ventral_posterior_lateral_nucleus_L",
           "ontology": "-",
@@ -3162,7 +3162,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n99",
-          "label": "-",
+          "label": "Ventral posterior medial nucleus, left",
           "source_node": 99,
           "source_name": "Allen_ventral_posterior_medial_nucleus_L",
           "ontology": "-",
@@ -3175,7 +3175,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n100",
-          "label": "-",
+          "label": "Dorsal lateral geniculate nucleus, left",
           "source_node": 100,
           "source_name": "Allen_dorsal_lateral_geniculate_nucleus_L",
           "ontology": "-",
@@ -3188,7 +3188,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n101",
-          "label": "-",
+          "label": "Medial geniculate nuclei, left",
           "source_node": 101,
           "source_name": "Allen_medial_geniculate_nuclei_L",
           "ontology": "-",
@@ -3201,7 +3201,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n102",
-          "label": "-",
+          "label": "Centromedian nucleus of thalamus, left",
           "source_node": 102,
           "source_name": "Allen_centromedian_nucleus_of_thalamus_L",
           "ontology": "-",
@@ -3214,7 +3214,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n103",
-          "label": "-",
+          "label": "Parafascicular nucleus of thalamus, left",
           "source_node": 103,
           "source_name": "Allen_parafascicular_nucleus_of_thalamus_L",
           "ontology": "-",
@@ -3227,7 +3227,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n104",
-          "label": "-",
+          "label": "Habenular nuclei, left",
           "source_node": 104,
           "source_name": "Allen_habenular_nuclei_L",
           "ontology": "-",
@@ -3253,7 +3253,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n106",
-          "label": "-",
+          "label": "Zona incerta, left",
           "source_node": 106,
           "source_name": "Allen_zona_incerta_L",
           "ontology": "-",
@@ -3266,7 +3266,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n107",
-          "label": "-",
+          "label": "Supraoptic region of hypothalamus, left",
           "source_node": 107,
           "source_name": "Allen_supraoptic_region_of_HTH_L",
           "ontology": "-",
@@ -3279,7 +3279,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n108",
-          "label": "-",
+          "label": "Preoptic region of hypothalamus, left",
           "source_node": 108,
           "source_name": "Allen_preoptic_region_of_HTH_L",
           "ontology": "-",
@@ -3292,7 +3292,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n109",
-          "label": "-",
+          "label": "Tuberal region of hypothalamus, left",
           "source_node": 109,
           "source_name": "Allen_tuberal_region_of_HTH_L",
           "ontology": "-",
@@ -3305,7 +3305,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n110",
-          "label": "-",
+          "label": "White matter of forebrain, left",
           "source_node": 110,
           "source_name": "Allen_white_matter_of_forebrain_L",
           "ontology": "-",
@@ -3357,7 +3357,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n114",
-          "label": "-",
+          "label": "Mammillothalamic tract, left",
           "source_node": 114,
           "source_name": "Allen_mammillothalamic_tract_L",
           "ontology": "-",
@@ -3383,7 +3383,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n116",
-          "label": "-",
+          "label": "Anterior horn of lateral ventricle, left",
           "source_node": 116,
           "source_name": "Allen_anterior_horn_of_lateral_ventricle_L",
           "ontology": "-",
@@ -3396,7 +3396,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n117",
-          "label": "-",
+          "label": "Body of lateral ventricle, left",
           "source_node": 117,
           "source_name": "Allen_body_of_lateral_ventricle_L",
           "ontology": "-",
@@ -3409,7 +3409,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n118",
-          "label": "-",
+          "label": "Posterior horn of lateral ventricle, left",
           "source_node": 118,
           "source_name": "Allen_posterior_horn_of_lateral_ventricle_L",
           "ontology": "-",
@@ -3422,7 +3422,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n119",
-          "label": "-",
+          "label": "Inferior horn of lateral ventricle, left",
           "source_node": 119,
           "source_name": "Allen_inferior_horn_of_lateral_ventricle_L",
           "ontology": "-",
@@ -3435,7 +3435,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n120",
-          "label": "-",
+          "label": "Third ventricle, left",
           "source_node": 120,
           "source_name": "Allen_third_ventricle_L",
           "ontology": "-",
@@ -3461,7 +3461,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n122",
-          "label": "-",
+          "label": "Cerebellar deep nuclei, left",
           "source_node": 122,
           "source_name": "Allen_cerebellar_deep_nuclei_L",
           "ontology": "-",
@@ -3474,7 +3474,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n123",
-          "label": "-",
+          "label": "White matter of hindbrain, left",
           "source_node": 123,
           "source_name": "Allen_white_matter_of_hindbrain_L",
           "ontology": "-",
@@ -3487,7 +3487,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n124",
-          "label": "-",
+          "label": "Olfactory tract, left",
           "source_node": 124,
           "source_name": "Allen_olfactory_tract_L",
           "ontology": "-",
@@ -3669,7 +3669,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n138",
-          "label": "-",
+          "label": "Supraparietal lobule, left",
           "source_node": 138,
           "source_name": "Allen_supraparietal_lobule_L",
           "ontology": "-",
@@ -3682,7 +3682,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n139",
-          "label": "-",
+          "label": "Supramarginal gyrus, left",
           "source_node": 139,
           "source_name": "Allen_supramarginal_gyrus_L",
           "ontology": "-",
@@ -3695,7 +3695,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n140",
-          "label": "-",
+          "label": "Angular gyrus, left",
           "source_node": 140,
           "source_name": "Allen_angular_gyrus_L",
           "ontology": "-",
@@ -3721,7 +3721,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n142",
-          "label": "-",
+          "label": "Paracentral lobule caudal part, left",
           "source_node": 142,
           "source_name": "Allen_paracentral_lobule_caudal_part_L",
           "ontology": "-",
@@ -3773,7 +3773,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n146",
-          "label": "-",
+          "label": "Occipitotemporal fusiform gyrus temporal part, left",
           "source_node": 146,
           "source_name": "Allen_occipitotemporal_fusiform_gyrus_temporal_part_L",
           "ontology": "-",
@@ -3786,7 +3786,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n147",
-          "label": "-",
+          "label": "Transverse temporal gyrus heschls gyrus, left",
           "source_node": 147,
           "source_name": "Allen_transverse_temporal_gyrus_Heschls_gyrus_L",
           "ontology": "-",
@@ -3994,7 +3994,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n163",
-          "label": "-",
+          "label": "Gyrus ambiens, left",
           "source_node": 163,
           "source_name": "Allen_gyrus_ambiens_L",
           "ontology": "-",
@@ -4007,7 +4007,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n164",
-          "label": "-",
+          "label": "Head of hippocampus, left",
           "source_node": 164,
           "source_name": "Allen_head_of_hippocampus_L",
           "ontology": "-",
@@ -4020,7 +4020,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n165",
-          "label": "-",
+          "label": "Body of hippocampus, left",
           "source_node": 165,
           "source_name": "Allen_body_of_hippocampus_L",
           "ontology": "-",
@@ -4033,7 +4033,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n166",
-          "label": "-",
+          "label": "Tail of hippocampus, left",
           "source_node": 166,
           "source_name": "Allen_tail_of_hippocampus_L",
           "ontology": "-",
@@ -4046,7 +4046,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n167",
-          "label": "-",
+          "label": "Long insular gyri, left",
           "source_node": 167,
           "source_name": "Allen_long_insular_gyri_L",
           "ontology": "-",
@@ -4059,7 +4059,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n168",
-          "label": "-",
+          "label": "Short insular gyri, left",
           "source_node": 168,
           "source_name": "Allen_short_insular_gyri_L",
           "ontology": "-",
@@ -4072,7 +4072,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n169",
-          "label": "-",
+          "label": "Limen insula, left",
           "source_node": 169,
           "source_name": "Allen_limen_insula_L",
           "ontology": "-",
@@ -4085,7 +4085,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n170",
-          "label": "-",
+          "label": "Pretectal region, left",
           "source_node": 170,
           "source_name": "Allen_pretectal_region_L",
           "ontology": "-",
@@ -4137,7 +4137,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n174",
-          "label": "-",
+          "label": "Superior cerebellar peduncle brachium conjunctivum, left",
           "source_node": 174,
           "source_name": "Allen_superior_cerebellar_peduncle_brachium_conjunctivum_L",
           "ontology": "-",
@@ -4150,7 +4150,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n175",
-          "label": "-",
+          "label": "Cerebral aqueduct, left",
           "source_node": 175,
           "source_name": "Allen_cerebral_aqueduct_L",
           "ontology": "-",
@@ -4163,7 +4163,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n176",
-          "label": "-",
+          "label": "Paravermis of cerebellum, left",
           "source_node": 176,
           "source_name": "Allen_paravermis_of_cerebellum_L",
           "ontology": "-",
@@ -4176,7 +4176,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n177",
-          "label": "-",
+          "label": "Lateral hemisphere of cerebellum, left",
           "source_node": 177,
           "source_name": "Allen_lateral_hemisphere_of_cerebellum_L",
           "ontology": "-",
@@ -4215,7 +4215,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n180",
-          "label": "-",
+          "label": "Pyramidal part of medulla oblongata, left",
           "source_node": 180,
           "source_name": "Allen_pyramidal_part_of_medulla_oblongata_L",
           "ontology": "-",
@@ -4228,7 +4228,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n181",
-          "label": "-",
+          "label": "Tegmentum of medulla oblongata, left",
           "source_node": 181,
           "source_name": "Allen_tegmentum_of_medulla_oblongata_L",
           "ontology": "-",
@@ -4241,7 +4241,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n182",
-          "label": "-",
+          "label": "Inferior olive, left",
           "source_node": 182,
           "source_name": "Allen_inferior_olive_L",
           "ontology": "-",
@@ -4254,7 +4254,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n183",
-          "label": "-",
+          "label": "Middle cerebellar peduncle, left",
           "source_node": 183,
           "source_name": "Allen_middle_cerebellar_peduncle_L",
           "ontology": "-",
@@ -4280,7 +4280,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n185",
-          "label": "-",
+          "label": "Central canal of medulla oblongata, left",
           "source_node": 185,
           "source_name": "Allen_central_canal_of_medulla_oblongata_L",
           "ontology": "-",
@@ -4293,7 +4293,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n186",
-          "label": "-",
+          "label": "Midline nuclear complex, left",
           "source_node": 186,
           "source_name": "Allen_midline_nuclear_complex_L",
           "ontology": "-",
@@ -4306,7 +4306,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n187",
-          "label": "-",
+          "label": "Lateral olfactory gyrus, left",
           "source_node": 187,
           "source_name": "Allen_lateral_olfactory_gyrus_L",
           "ontology": "-",
@@ -4345,7 +4345,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n190",
-          "label": "-",
+          "label": "Posteroventral putamen, left",
           "source_node": 190,
           "source_name": "Allen_posteroventral_putamen_L",
           "ontology": "-",
@@ -4358,7 +4358,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n191",
-          "label": "-",
+          "label": "Atrium of lateral ventricle, left",
           "source_node": 191,
           "source_name": "Allen_atrium_of_lateral_ventricle_L",
           "ontology": "-",
@@ -4371,7 +4371,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n192",
-          "label": "-",
+          "label": "Paracingulate gyrus, left",
           "source_node": 192,
           "source_name": "Allen_paracingulate_gyrus_L",
           "ontology": "-",
@@ -4384,7 +4384,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n193",
-          "label": "-",
+          "label": "Rostral gyrus, left",
           "source_node": 193,
           "source_name": "Allen_rostral_gyrus_L",
           "ontology": "-",
@@ -4397,7 +4397,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n194",
-          "label": "-",
+          "label": "Frontomarginal gyrus, left",
           "source_node": 194,
           "source_name": "Allen_frontomarginal_gyrus_L",
           "ontology": "-",
@@ -4410,7 +4410,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n195",
-          "label": "-",
+          "label": "Frontal pole, left",
           "source_node": 195,
           "source_name": "Allen_frontal_pole_L",
           "ontology": "-",
@@ -4423,7 +4423,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n196",
-          "label": "-",
+          "label": "Inferior cerebellar peduncle, left",
           "source_node": 196,
           "source_name": "Allen_inferior_cerebellar_peduncle_L",
           "ontology": "-",
@@ -4436,7 +4436,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n197",
-          "label": "-",
+          "label": "Perirhinal gyrus rostral part of fugt, left",
           "source_node": 197,
           "source_name": "Allen_perirhinal_gyrus_rostral_part_of_FuGt_L",
           "ontology": "-",
@@ -4449,7 +4449,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n198",
-          "label": "Allen brain hemisphere r",
+          "label": "Brain hemisphere, right",
           "source_node": 198,
           "source_name": "Allen_brain_hemisphere_R",
           "ontology": "",
@@ -4756,7 +4756,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n199",
-          "label": "-",
+          "label": "Olfactory bulb, right",
           "source_node": 199,
           "source_name": "Allen_olfactory_bulb_R",
           "ontology": "-",
@@ -4769,7 +4769,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n200",
-          "label": "-",
+          "label": "Anterior olfactory nucleus, right",
           "source_node": 200,
           "source_name": "Allen_anterior_olfactory_nucleus_R",
           "ontology": "-",
@@ -4782,7 +4782,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n201",
-          "label": "-",
+          "label": "Piriform region, right",
           "source_node": 201,
           "source_name": "Allen_piriform_region_R",
           "ontology": "-",
@@ -4795,7 +4795,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n202",
-          "label": "-",
+          "label": "Frontal agranular insular cortex area fl, right",
           "source_node": 202,
           "source_name": "Allen_frontal_agranular_insular_cortex_area_Fl_R",
           "ontology": "-",
@@ -4808,7 +4808,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n203",
-          "label": "-",
+          "label": "Temporal agranular insular cortex area tl, right",
           "source_node": 203,
           "source_name": "Allen_temporal_agranular_insular_cortex_area_Tl_R",
           "ontology": "-",
@@ -4821,7 +4821,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n204",
-          "label": "-",
+          "label": "Head of caudate, right",
           "source_node": 204,
           "source_name": "Allen_head_of_caudate_R",
           "ontology": "-",
@@ -4834,7 +4834,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n205",
-          "label": "-",
+          "label": "Body of caudate, right",
           "source_node": 205,
           "source_name": "Allen_body_of_caudate_R",
           "ontology": "-",
@@ -4847,7 +4847,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n206",
-          "label": "-",
+          "label": "Tail of caudate, right",
           "source_node": 206,
           "source_name": "Allen_tail_of_caudate_R",
           "ontology": "-",
@@ -4873,7 +4873,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n208",
-          "label": "-",
+          "label": "Nucleus accumbens, right",
           "source_node": 208,
           "source_name": "Allen_nucleus_accumbens_R",
           "ontology": "-",
@@ -4886,7 +4886,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n209",
-          "label": "-",
+          "label": "External segment of globus pallidus, right",
           "source_node": 209,
           "source_name": "Allen_external_segment_of_globus_pallidus_R",
           "ontology": "-",
@@ -4899,7 +4899,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n210",
-          "label": "-",
+          "label": "Internal segment of globus pallidus, right",
           "source_node": 210,
           "source_name": "Allen_internal_segment_of_globus_pallidus_R",
           "ontology": "-",
@@ -4912,7 +4912,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n211",
-          "label": "-",
+          "label": "Claustrum, right",
           "source_node": 211,
           "source_name": "Allen_claustrum_R",
           "ontology": "-",
@@ -4925,7 +4925,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n212",
-          "label": "-",
+          "label": "Basal forebrain, right",
           "source_node": 212,
           "source_name": "Allen_basal_forebrain_R",
           "ontology": "-",
@@ -4938,7 +4938,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n213",
-          "label": "-",
+          "label": "Septal nuclei, right",
           "source_node": 213,
           "source_name": "Allen_septal_nuclei_R",
           "ontology": "-",
@@ -4951,7 +4951,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n214",
-          "label": "-",
+          "label": "Amygdaloid complex, right",
           "source_node": 214,
           "source_name": "Allen_amygdaloid_complex_R",
           "ontology": "-",
@@ -4964,7 +4964,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n215",
-          "label": "-",
+          "label": "Anterior amygdaloid area, right",
           "source_node": 215,
           "source_name": "Allen_anterior_amygdaloid_area_R",
           "ontology": "-",
@@ -4977,7 +4977,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n216",
-          "label": "-",
+          "label": "Central nuclear group, right",
           "source_node": 216,
           "source_name": "Allen_central_nuclear_group_R",
           "ontology": "-",
@@ -4990,7 +4990,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n217",
-          "label": "-",
+          "label": "Lateral nucleus, right",
           "source_node": 217,
           "source_name": "Allen_lateral_nucleus_R",
           "ontology": "-",
@@ -5003,7 +5003,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n218",
-          "label": "-",
+          "label": "Basolateral nucleus basal nucleus, right",
           "source_node": 218,
           "source_name": "Allen_basolateral_nucleus_basal_nucleus_R",
           "ontology": "-",
@@ -5016,7 +5016,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n219",
-          "label": "-",
+          "label": "Basomedial nucleus accessory basal nucleus, right",
           "source_node": 219,
           "source_name": "Allen_basomedial_nucleus_accessory_basal_nucleus_R",
           "ontology": "-",
@@ -5029,7 +5029,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n220",
-          "label": "-",
+          "label": "Anterior cortical nucleus, right",
           "source_node": 220,
           "source_name": "Allen_anterior_cortical_nucleus_R",
           "ontology": "-",
@@ -5042,7 +5042,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n221",
-          "label": "-",
+          "label": "Posterior cortical nucleus, right",
           "source_node": 221,
           "source_name": "Allen_posterior_cortical_nucleus_R",
           "ontology": "-",
@@ -5055,7 +5055,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n222",
-          "label": "-",
+          "label": "Medial nucleus, right",
           "source_node": 222,
           "source_name": "Allen_medial_nucleus_R",
           "ontology": "-",
@@ -5068,7 +5068,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n223",
-          "label": "-",
+          "label": "Amygdalohippocampal area, right",
           "source_node": 223,
           "source_name": "Allen_amygdalohippocampal_area_R",
           "ontology": "-",
@@ -5081,7 +5081,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n224",
-          "label": "-",
+          "label": "Bed nucleus of stria terminalis, right",
           "source_node": 224,
           "source_name": "Allen_bed_nucleus_of_stria_terminalis_R",
           "ontology": "-",
@@ -5094,7 +5094,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n225",
-          "label": "-",
+          "label": "Thalamus, right",
           "source_node": 225,
           "source_name": "Allen_thalamus_R",
           "ontology": "-",
@@ -5107,7 +5107,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n226",
-          "label": "-",
+          "label": "Anterior nuclear complex of thalamus, right",
           "source_node": 226,
           "source_name": "Allen_anterior_nuclear_complex_of_thalamus_R",
           "ontology": "-",
@@ -5120,7 +5120,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n227",
-          "label": "-",
+          "label": "Lateral dorsal nucleus of thalamus, right",
           "source_node": 227,
           "source_name": "Allen_lateral_dorsal_nucleus_of_thalamus_R",
           "ontology": "-",
@@ -5133,7 +5133,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n228",
-          "label": "-",
+          "label": "Mediodorsal nucleus of thalamus, right",
           "source_node": 228,
           "source_name": "Allen_mediodorsal_nucleus_of_thalamus_R",
           "ontology": "-",
@@ -5146,7 +5146,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n229",
-          "label": "-",
+          "label": "Reuniens nucleus medioventral nucleus of thalamus, right",
           "source_node": 229,
           "source_name": "Allen_reuniens_nucleus_medioventral_nucleus_of_thalamus_R",
           "ontology": "-",
@@ -5159,7 +5159,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n230",
-          "label": "-",
+          "label": "Lateral posterior nucleus of thalamus, right",
           "source_node": 230,
           "source_name": "Allen_lateral_posterior_nucleus_of_thalamus_R",
           "ontology": "-",
@@ -5172,7 +5172,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n231",
-          "label": "-",
+          "label": "Pulvinar of thalamus, right",
           "source_node": 231,
           "source_name": "Allen_pulvinar_of_thalamus_R",
           "ontology": "-",
@@ -5185,7 +5185,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n232",
-          "label": "-",
+          "label": "Ventral anterior nucleus of thalamus, right",
           "source_node": 232,
           "source_name": "Allen_ventral_anterior_nucleus_of_thalamus_R",
           "ontology": "-",
@@ -5198,7 +5198,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n233",
-          "label": "-",
+          "label": "Ventral lateral nucleus of thalamus, right",
           "source_node": 233,
           "source_name": "Allen_ventral_lateral_nucleus_of_thalamus_R",
           "ontology": "-",
@@ -5211,7 +5211,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n234",
-          "label": "-",
+          "label": "Ventral posterior lateral nucleus, right",
           "source_node": 234,
           "source_name": "Allen_ventral_posterior_lateral_nucleus_R",
           "ontology": "-",
@@ -5224,7 +5224,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n235",
-          "label": "-",
+          "label": "Ventral posterior medial nucleus, right",
           "source_node": 235,
           "source_name": "Allen_ventral_posterior_medial_nucleus_R",
           "ontology": "-",
@@ -5237,7 +5237,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n236",
-          "label": "-",
+          "label": "Dorsal lateral geniculate nucleus, right",
           "source_node": 236,
           "source_name": "Allen_dorsal_lateral_geniculate_nucleus_R",
           "ontology": "-",
@@ -5250,7 +5250,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n237",
-          "label": "-",
+          "label": "Medial geniculate nuclei, right",
           "source_node": 237,
           "source_name": "Allen_medial_geniculate_nuclei_R",
           "ontology": "-",
@@ -5263,7 +5263,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n238",
-          "label": "-",
+          "label": "Centromedian nucleus of thalamus, right",
           "source_node": 238,
           "source_name": "Allen_centromedian_nucleus_of_thalamus_R",
           "ontology": "-",
@@ -5276,7 +5276,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n239",
-          "label": "-",
+          "label": "Parafascicular nucleus of thalamus, right",
           "source_node": 239,
           "source_name": "Allen_parafascicular_nucleus_of_thalamus_R",
           "ontology": "-",
@@ -5289,7 +5289,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n240",
-          "label": "-",
+          "label": "Habenular nuclei, right",
           "source_node": 240,
           "source_name": "Allen_habenular_nuclei_R",
           "ontology": "-",
@@ -5315,7 +5315,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n242",
-          "label": "-",
+          "label": "Zona incerta, right",
           "source_node": 242,
           "source_name": "Allen_zona_incerta_R",
           "ontology": "-",
@@ -5328,7 +5328,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n243",
-          "label": "-",
+          "label": "Supraoptic region of hypothalamus, right",
           "source_node": 243,
           "source_name": "Allen_supraoptic_region_of_HTH_R",
           "ontology": "-",
@@ -5341,7 +5341,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n244",
-          "label": "-",
+          "label": "White matter of forebrain, right",
           "source_node": 244,
           "source_name": "Allen_white_matter_of_forebrain_R",
           "ontology": "-",
@@ -5393,7 +5393,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n248",
-          "label": "-",
+          "label": "Mammillothalamic tract, right",
           "source_node": 248,
           "source_name": "Allen_mammillothalamic_tract_R",
           "ontology": "-",
@@ -5419,7 +5419,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n250",
-          "label": "-",
+          "label": "Anterior horn of lateral ventricle, right",
           "source_node": 250,
           "source_name": "Allen_anterior_horn_of_lateral_ventricle_R",
           "ontology": "-",
@@ -5432,7 +5432,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n251",
-          "label": "-",
+          "label": "Body of lateral ventricle, right",
           "source_node": 251,
           "source_name": "Allen_body_of_lateral_ventricle_R",
           "ontology": "-",
@@ -5445,7 +5445,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n252",
-          "label": "-",
+          "label": "Posterior horn of lateral ventricle, right",
           "source_node": 252,
           "source_name": "Allen_posterior_horn_of_lateral_ventricle_R",
           "ontology": "-",
@@ -5458,7 +5458,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n253",
-          "label": "-",
+          "label": "Inferior horn of lateral ventricle, right",
           "source_node": 253,
           "source_name": "Allen_inferior_horn_of_lateral_ventricle_R",
           "ontology": "-",
@@ -5471,7 +5471,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n254",
-          "label": "-",
+          "label": "Third ventricle, right",
           "source_node": 254,
           "source_name": "Allen_third_ventricle_R",
           "ontology": "-",
@@ -5484,7 +5484,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n255",
-          "label": "-",
+          "label": "Cerebellar vermis, right",
           "source_node": 255,
           "source_name": "Allen_cerebellar_vermis_R",
           "ontology": "-",
@@ -5497,7 +5497,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n256",
-          "label": "-",
+          "label": "Cerebellar deep nuclei, right",
           "source_node": 256,
           "source_name": "Allen_cerebellar_deep_nuclei_R",
           "ontology": "-",
@@ -5510,7 +5510,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n257",
-          "label": "-",
+          "label": "White matter of hindbrain, right",
           "source_node": 257,
           "source_name": "Allen_white_matter_of_hindbrain_R",
           "ontology": "-",
@@ -5523,7 +5523,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n258",
-          "label": "-",
+          "label": "Olfactory tract, right",
           "source_node": 258,
           "source_name": "Allen_olfactory_tract_R",
           "ontology": "-",
@@ -5705,7 +5705,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n272",
-          "label": "-",
+          "label": "Supraparietal lobule, right",
           "source_node": 272,
           "source_name": "Allen_supraparietal_lobule_R",
           "ontology": "-",
@@ -5718,7 +5718,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n273",
-          "label": "-",
+          "label": "Supramarginal gyrus, right",
           "source_node": 273,
           "source_name": "Allen_supramarginal_gyrus_R",
           "ontology": "-",
@@ -5731,7 +5731,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n274",
-          "label": "-",
+          "label": "Angular gyrus, right",
           "source_node": 274,
           "source_name": "Allen_angular_gyrus_R",
           "ontology": "-",
@@ -5757,7 +5757,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n276",
-          "label": "-",
+          "label": "Paracentral lobule caudal part, right",
           "source_node": 276,
           "source_name": "Allen_paracentral_lobule_caudal_part_R",
           "ontology": "-",
@@ -5809,7 +5809,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n280",
-          "label": "-",
+          "label": "Occipitotemporal fusiform gyrus temporal part, right",
           "source_node": 280,
           "source_name": "Allen_occipitotemporal_fusiform_gyrus_temporal_part_R",
           "ontology": "-",
@@ -5822,7 +5822,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n281",
-          "label": "-",
+          "label": "Transverse temporal gyrus heschls gyrus, right",
           "source_node": 281,
           "source_name": "Allen_transverse_temporal_gyrus_Heschls_gyrus_R",
           "ontology": "-",
@@ -6030,7 +6030,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n297",
-          "label": "-",
+          "label": "Gyrus ambiens, right",
           "source_node": 297,
           "source_name": "Allen_gyrus_ambiens_R",
           "ontology": "-",
@@ -6043,7 +6043,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n298",
-          "label": "-",
+          "label": "Head of hippocampus, right",
           "source_node": 298,
           "source_name": "Allen_head_of_hippocampus_R",
           "ontology": "-",
@@ -6056,7 +6056,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n299",
-          "label": "-",
+          "label": "Body of hippocampus, right",
           "source_node": 299,
           "source_name": "Allen_body_of_hippocampus_R",
           "ontology": "-",
@@ -6069,7 +6069,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n300",
-          "label": "-",
+          "label": "Tail of hippocampus, right",
           "source_node": 300,
           "source_name": "Allen_tail_of_hippocampus_R",
           "ontology": "-",
@@ -6082,7 +6082,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n301",
-          "label": "-",
+          "label": "Long insular gyri, right",
           "source_node": 301,
           "source_name": "Allen_long_insular_gyri_R",
           "ontology": "-",
@@ -6095,7 +6095,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n302",
-          "label": "-",
+          "label": "Short insular gyri, right",
           "source_node": 302,
           "source_name": "Allen_short_insular_gyri_R",
           "ontology": "-",
@@ -6108,7 +6108,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n303",
-          "label": "-",
+          "label": "Limen insula, right",
           "source_node": 303,
           "source_name": "Allen_limen_insula_R",
           "ontology": "-",
@@ -6121,7 +6121,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n304",
-          "label": "-",
+          "label": "Pretectal region, right",
           "source_node": 304,
           "source_name": "Allen_pretectal_region_R",
           "ontology": "-",
@@ -6199,7 +6199,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n310",
-          "label": "-",
+          "label": "Superior cerebellar peduncle brachium conjunctivum, right",
           "source_node": 310,
           "source_name": "Allen_superior_cerebellar_peduncle_brachium_conjunctivum_R",
           "ontology": "-",
@@ -6212,7 +6212,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n311",
-          "label": "-",
+          "label": "Cerebral aqueduct, right",
           "source_node": 311,
           "source_name": "Allen_cerebral_aqueduct_R",
           "ontology": "-",
@@ -6225,7 +6225,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n312",
-          "label": "-",
+          "label": "Paravermis of cerebellum, right",
           "source_node": 312,
           "source_name": "Allen_paravermis_of_cerebellum_R",
           "ontology": "-",
@@ -6238,7 +6238,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n313",
-          "label": "-",
+          "label": "Lateral hemisphere of cerebellum, right",
           "source_node": 313,
           "source_name": "Allen_lateral_hemisphere_of_cerebellum_R",
           "ontology": "-",
@@ -6277,7 +6277,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n316",
-          "label": "-",
+          "label": "Pyramidal part of medulla oblongata, right",
           "source_node": 316,
           "source_name": "Allen_pyramidal_part_of_medulla_oblongata_R",
           "ontology": "-",
@@ -6290,7 +6290,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n317",
-          "label": "-",
+          "label": "Tegmentum of medulla oblongata, right",
           "source_node": 317,
           "source_name": "Allen_tegmentum_of_medulla_oblongata_R",
           "ontology": "-",
@@ -6303,7 +6303,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n318",
-          "label": "-",
+          "label": "Inferior olive, right",
           "source_node": 318,
           "source_name": "Allen_inferior_olive_R",
           "ontology": "-",
@@ -6316,7 +6316,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n319",
-          "label": "-",
+          "label": "Inferior cerebellar peduncle, right",
           "source_node": 319,
           "source_name": "Allen_inferior_cerebellar_peduncle_R",
           "ontology": "-",
@@ -6329,7 +6329,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n320",
-          "label": "-",
+          "label": "Middle cerebellar peduncle, right",
           "source_node": 320,
           "source_name": "Allen_middle_cerebellar_peduncle_R",
           "ontology": "-",
@@ -6355,7 +6355,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n322",
-          "label": "-",
+          "label": "Central canal of medulla oblongata, right",
           "source_node": 322,
           "source_name": "Allen_central_canal_of_medulla_oblongata_R",
           "ontology": "-",
@@ -6368,7 +6368,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n323",
-          "label": "-",
+          "label": "Midline nuclear complex, right",
           "source_node": 323,
           "source_name": "Allen_midline_nuclear_complex_R",
           "ontology": "-",
@@ -6381,7 +6381,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n324",
-          "label": "-",
+          "label": "Lateral olfactory gyrus, right",
           "source_node": 324,
           "source_name": "Allen_lateral_olfactory_gyrus_R",
           "ontology": "-",
@@ -6420,7 +6420,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n327",
-          "label": "-",
+          "label": "Posteroventral putamen, right",
           "source_node": 327,
           "source_name": "Allen_posteroventral_putamen_R",
           "ontology": "-",
@@ -6433,7 +6433,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n328",
-          "label": "-",
+          "label": "Atrium of lateral ventricle, right",
           "source_node": 328,
           "source_name": "Allen_atrium_of_lateral_ventricle_R",
           "ontology": "-",
@@ -6446,7 +6446,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n329",
-          "label": "-",
+          "label": "Paracingulate gyrus, right",
           "source_node": 329,
           "source_name": "Allen_paracingulate_gyrus_R",
           "ontology": "-",
@@ -6459,7 +6459,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n330",
-          "label": "-",
+          "label": "Rostral gyrus, right",
           "source_node": 330,
           "source_name": "Allen_rostral_gyrus_R",
           "ontology": "-",
@@ -6472,7 +6472,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n331",
-          "label": "-",
+          "label": "Frontomarginal gyrus, right",
           "source_node": 331,
           "source_name": "Allen_frontomarginal_gyrus_R",
           "ontology": "-",
@@ -6485,7 +6485,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n332",
-          "label": "-",
+          "label": "Frontal pole, right",
           "source_node": 332,
           "source_name": "Allen_frontal_pole_R",
           "ontology": "-",
@@ -6498,7 +6498,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n333",
-          "label": "-",
+          "label": "Perirhinal gyrus rostral part of fugt, right",
           "source_node": 333,
           "source_name": "Allen_perirhinal_gyrus_rostral_part_of_FuGt_R",
           "ontology": "-",
@@ -6537,7 +6537,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n336",
-          "label": "-",
+          "label": "Subthalamic nucleus, right",
           "source_node": 336,
           "source_name": "Allen_subthalamic_nucleus_R",
           "ontology": "-",
@@ -6550,7 +6550,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n337",
-          "label": "-",
+          "label": "Mammillary region of hypothalamus, right",
           "source_node": 337,
           "source_name": "Allen_mammillary_region_of_HTH_R",
           "ontology": "-",
@@ -6563,7 +6563,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n338",
-          "label": "-",
+          "label": "Midbrain tegmentum, right",
           "source_node": 338,
           "source_name": "Allen_midbrain_tegmentum_R",
           "ontology": "-",
@@ -6576,7 +6576,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n339",
-          "label": "-",
+          "label": "Tuberal region of hypothalamus, right",
           "source_node": 339,
           "source_name": "Allen_tuberal_region_of_HTH_R",
           "ontology": "-",
@@ -6589,7 +6589,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n340",
-          "label": "-",
+          "label": "Preoptic region of hypothalamus, right",
           "source_node": 340,
           "source_name": "Allen_preoptic_region_of_HTH_R",
           "ontology": "-",
@@ -6602,7 +6602,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n341",
-          "label": "-",
+          "label": "Midbrain tegmentum, left",
           "source_node": 341,
           "source_name": "Allen_midbrain_tegmentum_L",
           "ontology": "-",
@@ -6641,7 +6641,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n344",
-          "label": "-",
+          "label": "Mammillary region of hypothalamus, left",
           "source_node": 344,
           "source_name": "Allen_mammillary_region_of_HTH_L",
           "ontology": "-",
@@ -6654,7 +6654,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n345",
-          "label": "-",
+          "label": "Subthalamic nucleus, left",
           "source_node": 345,
           "source_name": "Allen_subthalamic_nucleus_L",
           "ontology": "-",
@@ -6729,7 +6729,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n348",
-          "label": "Ocular muscles l",
+          "label": "Ocular muscles, left",
           "source_node": 348,
           "source_name": "VH_F_ocular_muscles_L",
           "ontology": "",
@@ -6847,7 +6847,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n356",
-          "label": "Ocular muscles r",
+          "label": "Ocular muscles, right",
           "source_node": 356,
           "source_name": "VH_F_ocular_muscles_R",
           "ontology": "",
@@ -6984,7 +6984,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n365",
-          "label": "Muscles of knee r",
+          "label": "Muscles of knee, right",
           "source_node": 365,
           "source_name": "VH_F_muscles_of_knee_R",
           "ontology": "",
@@ -7029,7 +7029,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n368",
-          "label": "Muscles of knee l",
+          "label": "Muscles of knee, left",
           "source_node": 368,
           "source_name": "VH_F_muscles_of_knee_L",
           "ontology": "",
@@ -7146,7 +7146,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n373",
-          "label": "-",
+          "label": "Cervicovaginal junction",
           "source_node": 373,
           "source_name": "VH_F_cervicovaginal_junction",
           "ontology": "-",
@@ -7182,7 +7182,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n375",
-          "label": "Fallopian tube r",
+          "label": "Fallopian tube, right",
           "source_node": 375,
           "source_name": "VH_F_fallopian_tube_R",
           "ontology": "",
@@ -7255,7 +7255,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n380",
-          "label": "Fallopian tube l",
+          "label": "Fallopian tube, left",
           "source_node": 380,
           "source_name": "VH_F_fallopian_tube_L",
           "ontology": "",
@@ -7811,7 +7811,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n416",
-          "label": "-",
+          "label": "Cornua",
           "source_node": 416,
           "source_name": "VH_F_cornua",
           "ontology": "-",
@@ -8746,7 +8746,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n472",
-          "label": "-",
+          "label": "Left anterolateral segment",
           "source_node": 472,
           "source_name": "VH_F_left_anterolateral_segment",
           "ontology": "-",
@@ -8759,7 +8759,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n473",
-          "label": "-",
+          "label": "Left superomedial segment",
           "source_node": 473,
           "source_name": "VH_F_left_superomedial_segment",
           "ontology": "-",
@@ -8790,7 +8790,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n475",
-          "label": "-",
+          "label": "Left superomedial segment1",
           "source_node": 475,
           "source_name": "VH_F_left_superomedial_segment1",
           "ontology": "-",
@@ -8803,7 +8803,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n476",
-          "label": "-",
+          "label": "Left inferomedial segment",
           "source_node": 476,
           "source_name": "VH_F_left_inferomedial_segment",
           "ontology": "-",
@@ -8855,7 +8855,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n479",
-          "label": "-",
+          "label": "Right anterosuperior segment",
           "source_node": 479,
           "source_name": "VH_F_right_anterosuperior_segment",
           "ontology": "-",
@@ -8868,7 +8868,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n480",
-          "label": "-",
+          "label": "Right posteroinferior segment",
           "source_node": 480,
           "source_name": "VH_F_right_posteroinferior_segment",
           "ontology": "-",
@@ -8881,7 +8881,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n481",
-          "label": "-",
+          "label": "Right posterosuperior segment",
           "source_node": 481,
           "source_name": "VH_F_right_posterosuperior_segment",
           "ontology": "-",
@@ -8894,7 +8894,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n482",
-          "label": "-",
+          "label": "Right anteroinferior segment",
           "source_node": 482,
           "source_name": "VH_F_right_anteroinferior_segment",
           "ontology": "-",
@@ -9422,7 +9422,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n504",
-          "label": "Renal medulla l",
+          "label": "Renal medulla, left",
           "source_node": 504,
           "source_name": "VH_F_renal_medulla_L",
           "ontology": "",
@@ -9459,7 +9459,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n505",
-          "label": "Renal papilla l",
+          "label": "Renal papilla, left",
           "source_node": 505,
           "source_name": "VH_F_renal_papilla_L",
           "ontology": "",
@@ -9637,7 +9637,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n517",
-          "label": "Renal pyramid l",
+          "label": "Renal pyramid, left",
           "source_node": 517,
           "source_name": "VH_F_renal_pyramid_L",
           "ontology": "",
@@ -9815,7 +9815,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n529",
-          "label": "Cortex of kidney l",
+          "label": "Cortex of kidney, left",
           "source_node": 529,
           "source_name": "VH_F_cortex_of_kidney_L",
           "ontology": "",
@@ -9858,7 +9858,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n532",
-          "label": "Kidney calyx l",
+          "label": "Kidney calyx, left",
           "source_node": 532,
           "source_name": "VH_F_kidney_calyx_L",
           "ontology": "",
@@ -9887,7 +9887,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n533",
-          "label": "Minor calyx l",
+          "label": "Minor calyx, left",
           "source_node": 533,
           "source_name": "VH_F_minor_calyx_L",
           "ontology": "",
@@ -10050,7 +10050,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n544",
-          "label": "Major calyx l",
+          "label": "Major calyx, left",
           "source_node": 544,
           "source_name": "VH_F_major_calyx_L",
           "ontology": "",
@@ -10219,7 +10219,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n553",
-          "label": "Cortex of kidney r",
+          "label": "Cortex of kidney, right",
           "source_node": 553,
           "source_name": "VH_F_cortex_of_kidney_R",
           "ontology": "",
@@ -10262,7 +10262,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n556",
-          "label": "Renal medulla r",
+          "label": "Renal medulla, right",
           "source_node": 556,
           "source_name": "VH_F_renal_medulla_R",
           "ontology": "",
@@ -10297,7 +10297,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n557",
-          "label": "Renal pyramid r",
+          "label": "Renal pyramid, right",
           "source_node": 557,
           "source_name": "VH_F_renal_pyramid_R",
           "ontology": "",
@@ -10460,7 +10460,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n568",
-          "label": "Renal papilla r",
+          "label": "Renal papilla, right",
           "source_node": 568,
           "source_name": "VH_F_renal_papilla_R",
           "ontology": "",
@@ -10623,7 +10623,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n579",
-          "label": "Renal calyx r",
+          "label": "Renal calyx, right",
           "source_node": 579,
           "source_name": "VH_F_renal_calyx_R",
           "ontology": "",
@@ -10651,7 +10651,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n580",
-          "label": "Minor calyx r",
+          "label": "Minor calyx, right",
           "source_node": 580,
           "source_name": "VH_F_minor_calyx_R",
           "ontology": "",
@@ -10814,7 +10814,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n591",
-          "label": "Major calyx r",
+          "label": "Major calyx, right",
           "source_node": 591,
           "source_name": "VH_F_major_calyx_R",
           "ontology": "",
@@ -11751,7 +11751,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n636",
-          "label": "Ocular veins l",
+          "label": "Ocular veins, left",
           "source_node": 636,
           "source_name": "VH_F_ocular_veins_L",
           "ontology": "",
@@ -11824,7 +11824,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n641",
-          "label": "Ocular veins r",
+          "label": "Ocular veins, right",
           "source_node": 641,
           "source_name": "VH_F_ocular_veins_R",
           "ontology": "",
@@ -11916,7 +11916,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n647",
-          "label": "Ocular arteries r",
+          "label": "Ocular arteries, right",
           "source_node": 647,
           "source_name": "VH_F_ocular_arteries_R",
           "ontology": "",
@@ -11959,7 +11959,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n650",
-          "label": "Ocular arteries l",
+          "label": "Ocular arteries, left",
           "source_node": 650,
           "source_name": "VH_F_ocular_arteries_L",
           "ontology": "",
@@ -13038,7 +13038,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n718",
-          "label": "-",
+          "label": "Middle hepatic artery branch of left hepatic artery",
           "source_node": 718,
           "source_name": "VH_F_middle_hepatic_artery_branch_of_left_hepatic_artery",
           "ontology": "-",
@@ -13090,7 +13090,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n722",
-          "label": "-",
+          "label": "Posterior segmental right hepatic artery",
           "source_node": 722,
           "source_name": "VH_F_posterior_segmental_right_hepatic_artery",
           "ontology": "-",
@@ -13103,7 +13103,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n723",
-          "label": "-",
+          "label": "Anterior segmental right hepatic artery",
           "source_node": 723,
           "source_name": "VH_F_anterior_segmental_right_hepatic_artery",
           "ontology": "-",
@@ -13206,7 +13206,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n730",
-          "label": "-",
+          "label": "Right branch of portal vein",
           "source_node": 730,
           "source_name": "VH_F_right_branch_of_portal_vein",
           "ontology": "-",
@@ -13219,7 +13219,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n731",
-          "label": "-",
+          "label": "Left branch of portal vein",
           "source_node": 731,
           "source_name": "VH_F_left_branch_of_portal_vein",
           "ontology": "-",
@@ -14953,7 +14953,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n831",
-          "label": "Bronchi l",
+          "label": "Bronchi, left",
           "source_node": 831,
           "source_name": "VH_F_bronchi_L",
           "ontology": "",
@@ -14995,7 +14995,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n833",
-          "label": "Lobar bronchi l",
+          "label": "Lobar bronchi, left",
           "source_node": 833,
           "source_name": "VH_F_lobar_bronchi_L",
           "ontology": "",
@@ -15038,7 +15038,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n836",
-          "label": "Tertiary bronchi l",
+          "label": "Tertiary bronchi, left",
           "source_node": 836,
           "source_name": "VH_F_tertiary_bronchi_L",
           "ontology": "",
@@ -15201,7 +15201,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n847",
-          "label": "Bronchi r",
+          "label": "Bronchi, right",
           "source_node": 847,
           "source_name": "VH_F_bronchi_R",
           "ontology": "",
@@ -15244,7 +15244,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n849",
-          "label": "Lobar bronchus r",
+          "label": "Lobar bronchus, right",
           "source_node": 849,
           "source_name": "VH_F_lobar_bronchus_R",
           "ontology": "",
@@ -15302,7 +15302,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n853",
-          "label": "Tertiary bronchi r",
+          "label": "Tertiary bronchi, right",
           "source_node": 853,
           "source_name": "VH_F_tertiary_bronchi_R",
           "ontology": "",
@@ -15652,7 +15652,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n876",
-          "label": "Yao lymph node",
+          "label": "Lymph node",
           "source_node": 876,
           "source_name": "Yao_lymph_node",
           "ontology": "",
@@ -16291,7 +16291,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n910",
-          "label": "Lower limb r",
+          "label": "Lower limb, right",
           "source_node": 910,
           "source_name": "VH_F_lower_limb_R",
           "ontology": "",
@@ -16332,7 +16332,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n911",
-          "label": "Ligaments of knee r",
+          "label": "Ligaments of knee, right",
           "source_node": 911,
           "source_name": "VH_F_ligaments_of_knee_R",
           "ontology": "",
@@ -16435,7 +16435,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n918",
-          "label": "Knee r",
+          "label": "Knee, right",
           "source_node": 918,
           "source_name": "VH_F_knee_R",
           "ontology": "",
@@ -16483,7 +16483,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n920",
-          "label": "Knee joint r",
+          "label": "Knee joint, right",
           "source_node": 920,
           "source_name": "VH_F_knee_joint_R",
           "ontology": "",
@@ -16568,7 +16568,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n923",
-          "label": "-",
+          "label": "Medial perichondular surface, right",
           "source_node": 923,
           "source_name": "VH_F_medial_perichondular_surface_R",
           "ontology": "-",
@@ -16703,7 +16703,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n932",
-          "label": "-",
+          "label": "Posterior cruciate enthesis, right",
           "source_node": 932,
           "source_name": "VH_F_posterior_cruciate_enthesis_R",
           "ontology": "-",
@@ -16716,7 +16716,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n933",
-          "label": "-",
+          "label": "Anterior cruciate enthesis, right",
           "source_node": 933,
           "source_name": "VH_F_anterior_cruciate_enthesis_R",
           "ontology": "-",
@@ -16729,7 +16729,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n934",
-          "label": "-",
+          "label": "Lateral perichondular surface, right",
           "source_node": 934,
           "source_name": "VH_F_lateral_perichondular_surface_R",
           "ontology": "-",
@@ -16742,7 +16742,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n935",
-          "label": "-",
+          "label": "Lateral epicondylar enthesis, right",
           "source_node": 935,
           "source_name": "VH_F_lateral_epicondylar_enthesis_R",
           "ontology": "-",
@@ -16755,7 +16755,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n936",
-          "label": "-",
+          "label": "Medial epicondylar enthesis, right",
           "source_node": 936,
           "source_name": "VH_F_medial_epicondylar_enthesis_R",
           "ontology": "-",
@@ -16807,7 +16807,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n940",
-          "label": "Lower limb l",
+          "label": "Lower limb, left",
           "source_node": 940,
           "source_name": "VH_F_lower_limb_L",
           "ontology": "",
@@ -16848,7 +16848,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n941",
-          "label": "Ligaments of knee l",
+          "label": "Ligaments of knee, left",
           "source_node": 941,
           "source_name": "VH_F_ligaments_of_knee_L",
           "ontology": "",
@@ -16951,7 +16951,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n948",
-          "label": "Knee l",
+          "label": "Knee, left",
           "source_node": 948,
           "source_name": "VH_F_knee_L",
           "ontology": "",
@@ -16999,7 +16999,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n950",
-          "label": "Knee joint l",
+          "label": "Knee joint, left",
           "source_node": 950,
           "source_name": "VH_F_knee_joint_L",
           "ontology": "",
@@ -17089,7 +17089,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n953",
-          "label": "-",
+          "label": "Anterior cruciate enthesis, left",
           "source_node": 953,
           "source_name": "VH_F_anterior_cruciate_enthesis_L",
           "ontology": "-",
@@ -17102,7 +17102,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n954",
-          "label": "-",
+          "label": "Posterior cruciate enthesis, left",
           "source_node": 954,
           "source_name": "VH_F_posterior_cruciate_enthesis_L",
           "ontology": "-",
@@ -17115,7 +17115,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n955",
-          "label": "-",
+          "label": "Lateral perichondular surface, left",
           "source_node": 955,
           "source_name": "VH_F_lateral_perichondular_surface_L",
           "ontology": "-",
@@ -17128,7 +17128,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n956",
-          "label": "-",
+          "label": "Lateral epicondylar enthesis, left",
           "source_node": 956,
           "source_name": "VH_F_lateral_epicondylar_enthesis_L",
           "ontology": "-",
@@ -17141,7 +17141,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n957",
-          "label": "-",
+          "label": "Medial epicondylar enthesis, left",
           "source_node": 957,
           "source_name": "VH_F_medial_epicondylar_enthesis_L",
           "ontology": "-",
@@ -17167,7 +17167,7 @@
         },
         {
           "id": "source.hra-v1-1.female.n959",
-          "label": "-",
+          "label": "Medial perichondular surface, left",
           "source_node": 959,
           "source_name": "VH_F_medial_perichondular_surface_L",
           "ontology": "-",
@@ -18732,7 +18732,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n138",
-          "label": "Ocular veins l",
+          "label": "Ocular veins, left",
           "source_node": 138,
           "source_name": "VH_M_ocular_veins_L",
           "ontology": "",
@@ -18805,7 +18805,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n143",
-          "label": "Ocular veins r",
+          "label": "Ocular veins, right",
           "source_node": 143,
           "source_name": "VH_M_ocular_veins_R",
           "ontology": "",
@@ -18897,7 +18897,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n149",
-          "label": "Ocular arteries r",
+          "label": "Ocular arteries, right",
           "source_node": 149,
           "source_name": "VH_M_ocular_arteries_R",
           "ontology": "",
@@ -18940,7 +18940,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n152",
-          "label": "Ocular arteries l",
+          "label": "Ocular arteries, left",
           "source_node": 152,
           "source_name": "VH_M_ocular_arteries_L",
           "ontology": "",
@@ -20914,7 +20914,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n275",
-          "label": "-",
+          "label": "Posterior segmental right hepatic artery",
           "source_node": 275,
           "source_name": "VH_M_posterior_segmental_right_hepatic_artery",
           "ontology": "-",
@@ -20940,7 +20940,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n277",
-          "label": "-",
+          "label": "Anterior segmental right hepatic artery",
           "source_node": 277,
           "source_name": "VH_M_anterior_segmental_right_hepatic_artery",
           "ontology": "-",
@@ -20966,7 +20966,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n279",
-          "label": "-",
+          "label": "Middle hepatic artery branch of left hepatic artery",
           "source_node": 279,
           "source_name": "VH_M_middle_hepatic_artery_branch_of_left_hepatic_artery",
           "ontology": "-",
@@ -21045,7 +21045,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n284",
-          "label": "-",
+          "label": "Left branch of portal vein",
           "source_node": 284,
           "source_name": "VH_M_left_branch_of_portal_vein",
           "ontology": "-",
@@ -21058,7 +21058,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n285",
-          "label": "-",
+          "label": "Right branch of portal vein",
           "source_node": 285,
           "source_name": "VH_M_right_branch_of_portal_vein",
           "ontology": "-",
@@ -21071,7 +21071,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n286",
-          "label": "-",
+          "label": "Portal vein",
           "source_node": 286,
           "source_name": "VH_M_portal_vein",
           "ontology": "-",
@@ -21661,7 +21661,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n317",
-          "label": "Lower limb r",
+          "label": "Lower limb, right",
           "source_node": 317,
           "source_name": "VH_M_lower_limb_R",
           "ontology": "",
@@ -21702,7 +21702,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n318",
-          "label": "Ligaments of knee r",
+          "label": "Ligaments of knee, right",
           "source_node": 318,
           "source_name": "VH_M_ligaments_of_knee_R",
           "ontology": "",
@@ -21805,7 +21805,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n325",
-          "label": "Knee r",
+          "label": "Knee, right",
           "source_node": 325,
           "source_name": "VH_M_knee_R",
           "ontology": "",
@@ -21840,7 +21840,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n326",
-          "label": "Knee joint r",
+          "label": "Knee joint, right",
           "source_node": 326,
           "source_name": "VH_M_knee_joint_R",
           "ontology": "",
@@ -21988,7 +21988,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n333",
-          "label": "-",
+          "label": "Anterior cruciate enthesis, right",
           "source_node": 333,
           "source_name": "VH_M_anterior_cruciate_enthesis_R",
           "ontology": "-",
@@ -22001,7 +22001,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n334",
-          "label": "-",
+          "label": "Posterior cruciate enthesis, right",
           "source_node": 334,
           "source_name": "VH_M_posterior_cruciate_enthesis_R",
           "ontology": "-",
@@ -22053,7 +22053,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n338",
-          "label": "-",
+          "label": "Lateral epicondylar enthesis, right",
           "source_node": 338,
           "source_name": "VH_M_lateral_epicondylar_enthesis_R",
           "ontology": "-",
@@ -22066,7 +22066,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n339",
-          "label": "-",
+          "label": "Lateral perichondular surface, right",
           "source_node": 339,
           "source_name": "VH_M_lateral_perichondular_surface_R",
           "ontology": "-",
@@ -22118,7 +22118,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n343",
-          "label": "-",
+          "label": "Medial epicondylar enthesis, right",
           "source_node": 343,
           "source_name": "VH_M_medial_epicondylar_enthesis_R",
           "ontology": "-",
@@ -22131,7 +22131,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n344",
-          "label": "-",
+          "label": "Medial perichondular surface, right",
           "source_node": 344,
           "source_name": "VH_M_medial_perichondular_surface_R",
           "ontology": "-",
@@ -22170,7 +22170,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n347",
-          "label": "Lower limb l",
+          "label": "Lower limb, left",
           "source_node": 347,
           "source_name": "VH_M_lower_limb_L",
           "ontology": "",
@@ -22211,7 +22211,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n348",
-          "label": "Ligaments of knee l",
+          "label": "Ligaments of knee, left",
           "source_node": 348,
           "source_name": "VH_M_ligaments_of_knee_L",
           "ontology": "",
@@ -22314,7 +22314,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n355",
-          "label": "Knee l",
+          "label": "Knee, left",
           "source_node": 355,
           "source_name": "VH_M_knee_L",
           "ontology": "",
@@ -22362,7 +22362,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n357",
-          "label": "Knee joint l",
+          "label": "Knee joint, left",
           "source_node": 357,
           "source_name": "VH_M_knee_joint_L",
           "ontology": "",
@@ -22484,7 +22484,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n362",
-          "label": "-",
+          "label": "Anterior cruciate enthesis, left",
           "source_node": 362,
           "source_name": "VH_M_anterior_cruciate_enthesis_L",
           "ontology": "-",
@@ -22497,7 +22497,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n363",
-          "label": "-",
+          "label": "Posterior cruciate enthesis, left",
           "source_node": 363,
           "source_name": "VH_M_posterior_cruciate_enthesis_L",
           "ontology": "-",
@@ -22549,7 +22549,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n367",
-          "label": "-",
+          "label": "Lateral epicondylar enthesis, left",
           "source_node": 367,
           "source_name": "VH_M_lateral_epicondylar_enthesis_L",
           "ontology": "-",
@@ -22562,7 +22562,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n368",
-          "label": "-",
+          "label": "Lateral perichondular surface, left",
           "source_node": 368,
           "source_name": "VH_M_lateral_perichondular_surface_L",
           "ontology": "-",
@@ -22614,7 +22614,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n372",
-          "label": "-",
+          "label": "Medial epicondylar enthesis, left",
           "source_node": 372,
           "source_name": "VH_M_medial_epicondylar_enthesis_L",
           "ontology": "-",
@@ -22627,7 +22627,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n373",
-          "label": "-",
+          "label": "Medial perichondular surface, left",
           "source_node": 373,
           "source_name": "VH_M_medial_perichondular_surface_L",
           "ontology": "-",
@@ -23424,7 +23424,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n419",
-          "label": "-",
+          "label": "Right posteroinferior segment",
           "source_node": 419,
           "source_name": "VH_M_right_posteroinferior_segment",
           "ontology": "-",
@@ -23437,7 +23437,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n420",
-          "label": "-",
+          "label": "Right posterosuperior segment",
           "source_node": 420,
           "source_name": "VH_M_right_posterosuperior_segment",
           "ontology": "-",
@@ -23450,7 +23450,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n421",
-          "label": "-",
+          "label": "Right anterosuperior segment",
           "source_node": 421,
           "source_name": "VH_M_right_anterosuperior_segment",
           "ontology": "-",
@@ -23463,7 +23463,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n422",
-          "label": "-",
+          "label": "Right anteroinferior segment",
           "source_node": 422,
           "source_name": "VH_M_right_anteroinferior_segment",
           "ontology": "-",
@@ -23513,7 +23513,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n425",
-          "label": "-",
+          "label": "Left anterolateral segment",
           "source_node": 425,
           "source_name": "VH_M_left_anterolateral_segment",
           "ontology": "-",
@@ -23526,7 +23526,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n426",
-          "label": "-",
+          "label": "Left posterolateral segment",
           "source_node": 426,
           "source_name": "VH_M_left_posterolateral_segment",
           "ontology": "-",
@@ -23557,7 +23557,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n428",
-          "label": "-",
+          "label": "Left superiomedial segment",
           "source_node": 428,
           "source_name": "VH_M_left_superiomedial_segment",
           "ontology": "-",
@@ -23570,7 +23570,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n429",
-          "label": "-",
+          "label": "Left inferomedial segment",
           "source_node": 429,
           "source_name": "VH_M_left_inferomedial_segment",
           "ontology": "-",
@@ -24615,7 +24615,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n486",
-          "label": "Renal medulla l",
+          "label": "Renal medulla, left",
           "source_node": 486,
           "source_name": "VH_M_renal_medulla_L",
           "ontology": "",
@@ -24661,7 +24661,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n487",
-          "label": "Renal papilla l",
+          "label": "Renal papilla, left",
           "source_node": 487,
           "source_name": "VH_M_renal_papilla_L",
           "ontology": "",
@@ -24809,7 +24809,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n497",
-          "label": "Renal pyramid l",
+          "label": "Renal pyramid, left",
           "source_node": 497,
           "source_name": "VH_M_renal_pyramid_L",
           "ontology": "",
@@ -24957,7 +24957,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n507",
-          "label": "Kidney calyx l",
+          "label": "Kidney calyx, left",
           "source_node": 507,
           "source_name": "VH_M_kidney_calyx_L",
           "ontology": "",
@@ -24984,7 +24984,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n508",
-          "label": "Major calyx l",
+          "label": "Major calyx, left",
           "source_node": 508,
           "source_name": "VH_M_major_calyx_L",
           "ontology": "",
@@ -25042,7 +25042,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n512",
-          "label": "Minor calyx l",
+          "label": "Minor calyx, left",
           "source_node": 512,
           "source_name": "VH_M_minor_calyx_L",
           "ontology": "",
@@ -25190,7 +25190,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n522",
-          "label": "Cortex of kidney l",
+          "label": "Cortex of kidney, left",
           "source_node": 522,
           "source_name": "VH_M_cortex_of_kidney_L",
           "ontology": "",
@@ -25327,7 +25327,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n529",
-          "label": "Renal medulla r",
+          "label": "Renal medulla, right",
           "source_node": 529,
           "source_name": "VH_M_renal_medulla_R",
           "ontology": "",
@@ -25362,7 +25362,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n530",
-          "label": "Renal papilla r",
+          "label": "Renal papilla, right",
           "source_node": 530,
           "source_name": "VH_M_renal_papilla_R",
           "ontology": "",
@@ -25525,7 +25525,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n541",
-          "label": "Renal pyramid r",
+          "label": "Renal pyramid, right",
           "source_node": 541,
           "source_name": "VH_M_renal_pyramid_R",
           "ontology": "",
@@ -25688,7 +25688,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n552",
-          "label": "Cortex of kidney r",
+          "label": "Cortex of kidney, right",
           "source_node": 552,
           "source_name": "VH_M_cortex_of_kidney_R",
           "ontology": "",
@@ -25744,7 +25744,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n556",
-          "label": "Calyx r",
+          "label": "Calyx, right",
           "source_node": 556,
           "source_name": "VH_M_calyx_R",
           "ontology": "",
@@ -25770,7 +25770,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n557",
-          "label": "Major calyx r",
+          "label": "Major calyx, right",
           "source_node": 557,
           "source_name": "VH_M_major_calyx_R",
           "ontology": "",
@@ -25813,7 +25813,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n560",
-          "label": "Minor calyx r",
+          "label": "Minor calyx, right",
           "source_node": 560,
           "source_name": "VH_M_minor_calyx_R",
           "ontology": "",
@@ -26160,7 +26160,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n583",
-          "label": "-",
+          "label": "Other urethra",
           "source_node": 583,
           "source_name": "VH_M_other_urethra",
           "ontology": "-",
@@ -26304,7 +26304,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n592",
-          "label": "Yao lymph node",
+          "label": "Lymph node",
           "source_node": 592,
           "source_name": "Yao_lymph_node",
           "ontology": "",
@@ -26814,7 +26814,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n604",
-          "label": "Allen brain",
+          "label": "Brain",
           "source_node": 604,
           "source_name": "Allen_brain",
           "ontology": "",
@@ -27113,7 +27113,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n605",
-          "label": "Allen brain hemisphere l",
+          "label": "Brain hemisphere, left",
           "source_node": 605,
           "source_name": "Allen_brain_Hemisphere_L",
           "ontology": "",
@@ -27435,7 +27435,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n609",
-          "label": "-",
+          "label": "Frontal agranular insular cortex area fl, left",
           "source_node": 609,
           "source_name": "Allen_frontal_agranular_insular_cortex_area_Fl_L",
           "ontology": "-",
@@ -27448,7 +27448,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n610",
-          "label": "-",
+          "label": "Temporal agranular insular cortex area tl, left",
           "source_node": 610,
           "source_name": "Allen_temporal_agranular_insular_cortex_area_Tl_L",
           "ontology": "-",
@@ -27461,7 +27461,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n611",
-          "label": "-",
+          "label": "Head of caudate, left",
           "source_node": 611,
           "source_name": "Allen_head_of_caudate_L",
           "ontology": "-",
@@ -27474,7 +27474,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n612",
-          "label": "-",
+          "label": "Body of caudate, left",
           "source_node": 612,
           "source_name": "Allen_body_of_caudate_L",
           "ontology": "-",
@@ -27487,7 +27487,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n613",
-          "label": "-",
+          "label": "Tail of caudate, left",
           "source_node": 613,
           "source_name": "Allen_tail_of_caudate_L",
           "ontology": "-",
@@ -27513,7 +27513,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n615",
-          "label": "-",
+          "label": "Nucleus accumbens, left",
           "source_node": 615,
           "source_name": "Allen_nucleus_accumbens_L",
           "ontology": "-",
@@ -27526,7 +27526,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n616",
-          "label": "-",
+          "label": "External segment of globus pallidus, left",
           "source_node": 616,
           "source_name": "Allen_external_segment_of_globus_pallidus_L",
           "ontology": "-",
@@ -27539,7 +27539,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n617",
-          "label": "-",
+          "label": "Internal segment of globus pallidus, left",
           "source_node": 617,
           "source_name": "Allen_internal_segment_of_globus_pallidus_L",
           "ontology": "-",
@@ -27552,7 +27552,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n618",
-          "label": "-",
+          "label": "Claustrum, left",
           "source_node": 618,
           "source_name": "Allen_claustrum_L",
           "ontology": "-",
@@ -27565,7 +27565,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n619",
-          "label": "-",
+          "label": "Basal forebrain, left",
           "source_node": 619,
           "source_name": "Allen_basal_forebrain_L",
           "ontology": "-",
@@ -27578,7 +27578,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n620",
-          "label": "-",
+          "label": "Septal nuclei, left",
           "source_node": 620,
           "source_name": "Allen_septal_nuclei_L",
           "ontology": "-",
@@ -27591,7 +27591,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n621",
-          "label": "-",
+          "label": "Amygdaloid complex, left",
           "source_node": 621,
           "source_name": "Allen_amygdaloid_complex_L",
           "ontology": "-",
@@ -27604,7 +27604,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n622",
-          "label": "-",
+          "label": "Anterior amygdaloid area, left",
           "source_node": 622,
           "source_name": "Allen_anterior_amygdaloid_area_L",
           "ontology": "-",
@@ -27617,7 +27617,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n623",
-          "label": "-",
+          "label": "Central nuclear group, left",
           "source_node": 623,
           "source_name": "Allen_central_nuclear_group_L",
           "ontology": "-",
@@ -27630,7 +27630,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n624",
-          "label": "-",
+          "label": "Lateral nucleus, left",
           "source_node": 624,
           "source_name": "Allen_lateral_nucleus_L",
           "ontology": "-",
@@ -27643,7 +27643,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n625",
-          "label": "-",
+          "label": "Basolateral nucleus basal nucleus, left",
           "source_node": 625,
           "source_name": "Allen_basolateral_nucleus_basal_nucleus_L",
           "ontology": "-",
@@ -27656,7 +27656,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n626",
-          "label": "-",
+          "label": "Basomedial nucleus accessory basal nucleus, left",
           "source_node": 626,
           "source_name": "Allen_basomedial_nucleus_accessory_basal_nucleus_L",
           "ontology": "-",
@@ -27669,7 +27669,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n627",
-          "label": "-",
+          "label": "Anterior cortical nucleus, left",
           "source_node": 627,
           "source_name": "Allen_anterior_cortical_nucleus_L",
           "ontology": "-",
@@ -27682,7 +27682,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n628",
-          "label": "-",
+          "label": "Posterior cortical nucleus, left",
           "source_node": 628,
           "source_name": "Allen_posterior_cortical_nucleus_L",
           "ontology": "-",
@@ -27695,7 +27695,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n629",
-          "label": "-",
+          "label": "Medial nucleus, left",
           "source_node": 629,
           "source_name": "Allen_medial_nucleus_L",
           "ontology": "-",
@@ -27708,7 +27708,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n630",
-          "label": "-",
+          "label": "Amygdalohippocampal area, left",
           "source_node": 630,
           "source_name": "Allen_amygdalohippocampal_area_L",
           "ontology": "-",
@@ -27721,7 +27721,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n631",
-          "label": "-",
+          "label": "Bed nucleus of stria terminalis, left",
           "source_node": 631,
           "source_name": "Allen_bed_nucleus_of_stria_terminalis_L",
           "ontology": "-",
@@ -27734,7 +27734,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n632",
-          "label": "-",
+          "label": "Thalamus, left",
           "source_node": 632,
           "source_name": "Allen_thalamus_L",
           "ontology": "-",
@@ -27747,7 +27747,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n633",
-          "label": "-",
+          "label": "Anterior nuclear complex of thalamus, left",
           "source_node": 633,
           "source_name": "Allen_anterior_nuclear_complex_of_thalamus_L",
           "ontology": "-",
@@ -27760,7 +27760,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n634",
-          "label": "-",
+          "label": "Lateral dorsal nucleus of thalamus, left",
           "source_node": 634,
           "source_name": "Allen_lateral_dorsal_nucleus_of_thalamus_L",
           "ontology": "-",
@@ -27773,7 +27773,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n635",
-          "label": "-",
+          "label": "Mediodorsal nucleus of thalamus, left",
           "source_node": 635,
           "source_name": "Allen_mediodorsal_nucleus_of_thalamus_L",
           "ontology": "-",
@@ -27786,7 +27786,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n636",
-          "label": "-",
+          "label": "Reuniens nucleus medioventral nucleus of thalamus, left",
           "source_node": 636,
           "source_name": "Allen_reuniens_nucleus_medioventral_nucleus_of_thalamus_L",
           "ontology": "-",
@@ -27799,7 +27799,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n637",
-          "label": "-",
+          "label": "Lateral posterior nucleus of thalamus, left",
           "source_node": 637,
           "source_name": "Allen_lateral_posterior_nucleus_of_thalamus_L",
           "ontology": "-",
@@ -27812,7 +27812,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n638",
-          "label": "-",
+          "label": "Pulvinar of thalamus, left",
           "source_node": 638,
           "source_name": "Allen_pulvinar_of_thalamus_L",
           "ontology": "-",
@@ -27825,7 +27825,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n639",
-          "label": "-",
+          "label": "Ventral anterior nucleus of thalamus, left",
           "source_node": 639,
           "source_name": "Allen_ventral_anterior_nucleus_of_thalamus_L",
           "ontology": "-",
@@ -27838,7 +27838,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n640",
-          "label": "-",
+          "label": "Ventral lateral nucleus of thalamus, left",
           "source_node": 640,
           "source_name": "Allen_ventral_lateral_nucleus_of_thalamus_L",
           "ontology": "-",
@@ -27851,7 +27851,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n641",
-          "label": "-",
+          "label": "Ventral posterior lateral nucleus, left",
           "source_node": 641,
           "source_name": "Allen_ventral_posterior_lateral_nucleus_L",
           "ontology": "-",
@@ -27864,7 +27864,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n642",
-          "label": "-",
+          "label": "Ventral posterior medial nucleus, left",
           "source_node": 642,
           "source_name": "Allen_ventral_posterior_medial_nucleus_L",
           "ontology": "-",
@@ -27877,7 +27877,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n643",
-          "label": "-",
+          "label": "Dorsal lateral geniculate nucleus, left",
           "source_node": 643,
           "source_name": "Allen_dorsal_lateral_geniculate_nucleus_L",
           "ontology": "-",
@@ -27890,7 +27890,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n644",
-          "label": "-",
+          "label": "Medial geniculate nuclei, left",
           "source_node": 644,
           "source_name": "Allen_medial_geniculate_nuclei_L",
           "ontology": "-",
@@ -27903,7 +27903,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n645",
-          "label": "-",
+          "label": "Centromedian nucleus of thalamus, left",
           "source_node": 645,
           "source_name": "Allen_centromedian_nucleus_of_thalamus_L",
           "ontology": "-",
@@ -27916,7 +27916,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n646",
-          "label": "-",
+          "label": "Parafascicular nucleus of thalamus, left",
           "source_node": 646,
           "source_name": "Allen_parafascicular_nucleus_of_thalamus_L",
           "ontology": "-",
@@ -27929,7 +27929,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n647",
-          "label": "-",
+          "label": "Habenular nuclei, left",
           "source_node": 647,
           "source_name": "Allen_habenular_nuclei_L",
           "ontology": "-",
@@ -27955,7 +27955,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n649",
-          "label": "-",
+          "label": "Zona incerta, left",
           "source_node": 649,
           "source_name": "Allen_zona_incerta_L",
           "ontology": "-",
@@ -27968,7 +27968,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n650",
-          "label": "-",
+          "label": "Supraoptic region of hypothalamus, left",
           "source_node": 650,
           "source_name": "Allen_supraoptic_region_of_HTH_L",
           "ontology": "-",
@@ -27981,7 +27981,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n651",
-          "label": "-",
+          "label": "Preoptic region of hypothalamus, left",
           "source_node": 651,
           "source_name": "Allen_preoptic_region_of_HTH_L",
           "ontology": "-",
@@ -27994,7 +27994,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n652",
-          "label": "-",
+          "label": "Tuberal region of hypothalamus, left",
           "source_node": 652,
           "source_name": "Allen_tuberal_region_of_HTH_L",
           "ontology": "-",
@@ -28007,7 +28007,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n653",
-          "label": "-",
+          "label": "White matter of forebrain, left",
           "source_node": 653,
           "source_name": "Allen_white_matter_of_forebrain_L",
           "ontology": "-",
@@ -28059,7 +28059,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n657",
-          "label": "-",
+          "label": "Mammillothalamic tract, left",
           "source_node": 657,
           "source_name": "Allen_mammillothalamic_tract_L",
           "ontology": "-",
@@ -28085,7 +28085,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n659",
-          "label": "-",
+          "label": "Anterior horn of lateral ventricle, left",
           "source_node": 659,
           "source_name": "Allen_anterior_horn_of_lateral_ventricle_L",
           "ontology": "-",
@@ -28098,7 +28098,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n660",
-          "label": "-",
+          "label": "Body of lateral ventricle, left",
           "source_node": 660,
           "source_name": "Allen_body_of_lateral_ventricle_L",
           "ontology": "-",
@@ -28111,7 +28111,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n661",
-          "label": "-",
+          "label": "Posterior horn of lateral ventricle, left",
           "source_node": 661,
           "source_name": "Allen_posterior_horn_of_lateral_ventricle_L",
           "ontology": "-",
@@ -28124,7 +28124,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n662",
-          "label": "-",
+          "label": "Inferior horn of lateral ventricle, left",
           "source_node": 662,
           "source_name": "Allen_inferior_horn_of_lateral_ventricle_L",
           "ontology": "-",
@@ -28137,7 +28137,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n663",
-          "label": "-",
+          "label": "Third ventricle, left",
           "source_node": 663,
           "source_name": "Allen_third_ventricle_L",
           "ontology": "-",
@@ -28163,7 +28163,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n665",
-          "label": "-",
+          "label": "Cerebellar deep nuclei, left",
           "source_node": 665,
           "source_name": "Allen_cerebellar_deep_nuclei_L",
           "ontology": "-",
@@ -28176,7 +28176,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n666",
-          "label": "-",
+          "label": "White matter of hindbrain, left",
           "source_node": 666,
           "source_name": "Allen_white_matter_of_hindbrain_L",
           "ontology": "-",
@@ -28189,7 +28189,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n667",
-          "label": "-",
+          "label": "Olfactory tract, left",
           "source_node": 667,
           "source_name": "Allen_olfactory_tract_L",
           "ontology": "-",
@@ -28371,7 +28371,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n681",
-          "label": "-",
+          "label": "Supraparietal lobule, left",
           "source_node": 681,
           "source_name": "Allen_supraparietal_lobule_L",
           "ontology": "-",
@@ -28384,7 +28384,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n682",
-          "label": "-",
+          "label": "Supramarginal gyrus, left",
           "source_node": 682,
           "source_name": "Allen_supramarginal_gyrus_L",
           "ontology": "-",
@@ -28397,7 +28397,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n683",
-          "label": "-",
+          "label": "Angular gyrus, left",
           "source_node": 683,
           "source_name": "Allen_angular_gyrus_L",
           "ontology": "-",
@@ -28423,7 +28423,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n685",
-          "label": "-",
+          "label": "Paracentral lobule caudal part, left",
           "source_node": 685,
           "source_name": "Allen_paracentral_lobule_caudal_part_L",
           "ontology": "-",
@@ -28475,7 +28475,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n689",
-          "label": "-",
+          "label": "Occipitotemporal fusiform gyrus temporal part, left",
           "source_node": 689,
           "source_name": "Allen_occipitotemporal_fusiform_gyrus_temporal_part_L",
           "ontology": "-",
@@ -28488,7 +28488,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n690",
-          "label": "-",
+          "label": "Transverse temporal gyrus heschls gyrus, left",
           "source_node": 690,
           "source_name": "Allen_transverse_temporal_gyrus_Heschls_gyrus_L",
           "ontology": "-",
@@ -28696,7 +28696,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n706",
-          "label": "-",
+          "label": "Gyrus ambiens, left",
           "source_node": 706,
           "source_name": "Allen_gyrus_ambiens_L",
           "ontology": "-",
@@ -28709,7 +28709,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n707",
-          "label": "-",
+          "label": "Head of hippocampus, left",
           "source_node": 707,
           "source_name": "Allen_head_of_hippocampus_L",
           "ontology": "-",
@@ -28722,7 +28722,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n708",
-          "label": "-",
+          "label": "Body of hippocampus, left",
           "source_node": 708,
           "source_name": "Allen_body_of_hippocampus_L",
           "ontology": "-",
@@ -28735,7 +28735,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n709",
-          "label": "-",
+          "label": "Tail of hippocampus, left",
           "source_node": 709,
           "source_name": "Allen_tail_of_hippocampus_L",
           "ontology": "-",
@@ -28748,7 +28748,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n710",
-          "label": "-",
+          "label": "Long insular gyri, left",
           "source_node": 710,
           "source_name": "Allen_long_insular_gyri_L",
           "ontology": "-",
@@ -28761,7 +28761,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n711",
-          "label": "-",
+          "label": "Short insular gyri, left",
           "source_node": 711,
           "source_name": "Allen_short_insular_gyri_L",
           "ontology": "-",
@@ -28774,7 +28774,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n712",
-          "label": "-",
+          "label": "Limen insula, left",
           "source_node": 712,
           "source_name": "Allen_limen_insula_L",
           "ontology": "-",
@@ -28787,7 +28787,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n713",
-          "label": "-",
+          "label": "Pretectal region, left",
           "source_node": 713,
           "source_name": "Allen_pretectal_region_L",
           "ontology": "-",
@@ -28839,7 +28839,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n717",
-          "label": "-",
+          "label": "Superior cerebellar peduncle brachium conjunctivum, left",
           "source_node": 717,
           "source_name": "Allen_superior_cerebellar_peduncle_brachium_conjunctivum_L",
           "ontology": "-",
@@ -28852,7 +28852,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n718",
-          "label": "-",
+          "label": "Cerebral aqueduct, left",
           "source_node": 718,
           "source_name": "Allen_cerebral_aqueduct_L",
           "ontology": "-",
@@ -28865,7 +28865,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n719",
-          "label": "-",
+          "label": "Paravermis of cerebellum, left",
           "source_node": 719,
           "source_name": "Allen_paravermis_of_cerebellum_L",
           "ontology": "-",
@@ -28878,7 +28878,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n720",
-          "label": "-",
+          "label": "Lateral hemisphere of cerebellum, left",
           "source_node": 720,
           "source_name": "Allen_lateral_hemisphere_of_cerebellum_L",
           "ontology": "-",
@@ -28917,7 +28917,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n723",
-          "label": "-",
+          "label": "Pyramidal part of medulla oblongata, left",
           "source_node": 723,
           "source_name": "Allen_pyramidal_part_of_medulla_oblongata_L",
           "ontology": "-",
@@ -28930,7 +28930,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n724",
-          "label": "-",
+          "label": "Tegmentum of medulla oblongata, left",
           "source_node": 724,
           "source_name": "Allen_tegmentum_of_medulla_oblongata_L",
           "ontology": "-",
@@ -28943,7 +28943,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n725",
-          "label": "-",
+          "label": "Inferior olive, left",
           "source_node": 725,
           "source_name": "Allen_inferior_olive_L",
           "ontology": "-",
@@ -28956,7 +28956,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n726",
-          "label": "-",
+          "label": "Middle cerebellar peduncle, left",
           "source_node": 726,
           "source_name": "Allen_middle_cerebellar_peduncle_L",
           "ontology": "-",
@@ -28982,7 +28982,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n728",
-          "label": "-",
+          "label": "Central canal of medulla oblongata, left",
           "source_node": 728,
           "source_name": "Allen_central_canal_of_medulla_oblongata_L",
           "ontology": "-",
@@ -28995,7 +28995,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n729",
-          "label": "-",
+          "label": "Midline nuclear complex, left",
           "source_node": 729,
           "source_name": "Allen_midline_nuclear_complex_L",
           "ontology": "-",
@@ -29008,7 +29008,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n730",
-          "label": "-",
+          "label": "Lateral olfactory gyrus, left",
           "source_node": 730,
           "source_name": "Allen_lateral_olfactory_gyrus_L",
           "ontology": "-",
@@ -29047,7 +29047,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n733",
-          "label": "-",
+          "label": "Posteroventral putamen, left",
           "source_node": 733,
           "source_name": "Allen_posteroventral_putamen_L",
           "ontology": "-",
@@ -29060,7 +29060,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n734",
-          "label": "-",
+          "label": "Atrium of lateral ventricle, left",
           "source_node": 734,
           "source_name": "Allen_atrium_of_lateral_ventricle_L",
           "ontology": "-",
@@ -29073,7 +29073,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n735",
-          "label": "-",
+          "label": "Paracingulate gyrus, left",
           "source_node": 735,
           "source_name": "Allen_paracingulate_gyrus_L",
           "ontology": "-",
@@ -29086,7 +29086,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n736",
-          "label": "-",
+          "label": "Rostral gyrus, left",
           "source_node": 736,
           "source_name": "Allen_rostral_gyrus_L",
           "ontology": "-",
@@ -29099,7 +29099,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n737",
-          "label": "-",
+          "label": "Frontomarginal gyrus, left",
           "source_node": 737,
           "source_name": "Allen_frontomarginal_gyrus_L",
           "ontology": "-",
@@ -29112,7 +29112,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n738",
-          "label": "-",
+          "label": "Frontal pole, left",
           "source_node": 738,
           "source_name": "Allen_frontal_pole_L",
           "ontology": "-",
@@ -29125,7 +29125,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n739",
-          "label": "-",
+          "label": "Inferior cerebellar peduncle, left",
           "source_node": 739,
           "source_name": "Allen_inferior_cerebellar_peduncle_L",
           "ontology": "-",
@@ -29138,7 +29138,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n740",
-          "label": "-",
+          "label": "Perirhinal gyrus rostral part of fugt, left",
           "source_node": 740,
           "source_name": "Allen_perirhinal_gyrus_rostral_part_of_FuGt_L",
           "ontology": "-",
@@ -29151,7 +29151,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n741",
-          "label": "Allen brain hemisphere r",
+          "label": "Brain hemisphere, right",
           "source_node": 741,
           "source_name": "Allen_brain_Hemisphere_R",
           "ontology": "",
@@ -29458,7 +29458,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n742",
-          "label": "-",
+          "label": "Olfactory bulb, right",
           "source_node": 742,
           "source_name": "Allen_olfactory_bulb_R",
           "ontology": "-",
@@ -29471,7 +29471,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n743",
-          "label": "-",
+          "label": "Anterior olfactory nucleus, right",
           "source_node": 743,
           "source_name": "Allen_anterior_olfactory_nucleus_R",
           "ontology": "-",
@@ -29484,7 +29484,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n744",
-          "label": "-",
+          "label": "Piriform region, right",
           "source_node": 744,
           "source_name": "Allen_piriform_region_R",
           "ontology": "-",
@@ -29497,7 +29497,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n745",
-          "label": "-",
+          "label": "Frontal agranular insular cortex area fl, right",
           "source_node": 745,
           "source_name": "Allen_frontal_agranular_insular_cortex_area_Fl_R",
           "ontology": "-",
@@ -29510,7 +29510,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n746",
-          "label": "-",
+          "label": "Temporal agranular insular cortex area tl, right",
           "source_node": 746,
           "source_name": "Allen_temporal_agranular_insular_cortex_area_Tl_R",
           "ontology": "-",
@@ -29523,7 +29523,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n747",
-          "label": "-",
+          "label": "Head of caudate, right",
           "source_node": 747,
           "source_name": "Allen_head_of_caudate_R",
           "ontology": "-",
@@ -29536,7 +29536,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n748",
-          "label": "-",
+          "label": "Body of caudate, right",
           "source_node": 748,
           "source_name": "Allen_body_of_caudate_R",
           "ontology": "-",
@@ -29549,7 +29549,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n749",
-          "label": "-",
+          "label": "Tail of caudate, right",
           "source_node": 749,
           "source_name": "Allen_tail_of_caudate_R",
           "ontology": "-",
@@ -29575,7 +29575,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n751",
-          "label": "-",
+          "label": "Nucleus accumbens, right",
           "source_node": 751,
           "source_name": "Allen_nucleus_accumbens_R",
           "ontology": "-",
@@ -29588,7 +29588,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n752",
-          "label": "-",
+          "label": "External segment of globus pallidus, right",
           "source_node": 752,
           "source_name": "Allen_external_segment_of_globus_pallidus_R",
           "ontology": "-",
@@ -29601,7 +29601,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n753",
-          "label": "-",
+          "label": "Internal segment of globus pallidus, right",
           "source_node": 753,
           "source_name": "Allen_internal_segment_of_globus_pallidus_R",
           "ontology": "-",
@@ -29614,7 +29614,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n754",
-          "label": "-",
+          "label": "Claustrum, right",
           "source_node": 754,
           "source_name": "Allen_claustrum_R",
           "ontology": "-",
@@ -29627,7 +29627,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n755",
-          "label": "-",
+          "label": "Basal forebrain, right",
           "source_node": 755,
           "source_name": "Allen_basal_forebrain_R",
           "ontology": "-",
@@ -29640,7 +29640,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n756",
-          "label": "-",
+          "label": "Septal nuclei, right",
           "source_node": 756,
           "source_name": "Allen_septal_nuclei_R",
           "ontology": "-",
@@ -29653,7 +29653,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n757",
-          "label": "-",
+          "label": "Amygdaloid complex, right",
           "source_node": 757,
           "source_name": "Allen_amygdaloid_complex_R",
           "ontology": "-",
@@ -29666,7 +29666,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n758",
-          "label": "-",
+          "label": "Anterior amygdaloid area, right",
           "source_node": 758,
           "source_name": "Allen_anterior_amygdaloid_area_R",
           "ontology": "-",
@@ -29679,7 +29679,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n759",
-          "label": "-",
+          "label": "Central nuclear group, right",
           "source_node": 759,
           "source_name": "Allen_central_nuclear_group_R",
           "ontology": "-",
@@ -29692,7 +29692,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n760",
-          "label": "-",
+          "label": "Lateral nucleus, right",
           "source_node": 760,
           "source_name": "Allen_lateral_nucleus_R",
           "ontology": "-",
@@ -29705,7 +29705,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n761",
-          "label": "-",
+          "label": "Basolateral nucleus basal nucleus, right",
           "source_node": 761,
           "source_name": "Allen_basolateral_nucleus_basal_nucleus_R",
           "ontology": "-",
@@ -29718,7 +29718,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n762",
-          "label": "-",
+          "label": "Basomedial nucleus accessory basal nucleus, right",
           "source_node": 762,
           "source_name": "Allen_basomedial_nucleus_accessory_basal_nucleus_R",
           "ontology": "-",
@@ -29731,7 +29731,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n763",
-          "label": "-",
+          "label": "Anterior cortical nucleus, right",
           "source_node": 763,
           "source_name": "Allen_anterior_cortical_nucleus_R",
           "ontology": "-",
@@ -29744,7 +29744,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n764",
-          "label": "-",
+          "label": "Posterior cortical nucleus, right",
           "source_node": 764,
           "source_name": "Allen_posterior_cortical_nucleus_R",
           "ontology": "-",
@@ -29757,7 +29757,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n765",
-          "label": "-",
+          "label": "Medial nucleus, right",
           "source_node": 765,
           "source_name": "Allen_medial_nucleus_R",
           "ontology": "-",
@@ -29770,7 +29770,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n766",
-          "label": "-",
+          "label": "Amygdalohippocampal area, right",
           "source_node": 766,
           "source_name": "Allen_amygdalohippocampal_area_R",
           "ontology": "-",
@@ -29783,7 +29783,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n767",
-          "label": "-",
+          "label": "Bed nucleus of stria terminalis, right",
           "source_node": 767,
           "source_name": "Allen_bed_nucleus_of_stria_terminalis_R",
           "ontology": "-",
@@ -29796,7 +29796,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n768",
-          "label": "-",
+          "label": "Thalamus, right",
           "source_node": 768,
           "source_name": "Allen_thalamus_R",
           "ontology": "-",
@@ -29809,7 +29809,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n769",
-          "label": "-",
+          "label": "Anterior nuclear complex of thalamus, right",
           "source_node": 769,
           "source_name": "Allen_anterior_nuclear_complex_of_thalamus_R",
           "ontology": "-",
@@ -29822,7 +29822,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n770",
-          "label": "-",
+          "label": "Lateral dorsal nucleus of thalamus, right",
           "source_node": 770,
           "source_name": "Allen_lateral_dorsal_nucleus_of_thalamus_R",
           "ontology": "-",
@@ -29835,7 +29835,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n771",
-          "label": "-",
+          "label": "Mediodorsal nucleus of thalamus, right",
           "source_node": 771,
           "source_name": "Allen_mediodorsal_nucleus_of_thalamus_R",
           "ontology": "-",
@@ -29848,7 +29848,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n772",
-          "label": "-",
+          "label": "Reuniens nucleus medioventral nucleus of thalamus, right",
           "source_node": 772,
           "source_name": "Allen_reuniens_nucleus_medioventral_nucleus_of_thalamus_R",
           "ontology": "-",
@@ -29861,7 +29861,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n773",
-          "label": "-",
+          "label": "Lateral posterior nucleus of thalamus, right",
           "source_node": 773,
           "source_name": "Allen_lateral_posterior_nucleus_of_thalamus_R",
           "ontology": "-",
@@ -29874,7 +29874,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n774",
-          "label": "-",
+          "label": "Pulvinar of thalamus, right",
           "source_node": 774,
           "source_name": "Allen_pulvinar_of_thalamus_R",
           "ontology": "-",
@@ -29887,7 +29887,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n775",
-          "label": "-",
+          "label": "Ventral anterior nucleus of thalamus, right",
           "source_node": 775,
           "source_name": "Allen_ventral_anterior_nucleus_of_thalamus_R",
           "ontology": "-",
@@ -29900,7 +29900,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n776",
-          "label": "-",
+          "label": "Ventral lateral nucleus of thalamus, right",
           "source_node": 776,
           "source_name": "Allen_ventral_lateral_nucleus_of_thalamus_R",
           "ontology": "-",
@@ -29913,7 +29913,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n777",
-          "label": "-",
+          "label": "Ventral posterior lateral nucleus, right",
           "source_node": 777,
           "source_name": "Allen_ventral_posterior_lateral_nucleus_R",
           "ontology": "-",
@@ -29926,7 +29926,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n778",
-          "label": "-",
+          "label": "Ventral posterior medial nucleus, right",
           "source_node": 778,
           "source_name": "Allen_ventral_posterior_medial_nucleus_R",
           "ontology": "-",
@@ -29939,7 +29939,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n779",
-          "label": "-",
+          "label": "Dorsal lateral geniculate nucleus, right",
           "source_node": 779,
           "source_name": "Allen_dorsal_lateral_geniculate_nucleus_R",
           "ontology": "-",
@@ -29952,7 +29952,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n780",
-          "label": "-",
+          "label": "Medial geniculate nuclei, right",
           "source_node": 780,
           "source_name": "Allen_medial_geniculate_nuclei_R",
           "ontology": "-",
@@ -29965,7 +29965,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n781",
-          "label": "-",
+          "label": "Centromedian nucleus of thalamus, right",
           "source_node": 781,
           "source_name": "Allen_centromedian_nucleus_of_thalamus_R",
           "ontology": "-",
@@ -29978,7 +29978,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n782",
-          "label": "-",
+          "label": "Parafascicular nucleus of thalamus, right",
           "source_node": 782,
           "source_name": "Allen_parafascicular_nucleus_of_thalamus_R",
           "ontology": "-",
@@ -29991,7 +29991,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n783",
-          "label": "-",
+          "label": "Habenular nuclei, right",
           "source_node": 783,
           "source_name": "Allen_habenular_nuclei_R",
           "ontology": "-",
@@ -30017,7 +30017,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n785",
-          "label": "-",
+          "label": "Zona incerta, right",
           "source_node": 785,
           "source_name": "Allen_zona_incerta_R",
           "ontology": "-",
@@ -30030,7 +30030,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n786",
-          "label": "-",
+          "label": "Supraoptic region of hypothalamus, right",
           "source_node": 786,
           "source_name": "Allen_supraoptic_region_of_HTH_R",
           "ontology": "-",
@@ -30043,7 +30043,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n787",
-          "label": "-",
+          "label": "White matter of forebrain, right",
           "source_node": 787,
           "source_name": "Allen_white_matter_of_forebrain_R",
           "ontology": "-",
@@ -30095,7 +30095,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n791",
-          "label": "-",
+          "label": "Mammillothalamic tract, right",
           "source_node": 791,
           "source_name": "Allen_mammillothalamic_tract_R",
           "ontology": "-",
@@ -30121,7 +30121,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n793",
-          "label": "-",
+          "label": "Anterior horn of lateral ventricle, right",
           "source_node": 793,
           "source_name": "Allen_anterior_horn_of_lateral_ventricle_R",
           "ontology": "-",
@@ -30134,7 +30134,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n794",
-          "label": "-",
+          "label": "Body of lateral ventricle, right",
           "source_node": 794,
           "source_name": "Allen_body_of_lateral_ventricle_R",
           "ontology": "-",
@@ -30147,7 +30147,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n795",
-          "label": "-",
+          "label": "Posterior horn of lateral ventricle, right",
           "source_node": 795,
           "source_name": "Allen_posterior_horn_of_lateral_ventricle_R",
           "ontology": "-",
@@ -30160,7 +30160,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n796",
-          "label": "-",
+          "label": "Inferior horn of lateral ventricle, right",
           "source_node": 796,
           "source_name": "Allen_inferior_horn_of_lateral_ventricle_R",
           "ontology": "-",
@@ -30173,7 +30173,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n797",
-          "label": "-",
+          "label": "Third ventricle, right",
           "source_node": 797,
           "source_name": "Allen_third_ventricle_R",
           "ontology": "-",
@@ -30186,7 +30186,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n798",
-          "label": "-",
+          "label": "Cerebellar vermis, right",
           "source_node": 798,
           "source_name": "Allen_cerebellar_vermis_R",
           "ontology": "-",
@@ -30199,7 +30199,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n799",
-          "label": "-",
+          "label": "Cerebellar deep nuclei, right",
           "source_node": 799,
           "source_name": "Allen_cerebellar_deep_nuclei_R",
           "ontology": "-",
@@ -30212,7 +30212,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n800",
-          "label": "-",
+          "label": "White matter of hindbrain, right",
           "source_node": 800,
           "source_name": "Allen_white_matter_of_hindbrain_R",
           "ontology": "-",
@@ -30225,7 +30225,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n801",
-          "label": "-",
+          "label": "Olfactory tract, right",
           "source_node": 801,
           "source_name": "Allen_olfactory_tract_R",
           "ontology": "-",
@@ -30407,7 +30407,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n815",
-          "label": "-",
+          "label": "Supraparietal lobule, right",
           "source_node": 815,
           "source_name": "Allen_supraparietal_lobule_R",
           "ontology": "-",
@@ -30420,7 +30420,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n816",
-          "label": "-",
+          "label": "Supramarginal gyrus, right",
           "source_node": 816,
           "source_name": "Allen_supramarginal_gyrus_R",
           "ontology": "-",
@@ -30433,7 +30433,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n817",
-          "label": "-",
+          "label": "Angular gyrus, right",
           "source_node": 817,
           "source_name": "Allen_angular_gyrus_R",
           "ontology": "-",
@@ -30459,7 +30459,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n819",
-          "label": "-",
+          "label": "Paracentral lobule caudal part, right",
           "source_node": 819,
           "source_name": "Allen_paracentral_lobule_caudal_part_R",
           "ontology": "-",
@@ -30511,7 +30511,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n823",
-          "label": "-",
+          "label": "Occipitotemporal fusiform gyrus temporal part, right",
           "source_node": 823,
           "source_name": "Allen_occipitotemporal_fusiform_gyrus_temporal_part_R",
           "ontology": "-",
@@ -30524,7 +30524,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n824",
-          "label": "-",
+          "label": "Transverse temporal gyrus heschls gyrus, right",
           "source_node": 824,
           "source_name": "Allen_transverse_temporal_gyrus_Heschls_gyrus_R",
           "ontology": "-",
@@ -30732,7 +30732,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n840",
-          "label": "-",
+          "label": "Gyrus ambiens, right",
           "source_node": 840,
           "source_name": "Allen_gyrus_ambiens_R",
           "ontology": "-",
@@ -30745,7 +30745,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n841",
-          "label": "-",
+          "label": "Head of hippocampus, right",
           "source_node": 841,
           "source_name": "Allen_head_of_hippocampus_R",
           "ontology": "-",
@@ -30758,7 +30758,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n842",
-          "label": "-",
+          "label": "Body of hippocampus, right",
           "source_node": 842,
           "source_name": "Allen_body_of_hippocampus_R",
           "ontology": "-",
@@ -30771,7 +30771,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n843",
-          "label": "-",
+          "label": "Tail of hippocampus, right",
           "source_node": 843,
           "source_name": "Allen_tail_of_hippocampus_R",
           "ontology": "-",
@@ -30784,7 +30784,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n844",
-          "label": "-",
+          "label": "Long insular gyri, right",
           "source_node": 844,
           "source_name": "Allen_long_insular_gyri_R",
           "ontology": "-",
@@ -30797,7 +30797,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n845",
-          "label": "-",
+          "label": "Short insular gyri, right",
           "source_node": 845,
           "source_name": "Allen_short_insular_gyri_R",
           "ontology": "-",
@@ -30810,7 +30810,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n846",
-          "label": "-",
+          "label": "Limen insula, right",
           "source_node": 846,
           "source_name": "Allen_limen_insula_R",
           "ontology": "-",
@@ -30823,7 +30823,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n847",
-          "label": "-",
+          "label": "Pretectal region, right",
           "source_node": 847,
           "source_name": "Allen_pretectal_region_R",
           "ontology": "-",
@@ -30901,7 +30901,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n853",
-          "label": "-",
+          "label": "Superior cerebellar peduncle brachium conjunctivum, right",
           "source_node": 853,
           "source_name": "Allen_superior_cerebellar_peduncle_brachium_conjunctivum_R",
           "ontology": "-",
@@ -30914,7 +30914,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n854",
-          "label": "-",
+          "label": "Cerebral aqueduct, right",
           "source_node": 854,
           "source_name": "Allen_cerebral_aqueduct_R",
           "ontology": "-",
@@ -30927,7 +30927,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n855",
-          "label": "-",
+          "label": "Paravermis of cerebellum, right",
           "source_node": 855,
           "source_name": "Allen_paravermis_of_cerebellum_R",
           "ontology": "-",
@@ -30940,7 +30940,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n856",
-          "label": "-",
+          "label": "Lateral hemisphere of cerebellum, right",
           "source_node": 856,
           "source_name": "Allen_lateral_hemisphere_of_cerebellum_R",
           "ontology": "-",
@@ -30979,7 +30979,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n859",
-          "label": "-",
+          "label": "Pyramidal part of medulla oblongata, right",
           "source_node": 859,
           "source_name": "Allen_pyramidal_part_of_medulla_oblongata_R",
           "ontology": "-",
@@ -30992,7 +30992,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n860",
-          "label": "-",
+          "label": "Tegmentum of medulla oblongata, right",
           "source_node": 860,
           "source_name": "Allen_tegmentum_of_medulla_oblongata_R",
           "ontology": "-",
@@ -31005,7 +31005,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n861",
-          "label": "-",
+          "label": "Inferior olive, right",
           "source_node": 861,
           "source_name": "Allen_inferior_olive_R",
           "ontology": "-",
@@ -31018,7 +31018,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n862",
-          "label": "-",
+          "label": "Inferior cerebellar peduncle, right",
           "source_node": 862,
           "source_name": "Allen_inferior_cerebellar_peduncle_R",
           "ontology": "-",
@@ -31031,7 +31031,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n863",
-          "label": "-",
+          "label": "Middle cerebellar peduncle, right",
           "source_node": 863,
           "source_name": "Allen_middle_cerebellar_peduncle_R",
           "ontology": "-",
@@ -31057,7 +31057,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n865",
-          "label": "-",
+          "label": "Central canal of medulla oblongata, right",
           "source_node": 865,
           "source_name": "Allen_central_canal_of_medulla_oblongata_R",
           "ontology": "-",
@@ -31070,7 +31070,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n866",
-          "label": "-",
+          "label": "Midline nuclear complex, right",
           "source_node": 866,
           "source_name": "Allen_midline_nuclear_complex_R",
           "ontology": "-",
@@ -31083,7 +31083,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n867",
-          "label": "-",
+          "label": "Lateral olfactory gyrus, right",
           "source_node": 867,
           "source_name": "Allen_lateral_olfactory_gyrus_R",
           "ontology": "-",
@@ -31122,7 +31122,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n870",
-          "label": "-",
+          "label": "Posteroventral putamen, right",
           "source_node": 870,
           "source_name": "Allen_posteroventral_putamen_R",
           "ontology": "-",
@@ -31135,7 +31135,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n871",
-          "label": "-",
+          "label": "Atrium of lateral ventricle, right",
           "source_node": 871,
           "source_name": "Allen_atrium_of_lateral_ventricle_R",
           "ontology": "-",
@@ -31148,7 +31148,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n872",
-          "label": "-",
+          "label": "Paracingulate gyrus, right",
           "source_node": 872,
           "source_name": "Allen_paracingulate_gyrus_R",
           "ontology": "-",
@@ -31161,7 +31161,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n873",
-          "label": "-",
+          "label": "Rostral gyrus, right",
           "source_node": 873,
           "source_name": "Allen_rostral_gyrus_R",
           "ontology": "-",
@@ -31174,7 +31174,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n874",
-          "label": "-",
+          "label": "Frontomarginal gyrus, right",
           "source_node": 874,
           "source_name": "Allen_frontomarginal_gyrus_R",
           "ontology": "-",
@@ -31187,7 +31187,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n875",
-          "label": "-",
+          "label": "Frontal pole, right",
           "source_node": 875,
           "source_name": "Allen_frontal_pole_R",
           "ontology": "-",
@@ -31200,7 +31200,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n876",
-          "label": "-",
+          "label": "Perirhinal gyrus rostral part of fugt, right",
           "source_node": 876,
           "source_name": "Allen_perirhinal_gyrus_rostral_part_of_FuGt_R",
           "ontology": "-",
@@ -31239,7 +31239,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n879",
-          "label": "-",
+          "label": "Subthalamic nucleus, right",
           "source_node": 879,
           "source_name": "Allen_subthalamic_nucleus_R",
           "ontology": "-",
@@ -31252,7 +31252,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n880",
-          "label": "-",
+          "label": "Mammillary region of hypothalamus, right",
           "source_node": 880,
           "source_name": "Allen_mammillary_region_of_HTH_R",
           "ontology": "-",
@@ -31265,7 +31265,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n881",
-          "label": "-",
+          "label": "Midbrain tegmentum, right",
           "source_node": 881,
           "source_name": "Allen_midbrain_tegmentum_R",
           "ontology": "-",
@@ -31278,7 +31278,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n882",
-          "label": "-",
+          "label": "Tuberal region of hypothalamus, right",
           "source_node": 882,
           "source_name": "Allen_tuberal_region_of_HTH_R",
           "ontology": "-",
@@ -31291,7 +31291,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n883",
-          "label": "-",
+          "label": "Preoptic region of hypothalamus, right",
           "source_node": 883,
           "source_name": "Allen_preoptic_region_of_HTH_R",
           "ontology": "-",
@@ -31304,7 +31304,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n884",
-          "label": "-",
+          "label": "Midbrain tegmentum, left",
           "source_node": 884,
           "source_name": "Allen_midbrain_tegmentum_L",
           "ontology": "-",
@@ -31343,7 +31343,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n887",
-          "label": "-",
+          "label": "Mammillary region of hypothalamus, left",
           "source_node": 887,
           "source_name": "Allen_mammillary_region_of_HTH_L",
           "ontology": "-",
@@ -31356,7 +31356,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n888",
-          "label": "-",
+          "label": "Subthalamic nucleus, left",
           "source_node": 888,
           "source_name": "Allen_subthalamic_nucleus_L",
           "ontology": "-",
@@ -31401,7 +31401,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n891",
-          "label": "Nerves of eye l",
+          "label": "Nerves of eye, left",
           "source_node": 891,
           "source_name": "VH_M_nerves_of_eye_L",
           "ontology": "",
@@ -31444,7 +31444,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n894",
-          "label": "Nerves of eye r",
+          "label": "Nerves of eye, right",
           "source_node": 894,
           "source_name": "VH_M_nerves_of_eye_R",
           "ontology": "",
@@ -31548,7 +31548,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n898",
-          "label": "Eye l",
+          "label": "Eye, left",
           "source_node": 898,
           "source_name": "VH_M_eye_L",
           "ontology": "",
@@ -31615,7 +31615,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n900",
-          "label": "Palpebral conjunctiva l",
+          "label": "Palpebral conjunctiva, left",
           "source_node": 900,
           "source_name": "VH_M_palpebral_conjunctiva_L",
           "ontology": "",
@@ -31928,7 +31928,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n923",
-          "label": "Eye r",
+          "label": "Eye, right",
           "source_node": 923,
           "source_name": "VH_M_eye_R",
           "ontology": "",
@@ -31982,7 +31982,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n924",
-          "label": "Palpebral conjunctiva r",
+          "label": "Palpebral conjunctiva, right",
           "source_node": 924,
           "source_name": "VH_M_palpebral_conjunctiva_R",
           "ontology": "",
@@ -32382,7 +32382,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n950",
-          "label": "Ocular muscles l",
+          "label": "Ocular muscles, left",
           "source_node": 950,
           "source_name": "VH_M_ocular_muscles_L",
           "ontology": "",
@@ -32500,7 +32500,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n958",
-          "label": "Ocular muscles r",
+          "label": "Ocular muscles, right",
           "source_node": 958,
           "source_name": "VH_M_ocular_muscles_R",
           "ontology": "",
@@ -32637,7 +32637,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n967",
-          "label": "Muscles of knee l",
+          "label": "Muscles of knee, left",
           "source_node": 967,
           "source_name": "VH_M_muscles_of_knee_L",
           "ontology": "",
@@ -32682,7 +32682,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n970",
-          "label": "Muscles of knee r",
+          "label": "Muscles of knee, right",
           "source_node": 970,
           "source_name": "VH_M_muscles_of_knee_R",
           "ontology": "",
@@ -33927,7 +33927,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n1041",
-          "label": "Bronchi l",
+          "label": "Bronchi, left",
           "source_node": 1041,
           "source_name": "VH_M_bronchi_L",
           "ontology": "",
@@ -33969,7 +33969,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n1043",
-          "label": "Lobar bronchus l",
+          "label": "Lobar bronchus, left",
           "source_node": 1043,
           "source_name": "VH_M_lobar_bronchus_L",
           "ontology": "",
@@ -34012,7 +34012,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n1046",
-          "label": "Tertiary bronchi l",
+          "label": "Tertiary bronchi, left",
           "source_node": 1046,
           "source_name": "VH_M_tertiary_bronchi_L",
           "ontology": "",
@@ -34110,7 +34110,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n1052",
-          "label": "-",
+          "label": "Left lingular bronchus",
           "source_node": 1052,
           "source_name": "VH_M_left_lingular_bronchus",
           "ontology": "-",
@@ -34175,7 +34175,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n1057",
-          "label": "Bronchi r",
+          "label": "Bronchi, right",
           "source_node": 1057,
           "source_name": "VH_M_bronchi_R",
           "ontology": "",
@@ -34220,7 +34220,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n1059",
-          "label": "Lobar bronchi r",
+          "label": "Lobar bronchi, right",
           "source_node": 1059,
           "source_name": "VH_M_lobar_bronchi_R",
           "ontology": "",
@@ -34278,7 +34278,7 @@
         },
         {
           "id": "source.hra-v1-1.male.n1063",
-          "label": "Tertiary bronchi r",
+          "label": "Tertiary bronchi, right",
           "source_node": 1063,
           "source_name": "VH_M_tertiary_bronchi_R",
           "ontology": "",

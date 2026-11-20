@@ -39,11 +39,16 @@ func load_data(parsed: Variant) -> String:
 			# shared ID. A mapped structure may belong to only one card.
 			if not record.geometry is Dictionary or record.geometry.is_empty():
 				return "Study content contains an invalid structure mapping."
+			# A body may map one structure, or a list for paired or split parts
+			# such as the left and right eye.
 			for reference in record.geometry:
-				var mapping = record.geometry[reference]
-				if not nonempty_text(reference, 64) or not valid_mapping(mapping) or mapped.has(mapping.id) or parsed.cards.has(mapping.id):
+				var mappings := mapping_list(record.geometry[reference])
+				if not nonempty_text(reference, 64) or mappings.is_empty():
 					return "Study content contains an invalid structure mapping."
-				mapped[mapping.id] = id
+				for mapping in mappings:
+					if not valid_mapping(mapping) or mapped.has(mapping.id) or parsed.cards.has(mapping.id):
+						return "Study content contains an invalid structure mapping."
+					mapped[mapping.id] = id
 	var routes = parsed.get("routes", {})
 	if not routes is Dictionary:
 		return "Study routes have an unsupported format."
@@ -66,6 +71,16 @@ func load_data(parsed: Variant) -> String:
 	data = parsed.duplicate(true)
 	aliases = mapped
 	return ""
+
+
+## One body's card geometry as a list: a single mapping or a non-empty array.
+## Returns [] for anything else so callers fail closed.
+static func mapping_list(value: Variant) -> Array:
+	if value is Dictionary:
+		return [value]
+	if value is Array and not value.is_empty() and value.size() <= 64:
+		return value
+	return []
 
 
 static func valid_mapping(mapping: Variant) -> bool:
@@ -178,10 +193,12 @@ func card(id: String) -> Dictionary:
 func structure_id(id: String, structures: Dictionary) -> String:
 	if structures.has(id):
 		return id
-	for mapping in data.get("cards", {}).get(id, {}).get("geometry", {}).values():
-		var structure: Dictionary = structures.get(mapping.id, {})
-		if not structure.is_empty() and structure.get("source_name") == mapping.source_name and structure.get("ontology") == mapping.ontology:
-			return str(mapping.id)
+	# The first matching mapping is the card's focus in this body.
+	for value in data.get("cards", {}).get(id, {}).get("geometry", {}).values():
+		for mapping in mapping_list(value):
+			var structure: Dictionary = structures.get(mapping.id, {})
+			if not structure.is_empty() and structure.get("source_name") == mapping.source_name and structure.get("ontology") == mapping.ontology:
+				return str(mapping.id)
 	return ""
 
 

@@ -13,9 +13,9 @@ func check(condition: bool, message: String) -> void:
 func _initialize() -> void:
 	var content := Content.new()
 	var original: Dictionary = content.data.duplicate(true)
-	check(content.error.is_empty() and original.cards.size() == 41 and original.routes.size() == 1 and original.conditions.size() == 14, "Bundled explanations, route and conditions retain explicit draft-review status")
+	check(content.error.is_empty() and original.cards.size() == 63 and original.routes.size() == 1 and original.conditions.size() == 25, "Bundled explanations, route and conditions retain explicit draft-review status")
 	var invalid: Array = [null, [], {}, {"schema_version": 2}]
-	for change in ["source", "card", "related", "citation", "review", "date", "promotion", "human-review", "assistant-actor", "route-target", "route-gap", "route-unreachable", "route-return", "mapping", "condition", "condition-focus", "condition-geometry", "condition-review", "condition-citation", "card-geometry", "card-mapping", "card-duplicate", "card-shadow", "condition-depiction"]:
+	for change in ["source", "card", "related", "citation", "review", "date", "promotion", "human-review", "assistant-actor", "route-target", "route-gap", "route-unreachable", "route-return", "mapping", "condition", "condition-focus", "condition-geometry", "condition-review", "condition-citation", "card-geometry", "card-mapping", "card-duplicate", "card-shadow", "condition-depiction", "card-list-empty", "card-list-entry", "card-list-duplicate"]:
 		var candidate := original.duplicate(true)
 		match change:
 			"source": candidate.sources["heart-flow"].url = "javascript:alert(1)"
@@ -44,6 +44,10 @@ func _initialize() -> void:
 			# A mapping cannot hide a card that already uses the shared ID.
 			"card-shadow": candidate.cards["anatomy.liver"].geometry.female.id = "anatomy.heart"
 			"condition-depiction": candidate.conditions["condition.cirrhosis"].not_depicted = ""
+			"card-list-empty": candidate.cards["anatomy.cornea"].geometry.female = []
+			"card-list-entry": candidate.cards["anatomy.cornea"].geometry.female[1].erase("ontology")
+			# A paired part cannot also belong to another card.
+			"card-list-duplicate": candidate.cards["anatomy.iris"].geometry.female.append(candidate.cards["anatomy.cornea"].geometry.female[0].duplicate())
 		invalid.append(candidate)
 	for candidate in invalid:
 		check(not content.load_data(candidate).is_empty() and content.data.is_empty(), "Invalid content fails closed with no partial learning claims")
@@ -65,6 +69,11 @@ func _initialize() -> void:
 		var liver := content.structure_id("anatomy.liver", structures)
 		check(not liver.is_empty() and structures[liver].source_name.ends_with("_liver") and content.card(liver) == content.card("anatomy.liver"), "Mapped liver card resolves in " + body.id)
 		check(content.conditions_for(liver) == ["condition.gallstones", "condition.cirrhosis"] and content.condition_focus("condition.cirrhosis", structures) == liver, "Mapped structures list and focus their conditions in " + body.id)
+		# Paired parts share one card; the first mapped side is its focus.
+		var corneas: Array = original.cards["anatomy.cornea"].geometry[body.id]
+		check(corneas.size() == 2 and content.card(corneas[1].id) == content.card("anatomy.cornea") and content.structure_id("anatomy.cornea", structures) == corneas[0].id, "Both corneas resolve to one card in " + body.id)
+		check(content.conditions_for(content.structure_id("anatomy.retina", structures)) == ["condition.glaucoma", "condition.amd", "condition.diabetic-retinopathy"], "Retina lists its sourced eye conditions in " + body.id)
+		check(content.condition_focus("condition.amd", structures) == content.structure_id("anatomy.macula", structures), "AMD focuses the supplied macula in " + body.id)
 		check(content.structure_id("anatomy.heart", structures) == "anatomy.heart", "Shared IDs resolve unchanged in " + body.id)
 		check(content.structure_id("anatomy.prostate", structures).is_empty() == (body.id == "female"), "Sex-specific cards stay in their own body: " + body.id)
 		check(content.condition_available("condition.bph", structures) == (body.id == "male") and content.condition_available("condition.endometriosis", structures) == (body.id == "female"), "Sex-specific conditions need their own supplied anatomy: " + body.id)

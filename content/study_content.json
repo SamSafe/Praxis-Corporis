@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "revision": "body-study-1-draft",
+  "revision": "body-study-2-draft",
   "review_status": "draft",
   "expert_review": "pending",
-  "scope": "Private draft explanations covering the chest and selected abdominal, pelvic and lymphatic organs. General anatomy is separate from completeness and accuracy of the supplied source meshes. No source illustrations or video are reused.",
+  "scope": "Private draft explanations covering the chest, selected abdominal, pelvic and lymphatic organs, the brain, eyes and knees. General anatomy is separate from completeness and accuracy of the supplied source meshes. No source illustrations or video are reused.",
   "sources": {
     "heart-anatomy": {
       "title": "NHLBI: Heart anatomy",
@@ -136,6 +136,78 @@
     "seer-bladder": {
       "title": "NCI SEER Training: Urinary bladder",
       "url": "https://training.seer.cancer.gov/anatomy/urinary/components/bladder.html"
+    },
+    "seer-cns": {
+      "title": "NCI SEER Training: Central nervous system",
+      "url": "https://training.seer.cancer.gov/anatomy/nervous/organization/cns.html"
+    },
+    "seer-articulations": {
+      "title": "NCI SEER Training: Articulations",
+      "url": "https://training.seer.cancer.gov/anatomy/skeletal/articulations.html"
+    },
+    "mlp-brain": {
+      "title": "MedlinePlus: Brain diseases",
+      "url": "https://medlineplus.gov/braindiseases.html"
+    },
+    "mlp-cerebellum": {
+      "title": "MedlinePlus: Cerebellum - function",
+      "url": "https://medlineplus.gov/ency/imagepages/18008.htm"
+    },
+    "mlp-stroke": {
+      "title": "MedlinePlus: Stroke",
+      "url": "https://medlineplus.gov/stroke.html"
+    },
+    "mlp-alzheimers": {
+      "title": "MedlinePlus: Alzheimer's disease",
+      "url": "https://medlineplus.gov/alzheimersdisease.html"
+    },
+    "mlp-parkinsons": {
+      "title": "MedlinePlus: Parkinson's disease",
+      "url": "https://medlineplus.gov/parkinsonsdisease.html"
+    },
+    "mlp-parkinson-disease": {
+      "title": "MedlinePlus Medical Encyclopedia: Parkinson disease",
+      "url": "https://medlineplus.gov/ency/article/000755.htm"
+    },
+    "mlp-epilepsy": {
+      "title": "MedlinePlus: Epilepsy",
+      "url": "https://medlineplus.gov/epilepsy.html"
+    },
+    "nei-how-eyes-work": {
+      "title": "NEI: How the eyes work",
+      "url": "https://www.nei.nih.gov/learn-about-eye-health/healthy-vision/how-eyes-work"
+    },
+    "nei-cataracts": {
+      "title": "NEI: Cataracts",
+      "url": "https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases/cataracts"
+    },
+    "nei-glaucoma": {
+      "title": "NEI: Glaucoma",
+      "url": "https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases/glaucoma"
+    },
+    "nei-amd": {
+      "title": "NEI: Age-related macular degeneration",
+      "url": "https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases/age-related-macular-degeneration"
+    },
+    "nei-diabetic-retinopathy": {
+      "title": "NEI: Diabetic retinopathy",
+      "url": "https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases/diabetic-retinopathy"
+    },
+    "mlp-knee": {
+      "title": "MedlinePlus: Knee injuries and disorders",
+      "url": "https://medlineplus.gov/kneeinjuriesanddisorders.html"
+    },
+    "mlp-acl": {
+      "title": "MedlinePlus Medical Encyclopedia: Anterior cruciate ligament (ACL) injury",
+      "url": "https://medlineplus.gov/ency/article/001074.htm"
+    },
+    "mlp-meniscus": {
+      "title": "MedlinePlus Medical Encyclopedia: Meniscus tears - aftercare",
+      "url": "https://medlineplus.gov/ency/patientinstructions/000684.htm"
+    },
+    "niams-osteoarthritis": {
+      "title": "NIAMS: Osteoarthritis",
+      "url": "https://www.niams.nih.gov/health-topics/osteoarthritis"
     }
   },
   "cards": {
@@ -1044,6 +1116,1303 @@
           "ontology": ""
         }
       }
+    },
+    "anatomy.brain": {
+      "overview": "Divided into the cerebrum, diencephalon, brain stem and cerebellum. With the spinal cord it forms the central nervous system.",
+      "function": "The body's control center. It controls thoughts, memory, speech and movement, and regulates the function of many organs.",
+      "related": [
+        "anatomy.cerebellum",
+        "anatomy.brainstem",
+        "anatomy.thalamus",
+        "anatomy.corpus-callosum",
+        "anatomy.optic-nerves"
+      ],
+      "source_ids": [
+        "seer-cns",
+        "mlp-brain"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n60",
+          "source_name": "Allen_brain",
+          "ontology": ""
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n604",
+          "source_name": "Allen_brain",
+          "ontology": ""
+        }
+      }
+    },
+    "anatomy.cerebellum": {
+      "overview": "The second largest part of the brain, below the occipital lobes of the cerebrum. The supplied cerebellum is split into several source parts.",
+      "function": "Processes input from other areas of the brain, the spinal cord and sensory receptors to time coordinated, smooth movements.",
+      "related": [
+        "anatomy.brain",
+        "anatomy.brainstem"
+      ],
+      "source_ids": [
+        "seer-cns",
+        "mlp-cerebellum"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n121",
+            "source_name": "Allen_cerebellar_vermis_L",
+            "ontology": "UBERON:0004720"
+          },
+          {
+            "id": "source.hra-v1-1.female.n176",
+            "source_name": "Allen_paravermis_of_cerebellum_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n177",
+            "source_name": "Allen_lateral_hemisphere_of_cerebellum_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n255",
+            "source_name": "Allen_cerebellar_vermis_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n312",
+            "source_name": "Allen_paravermis_of_cerebellum_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n313",
+            "source_name": "Allen_lateral_hemisphere_of_cerebellum_R",
+            "ontology": "-"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n664",
+            "source_name": "Allen_cerebellar_vermis_L",
+            "ontology": "UBERON:0004720"
+          },
+          {
+            "id": "source.hra-v1-1.male.n719",
+            "source_name": "Allen_paravermis_of_cerebellum_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n720",
+            "source_name": "Allen_lateral_hemisphere_of_cerebellum_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n798",
+            "source_name": "Allen_cerebellar_vermis_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n855",
+            "source_name": "Allen_paravermis_of_cerebellum_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n856",
+            "source_name": "Allen_lateral_hemisphere_of_cerebellum_R",
+            "ontology": "-"
+          }
+        ]
+      }
+    },
+    "anatomy.brainstem": {
+      "overview": "The region between the diencephalon and the spinal cord, made of three parts: the midbrain, pons and medulla oblongata.",
+      "function": "Links the brain and spinal cord. All the sensory and motor nerve fibers connecting them pass through the medulla.",
+      "related": [
+        "anatomy.brain",
+        "anatomy.cerebellum"
+      ],
+      "source_ids": [
+        "seer-cns"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n178",
+            "source_name": "Allen_basilar_part_of_pons_L",
+            "ontology": "UBERON:0002151"
+          },
+          {
+            "id": "source.hra-v1-1.female.n179",
+            "source_name": "Allen_pontine_tegmentum_L",
+            "ontology": "UBERON:0003023"
+          },
+          {
+            "id": "source.hra-v1-1.female.n180",
+            "source_name": "Allen_pyramidal_part_of_medulla_oblongata_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n181",
+            "source_name": "Allen_tegmentum_of_medulla_oblongata_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n314",
+            "source_name": "Allen_basilar_part_of_pons_R",
+            "ontology": "UBERON:0002151"
+          },
+          {
+            "id": "source.hra-v1-1.female.n315",
+            "source_name": "Allen_pontine_tegmentum_R",
+            "ontology": "UBERON:0003023"
+          },
+          {
+            "id": "source.hra-v1-1.female.n316",
+            "source_name": "Allen_pyramidal_part_of_medulla_oblongata_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n317",
+            "source_name": "Allen_tegmentum_of_medulla_oblongata_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n338",
+            "source_name": "Allen_midbrain_tegmentum_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n341",
+            "source_name": "Allen_midbrain_tegmentum_L",
+            "ontology": "-"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n721",
+            "source_name": "Allen_basilar_part_of_pons_L",
+            "ontology": "UBERON:0002151"
+          },
+          {
+            "id": "source.hra-v1-1.male.n722",
+            "source_name": "Allen_pontine_tegmentum_L",
+            "ontology": "UBERON:0003023"
+          },
+          {
+            "id": "source.hra-v1-1.male.n723",
+            "source_name": "Allen_pyramidal_part_of_medulla_oblongata_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n724",
+            "source_name": "Allen_tegmentum_of_medulla_oblongata_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n857",
+            "source_name": "Allen_basilar_part_of_pons_R",
+            "ontology": "UBERON:0002151"
+          },
+          {
+            "id": "source.hra-v1-1.male.n858",
+            "source_name": "Allen_pontine_tegmentum_R",
+            "ontology": "UBERON:0003023"
+          },
+          {
+            "id": "source.hra-v1-1.male.n859",
+            "source_name": "Allen_pyramidal_part_of_medulla_oblongata_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n860",
+            "source_name": "Allen_tegmentum_of_medulla_oblongata_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n881",
+            "source_name": "Allen_midbrain_tegmentum_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n884",
+            "source_name": "Allen_midbrain_tegmentum_L",
+            "ontology": "-"
+          }
+        ]
+      }
+    },
+    "anatomy.thalamus": {
+      "overview": "Two oval masses of gray matter making up about 80 percent of the diencephalon, which the cerebral hemispheres nearly surround.",
+      "function": "Relays sensory impulses, except for smell, to the cerebral cortex.",
+      "related": [
+        "anatomy.hypothalamus",
+        "anatomy.brain"
+      ],
+      "source_ids": [
+        "seer-cns"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n89",
+            "source_name": "Allen_thalamus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n90",
+            "source_name": "Allen_anterior_nuclear_complex_of_thalamus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n91",
+            "source_name": "Allen_lateral_dorsal_nucleus_of_thalamus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n92",
+            "source_name": "Allen_mediodorsal_nucleus_of_thalamus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n93",
+            "source_name": "Allen_reuniens_nucleus_medioventral_nucleus_of_thalamus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n94",
+            "source_name": "Allen_lateral_posterior_nucleus_of_thalamus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n95",
+            "source_name": "Allen_pulvinar_of_thalamus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n96",
+            "source_name": "Allen_ventral_anterior_nucleus_of_thalamus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n97",
+            "source_name": "Allen_ventral_lateral_nucleus_of_thalamus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n102",
+            "source_name": "Allen_centromedian_nucleus_of_thalamus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n103",
+            "source_name": "Allen_parafascicular_nucleus_of_thalamus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n225",
+            "source_name": "Allen_thalamus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n226",
+            "source_name": "Allen_anterior_nuclear_complex_of_thalamus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n227",
+            "source_name": "Allen_lateral_dorsal_nucleus_of_thalamus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n228",
+            "source_name": "Allen_mediodorsal_nucleus_of_thalamus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n229",
+            "source_name": "Allen_reuniens_nucleus_medioventral_nucleus_of_thalamus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n230",
+            "source_name": "Allen_lateral_posterior_nucleus_of_thalamus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n231",
+            "source_name": "Allen_pulvinar_of_thalamus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n232",
+            "source_name": "Allen_ventral_anterior_nucleus_of_thalamus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n233",
+            "source_name": "Allen_ventral_lateral_nucleus_of_thalamus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n238",
+            "source_name": "Allen_centromedian_nucleus_of_thalamus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n239",
+            "source_name": "Allen_parafascicular_nucleus_of_thalamus_R",
+            "ontology": "-"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n632",
+            "source_name": "Allen_thalamus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n633",
+            "source_name": "Allen_anterior_nuclear_complex_of_thalamus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n634",
+            "source_name": "Allen_lateral_dorsal_nucleus_of_thalamus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n635",
+            "source_name": "Allen_mediodorsal_nucleus_of_thalamus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n636",
+            "source_name": "Allen_reuniens_nucleus_medioventral_nucleus_of_thalamus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n637",
+            "source_name": "Allen_lateral_posterior_nucleus_of_thalamus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n638",
+            "source_name": "Allen_pulvinar_of_thalamus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n639",
+            "source_name": "Allen_ventral_anterior_nucleus_of_thalamus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n640",
+            "source_name": "Allen_ventral_lateral_nucleus_of_thalamus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n645",
+            "source_name": "Allen_centromedian_nucleus_of_thalamus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n646",
+            "source_name": "Allen_parafascicular_nucleus_of_thalamus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n768",
+            "source_name": "Allen_thalamus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n769",
+            "source_name": "Allen_anterior_nuclear_complex_of_thalamus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n770",
+            "source_name": "Allen_lateral_dorsal_nucleus_of_thalamus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n771",
+            "source_name": "Allen_mediodorsal_nucleus_of_thalamus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n772",
+            "source_name": "Allen_reuniens_nucleus_medioventral_nucleus_of_thalamus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n773",
+            "source_name": "Allen_lateral_posterior_nucleus_of_thalamus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n774",
+            "source_name": "Allen_pulvinar_of_thalamus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n775",
+            "source_name": "Allen_ventral_anterior_nucleus_of_thalamus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n776",
+            "source_name": "Allen_ventral_lateral_nucleus_of_thalamus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n781",
+            "source_name": "Allen_centromedian_nucleus_of_thalamus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n782",
+            "source_name": "Allen_parafascicular_nucleus_of_thalamus_R",
+            "ontology": "-"
+          }
+        ]
+      }
+    },
+    "anatomy.hypothalamus": {
+      "overview": "A small region of the diencephalon below the thalamus.",
+      "function": "Plays a key role in maintaining homeostasis because it regulates many visceral activities.",
+      "related": [
+        "anatomy.thalamus",
+        "anatomy.brain"
+      ],
+      "source_ids": [
+        "seer-cns"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n107",
+            "source_name": "Allen_supraoptic_region_of_HTH_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n108",
+            "source_name": "Allen_preoptic_region_of_HTH_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n109",
+            "source_name": "Allen_tuberal_region_of_HTH_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n243",
+            "source_name": "Allen_supraoptic_region_of_HTH_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n334",
+            "source_name": "Allen_hypothalamus_L",
+            "ontology": "UBERON:0001898"
+          },
+          {
+            "id": "source.hra-v1-1.female.n335",
+            "source_name": "Allen_hypothalamus_R",
+            "ontology": "UBERON:0001898"
+          },
+          {
+            "id": "source.hra-v1-1.female.n337",
+            "source_name": "Allen_mammillary_region_of_HTH_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n339",
+            "source_name": "Allen_tuberal_region_of_HTH_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n340",
+            "source_name": "Allen_preoptic_region_of_HTH_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n344",
+            "source_name": "Allen_mammillary_region_of_HTH_L",
+            "ontology": "-"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n650",
+            "source_name": "Allen_supraoptic_region_of_HTH_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n651",
+            "source_name": "Allen_preoptic_region_of_HTH_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n652",
+            "source_name": "Allen_tuberal_region_of_HTH_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n786",
+            "source_name": "Allen_supraoptic_region_of_HTH_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n877",
+            "source_name": "Allen_hypothalamus_L",
+            "ontology": "UBERON:0001898"
+          },
+          {
+            "id": "source.hra-v1-1.male.n878",
+            "source_name": "Allen_hypothalamus_R",
+            "ontology": "UBERON:0001898"
+          },
+          {
+            "id": "source.hra-v1-1.male.n880",
+            "source_name": "Allen_mammillary_region_of_HTH_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n882",
+            "source_name": "Allen_tuberal_region_of_HTH_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n883",
+            "source_name": "Allen_preoptic_region_of_HTH_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n887",
+            "source_name": "Allen_mammillary_region_of_HTH_L",
+            "ontology": "-"
+          }
+        ]
+      }
+    },
+    "anatomy.corpus-callosum": {
+      "overview": "An arching band of white fibers joining the two cerebral hemispheres.",
+      "function": "Provides a communication pathway between the two halves of the cerebrum.",
+      "related": [
+        "anatomy.brain"
+      ],
+      "source_ids": [
+        "seer-cns"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n112",
+            "source_name": "Allen_corpus_callosum_L",
+            "ontology": "UBERON:0002336"
+          },
+          {
+            "id": "source.hra-v1-1.female.n246",
+            "source_name": "Allen_corpus_callosum_R",
+            "ontology": "UBERON:0002336"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n655",
+            "source_name": "Allen_corpus_callosum_L",
+            "ontology": "UBERON:0002336"
+          },
+          {
+            "id": "source.hra-v1-1.male.n789",
+            "source_name": "Allen_corpus_callosum_R",
+            "ontology": "UBERON:0002336"
+          }
+        ]
+      }
+    },
+    "anatomy.eyes": {
+      "overview": "Light passes through the cornea, enters through the pupil, then passes through the lens to the retina at the back of the eye.",
+      "function": "The parts of the eye work together so you can see: they focus light and turn it into signals the brain makes into images.",
+      "related": [
+        "anatomy.cornea",
+        "anatomy.iris",
+        "anatomy.lens",
+        "anatomy.retina",
+        "anatomy.optic-nerves"
+      ],
+      "source_ids": [
+        "nei-how-eyes-work"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n4",
+            "source_name": "VH_F_eyes",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n5",
+            "source_name": "VH_F_eye_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n29",
+            "source_name": "VH_F_eye_R",
+            "ontology": ""
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n897",
+            "source_name": "VH_M_eyes",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n898",
+            "source_name": "VH_M_eye_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n923",
+            "source_name": "VH_M_eye_R",
+            "ontology": ""
+          }
+        ]
+      }
+    },
+    "anatomy.cornea": {
+      "overview": "The clear, dome-shaped front layer of the eye.",
+      "function": "Bends light to help the eye focus.",
+      "related": [
+        "anatomy.eyes",
+        "anatomy.iris",
+        "anatomy.lens"
+      ],
+      "source_ids": [
+        "nei-how-eyes-work"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n12",
+            "source_name": "VH_F_cornea_L",
+            "ontology": "FMA:58240"
+          },
+          {
+            "id": "source.hra-v1-1.female.n38",
+            "source_name": "VH_F_cornea_R",
+            "ontology": "FMA:58239"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n906",
+            "source_name": "VH_M_cornea_L",
+            "ontology": "FMA:58240"
+          },
+          {
+            "id": "source.hra-v1-1.male.n936",
+            "source_name": "VH_M_cornea_R",
+            "ontology": "FMA:58239"
+          }
+        ]
+      }
+    },
+    "anatomy.iris": {
+      "overview": "The colored part of the eye, around an opening called the pupil.",
+      "function": "Controls how much light the pupil lets in.",
+      "related": [
+        "anatomy.eyes",
+        "anatomy.cornea",
+        "anatomy.lens"
+      ],
+      "source_ids": [
+        "nei-how-eyes-work"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n19",
+            "source_name": "VH_F_iris_L",
+            "ontology": "FMA:58237"
+          },
+          {
+            "id": "source.hra-v1-1.female.n31",
+            "source_name": "VH_F_iris_R",
+            "ontology": "FMA:58236"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n913",
+            "source_name": "VH_M_iris_L",
+            "ontology": "FMA:58237"
+          },
+          {
+            "id": "source.hra-v1-1.male.n929",
+            "source_name": "VH_M_iris_R",
+            "ontology": "FMA:58236"
+          }
+        ]
+      }
+    },
+    "anatomy.lens": {
+      "overview": "A clear inner part of the eye. Light passes through it after entering through the pupil.",
+      "function": "Works together with the cornea to focus light correctly on the retina.",
+      "related": [
+        "anatomy.eyes",
+        "anatomy.cornea",
+        "anatomy.retina"
+      ],
+      "source_ids": [
+        "nei-how-eyes-work",
+        "nei-cataracts"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n20",
+            "source_name": "VH_F_lens_L",
+            "ontology": "FMA:58243"
+          },
+          {
+            "id": "source.hra-v1-1.female.n39",
+            "source_name": "VH_F_lens_R",
+            "ontology": "FMA:58242"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n914",
+            "source_name": "VH_M_lens_L",
+            "ontology": "FMA:58243"
+          },
+          {
+            "id": "source.hra-v1-1.male.n937",
+            "source_name": "VH_M_lens_R",
+            "ontology": "FMA:58242"
+          }
+        ]
+      }
+    },
+    "anatomy.retina": {
+      "overview": "A light-sensitive layer of tissue at the back of the eye.",
+      "function": "Special cells called photoreceptors turn light into electrical signals, which travel through the optic nerve to the brain.",
+      "related": [
+        "anatomy.eyes",
+        "anatomy.macula",
+        "anatomy.optic-nerves"
+      ],
+      "source_ids": [
+        "nei-how-eyes-work"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n24",
+            "source_name": "VH_F_retina_L",
+            "ontology": "FMA:58303"
+          },
+          {
+            "id": "source.hra-v1-1.female.n45",
+            "source_name": "VH_F_retina_R",
+            "ontology": "FMA:58302"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n918",
+            "source_name": "VH_M_retina_L",
+            "ontology": "FMA:58303"
+          },
+          {
+            "id": "source.hra-v1-1.male.n943",
+            "source_name": "VH_M_retina_R",
+            "ontology": "FMA:58302"
+          }
+        ]
+      }
+    },
+    "anatomy.macula": {
+      "overview": "Part of the retina, the light-sensitive tissue at the back of the eye.",
+      "function": "Controls sharp, straight-ahead vision.",
+      "related": [
+        "anatomy.retina",
+        "anatomy.eyes"
+      ],
+      "source_ids": [
+        "nei-amd"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n26",
+            "source_name": "VH_F_macula_lutea_L",
+            "ontology": "FMA:58639"
+          },
+          {
+            "id": "source.hra-v1-1.female.n47",
+            "source_name": "VH_F_macula_lutea_R",
+            "ontology": "FMA:58638"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n920",
+            "source_name": "VH_M_macula_lutea_L",
+            "ontology": "FMA:58639"
+          },
+          {
+            "id": "source.hra-v1-1.male.n945",
+            "source_name": "VH_M_macula_lutea_R",
+            "ontology": "FMA:58638"
+          }
+        ]
+      }
+    },
+    "anatomy.optic-nerves": {
+      "overview": "Each optic nerve leaves the back of an eye.",
+      "function": "Carries electrical signals from the retina to the brain.",
+      "related": [
+        "anatomy.retina",
+        "anatomy.eyes",
+        "anatomy.brain"
+      ],
+      "source_ids": [
+        "nei-how-eyes-work",
+        "nei-glaucoma"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n55",
+            "source_name": "VH_F_right_optic_nerve",
+            "ontology": "FMA:50875"
+          },
+          {
+            "id": "source.hra-v1-1.female.n58",
+            "source_name": "VH_F_left_optic_nerve",
+            "ontology": "FMA:50878"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n893",
+            "source_name": "VH_M_left_optic_nerve",
+            "ontology": "FMA:50878"
+          },
+          {
+            "id": "source.hra-v1-1.male.n895",
+            "source_name": "VH_M_right_optic_nerve",
+            "ontology": "FMA:50875"
+          }
+        ]
+      }
+    },
+    "anatomy.knee": {
+      "overview": "The joint where the end of the thigh bone (femur) meets the top of the shin bone (tibia). It is made up of bone, cartilage, ligaments and fluid.",
+      "function": "Four main ligaments connect the thigh bone and shin bone; muscles and tendons help the joint move.",
+      "related": [
+        "anatomy.femur",
+        "anatomy.tibia",
+        "anatomy.knee-cartilage",
+        "anatomy.meniscus",
+        "anatomy.acl",
+        "anatomy.pcl",
+        "anatomy.mcl",
+        "anatomy.lcl"
+      ],
+      "source_ids": [
+        "mlp-knee",
+        "mlp-acl"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n918",
+            "source_name": "VH_F_knee_R",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n948",
+            "source_name": "VH_F_knee_L",
+            "ontology": ""
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n325",
+            "source_name": "VH_M_knee_R",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n355",
+            "source_name": "VH_M_knee_L",
+            "ontology": ""
+          }
+        ]
+      }
+    },
+    "anatomy.femur": {
+      "overview": "The thigh bone. Its lower end meets the top of the shin bone at the knee joint.",
+      "function": "Forms the upper part of the knee joint.",
+      "related": [
+        "anatomy.knee",
+        "anatomy.tibia",
+        "anatomy.knee-cartilage"
+      ],
+      "source_ids": [
+        "mlp-acl"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n921",
+            "source_name": "VH_F_femur_R",
+            "ontology": "FMA:24474"
+          },
+          {
+            "id": "source.hra-v1-1.female.n951",
+            "source_name": "VH_F_femur_L",
+            "ontology": "FMA:24475"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n330",
+            "source_name": "VH_M_femur_R",
+            "ontology": "FMA:24474"
+          },
+          {
+            "id": "source.hra-v1-1.male.n359",
+            "source_name": "VH_M_femur_L",
+            "ontology": "FMA:24475"
+          }
+        ]
+      }
+    },
+    "anatomy.tibia": {
+      "overview": "The shin bone. Its top meets the end of the thigh bone at the knee joint.",
+      "function": "Forms the lower part of the knee joint. The cruciate ligaments keep it from sliding forward or backward against the thigh bone.",
+      "related": [
+        "anatomy.knee",
+        "anatomy.femur",
+        "anatomy.acl",
+        "anatomy.pcl"
+      ],
+      "source_ids": [
+        "mlp-acl"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n937",
+            "source_name": "VH_F_tibia_R",
+            "ontology": "FMA:24477"
+          },
+          {
+            "id": "source.hra-v1-1.female.n968",
+            "source_name": "VH_F_tibia_L",
+            "ontology": "FMA:24478"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n327",
+            "source_name": "VH_M_tibia_R",
+            "ontology": "FMA:24477"
+          },
+          {
+            "id": "source.hra-v1-1.male.n375",
+            "source_name": "VH_M_tibia_L",
+            "ontology": "FMA:24478"
+          }
+        ]
+      }
+    },
+    "anatomy.knee-cartilage": {
+      "overview": "Articular cartilage covers the ends of the bones where they meet in a freely movable joint. The supplied cartilage covers the lower end of the femur.",
+      "function": "Covers the bone ends inside the joint. In osteoarthritis this cartilage breaks down.",
+      "related": [
+        "anatomy.knee",
+        "anatomy.femur",
+        "anatomy.meniscus"
+      ],
+      "source_ids": [
+        "seer-articulations",
+        "niams-osteoarthritis"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n924",
+            "source_name": "VH_F_articular_cartilage_of_knee_R",
+            "ontology": "FMA:33189"
+          },
+          {
+            "id": "source.hra-v1-1.female.n960",
+            "source_name": "VH_F_articular_cartilage_of_knee_L",
+            "ontology": "FMA:33190"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n331",
+            "source_name": "VH_M_articular_cartilage_of_knee_R",
+            "ontology": "FMA:33189"
+          },
+          {
+            "id": "source.hra-v1-1.male.n360",
+            "source_name": "VH_M_articular_cartilage_of_knee_L",
+            "ontology": "FMA:33190"
+          }
+        ]
+      }
+    },
+    "anatomy.meniscus": {
+      "overview": "A C-shaped piece of tough but flexible cartilage in the knee joint. Each knee has two.",
+      "function": "Cushions the bones of the knee like a shock absorber, helps distribute weight to the cartilage and helps stabilize the joint.",
+      "related": [
+        "anatomy.knee",
+        "anatomy.knee-cartilage"
+      ],
+      "source_ids": [
+        "mlp-meniscus"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n919",
+            "source_name": "VH_F_meniscus_R",
+            "ontology": "FMA64019"
+          },
+          {
+            "id": "source.hra-v1-1.female.n949",
+            "source_name": "VH_F_meniscus_L",
+            "ontology": "FMA64019"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n346",
+            "source_name": "VH_M_meniscus_R",
+            "ontology": "FMA:64019"
+          },
+          {
+            "id": "source.hra-v1-1.male.n356",
+            "source_name": "VH_M_meniscus_L",
+            "ontology": "FMA:64019"
+          }
+        ]
+      }
+    },
+    "anatomy.acl": {
+      "overview": "The anterior cruciate ligament, in the middle of the knee. One of the four main ligaments connecting the thigh bone and shin bone.",
+      "function": "Prevents the shin bone from sliding out in front of the thigh bone.",
+      "related": [
+        "anatomy.pcl",
+        "anatomy.knee",
+        "anatomy.meniscus"
+      ],
+      "source_ids": [
+        "mlp-acl",
+        "mlp-knee"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n913",
+            "source_name": "VH_F_anterior_cruciate_ligament_of_knee_R",
+            "ontology": "FMA:44615"
+          },
+          {
+            "id": "source.hra-v1-1.female.n946",
+            "source_name": "VH_F_anterior_cruciate_ligament_of_knee_L",
+            "ontology": "FMA:44616"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n319",
+            "source_name": "VH_M_anterior_cruciate_ligament_of_knee_joint_R",
+            "ontology": "FMA:44615"
+          },
+          {
+            "id": "source.hra-v1-1.male.n353",
+            "source_name": "VH_M_anterior_cruciate_ligament_of_knee_joint_L",
+            "ontology": "FMA:44616"
+          }
+        ]
+      }
+    },
+    "anatomy.pcl": {
+      "overview": "The posterior cruciate ligament, one of the four main knee ligaments. It works opposite to the ACL.",
+      "function": "Prevents the shin bone from sliding backward under the thigh bone.",
+      "related": [
+        "anatomy.acl",
+        "anatomy.knee"
+      ],
+      "source_ids": [
+        "mlp-acl"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n914",
+            "source_name": "VH_F_posterior_cruciate_ligament_of_knee_R",
+            "ontology": "FMA:44618"
+          },
+          {
+            "id": "source.hra-v1-1.female.n947",
+            "source_name": "VH_F_posterior_cruciate_ligament_of_knee_L",
+            "ontology": "FMA:44619"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n322",
+            "source_name": "VH_M_posterior_cruciate_ligament_of_knee_joint_R",
+            "ontology": "FMA:44618"
+          },
+          {
+            "id": "source.hra-v1-1.male.n351",
+            "source_name": "VH_M_posterior_cruciate_ligament_of_knee_joint_L",
+            "ontology": "FMA:44619"
+          }
+        ]
+      }
+    },
+    "anatomy.mcl": {
+      "overview": "The medial collateral ligament, which runs along the inside of the knee.",
+      "function": "Prevents the knee from bending inward.",
+      "related": [
+        "anatomy.lcl",
+        "anatomy.knee"
+      ],
+      "source_ids": [
+        "mlp-acl"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n912",
+            "source_name": "VH_F_right_tibial_collateral_ligament",
+            "ontology": "FMA:44601"
+          },
+          {
+            "id": "source.hra-v1-1.female.n945",
+            "source_name": "VH_F_left_tibial_collateral_ligament",
+            "ontology": "FMA:44602"
+          }
+        ],
+        "male": {
+          "id": "source.hra-v1-1.male.n352",
+          "source_name": "VH_M_left_tibial_collateral_ligament",
+          "ontology": "FMA:44602"
+        }
+      }
+    },
+    "anatomy.lcl": {
+      "overview": "The lateral collateral ligament, which runs along the outside of the knee.",
+      "function": "Prevents the knee from bending outward.",
+      "related": [
+        "anatomy.mcl",
+        "anatomy.knee"
+      ],
+      "source_ids": [
+        "mlp-acl"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n916",
+            "source_name": "VH_F_fibular_collateral_ligament_R",
+            "ontology": "FMA:44609"
+          },
+          {
+            "id": "source.hra-v1-1.female.n943",
+            "source_name": "VH_F_fibular_collateral_ligament_L",
+            "ontology": "FMA:44610"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n320",
+            "source_name": "VH_M_fibular_collateral_ligament_R",
+            "ontology": "FMA:44609"
+          },
+          {
+            "id": "source.hra-v1-1.male.n350",
+            "source_name": "VH_M_fibular_collateral_ligament_L",
+            "ontology": "FMA:44610"
+          }
+        ]
+      }
     }
   },
   "routes": {
@@ -1803,6 +3172,256 @@
       "expert_review": "pending",
       "human_source_review": "pending",
       "not_depicted": "Tissue growing outside the uterus is not depicted."
+    },
+    "condition.stroke": {
+      "title": "Stroke",
+      "summary": "Blood flow to part of the brain is lost, so brain cells cannot get the oxygen and nutrients they need and start to die within minutes. Most strokes are ischemic, caused by a clot blocking a blood vessel in the brain; hemorrhagic strokes are caused by a vessel that breaks and bleeds into the brain. A stroke needs emergency help right away.",
+      "location": "The brain is divided into the cerebrum, diencephalon, brain stem and cerebellum. A stroke affecting the cerebellum may cause dizziness, nausea and problems with balance and coordination.",
+      "focus_id": "anatomy.brain",
+      "related_anatomy": [
+        "anatomy.brain"
+      ],
+      "display_on": [
+        "anatomy.brain",
+        "anatomy.cerebellum",
+        "anatomy.brainstem"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-stroke",
+        "mlp-cerebellum",
+        "seer-cns"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Blocked or bleeding blood vessels, blood flow and damaged brain tissue are not depicted."
+    },
+    "condition.alzheimers": {
+      "title": "Alzheimer's disease",
+      "summary": "The most common form of dementia among older people. It begins slowly over many years, first involving the parts of the brain that control thought, memory and language, and its symptoms get worse over time. It is not a normal part of aging.",
+      "location": "The brain is divided into the cerebrum, diencephalon, brain stem and cerebellum.",
+      "focus_id": "anatomy.brain",
+      "related_anatomy": [
+        "anatomy.brain"
+      ],
+      "display_on": [
+        "anatomy.brain"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-alzheimers",
+        "seer-cns"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Brain changes caused by the disease are not depicted."
+    },
+    "condition.parkinsons": {
+      "title": "Parkinson's disease",
+      "summary": "A movement disorder in which the brain cells that make the chemical dopamine slowly die. Without enough dopamine, movement becomes hard to control; symptoms include trembling, stiffness, slowness and poor balance, often starting on one side of the body.",
+      "location": "The brain is divided into the cerebrum, diencephalon, brain stem and cerebellum.",
+      "focus_id": "anatomy.brain",
+      "related_anatomy": [
+        "anatomy.brain"
+      ],
+      "display_on": [
+        "anatomy.brain"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-parkinsons",
+        "mlp-parkinson-disease",
+        "seer-cns"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The affected brain cells and dopamine signaling are not depicted."
+    },
+    "condition.epilepsy": {
+      "title": "Epilepsy",
+      "summary": "A brain disorder that causes recurring seizures, which happen when clusters of nerve cells in the brain send out the wrong signals. Medicines can control seizures for most people.",
+      "location": "The brain is divided into the cerebrum, diencephalon, brain stem and cerebellum.",
+      "focus_id": "anatomy.brain",
+      "related_anatomy": [
+        "anatomy.brain"
+      ],
+      "display_on": [
+        "anatomy.brain"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-epilepsy",
+        "seer-cns"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Nerve-cell signaling and seizure activity are not depicted."
+    },
+    "condition.cataracts": {
+      "title": "Cataracts",
+      "summary": "A cloudy area in the lens of the eye. Cataracts are very common with age and can make vision blurry, hazy or less colorful. Surgery can remove them.",
+      "location": "The lens is a clear inner part of the eye that works with the cornea to focus light on the retina.",
+      "focus_id": "anatomy.lens",
+      "related_anatomy": [
+        "anatomy.lens",
+        "anatomy.eyes"
+      ],
+      "display_on": [
+        "anatomy.lens",
+        "anatomy.eyes"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nei-cataracts",
+        "nei-how-eyes-work"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Clouding of the lens is not depicted."
+    },
+    "condition.glaucoma": {
+      "title": "Glaucoma",
+      "summary": "A group of eye diseases that can cause vision loss and blindness by damaging the optic nerve at the back of the eye. It often has no symptoms at first; early treatment can often stop the damage.",
+      "location": "Each optic nerve carries signals from the retina at the back of the eye to the brain.",
+      "focus_id": "anatomy.optic-nerves",
+      "related_anatomy": [
+        "anatomy.optic-nerves",
+        "anatomy.eyes"
+      ],
+      "display_on": [
+        "anatomy.optic-nerves",
+        "anatomy.eyes",
+        "anatomy.retina"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nei-glaucoma",
+        "nei-how-eyes-work"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Optic nerve damage and vision loss are not depicted."
+    },
+    "condition.amd": {
+      "title": "Age-related macular degeneration (AMD)",
+      "summary": "Aging damages the macula, the part of the retina that controls sharp, straight-ahead vision, blurring central vision. Most people have dry AMD, in which the macula gets thinner with age.",
+      "location": "The macula is part of the retina, the light-sensitive tissue at the back of the eye.",
+      "focus_id": "anatomy.macula",
+      "related_anatomy": [
+        "anatomy.macula",
+        "anatomy.retina"
+      ],
+      "display_on": [
+        "anatomy.macula",
+        "anatomy.retina",
+        "anatomy.eyes"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nei-amd"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Thinning or other damage to the macula is not depicted."
+    },
+    "condition.diabetic-retinopathy": {
+      "title": "Diabetic retinopathy",
+      "summary": "An eye condition that can cause vision loss and blindness in people with diabetes. It affects blood vessels in the retina and may have no symptoms at first.",
+      "location": "The retina is the light-sensitive layer of tissue at the back of the eye.",
+      "focus_id": "anatomy.retina",
+      "related_anatomy": [
+        "anatomy.retina"
+      ],
+      "display_on": [
+        "anatomy.retina",
+        "anatomy.eyes"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nei-diabetic-retinopathy",
+        "nei-how-eyes-work"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Retinal blood vessels and their damage are not depicted."
+    },
+    "condition.acl-injury": {
+      "title": "Anterior cruciate ligament (ACL) injury",
+      "summary": "Over-stretching or tearing, partial or complete, of the ACL in the knee. It is often caused by a sudden twist or by stopping and changing direction quickly, and often occurs with other knee injuries such as a meniscus tear.",
+      "location": "The ACL is in the middle of the knee, connecting the thigh bone and shin bone.",
+      "focus_id": "anatomy.acl",
+      "related_anatomy": [
+        "anatomy.acl",
+        "anatomy.knee"
+      ],
+      "display_on": [
+        "anatomy.acl",
+        "anatomy.knee"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-acl",
+        "mlp-knee"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The torn ligament and knee motion are not depicted."
+    },
+    "condition.meniscus-tear": {
+      "title": "Meniscus tear",
+      "summary": "A tear in the shock-absorbing cartilage of the knee. It can happen when the knee is twisted or over-flexed, and the meniscus becomes more brittle and easier to tear with age.",
+      "location": "Each knee has two C-shaped menisci cushioning the bones of the joint.",
+      "focus_id": "anatomy.meniscus",
+      "related_anatomy": [
+        "anatomy.meniscus",
+        "anatomy.knee"
+      ],
+      "display_on": [
+        "anatomy.meniscus",
+        "anatomy.knee"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-meniscus"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The tear and knee motion are not depicted."
+    },
+    "condition.knee-osteoarthritis": {
+      "title": "Osteoarthritis of the knee",
+      "summary": "A degenerative joint disease in which tissues of the joint break down over time. It is the most common disease affecting the knee: the cartilage gradually wears away, causing pain and swelling.",
+      "location": "Articular cartilage covers the ends of the thigh bone and shin bone where they meet at the knee.",
+      "focus_id": "anatomy.knee-cartilage",
+      "related_anatomy": [
+        "anatomy.knee-cartilage",
+        "anatomy.knee"
+      ],
+      "display_on": [
+        "anatomy.knee-cartilage",
+        "anatomy.knee",
+        "anatomy.meniscus"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niams-osteoarthritis",
+        "mlp-knee",
+        "seer-articulations"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Cartilage loss, bone spurs and joint changes are not depicted."
     }
   },
   "assistant_checks": {
@@ -1815,11 +3434,27 @@
       "heart-anatomy",
       "heart-flow",
       "lungs",
+      "mlp-acl",
+      "mlp-alzheimers",
+      "mlp-brain",
+      "mlp-cerebellum",
+      "mlp-epilepsy",
+      "mlp-knee",
+      "mlp-meniscus",
+      "mlp-parkinson-disease",
+      "mlp-parkinsons",
+      "mlp-stroke",
+      "nei-amd",
+      "nei-cataracts",
+      "nei-diabetic-retinopathy",
+      "nei-glaucoma",
+      "nei-how-eyes-work",
       "nhlbi-aortic-aneurysm",
       "nhlbi-asthma",
       "nhlbi-chd",
       "nhlbi-copd",
       "nhlbi-pulmonary-embolism",
+      "niams-osteoarthritis",
       "nichd-endometriosis",
       "niddk-appendicitis",
       "niddk-bph",
@@ -1832,8 +3467,10 @@
       "niddk-urinary",
       "pulmonary-branches",
       "seer-accessory",
+      "seer-articulations",
       "seer-bladder",
       "seer-bronchi",
+      "seer-cns",
       "seer-female-tract",
       "seer-heart",
       "seer-intestine",

@@ -4,7 +4,8 @@ Added 2026-11-20 as study-content revision `body-study-1-draft`. It extends the
 chest material (15 cards, two valve conditions, the heart ↔ lungs route) with
 **26 organ cards and 12 conditions** across the circulatory, respiratory,
 digestive, lymphatic, urinary and reproductive systems. That makes 41 cards and
-14 conditions in total.
+14 conditions in total. [Revision 2](#revision-2-brain-eyes-and-knees) adds
+the brain, eyes and knees, for 63 cards and 25 conditions.
 
 **Everything here is a private draft.** Every record keeps `review_status: draft`
 with human source review and expert review pending, and the app labels it that
@@ -112,9 +113,77 @@ kidney stones on each kidney, the ureters and the bladder.
 Enlarged prostate appears only in the male reference, and endometriosis only in
 the female one. Each body therefore offers 13 conditions.
 
+## Revision 2: brain, eyes and knees
+
+Added 2026-11-20 as revision `body-study-2-draft`: **22 cards and 11 conditions**, for 63 cards and 25 conditions in total. Each body now offers 24 conditions.
+
+Paired and split parts (both eyes, both knees, the separate source pieces of the cerebellum or thalamus) share one card. A card's per-body `geometry` may therefore be a list of mappings; any listed structure shows the card, and the first one present is where its conditions focus. Each mapped structure still belongs to only one card, and a stale mapping is ignored rather than re-attached.
+
+### Brain
+
+| Card | Source parts (female / male) | Overview | Function | Sources |
+| --- | --- | --- | --- | --- |
+| `anatomy.brain` | 1 / 1 | Divided into the cerebrum, diencephalon, brain stem and cerebellum. With the spinal cord it forms the central nervous system. | The body's control center. It controls thoughts, memory, speech and movement, and regulates the function of many organs. | seer-cns, mlp-brain |
+| `anatomy.cerebellum` | 6 / 6 | The second largest part of the brain, below the occipital lobes of the cerebrum. The supplied cerebellum is split into several source parts. | Processes input from other areas of the brain, the spinal cord and sensory receptors to time coordinated, smooth movements. | seer-cns, mlp-cerebellum |
+| `anatomy.brainstem` | 10 / 10 | The region between the diencephalon and the spinal cord, made of three parts: the midbrain, pons and medulla oblongata. | Links the brain and spinal cord. All the sensory and motor nerve fibers connecting them pass through the medulla. | seer-cns |
+| `anatomy.thalamus` | 22 / 22 | Two oval masses of gray matter making up about 80 percent of the diencephalon, which the cerebral hemispheres nearly surround. | Relays sensory impulses, except for smell, to the cerebral cortex. | seer-cns |
+| `anatomy.hypothalamus` | 10 / 10 | A small region of the diencephalon below the thalamus. | Plays a key role in maintaining homeostasis because it regulates many visceral activities. | seer-cns |
+| `anatomy.corpus-callosum` | 2 / 2 | An arching band of white fibers joining the two cerebral hemispheres. | Provides a communication pathway between the two halves of the cerebrum. | seer-cns |
+
+### Eyes
+
+| Card | Source parts (female / male) | Overview | Function | Sources |
+| --- | --- | --- | --- | --- |
+| `anatomy.eyes` | 3 / 3 | Light passes through the cornea, enters through the pupil, then passes through the lens to the retina at the back of the eye. | The parts of the eye work together so you can see: they focus light and turn it into signals the brain makes into images. | nei-how-eyes-work |
+| `anatomy.cornea` | 2 / 2 | The clear, dome-shaped front layer of the eye. | Bends light to help the eye focus. | nei-how-eyes-work |
+| `anatomy.iris` | 2 / 2 | The colored part of the eye, around an opening called the pupil. | Controls how much light the pupil lets in. | nei-how-eyes-work |
+| `anatomy.lens` | 2 / 2 | A clear inner part of the eye. Light passes through it after entering through the pupil. | Works together with the cornea to focus light correctly on the retina. | nei-how-eyes-work, nei-cataracts |
+| `anatomy.retina` | 2 / 2 | A light-sensitive layer of tissue at the back of the eye. | Special cells called photoreceptors turn light into electrical signals, which travel through the optic nerve to the brain. | nei-how-eyes-work |
+| `anatomy.macula` | 2 / 2 | Part of the retina, the light-sensitive tissue at the back of the eye. | Controls sharp, straight-ahead vision. | nei-amd |
+| `anatomy.optic-nerves` | 2 / 2 | Each optic nerve leaves the back of an eye. | Carries electrical signals from the retina to the brain. | nei-how-eyes-work, nei-glaucoma |
+
+### Knees
+
+| Card | Source parts (female / male) | Overview | Function | Sources |
+| --- | --- | --- | --- | --- |
+| `anatomy.knee` | 2 / 2 | The joint where the end of the thigh bone (femur) meets the top of the shin bone (tibia). It is made up of bone, cartilage, ligaments and fluid. | Four main ligaments connect the thigh bone and shin bone; muscles and tendons help the joint move. | mlp-knee, mlp-acl |
+| `anatomy.femur` | 2 / 2 | The thigh bone. Its lower end meets the top of the shin bone at the knee joint. | Forms the upper part of the knee joint. | mlp-acl |
+| `anatomy.tibia` | 2 / 2 | The shin bone. Its top meets the end of the thigh bone at the knee joint. | Forms the lower part of the knee joint. The cruciate ligaments keep it from sliding forward or backward against the thigh bone. | mlp-acl |
+| `anatomy.knee-cartilage` | 2 / 2 | Articular cartilage covers the ends of the bones where they meet in a freely movable joint. The supplied cartilage covers the lower end of the femur. | Covers the bone ends inside the joint. In osteoarthritis this cartilage breaks down. | seer-articulations, niams-osteoarthritis |
+| `anatomy.meniscus` | 2 / 2 | A C-shaped piece of tough but flexible cartilage in the knee joint. Each knee has two. | Cushions the bones of the knee like a shock absorber, helps distribute weight to the cartilage and helps stabilize the joint. | mlp-meniscus |
+| `anatomy.acl` | 2 / 2 | The anterior cruciate ligament, in the middle of the knee. One of the four main ligaments connecting the thigh bone and shin bone. | Prevents the shin bone from sliding out in front of the thigh bone. | mlp-acl, mlp-knee |
+| `anatomy.pcl` | 2 / 2 | The posterior cruciate ligament, one of the four main knee ligaments. It works opposite to the ACL. | Prevents the shin bone from sliding backward under the thigh bone. | mlp-acl |
+| `anatomy.mcl` | 2 / 1 | The medial collateral ligament, which runs along the inside of the knee. | Prevents the knee from bending inward. | mlp-acl |
+| `anatomy.lcl` | 2 / 2 | The lateral collateral ligament, which runs along the outside of the knee. | Prevents the knee from bending outward. | mlp-acl |
+
+### Conditions
+
+| Condition | Focus | Summary | Not depicted | Sources |
+| --- | --- | --- | --- | --- |
+| Stroke | `anatomy.brain` | Blood flow to part of the brain is lost, so brain cells cannot get the oxygen and nutrients they need and start to die within minutes. Most strokes are ischemic, caused by a clot blocking a blood vessel in the brain; hemorrhagic strokes are caused by a vessel that breaks and bleeds into the brain. A stroke needs emergency help right away. | Blocked or bleeding blood vessels, blood flow and damaged brain tissue are not depicted. | mlp-stroke, mlp-cerebellum, seer-cns |
+| Alzheimer's disease | `anatomy.brain` | The most common form of dementia among older people. It begins slowly over many years, first involving the parts of the brain that control thought, memory and language, and its symptoms get worse over time. It is not a normal part of aging. | Brain changes caused by the disease are not depicted. | mlp-alzheimers, seer-cns |
+| Parkinson's disease | `anatomy.brain` | A movement disorder in which the brain cells that make the chemical dopamine slowly die. Without enough dopamine, movement becomes hard to control; symptoms include trembling, stiffness, slowness and poor balance, often starting on one side of the body. | The affected brain cells and dopamine signaling are not depicted. | mlp-parkinsons, mlp-parkinson-disease, seer-cns |
+| Epilepsy | `anatomy.brain` | A brain disorder that causes recurring seizures, which happen when clusters of nerve cells in the brain send out the wrong signals. Medicines can control seizures for most people. | Nerve-cell signaling and seizure activity are not depicted. | mlp-epilepsy, seer-cns |
+| Cataracts | `anatomy.lens` | A cloudy area in the lens of the eye. Cataracts are very common with age and can make vision blurry, hazy or less colorful. Surgery can remove them. | Clouding of the lens is not depicted. | nei-cataracts, nei-how-eyes-work |
+| Glaucoma | `anatomy.optic-nerves` | A group of eye diseases that can cause vision loss and blindness by damaging the optic nerve at the back of the eye. It often has no symptoms at first; early treatment can often stop the damage. | Optic nerve damage and vision loss are not depicted. | nei-glaucoma, nei-how-eyes-work |
+| Age-related macular degeneration (AMD) | `anatomy.macula` | Aging damages the macula, the part of the retina that controls sharp, straight-ahead vision, blurring central vision. Most people have dry AMD, in which the macula gets thinner with age. | Thinning or other damage to the macula is not depicted. | nei-amd |
+| Diabetic retinopathy | `anatomy.retina` | An eye condition that can cause vision loss and blindness in people with diabetes. It affects blood vessels in the retina and may have no symptoms at first. | Retinal blood vessels and their damage are not depicted. | nei-diabetic-retinopathy, nei-how-eyes-work |
+| Anterior cruciate ligament (ACL) injury | `anatomy.acl` | Over-stretching or tearing, partial or complete, of the ACL in the knee. It is often caused by a sudden twist or by stopping and changing direction quickly, and often occurs with other knee injuries such as a meniscus tear. | The torn ligament and knee motion are not depicted. | mlp-acl, mlp-knee |
+| Meniscus tear | `anatomy.meniscus` | A tear in the shock-absorbing cartilage of the knee. It can happen when the knee is twisted or over-flexed, and the meniscus becomes more brittle and easier to tear with age. | The tear and knee motion are not depicted. | mlp-meniscus |
+| Osteoarthritis of the knee | `anatomy.knee-cartilage` | A degenerative joint disease in which tissues of the joint break down over time. It is the most common disease affecting the knee: the cartilage gradually wears away, causing pain and swelling. | Cartilage loss, bone spurs and joint changes are not depicted. | niams-osteoarthritis, mlp-knee, seer-articulations |
+
+Stroke is also listed on the cerebellum and brainstem; glaucoma on the retina; AMD on the retina and eyes; knee osteoarthritis on the meniscus.
+
+### Revision 2 limits
+
+- **Sources.** NEI, NIAMS, NCI SEER Training and MedlinePlus (National Library of Medicine) pages, each fetched on 2026-11-20. NINDS and NIA pages refuse automated retrieval, so their text could not be checked. For that reason there are no hippocampus or substantia nigra cards, and the four brain conditions point to the whole brain instead of a specific region.
+- **Brain regions.** The thalamus, hypothalamus, cerebellum and brainstem cards group several Allen atlas source parts. The brainstem card omits the central canal. Many atlas gyri and nuclei remain without cards.
+- **Knee coverage.** The male source has no right tibial collateral ligament, so the MCL card has one part in that body. There is no patella card because no fetched source describes the patella.
+- **Source labels.** 207 source structures per body carried a literal "-" label. The pack builder now derives a readable name from the source node name instead (for example "Thalamus, left"). IDs, source names and ontology are unchanged, so saved views and mappings are unaffected.
+
 ## Deliberate limits
 
-- **Sources.** Claims come only from NIH pages: NHLBI, NIDDK, NICHD and NCI SEER
+- **Sources (revision 1).** Claims come only from NIH pages: NHLBI, NIDDK, NICHD and NCI SEER
   Training. Each page returned HTTP 200 on 2026-11-20. Some well-known details
   were left out because no cited page states them:
   - left anterior descending artery: no card was added for it;
@@ -122,10 +191,11 @@ the female one. Each body therefore offers 13 conditions.
   - where the pancreas sits relative to the stomach.
 - **No new geometry.** No disease geometry, cutaways or flow are added. The
   catalogue IDs are unchanged.
-- **Organs not covered.** The stomach, esophagus and brain are not in the
-  supplied HRA samples, so they have no cards.
+- **Organs not covered.** The stomach and esophagus are not in the supplied HRA
+  samples, so they have no cards. (An earlier version of this note also listed
+  the brain; the samples do include it, and revision 2 adds brain cards.)
 - **Review packet.** The [content-review packet](CONTENT_REVIEW_PACKET.md) still
-  describes the `c86cfba` build and its 15 cards. Prepare a new packet with the
+  describes the `c86cfba` build and its 15 cards, not revisions 1 or 2. Prepare a new packet with the
   next private build before asking a reviewer to check this material.
 
 ## Sources
@@ -158,3 +228,21 @@ the female one. Each body therefore offers 13 conditions.
 - `seer-spleen`: [NCI SEER Training: Spleen](https://training.seer.cancer.gov/anatomy/lymphatic/components/spleen.html)
 - `seer-thymus`: [NCI SEER Training: Thymus](https://training.seer.cancer.gov/anatomy/lymphatic/components/thymus.html)
 - `seer-ureters`: [NCI SEER Training: Ureters](https://training.seer.cancer.gov/anatomy/urinary/components/ureters.html)
+- `mlp-acl`: [MedlinePlus Medical Encyclopedia: Anterior cruciate ligament (ACL) injury](https://medlineplus.gov/ency/article/001074.htm)
+- `mlp-alzheimers`: [MedlinePlus: Alzheimer's disease](https://medlineplus.gov/alzheimersdisease.html)
+- `mlp-brain`: [MedlinePlus: Brain diseases](https://medlineplus.gov/braindiseases.html)
+- `mlp-cerebellum`: [MedlinePlus: Cerebellum - function](https://medlineplus.gov/ency/imagepages/18008.htm)
+- `mlp-epilepsy`: [MedlinePlus: Epilepsy](https://medlineplus.gov/epilepsy.html)
+- `mlp-knee`: [MedlinePlus: Knee injuries and disorders](https://medlineplus.gov/kneeinjuriesanddisorders.html)
+- `mlp-meniscus`: [MedlinePlus Medical Encyclopedia: Meniscus tears - aftercare](https://medlineplus.gov/ency/patientinstructions/000684.htm)
+- `mlp-parkinson-disease`: [MedlinePlus Medical Encyclopedia: Parkinson disease](https://medlineplus.gov/ency/article/000755.htm)
+- `mlp-parkinsons`: [MedlinePlus: Parkinson's disease](https://medlineplus.gov/parkinsonsdisease.html)
+- `mlp-stroke`: [MedlinePlus: Stroke](https://medlineplus.gov/stroke.html)
+- `nei-amd`: [NEI: Age-related macular degeneration](https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases/age-related-macular-degeneration)
+- `nei-cataracts`: [NEI: Cataracts](https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases/cataracts)
+- `nei-diabetic-retinopathy`: [NEI: Diabetic retinopathy](https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases/diabetic-retinopathy)
+- `nei-glaucoma`: [NEI: Glaucoma](https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases/glaucoma)
+- `nei-how-eyes-work`: [NEI: How the eyes work](https://www.nei.nih.gov/learn-about-eye-health/healthy-vision/how-eyes-work)
+- `niams-osteoarthritis`: [NIAMS: Osteoarthritis](https://www.niams.nih.gov/health-topics/osteoarthritis)
+- `seer-articulations`: [NCI SEER Training: Articulations](https://training.seer.cancer.gov/anatomy/skeletal/articulations.html)
+- `seer-cns`: [NCI SEER Training: Central nervous system](https://training.seer.cancer.gov/anatomy/nervous/organization/cns.html)
