@@ -17,7 +17,7 @@ record and complete only the scope actually inspected.
 - Review scope and exclusions:
 - Sources or references used:
 
-Use the [review packet](../CONTENT_REVIEW_PACKET.md) and its frozen JSON. For each
+Use the [review packet](C86CFBA_PACKET.md) and its frozen JSON. For each
 column, use **not reviewed**, **changes required**, or **accepted unchanged**, with
 finding/evidence IDs. If text or visuals need changes, approval requires review of
 the corrected version. Blank cells do not record approval.

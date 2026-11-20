@@ -59,6 +59,10 @@ def system_of(pack, structure):
         while current:
             if current["id"].startswith("anatomy.system."):
                 return current["id"].removeprefix("anatomy.system.")
+            # Some systems (e.g. reproductive) keep a source ID, not a shared one.
+            name = current["source_name"].removeprefix("VH_F_").removeprefix("VH_M_")
+            if name.endswith("_system"):
+                return name.removesuffix("_system").removeprefix("male_").removeprefix("female_")
             current = index.get(current.get("parent"))
     return "other"
 
@@ -113,7 +117,7 @@ def write(args):
             text.append(f"#### `{cid}`")
             text.append("")
             for body in ("female", "male"):
-                names = ", ".join(s["label"] for s in labelled.get(body, [])) or "not in this body"
+                names = "; ".join(s["label"] for s in labelled.get(body, [])) or "not in this body"
                 text.append(f"- **3D parts ({body}):** {names}")
             text += [f"- **Overview:** {card['overview']}", f"- **Function:** {card['function']}"]
             if card["related"]:

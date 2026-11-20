@@ -243,9 +243,10 @@ The full text of every card and condition is in the
 - **Organs not covered.** The stomach and esophagus are not in the supplied HRA
   samples, so they have no cards. (An earlier version of this note also listed
   the brain; the samples do include it, and revision 2 adds brain cards.)
-- **Review packet.** The [content-review packet](CONTENT_REVIEW_PACKET.md) still
-  describes the `c86cfba` build and its 15 cards, not revisions 1 or 2. Prepare a new packet with the
-  next private build before asking a reviewer to check this material.
+- **Review packet.** The [content-review packet](CONTENT_REVIEW_PACKET.md) now
+  covers build `9c9bf41` (revision `body-study-4-draft`, all 112 cards and 54
+  conditions). Regenerate it with `tools/build_review_packet.py` after any later
+  content change.
 
 ## Sources
 
