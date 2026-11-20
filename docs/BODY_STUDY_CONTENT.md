@@ -6,6 +6,8 @@ chest material (15 cards, two valve conditions, the heart ↔ lungs route) with
 digestive, lymphatic, urinary and reproductive systems. That makes 41 cards and
 14 conditions in total. [Revision 2](#revision-2-brain-eyes-and-knees) adds
 the brain, eyes and knees, for 63 cards and 25 conditions.
+[Revisions 3 and 4](#revisions-3-and-4-vessels-organ-interiors-airways-skin-and-bone)
+bring the totals to 112 cards and 54 conditions.
 
 **Everything here is a private draft.** Every record keeps `review_status: draft`
 with human source review and expert review pending, and the app labels it that
@@ -181,6 +183,53 @@ Stroke is also listed on the cerebellum and brainstem; glaucoma on the retina; A
 - **Knee coverage.** The male source has no right tibial collateral ligament, so the MCL card has one part in that body. There is no patella card because no fetched source describes the patella.
 - **Source labels.** 207 source structures per body carried a literal "-" label. The pack builder now derives a readable name from the source node name instead (for example "Thalamus, left"). IDs, source names and ontology are unchanged, so saved views and mappings are unaffected.
 
+## Revisions 3 and 4: vessels, organ interiors, airways, skin and bone
+
+Added 2026-11-20 as revisions `body-study-3-draft` and `body-study-4-draft`:
+**49 cards and 29 conditions**, for **112 cards and 54 conditions** in total. The
+female body offers 52 conditions and the male body 50.
+
+- **Heart and great vessels:** pulmonary trunk and arteries, coronary sinus,
+  cardiac veins, the three portions of the aorta, the aortic-arch branches, the
+  celiac trunk, both mesenteric arteries, and the renal arteries and veins.
+- **Airways and lungs:** larynx cartilages, epiglottis, tracheal cartilage, the
+  lobes of each lung and the lung hilum.
+- **Kidney interior:** capsule, cortex, medulla, pyramids, papillae, minor and
+  major calyces, renal pelvis and hilum.
+- **Intestines and liver:** duodenum, jejunum, ileum, ileocecal valve, cecum,
+  sigmoid colon, rectum, liver lobes and cystic duct.
+- **Female tract (female body only):** Fallopian tubes, infundibulum and
+  fimbriae, cervix and vagina.
+- **Other:** a sample lymph node, the quadriceps tendon, the skin, the pupil,
+  ciliary body, choroid and vitreous, and compact and spongy pelvic bone.
+- **Conditions:** heart attack, heart failure, atrial fibrillation, pneumonia,
+  lung cancer, chronic kidney disease, bladder infection, bladder cancer,
+  diverticular disease, Crohn's disease, ulcerative colitis, celiac disease,
+  fatty liver disease, viral hepatitis, diabetes, hemorrhoids, colorectal
+  cancer, uterine fibroids, PCOS, cervical cancer, prostate cancer, retinal
+  detachment, psoriasis, atopic dermatitis, skin cancer, uveitis, pink eye,
+  floaters and osteoporosis.
+
+The full text of every card and condition is in the
+[content-review packet](CONTENT_REVIEW_PACKET.md) and its frozen JSON.
+
+### Revision 3 and 4 limits
+
+- **Sources.** NIDDK, NHLBI, NICHD, NEI, NIAMS, NCI (cancer.gov and SEER
+  Training) and MedlinePlus pages, each fetched on 2026-11-20. Statements were
+  cut back where a page did not support them. For example, the cardiac veins are
+  not described as running over the heart's surface, and the cortex is not
+  described as filtering blood.
+- **Left out for lack of a fetched source:** patella, fibula, sclera,
+  conjunctiva, extraocular muscles, hip bones as a whole, the pancreas's parts,
+  liver segments, bronchopulmonary segments and most named colon vessels.
+- **Condition locations.** Some conditions point at a whole organ rather than
+  the affected tissue. Osteoporosis uses the supplied pelvic bone tissue only as
+  an example location.
+- **Validator limit.** The list of sources the assistant cross-checked now has 86
+  entries. Its cap was raised from 64 to 256; the 64-item cap on each record's
+  own citations is unchanged.
+
 ## Deliberate limits
 
 - **Sources (revision 1).** Claims come only from NIH pages: NHLBI, NIDDK, NICHD and NCI SEER
@@ -246,3 +295,43 @@ Stroke is also listed on the cerebellum and brainstem; glaucoma on the retina; A
 - `niams-osteoarthritis`: [NIAMS: Osteoarthritis](https://www.niams.nih.gov/health-topics/osteoarthritis)
 - `seer-articulations`: [NCI SEER Training: Articulations](https://training.seer.cancer.gov/anatomy/skeletal/articulations.html)
 - `seer-cns`: [NCI SEER Training: Central nervous system](https://training.seer.cancer.gov/anatomy/nervous/organization/cns.html)
+- `gas-exchange`: [NHLBI: Breathing and gas exchange](https://www.nhlbi.nih.gov/health/lungs/breathing-benefits)
+- `heart-anatomy`: [NHLBI: Heart anatomy](https://www.nhlbi.nih.gov/health/heart/anatomy)
+- `lungs`: [NHLBI: The respiratory system](https://www.nhlbi.nih.gov/health/lungs/respiratory-system)
+- `nci-bladder-cancer`: [NCI: What is bladder cancer?](https://www.cancer.gov/types/bladder)
+- `nci-cervical-cancer`: [NCI: What is cervical cancer?](https://www.cancer.gov/types/cervical)
+- `nci-colorectal-cancer`: [NCI: Colorectal cancer — patient version](https://www.cancer.gov/types/colorectal)
+- `nci-lung-cancer`: [NCI: Lung cancer — patient version](https://www.cancer.gov/types/lung)
+- `nci-prostate-cancer`: [NCI: Prostate cancer — patient version](https://www.cancer.gov/types/prostate)
+- `nci-skin-cancer`: [NCI: Skin cancer (including melanoma) — patient version](https://www.cancer.gov/types/skin)
+- `nei-floaters`: [NEI: Floaters](https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases/floaters)
+- `nei-pink-eye`: [NEI: Pink eye](https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases/pink-eye)
+- `nei-retinal-detachment`: [NEI: Retinal detachment](https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases/retinal-detachment)
+- `nei-uveitis`: [NEI: Uveitis](https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases/uveitis)
+- `nhlbi-afib`: [NHLBI: Atrial fibrillation](https://www.nhlbi.nih.gov/health/atrial-fibrillation)
+- `nhlbi-heart-attack`: [NHLBI: Heart attack](https://www.nhlbi.nih.gov/health/heart-attack)
+- `nhlbi-heart-failure`: [NHLBI: Heart failure](https://www.nhlbi.nih.gov/health/heart-failure)
+- `nhlbi-pneumonia`: [NHLBI: Pneumonia](https://www.nhlbi.nih.gov/health/pneumonia)
+- `niams-atopic-dermatitis`: [NIAMS: Atopic dermatitis (eczema)](https://www.niams.nih.gov/health-topics/atopic-dermatitis)
+- `niams-osteoporosis`: [NIAMS: Osteoporosis](https://www.niams.nih.gov/health-topics/osteoporosis)
+- `niams-psoriasis`: [NIAMS: Psoriasis](https://www.niams.nih.gov/health-topics/psoriasis)
+- `nichd-fibroids`: [NICHD: Uterine fibroids](https://www.nichd.nih.gov/health/topics/uterine)
+- `nichd-pcos`: [NICHD: Polycystic ovary syndrome (PCOS)](https://www.nichd.nih.gov/health/topics/pcos)
+- `niddk-bladder-infection`: [NIDDK: Definition & facts of bladder infection in adults](https://www.niddk.nih.gov/health-information/urologic-diseases/bladder-infection-uti-in-adults/definition-facts)
+- `niddk-celiac`: [NIDDK: Definition & facts for celiac disease](https://www.niddk.nih.gov/health-information/digestive-diseases/celiac-disease/definition-facts)
+- `niddk-ckd`: [NIDDK: Chronic kidney disease](https://www.niddk.nih.gov/health-information/kidney-disease/chronic-kidney-disease-ckd)
+- `niddk-crohns`: [NIDDK: Definition & facts for Crohn's disease](https://www.niddk.nih.gov/health-information/digestive-diseases/crohns-disease/definition-facts)
+- `niddk-diabetes`: [NIDDK: What is diabetes?](https://www.niddk.nih.gov/health-information/diabetes/overview/what-is-diabetes)
+- `niddk-diverticular`: [NIDDK: Definition & facts for diverticular disease](https://www.niddk.nih.gov/health-information/digestive-diseases/diverticulosis-diverticulitis/definition-facts)
+- `niddk-hemorrhoids`: [NIDDK: Definition & facts of hemorrhoids](https://www.niddk.nih.gov/health-information/digestive-diseases/hemorrhoids/definition-facts)
+- `niddk-nafld`: [NIDDK: Definition & facts of NAFLD & NASH](https://www.niddk.nih.gov/health-information/liver-disease/nafld-nash/definition-facts)
+- `niddk-ulcerative-colitis`: [NIDDK: Definition & facts for ulcerative colitis](https://www.niddk.nih.gov/health-information/digestive-diseases/ulcerative-colitis/definition-facts)
+- `niddk-viral-hepatitis`: [NIDDK: What is viral hepatitis?](https://www.niddk.nih.gov/health-information/liver-disease/viral-hepatitis/what-is-viral-hepatitis)
+- `pulmonary-branches`: [NCBI Bookshelf: Pulmonary arteries](https://www.ncbi.nlm.nih.gov/books/NBK534812/)
+- `seer-bone-tissue`: [NCI SEER Training: Structure of bone tissue](https://training.seer.cancer.gov/anatomy/skeletal/tissue.html)
+- `seer-larynx`: [NCI SEER Training: Larynx and trachea](https://training.seer.cancer.gov/anatomy/respiratory/passages/larynx.html)
+- `seer-lower-muscles`: [NCI SEER Training: Muscles of the lower extremity](https://training.seer.cancer.gov/anatomy/muscular/groups/lower.html)
+- `seer-lymph-nodes`: [NCI SEER Training: Lymph nodes](https://training.seer.cancer.gov/anatomy/lymphatic/components/nodes.html)
+- `seer-pathways`: [NCI SEER Training: Circulatory pathways](https://training.seer.cancer.gov/anatomy/cardiovascular/blood/pathways.html)
+- `seer-skin`: [NCI SEER Training: Anatomy of the skin](https://training.seer.cancer.gov/melanoma/anatomy/)
+- `valve-disease-types`: [NHLBI: Types of heart valve disease](https://www.nhlbi.nih.gov/health/heart-valve-diseases/types)

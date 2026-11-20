@@ -57,7 +57,7 @@ func run() -> void:
 		var anatomy: Dictionary = viewer.model.export_state().duplicate(true)
 		var undo: Array = viewer.model.undo_stack.duplicate(true)
 		var back: Array = viewer.back_views.duplicate(true)
-		check(viewer.condition_links.visible and viewer.condition_links.get_child_count() == 4, "Heart exposes its three explicitly associated draft conditions")
+		check(viewer.condition_links.visible and viewer.condition_links.get_child_count() == 7, "Heart exposes its six explicitly associated draft conditions")
 		viewer.condition_links.get_child(1).pressed.emit()
 		for child in viewer.get_children():
 			if child is InformationDialog:
@@ -72,8 +72,8 @@ func run() -> void:
 		for identity in viewer.study_content.data.conditions:
 			if viewer.study_content.condition_available(identity, viewer.model.structures):
 				available.append(str(identity))
-		# Both bodies share 23 conditions; each has one sex-specific condition.
-		check(available.size() == 24 and ("condition.bph" in available) == (reference == "male") and ("condition.endometriosis" in available) == (reference == "female"), "Each body offers exactly the conditions its supplied anatomy supports")
+		# Both bodies share 48 conditions; the female body adds 4 sex-specific ones and the male body 2.
+		check(available.size() == (52 if reference == "female" else 50) and ("condition.bph" in available) == (reference == "male") and ("condition.endometriosis" in available) == (reference == "female"), "Each body offers exactly the conditions its supplied anatomy supports")
 		for identity in available:
 			undo = viewer.model.undo_stack.duplicate(true)
 			dialog = viewer.show_condition(identity)

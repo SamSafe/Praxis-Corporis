@@ -6,6 +6,9 @@ var error := ""
 # Body-specific source structure ID -> card ID, from explicit card geometry
 # mappings. Mapped structures are confirmed against the loaded body before use.
 var aliases: Dictionary = {}
+# The assistant cross-check lists every source in the bundle, so it may exceed
+# the per-record citation limit.
+const MAX_CHECKED_SOURCES := 256
 
 
 func _init() -> void:
@@ -26,7 +29,7 @@ func load_data(parsed: Variant) -> String:
 		if not nonempty_text(id, 128) or not source is Dictionary or not nonempty_text(source.get("title"), 256) or not safe_url(source.get("url")):
 			return "Study content contains an invalid source."
 	var assistance = parsed.get("assistant_checks")
-	if not assistance is Dictionary or assistance.get("actor") != "assistant" or assistance.get("kind") != "preliminary_source_cross_check" or not nonempty_text(assistance.get("checked_on"), 10) or not nonempty_text(assistance.get("scope")) or not valid_sources(assistance, parsed.sources):
+	if not assistance is Dictionary or assistance.get("actor") != "assistant" or assistance.get("kind") != "preliminary_source_cross_check" or not nonempty_text(assistance.get("checked_on"), 10) or not nonempty_text(assistance.get("scope")) or not valid_sources(assistance, parsed.sources, MAX_CHECKED_SOURCES):
 		return "Study content has invalid preliminary source-check metadata."
 	for id in parsed.cards:
 		var record = parsed.cards[id]
@@ -104,8 +107,8 @@ static func draft_record(record: Dictionary) -> bool:
 	return record.get("review_status") == "draft" and record.get("human_source_review") == "pending" and record.get("expert_review") == "pending"
 
 
-static func string_list(value: Variant, allow_empty: bool = true) -> bool:
-	if not value is Array or value.size() > 64 or (not allow_empty and value.is_empty()):
+static func string_list(value: Variant, allow_empty: bool = true, limit: int = 64) -> bool:
+	if not value is Array or value.size() > limit or (not allow_empty and value.is_empty()):
 		return false
 	var unique := {}
 	for item in value:
@@ -115,8 +118,8 @@ static func string_list(value: Variant, allow_empty: bool = true) -> bool:
 	return true
 
 
-static func valid_sources(record: Dictionary, sources: Dictionary) -> bool:
-	if not string_list(record.get("source_ids"), false):
+static func valid_sources(record: Dictionary, sources: Dictionary, limit: int = 64) -> bool:
+	if not string_list(record.get("source_ids"), false, limit):
 		return false
 	for source in record.source_ids:
 		if not sources.has(source):

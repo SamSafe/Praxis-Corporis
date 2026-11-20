@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "revision": "body-study-2-draft",
+  "revision": "body-study-4-draft",
   "review_status": "draft",
   "expert_review": "pending",
-  "scope": "Private draft explanations covering the chest, selected abdominal, pelvic and lymphatic organs, the brain, eyes and knees. General anatomy is separate from completeness and accuracy of the supplied source meshes. No source illustrations or video are reused.",
+  "scope": "Private draft explanations covering the chest, abdomen, pelvis, brain, eyes, knees and skin, including selected vessels, kidney interior, intestines, airways, bone tissue and the lymphatic system. General anatomy is separate from completeness and accuracy of the supplied source meshes. No source illustrations or video are reused.",
   "sources": {
     "heart-anatomy": {
       "title": "NHLBI: Heart anatomy",
@@ -208,6 +208,146 @@
     "niams-osteoarthritis": {
       "title": "NIAMS: Osteoarthritis",
       "url": "https://www.niams.nih.gov/health-topics/osteoarthritis"
+    },
+    "seer-larynx": {
+      "title": "NCI SEER Training: Larynx and trachea",
+      "url": "https://training.seer.cancer.gov/anatomy/respiratory/passages/larynx.html"
+    },
+    "seer-lymph-nodes": {
+      "title": "NCI SEER Training: Lymph nodes",
+      "url": "https://training.seer.cancer.gov/anatomy/lymphatic/components/nodes.html"
+    },
+    "seer-lower-muscles": {
+      "title": "NCI SEER Training: Muscles of the lower extremity",
+      "url": "https://training.seer.cancer.gov/anatomy/muscular/groups/lower.html"
+    },
+    "seer-pathways": {
+      "title": "NCI SEER Training: Circulatory pathways",
+      "url": "https://training.seer.cancer.gov/anatomy/cardiovascular/blood/pathways.html"
+    },
+    "nhlbi-heart-attack": {
+      "title": "NHLBI: Heart attack",
+      "url": "https://www.nhlbi.nih.gov/health/heart-attack"
+    },
+    "nhlbi-heart-failure": {
+      "title": "NHLBI: Heart failure",
+      "url": "https://www.nhlbi.nih.gov/health/heart-failure"
+    },
+    "nhlbi-afib": {
+      "title": "NHLBI: Atrial fibrillation",
+      "url": "https://www.nhlbi.nih.gov/health/atrial-fibrillation"
+    },
+    "nhlbi-pneumonia": {
+      "title": "NHLBI: Pneumonia",
+      "url": "https://www.nhlbi.nih.gov/health/pneumonia"
+    },
+    "nci-lung-cancer": {
+      "title": "NCI: Lung cancer — patient version",
+      "url": "https://www.cancer.gov/types/lung"
+    },
+    "nci-colorectal-cancer": {
+      "title": "NCI: Colorectal cancer — patient version",
+      "url": "https://www.cancer.gov/types/colorectal"
+    },
+    "nci-prostate-cancer": {
+      "title": "NCI: Prostate cancer — patient version",
+      "url": "https://www.cancer.gov/types/prostate"
+    },
+    "nci-cervical-cancer": {
+      "title": "NCI: What is cervical cancer?",
+      "url": "https://www.cancer.gov/types/cervical"
+    },
+    "niddk-ckd": {
+      "title": "NIDDK: Chronic kidney disease",
+      "url": "https://www.niddk.nih.gov/health-information/kidney-disease/chronic-kidney-disease-ckd"
+    },
+    "niddk-bladder-infection": {
+      "title": "NIDDK: Definition & facts of bladder infection in adults",
+      "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/bladder-infection-uti-in-adults/definition-facts"
+    },
+    "niddk-diverticular": {
+      "title": "NIDDK: Definition & facts for diverticular disease",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/diverticulosis-diverticulitis/definition-facts"
+    },
+    "niddk-crohns": {
+      "title": "NIDDK: Definition & facts for Crohn's disease",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/crohns-disease/definition-facts"
+    },
+    "niddk-ulcerative-colitis": {
+      "title": "NIDDK: Definition & facts for ulcerative colitis",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/ulcerative-colitis/definition-facts"
+    },
+    "niddk-celiac": {
+      "title": "NIDDK: Definition & facts for celiac disease",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/celiac-disease/definition-facts"
+    },
+    "niddk-nafld": {
+      "title": "NIDDK: Definition & facts of NAFLD & NASH",
+      "url": "https://www.niddk.nih.gov/health-information/liver-disease/nafld-nash/definition-facts"
+    },
+    "niddk-viral-hepatitis": {
+      "title": "NIDDK: What is viral hepatitis?",
+      "url": "https://www.niddk.nih.gov/health-information/liver-disease/viral-hepatitis/what-is-viral-hepatitis"
+    },
+    "niddk-diabetes": {
+      "title": "NIDDK: What is diabetes?",
+      "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/what-is-diabetes"
+    },
+    "niddk-hemorrhoids": {
+      "title": "NIDDK: Definition & facts of hemorrhoids",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/hemorrhoids/definition-facts"
+    },
+    "nichd-fibroids": {
+      "title": "NICHD: Uterine fibroids",
+      "url": "https://www.nichd.nih.gov/health/topics/uterine"
+    },
+    "nichd-pcos": {
+      "title": "NICHD: Polycystic ovary syndrome (PCOS)",
+      "url": "https://www.nichd.nih.gov/health/topics/pcos"
+    },
+    "nei-retinal-detachment": {
+      "title": "NEI: Retinal detachment",
+      "url": "https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases/retinal-detachment"
+    },
+    "seer-skin": {
+      "title": "NCI SEER Training: Anatomy of the skin",
+      "url": "https://training.seer.cancer.gov/melanoma/anatomy/"
+    },
+    "seer-bone-tissue": {
+      "title": "NCI SEER Training: Structure of bone tissue",
+      "url": "https://training.seer.cancer.gov/anatomy/skeletal/tissue.html"
+    },
+    "niams-psoriasis": {
+      "title": "NIAMS: Psoriasis",
+      "url": "https://www.niams.nih.gov/health-topics/psoriasis"
+    },
+    "niams-atopic-dermatitis": {
+      "title": "NIAMS: Atopic dermatitis (eczema)",
+      "url": "https://www.niams.nih.gov/health-topics/atopic-dermatitis"
+    },
+    "nci-skin-cancer": {
+      "title": "NCI: Skin cancer (including melanoma) — patient version",
+      "url": "https://www.cancer.gov/types/skin"
+    },
+    "nci-bladder-cancer": {
+      "title": "NCI: What is bladder cancer?",
+      "url": "https://www.cancer.gov/types/bladder"
+    },
+    "nei-uveitis": {
+      "title": "NEI: Uveitis",
+      "url": "https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases/uveitis"
+    },
+    "nei-pink-eye": {
+      "title": "NEI: Pink eye",
+      "url": "https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases/pink-eye"
+    },
+    "nei-floaters": {
+      "title": "NEI: Floaters",
+      "url": "https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases/floaters"
+    },
+    "niams-osteoporosis": {
+      "title": "NIAMS: Osteoporosis",
+      "url": "https://www.niams.nih.gov/health-topics/osteoporosis"
     }
   },
   "cards": {
@@ -2413,6 +2553,2754 @@
           }
         ]
       }
+    },
+    "anatomy.pulmonary-arteries": {
+      "overview": "The pulmonary trunk leaves the right ventricle through the pulmonary valve. The supplied parts include the left and right pulmonary arteries.",
+      "function": "Carry oxygen-poor blood from the heart to the lungs.",
+      "related": [
+        "anatomy.heart.ventricle.right",
+        "anatomy.heart.valve.pulmonary",
+        "anatomy.lungs"
+      ],
+      "source_ids": [
+        "seer-heart",
+        "heart-flow"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n764",
+            "source_name": "VH_F_pulmonary_artery_L",
+            "ontology": "UBERON:0001652"
+          },
+          {
+            "id": "source.hra-v1-1.female.n765",
+            "source_name": "VH_F_pulmonary_trunk",
+            "ontology": "UBERON:0002333"
+          },
+          {
+            "id": "source.hra-v1-1.female.n766",
+            "source_name": "VH_F_pulmonary_artery_R",
+            "ontology": "UBERON:0001651"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n235",
+            "source_name": "VH_M_pulmonary_artery_L",
+            "ontology": "UBERON:0001652"
+          },
+          {
+            "id": "source.hra-v1-1.male.n236",
+            "source_name": "VH_M_pulmonary_artery_R",
+            "ontology": "UBERON:0001651"
+          },
+          {
+            "id": "source.hra-v1-1.male.n237",
+            "source_name": "VH_M_pulmonary_trunk",
+            "ontology": "UBERON:0002333"
+          }
+        ]
+      }
+    },
+    "anatomy.coronary-sinus": {
+      "overview": "A channel into which most of the cardiac veins drain. It opens into the right atrium.",
+      "function": "Returns blood from the cardiac veins to the right atrium.",
+      "related": [
+        "anatomy.cardiac-veins",
+        "anatomy.heart.atrium.right"
+      ],
+      "source_ids": [
+        "seer-heart"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n740",
+          "source_name": "VH_F_coronary_sinus",
+          "ontology": "UBERON:0005438"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n244",
+          "source_name": "VH_M_coronary_sinus",
+          "ontology": "UBERON:0005438"
+        }
+      }
+    },
+    "anatomy.cardiac-veins": {
+      "overview": "Veins of the heart.",
+      "function": "Most of them drain into the coronary sinus, which opens into the right atrium.",
+      "related": [
+        "anatomy.coronary-sinus",
+        "anatomy.heart"
+      ],
+      "source_ids": [
+        "seer-heart"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n741",
+            "source_name": "VH_F_great_cardiac_vein",
+            "ontology": "UBERON:0006958"
+          },
+          {
+            "id": "source.hra-v1-1.female.n742",
+            "source_name": "VH_F_middle_cardiac_vein",
+            "ontology": "UBERON:0009687"
+          },
+          {
+            "id": "source.hra-v1-1.female.n743",
+            "source_name": "VH_F_oblique_vein_of_left_atrium",
+            "ontology": "FMA:4715"
+          },
+          {
+            "id": "source.hra-v1-1.female.n744",
+            "source_name": "VH_F_left_marginal_vein",
+            "ontology": "FMA:4708"
+          },
+          {
+            "id": "source.hra-v1-1.female.n745",
+            "source_name": "VH_F_posterior_vein_of_left_ventricle",
+            "ontology": "FMA:4712"
+          },
+          {
+            "id": "source.hra-v1-1.female.n746",
+            "source_name": "VH_F_anterior_cardiac_vein",
+            "ontology": "FMA:76767"
+          },
+          {
+            "id": "source.hra-v1-1.female.n747",
+            "source_name": "VH_F_small_cardiac_vein",
+            "ontology": "UBERON:0035374"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n240",
+            "source_name": "VH_M_great_cardiac_vein",
+            "ontology": "UBERON:0006958"
+          },
+          {
+            "id": "source.hra-v1-1.male.n241",
+            "source_name": "VH_M_middle_cardiac_vein",
+            "ontology": "UBERON:0009687"
+          },
+          {
+            "id": "source.hra-v1-1.male.n242",
+            "source_name": "VH_M_oblique_vein_of_left_atrium",
+            "ontology": "FMA:4715"
+          },
+          {
+            "id": "source.hra-v1-1.male.n243",
+            "source_name": "VH_M_anterior_cardiac_vein",
+            "ontology": "FMA:76767"
+          },
+          {
+            "id": "source.hra-v1-1.male.n245",
+            "source_name": "VH_M_posterior_vein_of_left_ventricle",
+            "ontology": "FMA:4712"
+          },
+          {
+            "id": "source.hra-v1-1.male.n246",
+            "source_name": "VH_M_small_cardiac_vein",
+            "ontology": "UBERON:0035374"
+          }
+        ]
+      }
+    },
+    "anatomy.aorta.ascending": {
+      "overview": "The first of the aorta's three portions: ascending aorta, aortic arch and descending aorta.",
+      "function": "The coronary arteries are the only vessels that branch from it.",
+      "related": [
+        "anatomy.aorta",
+        "anatomy.aorta.arch",
+        "anatomy.coronary.left",
+        "anatomy.coronary.right"
+      ],
+      "source_ids": [
+        "seer-pathways"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n769",
+          "source_name": "VH_F_ascending_aorta",
+          "ontology": "UBERON:0001496"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n212",
+          "source_name": "VH_M_ascending_aorta",
+          "ontology": "UBERON:0001496"
+        }
+      }
+    },
+    "anatomy.aorta.arch": {
+      "overview": "The middle of the aorta's three portions, between the ascending and descending aorta.",
+      "function": "The brachiocephalic, left common carotid and left subclavian arteries branch from it.",
+      "related": [
+        "anatomy.aorta",
+        "anatomy.aorta.ascending",
+        "anatomy.aorta.descending",
+        "anatomy.aortic-arch-branches"
+      ],
+      "source_ids": [
+        "seer-pathways"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n768",
+          "source_name": "VH_F_aortic_arch",
+          "ontology": "UBERON:0001508"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n211",
+          "source_name": "VH_M_aortic_arch",
+          "ontology": "UBERON:0001508"
+        }
+      }
+    },
+    "anatomy.aorta.descending": {
+      "overview": "The last of the aorta's three portions, continuing down from the aortic arch.",
+      "function": "In the abdomen, the celiac, superior mesenteric, renal and inferior mesenteric arteries branch from it to supply the abdominal organs.",
+      "related": [
+        "anatomy.aorta",
+        "anatomy.aorta.arch",
+        "anatomy.celiac-trunk",
+        "anatomy.mesenteric-artery.superior",
+        "anatomy.renal-arteries"
+      ],
+      "source_ids": [
+        "seer-pathways"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n770",
+            "source_name": "VH_F_descending_aorta",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n771",
+            "source_name": "VH_F_descending_aorta_a",
+            "ontology": "UBERON:0001514"
+          },
+          {
+            "id": "source.hra-v1-1.female.n772",
+            "source_name": "VH_F_descending_aorta_b",
+            "ontology": "UBERON:0001514"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n222",
+            "source_name": "VH_M_descending_aorta",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n223",
+            "source_name": "VH_M_descending_aorta_a",
+            "ontology": "UBERON:0001514"
+          },
+          {
+            "id": "source.hra-v1-1.male.n224",
+            "source_name": "VH_M_descending_aorta_b",
+            "ontology": "UBERON:0001514"
+          }
+        ]
+      }
+    },
+    "anatomy.aortic-arch-branches": {
+      "overview": "The brachiocephalic, left common carotid and left subclavian arteries, which branch from the aortic arch.",
+      "function": "Carry blood from the aortic arch. The subclavian arteries supply the upper limbs.",
+      "related": [
+        "anatomy.aorta.arch"
+      ],
+      "source_ids": [
+        "seer-pathways"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n773",
+            "source_name": "VH_F_left_common_carotid_artery",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n774",
+            "source_name": "VH_F_left_common_carotid_artery_a",
+            "ontology": "UBERON:0001536"
+          },
+          {
+            "id": "source.hra-v1-1.female.n775",
+            "source_name": "VH_F_left_common_carotid_artery_b",
+            "ontology": "UBERON:0001536"
+          },
+          {
+            "id": "source.hra-v1-1.female.n776",
+            "source_name": "VH_F_left_subclavian_artery",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n777",
+            "source_name": "VH_F_left_subclavian_artery_a",
+            "ontology": "UBERON:0001584"
+          },
+          {
+            "id": "source.hra-v1-1.female.n778",
+            "source_name": "VH_F_left_subclavian_artery_b",
+            "ontology": "UBERON:0001584"
+          },
+          {
+            "id": "source.hra-v1-1.female.n779",
+            "source_name": "VH_F_brachiocephalic_artery_b",
+            "ontology": "UBERON:0001529"
+          },
+          {
+            "id": "source.hra-v1-1.female.n780",
+            "source_name": "VH_F_brachiocephalic_artery_a",
+            "ontology": "UBERON:0001529"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n213",
+            "source_name": "VH_M_brachiocephalic_artery",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n214",
+            "source_name": "VH_M_brachiocephalic_artery_b",
+            "ontology": "UBERON:0001529"
+          },
+          {
+            "id": "source.hra-v1-1.male.n215",
+            "source_name": "VH_M_brachiocephalic_artery_a",
+            "ontology": "UBERON:0001529"
+          },
+          {
+            "id": "source.hra-v1-1.male.n216",
+            "source_name": "VH_M_left_common_carotid_artery",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n217",
+            "source_name": "VH_M_left_common_carotid_artery_a",
+            "ontology": "UBERON:0001536"
+          },
+          {
+            "id": "source.hra-v1-1.male.n218",
+            "source_name": "VH_M_left_common_carotid_artery_b",
+            "ontology": "UBERON:0001536"
+          },
+          {
+            "id": "source.hra-v1-1.male.n219",
+            "source_name": "VH_M_left_subclavian_artery",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n220",
+            "source_name": "VH_M_left_subclavian_artery_a",
+            "ontology": "UBERON:0001584"
+          },
+          {
+            "id": "source.hra-v1-1.male.n221",
+            "source_name": "VH_M_left_subclavian_artery_b",
+            "ontology": "UBERON:0001584"
+          }
+        ]
+      }
+    },
+    "anatomy.celiac-trunk": {
+      "overview": "An artery branching from the abdominal aorta.",
+      "function": "One of the arteries that supply the abdominal organs.",
+      "related": [
+        "anatomy.aorta.descending",
+        "anatomy.mesenteric-artery.superior"
+      ],
+      "source_ids": [
+        "seer-pathways"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n697",
+          "source_name": "VH_F_celiac_trunk",
+          "ontology": "FMA:14812"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n272",
+          "source_name": "VH_M_celiac_trunk",
+          "ontology": "FMA:14812"
+        }
+      }
+    },
+    "anatomy.mesenteric-artery.superior": {
+      "overview": "An artery branching from the abdominal aorta.",
+      "function": "One of the arteries that supply the abdominal organs.",
+      "related": [
+        "anatomy.aorta.descending",
+        "anatomy.celiac-trunk",
+        "anatomy.mesenteric-artery.inferior"
+      ],
+      "source_ids": [
+        "seer-pathways"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n699",
+          "source_name": "VH_F_superior_mesenteric_artery",
+          "ontology": "UBERON:0001182"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n197",
+          "source_name": "VH_M_superior_mesenteric_artery",
+          "ontology": "UBERON:0001182"
+        }
+      }
+    },
+    "anatomy.mesenteric-artery.inferior": {
+      "overview": "An artery branching from the abdominal aorta.",
+      "function": "One of the arteries that supply the abdominal organs.",
+      "related": [
+        "anatomy.aorta.descending",
+        "anatomy.mesenteric-artery.superior"
+      ],
+      "source_ids": [
+        "seer-pathways"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n700",
+          "source_name": "VH_F_inferior_mesenteric_artery",
+          "ontology": "UBERON:0001183"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n196",
+          "source_name": "VH_M_inferior_mesenteric_artery",
+          "ontology": "UBERON:0001183"
+        }
+      }
+    },
+    "anatomy.renal-arteries": {
+      "overview": "Arteries branching from the abdominal aorta. Each enters a kidney at its hilum.",
+      "function": "Bring blood to the kidneys to be filtered.",
+      "related": [
+        "anatomy.kidneys",
+        "anatomy.kidney-hilum",
+        "anatomy.renal-veins"
+      ],
+      "source_ids": [
+        "seer-pathways",
+        "seer-kidney"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n656",
+            "source_name": "VH_F_right_renal_artery",
+            "ontology": "UBERON:0001185"
+          },
+          {
+            "id": "source.hra-v1-1.female.n657",
+            "source_name": "VH_F_left_renal_artery",
+            "ontology": "UBERON:0001186"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n206",
+            "source_name": "VH_M_left_renal_artery",
+            "ontology": "UBERON:0001186"
+          },
+          {
+            "id": "source.hra-v1-1.male.n207",
+            "source_name": "VH_M_right_renal_artery",
+            "ontology": "UBERON:0001185"
+          }
+        ]
+      }
+    },
+    "anatomy.renal-veins": {
+      "overview": "Veins that leave each kidney at its hilum.",
+      "function": "Carry blood away from the kidneys.",
+      "related": [
+        "anatomy.kidneys",
+        "anatomy.kidney-hilum",
+        "anatomy.renal-arteries"
+      ],
+      "source_ids": [
+        "seer-kidney"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n660",
+            "source_name": "VH_F_left_renal_vein",
+            "ontology": "UBERON:0001142"
+          },
+          {
+            "id": "source.hra-v1-1.female.n661",
+            "source_name": "VH_F_right_renal_vein",
+            "ontology": "UBERON:0001141"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n202",
+            "source_name": "VH_M_renal_vein_L",
+            "ontology": "UBERON:0001142"
+          },
+          {
+            "id": "source.hra-v1-1.male.n203",
+            "source_name": "VH_M_renal_vein_R",
+            "ontology": "UBERON:0001141"
+          }
+        ]
+      }
+    },
+    "anatomy.larynx": {
+      "overview": "The larynx is formed by nine cartilages connected by muscles and ligaments. The thyroid cartilage is the Adam's apple.",
+      "function": "Produces sound: its vocal cords close together and vibrate as air from the lungs passes between them.",
+      "related": [
+        "anatomy.epiglottis",
+        "anatomy.trachea"
+      ],
+      "source_ids": [
+        "seer-larynx"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n820",
+            "source_name": "VH_F_corniculate_cartilage_L",
+            "ontology": "FMA:55116"
+          },
+          {
+            "id": "source.hra-v1-1.female.n821",
+            "source_name": "VH_F_corniculate_cartilage_R",
+            "ontology": "FMA:55115"
+          },
+          {
+            "id": "source.hra-v1-1.female.n823",
+            "source_name": "VH_F_arytenoid_cartilage_R",
+            "ontology": "FMA:55113"
+          },
+          {
+            "id": "source.hra-v1-1.female.n824",
+            "source_name": "VH_F_arytenoid_cartilage_L",
+            "ontology": "FMA:55114"
+          },
+          {
+            "id": "source.hra-v1-1.female.n826",
+            "source_name": "VH_F_thyroid_cartilage",
+            "ontology": "FMA:55099"
+          },
+          {
+            "id": "source.hra-v1-1.female.n828",
+            "source_name": "VH_F_cricoid_cartilage",
+            "ontology": "FMA:9615"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n1030",
+            "source_name": "VH_M_cricoid_cartilage",
+            "ontology": "FMA:9615"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1032",
+            "source_name": "VH_M_thyroid_cartilage",
+            "ontology": "FMA:55099"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1034",
+            "source_name": "VH_M_arytenoid_cartilage_L",
+            "ontology": "FMA:55114"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1035",
+            "source_name": "VH_M_arytenoid_cartilage_R",
+            "ontology": "FMA:55113"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1037",
+            "source_name": "VH_M_corniculate_cartilage_L",
+            "ontology": "FMA:55116"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1038",
+            "source_name": "VH_M_corniculate_cartilage_R",
+            "ontology": "FMA:55115"
+          }
+        ]
+      }
+    },
+    "anatomy.epiglottis": {
+      "overview": "One of the cartilages of the larynx.",
+      "function": "Acts like a trap door to keep food and other particles from entering the larynx.",
+      "related": [
+        "anatomy.larynx",
+        "anatomy.trachea"
+      ],
+      "source_ids": [
+        "seer-larynx"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n829",
+          "source_name": "VH_F_epiglotic_cartilage",
+          "ontology": "FMA:55112"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n1031",
+          "source_name": "VH_M_epiglottic_cartilage",
+          "ontology": "FMA:55112"
+        }
+      }
+    },
+    "anatomy.tracheal-cartilage": {
+      "overview": "Hyaline cartilage in the wall of the trachea, the main airway to the lungs.",
+      "function": "Supports the trachea and keeps it from collapsing.",
+      "related": [
+        "anatomy.trachea",
+        "anatomy.larynx"
+      ],
+      "source_ids": [
+        "seer-larynx"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n827",
+          "source_name": "VH_F_tracheal_cartilage",
+          "ontology": "FMA:7434"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n1039",
+          "source_name": "VH_M_tracheal_cartilage",
+          "ontology": "FMA:7434"
+        }
+      }
+    },
+    "anatomy.lung.right.lobes": {
+      "overview": "The right lung is shorter and broader than the left and has a greater volume. It is divided into three lobes.",
+      "function": "Each lobe is supplied by one of the secondary bronchi.",
+      "related": [
+        "anatomy.lung.right",
+        "anatomy.bronchi",
+        "anatomy.lung.left.lobes"
+      ],
+      "source_ids": [
+        "seer-bronchi"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n801",
+            "source_name": "VH_F_R_lung_lower_lobe",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n808",
+            "source_name": "VH_F_R_lung_middle_lobe",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n812",
+            "source_name": "VH_F_R_lung_upper_lobe",
+            "ontology": ""
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n1009",
+            "source_name": "VH_M_lungs_R_middle_lobe",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1013",
+            "source_name": "VH_M_lungs_R_lower_lobe",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1020",
+            "source_name": "VH_M_lungs_R_upper_lobe",
+            "ontology": ""
+          }
+        ]
+      }
+    },
+    "anatomy.lung.left.lobes": {
+      "overview": "The left lung is longer and narrower than the right lung. It has two lobes.",
+      "function": "Each lobe is supplied by one of the secondary bronchi.",
+      "related": [
+        "anatomy.lung.left",
+        "anatomy.bronchi",
+        "anatomy.lung.right.lobes"
+      ],
+      "source_ids": [
+        "seer-bronchi"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n785",
+            "source_name": "VH_F_L_lung_upper_lobe",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n792",
+            "source_name": "VH_F_L_lung_lower_lobe",
+            "ontology": ""
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n993",
+            "source_name": "VH_M_lungs_L_upper_lobe",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1000",
+            "source_name": "VH_M_lungs_L_lower_lobe",
+            "ontology": ""
+          }
+        ]
+      }
+    },
+    "anatomy.lung-hilum": {
+      "overview": "The hilum, or root, on the medial side of each lung.",
+      "function": "The only point of attachment for each lung.",
+      "related": [
+        "anatomy.lungs",
+        "anatomy.bronchi"
+      ],
+      "source_ids": [
+        "seer-bronchi"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n784",
+            "source_name": "VH_F_hilum_L",
+            "ontology": "UBERON:0004887"
+          },
+          {
+            "id": "source.hra-v1-1.female.n800",
+            "source_name": "VH_F_hilum_R",
+            "ontology": "UBERON:0004888"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n992",
+            "source_name": "VH_M_hilum_L",
+            "ontology": "UBERON:0004887"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1008",
+            "source_name": "VH_M_hilum_R",
+            "ontology": "UBERON:0004888"
+          }
+        ]
+      }
+    },
+    "anatomy.kidney-capsule": {
+      "overview": "A tough, fibrous connective tissue capsule that closely envelops each kidney.",
+      "function": "Supports the soft tissue inside the kidney.",
+      "related": [
+        "anatomy.kidneys",
+        "anatomy.renal-cortex"
+      ],
+      "source_ids": [
+        "seer-kidney"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n502",
+            "source_name": "VH_F_kidney_capsule_L",
+            "ontology": "UBERON:0002015"
+          },
+          {
+            "id": "source.hra-v1-1.female.n551",
+            "source_name": "VH_F_kidney_capsule_R",
+            "ontology": "UBERON:0002015"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n484",
+            "source_name": "VH_M_kidney_capsule_L",
+            "ontology": "UBERON:0002015"
+          },
+          {
+            "id": "source.hra-v1-1.male.n527",
+            "source_name": "VH_M_kidney_capsule_R",
+            "ontology": "UBERON:0002015"
+          }
+        ]
+      }
+    },
+    "anatomy.renal-cortex": {
+      "overview": "The outer, reddish region of the kidney, next to the capsule.",
+      "function": "Surrounds the darker renal medulla.",
+      "related": [
+        "anatomy.kidney-capsule",
+        "anatomy.renal-medulla",
+        "anatomy.kidneys"
+      ],
+      "source_ids": [
+        "seer-kidney"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n529",
+            "source_name": "VH_F_cortex_of_kidney_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n531",
+            "source_name": "VH_F_outer_cortex_of_kidney_L",
+            "ontology": "UBERON:0002189"
+          },
+          {
+            "id": "source.hra-v1-1.female.n553",
+            "source_name": "VH_F_cortex_of_kidney_R",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n554",
+            "source_name": "VH_F_outer_cortex_of_kidney_R",
+            "ontology": "UBERON:0002189"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n522",
+            "source_name": "VH_M_cortex_of_kidney_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n524",
+            "source_name": "VH_M_outer_cortex_of_kidney_L",
+            "ontology": "UBERON:0002189"
+          },
+          {
+            "id": "source.hra-v1-1.male.n552",
+            "source_name": "VH_M_cortex_of_kidney_R",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n554",
+            "source_name": "VH_M_outer_cortex_of_kidney_R",
+            "ontology": "UBERON:0002189"
+          }
+        ]
+      }
+    },
+    "anatomy.renal-medulla": {
+      "overview": "A darker reddish-brown region surrounded by the renal cortex. It consists of a series of renal pyramids.",
+      "function": "Its pyramids contain straight tubular structures and blood vessels.",
+      "related": [
+        "anatomy.renal-pyramids",
+        "anatomy.renal-cortex"
+      ],
+      "source_ids": [
+        "seer-kidney"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n504",
+            "source_name": "VH_F_renal_medulla_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n556",
+            "source_name": "VH_F_renal_medulla_R",
+            "ontology": ""
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n486",
+            "source_name": "VH_M_renal_medulla_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n529",
+            "source_name": "VH_M_renal_medulla_R",
+            "ontology": ""
+          }
+        ]
+      }
+    },
+    "anatomy.renal-pyramids": {
+      "overview": "The pyramids of the renal medulla. Their wide bases lie next to the cortex and their pointed ends, the renal papillae, face the center of the kidney.",
+      "function": "They appear striated because they contain straight tubular structures and blood vessels.",
+      "related": [
+        "anatomy.renal-medulla",
+        "anatomy.renal-papillae"
+      ],
+      "source_ids": [
+        "seer-kidney"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n517",
+            "source_name": "VH_F_renal_pyramid_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n518",
+            "source_name": "VH_F_renal_pyramid_L_a",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.female.n519",
+            "source_name": "VH_F_renal_pyramid_L_b",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.female.n520",
+            "source_name": "VH_F_renal_pyramid_L_c",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.female.n521",
+            "source_name": "VH_F_renal_pyramid_L_d",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.female.n522",
+            "source_name": "VH_F_renal_pyramid_L_e",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.female.n523",
+            "source_name": "VH_F_renal_pyramid_L_f",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.female.n524",
+            "source_name": "VH_F_renal_pyramid_L_g",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.female.n525",
+            "source_name": "VH_F_renal_pyramid_L_h",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.female.n526",
+            "source_name": "VH_F_renal_pyramid_L_i",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.female.n527",
+            "source_name": "VH_F_renal_pyramid_L_j",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.female.n528",
+            "source_name": "VH_F_renal_pyramid_L_k",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.female.n557",
+            "source_name": "VH_F_renal_pyramid_R",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n558",
+            "source_name": "VH_F_renal_pyramid_R_a",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.female.n559",
+            "source_name": "VH_F_renal_pyramid_R_b",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.female.n560",
+            "source_name": "VH_F_renal_pyramid_R_c",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.female.n561",
+            "source_name": "VH_F_renal_pyramid_R_d",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.female.n562",
+            "source_name": "VH_F_renal_pyramid_R_e",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.female.n563",
+            "source_name": "VH_F_renal_pyramid_R_f",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.female.n564",
+            "source_name": "VH_F_renal_pyramid_R_g",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.female.n565",
+            "source_name": "VH_F_renal_pyramid_R_h",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.female.n566",
+            "source_name": "VH_F_renal_pyramid_R_i",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.female.n567",
+            "source_name": "VH_F_renal_pyramid_R_j",
+            "ontology": "UBERON:0004200"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n497",
+            "source_name": "VH_M_renal_pyramid_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n498",
+            "source_name": "VH_M_renal_pyramid_L_a",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.male.n499",
+            "source_name": "VH_M_renal_pyramid_L_b",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.male.n500",
+            "source_name": "VH_M_renal_pyramid_L_c",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.male.n501",
+            "source_name": "VH_M_renal_pyramid_L_d",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.male.n502",
+            "source_name": "VH_M_renal_pyramid_L_e",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.male.n503",
+            "source_name": "VH_M_renal_pyramid_L_f",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.male.n504",
+            "source_name": "VH_M_renal_pyramid_L_g",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.male.n505",
+            "source_name": "VH_M_renal_pyramid_L_h",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.male.n506",
+            "source_name": "VH_M_renal_pyramid_L_i",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.male.n541",
+            "source_name": "VH_M_renal_pyramid_R",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n542",
+            "source_name": "VH_M_renal_pyramid_a",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.male.n543",
+            "source_name": "VH_M_renal_pyramid_b",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.male.n544",
+            "source_name": "VH_M_renal_pyramid_c",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.male.n545",
+            "source_name": "VH_M_renal_pyramid_d",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.male.n546",
+            "source_name": "VH_M_renal_pyramid_e",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.male.n547",
+            "source_name": "VH_M_renal_pyramid_f",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.male.n548",
+            "source_name": "VH_M_renal_pyramid_g",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.male.n549",
+            "source_name": "VH_M_renal_pyramid_h",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.male.n550",
+            "source_name": "VH_M_renal_pyramid_i",
+            "ontology": "UBERON:0004200"
+          },
+          {
+            "id": "source.hra-v1-1.male.n551",
+            "source_name": "VH_M_renal_pyramid_j",
+            "ontology": "UBERON:0004200"
+          }
+        ]
+      }
+    },
+    "anatomy.renal-papillae": {
+      "overview": "The pointed ends of the renal pyramids, directed toward the center of the kidney.",
+      "function": "Each is surrounded by a minor calyx that collects urine from its pyramid.",
+      "related": [
+        "anatomy.renal-pyramids",
+        "anatomy.minor-calyces"
+      ],
+      "source_ids": [
+        "seer-kidney"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n505",
+            "source_name": "VH_F_renal_papilla_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n506",
+            "source_name": "VH_F_renal_papilla_L_a",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.female.n507",
+            "source_name": "VH_F_renal_papilla_L_b",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.female.n508",
+            "source_name": "VH_F_renal_papilla_L_c",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.female.n509",
+            "source_name": "VH_F_renal_papilla_L_d",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.female.n510",
+            "source_name": "VH_F_renal_papilla_L_e",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.female.n511",
+            "source_name": "VH_F_renal_papilla_L_f",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.female.n512",
+            "source_name": "VH_F_renal_papilla_L_g",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.female.n513",
+            "source_name": "VH_F_renal_papilla_L_h",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.female.n514",
+            "source_name": "VH_F_renal_papilla_L_i",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.female.n515",
+            "source_name": "VH_F_renal_papilla_L_j",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.female.n516",
+            "source_name": "VH_F_renal_papilla_L_k",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.female.n568",
+            "source_name": "VH_F_renal_papilla_R",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n569",
+            "source_name": "VH_F_renal_papilla_R_a",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.female.n570",
+            "source_name": "VH_F_renal_papilla_R_b",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.female.n571",
+            "source_name": "VH_F_renal_papilla_R_c",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.female.n572",
+            "source_name": "VH_F_renal_papilla_R_d",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.female.n573",
+            "source_name": "VH_F_renal_papilla_R_e",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.female.n574",
+            "source_name": "VH_F_renal_papilla_R_f",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.female.n575",
+            "source_name": "VH_F_renal_papilla_R_g",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.female.n576",
+            "source_name": "VH_F_renal_papilla_R_h",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.female.n577",
+            "source_name": "VH_F_renal_papilla_R_i",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.female.n578",
+            "source_name": "VH_F_renal_papilla_R_j",
+            "ontology": "UBERON:0001228"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n487",
+            "source_name": "VH_M_renal_papilla_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n488",
+            "source_name": "VH_M_renal_papilla_L_a",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.male.n489",
+            "source_name": "VH_M_renal_papilla_L_b",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.male.n490",
+            "source_name": "VH_M_renal_papilla_L_c",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.male.n491",
+            "source_name": "VH_M_renal_papilla_L_d",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.male.n492",
+            "source_name": "VH_M_renal_papilla_L_e",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.male.n493",
+            "source_name": "VH_M_renal_papilla_L_f",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.male.n494",
+            "source_name": "VH_M_renal_papilla_L_g",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.male.n495",
+            "source_name": "VH_M_renal_papilla_L_h",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.male.n496",
+            "source_name": "VH_M_renal_papilla_L_i",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.male.n530",
+            "source_name": "VH_M_renal_papilla_R",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n531",
+            "source_name": "VH_M_renal_papilla_R_j",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.male.n532",
+            "source_name": "VH_M_renal_papilla_R_i",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.male.n533",
+            "source_name": "VH_M_renal_papilla_R_h",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.male.n534",
+            "source_name": "VH_M_renal_papilla_R_g",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.male.n535",
+            "source_name": "VH_M_renal_papilla_R_f",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.male.n536",
+            "source_name": "VH_M_renal_papilla_R_e",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.male.n537",
+            "source_name": "VH_M_renal_papilla_R_d",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.male.n538",
+            "source_name": "VH_M_renal_papilla_R_c",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.male.n539",
+            "source_name": "VH_M_renal_papilla_R_b",
+            "ontology": "UBERON:0001228"
+          },
+          {
+            "id": "source.hra-v1-1.male.n540",
+            "source_name": "VH_M_renal_papilla_R_a",
+            "ontology": "UBERON:0001228"
+          }
+        ]
+      }
+    },
+    "anatomy.minor-calyces": {
+      "overview": "Cuplike projections of the renal pelvis. A minor calyx surrounds the renal papillae of each pyramid.",
+      "function": "Collect urine from each pyramid. Several minor calyces converge to form a major calyx.",
+      "related": [
+        "anatomy.renal-papillae",
+        "anatomy.major-calyces"
+      ],
+      "source_ids": [
+        "seer-kidney"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n533",
+            "source_name": "VH_F_minor_calyx_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n534",
+            "source_name": "VH_F_minor_calyx_L_a",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.female.n535",
+            "source_name": "VH_F_minor_calyx_L_b",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.female.n536",
+            "source_name": "VH_F_minor_calyx_L_c",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.female.n537",
+            "source_name": "VH_F_minor_calyx_L_d",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.female.n538",
+            "source_name": "VH_F_minor_calyx_L_e",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.female.n539",
+            "source_name": "VH_F_minor_calyx_L_f",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.female.n540",
+            "source_name": "VH_F_minor_calyx_L_g",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.female.n541",
+            "source_name": "VH_F_minor_calyx_L_h",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.female.n542",
+            "source_name": "VH_F_minor_calyx_L_i",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.female.n543",
+            "source_name": "VH_F_minor_calyx_L_j",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.female.n580",
+            "source_name": "VH_F_minor_calyx_R",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n581",
+            "source_name": "VH_F_minor_calyx_R_a",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.female.n582",
+            "source_name": "VH_F_minor_calyx_R_b",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.female.n583",
+            "source_name": "VH_F_minor_calyx_R_c",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.female.n584",
+            "source_name": "VH_F_minor_calyx_R_d",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.female.n585",
+            "source_name": "VH_F_minor_calyx_R_e",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.female.n586",
+            "source_name": "VH_F_minor_calyx_R_f",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.female.n587",
+            "source_name": "VH_F_minor_calyx_R_g",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.female.n588",
+            "source_name": "VH_F_minor_calyx_R_h",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.female.n589",
+            "source_name": "VH_F_minor_calyx_R_i",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.female.n590",
+            "source_name": "VH_F_minor_calyx_R_j",
+            "ontology": "UBERON:0001227"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n512",
+            "source_name": "VH_M_minor_calyx_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n513",
+            "source_name": "VH_M_minor_calyx_L_a",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.male.n514",
+            "source_name": "VH_M_minor_calyx_L_b",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.male.n515",
+            "source_name": "VH_M_minor_calyx_L_c",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.male.n516",
+            "source_name": "VH_M_minor_calyx_L_d",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.male.n517",
+            "source_name": "VH_M_minor_calyx_L_e",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.male.n518",
+            "source_name": "VH_M_minor_calyx_L_f",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.male.n519",
+            "source_name": "VH_M_minor_calyx_L_g",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.male.n520",
+            "source_name": "VH_M_minor_calyx_L_h",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.male.n521",
+            "source_name": "VH_M_minor_calyx_L_i",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.male.n560",
+            "source_name": "VH_M_minor_calyx_R",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n561",
+            "source_name": "VH_M_minor_calyx_R_a",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.male.n562",
+            "source_name": "VH_M_minor_calyx_R_b",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.male.n563",
+            "source_name": "VH_M_minor_calyx_R_c",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.male.n564",
+            "source_name": "VH_M_minor_calyx_R_d",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.male.n565",
+            "source_name": "VH_M_minor_calyx_R_e",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.male.n566",
+            "source_name": "VH_M_minor_calyx_R_f",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.male.n567",
+            "source_name": "VH_M_minor_calyx_R_g",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.male.n568",
+            "source_name": "VH_M_minor_calyx_R_h",
+            "ontology": "UBERON:0001227"
+          },
+          {
+            "id": "source.hra-v1-1.male.n569",
+            "source_name": "VH_M_minor_calyx_R_i",
+            "ontology": "UBERON:0001227"
+          }
+        ]
+      }
+    },
+    "anatomy.major-calyces": {
+      "overview": "Formed where several minor calyces converge.",
+      "function": "Part of the cuplike edge of the renal pelvis, which collects urine.",
+      "related": [
+        "anatomy.minor-calyces",
+        "anatomy.renal-pelvis"
+      ],
+      "source_ids": [
+        "seer-kidney"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n544",
+            "source_name": "VH_F_major_calyx_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n545",
+            "source_name": "VH_F_major_calyx_L_a",
+            "ontology": "UBERON:0001226"
+          },
+          {
+            "id": "source.hra-v1-1.female.n546",
+            "source_name": "VH_F_major_calyx_L_b",
+            "ontology": "UBERON:0001226"
+          },
+          {
+            "id": "source.hra-v1-1.female.n547",
+            "source_name": "VH_F_major_calyx_L_c",
+            "ontology": "UBERON:0001226"
+          },
+          {
+            "id": "source.hra-v1-1.female.n548",
+            "source_name": "VH_F_major_calyx_L_d",
+            "ontology": "UBERON:0001226"
+          },
+          {
+            "id": "source.hra-v1-1.female.n591",
+            "source_name": "VH_F_major_calyx_R",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n592",
+            "source_name": "VH_F_major_calyx_R_a",
+            "ontology": "UBERON:0001226"
+          },
+          {
+            "id": "source.hra-v1-1.female.n593",
+            "source_name": "VH_F_major_calyx_R_b",
+            "ontology": "UBERON:0001226"
+          },
+          {
+            "id": "source.hra-v1-1.female.n594",
+            "source_name": "VH_F_major_calyx_R_c",
+            "ontology": "UBERON:0001226"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n508",
+            "source_name": "VH_M_major_calyx_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n509",
+            "source_name": "VH_M_major_calyx_L_a",
+            "ontology": "UBERON:0001226"
+          },
+          {
+            "id": "source.hra-v1-1.male.n510",
+            "source_name": "VH_M_major_calyx_L_b",
+            "ontology": "UBERON:0001226"
+          },
+          {
+            "id": "source.hra-v1-1.male.n511",
+            "source_name": "VH_M_major_calyx_L_c",
+            "ontology": "UBERON:0001226"
+          },
+          {
+            "id": "source.hra-v1-1.male.n557",
+            "source_name": "VH_M_major_calyx_R",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n558",
+            "source_name": "VH_M_major_calyx_R_a",
+            "ontology": "UBERON:0001226"
+          },
+          {
+            "id": "source.hra-v1-1.male.n559",
+            "source_name": "VH_M_major_calyx_R_b",
+            "ontology": "UBERON:0001226"
+          }
+        ]
+      }
+    },
+    "anatomy.renal-pelvis": {
+      "overview": "A large cavity in the central region of the kidney, continuous with the ureter.",
+      "function": "Collects the urine as it is produced.",
+      "related": [
+        "anatomy.major-calyces",
+        "anatomy.ureters",
+        "anatomy.kidney-hilum"
+      ],
+      "source_ids": [
+        "seer-kidney"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n549",
+            "source_name": "VH_F_renal_pelvis_L",
+            "ontology": "UBERON:0001224"
+          },
+          {
+            "id": "source.hra-v1-1.female.n595",
+            "source_name": "VH_F_renal_pelvis_R",
+            "ontology": "UBERON:0001224"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n525",
+            "source_name": "VH_M_renal_pelvis_L",
+            "ontology": "UBERON:0001224"
+          },
+          {
+            "id": "source.hra-v1-1.male.n555",
+            "source_name": "VH_M_renal_pelvis_R",
+            "ontology": "UBERON:0001224"
+          }
+        ]
+      }
+    },
+    "anatomy.kidney-hilum": {
+      "overview": "An indentation on the medial side of each bean-shaped kidney.",
+      "function": "Where the renal artery enters the kidney and the ureter and renal vein leave it.",
+      "related": [
+        "anatomy.renal-arteries",
+        "anatomy.renal-veins",
+        "anatomy.renal-pelvis"
+      ],
+      "source_ids": [
+        "seer-kidney"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n503",
+            "source_name": "VH_F_hilum_of_kidney_L",
+            "ontology": "UBERON:0008716"
+          },
+          {
+            "id": "source.hra-v1-1.female.n552",
+            "source_name": "VH_F_hilum_of_kidney_R",
+            "ontology": "UBERON:0008716"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n485",
+            "source_name": "VH_M_hilum_of_kidney_L",
+            "ontology": "UBERON:0008716"
+          },
+          {
+            "id": "source.hra-v1-1.male.n528",
+            "source_name": "VH_M_hilum_of_kidney_R",
+            "ontology": "UBERON:0008716"
+          }
+        ]
+      }
+    },
+    "anatomy.duodenum": {
+      "overview": "The first part of the small intestine.",
+      "function": "Part of the small intestine, which digests food and absorbs its nutrients.",
+      "related": [
+        "anatomy.small-intestine",
+        "anatomy.jejunum",
+        "anatomy.pancreas"
+      ],
+      "source_ids": [
+        "niddk-digestive",
+        "seer-intestine"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n436",
+            "source_name": "VH_F_duodenum",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n437",
+            "source_name": "VH_F_duodenum_superior",
+            "ontology": "FMA:7206"
+          },
+          {
+            "id": "source.hra-v1-1.female.n439",
+            "source_name": "VH_F_duodenum_descending",
+            "ontology": "FMA:14928"
+          },
+          {
+            "id": "source.hra-v1-1.female.n441",
+            "source_name": "VH_F_duodenum_ascending",
+            "ontology": "FMA:14930"
+          },
+          {
+            "id": "source.hra-v1-1.female.n442",
+            "source_name": "VH_F_duodenum_horizontal",
+            "ontology": "FMA:14929"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n460",
+            "source_name": "VH_M_duodenum",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n461",
+            "source_name": "VH_M_duodenum_ascending",
+            "ontology": "FMA:14930"
+          },
+          {
+            "id": "source.hra-v1-1.male.n462",
+            "source_name": "VH_M_duodenum_descending",
+            "ontology": "FMA:14928"
+          },
+          {
+            "id": "source.hra-v1-1.male.n463",
+            "source_name": "VH_M_duodenum_horizonal",
+            "ontology": "FMA:14929"
+          },
+          {
+            "id": "source.hra-v1-1.male.n464",
+            "source_name": "VH_M_duodenum_superior",
+            "ontology": "FMA:7206"
+          }
+        ]
+      }
+    },
+    "anatomy.jejunum": {
+      "overview": "The middle of the three parts of the small intestine: duodenum, jejunum and ileum.",
+      "function": "Part of the small intestine, which digests food and absorbs its nutrients.",
+      "related": [
+        "anatomy.duodenum",
+        "anatomy.ileum",
+        "anatomy.small-intestine"
+      ],
+      "source_ids": [
+        "seer-intestine",
+        "niddk-digestive"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n443",
+          "source_name": "VH_F_jejenum",
+          "ontology": "UBERON:0002115"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n459",
+          "source_name": "VH_M_jejunum",
+          "ontology": "UBERON:0002115"
+        }
+      }
+    },
+    "anatomy.ileum": {
+      "overview": "The last of the three parts of the small intestine. It enters the large intestine at the ileocecal junction.",
+      "function": "Part of the small intestine, which digests food and absorbs its nutrients.",
+      "related": [
+        "anatomy.jejunum",
+        "anatomy.ileocecal-valve",
+        "anatomy.cecum"
+      ],
+      "source_ids": [
+        "seer-intestine",
+        "niddk-digestive"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n444",
+            "source_name": "VH_F_ileum",
+            "ontology": "UBERON:0002116"
+          },
+          {
+            "id": "source.hra-v1-1.female.n445",
+            "source_name": "VH_F_ileum_terminal",
+            "ontology": "FMA:14966"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n457",
+            "source_name": "VH_M_ileum",
+            "ontology": "UBERON:0002116"
+          },
+          {
+            "id": "source.hra-v1-1.male.n458",
+            "source_name": "VH_M_ileum_terminal",
+            "ontology": "FMA:14966"
+          }
+        ]
+      }
+    },
+    "anatomy.ileocecal-valve": {
+      "overview": "Where the small intestine empties into the large intestine.",
+      "function": "Marks the end of the small intestine.",
+      "related": [
+        "anatomy.ileum",
+        "anatomy.cecum"
+      ],
+      "source_ids": [
+        "seer-intestine"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n430",
+          "source_name": "VH_F_ileocecal_valve",
+          "ontology": "UBERON:0000569"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n476",
+          "source_name": "VH_M_ileocecal_valve",
+          "ontology": "UBERON:0000569"
+        }
+      }
+    },
+    "anatomy.cecum": {
+      "overview": "Part of the large intestine, which includes the appendix, cecum, colon and rectum. The appendix is attached to it.",
+      "function": "Part of the large intestine, which absorbs water and moves waste toward the rectum.",
+      "related": [
+        "anatomy.appendix",
+        "anatomy.colon",
+        "anatomy.ileocecal-valve"
+      ],
+      "source_ids": [
+        "niddk-digestive",
+        "seer-intestine"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n431",
+          "source_name": "VH_F_caecum",
+          "ontology": "UBERON:0001153"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n477",
+          "source_name": "VH_M_caecum",
+          "ontology": "UBERON:0001153"
+        }
+      }
+    },
+    "anatomy.sigmoid-colon": {
+      "overview": "The lower part of the colon. The rectum continues from it.",
+      "function": "Part of the colon, which absorbs water and moves waste toward the rectum.",
+      "related": [
+        "anatomy.colon",
+        "anatomy.rectum"
+      ],
+      "source_ids": [
+        "niddk-diverticular",
+        "seer-intestine"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n433",
+          "source_name": "VH_F_sigmoid_colon",
+          "ontology": "UBERON:0001159"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n473",
+          "source_name": "VH_M_sigmoid_colon",
+          "ontology": "UBERON:0001159"
+        }
+      }
+    },
+    "anatomy.rectum": {
+      "overview": "The end of the large intestine. It continues from the sigmoid colon to the anal canal and has a thick muscular layer.",
+      "function": "Receives stool moved along from the colon by muscle contractions (peristalsis).",
+      "related": [
+        "anatomy.sigmoid-colon",
+        "anatomy.colon"
+      ],
+      "source_ids": [
+        "seer-intestine",
+        "niddk-digestive"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n432",
+          "source_name": "VH_F_rectum",
+          "ontology": "UBERON:0001052"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n472",
+          "source_name": "VH_M_rectum",
+          "ontology": "UBERON:0001052"
+        }
+      }
+    },
+    "anatomy.liver-lobes": {
+      "overview": "On the surface, the liver is divided into two major lobes and two smaller lobes.",
+      "function": "Together they make up the liver, which makes bile and processes nutrient-rich blood from the digestive tract.",
+      "related": [
+        "anatomy.liver",
+        "anatomy.gallbladder"
+      ],
+      "source_ids": [
+        "seer-accessory"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n470",
+            "source_name": "VH_F_left_lobe_of_liver",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n477",
+            "source_name": "VH_F_quadrate_lobe",
+            "ontology": "UBERON:0001116"
+          },
+          {
+            "id": "source.hra-v1-1.female.n478",
+            "source_name": "VH_F_right_lobe_of_liver",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n483",
+            "source_name": "VH_F_caudate_lobe",
+            "ontology": "UBERON:0001117"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n417",
+            "source_name": "VH_M_caudate_lobe_of_liver",
+            "ontology": "UBERON:0001117"
+          },
+          {
+            "id": "source.hra-v1-1.male.n418",
+            "source_name": "VH_M_right_lobe_of_liver",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n423",
+            "source_name": "VH_M_left_lobe_of_liver",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n430",
+            "source_name": "VH_M_quadrate_lobe_of_liver",
+            "ontology": "UBERON:0001116"
+          }
+        ]
+      }
+    },
+    "anatomy.cystic-duct": {
+      "overview": "The duct that attaches the gallbladder to the underside of the liver.",
+      "function": "Attaches the gallbladder to the liver.",
+      "related": [
+        "anatomy.gallbladder",
+        "anatomy.bile-duct.common",
+        "anatomy.liver"
+      ],
+      "source_ids": [
+        "seer-accessory"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n457",
+          "source_name": "VH_F_cystic_duct",
+          "ontology": "UBERON:0001152"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n455",
+          "source_name": "VH_M_cystic_duct",
+          "ontology": "UBERON:0001152"
+        }
+      }
+    },
+    "anatomy.fallopian-tubes": {
+      "overview": "The two uterine tubes, also called Fallopian tubes or oviducts.",
+      "function": "Fertilization usually occurs in a Fallopian tube, because an egg cell is fertile for only 24 to 48 hours.",
+      "related": [
+        "anatomy.ovaries",
+        "anatomy.uterus",
+        "anatomy.tube-infundibulum"
+      ],
+      "source_ids": [
+        "seer-female-tract"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n374",
+            "source_name": "VH_F_fallopian_tube",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n375",
+            "source_name": "VH_F_fallopian_tube_R",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n380",
+            "source_name": "VH_F_fallopian_tube_L",
+            "ontology": ""
+          }
+        ]
+      }
+    },
+    "anatomy.tube-infundibulum": {
+      "overview": "The funnel-shaped end of each tube near the ovary, surrounded by fingerlike extensions called fimbriae.",
+      "function": "At ovulation the fimbriae become more active and create currents that help draw the egg cell into the tube.",
+      "related": [
+        "anatomy.fallopian-tubes",
+        "anatomy.ovaries"
+      ],
+      "source_ids": [
+        "seer-female-tract"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n378",
+            "source_name": "VH_F_fibria_of_uterine_tube_R",
+            "ontology": "FMA:18497"
+          },
+          {
+            "id": "source.hra-v1-1.female.n379",
+            "source_name": "VH_F_uterine_tube_infundibulum_R",
+            "ontology": "FMA:18489"
+          },
+          {
+            "id": "source.hra-v1-1.female.n383",
+            "source_name": "VH_F_fibria_of_uterine_tube_L",
+            "ontology": "FMA:18498"
+          },
+          {
+            "id": "source.hra-v1-1.female.n384",
+            "source_name": "VH_F_uterine_tube_infundibulum_L",
+            "ontology": "FMA:18490"
+          }
+        ]
+      }
+    },
+    "anatomy.cervix": {
+      "overview": "The lower, narrow end of the uterus. It projects into the vagina at nearly a right angle.",
+      "function": "Connects the uterus to the vagina.",
+      "related": [
+        "anatomy.uterus",
+        "anatomy.vagina"
+      ],
+      "source_ids": [
+        "nci-cervical-cancer",
+        "seer-female-tract"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n420",
+          "source_name": "VH_F_cervix",
+          "ontology": "UBERON:0000002"
+        }
+      }
+    },
+    "anatomy.vagina": {
+      "overview": "A fibromuscular tube, about 10 cm long, that extends from the cervix of the uterus to the outside.",
+      "function": "Connects the cervix to the outside of the body. It is also called the birth canal.",
+      "related": [
+        "anatomy.cervix",
+        "anatomy.uterus"
+      ],
+      "source_ids": [
+        "seer-female-tract",
+        "nci-cervical-cancer"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n372",
+          "source_name": "VH_F_vagina",
+          "ontology": "UBERON:0000996"
+        }
+      }
+    },
+    "anatomy.lymph-node": {
+      "overview": "A sample lymph node. A typical node is surrounded by a connective tissue capsule and divided into compartments called lymph nodules.",
+      "function": "Lymph nodes lie along the lymphatic pathways and filter lymph before it returns to the blood.",
+      "related": [
+        "anatomy.spleen",
+        "anatomy.thymus"
+      ],
+      "source_ids": [
+        "seer-lymph-nodes"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n876",
+          "source_name": "Yao_lymph_node",
+          "ontology": ""
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n592",
+          "source_name": "Yao_lymph_node",
+          "ontology": ""
+        }
+      }
+    },
+    "anatomy.quadriceps-tendon": {
+      "overview": "The tendon of the quadriceps femoris muscle group, at the knee.",
+      "function": "The quadriceps femoris muscle group straightens the leg at the knee.",
+      "related": [
+        "anatomy.knee",
+        "anatomy.femur"
+      ],
+      "source_ids": [
+        "seer-lower-muscles",
+        "mlp-knee"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n367",
+            "source_name": "VH_F_tendon_of_quadriceps_femoris_R",
+            "ontology": "FMA:46901"
+          },
+          {
+            "id": "source.hra-v1-1.female.n370",
+            "source_name": "VH_F_tendon_of_quadriceps_femoris_L",
+            "ontology": "FMA:46902"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n969",
+            "source_name": "VH_M_tendon_of_quadriceps_femoris_L",
+            "ontology": "FMA:46902"
+          },
+          {
+            "id": "source.hra-v1-1.male.n972",
+            "source_name": "VH_M_tendon_of_quadriceps_femoris_R",
+            "ontology": "FMA:46901"
+          }
+        ]
+      }
+    },
+    "anatomy.pupil": {
+      "overview": "An opening through which light enters the eye.",
+      "function": "Lets light into the eye; the iris controls how much.",
+      "related": [
+        "anatomy.iris",
+        "anatomy.lens",
+        "anatomy.eyes"
+      ],
+      "source_ids": [
+        "nei-how-eyes-work"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n11",
+            "source_name": "VH_F_pupil_L",
+            "ontology": "UBERON:0010223"
+          },
+          {
+            "id": "source.hra-v1-1.female.n40",
+            "source_name": "VH_F_pupil_R",
+            "ontology": "UBERON:0010224"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n905",
+            "source_name": "VH_M_pupil_L",
+            "ontology": "UBERON:0010223"
+          },
+          {
+            "id": "source.hra-v1-1.male.n938",
+            "source_name": "VH_M_pupil_R",
+            "ontology": "UBERON:0010224"
+          }
+        ]
+      }
+    },
+    "anatomy.ciliary-body": {
+      "overview": "One of the three parts of the uvea, with the iris and the choroid.",
+      "function": "Helps the lens focus.",
+      "related": [
+        "anatomy.lens",
+        "anatomy.iris",
+        "anatomy.choroid"
+      ],
+      "source_ids": [
+        "nei-uveitis"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n13",
+            "source_name": "VH_F_ciliary_body_L",
+            "ontology": "FMA:58297"
+          },
+          {
+            "id": "source.hra-v1-1.female.n35",
+            "source_name": "VH_F_ciliary_body_R",
+            "ontology": "FMA:58296"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n907",
+            "source_name": "VH_M_ciliary_body_L",
+            "ontology": "FMA:58297"
+          },
+          {
+            "id": "source.hra-v1-1.male.n933",
+            "source_name": "VH_M_ciliary_body_R",
+            "ontology": "FMA:58296"
+          }
+        ]
+      }
+    },
+    "anatomy.choroid": {
+      "overview": "One of the three parts of the uvea, at the back of the eye.",
+      "function": "Connects the retina to the sclera.",
+      "related": [
+        "anatomy.retina",
+        "anatomy.ciliary-body",
+        "anatomy.eyes"
+      ],
+      "source_ids": [
+        "nei-uveitis"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n18",
+            "source_name": "VH_F_optic_choroid_L",
+            "ontology": "FMA:58300"
+          },
+          {
+            "id": "source.hra-v1-1.female.n34",
+            "source_name": "VH_F_optic_choroid_R",
+            "ontology": "FMA:58299"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n912",
+            "source_name": "VH_M_optic_choroid_L",
+            "ontology": "FMA:58300"
+          },
+          {
+            "id": "source.hra-v1-1.male.n932",
+            "source_name": "VH_M_optic_choroid_R",
+            "ontology": "FMA:58299"
+          }
+        ]
+      }
+    },
+    "anatomy.vitreous": {
+      "overview": "The vitreous, a gel-like fluid that fills the eye.",
+      "function": "Fills the eye. With age, tiny strands in it can stick together and cast shadows on the retina, seen as floaters.",
+      "related": [
+        "anatomy.retina",
+        "anatomy.lens",
+        "anatomy.eyes"
+      ],
+      "source_ids": [
+        "nei-floaters"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n21",
+            "source_name": "VH_F_vitreous_humor_L",
+            "ontology": "FMA:261238"
+          },
+          {
+            "id": "source.hra-v1-1.female.n49",
+            "source_name": "VH_F_vitreous_humor_R",
+            "ontology": "FMA:261236"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n915",
+            "source_name": "VH_M_vitreous_humor_L",
+            "ontology": "FMA:261238"
+          },
+          {
+            "id": "source.hra-v1-1.male.n947",
+            "source_name": "VH_M_vitreous_humor_R",
+            "ontology": "FMA:261236"
+          }
+        ]
+      }
+    },
+    "anatomy.compact-bone": {
+      "overview": "Compact bone tissue, supplied here for the pubis, ilium and ischium of the pelvis.",
+      "function": "Made of closely packed osteons (haversian systems) that form what appears to be a solid mass.",
+      "related": [
+        "anatomy.spongy-bone"
+      ],
+      "source_ids": [
+        "seer-bone-tissue"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n892",
+            "source_name": "VH_F_pubis_compact_bone",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n893",
+            "source_name": "VH_F_pubis_compact_bone_R",
+            "ontology": "UBERON:0001439"
+          },
+          {
+            "id": "source.hra-v1-1.female.n894",
+            "source_name": "VH_F_pubis_compact_bone_L",
+            "ontology": "UBERON:0001439"
+          },
+          {
+            "id": "source.hra-v1-1.female.n896",
+            "source_name": "VH_F_ilium_compact_bone",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n897",
+            "source_name": "VH_F_ilium_compact_bone_R",
+            "ontology": "UBERON:0001439"
+          },
+          {
+            "id": "source.hra-v1-1.female.n898",
+            "source_name": "VH_F_ilium_compact_bone_L",
+            "ontology": "UBERON:0001439"
+          },
+          {
+            "id": "source.hra-v1-1.female.n903",
+            "source_name": "VH_F_ischium_compact_bone",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n904",
+            "source_name": "VH_F_ischium_compact_bone_R",
+            "ontology": "UBERON:0001439"
+          },
+          {
+            "id": "source.hra-v1-1.female.n905",
+            "source_name": "VH_F_ischium_compact_bone_L",
+            "ontology": "UBERON:0001439"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n296",
+            "source_name": "VH_M_pubis_compact_bone",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n297",
+            "source_name": "VH_M_pubis_compact_bone_L",
+            "ontology": "UBERON:0001439"
+          },
+          {
+            "id": "source.hra-v1-1.male.n298",
+            "source_name": "VH_M_pubis_compact_bone_R",
+            "ontology": "UBERON:0001439"
+          },
+          {
+            "id": "source.hra-v1-1.male.n303",
+            "source_name": "VH_M_ilium_compact_bone",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n304",
+            "source_name": "VH_M_ilium_compact_bone_L",
+            "ontology": "UBERON:0001439"
+          },
+          {
+            "id": "source.hra-v1-1.male.n305",
+            "source_name": "VH_M_ilium_compact_bone_R",
+            "ontology": "UBERON:0001439"
+          },
+          {
+            "id": "source.hra-v1-1.male.n310",
+            "source_name": "VH_M_ischium_compact_bone",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n311",
+            "source_name": "VH_M_ischium_compact_bone_L",
+            "ontology": "UBERON:0001439"
+          },
+          {
+            "id": "source.hra-v1-1.male.n312",
+            "source_name": "VH_M_ischium_compact_bone_R",
+            "ontology": "UBERON:0001439"
+          }
+        ]
+      }
+    },
+    "anatomy.spongy-bone": {
+      "overview": "Spongy bone, made of plates (trabeculae) and bars of bone next to small, irregular cavities that contain red bone marrow. Supplied here for the pubis, ilium and ischium of the pelvis.",
+      "function": "Its trabeculae follow the lines of stress and can realign if the direction of stress changes.",
+      "related": [
+        "anatomy.compact-bone"
+      ],
+      "source_ids": [
+        "seer-bone-tissue"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n889",
+            "source_name": "VH_F_pubis_spongy_bone",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n890",
+            "source_name": "VH_F_pubis_spongy_bone_L",
+            "ontology": "UBERON:0002483"
+          },
+          {
+            "id": "source.hra-v1-1.female.n891",
+            "source_name": "VH_F_pubis_spongy_bone_R",
+            "ontology": "UBERON:0002483"
+          },
+          {
+            "id": "source.hra-v1-1.female.n899",
+            "source_name": "VH_F_ilium_spongy_bone",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n900",
+            "source_name": "VH_F_ilium_spongy_bone_L",
+            "ontology": "UBERON:0002483"
+          },
+          {
+            "id": "source.hra-v1-1.female.n901",
+            "source_name": "VH_F_ilium_spongy_bone_R",
+            "ontology": "UBERON:0002483"
+          },
+          {
+            "id": "source.hra-v1-1.female.n906",
+            "source_name": "VH_F_ischium_spongy_bone",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n907",
+            "source_name": "VH_F_ischium_spongy_bone_R",
+            "ontology": "UBERON:0002483"
+          },
+          {
+            "id": "source.hra-v1-1.female.n908",
+            "source_name": "VH_F_ischium_spongy_bone_L",
+            "ontology": "UBERON:0002483"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n299",
+            "source_name": "VH_M_pubis_spongy_bone",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n300",
+            "source_name": "VH_M_pubis_spongy_bone_L",
+            "ontology": "UBERON:0002483"
+          },
+          {
+            "id": "source.hra-v1-1.male.n301",
+            "source_name": "VH_M_pubis_spongy_bone_R",
+            "ontology": "UBERON:0002483"
+          },
+          {
+            "id": "source.hra-v1-1.male.n306",
+            "source_name": "VH_M_ilium_spongy_bone",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n307",
+            "source_name": "VH_M_ilium_spongy_bone_R",
+            "ontology": "UBERON:0002483"
+          },
+          {
+            "id": "source.hra-v1-1.male.n308",
+            "source_name": "VH_M_ilium_spongy_bone_L",
+            "ontology": "UBERON:0002483"
+          },
+          {
+            "id": "source.hra-v1-1.male.n313",
+            "source_name": "VH_M_ischium_spongy_bone",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n314",
+            "source_name": "VH_M_ischium_spongy_bone_L",
+            "ontology": "UBERON:0002483"
+          },
+          {
+            "id": "source.hra-v1-1.male.n315",
+            "source_name": "VH_M_ischium_spongy_bone_R",
+            "ontology": "UBERON:0002483"
+          }
+        ]
+      }
+    },
+    "anatomy.skin": {
+      "overview": "The body's largest organ, covering the entire outside of the body. It is about 2 mm thick. Its outer layer, the epidermis, is tough and protective; the dermis beneath it contains nerve endings, sweat glands, oil glands and hair follicles.",
+      "function": "Forms a protective barrier against pathogens and injury. It also helps regulate body temperature, gathers sensory information and stores water, fat and vitamin D.",
+      "related": [],
+      "source_ids": [
+        "seer-skin"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
     }
   },
   "routes": {
@@ -3422,6 +6310,661 @@
       "expert_review": "pending",
       "human_source_review": "pending",
       "not_depicted": "Cartilage loss, bone spurs and joint changes are not depicted."
+    },
+    "condition.heart-attack": {
+      "title": "Heart attack",
+      "summary": "Blood flow that brings oxygen to part of the heart muscle suddenly becomes blocked. If blood flow is not restored quickly, the heart muscle begins to die. Most heart attacks are caused by coronary artery disease.",
+      "location": "The coronary arteries branch from the ascending aorta and supply the heart muscle.",
+      "focus_id": "anatomy.coronary.left",
+      "related_anatomy": [
+        "anatomy.coronary.left",
+        "anatomy.coronary.right",
+        "anatomy.heart"
+      ],
+      "display_on": [
+        "anatomy.heart",
+        "anatomy.coronary.left",
+        "anatomy.coronary.right"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nhlbi-heart-attack",
+        "nhlbi-chd",
+        "seer-pathways"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Blocked arteries, blood flow and damaged heart muscle are not depicted."
+    },
+    "condition.heart-failure": {
+      "title": "Heart failure",
+      "summary": "The heart doesn't pump enough blood for the body's needs, or is too weak to pump properly. Also called congestive heart failure, it is most often caused by another condition that damages the heart, and needs medical care.",
+      "location": "The heart pumps blood through the lungs and the body.",
+      "focus_id": "anatomy.heart",
+      "related_anatomy": [
+        "anatomy.heart"
+      ],
+      "display_on": [
+        "anatomy.heart",
+        "anatomy.heart.ventricle.left",
+        "anatomy.heart.ventricle.right"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nhlbi-heart-failure",
+        "heart-flow"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Weakened pumping and blood flow are not depicted."
+    },
+    "condition.atrial-fibrillation": {
+      "title": "Atrial fibrillation",
+      "summary": "The heart beats irregularly and sometimes much faster than normal, and its upper and lower chambers do not work together as they should. Blood may pool in the heart, raising the risk of clots and stroke.",
+      "location": "The atria are the heart's two upper chambers.",
+      "focus_id": "anatomy.heart.atrium.left",
+      "related_anatomy": [
+        "anatomy.heart.atrium.left",
+        "anatomy.heart.atrium.right"
+      ],
+      "display_on": [
+        "anatomy.heart",
+        "anatomy.heart.atrium.left",
+        "anatomy.heart.atrium.right"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nhlbi-afib",
+        "heart-flow"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Heart rhythm, pooled blood and clots are not depicted."
+    },
+    "condition.pneumonia": {
+      "title": "Pneumonia",
+      "summary": "An infection that affects one or both lungs. It causes the air sacs of the lungs to fill up with fluid or pus.",
+      "location": "The bronchi branch into smaller and smaller airways that end in the tiny air sacs of both lungs.",
+      "focus_id": "anatomy.lungs",
+      "related_anatomy": [
+        "anatomy.lungs"
+      ],
+      "display_on": [
+        "anatomy.lungs",
+        "anatomy.lung.left",
+        "anatomy.lung.right"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nhlbi-pneumonia",
+        "seer-bronchi"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Infection and fluid-filled air sacs are not depicted."
+    },
+    "condition.lung-cancer": {
+      "title": "Lung cancer",
+      "summary": "Lung cancer has two main types: non-small cell lung cancer and small cell lung cancer. Smoking causes most lung cancers, but nonsmokers can also develop it.",
+      "location": "The right lung has three lobes and the left lung two.",
+      "focus_id": "anatomy.lungs",
+      "related_anatomy": [
+        "anatomy.lungs"
+      ],
+      "display_on": [
+        "anatomy.lungs",
+        "anatomy.lung.left",
+        "anatomy.lung.right",
+        "anatomy.lung.right.lobes",
+        "anatomy.lung.left.lobes"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nci-lung-cancer",
+        "seer-bronchi"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Tumors and their spread are not depicted."
+    },
+    "condition.ckd": {
+      "title": "Chronic kidney disease",
+      "summary": "The kidneys are damaged or have a problem with their structure and can't filter blood the way they should. Diabetes and high blood pressure are the most common causes in adults.",
+      "location": "The kidneys lie just below the rib cage, one on each side of the spine.",
+      "focus_id": "anatomy.kidneys",
+      "related_anatomy": [
+        "anatomy.kidneys"
+      ],
+      "display_on": [
+        "anatomy.kidneys",
+        "anatomy.kidney.left",
+        "anatomy.kidney.right",
+        "anatomy.renal-cortex"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-ckd",
+        "niddk-kidneys"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Kidney damage and reduced filtering are not depicted."
+    },
+    "condition.bladder-infection": {
+      "title": "Bladder infection (cystitis)",
+      "summary": "An illness most often caused by bacteria that enter the bladder and multiply. It is the most common type of urinary tract infection and, if untreated, can spread to the kidneys.",
+      "location": "The bladder is a hollow organ in the pelvis that stores urine.",
+      "focus_id": "anatomy.bladder",
+      "related_anatomy": [
+        "anatomy.bladder"
+      ],
+      "display_on": [
+        "anatomy.bladder"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-bladder-infection",
+        "seer-bladder"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Infection and inflammation are not depicted."
+    },
+    "condition.diverticular-disease": {
+      "title": "Diverticulosis and diverticulitis",
+      "summary": "In diverticulosis, small pouches form and push outward through weak spots in the wall of the colon, mostly in the sigmoid colon. Most people with these pouches have no symptoms. Diverticulitis occurs when the pouches become inflamed.",
+      "location": "The sigmoid colon is the lower part of the colon, just before the rectum.",
+      "focus_id": "anatomy.sigmoid-colon",
+      "related_anatomy": [
+        "anatomy.sigmoid-colon",
+        "anatomy.colon"
+      ],
+      "display_on": [
+        "anatomy.sigmoid-colon",
+        "anatomy.colon"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-diverticular",
+        "seer-intestine"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Pouches and inflammation are not depicted."
+    },
+    "condition.crohns": {
+      "title": "Crohn's disease",
+      "summary": "A chronic inflammatory bowel disease in which abnormal immune reactions cause inflammation in the digestive tract. It most commonly affects the small intestine and the beginning of the large intestine, but can affect any part from mouth to anus.",
+      "location": "The ileum is the last part of the small intestine, joining the large intestine at the ileocecal junction.",
+      "focus_id": "anatomy.ileum",
+      "related_anatomy": [
+        "anatomy.ileum",
+        "anatomy.small-intestine",
+        "anatomy.colon"
+      ],
+      "display_on": [
+        "anatomy.small-intestine",
+        "anatomy.ileum",
+        "anatomy.colon",
+        "anatomy.cecum"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-crohns",
+        "seer-intestine"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Inflammation and damage to the intestinal wall are not depicted."
+    },
+    "condition.ulcerative-colitis": {
+      "title": "Ulcerative colitis",
+      "summary": "A chronic inflammatory bowel disease in which abnormal immune reactions cause inflammation and ulcers on the inner lining of the large intestine. Symptoms come and go, with flares and periods of remission.",
+      "location": "The large intestine includes the cecum, colon and rectum.",
+      "focus_id": "anatomy.colon",
+      "related_anatomy": [
+        "anatomy.colon",
+        "anatomy.rectum"
+      ],
+      "display_on": [
+        "anatomy.colon",
+        "anatomy.rectum",
+        "anatomy.sigmoid-colon"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-ulcerative-colitis",
+        "niddk-digestive"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Inflammation and ulcers are not depicted."
+    },
+    "condition.celiac": {
+      "title": "Celiac disease",
+      "summary": "A chronic digestive and immune disorder that damages the small intestine. It is triggered by eating foods containing gluten, a protein found in wheat, barley and rye.",
+      "location": "The small intestine has three parts: the duodenum, jejunum and ileum.",
+      "focus_id": "anatomy.small-intestine",
+      "related_anatomy": [
+        "anatomy.small-intestine"
+      ],
+      "display_on": [
+        "anatomy.small-intestine",
+        "anatomy.duodenum",
+        "anatomy.jejunum"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-celiac",
+        "seer-intestine"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Damage to the intestinal lining is not depicted."
+    },
+    "condition.nafld": {
+      "title": "Fatty liver disease (NAFLD / MASLD)",
+      "summary": "Excess fat builds up in the liver, not caused by heavy alcohol use. It is also called metabolic dysfunction-associated steatotic liver disease (MASLD).",
+      "location": "The liver lies mainly in the upper right abdomen, just beneath the diaphragm.",
+      "focus_id": "anatomy.liver",
+      "related_anatomy": [
+        "anatomy.liver"
+      ],
+      "display_on": [
+        "anatomy.liver",
+        "anatomy.liver-lobes"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-nafld",
+        "seer-accessory"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Fat buildup and changes in liver tissue are not depicted."
+    },
+    "condition.viral-hepatitis": {
+      "title": "Viral hepatitis",
+      "summary": "An infection that causes liver inflammation and damage. Several different viruses cause it, including hepatitis A, B, C, D and E.",
+      "location": "The liver lies mainly in the upper right abdomen, just beneath the diaphragm.",
+      "focus_id": "anatomy.liver",
+      "related_anatomy": [
+        "anatomy.liver"
+      ],
+      "display_on": [
+        "anatomy.liver",
+        "anatomy.liver-lobes"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-viral-hepatitis",
+        "seer-accessory"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Inflammation and liver damage are not depicted."
+    },
+    "condition.diabetes": {
+      "title": "Diabetes",
+      "summary": "Blood glucose (blood sugar) is too high. Insulin, a hormone made by the pancreas, helps glucose get into cells for energy. In diabetes the body doesn't make enough or any insulin, or doesn't use it properly.",
+      "location": "The pancreas releases digestive enzymes into the small intestine and hormones such as insulin into the blood.",
+      "focus_id": "anatomy.pancreas",
+      "related_anatomy": [
+        "anatomy.pancreas"
+      ],
+      "display_on": [
+        "anatomy.pancreas"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-diabetes",
+        "seer-accessory"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Blood glucose and insulin are not depicted."
+    },
+    "condition.hemorrhoids": {
+      "title": "Hemorrhoids",
+      "summary": "Swollen and inflamed veins around the anus or in the lower rectum, also called piles. They are common, affecting about half of adults older than 50.",
+      "location": "The rectum is the end of the large intestine, continuing to the anal canal.",
+      "focus_id": "anatomy.rectum",
+      "related_anatomy": [
+        "anatomy.rectum"
+      ],
+      "display_on": [
+        "anatomy.rectum"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-hemorrhoids",
+        "seer-intestine"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Swollen veins are not depicted."
+    },
+    "condition.colorectal-cancer": {
+      "title": "Colorectal cancer",
+      "summary": "Often begins as a growth called a polyp inside the colon or rectum. Finding and removing polyps can prevent colorectal cancer.",
+      "location": "The colon is the main part of the large intestine; the rectum continues from the sigmoid colon.",
+      "focus_id": "anatomy.colon",
+      "related_anatomy": [
+        "anatomy.colon",
+        "anatomy.rectum"
+      ],
+      "display_on": [
+        "anatomy.colon",
+        "anatomy.rectum",
+        "anatomy.sigmoid-colon",
+        "anatomy.cecum"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nci-colorectal-cancer",
+        "seer-intestine"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Polyps and tumors are not depicted."
+    },
+    "condition.fibroids": {
+      "title": "Uterine fibroids",
+      "summary": "Growths made of smooth muscle cells and other tissue that grow in or on the wall of the uterus. They can cause pain and abnormal bleeding.",
+      "location": "The uterus is a muscular organ in the pelvis.",
+      "focus_id": "anatomy.uterus",
+      "related_anatomy": [
+        "anatomy.uterus"
+      ],
+      "display_on": [
+        "anatomy.uterus"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nichd-fibroids",
+        "seer-female-tract"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Fibroids are not depicted."
+    },
+    "condition.pcos": {
+      "title": "Polycystic ovary syndrome (PCOS)",
+      "summary": "A set of metabolic and reproductive symptoms related to a hormonal imbalance. It may cause menstrual changes, skin changes, growths in one or both ovaries and infertility.",
+      "location": "The ovaries lie on each side of the uterus in the side walls of the pelvic cavity.",
+      "focus_id": "anatomy.ovaries",
+      "related_anatomy": [
+        "anatomy.ovaries"
+      ],
+      "display_on": [
+        "anatomy.ovaries"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nichd-pcos",
+        "seer-ovaries"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Follicle growths and hormone levels are not depicted."
+    },
+    "condition.cervical-cancer": {
+      "title": "Cervical cancer",
+      "summary": "Cancer that starts in the cells of the cervix. It usually develops slowly: before cancer appears, cells of the cervix go through abnormal changes known as dysplasia.",
+      "location": "The cervix is the lower, narrow end of the uterus and connects it to the vagina.",
+      "focus_id": "anatomy.cervix",
+      "related_anatomy": [
+        "anatomy.cervix",
+        "anatomy.uterus"
+      ],
+      "display_on": [
+        "anatomy.cervix",
+        "anatomy.uterus"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nci-cervical-cancer",
+        "seer-female-tract"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Abnormal cells and tumors are not depicted."
+    },
+    "condition.prostate-cancer": {
+      "title": "Prostate cancer",
+      "summary": "The most common cancer among men in the United States. It usually grows very slowly.",
+      "location": "The prostate sits below the bladder and surrounds the urethra at the neck of the bladder.",
+      "focus_id": "anatomy.prostate",
+      "related_anatomy": [
+        "anatomy.prostate"
+      ],
+      "display_on": [
+        "anatomy.prostate"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nci-prostate-cancer",
+        "seer-male-glands"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Tumors and their spread are not depicted."
+    },
+    "condition.retinal-detachment": {
+      "title": "Retinal detachment",
+      "summary": "The retina is pulled away from its normal position at the back of the eye. Larger detachments can cause sudden symptoms such as many new floaters, flashes of light, or a shadow over part of the vision.",
+      "location": "The retina is the light-sensitive layer of tissue at the back of the eye.",
+      "focus_id": "anatomy.retina",
+      "related_anatomy": [
+        "anatomy.retina"
+      ],
+      "display_on": [
+        "anatomy.retina",
+        "anatomy.eyes"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nei-retinal-detachment",
+        "nei-how-eyes-work"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The detached retina is not depicted."
+    },
+    "condition.psoriasis": {
+      "title": "Psoriasis",
+      "summary": "An immune-mediated disease: overactive immune cells set off rapid production of skin cells. Patches of skin become scaly and inflamed, most often on the scalp, elbows or knees.",
+      "location": "The skin covers the entire outside of the body.",
+      "focus_id": "anatomy.skin",
+      "related_anatomy": [
+        "anatomy.skin"
+      ],
+      "display_on": [
+        "anatomy.skin"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niams-psoriasis",
+        "seer-skin"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Skin patches and inflammation are not depicted."
+    },
+    "condition.atopic-dermatitis": {
+      "title": "Atopic dermatitis (eczema)",
+      "summary": "A common, non-contagious condition that usually begins in childhood. It makes the skin extremely itchy, with red, dry patches.",
+      "location": "The skin covers the entire outside of the body.",
+      "focus_id": "anatomy.skin",
+      "related_anatomy": [
+        "anatomy.skin"
+      ],
+      "display_on": [
+        "anatomy.skin"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niams-atopic-dermatitis",
+        "seer-skin"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Skin changes are not depicted."
+    },
+    "condition.skin-cancer": {
+      "title": "Skin cancer",
+      "summary": "The main types are squamous cell carcinoma, basal cell carcinoma and melanoma.",
+      "location": "The epidermis, the skin's tough outer layer, contains the melanin-producing melanocytes.",
+      "focus_id": "anatomy.skin",
+      "related_anatomy": [
+        "anatomy.skin"
+      ],
+      "display_on": [
+        "anatomy.skin"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nci-skin-cancer",
+        "seer-skin"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Tumors and skin changes are not depicted."
+    },
+    "condition.uveitis": {
+      "title": "Uveitis",
+      "summary": "Inflammation inside the eye. It damages the uvea, made of the iris, ciliary body and choroid, and often affects other parts of the eye too.",
+      "location": "The uvea's three parts are the iris, the ciliary body and the choroid.",
+      "focus_id": "anatomy.choroid",
+      "related_anatomy": [
+        "anatomy.choroid",
+        "anatomy.ciliary-body",
+        "anatomy.iris"
+      ],
+      "display_on": [
+        "anatomy.choroid",
+        "anatomy.ciliary-body",
+        "anatomy.iris",
+        "anatomy.eyes"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nei-uveitis"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Inflammation is not depicted."
+    },
+    "condition.pink-eye": {
+      "title": "Pink eye (conjunctivitis)",
+      "summary": "Swelling and redness of the inside of the eyelid and the white part of the eye. It is common, and most often caused by a virus or bacteria; some types spread very easily.",
+      "location": "The supplied eyes include the eyelid lining and the white of the eye.",
+      "focus_id": "anatomy.eyes",
+      "related_anatomy": [
+        "anatomy.eyes"
+      ],
+      "display_on": [
+        "anatomy.eyes"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nei-pink-eye"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Swelling and redness are not depicted."
+    },
+    "condition.floaters": {
+      "title": "Floaters",
+      "summary": "Small dark shapes that float across the vision. With age, tiny strands of the vitreous stick together and cast shadows on the retina.",
+      "location": "The vitreous is the gel-like fluid that fills the eye.",
+      "focus_id": "anatomy.vitreous",
+      "related_anatomy": [
+        "anatomy.vitreous",
+        "anatomy.retina"
+      ],
+      "display_on": [
+        "anatomy.vitreous",
+        "anatomy.retina"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nei-floaters"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The strands and their shadows are not depicted."
+    },
+    "condition.bladder-cancer": {
+      "title": "Bladder cancer",
+      "summary": "Almost all bladder cancers are urothelial carcinomas, which begin in the cells lining the bladder. Muscle-invasive cancer has spread through the lining into the bladder's muscle wall.",
+      "location": "The bladder is a hollow organ in the pelvis that stores urine.",
+      "focus_id": "anatomy.bladder",
+      "related_anatomy": [
+        "anatomy.bladder"
+      ],
+      "display_on": [
+        "anatomy.bladder"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nci-bladder-cancer",
+        "seer-bladder"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Tumors and the bladder lining are not depicted."
+    },
+    "condition.osteoporosis": {
+      "title": "Osteoporosis",
+      "summary": "A bone disease in which bone mineral density and mass decrease, or bone structure and strength change, raising the risk of fractures. It is often \"silent\" until a bone breaks; fractures happen most often in the hip, spine and wrist.",
+      "location": "The supplied pelvis shows compact and spongy bone tissue. Osteoporosis can affect any bone.",
+      "focus_id": "anatomy.spongy-bone",
+      "related_anatomy": [
+        "anatomy.spongy-bone",
+        "anatomy.compact-bone"
+      ],
+      "display_on": [
+        "anatomy.spongy-bone",
+        "anatomy.compact-bone"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niams-osteoporosis",
+        "seer-bone-tissue"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Loss of bone density and fractures are not depicted."
     }
   },
   "assistant_checks": {
@@ -3444,39 +6987,74 @@
       "mlp-parkinson-disease",
       "mlp-parkinsons",
       "mlp-stroke",
+      "nci-bladder-cancer",
+      "nci-cervical-cancer",
+      "nci-colorectal-cancer",
+      "nci-lung-cancer",
+      "nci-prostate-cancer",
+      "nci-skin-cancer",
       "nei-amd",
       "nei-cataracts",
       "nei-diabetic-retinopathy",
+      "nei-floaters",
       "nei-glaucoma",
       "nei-how-eyes-work",
+      "nei-pink-eye",
+      "nei-retinal-detachment",
+      "nei-uveitis",
+      "nhlbi-afib",
       "nhlbi-aortic-aneurysm",
       "nhlbi-asthma",
       "nhlbi-chd",
       "nhlbi-copd",
+      "nhlbi-heart-attack",
+      "nhlbi-heart-failure",
+      "nhlbi-pneumonia",
       "nhlbi-pulmonary-embolism",
+      "niams-atopic-dermatitis",
       "niams-osteoarthritis",
+      "niams-osteoporosis",
+      "niams-psoriasis",
       "nichd-endometriosis",
+      "nichd-fibroids",
+      "nichd-pcos",
       "niddk-appendicitis",
+      "niddk-bladder-infection",
       "niddk-bph",
+      "niddk-celiac",
       "niddk-cirrhosis",
+      "niddk-ckd",
+      "niddk-crohns",
+      "niddk-diabetes",
       "niddk-digestive",
+      "niddk-diverticular",
       "niddk-gallstones",
+      "niddk-hemorrhoids",
       "niddk-kidney-stones",
       "niddk-kidneys",
+      "niddk-nafld",
       "niddk-pancreatitis",
+      "niddk-ulcerative-colitis",
       "niddk-urinary",
+      "niddk-viral-hepatitis",
       "pulmonary-branches",
       "seer-accessory",
       "seer-articulations",
       "seer-bladder",
+      "seer-bone-tissue",
       "seer-bronchi",
       "seer-cns",
       "seer-female-tract",
       "seer-heart",
       "seer-intestine",
       "seer-kidney",
+      "seer-larynx",
+      "seer-lower-muscles",
+      "seer-lymph-nodes",
       "seer-male-glands",
       "seer-ovaries",
+      "seer-pathways",
+      "seer-skin",
       "seer-spleen",
       "seer-thymus",
       "seer-ureters",

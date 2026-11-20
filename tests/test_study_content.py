@@ -14,7 +14,7 @@ from build_spinal_studies import build
 def is_government_source(url):
     return url.startswith(("https://www.nhlbi.nih.gov/", "https://www.ncbi.nlm.nih.gov/", "https://www.niddk.nih.gov/",
                            "https://www.nichd.nih.gov/", "https://training.seer.cancer.gov/", "https://www.nei.nih.gov/",
-                           "https://www.niams.nih.gov/", "https://medlineplus.gov/"))
+                           "https://www.niams.nih.gov/", "https://medlineplus.gov/", "https://www.cancer.gov/"))
 
 
 def mapping_list(value):
@@ -49,7 +49,7 @@ class StudyContentTests(unittest.TestCase):
     def test_conditions_are_sourced_reference_locations_with_explicit_associations(self):
         content = json.loads((ROOT / "content/study_content.json").read_text())
         catalogue = json.loads((ROOT / "content/sample_pack.json").read_text())
-        self.assertEqual(len(content["conditions"]), 25)
+        self.assertEqual(len(content["conditions"]), 54)
         for body in catalogue["bodies"]:
             available = {s["id"]: s for s in body["structures"]}
             offered = set()
@@ -67,9 +67,9 @@ class StudyContentTests(unittest.TestCase):
                     self.assertTrue(anatomy in available or anatomy in content["cards"], anatomy)
                 if all(resolve(content, anatomy, available) for anatomy in condition["related_anatomy"]):
                     offered.add(identity)
-            # Each adult reference offers the shared conditions plus its own
-            # sex-specific one; none is inferred from missing anatomy.
-            self.assertEqual(len(offered), 24)
+            # Each adult reference offers the 48 shared conditions plus its own
+            # sex-specific ones (4 female, 2 male); none is inferred from missing anatomy.
+            self.assertEqual(len(offered), 52 if body["id"] == "female" else 50)
             self.assertEqual("condition.bph" in offered, body["id"] == "male")
             self.assertEqual("condition.endometriosis" in offered, body["id"] == "female")
 
@@ -100,7 +100,7 @@ class StudyContentTests(unittest.TestCase):
         content = json.loads((ROOT / "content/study_content.json").read_text())
         catalogue = json.loads((ROOT / "content/sample_pack.json").read_text())
         self.assertEqual(content["expert_review"], "pending")
-        self.assertEqual(len(content["cards"]), 63)
+        self.assertEqual(len(content["cards"]), 112)
         mapped = {}
         for identity, card in content["cards"].items():
             self.assertEqual(card["review_status"], "draft")
