@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": "body-study-4-draft",
+  "revision": "body-study-5-draft",
   "review_status": "draft",
   "expert_review": "pending",
   "scope": "Private draft explanations covering the chest, abdomen, pelvis, brain, eyes, knees and skin, including selected vessels, kidney interior, intestines, airways, bone tissue and the lymphatic system. General anatomy is separate from completeness and accuracy of the supplied source meshes. No source illustrations or video are reused.",
@@ -348,6 +348,114 @@
     "niams-osteoporosis": {
       "title": "NIAMS: Osteoporosis",
       "url": "https://www.niams.nih.gov/health-topics/osteoporosis"
+    },
+    "nci-def-sclera": {
+      "title": "NCI Dictionary of Cancer Terms: sclera",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/sclera"
+    },
+    "nci-def-conjunctiva": {
+      "title": "NCI Dictionary of Cancer Terms: conjunctiva",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/conjunctiva"
+    },
+    "nci-def-pelvis": {
+      "title": "NCI Dictionary of Cancer Terms: pelvis",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/pelvis"
+    },
+    "nci-def-pancreatic-duct": {
+      "title": "NCI Dictionary of Cancer Terms: pancreatic duct",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/pancreatic-duct"
+    },
+    "nci-def-pineal-gland": {
+      "title": "NCI Dictionary of Cancer Terms: pineal gland",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/pineal-gland"
+    },
+    "nci-def-ventricle": {
+      "title": "NCI Dictionary of Cancer Terms: ventricle",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/ventricle"
+    },
+    "nci-def-optic-chiasm": {
+      "title": "NCI Dictionary of Cancer Terms: optic chiasm",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/optic-chiasm"
+    },
+    "nci-def-cerebrospinal-fluid": {
+      "title": "NCI Dictionary of Cancer Terms: cerebrospinal fluid",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/cerebrospinal-fluid"
+    },
+    "nci-def-meninges": {
+      "title": "NCI Dictionary of Cancer Terms: meninges",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/meninges"
+    },
+    "nci-def-dura-mater": {
+      "title": "NCI Dictionary of Cancer Terms: dura mater",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/dura-mater"
+    },
+    "nci-def-broad-ligament": {
+      "title": "NCI Dictionary of Cancer Terms: broad ligament",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/broad-ligament"
+    },
+    "nci-def-hepatic-artery": {
+      "title": "NCI Dictionary of Cancer Terms: hepatic artery",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/hepatic-artery"
+    },
+    "nci-def-carina-of-trachea": {
+      "title": "NCI Dictionary of Cancer Terms: carina of trachea",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/carina-of-trachea"
+    },
+    "nci-def-olfactory-bulb": {
+      "title": "NCI Dictionary of Cancer Terms: olfactory bulb",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/olfactory-bulb"
+    },
+    "nci-def-fundus": {
+      "title": "NCI Dictionary of Cancer Terms: fundus",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/fundus"
+    },
+    "nci-pancreatic-cancer": {
+      "title": "NCI: Pancreatic cancer",
+      "url": "https://www.cancer.gov/types/pancreatic"
+    },
+    "nci-liver-cancer": {
+      "title": "NCI: Liver and bile duct cancer",
+      "url": "https://www.cancer.gov/types/liver"
+    },
+    "nci-kidney-cancer": {
+      "title": "NCI: Kidney (renal cell) cancer — patient version",
+      "url": "https://www.cancer.gov/types/kidney"
+    },
+    "nci-ovarian-cancer": {
+      "title": "NCI: Ovarian, fallopian tube, and primary peritoneal cancer — patient version",
+      "url": "https://www.cancer.gov/types/ovarian"
+    },
+    "nci-uterine-cancer": {
+      "title": "NCI: Uterine cancer",
+      "url": "https://www.cancer.gov/types/uterine"
+    },
+    "nci-brain-tumors": {
+      "title": "NCI: Brain tumors — patient version",
+      "url": "https://www.cancer.gov/types/brain"
+    },
+    "nhlbi-pulmonary-hypertension": {
+      "title": "NHLBI: Pulmonary hypertension",
+      "url": "https://www.nhlbi.nih.gov/health/pulmonary-hypertension"
+    },
+    "niddk-pkd": {
+      "title": "NIDDK: What is polycystic kidney disease?",
+      "url": "https://www.niddk.nih.gov/health-information/kidney-disease/polycystic-kidney-disease/what-is-pkd"
+    },
+    "niddk-lactose-intolerance": {
+      "title": "NIDDK: Definition & facts for lactose intolerance",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/lactose-intolerance/definition-facts"
+    },
+    "mlp-hydrocephalus": {
+      "title": "MedlinePlus: Hydrocephalus",
+      "url": "https://medlineplus.gov/hydrocephalus.html"
+    },
+    "mlp-meningitis": {
+      "title": "MedlinePlus: Meningitis",
+      "url": "https://medlineplus.gov/meningitis.html"
+    },
+    "mlp-tbi": {
+      "title": "MedlinePlus: Traumatic brain injury",
+      "url": "https://medlineplus.gov/traumaticbraininjury.html"
     }
   },
   "cards": {
@@ -5301,6 +5409,652 @@
       "review_status": "draft",
       "expert_review": "pending",
       "human_source_review": "pending"
+    },
+    "anatomy.sclera": {
+      "overview": "The white layer of the eye.",
+      "function": "Covers most of the outside of the eyeball.",
+      "related": [
+        "anatomy.cornea",
+        "anatomy.choroid",
+        "anatomy.eyes"
+      ],
+      "source_ids": [
+        "nci-def-sclera"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n28",
+            "source_name": "VH_F_sclera_L",
+            "ontology": "FMA:58272"
+          },
+          {
+            "id": "source.hra-v1-1.female.n30",
+            "source_name": "VH_F_sclera_R",
+            "ontology": "FMA:58271"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n922",
+            "source_name": "VH_M_sclera_L",
+            "ontology": "FMA:58272"
+          },
+          {
+            "id": "source.hra-v1-1.male.n928",
+            "source_name": "VH_M_sclera_R",
+            "ontology": "FMA:58271"
+          }
+        ]
+      }
+    },
+    "anatomy.conjunctiva": {
+      "overview": "A membrane that lines the inner surface of the eyelids and also covers the front part of the eye.",
+      "function": "Lines and covers the front of the eye. Its inflammation is called conjunctivitis.",
+      "related": [
+        "anatomy.sclera",
+        "anatomy.eyes"
+      ],
+      "source_ids": [
+        "nci-def-conjunctiva",
+        "nei-pink-eye"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n6",
+            "source_name": "VH_F_palpebral_conjunctiva_of_left_lower_eyelid",
+            "ontology": "FMA:223075"
+          },
+          {
+            "id": "source.hra-v1-1.female.n7",
+            "source_name": "VH_F_palpebral_conjunctiva_of_left_upper_eyelid",
+            "ontology": "FMA:223078"
+          },
+          {
+            "id": "source.hra-v1-1.female.n8",
+            "source_name": "VH_F_bulbar_conjunctiva_L",
+            "ontology": "FMA:59029"
+          },
+          {
+            "id": "source.hra-v1-1.female.n50",
+            "source_name": "VH_F_bulbar_conjunctiva_R",
+            "ontology": "FMA:59028"
+          },
+          {
+            "id": "source.hra-v1-1.female.n51",
+            "source_name": "VH_F_palpebral_conjunctiva_of_right_lower_eyelid",
+            "ontology": "FMA:223074"
+          },
+          {
+            "id": "source.hra-v1-1.female.n52",
+            "source_name": "VH_F_palpebral_conjunctiva_of_right_upper_eyelid",
+            "ontology": "FMA:223076"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n899",
+            "source_name": "VH_M_bulbar_conjunctiva_L",
+            "ontology": "FMA:59029"
+          },
+          {
+            "id": "source.hra-v1-1.male.n900",
+            "source_name": "VH_M_palpebral_conjunctiva_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n901",
+            "source_name": "VH_M_palpebral_conjunctiva_of_upper_eyelid_L",
+            "ontology": "FMA:223078"
+          },
+          {
+            "id": "source.hra-v1-1.male.n902",
+            "source_name": "VH_M_palpebral_conjunctiva_of_lower_eyelid_L",
+            "ontology": "FMA:223075"
+          },
+          {
+            "id": "source.hra-v1-1.male.n924",
+            "source_name": "VH_M_palpebral_conjunctiva_R",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n925",
+            "source_name": "VH_M_palpebral_conjunctiva_of_upper_eyelid_R",
+            "ontology": "FMA:223076"
+          },
+          {
+            "id": "source.hra-v1-1.male.n926",
+            "source_name": "VH_M_palpebral_conjunctiva_of_lower_eyelid_R",
+            "ontology": "FMA:223074"
+          },
+          {
+            "id": "source.hra-v1-1.male.n927",
+            "source_name": "VH_M_bulbar_conjunctiva_R",
+            "ontology": "FMA:59028"
+          }
+        ]
+      }
+    },
+    "anatomy.optic-chiasm": {
+      "overview": "The place in the brain where some of the optic nerve fibers from one eye cross fibers from the other eye.",
+      "function": "Where optic nerve fibers from the two eyes partly cross on their way into the brain.",
+      "related": [
+        "anatomy.optic-nerves",
+        "anatomy.brain"
+      ],
+      "source_ids": [
+        "nci-def-optic-chiasm"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n61",
+          "source_name": "VH_F_optic_chiasm",
+          "ontology": "UBERON:0000959"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n889",
+          "source_name": "VH_M_optic_chiasm",
+          "ontology": "UBERON:0000959"
+        }
+      }
+    },
+    "anatomy.olfactory-bulbs": {
+      "overview": "Two rounded masses of nerve tissue on the bottom side of the brain, one above each nasal cavity.",
+      "function": "Involved in the sense of smell: they receive information about smells from the nose and send it to the brain through the olfactory tracts.",
+      "related": [
+        "anatomy.brain"
+      ],
+      "source_ids": [
+        "nci-def-olfactory-bulb"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n63",
+            "source_name": "Allen_olfactory_bulb_L",
+            "ontology": "UBERON:0002264"
+          },
+          {
+            "id": "source.hra-v1-1.female.n199",
+            "source_name": "Allen_olfactory_bulb_R",
+            "ontology": "-"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n606",
+            "source_name": "Allen_olfactory_bulb_L",
+            "ontology": "UBERON:0002264"
+          },
+          {
+            "id": "source.hra-v1-1.male.n742",
+            "source_name": "Allen_olfactory_bulb_R",
+            "ontology": "-"
+          }
+        ]
+      }
+    },
+    "anatomy.pineal-gland": {
+      "overview": "A tiny organ in the cerebrum, also called the pineal body.",
+      "function": "Produces the hormone melatonin.",
+      "related": [
+        "anatomy.brain",
+        "anatomy.thalamus"
+      ],
+      "source_ids": [
+        "nci-def-pineal-gland"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n105",
+            "source_name": "Allen_pineal_body_L",
+            "ontology": "UBERON:0001905"
+          },
+          {
+            "id": "source.hra-v1-1.female.n241",
+            "source_name": "Allen_pineal_body_R",
+            "ontology": "UBERON:0001905"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n648",
+            "source_name": "Allen_pineal_body_L",
+            "ontology": "UBERON:0001905"
+          },
+          {
+            "id": "source.hra-v1-1.male.n784",
+            "source_name": "Allen_pineal_body_R",
+            "ontology": "UBERON:0001905"
+          }
+        ]
+      }
+    },
+    "anatomy.brain-ventricles": {
+      "overview": "Fluid-filled cavities in the brain: the parts of each lateral ventricle, the third ventricle and the fourth ventricle.",
+      "function": "Tissue called the choroid plexus in the ventricles makes cerebrospinal fluid, which flows in and around the hollow spaces of the brain and spinal cord.",
+      "related": [
+        "anatomy.brain",
+        "anatomy.brainstem"
+      ],
+      "source_ids": [
+        "nci-def-ventricle",
+        "nci-def-cerebrospinal-fluid"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n116",
+            "source_name": "Allen_anterior_horn_of_lateral_ventricle_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n117",
+            "source_name": "Allen_body_of_lateral_ventricle_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n118",
+            "source_name": "Allen_posterior_horn_of_lateral_ventricle_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n119",
+            "source_name": "Allen_inferior_horn_of_lateral_ventricle_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n120",
+            "source_name": "Allen_third_ventricle_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n184",
+            "source_name": "Allen_fourth_ventricle_L",
+            "ontology": "UBERON:0002422"
+          },
+          {
+            "id": "source.hra-v1-1.female.n191",
+            "source_name": "Allen_atrium_of_lateral_ventricle_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n250",
+            "source_name": "Allen_anterior_horn_of_lateral_ventricle_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n251",
+            "source_name": "Allen_body_of_lateral_ventricle_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n252",
+            "source_name": "Allen_posterior_horn_of_lateral_ventricle_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n253",
+            "source_name": "Allen_inferior_horn_of_lateral_ventricle_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n254",
+            "source_name": "Allen_third_ventricle_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n321",
+            "source_name": "Allen_fourth_ventricle_R",
+            "ontology": "UBERON:0002422"
+          },
+          {
+            "id": "source.hra-v1-1.female.n328",
+            "source_name": "Allen_atrium_of_lateral_ventricle_R",
+            "ontology": "-"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n659",
+            "source_name": "Allen_anterior_horn_of_lateral_ventricle_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n660",
+            "source_name": "Allen_body_of_lateral_ventricle_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n661",
+            "source_name": "Allen_posterior_horn_of_lateral_ventricle_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n662",
+            "source_name": "Allen_inferior_horn_of_lateral_ventricle_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n663",
+            "source_name": "Allen_third_ventricle_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n727",
+            "source_name": "Allen_fourth_ventricle_L",
+            "ontology": "UBERON:0002422"
+          },
+          {
+            "id": "source.hra-v1-1.male.n734",
+            "source_name": "Allen_atrium_of_lateral_ventricle_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n793",
+            "source_name": "Allen_anterior_horn_of_lateral_ventricle_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n794",
+            "source_name": "Allen_body_of_lateral_ventricle_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n795",
+            "source_name": "Allen_posterior_horn_of_lateral_ventricle_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n796",
+            "source_name": "Allen_inferior_horn_of_lateral_ventricle_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n797",
+            "source_name": "Allen_third_ventricle_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n864",
+            "source_name": "Allen_fourth_ventricle_R",
+            "ontology": "UBERON:0002422"
+          },
+          {
+            "id": "source.hra-v1-1.male.n871",
+            "source_name": "Allen_atrium_of_lateral_ventricle_R",
+            "ontology": "-"
+          }
+        ]
+      }
+    },
+    "anatomy.dura-mater": {
+      "overview": "The tough outer layer of the meninges, the three thin layers that cover and protect the brain and spinal cord. In these models, dura mater is supplied only with the nerves of each eye.",
+      "function": "Covers and protects the brain and spinal cord; it is the meningeal layer closest to the skull.",
+      "related": [
+        "anatomy.optic-nerves",
+        "anatomy.brain"
+      ],
+      "source_ids": [
+        "nci-def-dura-mater",
+        "nci-def-meninges"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n56",
+            "source_name": "VH_F_dura_mater_right",
+            "ontology": "UBERON:0002363"
+          },
+          {
+            "id": "source.hra-v1-1.female.n59",
+            "source_name": "VH_F_dura_mater_left",
+            "ontology": "UBERON:0002363"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n892",
+            "source_name": "VH_M_dura_mater_left",
+            "ontology": "UBERON:0002363"
+          },
+          {
+            "id": "source.hra-v1-1.male.n896",
+            "source_name": "VH_M_dura_mater_right",
+            "ontology": "UBERON:0002363"
+          }
+        ]
+      }
+    },
+    "anatomy.carina": {
+      "overview": "A ridge at the base of the trachea, also called the tracheal carina.",
+      "function": "Separates the openings of the right and left main bronchi.",
+      "related": [
+        "anatomy.trachea",
+        "anatomy.bronchi"
+      ],
+      "source_ids": [
+        "nci-def-carina-of-trachea"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n825",
+          "source_name": "VH_F_carina",
+          "ontology": "FMA:7465"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n1029",
+          "source_name": "VH_M_carina",
+          "ontology": "FMA:7465"
+        }
+      }
+    },
+    "anatomy.pancreatic-ducts": {
+      "overview": "Part of a system of ducts in the pancreas.",
+      "function": "Pancreatic juices containing enzymes are released into these ducts and flow into the small intestine.",
+      "related": [
+        "anatomy.pancreas",
+        "anatomy.duodenum"
+      ],
+      "source_ids": [
+        "nci-def-pancreatic-duct"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n451",
+            "source_name": "VH_F_ducts_of_pancreas",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n453",
+            "source_name": "VH_F_dorsal_pancreatic_duct",
+            "ontology": "UBERON:0005429"
+          },
+          {
+            "id": "source.hra-v1-1.female.n455",
+            "source_name": "VH_F_ventral_pancreatic_duct",
+            "ontology": "UBERON:0001064"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n445",
+            "source_name": "VH_M_ducts_of_pancreas",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n446",
+            "source_name": "VH_M_dorsal_pancreatic_duct",
+            "ontology": "UBERON:0005429"
+          },
+          {
+            "id": "source.hra-v1-1.male.n448",
+            "source_name": "VH_M_ventral_pancreatic_duct",
+            "ontology": "UBERON:0001064"
+          }
+        ]
+      }
+    },
+    "anatomy.hepatic-arteries": {
+      "overview": "The hepatic artery is the major blood vessel that carries blood to the liver. The supplied parts include its common, proper, left and right portions.",
+      "function": "Carries blood to the liver.",
+      "related": [
+        "anatomy.liver",
+        "anatomy.celiac-trunk",
+        "anatomy.portal-vein"
+      ],
+      "source_ids": [
+        "nci-def-hepatic-artery"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n719",
+            "source_name": "VH_F_proper_hepatic_artery",
+            "ontology": "FMA:14772"
+          },
+          {
+            "id": "source.hra-v1-1.female.n720",
+            "source_name": "VH_F_right_hepatic_artery",
+            "ontology": "FMA:14778"
+          },
+          {
+            "id": "source.hra-v1-1.female.n721",
+            "source_name": "VH_F_common_hepatic_artery",
+            "ontology": "UBERON:0005436"
+          },
+          {
+            "id": "source.hra-v1-1.female.n724",
+            "source_name": "VH_F_left_hepatic_artery",
+            "ontology": "FMA:14779"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n273",
+            "source_name": "VH_M_left_hepatic_artery",
+            "ontology": "FMA:14779"
+          },
+          {
+            "id": "source.hra-v1-1.male.n274",
+            "source_name": "VH_M_proper_hepatic_artery",
+            "ontology": "FMA:14772"
+          },
+          {
+            "id": "source.hra-v1-1.male.n276",
+            "source_name": "VH_M_right_hepatic_artery",
+            "ontology": "FMA:14778"
+          },
+          {
+            "id": "source.hra-v1-1.male.n278",
+            "source_name": "VH_M_common_hepatic_artery",
+            "ontology": "UBERON:0005436"
+          }
+        ]
+      }
+    },
+    "anatomy.pelvis": {
+      "overview": "The bones between the lower abdomen and upper thighs that connect the spine to the legs.",
+      "function": "Supports upper body weight, aids balance and walking, and protects the bladder, reproductive organs, colon and rectum.",
+      "related": [
+        "anatomy.compact-bone",
+        "anatomy.spongy-bone",
+        "anatomy.bladder"
+      ],
+      "source_ids": [
+        "nci-def-pelvis"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n885",
+          "source_name": "VH_F_pelvis",
+          "ontology": ""
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n292",
+          "source_name": "VH_M_pelvis",
+          "ontology": ""
+        }
+      }
+    },
+    "anatomy.broad-ligament": {
+      "overview": "The layer of tissue connecting the sides of the uterus to the walls and floor of the pelvis.",
+      "function": "Covers the uterus, ovaries and Fallopian tubes, and carries nerves and blood vessels to these organs.",
+      "related": [
+        "anatomy.uterus",
+        "anatomy.ovaries",
+        "anatomy.fallopian-tubes"
+      ],
+      "source_ids": [
+        "nci-def-broad-ligament"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n402",
+          "source_name": "VH_F_broad_ligament",
+          "ontology": "UBERON:0012332"
+        }
+      }
+    },
+    "anatomy.uterus-fundus": {
+      "overview": "The top part of the uterus, across from the cervix.",
+      "function": "The part of the uterus farthest from its opening, the cervix.",
+      "related": [
+        "anatomy.uterus",
+        "anatomy.cervix"
+      ],
+      "source_ids": [
+        "nci-def-fundus"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n415",
+          "source_name": "VH_F_fundus_of_uterus",
+          "ontology": "FMA:17561"
+        }
+      }
     }
   },
   "routes": {
@@ -6889,11 +7643,13 @@
         "anatomy.eyes"
       ],
       "display_on": [
-        "anatomy.eyes"
+        "anatomy.eyes",
+        "anatomy.conjunctiva"
       ],
       "geometry_mode": "reference_location_only",
       "source_ids": [
-        "nei-pink-eye"
+        "nei-pink-eye",
+        "nci-def-conjunctiva"
       ],
       "review_status": "draft",
       "expert_review": "pending",
@@ -6965,6 +7721,275 @@
       "expert_review": "pending",
       "human_source_review": "pending",
       "not_depicted": "Loss of bone density and fractures are not depicted."
+    },
+    "condition.pancreatic-cancer": {
+      "title": "Pancreatic cancer",
+      "summary": "Pancreatic cancer can develop from two kinds of cells in the pancreas: exocrine cells and endocrine cells (pancreatic neuroendocrine tumors).",
+      "location": "The pancreas releases digestive enzymes into the small intestine and hormones such as insulin into the blood.",
+      "focus_id": "anatomy.pancreas",
+      "related_anatomy": [
+        "anatomy.pancreas"
+      ],
+      "display_on": [
+        "anatomy.pancreas",
+        "anatomy.pancreatic-ducts"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nci-pancreatic-cancer",
+        "seer-accessory"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Tumors and their spread are not depicted."
+    },
+    "condition.liver-cancer": {
+      "title": "Liver cancer",
+      "summary": "Cancer that starts in the liver is called primary liver cancer. The most common type in adults is hepatocellular carcinoma.",
+      "location": "The liver lies mainly in the upper right abdomen, just beneath the diaphragm.",
+      "focus_id": "anatomy.liver",
+      "related_anatomy": [
+        "anatomy.liver"
+      ],
+      "display_on": [
+        "anatomy.liver",
+        "anatomy.liver-lobes"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nci-liver-cancer",
+        "seer-accessory"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Tumors and their spread are not depicted."
+    },
+    "condition.kidney-cancer": {
+      "title": "Kidney cancer",
+      "summary": "Kidney cancer can develop in adults and children. The main types are renal cell cancer, transitional cell cancer and Wilms tumor.",
+      "location": "The kidneys lie just below the rib cage, one on each side of the spine.",
+      "focus_id": "anatomy.kidneys",
+      "related_anatomy": [
+        "anatomy.kidneys"
+      ],
+      "display_on": [
+        "anatomy.kidneys",
+        "anatomy.kidney.left",
+        "anatomy.kidney.right",
+        "anatomy.renal-pelvis"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nci-kidney-cancer",
+        "niddk-kidneys"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Tumors and their spread are not depicted."
+    },
+    "condition.ovarian-cancer": {
+      "title": "Ovarian cancer",
+      "summary": "Ovarian epithelial cancer, Fallopian tube cancer and primary peritoneal cancer form in the same kind of tissue and are treated the same way. These cancers are often advanced when diagnosed.",
+      "location": "The ovaries lie on each side of the uterus, each next to a Fallopian tube.",
+      "focus_id": "anatomy.ovaries",
+      "related_anatomy": [
+        "anatomy.ovaries",
+        "anatomy.fallopian-tubes"
+      ],
+      "display_on": [
+        "anatomy.ovaries",
+        "anatomy.fallopian-tubes"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nci-ovarian-cancer",
+        "seer-ovaries"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Tumors and their spread are not depicted."
+    },
+    "condition.uterine-cancer": {
+      "title": "Uterine cancer",
+      "summary": "Uterine cancers are of two types: endometrial cancer, which is common and can often be cured, and uterine sarcoma, which is rare and often more aggressive.",
+      "location": "The uterus is a muscular organ in the pelvis.",
+      "focus_id": "anatomy.uterus",
+      "related_anatomy": [
+        "anatomy.uterus"
+      ],
+      "display_on": [
+        "anatomy.uterus",
+        "anatomy.uterus-fundus"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nci-uterine-cancer",
+        "seer-female-tract"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Tumors and their spread are not depicted."
+    },
+    "condition.brain-tumors": {
+      "title": "Brain tumors",
+      "summary": "Tumors of the brain and spinal cord (the central nervous system) can be benign or malignant, and there are many different types.",
+      "location": "The brain is divided into the cerebrum, diencephalon, brain stem and cerebellum.",
+      "focus_id": "anatomy.brain",
+      "related_anatomy": [
+        "anatomy.brain"
+      ],
+      "display_on": [
+        "anatomy.brain",
+        "anatomy.cerebellum",
+        "anatomy.brainstem"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nci-brain-tumors",
+        "seer-cns"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Tumors are not depicted."
+    },
+    "condition.pulmonary-hypertension": {
+      "title": "Pulmonary hypertension",
+      "summary": "A condition that affects the blood vessels in the lungs. In the United States its most common type is caused by left-sided heart disease, such as left heart failure.",
+      "location": "The pulmonary arteries carry oxygen-poor blood from the heart to the lungs.",
+      "focus_id": "anatomy.pulmonary-arteries",
+      "related_anatomy": [
+        "anatomy.pulmonary-arteries",
+        "anatomy.lungs"
+      ],
+      "display_on": [
+        "anatomy.pulmonary-arteries",
+        "anatomy.lungs"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nhlbi-pulmonary-hypertension",
+        "heart-flow"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Blood pressure in the lung vessels is not depicted."
+    },
+    "condition.pkd": {
+      "title": "Polycystic kidney disease",
+      "summary": "A genetic disorder that causes many fluid-filled cysts to grow in the kidneys. The cysts can change the shape of the kidneys, including making them much larger.",
+      "location": "The kidneys lie just below the rib cage, one on each side of the spine.",
+      "focus_id": "anatomy.kidneys",
+      "related_anatomy": [
+        "anatomy.kidneys"
+      ],
+      "display_on": [
+        "anatomy.kidneys",
+        "anatomy.kidney.left",
+        "anatomy.kidney.right"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-pkd",
+        "niddk-kidneys"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Cysts and kidney enlargement are not depicted."
+    },
+    "condition.lactose-intolerance": {
+      "title": "Lactose intolerance",
+      "summary": "Digestive symptoms such as bloating, diarrhea and gas after consuming lactose, a sugar in milk and milk products. They happen because the small intestine cannot break down all the lactose eaten.",
+      "location": "The small intestine has three parts: the duodenum, jejunum and ileum.",
+      "focus_id": "anatomy.small-intestine",
+      "related_anatomy": [
+        "anatomy.small-intestine"
+      ],
+      "display_on": [
+        "anatomy.small-intestine"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-lactose-intolerance",
+        "seer-intestine"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Digestion and symptoms are not depicted."
+    },
+    "condition.hydrocephalus": {
+      "title": "Hydrocephalus",
+      "summary": "Too much cerebrospinal fluid builds up in the brain and puts harmful pressure on it. It can be present at birth or happen at any age, after causes such as head injuries, strokes, infections, tumors or bleeding in the brain.",
+      "location": "Cerebrospinal fluid is made in the brain's ventricles and flows in and around the hollow spaces of the brain and spinal cord.",
+      "focus_id": "anatomy.brain-ventricles",
+      "related_anatomy": [
+        "anatomy.brain-ventricles",
+        "anatomy.brain"
+      ],
+      "display_on": [
+        "anatomy.brain-ventricles",
+        "anatomy.brain"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-hydrocephalus",
+        "nci-def-cerebrospinal-fluid"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Excess fluid, enlarged ventricles and pressure are not depicted."
+    },
+    "condition.meningitis": {
+      "title": "Meningitis",
+      "summary": "Inflammation of the meninges, the thin tissue surrounding the brain and spinal cord. Viral meningitis is the most common type; bacterial meningitis is rare but can be deadly.",
+      "location": "The meninges cover the brain and spinal cord. The supplied models do not include them around the brain, so the brain is shown.",
+      "focus_id": "anatomy.brain",
+      "related_anatomy": [
+        "anatomy.brain"
+      ],
+      "display_on": [
+        "anatomy.brain",
+        "anatomy.dura-mater"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-meningitis",
+        "nci-def-meninges"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The meninges and their inflammation are not depicted."
+    },
+    "condition.tbi": {
+      "title": "Traumatic brain injury",
+      "summary": "A sudden injury that damages the brain, from a blow, bump or jolt to the head or an object that penetrates the skull. Concussions are a type of mild TBI; severe TBI can cause coma or death.",
+      "location": "The brain is divided into the cerebrum, diencephalon, brain stem and cerebellum.",
+      "focus_id": "anatomy.brain",
+      "related_anatomy": [
+        "anatomy.brain"
+      ],
+      "display_on": [
+        "anatomy.brain"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-tbi",
+        "seer-cns"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Injury and brain damage are not depicted."
     }
   },
   "assistant_checks": {
@@ -6982,17 +8007,41 @@
       "mlp-brain",
       "mlp-cerebellum",
       "mlp-epilepsy",
+      "mlp-hydrocephalus",
       "mlp-knee",
+      "mlp-meningitis",
       "mlp-meniscus",
       "mlp-parkinson-disease",
       "mlp-parkinsons",
       "mlp-stroke",
+      "mlp-tbi",
       "nci-bladder-cancer",
+      "nci-brain-tumors",
       "nci-cervical-cancer",
       "nci-colorectal-cancer",
+      "nci-def-broad-ligament",
+      "nci-def-carina-of-trachea",
+      "nci-def-cerebrospinal-fluid",
+      "nci-def-conjunctiva",
+      "nci-def-dura-mater",
+      "nci-def-fundus",
+      "nci-def-hepatic-artery",
+      "nci-def-meninges",
+      "nci-def-olfactory-bulb",
+      "nci-def-optic-chiasm",
+      "nci-def-pancreatic-duct",
+      "nci-def-pelvis",
+      "nci-def-pineal-gland",
+      "nci-def-sclera",
+      "nci-def-ventricle",
+      "nci-kidney-cancer",
+      "nci-liver-cancer",
       "nci-lung-cancer",
+      "nci-ovarian-cancer",
+      "nci-pancreatic-cancer",
       "nci-prostate-cancer",
       "nci-skin-cancer",
+      "nci-uterine-cancer",
       "nei-amd",
       "nei-cataracts",
       "nei-diabetic-retinopathy",
@@ -7011,6 +8060,7 @@
       "nhlbi-heart-failure",
       "nhlbi-pneumonia",
       "nhlbi-pulmonary-embolism",
+      "nhlbi-pulmonary-hypertension",
       "niams-atopic-dermatitis",
       "niams-osteoarthritis",
       "niams-osteoporosis",
@@ -7032,8 +8082,10 @@
       "niddk-hemorrhoids",
       "niddk-kidney-stones",
       "niddk-kidneys",
+      "niddk-lactose-intolerance",
       "niddk-nafld",
       "niddk-pancreatitis",
+      "niddk-pkd",
       "niddk-ulcerative-colitis",
       "niddk-urinary",
       "niddk-viral-hepatitis",

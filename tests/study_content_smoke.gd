@@ -13,7 +13,7 @@ func check(condition: bool, message: String) -> void:
 func _initialize() -> void:
 	var content := Content.new()
 	var original: Dictionary = content.data.duplicate(true)
-	check(content.error.is_empty() and original.cards.size() == 112 and original.routes.size() == 1 and original.conditions.size() == 54, "Bundled explanations, route and conditions retain explicit draft-review status")
+	check(content.error.is_empty() and original.cards.size() == 125 and original.routes.size() == 1 and original.conditions.size() == 66, "Bundled explanations, route and conditions retain explicit draft-review status")
 	var invalid: Array = [null, [], {}, {"schema_version": 2}]
 	for change in ["source", "card", "related", "citation", "review", "date", "promotion", "human-review", "assistant-actor", "route-target", "route-gap", "route-unreachable", "route-return", "mapping", "condition", "condition-focus", "condition-geometry", "condition-review", "condition-citation", "card-geometry", "card-mapping", "card-duplicate", "card-shadow", "condition-depiction", "card-list-empty", "card-list-entry", "card-list-duplicate"]:
 		var candidate := original.duplicate(true)
@@ -68,7 +68,7 @@ func _initialize() -> void:
 			structures[structure.id] = structure
 		var liver := content.structure_id("anatomy.liver", structures)
 		check(not liver.is_empty() and structures[liver].source_name.ends_with("_liver") and content.card(liver) == content.card("anatomy.liver"), "Mapped liver card resolves in " + body.id)
-		check(content.conditions_for(liver) == ["condition.gallstones", "condition.cirrhosis", "condition.nafld", "condition.viral-hepatitis"] and content.condition_focus("condition.cirrhosis", structures) == liver, "Mapped structures list and focus their conditions in " + body.id)
+		check(content.conditions_for(liver) == ["condition.gallstones", "condition.cirrhosis", "condition.nafld", "condition.viral-hepatitis", "condition.liver-cancer"] and content.condition_focus("condition.cirrhosis", structures) == liver, "Mapped structures list and focus their conditions in " + body.id)
 		# Paired parts share one card; the first mapped side is its focus.
 		var corneas: Array = original.cards["anatomy.cornea"].geometry[body.id]
 		check(corneas.size() == 2 and content.card(corneas[1].id) == content.card("anatomy.cornea") and content.structure_id("anatomy.cornea", structures) == corneas[0].id, "Both corneas resolve to one card in " + body.id)

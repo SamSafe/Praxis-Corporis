@@ -7,7 +7,9 @@ digestive, lymphatic, urinary and reproductive systems. That makes 41 cards and
 14 conditions in total. [Revision 2](#revision-2-brain-eyes-and-knees) adds
 the brain, eyes and knees, for 63 cards and 25 conditions.
 [Revisions 3 and 4](#revisions-3-and-4-vessels-organ-interiors-airways-skin-and-bone)
-bring the totals to 112 cards and 54 conditions.
+bring the totals to 112 cards and 54 conditions, and
+[revision 5](#revision-5-dictionary-terms-brain-fluid-spaces-and-more-cancers)
+to 125 cards and 66 conditions.
 
 **Everything here is a private draft.** Every record keeps `review_status: draft`
 with human source review and expert review pending, and the app labels it that
@@ -230,6 +232,36 @@ The full text of every card and condition is in the
   entries. Its cap was raised from 64 to 256; the 64-item cap on each record's
   own citations is unchanged.
 
+## Revision 5: dictionary terms, brain fluid spaces and more cancers
+
+Added 2026-11-20 as `body-study-5-draft`: **13 cards and 12 conditions**, for
+**125 cards and 66 conditions** in total. The female body offers 64 conditions
+and the male body 60.
+
+- **Cards:** sclera, conjunctiva, optic chiasm, olfactory bulbs, pineal gland,
+  brain ventricles, dura mater, tracheal carina, pancreatic ducts, hepatic
+  arteries, the pelvis, and (female body only) the broad ligament and the fundus
+  of the uterus.
+- **Conditions:** pancreatic, liver, kidney, ovarian and uterine cancer, brain
+  tumors, pulmonary hypertension, polycystic kidney disease, lactose
+  intolerance, hydrocephalus, meningitis and traumatic brain injury. Pink eye
+  is now also listed on the conjunctiva.
+- **New source type:** most new cards cite single entries from the NCI
+  Dictionary of Cancer Terms, an NIH glossary written for patients. Each entry is
+  its own source ID (`nci-def-…`) so a reviewer can check it separately.
+
+### Revision 5 limits
+
+- **NCBI Bookshelf (StatPearls) was not used.** NCBI shows a CAPTCHA to
+  automated downloads, and fetching past it was declined. The hippocampus,
+  substantia nigra, basal ganglia, amygdala, cerebral lobes and gyri, patella,
+  fibula and extraocular muscles still have no cards for that reason.
+- **Dura mater.** The models supply dura mater only with the nerves of each eye,
+  not around the brain, and the card says so. Meningitis therefore points at the
+  whole brain.
+- **IBS was left out.** NIDDK describes it as a functional disorder with no
+  single location, so pointing at one organ would mislead.
+
 ## Deliberate limits
 
 - **Sources (revision 1).** Claims come only from NIH pages: NHLBI, NIDDK, NICHD and NCI SEER
@@ -336,3 +368,30 @@ The full text of every card and condition is in the
 - `seer-pathways`: [NCI SEER Training: Circulatory pathways](https://training.seer.cancer.gov/anatomy/cardiovascular/blood/pathways.html)
 - `seer-skin`: [NCI SEER Training: Anatomy of the skin](https://training.seer.cancer.gov/melanoma/anatomy/)
 - `valve-disease-types`: [NHLBI: Types of heart valve disease](https://www.nhlbi.nih.gov/health/heart-valve-diseases/types)
+- `mlp-hydrocephalus`: [MedlinePlus: Hydrocephalus](https://medlineplus.gov/hydrocephalus.html)
+- `mlp-meningitis`: [MedlinePlus: Meningitis](https://medlineplus.gov/meningitis.html)
+- `mlp-tbi`: [MedlinePlus: Traumatic brain injury](https://medlineplus.gov/traumaticbraininjury.html)
+- `nci-brain-tumors`: [NCI: Brain tumors — patient version](https://www.cancer.gov/types/brain)
+- `nci-def-broad-ligament`: [NCI Dictionary of Cancer Terms: broad ligament](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/broad-ligament)
+- `nci-def-carina-of-trachea`: [NCI Dictionary of Cancer Terms: carina of trachea](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/carina-of-trachea)
+- `nci-def-cerebrospinal-fluid`: [NCI Dictionary of Cancer Terms: cerebrospinal fluid](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/cerebrospinal-fluid)
+- `nci-def-conjunctiva`: [NCI Dictionary of Cancer Terms: conjunctiva](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/conjunctiva)
+- `nci-def-dura-mater`: [NCI Dictionary of Cancer Terms: dura mater](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/dura-mater)
+- `nci-def-fundus`: [NCI Dictionary of Cancer Terms: fundus](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/fundus)
+- `nci-def-hepatic-artery`: [NCI Dictionary of Cancer Terms: hepatic artery](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/hepatic-artery)
+- `nci-def-meninges`: [NCI Dictionary of Cancer Terms: meninges](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/meninges)
+- `nci-def-olfactory-bulb`: [NCI Dictionary of Cancer Terms: olfactory bulb](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/olfactory-bulb)
+- `nci-def-optic-chiasm`: [NCI Dictionary of Cancer Terms: optic chiasm](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/optic-chiasm)
+- `nci-def-pancreatic-duct`: [NCI Dictionary of Cancer Terms: pancreatic duct](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/pancreatic-duct)
+- `nci-def-pelvis`: [NCI Dictionary of Cancer Terms: pelvis](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/pelvis)
+- `nci-def-pineal-gland`: [NCI Dictionary of Cancer Terms: pineal gland](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/pineal-gland)
+- `nci-def-sclera`: [NCI Dictionary of Cancer Terms: sclera](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/sclera)
+- `nci-def-ventricle`: [NCI Dictionary of Cancer Terms: ventricle](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/ventricle)
+- `nci-kidney-cancer`: [NCI: Kidney (renal cell) cancer — patient version](https://www.cancer.gov/types/kidney)
+- `nci-liver-cancer`: [NCI: Liver and bile duct cancer](https://www.cancer.gov/types/liver)
+- `nci-ovarian-cancer`: [NCI: Ovarian, fallopian tube, and primary peritoneal cancer — patient version](https://www.cancer.gov/types/ovarian)
+- `nci-pancreatic-cancer`: [NCI: Pancreatic cancer](https://www.cancer.gov/types/pancreatic)
+- `nci-uterine-cancer`: [NCI: Uterine cancer](https://www.cancer.gov/types/uterine)
+- `nhlbi-pulmonary-hypertension`: [NHLBI: Pulmonary hypertension](https://www.nhlbi.nih.gov/health/pulmonary-hypertension)
+- `niddk-lactose-intolerance`: [NIDDK: Definition & facts for lactose intolerance](https://www.niddk.nih.gov/health-information/digestive-diseases/lactose-intolerance/definition-facts)
+- `niddk-pkd`: [NIDDK: What is polycystic kidney disease?](https://www.niddk.nih.gov/health-information/kidney-disease/polycystic-kidney-disease/what-is-pkd)
