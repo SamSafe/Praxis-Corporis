@@ -4,8 +4,8 @@
   "artifacts": [
     {
       "file": "PraxisCorporis-Windows-x64-private.zip",
-      "bytes": 328254650,
-      "sha256": "9fd15e25a44ed4f45ba6c689797b79d17a04be5b0c87308ddea35d02f3459ed9",
+      "bytes": 328259387,
+      "sha256": "165122ec4d7cf882a849c37e5ca4d203ddc44a5571d336afe28c6d993af5c955",
       "architectures": [
         "x86_64"
       ]
@@ -13,7 +13,7 @@
   ],
   "target_device_testing": "pending",
   "publication": "local private artifacts only",
-  "source_revision": "9c9bf41ec010b75437b07c9ed3c43261982356b2",
+  "source_revision": "6689187519b8feeb0ea2aa5975d909abe146be6b",
   "source_snapshot_version": 2,
   "source_hashes": {
     "addons/private_native_export/plugin.cfg": "97df04557bcb295a2c8d24f82665646ec564654204e2bcc92830a36d77f43238",
@@ -27,7 +27,7 @@
     "content/source_manifest.json": "15a940b6de53461975446187bcd651f806327fb1bf9c8be10ee5f64d655a1385",
     "content/spinal_source_manifest.json": "85d1d1b19d7655eabc069ff50fd80b55c64ccc9ac647220f5e9f5585278c4b22",
     "content/spinal_studies.json": "54008500339438e189008a67baa3c877d08ae7494d90f9fd2b842695a99cf204",
-    "content/study_content.json": "f629dd0fb0f567fd126e064693ee95099f42724a0c0e6edbc7c1ef854ff777fe",
+    "content/study_content.json": "d6c6648392e4fe1617d87e02f61cc8e4bdd8cd2cd4abe3d02fa18a97b082c3e7",
     "content/toolchain_manifest.json": "2697648889696238ca23c3a240b25791a775e57fedf525a4dc998690a0256f55",
     "export_presets.cfg": "924d082f18ee79e58ed339b2ff4c7eb92f92fb498f6481743f3d8814d5779aa2",
     "project.godot": "42fb2623bd409f69e02411ffae312411087e7610d480c03132366aff43465b35",
@@ -80,7 +80,7 @@
     "scripts/source_record.gd.uid": "565314c888068fa1042c7f2c5383cea532e2553812a498e5faa6081a3761502a",
     "scripts/study_content.gd": "eda916dd0b5c7a8f83b5ea50541da3c3637ff16582b28978f45029f3b5038cef",
     "scripts/study_content.gd.uid": "a70f3778a432273b1a7b17b2c393d52bd0783bdeddf796e1dc01428514c81030",
-    "scripts/study_verification.gd": "9f99ad7c1eb46e860e93da8302d396827d0153e6b3c5416f3522ff3a36c53d7d",
+    "scripts/study_verification.gd": "0d46b18d8f7fb8df303b2fbcb0212b0b5fc38d216bec7a40b7557895bfd3c1a2",
     "scripts/study_verification.gd.uid": "713314fedd7c71ca1c350f92387494bb6e3771e4c70ace26c017244b865890f0",
     "scripts/ui_accessibility.gd": "1247870adcd79b914a8bc86ad51aa335fb8e821cc5c6788f44a271ba65c3cfdb",
     "scripts/ui_accessibility.gd.uid": "bec153b514e7402b022d4121100b1c711c603507bc321a4f57aeae3ef05fbd87",
@@ -99,10 +99,10 @@
   "build_identity": {
     "schema_version": 1,
     "channel": "private",
-    "build_id": "f26f87ee947d4a049a09125a97940012",
+    "build_id": "902058f3beff45a5a5c7bc30eb967880",
     "application_version": "0.1.0",
-    "source_revision": "9c9bf41ec010b75437b07c9ed3c43261982356b2",
-    "source_snapshot_sha256": "1bfdd6f78f29a0451a358f25854df4a47112ed80cb491a20e4c7816099040181",
+    "source_revision": "6689187519b8feeb0ea2aa5975d909abe146be6b",
+    "source_snapshot_sha256": "7557c796766d4de58e594957f54a5c632d872f55607c4092148c6b59854890da",
     "engine": "4.7.2.stable.official.ed1daf0bf",
     "content_pack": "hra-united-v1-1-prototype-1"
   },

@@ -1,4 +1,4 @@
-# Human content-review result: 9c9bf41
+# Human content-review result: 6689187
 
 Uncompleted template. Every item below starts **not reviewed**. Copy to a dated record and complete only the scope actually inspected.
 
@@ -6,19 +6,19 @@ Uncompleted template. Every item below starts **not reviewed**. Copy to a dated 
 - Relevant qualifications / role:
 - Review date:
 - Role in this record: human source check / qualified medical review / both (specify scope).
-- Expected source revision: `9c9bf41ec010b75437b07c9ed3c43261982356b2`.
-- Expected build ID: `f26f87ee947d4a049a09125a97940012`.
+- Expected source revision: `6689187519b8feeb0ea2aa5975d909abe146be6b`.
+- Expected build ID: `902058f3beff45a5a5c7bc30eb967880`.
 - Actual app archive and SHA-256:
 - Actual app build ID / source shown in Sources:
 - Device / OS / input method used for visual checks:
-- Frozen study SHA-256: `f629dd0fb0f567fd126e064693ee95099f42724a0c0e6edbc7c1ef854ff777fe`.
+- Frozen study SHA-256: `d6c6648392e4fe1617d87e02f61cc8e4bdd8cd2cd4abe3d02fa18a97b082c3e7`.
 - Other exact content/catalogue/geometry versions checked:
 - Review scope and exclusions:
 - Sources or references used:
 
-Use the [review packet](../CONTENT_REVIEW_PACKET.md), the [reviewer text](9c9bf41-reviewer-text.md) and the [frozen JSON](9c9bf41-study-content.json). For each column use **not reviewed**, **changes required** or **accepted unchanged**, with finding/evidence IDs. If text or visuals need changes, approval requires review of the corrected version. Blank cells do not record approval.
+Use the [review packet](../CONTENT_REVIEW_PACKET.md), the [reviewer text](6689187-reviewer-text.md) and the [frozen JSON](6689187-study-content.json). For each column use **not reviewed**, **changes required** or **accepted unchanged**, with finding/evidence IDs. If text or visuals need changes, approval requires review of the corrected version. Blank cells do not record approval.
 
-## Authored items (167)
+## Authored items (192)
 
 | Type | Item ID | Human source check | Qualified review, including applicable visuals | Finding / evidence IDs |
 | --- | --- | --- | --- | --- |
@@ -134,6 +134,19 @@ Use the [review packet](../CONTENT_REVIEW_PACKET.md), the [reviewer text](9c9bf4
 | Card | `anatomy.compact-bone` | not reviewed | not reviewed | |
 | Card | `anatomy.spongy-bone` | not reviewed | not reviewed | |
 | Card | `anatomy.skin` | not reviewed | not reviewed | |
+| Card | `anatomy.sclera` | not reviewed | not reviewed | |
+| Card | `anatomy.conjunctiva` | not reviewed | not reviewed | |
+| Card | `anatomy.optic-chiasm` | not reviewed | not reviewed | |
+| Card | `anatomy.olfactory-bulbs` | not reviewed | not reviewed | |
+| Card | `anatomy.pineal-gland` | not reviewed | not reviewed | |
+| Card | `anatomy.brain-ventricles` | not reviewed | not reviewed | |
+| Card | `anatomy.dura-mater` | not reviewed | not reviewed | |
+| Card | `anatomy.carina` | not reviewed | not reviewed | |
+| Card | `anatomy.pancreatic-ducts` | not reviewed | not reviewed | |
+| Card | `anatomy.hepatic-arteries` | not reviewed | not reviewed | |
+| Card | `anatomy.pelvis` | not reviewed | not reviewed | |
+| Card | `anatomy.broad-ligament` | not reviewed | not reviewed | |
+| Card | `anatomy.uterus-fundus` | not reviewed | not reviewed | |
 | Condition | `condition.aortic-stenosis` | not reviewed | not reviewed | |
 | Condition | `condition.mitral-regurgitation` | not reviewed | not reviewed | |
 | Condition | `condition.coronary-heart-disease` | not reviewed | not reviewed | |
@@ -188,6 +201,18 @@ Use the [review packet](../CONTENT_REVIEW_PACKET.md), the [reviewer text](9c9bf4
 | Condition | `condition.floaters` | not reviewed | not reviewed | |
 | Condition | `condition.bladder-cancer` | not reviewed | not reviewed | |
 | Condition | `condition.osteoporosis` | not reviewed | not reviewed | |
+| Condition | `condition.pancreatic-cancer` | not reviewed | not reviewed | |
+| Condition | `condition.liver-cancer` | not reviewed | not reviewed | |
+| Condition | `condition.kidney-cancer` | not reviewed | not reviewed | |
+| Condition | `condition.ovarian-cancer` | not reviewed | not reviewed | |
+| Condition | `condition.uterine-cancer` | not reviewed | not reviewed | |
+| Condition | `condition.brain-tumors` | not reviewed | not reviewed | |
+| Condition | `condition.pulmonary-hypertension` | not reviewed | not reviewed | |
+| Condition | `condition.pkd` | not reviewed | not reviewed | |
+| Condition | `condition.lactose-intolerance` | not reviewed | not reviewed | |
+| Condition | `condition.hydrocephalus` | not reviewed | not reviewed | |
+| Condition | `condition.meningitis` | not reviewed | not reviewed | |
+| Condition | `condition.tbi` | not reviewed | not reviewed | |
 | Route | `heart-lung` | not reviewed | not reviewed | |
 
 ## Reference and mapping scope

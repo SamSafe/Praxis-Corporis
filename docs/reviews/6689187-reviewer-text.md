@@ -1,6 +1,6 @@
-# Study text for review: build `9c9bf41`
+# Study text for review: build `6689187`
 
-Every card, condition and route in study revision `body-study-4-draft`, as shipped in private build `f26f87ee947d4a049a09125a97940012`. The [frozen JSON](9c9bf41-study-content.json) is the authoritative copy. All items are drafts: an assistant compared each statement with its cited page, which is not reviewer evidence.
+Every card, condition and route in study revision `body-study-5-draft`, as shipped in private build `902058f3beff45a5a5c7bc30eb967880`. The [frozen JSON](6689187-study-content.json) is the authoritative copy. All items are drafts: an assistant compared each statement with its cited page, which is not reviewer evidence.
 
 **What to check for each item:** whether each statement is correct and supported by the cited source, whether anything important is missing or misleading, whether the related anatomy is right, and whether the named 3D parts are the right structures.
 
@@ -330,6 +330,16 @@ Every card, condition and route in study revision `body-study-4-draft`, as shipp
 - **Sources:**
   - `seer-kidney`: [NCI SEER Training: Kidneys](https://training.seer.cancer.gov/anatomy/urinary/components/kidney.html)
 
+#### `anatomy.hepatic-arteries`
+
+- **3D parts (female):** Hepatic artery proper; Right hepatic artery; Common hepatic artery; Left hepatic artery
+- **3D parts (male):** Left hepatic artery; Hepatic artery proper; Right hepatic artery; Common hepatic artery
+- **Overview:** The hepatic artery is the major blood vessel that carries blood to the liver. The supplied parts include its common, proper, left and right portions.
+- **Function:** Carries blood to the liver.
+- **Related:** `anatomy.liver`, `anatomy.celiac-trunk`, `anatomy.portal-vein`
+- **Sources:**
+  - `nci-def-hepatic-artery`: [NCI Dictionary of Cancer Terms: hepatic artery](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/hepatic-artery)
+
 ### Respiratory
 
 #### `anatomy.lungs`
@@ -446,6 +456,16 @@ Every card, condition and route in study revision `body-study-4-draft`, as shipp
 - **Related:** `anatomy.lungs`, `anatomy.bronchi`
 - **Sources:**
   - `seer-bronchi`: [NCI SEER Training: Bronchi, bronchial tree and lungs](https://training.seer.cancer.gov/anatomy/respiratory/passages/bronchi.html)
+
+#### `anatomy.carina`
+
+- **3D parts (female):** Carina of trachea
+- **3D parts (male):** Carina of trachea
+- **Overview:** A ridge at the base of the trachea, also called the tracheal carina.
+- **Function:** Separates the openings of the right and left main bronchi.
+- **Related:** `anatomy.trachea`, `anatomy.bronchi`
+- **Sources:**
+  - `nci-def-carina-of-trachea`: [NCI Dictionary of Cancer Terms: carina of trachea](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/carina-of-trachea)
 
 ### Nervous
 
@@ -623,6 +643,79 @@ Every card, condition and route in study revision `body-study-4-draft`, as shipp
 - **Sources:**
   - `nei-floaters`: [NEI: Floaters](https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases/floaters)
 
+#### `anatomy.sclera`
+
+- **3D parts (female):** Left sclera; Right sclera
+- **3D parts (male):** Left sclera; Right sclera
+- **Overview:** The white layer of the eye.
+- **Function:** Covers most of the outside of the eyeball.
+- **Related:** `anatomy.cornea`, `anatomy.choroid`, `anatomy.eyes`
+- **Sources:**
+  - `nci-def-sclera`: [NCI Dictionary of Cancer Terms: sclera](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/sclera)
+
+#### `anatomy.conjunctiva`
+
+- **3D parts (female):** Palpebral conjunctiva of left lower eyelid; Palpebral conjunctiva of left upper eyelid; Left bulbar conjunctiva; Right bulbar conjunctiva; Palpebral conjunctiva of right lower eyelid; Palpebral conjunctiva of right upper eyelid
+- **3D parts (male):** Left bulbar conjunctiva; Palpebral conjunctiva, left; Palpebral conjunctiva of left upper eyelid; Palpebral conjunctiva of left lower eyelid; Palpebral conjunctiva, right; Palpebral conjunctiva of right upper eyelid; Palpebral conjunctiva of right lower eyelid; Right bulbar conjunctiva
+- **Overview:** A membrane that lines the inner surface of the eyelids and also covers the front part of the eye.
+- **Function:** Lines and covers the front of the eye. Its inflammation is called conjunctivitis.
+- **Related:** `anatomy.sclera`, `anatomy.eyes`
+- **Sources:**
+  - `nci-def-conjunctiva`: [NCI Dictionary of Cancer Terms: conjunctiva](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/conjunctiva)
+  - `nei-pink-eye`: [NEI: Pink eye](https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases/pink-eye)
+
+#### `anatomy.optic-chiasm`
+
+- **3D parts (female):** Optic chiasma
+- **3D parts (male):** Optic chiasma
+- **Overview:** The place in the brain where some of the optic nerve fibers from one eye cross fibers from the other eye.
+- **Function:** Where optic nerve fibers from the two eyes partly cross on their way into the brain.
+- **Related:** `anatomy.optic-nerves`, `anatomy.brain`
+- **Sources:**
+  - `nci-def-optic-chiasm`: [NCI Dictionary of Cancer Terms: optic chiasm](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/optic-chiasm)
+
+#### `anatomy.olfactory-bulbs`
+
+- **3D parts (female):** Olfactory bulb; Olfactory bulb, right
+- **3D parts (male):** Olfactory bulb; Olfactory bulb, right
+- **Overview:** Two rounded masses of nerve tissue on the bottom side of the brain, one above each nasal cavity.
+- **Function:** Involved in the sense of smell: they receive information about smells from the nose and send it to the brain through the olfactory tracts.
+- **Related:** `anatomy.brain`
+- **Sources:**
+  - `nci-def-olfactory-bulb`: [NCI Dictionary of Cancer Terms: olfactory bulb](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/olfactory-bulb)
+
+#### `anatomy.pineal-gland`
+
+- **3D parts (female):** Pineal body; Pineal body
+- **3D parts (male):** Pineal body; Pineal body
+- **Overview:** A tiny organ in the cerebrum, also called the pineal body.
+- **Function:** Produces the hormone melatonin.
+- **Related:** `anatomy.brain`, `anatomy.thalamus`
+- **Sources:**
+  - `nci-def-pineal-gland`: [NCI Dictionary of Cancer Terms: pineal gland](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/pineal-gland)
+
+#### `anatomy.brain-ventricles`
+
+- **3D parts (female):** Anterior horn of lateral ventricle, left; Body of lateral ventricle, left; Posterior horn of lateral ventricle, left; Inferior horn of lateral ventricle, left; Third ventricle, left; Fourth ventricle; Atrium of lateral ventricle, left; Anterior horn of lateral ventricle, right; Body of lateral ventricle, right; Posterior horn of lateral ventricle, right; Inferior horn of lateral ventricle, right; Third ventricle, right; Fourth ventricle; Atrium of lateral ventricle, right
+- **3D parts (male):** Anterior horn of lateral ventricle, left; Body of lateral ventricle, left; Posterior horn of lateral ventricle, left; Inferior horn of lateral ventricle, left; Third ventricle, left; Fourth ventricle; Atrium of lateral ventricle, left; Anterior horn of lateral ventricle, right; Body of lateral ventricle, right; Posterior horn of lateral ventricle, right; Inferior horn of lateral ventricle, right; Third ventricle, right; Fourth ventricle; Atrium of lateral ventricle, right
+- **Overview:** Fluid-filled cavities in the brain: the parts of each lateral ventricle, the third ventricle and the fourth ventricle.
+- **Function:** Tissue called the choroid plexus in the ventricles makes cerebrospinal fluid, which flows in and around the hollow spaces of the brain and spinal cord.
+- **Related:** `anatomy.brain`, `anatomy.brainstem`
+- **Sources:**
+  - `nci-def-ventricle`: [NCI Dictionary of Cancer Terms: ventricle](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/ventricle)
+  - `nci-def-cerebrospinal-fluid`: [NCI Dictionary of Cancer Terms: cerebrospinal fluid](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/cerebrospinal-fluid)
+
+#### `anatomy.dura-mater`
+
+- **3D parts (female):** Dura mater; Dura mater
+- **3D parts (male):** Dura mater; Dura mater
+- **Overview:** The tough outer layer of the meninges, the three thin layers that cover and protect the brain and spinal cord. In these models, dura mater is supplied only with the nerves of each eye.
+- **Function:** Covers and protects the brain and spinal cord; it is the meningeal layer closest to the skull.
+- **Related:** `anatomy.optic-nerves`, `anatomy.brain`
+- **Sources:**
+  - `nci-def-dura-mater`: [NCI Dictionary of Cancer Terms: dura mater](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/dura-mater)
+  - `nci-def-meninges`: [NCI Dictionary of Cancer Terms: meninges](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/meninges)
+
 ### Digestive
 
 #### `anatomy.liver`
@@ -796,6 +889,16 @@ Every card, condition and route in study revision `body-study-4-draft`, as shipp
 - **Related:** `anatomy.gallbladder`, `anatomy.bile-duct.common`, `anatomy.liver`
 - **Sources:**
   - `seer-accessory`: [NCI SEER Training: Accessory digestive organs](https://training.seer.cancer.gov/anatomy/digestive/regions/accessory.html)
+
+#### `anatomy.pancreatic-ducts`
+
+- **3D parts (female):** Ducts of pancreas; Dorsal pancreatic duct; Ventral pancreatic duct
+- **3D parts (male):** Ducts of pancreas; Dorsal pancreatic duct; Ventral pancreatic duct
+- **Overview:** Part of a system of ducts in the pancreas.
+- **Function:** Pancreatic juices containing enzymes are released into these ducts and flow into the small intestine.
+- **Related:** `anatomy.pancreas`, `anatomy.duodenum`
+- **Sources:**
+  - `nci-def-pancreatic-duct`: [NCI Dictionary of Cancer Terms: pancreatic duct](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/pancreatic-duct)
 
 ### Urinary
 
@@ -1019,6 +1122,26 @@ Every card, condition and route in study revision `body-study-4-draft`, as shipp
   - `seer-female-tract`: [NCI SEER Training: Female genital tract](https://training.seer.cancer.gov/anatomy/reproductive/female/tract.html)
   - `nci-cervical-cancer`: [NCI: What is cervical cancer?](https://www.cancer.gov/types/cervical)
 
+#### `anatomy.broad-ligament`
+
+- **3D parts (female):** Broad ligament of uterus
+- **3D parts (male):** not in this body
+- **Overview:** The layer of tissue connecting the sides of the uterus to the walls and floor of the pelvis.
+- **Function:** Covers the uterus, ovaries and Fallopian tubes, and carries nerves and blood vessels to these organs.
+- **Related:** `anatomy.uterus`, `anatomy.ovaries`, `anatomy.fallopian-tubes`
+- **Sources:**
+  - `nci-def-broad-ligament`: [NCI Dictionary of Cancer Terms: broad ligament](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/broad-ligament)
+
+#### `anatomy.uterus-fundus`
+
+- **3D parts (female):** Fundus of uterus
+- **3D parts (male):** not in this body
+- **Overview:** The top part of the uterus, across from the cervix.
+- **Function:** The part of the uterus farthest from its opening, the cervix.
+- **Related:** `anatomy.uterus`, `anatomy.cervix`
+- **Sources:**
+  - `nci-def-fundus`: [NCI Dictionary of Cancer Terms: fundus](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/fundus)
+
 ### Lymphatic
 
 #### `anatomy.spleen`
@@ -1165,6 +1288,16 @@ Every card, condition and route in study revision `body-study-4-draft`, as shipp
 - **Related:** `anatomy.compact-bone`
 - **Sources:**
   - `seer-bone-tissue`: [NCI SEER Training: Structure of bone tissue](https://training.seer.cancer.gov/anatomy/skeletal/tissue.html)
+
+#### `anatomy.pelvis`
+
+- **3D parts (female):** Pelvis
+- **3D parts (male):** Pelvis
+- **Overview:** The bones between the lower abdomen and upper thighs that connect the spine to the legs.
+- **Function:** Supports upper body weight, aids balance and walking, and protects the bladder, reproductive organs, colon and rectum.
+- **Related:** `anatomy.compact-bone`, `anatomy.spongy-bone`, `anatomy.bladder`
+- **Sources:**
+  - `nci-def-pelvis`: [NCI Dictionary of Cancer Terms: pelvis](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/pelvis)
 
 ### Muscular
 
@@ -1803,10 +1936,11 @@ Conditions only locate the healthy reference anatomy; no disease geometry is sho
 - **Reference location:** The supplied eyes include the eyelid lining and the white of the eye.
 - **Focus:** `anatomy.eyes`
 - **Requires:** `anatomy.eyes`
-- **Listed on:** `anatomy.eyes`
+- **Listed on:** `anatomy.eyes`, `anatomy.conjunctiva`
 - **Not depicted:** Swelling and redness are not depicted.
 - **Sources:**
   - `nei-pink-eye`: [NEI: Pink eye](https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases/pink-eye)
+  - `nci-def-conjunctiva`: [NCI Dictionary of Cancer Terms: conjunctiva](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/conjunctiva)
 
 ### Floaters (`condition.floaters`)
 
@@ -1842,6 +1976,150 @@ Conditions only locate the healthy reference anatomy; no disease geometry is sho
 - **Sources:**
   - `niams-osteoporosis`: [NIAMS: Osteoporosis](https://www.niams.nih.gov/health-topics/osteoporosis)
   - `seer-bone-tissue`: [NCI SEER Training: Structure of bone tissue](https://training.seer.cancer.gov/anatomy/skeletal/tissue.html)
+
+### Pancreatic cancer (`condition.pancreatic-cancer`)
+
+- **Summary:** Pancreatic cancer can develop from two kinds of cells in the pancreas: exocrine cells and endocrine cells (pancreatic neuroendocrine tumors).
+- **Reference location:** The pancreas releases digestive enzymes into the small intestine and hormones such as insulin into the blood.
+- **Focus:** `anatomy.pancreas`
+- **Requires:** `anatomy.pancreas`
+- **Listed on:** `anatomy.pancreas`, `anatomy.pancreatic-ducts`
+- **Not depicted:** Tumors and their spread are not depicted.
+- **Sources:**
+  - `nci-pancreatic-cancer`: [NCI: Pancreatic cancer](https://www.cancer.gov/types/pancreatic)
+  - `seer-accessory`: [NCI SEER Training: Accessory digestive organs](https://training.seer.cancer.gov/anatomy/digestive/regions/accessory.html)
+
+### Liver cancer (`condition.liver-cancer`)
+
+- **Summary:** Cancer that starts in the liver is called primary liver cancer. The most common type in adults is hepatocellular carcinoma.
+- **Reference location:** The liver lies mainly in the upper right abdomen, just beneath the diaphragm.
+- **Focus:** `anatomy.liver`
+- **Requires:** `anatomy.liver`
+- **Listed on:** `anatomy.liver`, `anatomy.liver-lobes`
+- **Not depicted:** Tumors and their spread are not depicted.
+- **Sources:**
+  - `nci-liver-cancer`: [NCI: Liver and bile duct cancer](https://www.cancer.gov/types/liver)
+  - `seer-accessory`: [NCI SEER Training: Accessory digestive organs](https://training.seer.cancer.gov/anatomy/digestive/regions/accessory.html)
+
+### Kidney cancer (`condition.kidney-cancer`)
+
+- **Summary:** Kidney cancer can develop in adults and children. The main types are renal cell cancer, transitional cell cancer and Wilms tumor.
+- **Reference location:** The kidneys lie just below the rib cage, one on each side of the spine.
+- **Focus:** `anatomy.kidneys`
+- **Requires:** `anatomy.kidneys`
+- **Listed on:** `anatomy.kidneys`, `anatomy.kidney.left`, `anatomy.kidney.right`, `anatomy.renal-pelvis`
+- **Not depicted:** Tumors and their spread are not depicted.
+- **Sources:**
+  - `nci-kidney-cancer`: [NCI: Kidney (renal cell) cancer — patient version](https://www.cancer.gov/types/kidney)
+  - `niddk-kidneys`: [NIDDK: Your kidneys and how they work](https://www.niddk.nih.gov/health-information/kidney-disease/kidneys-how-they-work)
+
+### Ovarian cancer (`condition.ovarian-cancer`)
+
+- **Summary:** Ovarian epithelial cancer, Fallopian tube cancer and primary peritoneal cancer form in the same kind of tissue and are treated the same way. These cancers are often advanced when diagnosed.
+- **Reference location:** The ovaries lie on each side of the uterus, each next to a Fallopian tube.
+- **Focus:** `anatomy.ovaries`
+- **Requires:** `anatomy.ovaries`, `anatomy.fallopian-tubes`
+- **Listed on:** `anatomy.ovaries`, `anatomy.fallopian-tubes`
+- **Not depicted:** Tumors and their spread are not depicted.
+- **Sources:**
+  - `nci-ovarian-cancer`: [NCI: Ovarian, fallopian tube, and primary peritoneal cancer — patient version](https://www.cancer.gov/types/ovarian)
+  - `seer-ovaries`: [NCI SEER Training: Ovaries](https://training.seer.cancer.gov/anatomy/reproductive/female/ovaries.html)
+
+### Uterine cancer (`condition.uterine-cancer`)
+
+- **Summary:** Uterine cancers are of two types: endometrial cancer, which is common and can often be cured, and uterine sarcoma, which is rare and often more aggressive.
+- **Reference location:** The uterus is a muscular organ in the pelvis.
+- **Focus:** `anatomy.uterus`
+- **Requires:** `anatomy.uterus`
+- **Listed on:** `anatomy.uterus`, `anatomy.uterus-fundus`
+- **Not depicted:** Tumors and their spread are not depicted.
+- **Sources:**
+  - `nci-uterine-cancer`: [NCI: Uterine cancer](https://www.cancer.gov/types/uterine)
+  - `seer-female-tract`: [NCI SEER Training: Female genital tract](https://training.seer.cancer.gov/anatomy/reproductive/female/tract.html)
+
+### Brain tumors (`condition.brain-tumors`)
+
+- **Summary:** Tumors of the brain and spinal cord (the central nervous system) can be benign or malignant, and there are many different types.
+- **Reference location:** The brain is divided into the cerebrum, diencephalon, brain stem and cerebellum.
+- **Focus:** `anatomy.brain`
+- **Requires:** `anatomy.brain`
+- **Listed on:** `anatomy.brain`, `anatomy.cerebellum`, `anatomy.brainstem`
+- **Not depicted:** Tumors are not depicted.
+- **Sources:**
+  - `nci-brain-tumors`: [NCI: Brain tumors — patient version](https://www.cancer.gov/types/brain)
+  - `seer-cns`: [NCI SEER Training: Central nervous system](https://training.seer.cancer.gov/anatomy/nervous/organization/cns.html)
+
+### Pulmonary hypertension (`condition.pulmonary-hypertension`)
+
+- **Summary:** A condition that affects the blood vessels in the lungs. In the United States its most common type is caused by left-sided heart disease, such as left heart failure.
+- **Reference location:** The pulmonary arteries carry oxygen-poor blood from the heart to the lungs.
+- **Focus:** `anatomy.pulmonary-arteries`
+- **Requires:** `anatomy.pulmonary-arteries`, `anatomy.lungs`
+- **Listed on:** `anatomy.pulmonary-arteries`, `anatomy.lungs`
+- **Not depicted:** Blood pressure in the lung vessels is not depicted.
+- **Sources:**
+  - `nhlbi-pulmonary-hypertension`: [NHLBI: Pulmonary hypertension](https://www.nhlbi.nih.gov/health/pulmonary-hypertension)
+  - `heart-flow`: [NHLBI: Blood flow through the heart](https://www.nhlbi.nih.gov/health/heart/blood-flow)
+
+### Polycystic kidney disease (`condition.pkd`)
+
+- **Summary:** A genetic disorder that causes many fluid-filled cysts to grow in the kidneys. The cysts can change the shape of the kidneys, including making them much larger.
+- **Reference location:** The kidneys lie just below the rib cage, one on each side of the spine.
+- **Focus:** `anatomy.kidneys`
+- **Requires:** `anatomy.kidneys`
+- **Listed on:** `anatomy.kidneys`, `anatomy.kidney.left`, `anatomy.kidney.right`
+- **Not depicted:** Cysts and kidney enlargement are not depicted.
+- **Sources:**
+  - `niddk-pkd`: [NIDDK: What is polycystic kidney disease?](https://www.niddk.nih.gov/health-information/kidney-disease/polycystic-kidney-disease/what-is-pkd)
+  - `niddk-kidneys`: [NIDDK: Your kidneys and how they work](https://www.niddk.nih.gov/health-information/kidney-disease/kidneys-how-they-work)
+
+### Lactose intolerance (`condition.lactose-intolerance`)
+
+- **Summary:** Digestive symptoms such as bloating, diarrhea and gas after consuming lactose, a sugar in milk and milk products. They happen because the small intestine cannot break down all the lactose eaten.
+- **Reference location:** The small intestine has three parts: the duodenum, jejunum and ileum.
+- **Focus:** `anatomy.small-intestine`
+- **Requires:** `anatomy.small-intestine`
+- **Listed on:** `anatomy.small-intestine`
+- **Not depicted:** Digestion and symptoms are not depicted.
+- **Sources:**
+  - `niddk-lactose-intolerance`: [NIDDK: Definition & facts for lactose intolerance](https://www.niddk.nih.gov/health-information/digestive-diseases/lactose-intolerance/definition-facts)
+  - `seer-intestine`: [NCI SEER Training: Small and large intestine](https://training.seer.cancer.gov/anatomy/digestive/regions/intestine.html)
+
+### Hydrocephalus (`condition.hydrocephalus`)
+
+- **Summary:** Too much cerebrospinal fluid builds up in the brain and puts harmful pressure on it. It can be present at birth or happen at any age, after causes such as head injuries, strokes, infections, tumors or bleeding in the brain.
+- **Reference location:** Cerebrospinal fluid is made in the brain's ventricles and flows in and around the hollow spaces of the brain and spinal cord.
+- **Focus:** `anatomy.brain-ventricles`
+- **Requires:** `anatomy.brain-ventricles`, `anatomy.brain`
+- **Listed on:** `anatomy.brain-ventricles`, `anatomy.brain`
+- **Not depicted:** Excess fluid, enlarged ventricles and pressure are not depicted.
+- **Sources:**
+  - `mlp-hydrocephalus`: [MedlinePlus: Hydrocephalus](https://medlineplus.gov/hydrocephalus.html)
+  - `nci-def-cerebrospinal-fluid`: [NCI Dictionary of Cancer Terms: cerebrospinal fluid](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/cerebrospinal-fluid)
+
+### Meningitis (`condition.meningitis`)
+
+- **Summary:** Inflammation of the meninges, the thin tissue surrounding the brain and spinal cord. Viral meningitis is the most common type; bacterial meningitis is rare but can be deadly.
+- **Reference location:** The meninges cover the brain and spinal cord. The supplied models do not include them around the brain, so the brain is shown.
+- **Focus:** `anatomy.brain`
+- **Requires:** `anatomy.brain`
+- **Listed on:** `anatomy.brain`, `anatomy.dura-mater`
+- **Not depicted:** The meninges and their inflammation are not depicted.
+- **Sources:**
+  - `mlp-meningitis`: [MedlinePlus: Meningitis](https://medlineplus.gov/meningitis.html)
+  - `nci-def-meninges`: [NCI Dictionary of Cancer Terms: meninges](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/meninges)
+
+### Traumatic brain injury (`condition.tbi`)
+
+- **Summary:** A sudden injury that damages the brain, from a blow, bump or jolt to the head or an object that penetrates the skull. Concussions are a type of mild TBI; severe TBI can cause coma or death.
+- **Reference location:** The brain is divided into the cerebrum, diencephalon, brain stem and cerebellum.
+- **Focus:** `anatomy.brain`
+- **Requires:** `anatomy.brain`
+- **Listed on:** `anatomy.brain`
+- **Not depicted:** Injury and brain damage are not depicted.
+- **Sources:**
+  - `mlp-tbi`: [MedlinePlus: Traumatic brain injury](https://medlineplus.gov/traumaticbraininjury.html)
+  - `seer-cns`: [NCI SEER Training: Central nervous system](https://training.seer.cancer.gov/anatomy/nervous/organization/cns.html)
 
 ## Routes
 
