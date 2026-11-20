@@ -109,7 +109,8 @@ tasks. Its presence is a plan, not a completed trial record.
    trials; public release policy and future migrations remain open.
 2. Complete physical-device/performance acceptance and arrange qualified content
    review and release decisions before a production-ready claim.
-3. Mac acceptance is deferred at the user's request. When their future Mac checkout
+3. Mac acceptance is deferred at the user's request (reconfirmed 2026-11-20, when
+   Vision Pro / visionOS work was also deferred). When their future Mac checkout
    is available, record its actual revision and observations using the
    [acceptance guide](MAC_ACCEPTANCE.md); fix material issues it reveals then.
 

@@ -608,7 +608,12 @@ static func verify_study_reader(viewer: Control, rendered: bool = false) -> bool
 			for layout in [false, true]:
 				viewer.set_scene_expanded(layout)
 				var index := 0
-				for id in viewer.study_content.data.cards:
+				for card_id in viewer.study_content.data.cards:
+					# Mapped cards resolve to this body's source structure; a
+					# sex-specific card has none in the other body.
+					var id: String = viewer.study_content.structure_id(card_id, viewer.model.structures)
+					if id.is_empty():
+						continue
 					viewer.select_structure(id, false)
 					await viewer.get_tree().process_frame
 					var during: Dictionary = viewer.export_view_state().duplicate(true)
@@ -668,8 +673,14 @@ static func verify_study_reader(viewer: Control, rendered: bool = false) -> bool
 					index += 1
 		# Every authored related link keeps a useful reading action focused.
 		viewer.set_scene_expanded(false)
-		for id in viewer.study_content.data.cards:
-			for related in viewer.study_content.card(id).related:
+		for card_id in viewer.study_content.data.cards:
+			var id: String = viewer.study_content.structure_id(card_id, viewer.model.structures)
+			if id.is_empty():
+				continue
+			for related_id in viewer.study_content.card(id).related:
+				var related: String = viewer.study_content.structure_id(related_id, viewer.model.structures)
+				if related.is_empty():
+					continue
 				viewer.select_structure(id, false)
 				var link: LinkButton
 				for child in viewer.study_links.get_children():
@@ -1762,7 +1773,7 @@ static func run(viewer: Control, rendered: bool) -> bool:
 	var redo: Array = viewer.model.redo_stack.duplicate(true)
 	var back: Array = viewer.back_views.duplicate(true)
 	var forward: Array = viewer.forward_views.duplicate(true)
-	var valid: bool = viewer.study_content.data.get("cards", {}).size() == 15
+	var valid: bool = viewer.study_content.data.get("cards", {}).size() == 41
 	valid = valid and viewer.study_content.error.is_empty()
 	if viewer.model.body.id == "female":
 		valid = await verify_cancel_loading(viewer) and valid
@@ -2064,8 +2075,14 @@ static func verify_conditions(viewer: Control, rendered: bool) -> bool:
 	large.text_scale = 1.3
 	viewer.apply_preferences(large)
 	viewer.get_window().size = Vector2i(1100, 720)
-	var valid: bool = viewer.study_content.data.get("conditions", {}).size() == 2
-	for id in ["condition.aortic-stenosis", "condition.mitral-regurgitation"]:
+	var valid: bool = viewer.study_content.data.get("conditions", {}).size() == 14
+	var available: Array[String] = []
+	for id in viewer.study_content.data.conditions:
+		if viewer.study_content.condition_available(id, viewer.model.structures):
+			available.append(str(id))
+	# Both adult references share 13 conditions and add one sex-specific condition.
+	valid = valid and available.size() == 13
+	for id in available:
 		var dialog: Window = viewer.show_condition(id)
 		if dialog == null:
 			return false
@@ -2082,7 +2099,7 @@ static func verify_conditions(viewer: Control, rendered: bool) -> bool:
 				pressed = true
 				break
 		await viewer.get_tree().process_frame
-		valid = valid and pressed and viewer.model.selected_id == viewer.study_content.condition(id).focus_id
+		valid = valid and pressed and viewer.model.selected_id == viewer.study_content.condition_focus(id, viewer.model.structures)
 		valid = valid and viewer.model.isolated_id == viewer.model.selected_id and viewer.model.export_state() == anatomy
 		valid = valid and viewer.validate_view_state(viewer.export_view_state()).is_empty()
 		viewer.return_to_context()

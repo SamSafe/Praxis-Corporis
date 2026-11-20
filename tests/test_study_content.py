@@ -11,6 +11,22 @@ sys.path.insert(0, str(ROOT / "tools"))
 from build_spinal_studies import build
 
 
+def is_government_source(url):
+    return url.startswith(("https://www.nhlbi.nih.gov/", "https://www.ncbi.nlm.nih.gov/", "https://www.niddk.nih.gov/",
+                           "https://www.nichd.nih.gov/", "https://training.seer.cancer.gov/"))
+
+
+def resolve(content, identity, available):
+    """Mirror study_content.gd: shared IDs, then explicit card geometry checked against the source."""
+    if identity in available:
+        return identity
+    for mapping in content["cards"].get(identity, {}).get("geometry", {}).values():
+        source = available.get(mapping["id"])
+        if source and source["source_name"] == mapping["source_name"] and source["ontology"] == mapping["ontology"]:
+            return mapping["id"]
+    return ""
+
+
 class StudyContentTests(unittest.TestCase):
     def test_assistant_source_checks_do_not_promote_human_review(self):
         content = json.loads((ROOT / "content/study_content.json").read_text())
@@ -26,20 +42,29 @@ class StudyContentTests(unittest.TestCase):
     def test_conditions_are_sourced_reference_locations_with_explicit_associations(self):
         content = json.loads((ROOT / "content/study_content.json").read_text())
         catalogue = json.loads((ROOT / "content/sample_pack.json").read_text())
-        self.assertEqual(set(content["conditions"]), {"condition.aortic-stenosis", "condition.mitral-regurgitation"})
+        self.assertEqual(len(content["conditions"]), 14)
         for body in catalogue["bodies"]:
-            available = {s["id"] for s in body["structures"]}
-            for condition in content["conditions"].values():
+            available = {s["id"]: s for s in body["structures"]}
+            offered = set()
+            for identity, condition in content["conditions"].items():
                 self.assertEqual(condition["geometry_mode"], "reference_location_only")
                 self.assertEqual(condition["review_status"], "draft")
                 self.assertEqual(condition["human_source_review"], "pending")
                 self.assertEqual(condition["expert_review"], "pending")
+                self.assertTrue(condition["not_depicted"].endswith("not depicted."))
                 self.assertIn(condition["focus_id"], condition["related_anatomy"])
-                self.assertTrue(set(condition["related_anatomy"]) <= available)
-                self.assertTrue(set(condition["display_on"]) <= available)
                 self.assertTrue(condition["source_ids"])
                 for source in condition["source_ids"]:
-                    self.assertTrue(content["sources"][source]["url"].startswith("https://www.nhlbi.nih.gov/"))
+                    self.assertTrue(is_government_source(content["sources"][source]["url"]))
+                for anatomy in condition["display_on"]:
+                    self.assertTrue(anatomy in available or anatomy in content["cards"], anatomy)
+                if all(resolve(content, anatomy, available) for anatomy in condition["related_anatomy"]):
+                    offered.add(identity)
+            # Each adult reference offers the shared conditions plus its own
+            # sex-specific one; none is inferred from missing anatomy.
+            self.assertEqual(len(offered), 13)
+            self.assertEqual("condition.bph" in offered, body["id"] == "male")
+            self.assertEqual("condition.endometriosis" in offered, body["id"] == "female")
 
     def test_circulation_route_has_explicit_source_mappings_and_coverage_gaps(self):
         content = json.loads((ROOT / "content/study_content.json").read_text())
@@ -64,22 +89,40 @@ class StudyContentTests(unittest.TestCase):
         # No rendered path or anatomical channel is inferred from this graph.
         self.assertIn("conceptual", route["scope"])
 
-    def test_chest_cards_and_relationships_exist_in_both_bodies(self):
+    def test_cards_and_relationships_map_to_supplied_geometry(self):
         content = json.loads((ROOT / "content/study_content.json").read_text())
         catalogue = json.loads((ROOT / "content/sample_pack.json").read_text())
         self.assertEqual(content["expert_review"], "pending")
-        self.assertEqual(len(content["cards"]), 15)
+        self.assertEqual(len(content["cards"]), 41)
+        mapped = {}
+        for identity, card in content["cards"].items():
+            self.assertEqual(card["review_status"], "draft")
+            self.assertEqual(card["human_source_review"], "pending")
+            self.assertEqual(card["expert_review"], "pending")
+            self.assertTrue(card["source_ids"])
+            for source in card["source_ids"]:
+                self.assertTrue(is_government_source(content["sources"][source]["url"]))
+            for mapping in card.get("geometry", {}).values():
+                self.assertNotIn(mapping["id"], mapped, "one structure carries one card")
+                self.assertNotIn(mapping["id"], content["cards"])
+                mapped[mapping["id"]] = identity
         for body in catalogue["bodies"]:
-            available = {s["id"] for s in body["structures"]}
+            available = {s["id"]: s for s in body["structures"]}
             for identity, card in content["cards"].items():
-                self.assertIn(identity, available)
-                self.assertTrue(set(card["related"]) <= available)
-                self.assertEqual(card["review_status"], "draft")
-                self.assertEqual(card["human_source_review"], "pending")
-                self.assertEqual(card["expert_review"], "pending")
-                self.assertTrue(card["source_ids"])
-                for source in card["source_ids"]:
-                    self.assertTrue(content["sources"][source]["url"].startswith("https://www.nhlbi.nih.gov/"))
+                if "geometry" not in card:
+                    self.assertIn(identity, available)
+                elif body["id"] not in card["geometry"]:
+                    continue
+                else:
+                    mapping = card["geometry"][body["id"]]
+                    source = available[mapping["id"]]
+                    self.assertEqual(mapping["source_name"], source["source_name"])
+                    self.assertEqual(mapping["ontology"], source["ontology"])
+                    self.assertTrue(source["mesh_nodes"], identity)
+                for related in card["related"]:
+                    related_card = content["cards"].get(related, {})
+                    sex_specific = "geometry" in related_card and body["id"] not in related_card["geometry"]
+                    self.assertTrue(resolve(content, related, available) or sex_specific, related)
 
     def test_spinal_studies_preserve_ambiguous_source_identity(self):
         studies = json.loads((ROOT / "content/spinal_studies.json").read_text())["bodies"]

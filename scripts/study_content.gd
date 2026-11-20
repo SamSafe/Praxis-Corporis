@@ -3,6 +3,9 @@ extends RefCounted
 
 var data: Dictionary = {}
 var error := ""
+# Body-specific source structure ID -> card ID, from explicit card geometry
+# mappings. Mapped structures are confirmed against the loaded body before use.
+var aliases: Dictionary = {}
 
 
 func _init() -> void:
@@ -12,6 +15,8 @@ func _init() -> void:
 
 func load_data(parsed: Variant) -> String:
 	data = {}
+	aliases = {}
+	var mapped := {}
 	if not parsed is Dictionary or parsed.get("schema_version") != 1 or not parsed.get("cards") is Dictionary or not parsed.get("sources") is Dictionary:
 		return "Study content has an unsupported format."
 	if not draft_record(parsed) or not nonempty_text(parsed.get("revision"), 128):
@@ -29,6 +34,16 @@ func load_data(parsed: Variant) -> String:
 			return "Study content contains an invalid explanation."
 		if not string_list(record.get("related")) or not valid_sources(record, parsed.sources):
 			return "Study content contains an invalid relationship or citation."
+		if record.has("geometry"):
+			# Explicit per-body source mappings for cards whose structures have no
+			# shared ID. A mapped structure may belong to only one card.
+			if not record.geometry is Dictionary or record.geometry.is_empty():
+				return "Study content contains an invalid structure mapping."
+			for reference in record.geometry:
+				var mapping = record.geometry[reference]
+				if not nonempty_text(reference, 64) or not valid_mapping(mapping) or mapped.has(mapping.id) or parsed.cards.has(mapping.id):
+					return "Study content contains an invalid structure mapping."
+				mapped[mapping.id] = id
 	var routes = parsed.get("routes", {})
 	if not routes is Dictionary:
 		return "Study routes have an unsupported format."
@@ -46,8 +61,15 @@ func load_data(parsed: Variant) -> String:
 			return "Condition information contains invalid text."
 		if not string_list(condition.get("related_anatomy"), false) or not string_list(condition.get("display_on"), false) or condition.get("focus_id") not in condition.related_anatomy or condition.get("geometry_mode") != "reference_location_only":
 			return "Condition information has unsupported geometry or anatomy mappings."
+		if condition.has("not_depicted") and not nonempty_text(condition.not_depicted, 512):
+			return "Condition information contains invalid text."
 	data = parsed.duplicate(true)
+	aliases = mapped
 	return ""
+
+
+static func valid_mapping(mapping: Variant) -> bool:
+	return mapping is Dictionary and nonempty_text(mapping.get("id"), 256) and nonempty_text(mapping.get("source_name"), 256) and mapping.get("ontology") is String
 
 
 static func nonempty_text(value: Variant, limit: int = 4096) -> bool:
@@ -141,8 +163,26 @@ func route_available(id: String, body: Dictionary) -> bool:
 	return true
 
 
+## Card ID for a structure ID: shared IDs are card IDs; mapped source IDs resolve
+## through their card's explicit geometry.
+func concept_id(id: String) -> String:
+	return str(aliases.get(id, id))
+
+
 func card(id: String) -> Dictionary:
-	return data.get("cards", {}).get(id, {})
+	return data.get("cards", {}).get(concept_id(id), {})
+
+
+## Structure in the loaded body for a card or anatomy ID, or "" if the body has
+## none. A mapping only applies while its source name and ontology still match.
+func structure_id(id: String, structures: Dictionary) -> String:
+	if structures.has(id):
+		return id
+	for mapping in data.get("cards", {}).get(id, {}).get("geometry", {}).values():
+		var structure: Dictionary = structures.get(mapping.id, {})
+		if not structure.is_empty() and structure.get("source_name") == mapping.source_name and structure.get("ontology") == mapping.ontology:
+			return str(mapping.id)
+	return ""
 
 
 func condition(id: String) -> Dictionary:
@@ -151,8 +191,9 @@ func condition(id: String) -> Dictionary:
 
 func conditions_for(anatomy_id: String) -> Array[String]:
 	var result: Array[String] = []
+	var concept := concept_id(anatomy_id)
 	for id in data.get("conditions", {}):
-		if anatomy_id in condition(id).display_on:
+		if concept in condition(id).display_on:
 			result.append(str(id))
 	return result
 
@@ -162,9 +203,14 @@ func condition_available(id: String, structures: Dictionary) -> bool:
 	if record.is_empty():
 		return false
 	for related in record.related_anatomy:
-		if not structures.has(related) or structures[related].get("mesh_nodes", []).is_empty():
+		var structure := structure_id(related, structures)
+		if structure.is_empty() or structures[structure].get("mesh_nodes", []).is_empty():
 			return false
 	return true
+
+
+func condition_focus(id: String, structures: Dictionary) -> String:
+	return structure_id(str(condition(id).get("focus_id", "")), structures)
 
 
 func condition_text(id: String) -> String:
@@ -172,7 +218,7 @@ func condition_text(id: String) -> String:
 	if record.is_empty():
 		return "Condition information is unavailable."
 	var result: String = str(record.summary) + "\n\nReference location\n" + str(record.location)
-	result += "\n\nREFERENCE ANATOMY ONLY\nThe supplied geometry is unreviewed reference anatomy. Pathological narrowing, leakage, leaflet motion and blood flow are not depicted."
+	result += "\n\nREFERENCE ANATOMY ONLY\nThe supplied geometry is unreviewed reference anatomy. " + str(record.get("not_depicted", "Disease-related tissue changes, motion and flow are not depicted."))
 	result += "\n\nDraft learning text · human source and medical review pending.\n\nSources"
 	for source in record.source_ids:
 		result += "\n\n%s\n%s" % [data.sources[source].title, data.sources[source].url]

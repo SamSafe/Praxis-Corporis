@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "revision": "chest-study-3-draft",
+  "revision": "body-study-1-draft",
   "review_status": "draft",
   "expert_review": "pending",
-  "scope": "Private draft explanations. General anatomy is separate from completeness and accuracy of the supplied source meshes. No source illustrations or video are reused.",
+  "scope": "Private draft explanations covering the chest and selected abdominal, pelvic and lymphatic organs. General anatomy is separate from completeness and accuracy of the supplied source meshes. No source illustrations or video are reused.",
   "sources": {
     "heart-anatomy": {
       "title": "NHLBI: Heart anatomy",
@@ -28,6 +28,114 @@
     "valve-disease-types": {
       "title": "NHLBI: Types of heart valve disease",
       "url": "https://www.nhlbi.nih.gov/health/heart-valve-diseases/types"
+    },
+    "nhlbi-chd": {
+      "title": "NHLBI: Coronary heart disease",
+      "url": "https://www.nhlbi.nih.gov/health/coronary-heart-disease"
+    },
+    "nhlbi-aortic-aneurysm": {
+      "title": "NHLBI: Aortic aneurysm",
+      "url": "https://www.nhlbi.nih.gov/health/aortic-aneurysm"
+    },
+    "nhlbi-copd": {
+      "title": "NHLBI: COPD",
+      "url": "https://www.nhlbi.nih.gov/health/copd"
+    },
+    "nhlbi-asthma": {
+      "title": "NHLBI: Asthma",
+      "url": "https://www.nhlbi.nih.gov/health/asthma"
+    },
+    "nhlbi-pulmonary-embolism": {
+      "title": "NHLBI: Pulmonary embolism",
+      "url": "https://www.nhlbi.nih.gov/health/pulmonary-embolism"
+    },
+    "niddk-digestive": {
+      "title": "NIDDK: Your digestive system and how it works",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/digestive-system-how-it-works"
+    },
+    "niddk-kidneys": {
+      "title": "NIDDK: Your kidneys and how they work",
+      "url": "https://www.niddk.nih.gov/health-information/kidney-disease/kidneys-how-they-work"
+    },
+    "niddk-urinary": {
+      "title": "NIDDK: The urinary tract and how it works",
+      "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/urinary-tract-how-it-works"
+    },
+    "niddk-gallstones": {
+      "title": "NIDDK: Gallstones",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/gallstones"
+    },
+    "niddk-kidney-stones": {
+      "title": "NIDDK: Kidney stones",
+      "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/kidney-stones"
+    },
+    "niddk-cirrhosis": {
+      "title": "NIDDK: Cirrhosis",
+      "url": "https://www.niddk.nih.gov/health-information/liver-disease/cirrhosis"
+    },
+    "niddk-pancreatitis": {
+      "title": "NIDDK: Pancreatitis",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/pancreatitis"
+    },
+    "niddk-appendicitis": {
+      "title": "NIDDK: Appendicitis",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/appendicitis"
+    },
+    "niddk-bph": {
+      "title": "NIDDK: Enlarged prostate (benign prostatic hyperplasia)",
+      "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/prostate-problems/prostate-enlargement-benign-prostatic-hyperplasia"
+    },
+    "nichd-endometriosis": {
+      "title": "NICHD: Endometriosis",
+      "url": "https://www.nichd.nih.gov/health/topics/endometriosis"
+    },
+    "seer-heart": {
+      "title": "NCI SEER Training: Structure of the heart",
+      "url": "https://training.seer.cancer.gov/anatomy/cardiovascular/heart/structure.html"
+    },
+    "seer-accessory": {
+      "title": "NCI SEER Training: Accessory digestive organs",
+      "url": "https://training.seer.cancer.gov/anatomy/digestive/regions/accessory.html"
+    },
+    "seer-intestine": {
+      "title": "NCI SEER Training: Small and large intestine",
+      "url": "https://training.seer.cancer.gov/anatomy/digestive/regions/intestine.html"
+    },
+    "seer-spleen": {
+      "title": "NCI SEER Training: Spleen",
+      "url": "https://training.seer.cancer.gov/anatomy/lymphatic/components/spleen.html"
+    },
+    "seer-thymus": {
+      "title": "NCI SEER Training: Thymus",
+      "url": "https://training.seer.cancer.gov/anatomy/lymphatic/components/thymus.html"
+    },
+    "seer-ovaries": {
+      "title": "NCI SEER Training: Ovaries",
+      "url": "https://training.seer.cancer.gov/anatomy/reproductive/female/ovaries.html"
+    },
+    "seer-female-tract": {
+      "title": "NCI SEER Training: Female genital tract",
+      "url": "https://training.seer.cancer.gov/anatomy/reproductive/female/tract.html"
+    },
+    "seer-male-glands": {
+      "title": "NCI SEER Training: Male accessory glands",
+      "url": "https://training.seer.cancer.gov/anatomy/reproductive/male/glands.html"
+    },
+    "seer-bronchi": {
+      "title": "NCI SEER Training: Bronchi, bronchial tree and lungs",
+      "url": "https://training.seer.cancer.gov/anatomy/respiratory/passages/bronchi.html"
+    },
+    "seer-kidney": {
+      "title": "NCI SEER Training: Kidneys",
+      "url": "https://training.seer.cancer.gov/anatomy/urinary/components/kidney.html"
+    },
+    "seer-ureters": {
+      "title": "NCI SEER Training: Ureters",
+      "url": "https://training.seer.cancer.gov/anatomy/urinary/components/ureters.html"
+    },
+    "seer-bladder": {
+      "title": "NCI SEER Training: Urinary bladder",
+      "url": "https://training.seer.cancer.gov/anatomy/urinary/components/bladder.html"
     }
   },
   "cards": {
@@ -254,6 +362,688 @@
       "review_status": "draft",
       "expert_review": "pending",
       "human_source_review": "pending"
+    },
+    "anatomy.aorta": {
+      "overview": "The main artery of the body, leaving the left ventricle through the aortic valve.",
+      "function": "Carries oxygen-rich blood from the heart to the rest of the body.",
+      "related": [
+        "anatomy.heart.ventricle.left",
+        "anatomy.heart.valve.aortic",
+        "anatomy.coronary.left",
+        "anatomy.coronary.right"
+      ],
+      "source_ids": [
+        "heart-flow",
+        "nhlbi-aortic-aneurysm"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n767",
+          "source_name": "VH_F_aorta",
+          "ontology": ""
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n210",
+          "source_name": "VH_M_aorta",
+          "ontology": ""
+        }
+      }
+    },
+    "anatomy.coronary.left": {
+      "overview": "One of the two coronary arteries that branch from the aorta and run over the surface of the heart.",
+      "function": "Supplies oxygen-rich blood to the heart muscle.",
+      "related": [
+        "anatomy.coronary.right",
+        "anatomy.aorta",
+        "anatomy.heart"
+      ],
+      "source_ids": [
+        "seer-heart",
+        "heart-flow",
+        "nhlbi-chd"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n757",
+          "source_name": "VH_F_left_coronary_artery",
+          "ontology": "UBERON:0001626"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n230",
+          "source_name": "VH_M_left_coronary_artery",
+          "ontology": "UBERON:0001626"
+        }
+      }
+    },
+    "anatomy.coronary.right": {
+      "overview": "One of the two coronary arteries that branch from the aorta and run over the surface of the heart.",
+      "function": "Supplies oxygen-rich blood to the heart muscle.",
+      "related": [
+        "anatomy.coronary.left",
+        "anatomy.aorta",
+        "anatomy.heart"
+      ],
+      "source_ids": [
+        "seer-heart",
+        "heart-flow",
+        "nhlbi-chd"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n761",
+          "source_name": "VH_F_right_coronary_artery",
+          "ontology": "UBERON:0001625"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n231",
+          "source_name": "VH_M_right_coronary_artery",
+          "ontology": "UBERON:0001625"
+        }
+      }
+    },
+    "anatomy.vena-cava.superior": {
+      "overview": "One of the two venae cavae, the large veins through which blood returns to the heart.",
+      "function": "Returns oxygen-poor blood from the body to the right atrium.",
+      "related": [
+        "anatomy.vena-cava.inferior",
+        "anatomy.heart.atrium.right"
+      ],
+      "source_ids": [
+        "heart-flow"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n749",
+          "source_name": "VH_F_superior_vena_cava",
+          "ontology": "FMA:4720"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n256",
+          "source_name": "VH_M_superior_vena_cava",
+          "ontology": "FMA:4720"
+        }
+      }
+    },
+    "anatomy.vena-cava.inferior": {
+      "overview": "One of the two venae cavae, the large veins through which blood returns to the heart.",
+      "function": "Returns oxygen-poor blood from the body to the right atrium.",
+      "related": [
+        "anatomy.vena-cava.superior",
+        "anatomy.heart.atrium.right"
+      ],
+      "source_ids": [
+        "heart-flow"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n750",
+          "source_name": "VH_F_inferior_vena_cava",
+          "ontology": ""
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n257",
+          "source_name": "VH_M_inferior_vena_cava",
+          "ontology": ""
+        }
+      }
+    },
+    "anatomy.pulmonary-veins": {
+      "overview": "Veins running from the lungs back to the heart.",
+      "function": "Return oxygen-rich blood from the lungs to the left atrium.",
+      "related": [
+        "anatomy.lungs",
+        "anatomy.heart.atrium.left"
+      ],
+      "source_ids": [
+        "heart-flow"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n734",
+          "source_name": "VH_F_pulmonary_vein",
+          "ontology": ""
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n247",
+          "source_name": "VH_M_pulmonary_vein",
+          "ontology": ""
+        }
+      }
+    },
+    "anatomy.trachea": {
+      "overview": "The windpipe. In the chest it divides into the right and left primary bronchi.",
+      "function": "An airway that carries air to and from the lungs.",
+      "related": [
+        "anatomy.bronchi",
+        "anatomy.lungs"
+      ],
+      "source_ids": [
+        "seer-bronchi",
+        "nhlbi-asthma"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n865",
+          "source_name": "VH_F_trachea",
+          "ontology": "UBERON:0003126"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n1026",
+          "source_name": "VH_M_trachea",
+          "ontology": ""
+        }
+      }
+    },
+    "anatomy.bronchi": {
+      "overview": "The right and left primary bronchi branch from the trachea into smaller and smaller airways inside the lungs.",
+      "function": "Conduct air between the trachea and the tiny air sacs of the lungs.",
+      "related": [
+        "anatomy.trachea",
+        "anatomy.lung.left",
+        "anatomy.lung.right"
+      ],
+      "source_ids": [
+        "seer-bronchi",
+        "nhlbi-asthma"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n830",
+          "source_name": "VH_F_bronchi",
+          "ontology": ""
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n1040",
+          "source_name": "VH_M_bronchi",
+          "ontology": ""
+        }
+      }
+    },
+    "anatomy.liver": {
+      "overview": "The largest gland in the body, lying mainly in the upper right abdomen just beneath the diaphragm.",
+      "function": "Makes bile and processes the nutrient-rich blood that arrives from the digestive tract through the hepatic portal vein.",
+      "related": [
+        "anatomy.gallbladder",
+        "anatomy.portal-vein",
+        "anatomy.bile-duct.common"
+      ],
+      "source_ids": [
+        "seer-accessory",
+        "niddk-digestive"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n458",
+          "source_name": "VH_F_liver",
+          "ontology": ""
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n405",
+          "source_name": "VH_M_liver",
+          "ontology": ""
+        }
+      }
+    },
+    "anatomy.gallbladder": {
+      "overview": "A pear-shaped sac attached to the underside of the liver.",
+      "function": "Stores bile between meals and squeezes it through the bile ducts into the small intestine when you eat.",
+      "related": [
+        "anatomy.liver",
+        "anatomy.bile-duct.common"
+      ],
+      "source_ids": [
+        "seer-accessory",
+        "niddk-digestive"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n498",
+          "source_name": "VH_F_gallbladder",
+          "ontology": "UBERON:0002110"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n480",
+          "source_name": "VH_M_gallbladder",
+          "ontology": "UBERON:0002110"
+        }
+      }
+    },
+    "anatomy.bile-duct.common": {
+      "overview": "Part of the duct system that carries bile toward the small intestine.",
+      "function": "Delivers bile, which helps digest fats.",
+      "related": [
+        "anatomy.gallbladder",
+        "anatomy.liver",
+        "anatomy.small-intestine"
+      ],
+      "source_ids": [
+        "niddk-digestive"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n454",
+          "source_name": "VH_F_common_bile_duct",
+          "ontology": "UBERON:0001174"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n447",
+          "source_name": "VH_M_common_bile_duct",
+          "ontology": "UBERON:0001174"
+        }
+      }
+    },
+    "anatomy.pancreas": {
+      "overview": "A gland of the digestive system closely associated with the small intestine.",
+      "function": "Releases digestive enzymes into the small intestine and the hormones insulin and glucagon into the blood.",
+      "related": [
+        "anatomy.small-intestine",
+        "anatomy.bile-duct.common"
+      ],
+      "source_ids": [
+        "seer-accessory",
+        "niddk-digestive"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n491",
+          "source_name": "VH_F_pancreas",
+          "ontology": ""
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n438",
+          "source_name": "VH_M_pancreas",
+          "ontology": ""
+        }
+      }
+    },
+    "anatomy.portal-vein": {
+      "overview": "The hepatic portal vein leads to the liver.",
+      "function": "Carries nutrient-rich blood from the digestive tract to the liver.",
+      "related": [
+        "anatomy.liver",
+        "anatomy.small-intestine"
+      ],
+      "source_ids": [
+        "seer-accessory"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n726",
+          "source_name": "VH_F_hepatic_portal_vein",
+          "ontology": "UBERON:0001639"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n287",
+          "source_name": "VH_M_hepatic_portal_vein",
+          "ontology": "UBERON:0001639"
+        }
+      }
+    },
+    "anatomy.small-intestine": {
+      "overview": "A long tube divided into three parts: the duodenum, jejunum and ileum.",
+      "function": "Finishes digesting food and absorbs its nutrients.",
+      "related": [
+        "anatomy.colon",
+        "anatomy.pancreas",
+        "anatomy.liver"
+      ],
+      "source_ids": [
+        "seer-intestine",
+        "niddk-digestive"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n435",
+          "source_name": "VH_F_small_intestine",
+          "ontology": ""
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n456",
+          "source_name": "VH_M_small_intestine",
+          "ontology": ""
+        }
+      }
+    },
+    "anatomy.colon": {
+      "overview": "The main part of the large intestine, which also includes the rectum and anal canal.",
+      "function": "Absorbs water and electrolytes and moves waste toward the rectum for elimination.",
+      "related": [
+        "anatomy.small-intestine",
+        "anatomy.appendix"
+      ],
+      "source_ids": [
+        "seer-intestine",
+        "niddk-digestive"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n424",
+          "source_name": "VH_F_colon",
+          "ontology": ""
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n468",
+          "source_name": "VH_M_colon",
+          "ontology": ""
+        }
+      }
+    },
+    "anatomy.appendix": {
+      "overview": "A finger-shaped pouch attached to the cecum, the first part of the large intestine.",
+      "function": "Part of the large intestine. Inflammation of the appendix is called appendicitis.",
+      "related": [
+        "anatomy.colon"
+      ],
+      "source_ids": [
+        "niddk-digestive",
+        "niddk-appendicitis"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n428",
+          "source_name": "VH_F_vermiform_appendix",
+          "ontology": "UBERON:0001154"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n478",
+          "source_name": "VH_M_vermiform_appendix",
+          "ontology": "UBERON:0001154"
+        }
+      }
+    },
+    "anatomy.spleen": {
+      "overview": "The largest lymphatic organ, in the upper left abdomen just beneath the diaphragm and behind the stomach.",
+      "function": "Filters blood. Its lymphocytes react to pathogens carried in the blood.",
+      "related": [
+        "anatomy.thymus"
+      ],
+      "source_ids": [
+        "seer-spleen"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n867",
+          "source_name": "VH_F_spleen",
+          "ontology": ""
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n586",
+          "source_name": "VH_M_spleen",
+          "ontology": ""
+        }
+      }
+    },
+    "anatomy.thymus": {
+      "overview": "A lymphatic organ behind the sternum. It is relatively large in children and shrinks after puberty.",
+      "function": "Processes and matures special lymphocytes called T cells.",
+      "related": [
+        "anatomy.spleen",
+        "anatomy.heart"
+      ],
+      "source_ids": [
+        "seer-thymus"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n873",
+          "source_name": "VH_F_thymus",
+          "ontology": ""
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n600",
+          "source_name": "VH_M_thymus",
+          "ontology": ""
+        }
+      }
+    },
+    "anatomy.kidneys": {
+      "overview": "Two bean-shaped organs, each about the size of a fist, just below the rib cage on each side of the spine.",
+      "function": "Filter wastes and extra water from the blood to make urine, and make hormones that help control blood pressure.",
+      "related": [
+        "anatomy.kidney.left",
+        "anatomy.kidney.right",
+        "anatomy.ureters",
+        "anatomy.bladder"
+      ],
+      "source_ids": [
+        "niddk-kidneys",
+        "seer-kidney"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n500",
+          "source_name": "VH_F_kidney",
+          "ontology": ""
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n482",
+          "source_name": "VH_M_kidney",
+          "ontology": ""
+        }
+      }
+    },
+    "anatomy.kidney.left": {
+      "overview": "Lies against the back wall of the abdomen, usually slightly higher than the right kidney.",
+      "function": "Filters blood to make urine.",
+      "related": [
+        "anatomy.kidneys",
+        "anatomy.kidney.right"
+      ],
+      "source_ids": [
+        "seer-kidney",
+        "niddk-kidneys"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n501",
+          "source_name": "VH_F_left_kidney",
+          "ontology": ""
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n483",
+          "source_name": "VH_M_left_kidney",
+          "ontology": ""
+        }
+      }
+    },
+    "anatomy.kidney.right": {
+      "overview": "Usually sits slightly lower than the left kidney because the liver displaces it downward.",
+      "function": "Filters blood to make urine.",
+      "related": [
+        "anatomy.kidneys",
+        "anatomy.kidney.left",
+        "anatomy.liver"
+      ],
+      "source_ids": [
+        "seer-kidney",
+        "niddk-kidneys"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n550",
+          "source_name": "VH_F_right_kidney",
+          "ontology": ""
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n526",
+          "source_name": "VH_M_right_kidney",
+          "ontology": ""
+        }
+      }
+    },
+    "anatomy.bladder": {
+      "overview": "A hollow organ in the pelvic cavity. Its size and shape change with the amount of urine it holds.",
+      "function": "A temporary storage reservoir for urine.",
+      "related": [
+        "anatomy.kidneys",
+        "anatomy.ureters"
+      ],
+      "source_ids": [
+        "seer-bladder",
+        "niddk-urinary"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n599",
+          "source_name": "VH_F_urinary_bladder",
+          "ontology": ""
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n570",
+          "source_name": "VH_M_urinary_bladder",
+          "ontology": ""
+        }
+      }
+    },
+    "anatomy.ureters": {
+      "overview": "Two small tubes, each about 25 cm long, that descend along the back wall of the abdomen.",
+      "function": "Carry urine from the kidneys to the bladder.",
+      "related": [
+        "anatomy.kidneys",
+        "anatomy.bladder"
+      ],
+      "source_ids": [
+        "seer-ureters",
+        "niddk-urinary"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "male": {
+          "id": "source.hra-v1-1.male.n579",
+          "source_name": "VH_M_ureter",
+          "ontology": ""
+        }
+      }
+    },
+    "anatomy.uterus": {
+      "overview": "A muscular organ in the pelvis.",
+      "function": "Receives a fertilized egg and provides the environment for a developing fetus.",
+      "related": [
+        "anatomy.ovaries",
+        "anatomy.bladder"
+      ],
+      "source_ids": [
+        "seer-female-tract"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n412",
+          "source_name": "VH_F_uterus",
+          "ontology": ""
+        }
+      }
+    },
+    "anatomy.ovaries": {
+      "overview": "Two almond-sized organs, one on each side of the uterus in the side walls of the pelvic cavity.",
+      "function": "Develop egg cells and secrete hormones such as estrogen.",
+      "related": [
+        "anatomy.uterus"
+      ],
+      "source_ids": [
+        "seer-ovaries"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n409",
+          "source_name": "VH_F_ovary",
+          "ontology": ""
+        }
+      }
+    },
+    "anatomy.prostate": {
+      "overview": "A gland that sits below the bladder and surrounds the urethra at the bladder's neck.",
+      "function": "An accessory gland whose secretions enter the urethra and form part of semen.",
+      "related": [
+        "anatomy.bladder"
+      ],
+      "source_ids": [
+        "seer-male-glands",
+        "niddk-bph"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "male": {
+          "id": "source.hra-v1-1.male.n384",
+          "source_name": "VH_M_prostate_gland",
+          "ontology": ""
+        }
+      }
     }
   },
   "routes": {
@@ -709,7 +1499,8 @@
       ],
       "review_status": "draft",
       "expert_review": "pending",
-      "human_source_review": "pending"
+      "human_source_review": "pending",
+      "not_depicted": "Pathological narrowing, leakage, leaflet motion and blood flow are not depicted."
     },
     "condition.mitral-regurgitation": {
       "title": "Mitral regurgitation",
@@ -733,20 +1524,325 @@
       ],
       "review_status": "draft",
       "expert_review": "pending",
-      "human_source_review": "pending"
+      "human_source_review": "pending",
+      "not_depicted": "Pathological narrowing, leakage, leaflet motion and blood flow are not depicted."
+    },
+    "condition.coronary-heart-disease": {
+      "title": "Coronary heart disease",
+      "summary": "Plaque made of cholesterol and other substances builds up in the coronary arteries, narrowing them and reducing blood flow to the heart muscle.",
+      "location": "The right and left coronary arteries branch from the aorta and run over the surface of the heart.",
+      "focus_id": "anatomy.coronary.left",
+      "related_anatomy": [
+        "anatomy.coronary.left",
+        "anatomy.coronary.right"
+      ],
+      "display_on": [
+        "anatomy.coronary.left",
+        "anatomy.coronary.right",
+        "anatomy.heart"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nhlbi-chd",
+        "seer-heart"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Plaque, arterial narrowing and blood flow are not depicted."
+    },
+    "condition.aortic-aneurysm": {
+      "title": "Aortic aneurysm",
+      "summary": "A balloon-like bulge in the wall of the aorta. A large aneurysm can burst or tear the artery wall, which can be life-threatening.",
+      "location": "The aorta leaves the left ventricle and carries oxygen-rich blood to the body.",
+      "focus_id": "anatomy.aorta",
+      "related_anatomy": [
+        "anatomy.aorta"
+      ],
+      "display_on": [
+        "anatomy.aorta"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nhlbi-aortic-aneurysm",
+        "heart-flow"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The bulge, any tear and blood flow are not depicted."
+    },
+    "condition.pulmonary-embolism": {
+      "title": "Pulmonary embolism",
+      "summary": "A blood clot, usually from a deep vein in the leg, breaks loose and travels through the bloodstream to the lungs.",
+      "location": "Clots reach the lungs through the pulmonary arteries, which carry blood from the right ventricle to both lungs.",
+      "focus_id": "anatomy.lungs",
+      "related_anatomy": [
+        "anatomy.lungs"
+      ],
+      "display_on": [
+        "anatomy.lungs",
+        "anatomy.lung.left",
+        "anatomy.lung.right"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nhlbi-pulmonary-embolism",
+        "heart-flow"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Clots, blocked vessels and blood flow are not depicted."
+    },
+    "condition.copd": {
+      "title": "Chronic obstructive pulmonary disease (COPD)",
+      "summary": "A long-term lung disease that blocks airflow and makes it hard to breathe. It mainly includes emphysema, damage to the walls between air sacs, and chronic bronchitis, in which thick mucus forms in the airways.",
+      "location": "Air passes through the trachea and the branching bronchi to the tiny air sacs of both lungs.",
+      "focus_id": "anatomy.lungs",
+      "related_anatomy": [
+        "anatomy.lungs",
+        "anatomy.bronchi"
+      ],
+      "display_on": [
+        "anatomy.lungs",
+        "anatomy.lung.left",
+        "anatomy.lung.right",
+        "anatomy.bronchi"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nhlbi-copd",
+        "seer-bronchi"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Damaged air sacs, mucus and airflow are not depicted."
+    },
+    "condition.asthma": {
+      "title": "Asthma",
+      "summary": "A long-term condition in which the airways in the lungs can become inflamed and narrowed, making it harder for air to flow out.",
+      "location": "The bronchi branch into smaller and smaller airways inside both lungs.",
+      "focus_id": "anatomy.bronchi",
+      "related_anatomy": [
+        "anatomy.bronchi",
+        "anatomy.lungs"
+      ],
+      "display_on": [
+        "anatomy.bronchi",
+        "anatomy.lungs"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nhlbi-asthma",
+        "seer-bronchi"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Airway inflammation, narrowing and airflow are not depicted."
+    },
+    "condition.gallstones": {
+      "title": "Gallstones",
+      "summary": "Hard, pebble-like pieces of material, usually made of cholesterol or bilirubin, that develop in the gallbladder. Stones that block the bile ducts can cause sudden pain that needs prompt medical attention.",
+      "location": "The gallbladder stores bile and squeezes it through the bile ducts into the small intestine.",
+      "focus_id": "anatomy.gallbladder",
+      "related_anatomy": [
+        "anatomy.gallbladder",
+        "anatomy.bile-duct.common"
+      ],
+      "display_on": [
+        "anatomy.gallbladder",
+        "anatomy.bile-duct.common",
+        "anatomy.liver"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-gallstones",
+        "niddk-digestive"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Stones, blocked ducts and bile flow are not depicted."
+    },
+    "condition.cirrhosis": {
+      "title": "Cirrhosis",
+      "summary": "Scar tissue replaces healthy liver tissue, permanently damaging the liver and preventing it from working normally.",
+      "location": "The liver lies mainly in the upper right abdomen, just beneath the diaphragm.",
+      "focus_id": "anatomy.liver",
+      "related_anatomy": [
+        "anatomy.liver"
+      ],
+      "display_on": [
+        "anatomy.liver"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-cirrhosis",
+        "seer-accessory"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Scarring and changes in liver shape or texture are not depicted."
+    },
+    "condition.pancreatitis": {
+      "title": "Pancreatitis",
+      "summary": "Inflammation of the pancreas. Acute pancreatitis is short term; chronic pancreatitis can get worse over time. Causes include gallstones and heavy alcohol use.",
+      "location": "The pancreas releases digestive enzymes into the small intestine and hormones into the blood.",
+      "focus_id": "anatomy.pancreas",
+      "related_anatomy": [
+        "anatomy.pancreas"
+      ],
+      "display_on": [
+        "anatomy.pancreas"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-pancreatitis",
+        "seer-accessory"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Inflammation and tissue damage are not depicted."
+    },
+    "condition.appendicitis": {
+      "title": "Appendicitis",
+      "summary": "Inflammation of the appendix, and the most common cause of sudden abdominal pain that needs surgery. Quick treatment prevents most complications.",
+      "location": "The appendix is a finger-shaped pouch attached to the cecum, the first part of the large intestine.",
+      "focus_id": "anatomy.appendix",
+      "related_anatomy": [
+        "anatomy.appendix"
+      ],
+      "display_on": [
+        "anatomy.appendix",
+        "anatomy.colon"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-appendicitis",
+        "niddk-digestive"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Inflammation and swelling are not depicted."
+    },
+    "condition.kidney-stones": {
+      "title": "Kidney stones",
+      "summary": "A solid, pebble-like piece of material that can form in one or both kidneys when urine has high levels of certain minerals. A stone passing through the urinary tract can cause sharp pain in the back, side, lower abdomen or groin.",
+      "location": "Urine flows from the kidneys through the ureters to the bladder.",
+      "focus_id": "anatomy.kidneys",
+      "related_anatomy": [
+        "anatomy.kidneys",
+        "anatomy.bladder"
+      ],
+      "display_on": [
+        "anatomy.kidneys",
+        "anatomy.kidney.left",
+        "anatomy.kidney.right",
+        "anatomy.ureters",
+        "anatomy.bladder"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-kidney-stones",
+        "niddk-urinary",
+        "seer-ureters"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Stones and urine flow are not depicted."
+    },
+    "condition.bph": {
+      "title": "Enlarged prostate (benign prostatic hyperplasia)",
+      "summary": "The prostate grows larger than normal, but not because of cancer. As it grows it can squeeze the urethra and make emptying the bladder harder.",
+      "location": "The prostate sits below the bladder and surrounds the urethra at the neck of the bladder.",
+      "focus_id": "anatomy.prostate",
+      "related_anatomy": [
+        "anatomy.prostate",
+        "anatomy.bladder"
+      ],
+      "display_on": [
+        "anatomy.prostate"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-bph",
+        "seer-male-glands"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Prostate enlargement and urine flow are not depicted."
+    },
+    "condition.endometriosis": {
+      "title": "Endometriosis",
+      "summary": "Tissue similar to the lining of the uterus grows outside the uterus. It can cause pain, infertility and other symptoms.",
+      "location": "The uterus is a muscular organ in the pelvis, with an ovary on each side of it.",
+      "focus_id": "anatomy.uterus",
+      "related_anatomy": [
+        "anatomy.uterus",
+        "anatomy.ovaries"
+      ],
+      "display_on": [
+        "anatomy.uterus",
+        "anatomy.ovaries"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nichd-endometriosis",
+        "seer-female-tract",
+        "seer-ovaries"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Tissue growing outside the uterus is not depicted."
     }
   },
   "assistant_checks": {
     "actor": "assistant",
     "kind": "preliminary_source_cross_check",
-    "checked_on": "2026-10-15",
+    "checked_on": "2026-11-20",
     "scope": "Preliminary comparison of the short explanations, route order and condition associations with the linked sources. This is not human reviewer evidence and does not establish anatomical mesh accuracy.",
     "source_ids": [
+      "gas-exchange",
       "heart-anatomy",
       "heart-flow",
       "lungs",
-      "gas-exchange",
+      "nhlbi-aortic-aneurysm",
+      "nhlbi-asthma",
+      "nhlbi-chd",
+      "nhlbi-copd",
+      "nhlbi-pulmonary-embolism",
+      "nichd-endometriosis",
+      "niddk-appendicitis",
+      "niddk-bph",
+      "niddk-cirrhosis",
+      "niddk-digestive",
+      "niddk-gallstones",
+      "niddk-kidney-stones",
+      "niddk-kidneys",
+      "niddk-pancreatitis",
+      "niddk-urinary",
       "pulmonary-branches",
+      "seer-accessory",
+      "seer-bladder",
+      "seer-bronchi",
+      "seer-female-tract",
+      "seer-heart",
+      "seer-intestine",
+      "seer-kidney",
+      "seer-male-glands",
+      "seer-ovaries",
+      "seer-spleen",
+      "seer-thymus",
+      "seer-ureters",
       "valve-disease-types"
     ]
   },

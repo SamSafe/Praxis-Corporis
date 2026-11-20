@@ -2402,14 +2402,15 @@ func refresh_study_content() -> void:
 	study_reader_button.visible = not card.is_empty()
 	study_reader_button.disabled = loading or card.is_empty()
 	for related in card.get("related", []):
-		if not model.structures.has(related):
+		var target := study_content.structure_id(str(related), model.structures)
+		if target.is_empty():
 			continue
 		var link := LinkButton.new()
 		link.focus_mode = Control.FOCUS_ALL
-		link.text = str(model.structures[related].label)
+		link.text = str(model.structures[target].label)
 		link.tooltip_text = "Select this related structure in the current body."
 		link.disabled = loading
-		link.pressed.connect(select_related_study.bind(str(related)))
+		link.pressed.connect(select_related_study.bind(target))
 		study_links.add_child(link)
 	for source_id in card.get("source_ids", []):
 		var source: Dictionary = study_content.data.sources[source_id]
@@ -2505,7 +2506,7 @@ func show_condition(id: String) -> Window:
 		if action != "reference":
 			return
 		if not loading and str(model.body.get("id", "")) == reference_id and study_content.condition_available(id, model.structures):
-			inspect_alone(str(record.focus_id))
+			inspect_alone(study_content.condition_focus(id, model.structures))
 			status.text = "Reference location for %s · pathological changes are not depicted" % str(record.title)
 		dialog.hide()
 		dialog.queue_free()

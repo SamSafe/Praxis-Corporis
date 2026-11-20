@@ -57,7 +57,7 @@ func run() -> void:
 		var anatomy: Dictionary = viewer.model.export_state().duplicate(true)
 		var undo: Array = viewer.model.undo_stack.duplicate(true)
 		var back: Array = viewer.back_views.duplicate(true)
-		check(viewer.condition_links.visible and viewer.condition_links.get_child_count() == 3, "Heart exposes two explicitly associated draft conditions")
+		check(viewer.condition_links.visible and viewer.condition_links.get_child_count() == 4, "Heart exposes its three explicitly associated draft conditions")
 		viewer.condition_links.get_child(1).pressed.emit()
 		for child in viewer.get_children():
 			if child is InformationDialog:
@@ -68,7 +68,13 @@ func run() -> void:
 		await key(dialog, KEY_ESCAPE)
 		await process_frame
 		check(viewer.export_view_state() == before and viewer.model.undo_stack == undo and viewer.back_views == back, "Reading and closing condition text preserves the exploration and histories")
-		for identity in ["condition.aortic-stenosis", "condition.mitral-regurgitation"]:
+		var available: Array[String] = []
+		for identity in viewer.study_content.data.conditions:
+			if viewer.study_content.condition_available(identity, viewer.model.structures):
+				available.append(str(identity))
+		# Both bodies share 13 conditions; each has one sex-specific condition.
+		check(available.size() == 13 and ("condition.bph" in available) == (reference == "male") and ("condition.endometriosis" in available) == (reference == "female"), "Each body offers exactly the conditions its supplied anatomy supports")
+		for identity in available:
 			undo = viewer.model.undo_stack.duplicate(true)
 			dialog = viewer.show_condition(identity)
 			await process_frame
@@ -76,13 +82,22 @@ func run() -> void:
 			check(action != null, "Condition has an explicit reference-location action")
 			action.pressed.emit()
 			await process_frame
-			check(viewer.model.selected_id == viewer.study_content.condition(identity).focus_id and viewer.model.isolated_id == viewer.model.selected_id and viewer.orbit.target.is_equal_approx(viewer.model.bounds_for(viewer.model.selected_id).get_center()), "Reference action reveals and focuses the actual supplied valve")
+			check(viewer.model.selected_id == viewer.study_content.condition_focus(identity, viewer.model.structures) and viewer.model.isolated_id == viewer.model.selected_id and viewer.orbit.target.is_equal_approx(viewer.model.bounds_for(viewer.model.selected_id).get_center()), "Reference action reveals and focuses the actual supplied valve")
 			check(viewer.model.export_state() == anatomy and viewer.model.undo_stack == undo, "Locating a condition never deforms, fades or moves source anatomy")
 			check("pathological changes are not depicted" in viewer.status.text, "Location feedback states the reference-only limit")
 			check(viewer.validate_view_state(viewer.export_view_state()).is_empty(), "Condition reference location remains an ordinary compatible view")
 			viewer.return_to_context()
 			check(viewer.export_view_state() == before, "Reference inspection returns directly to the starting context and preserves edits")
 			await viewer.restore_view_state(before)
+		# Mapped organ structures list their conditions just like shared chest IDs.
+		viewer.select_structure(viewer.study_content.structure_id("anatomy.gallbladder", viewer.model.structures))
+		var titles: Array[String] = []
+		for child in viewer.condition_links.get_children():
+			if child is LinkButton:
+				titles.append(child.text)
+		check(viewer.condition_links.visible and titles == ["Gallstones"], "Gallbladder lists its mapped draft condition")
+		check("Stores bile" in viewer.study_summary.text, "Mapped organ shows its authored card")
+		await viewer.restore_view_state(before)
 		viewer.inspect_alone("anatomy.heart")
 		var isolated: Dictionary = viewer.export_view_state().duplicate(true)
 		dialog = viewer.show_condition("condition.aortic-stenosis")

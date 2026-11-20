@@ -1,6 +1,12 @@
 # Planning Status
 
-Updated: 2026-10-19, using the America/Edmonton client date.
+Updated: 2026-11-20, using the America/Edmonton client date.
+
+On 2026-11-20 the user again deferred Mac testing, and also deferred any
+Vision Pro / visionOS work. The headset concept stays in the
+[archive](archive/vision-pro-concept/) for a later port. Neither deferral is a
+prerequisite for continued private development. The same day, draft study content
+was expanded beyond the chest; see [body study content](BODY_STUDY_CONTENT.md).
 
 The user deferred Mac acceptance on 2026-10-19 and plans a future Git checkout on
 their Mac. Continue private development without waiting for that run. Mac remains

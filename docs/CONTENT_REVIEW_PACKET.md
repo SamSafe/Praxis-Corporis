@@ -1,5 +1,11 @@
 # Current private candidate: content-review packet
 
+> **Superseded content, 2026-11-20.** The source tree now carries study-content
+> revision `body-study-1-draft` (41 cards, 14 conditions), described in
+> [body study content](BODY_STUDY_CONTENT.md). This packet still applies exactly to
+> the `c86cfba` build below. Prepare a new packet with the next private build
+> before asking a reviewer to check the expanded material.
+
 Prepared 2026-10-19. Review is pending. This packet identifies the current draft
 material and supplies a [results template](reviews/C86CFBA_TEMPLATE.md) for a human
 source checker or qualified medical reviewer. A completed review applies only to
