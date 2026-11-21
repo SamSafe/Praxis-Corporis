@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": "body-study-6-draft",
+  "revision": "body-study-7-draft",
   "review_status": "draft",
   "expert_review": "pending",
   "scope": "Private draft explanations covering the chest, abdomen, pelvis, brain, eyes, knees and skin, including selected vessels, kidney interior, intestines, airways, bone tissue and the lymphatic system. General anatomy is separate from completeness and accuracy of the supplied source meshes. No source illustrations or video are reused.",
@@ -656,6 +656,254 @@
     "nci-def-prostate": {
       "title": "NCI Dictionary of Cancer Terms: prostate",
       "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/prostate"
+    },
+    "nci-def-stomach": {
+      "title": "NCI Dictionary of Cancer Terms: stomach",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/stomach"
+    },
+    "nci-def-esophagus": {
+      "title": "NCI Dictionary of Cancer Terms: esophagus",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/esophagus"
+    },
+    "nci-def-diaphragm": {
+      "title": "NCI Dictionary of Cancer Terms: diaphragm",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/diaphragm"
+    },
+    "nci-def-spinal-cord": {
+      "title": "NCI Dictionary of Cancer Terms: spinal cord",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/spinal-cord"
+    },
+    "nci-def-pituitary-gland": {
+      "title": "NCI Dictionary of Cancer Terms: pituitary gland",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/pituitary-gland"
+    },
+    "nci-def-skull": {
+      "title": "NCI Dictionary of Cancer Terms: skull",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/skull"
+    },
+    "nci-def-spine": {
+      "title": "NCI Dictionary of Cancer Terms: spine",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/spine"
+    },
+    "nci-def-adrenal-gland": {
+      "title": "NCI Dictionary of Cancer Terms: adrenal gland",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/adrenal-gland"
+    },
+    "nci-def-testicle": {
+      "title": "NCI Dictionary of Cancer Terms: testicle",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/testicle"
+    },
+    "nci-def-epididymis": {
+      "title": "NCI Dictionary of Cancer Terms: epididymis",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/epididymis"
+    },
+    "nci-def-penis": {
+      "title": "NCI Dictionary of Cancer Terms: penis",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/penis"
+    },
+    "nci-def-sternum": {
+      "title": "NCI Dictionary of Cancer Terms: sternum",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/sternum"
+    },
+    "nci-def-clavicle": {
+      "title": "NCI Dictionary of Cancer Terms: clavicle",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/clavicle"
+    },
+    "nci-def-scapula": {
+      "title": "NCI Dictionary of Cancer Terms: scapula",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/scapula"
+    },
+    "nci-def-carotid-artery": {
+      "title": "NCI Dictionary of Cancer Terms: carotid artery",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/carotid-artery"
+    },
+    "nci-def-sacrum": {
+      "title": "NCI Dictionary of Cancer Terms: sacrum",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/sacrum"
+    },
+    "nci-def-mandible": {
+      "title": "NCI Dictionary of Cancer Terms: mandible",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/mandible"
+    },
+    "nci-def-maxilla": {
+      "title": "NCI Dictionary of Cancer Terms: maxilla",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/maxilla"
+    },
+    "nci-def-pharynx": {
+      "title": "NCI Dictionary of Cancer Terms: pharynx",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/pharynx"
+    },
+    "tm-radius": {
+      "title": "TeachMeAnatomy: The radius",
+      "url": "https://teachmeanatomy.info/upper-limb/bones/radius/"
+    },
+    "tm-ulna": {
+      "title": "TeachMeAnatomy: The ulna",
+      "url": "https://teachmeanatomy.info/upper-limb/bones/ulna/"
+    },
+    "nci-def-soft-palate": {
+      "title": "NCI Dictionary of Cancer Terms: soft palate",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/soft-palate"
+    },
+    "seer-stomach": {
+      "title": "NCI SEER Training: Stomach",
+      "url": "https://training.seer.cancer.gov/anatomy/digestive/regions/stomach.html"
+    },
+    "seer-mouth": {
+      "title": "NCI SEER Training: Mouth",
+      "url": "https://training.seer.cancer.gov/anatomy/digestive/regions/mouth.html"
+    },
+    "seer-pharynx": {
+      "title": "NCI SEER Training: Pharynx and esophagus",
+      "url": "https://training.seer.cancer.gov/anatomy/digestive/regions/pharynx.html"
+    },
+    "seer-adrenal": {
+      "title": "NCI SEER Training: Adrenal gland",
+      "url": "https://training.seer.cancer.gov/anatomy/endocrine/glands/adrenal.html"
+    },
+    "seer-pituitary": {
+      "title": "NCI SEER Training: Pituitary and pineal glands",
+      "url": "https://training.seer.cancer.gov/anatomy/endocrine/glands/pituitary.html"
+    },
+    "seer-testes": {
+      "title": "NCI SEER Training: Testes",
+      "url": "https://training.seer.cancer.gov/anatomy/reproductive/male/testes.html"
+    },
+    "seer-male-duct": {
+      "title": "NCI SEER Training: Male duct system",
+      "url": "https://training.seer.cancer.gov/anatomy/reproductive/male/duct.html"
+    },
+    "seer-penis": {
+      "title": "NCI SEER Training: Penis",
+      "url": "https://training.seer.cancer.gov/anatomy/reproductive/male/penis.html"
+    },
+    "seer-muscles-head-neck": {
+      "title": "NCI SEER Training: Muscles of the head and neck",
+      "url": "https://training.seer.cancer.gov/anatomy/muscular/groups/head_neck.html"
+    },
+    "seer-muscles-trunk": {
+      "title": "NCI SEER Training: Muscles of the trunk",
+      "url": "https://training.seer.cancer.gov/anatomy/muscular/groups/trunk.html"
+    },
+    "seer-muscles-upper": {
+      "title": "NCI SEER Training: Muscles of the upper extremity",
+      "url": "https://training.seer.cancer.gov/anatomy/muscular/groups/upper.html"
+    },
+    "seer-axial": {
+      "title": "NCI SEER Training: Axial skeleton",
+      "url": "https://training.seer.cancer.gov/anatomy/skeletal/divisions/axial.html"
+    },
+    "seer-appendicular": {
+      "title": "NCI SEER Training: Appendicular skeleton",
+      "url": "https://training.seer.cancer.gov/anatomy/skeletal/divisions/appendicular.html"
+    },
+    "seer-nose": {
+      "title": "NCI SEER Training: Nose, nasal cavities and paranasal sinuses",
+      "url": "https://training.seer.cancer.gov/anatomy/respiratory/passages/nose.html"
+    },
+    "seer-mechanics": {
+      "title": "NCI SEER Training: Mechanics of ventilation",
+      "url": "https://training.seer.cancer.gov/anatomy/respiratory/mechanics.html"
+    },
+    "niddk-gerd": {
+      "title": "NIDDK: Definition and facts for GER and GERD",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/acid-reflux-ger-gerd-adults/definition-facts"
+    },
+    "niddk-peptic-ulcer": {
+      "title": "NIDDK: Definition and facts for peptic ulcers",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/peptic-ulcers-stomach-ulcers/definition-facts"
+    },
+    "nci-stomach-cancer": {
+      "title": "NCI: What is stomach cancer?",
+      "url": "https://www.cancer.gov/types/stomach"
+    },
+    "nci-esophageal-cancer": {
+      "title": "NCI: Esophageal cancer",
+      "url": "https://www.cancer.gov/types/esophageal"
+    },
+    "mlp-hiatal-hernia": {
+      "title": "MedlinePlus: Hiatal hernia",
+      "url": "https://medlineplus.gov/hiatalhernia.html"
+    },
+    "mlp-spinal-cord-injury": {
+      "title": "MedlinePlus: Spinal cord injury",
+      "url": "https://medlineplus.gov/spinalcordinjuries.html"
+    },
+    "mlp-pituitary-tumors": {
+      "title": "MedlinePlus: Pituitary tumors",
+      "url": "https://medlineplus.gov/pituitarytumors.html"
+    },
+    "niddk-adrenal-insufficiency": {
+      "title": "NIDDK: Adrenal insufficiency and Addison's disease",
+      "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/adrenal-insufficiency-addisons-disease"
+    },
+    "niddk-cushings": {
+      "title": "NIDDK: Cushing's syndrome",
+      "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/cushings-syndrome"
+    },
+    "nci-testicular-cancer": {
+      "title": "NCI: Testicular cancer",
+      "url": "https://www.cancer.gov/types/testicular"
+    },
+    "niddk-ed": {
+      "title": "NIDDK: Definition and facts for erectile dysfunction",
+      "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/erectile-dysfunction/definition-facts"
+    },
+    "niams-scoliosis": {
+      "title": "NIAMS: Scoliosis",
+      "url": "https://www.niams.nih.gov/health-topics/scoliosis"
+    },
+    "mlp-herniated-disk": {
+      "title": "MedlinePlus: Herniated disk",
+      "url": "https://medlineplus.gov/herniateddisk.html"
+    },
+    "niams-back-pain": {
+      "title": "NIAMS: Back pain",
+      "url": "https://www.niams.nih.gov/health-topics/back-pain"
+    },
+    "mlp-carpal-tunnel": {
+      "title": "MedlinePlus: Carpal tunnel syndrome",
+      "url": "https://medlineplus.gov/carpaltunnelsyndrome.html"
+    },
+    "niams-gout": {
+      "title": "NIAMS: Gout",
+      "url": "https://www.niams.nih.gov/health-topics/gout"
+    },
+    "niams-ra": {
+      "title": "NIAMS: Rheumatoid arthritis",
+      "url": "https://www.niams.nih.gov/health-topics/rheumatoid-arthritis"
+    },
+    "nhlbi-pad": {
+      "title": "NHLBI: Peripheral artery disease",
+      "url": "https://www.nhlbi.nih.gov/health/peripheral-artery-disease"
+    },
+    "mlp-carotid": {
+      "title": "MedlinePlus: Carotid artery disease",
+      "url": "https://medlineplus.gov/carotidarterydisease.html"
+    },
+    "mlp-rotator-cuff": {
+      "title": "MedlinePlus: Rotator cuff injuries",
+      "url": "https://medlineplus.gov/rotatorcuffinjuries.html"
+    },
+    "mlp-salivary": {
+      "title": "MedlinePlus: Salivary gland disorders",
+      "url": "https://medlineplus.gov/salivaryglanddisorders.html"
+    },
+    "nci-oral-cancer": {
+      "title": "NCI: Lip and oral cavity cancer treatment (PDQ) - patient version",
+      "url": "https://www.cancer.gov/types/head-and-neck/patient/adult/lip-mouth-treatment-pdq"
+    },
+    "mlp-tooth-decay": {
+      "title": "MedlinePlus: Tooth decay",
+      "url": "https://medlineplus.gov/toothdecay.html"
+    },
+    "mlp-sprains-strains": {
+      "title": "MedlinePlus: Sprains and strains",
+      "url": "https://medlineplus.gov/sprainsandstrains.html"
+    },
+    "mlp-hiccups": {
+      "title": "MedlinePlus Medical Encyclopedia: Hiccups",
+      "url": "https://medlineplus.gov/ency/article/003068.htm"
     }
   },
   "cards": {
@@ -718,7 +966,14 @@
       ],
       "review_status": "draft",
       "expert_review": "pending",
-      "human_source_review": "pending"
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA7096",
+          "source_name": "FMA7096",
+          "ontology": "FMA7096"
+        }
+      }
     },
     "anatomy.heart.atrium.left": {
       "overview": "The left atrium is one of the upper chambers.",
@@ -733,7 +988,14 @@
       ],
       "review_status": "draft",
       "expert_review": "pending",
-      "human_source_review": "pending"
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA7097",
+          "source_name": "FMA7097",
+          "ontology": "FMA7097"
+        }
+      }
     },
     "anatomy.heart.ventricle.right": {
       "overview": "The right ventricle is a lower chamber.",
@@ -748,7 +1010,14 @@
       ],
       "review_status": "draft",
       "expert_review": "pending",
-      "human_source_review": "pending"
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA7098",
+          "source_name": "FMA7098",
+          "ontology": "FMA7098"
+        }
+      }
     },
     "anatomy.heart.ventricle.left": {
       "overview": "The left ventricle is a lower chamber.",
@@ -763,7 +1032,14 @@
       ],
       "review_status": "draft",
       "expert_review": "pending",
-      "human_source_review": "pending"
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA7101",
+          "source_name": "FMA7101",
+          "ontology": "FMA7101"
+        }
+      }
     },
     "anatomy.heart.valves": {
       "overview": "Four valves control forward flow through the heart.",
@@ -793,7 +1069,14 @@
       ],
       "review_status": "draft",
       "expert_review": "pending",
-      "human_source_review": "pending"
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA7234",
+          "source_name": "FMA7234",
+          "ontology": "FMA7234"
+        }
+      }
     },
     "anatomy.heart.valve.pulmonary": {
       "overview": "Between the right ventricle and pulmonary artery.",
@@ -807,7 +1090,14 @@
       ],
       "review_status": "draft",
       "expert_review": "pending",
-      "human_source_review": "pending"
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA7246",
+          "source_name": "FMA7246",
+          "ontology": "FMA7246"
+        }
+      }
     },
     "anatomy.heart.valve.mitral": {
       "overview": "Between the left atrium and left ventricle.",
@@ -821,7 +1111,14 @@
       ],
       "review_status": "draft",
       "expert_review": "pending",
-      "human_source_review": "pending"
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA7235",
+          "source_name": "FMA7235",
+          "ontology": "FMA7235"
+        }
+      }
     },
     "anatomy.heart.valve.aortic": {
       "overview": "Between the left ventricle and aorta.",
@@ -835,7 +1132,14 @@
       ],
       "review_status": "draft",
       "expert_review": "pending",
-      "human_source_review": "pending"
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA7236",
+          "source_name": "FMA7236",
+          "ontology": "FMA7236"
+        }
+      }
     },
     "anatomy.lungs": {
       "overview": "The main organs of the respiratory system, one on each side of the heart inside the chest cavity.",
@@ -938,6 +1242,11 @@
           "id": "source.hra-v1-1.male.n230",
           "source_name": "VH_M_left_coronary_artery",
           "ontology": "UBERON:0001626"
+        },
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA50040",
+          "source_name": "FMA50040",
+          "ontology": "FMA50040"
         }
       }
     },
@@ -967,6 +1276,11 @@
           "id": "source.hra-v1-1.male.n231",
           "source_name": "VH_M_right_coronary_artery",
           "ontology": "UBERON:0001625"
+        },
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA50039",
+          "source_name": "FMA50039",
+          "ontology": "FMA50039"
         }
       }
     },
@@ -1045,7 +1359,29 @@
           "id": "source.hra-v1-1.male.n247",
           "source_name": "VH_M_pulmonary_vein",
           "ontology": ""
-        }
+        },
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA49913",
+            "source_name": "FMA49913",
+            "ontology": "FMA49913"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA49916",
+            "source_name": "FMA49916",
+            "ontology": "FMA49916"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA49911",
+            "source_name": "FMA49911",
+            "ontology": "FMA49911"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA49914",
+            "source_name": "FMA49914",
+            "ontology": "FMA49914"
+          }
+        ]
       }
     },
     "anatomy.trachea": {
@@ -1101,7 +1437,19 @@
           "id": "source.hra-v1-1.male.n1040",
           "source_name": "VH_M_bronchi",
           "ontology": ""
-        }
+        },
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA7396",
+            "source_name": "FMA7396",
+            "ontology": "FMA7396"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA7395",
+            "source_name": "FMA7395",
+            "ontology": "FMA7395"
+          }
+        ]
       }
     },
     "anatomy.liver": {
@@ -1266,7 +1614,12 @@
             "source_name": "VH_M_portal_vein",
             "ontology": "-"
           }
-        ]
+        ],
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA50735",
+          "source_name": "FMA50735",
+          "ontology": "FMA50735"
+        }
       }
     },
     "anatomy.small-intestine": {
@@ -1321,7 +1674,24 @@
           "id": "source.hra-v1-1.male.n468",
           "source_name": "VH_M_colon",
           "ontology": ""
-        }
+        },
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA14545",
+            "source_name": "FMA14545",
+            "ontology": "FMA14545"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA14546",
+            "source_name": "FMA14546",
+            "ontology": "FMA14546"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA14547",
+            "source_name": "FMA14547",
+            "ontology": "FMA14547"
+          }
+        ]
       }
     },
     "anatomy.appendix": {
@@ -1537,7 +1907,19 @@
           "id": "source.hra-v1-1.female.n596",
           "source_name": "VH_F_ureters",
           "ontology": ""
-        }
+        },
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA15572",
+            "source_name": "FMA15572",
+            "ontology": "FMA15572"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA15571",
+            "source_name": "FMA15571",
+            "ontology": "FMA15571"
+          }
+        ]
       }
     },
     "anatomy.uterus": {
@@ -1710,7 +2092,12 @@
             "source_name": "Allen_lateral_hemisphere_of_cerebellum_R",
             "ontology": "-"
           }
-        ]
+        ],
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA67944",
+          "source_name": "FMA67944",
+          "ontology": "FMA67944"
+        }
       }
     },
     "anatomy.brainstem": {
@@ -1830,7 +2217,12 @@
             "source_name": "Allen_midbrain_tegmentum_L",
             "ontology": "-"
           }
-        ]
+        ],
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA79876",
+          "source_name": "FMA79876",
+          "ontology": "FMA79876"
+        }
       }
     },
     "anatomy.thalamus": {
@@ -2070,6 +2462,18 @@
             "source_name": "Allen_parafascicular_nucleus_of_thalamus_R",
             "ontology": "-"
           }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1782",
+            "source_name": "FJ1782",
+            "ontology": "FMA258716"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1827",
+            "source_name": "FJ1827",
+            "ontology": "FMA258714"
+          }
         ]
       }
     },
@@ -2190,7 +2594,12 @@
             "source_name": "Allen_mammillary_region_of_HTH_L",
             "ontology": "-"
           }
-        ]
+        ],
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA62008",
+          "source_name": "FMA62008",
+          "ontology": "FMA62008"
+        }
       }
     },
     "anatomy.corpus-callosum": {
@@ -2229,7 +2638,12 @@
             "source_name": "Allen_corpus_callosum_R",
             "ontology": "UBERON:0002336"
           }
-        ]
+        ],
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FJ1742",
+          "source_name": "FJ1742",
+          "ontology": "FMA86464"
+        }
       }
     },
     "anatomy.eyes": {
@@ -2282,6 +2696,18 @@
             "source_name": "VH_M_eye_R",
             "ontology": ""
           }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA54450",
+            "source_name": "FMA54450",
+            "ontology": "FMA54450"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA54449",
+            "source_name": "FMA54449",
+            "ontology": "FMA54449"
+          }
         ]
       }
     },
@@ -2323,6 +2749,18 @@
             "source_name": "VH_M_cornea_R",
             "ontology": "FMA:58239"
           }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA58240",
+            "source_name": "FMA58240",
+            "ontology": "FMA58240"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA58239",
+            "source_name": "FMA58239",
+            "ontology": "FMA58239"
+          }
         ]
       }
     },
@@ -2363,6 +2801,18 @@
             "id": "source.hra-v1-1.male.n929",
             "source_name": "VH_M_iris_R",
             "ontology": "FMA:58236"
+          }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA58237",
+            "source_name": "FMA58237",
+            "ontology": "FMA58237"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA58236",
+            "source_name": "FMA58236",
+            "ontology": "FMA58236"
           }
         ]
       }
@@ -2406,6 +2856,18 @@
             "source_name": "VH_M_lens_R",
             "ontology": "FMA:58242"
           }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA58243",
+            "source_name": "FMA58243",
+            "ontology": "FMA58243"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA58242",
+            "source_name": "FMA58242",
+            "ontology": "FMA58242"
+          }
         ]
       }
     },
@@ -2446,6 +2908,18 @@
             "id": "source.hra-v1-1.male.n943",
             "source_name": "VH_M_retina_R",
             "ontology": "FMA:58302"
+          }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1316",
+            "source_name": "FJ1316",
+            "ontology": "FMA58608"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1367",
+            "source_name": "FJ1367",
+            "ontology": "FMA58607"
           }
         ]
       }
@@ -2529,6 +3003,28 @@
             "source_name": "VH_M_right_optic_nerve",
             "ontology": "FMA:50875"
           }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1313",
+            "source_name": "FJ1313",
+            "ontology": "FMA50878"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1772",
+            "source_name": "FJ1772",
+            "ontology": "FMA50878"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1364",
+            "source_name": "FJ1364",
+            "ontology": "FMA50875"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1819",
+            "source_name": "FJ1819",
+            "ontology": "FMA50875"
+          }
         ]
       }
     },
@@ -2576,6 +3072,18 @@
             "source_name": "VH_M_knee_L",
             "ontology": ""
           }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA24978",
+            "source_name": "FMA24978",
+            "ontology": "FMA24978"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA24977",
+            "source_name": "FMA24977",
+            "ontology": "FMA24977"
+          }
         ]
       }
     },
@@ -2616,6 +3124,18 @@
             "id": "source.hra-v1-1.male.n359",
             "source_name": "VH_M_femur_L",
             "ontology": "FMA:24475"
+          }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA24475",
+            "source_name": "FMA24475",
+            "ontology": "FMA24475"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA24474",
+            "source_name": "FMA24474",
+            "ontology": "FMA24474"
           }
         ]
       }
@@ -2658,6 +3178,18 @@
             "id": "source.hra-v1-1.male.n375",
             "source_name": "VH_M_tibia_L",
             "ontology": "FMA:24478"
+          }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA24478",
+            "source_name": "FMA24478",
+            "ontology": "FMA24478"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA24477",
+            "source_name": "FMA24477",
+            "ontology": "FMA24477"
           }
         ]
       }
@@ -2955,6 +3487,23 @@
             "source_name": "VH_M_pulmonary_trunk",
             "ontology": "UBERON:0002333"
           }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA50873",
+            "source_name": "FMA50873",
+            "ontology": "FMA50873"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA8612",
+            "source_name": "FMA8612",
+            "ontology": "FMA8612"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA50872",
+            "source_name": "FMA50872",
+            "ontology": "FMA50872"
+          }
         ]
       }
     },
@@ -2981,6 +3530,11 @@
           "id": "source.hra-v1-1.male.n244",
           "source_name": "VH_M_coronary_sinus",
           "ontology": "UBERON:0005438"
+        },
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA4706",
+          "source_name": "FMA4706",
+          "ontology": "FMA4706"
         }
       }
     },
@@ -3065,6 +3619,43 @@
             "id": "source.hra-v1-1.male.n246",
             "source_name": "VH_M_small_cardiac_vein",
             "ontology": "UBERON:0035374"
+          }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ2725",
+            "source_name": "FJ2725",
+            "ontology": "FMA76767"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ2730",
+            "source_name": "FJ2730",
+            "ontology": "FMA76767"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA4707",
+            "source_name": "FMA4707",
+            "ontology": "FMA4707"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA4708",
+            "source_name": "FMA4708",
+            "ontology": "FMA4708"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA4713",
+            "source_name": "FMA4713",
+            "ontology": "FMA4713"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA4712",
+            "source_name": "FMA4712",
+            "ontology": "FMA4712"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA4714",
+            "source_name": "FMA4714",
+            "ontology": "FMA4714"
           }
         ]
       }
@@ -3175,7 +3766,12 @@
             "source_name": "VH_M_descending_aorta_b",
             "ontology": "UBERON:0001514"
           }
-        ]
+        ],
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA3784",
+          "source_name": "FMA3784",
+          "ontology": "FMA3784"
+        }
       }
     },
     "anatomy.aortic-arch-branches": {
@@ -3279,7 +3875,12 @@
             "source_name": "VH_M_left_subclavian_artery_b",
             "ontology": "UBERON:0001584"
           }
-        ]
+        ],
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA3932",
+          "source_name": "FMA3932",
+          "ontology": "FMA3932"
+        }
       }
     },
     "anatomy.celiac-trunk": {
@@ -3305,6 +3906,11 @@
           "id": "source.hra-v1-1.male.n272",
           "source_name": "VH_M_celiac_trunk",
           "ontology": "FMA:14812"
+        },
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA50737",
+          "source_name": "FMA50737",
+          "ontology": "FMA50737"
         }
       }
     },
@@ -3332,6 +3938,11 @@
           "id": "source.hra-v1-1.male.n197",
           "source_name": "VH_M_superior_mesenteric_artery",
           "ontology": "UBERON:0001182"
+        },
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA14749",
+          "source_name": "FMA14749",
+          "ontology": "FMA14749"
         }
       }
     },
@@ -3358,6 +3969,11 @@
           "id": "source.hra-v1-1.male.n196",
           "source_name": "VH_M_inferior_mesenteric_artery",
           "ontology": "UBERON:0001183"
+        },
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA14750",
+          "source_name": "FMA14750",
+          "ontology": "FMA14750"
         }
       }
     },
@@ -3400,6 +4016,18 @@
             "source_name": "VH_M_right_renal_artery",
             "ontology": "UBERON:0001185"
           }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA14753",
+            "source_name": "FMA14753",
+            "ontology": "FMA14753"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA14752",
+            "source_name": "FMA14752",
+            "ontology": "FMA14752"
+          }
         ]
       }
     },
@@ -3440,6 +4068,28 @@
             "id": "source.hra-v1-1.male.n203",
             "source_name": "VH_M_renal_vein_R",
             "ontology": "UBERON:0001141"
+          }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3477",
+            "source_name": "FJ3477",
+            "ontology": "FMA14336"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3478",
+            "source_name": "FJ3478",
+            "ontology": "FMA14336"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3577",
+            "source_name": "FJ3577",
+            "ontology": "FMA14335"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3578",
+            "source_name": "FJ3578",
+            "ontology": "FMA14335"
           }
         ]
       }
@@ -3521,6 +4171,38 @@
             "source_name": "VH_M_corniculate_cartilage_R",
             "ontology": "FMA:55115"
           }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ2440",
+            "source_name": "FJ2440",
+            "ontology": "FMA9615"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ2775",
+            "source_name": "FJ2775",
+            "ontology": "FMA55114"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ2776",
+            "source_name": "FJ2776",
+            "ontology": "FMA55116"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ2792",
+            "source_name": "FJ2792",
+            "ontology": "FMA55113"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ2793",
+            "source_name": "FJ2793",
+            "ontology": "FMA55115"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ2808",
+            "source_name": "FJ2808",
+            "ontology": "FMA55099"
+          }
         ]
       }
     },
@@ -3547,6 +4229,11 @@
           "id": "source.hra-v1-1.male.n1031",
           "source_name": "VH_M_epiglottic_cartilage",
           "ontology": "FMA:55112"
+        },
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FJ2770",
+          "source_name": "FJ2770",
+          "ontology": "FMA55130"
         }
       }
     },
@@ -3624,6 +4311,23 @@
             "source_name": "VH_M_lungs_R_upper_lobe",
             "ontology": ""
           }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA7333",
+            "source_name": "FMA7333",
+            "ontology": "FMA7333"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA7383",
+            "source_name": "FMA7383",
+            "ontology": "FMA7383"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA7337",
+            "source_name": "FMA7337",
+            "ontology": "FMA7337"
+          }
         ]
       }
     },
@@ -3664,6 +4368,18 @@
             "id": "source.hra-v1-1.male.n1000",
             "source_name": "VH_M_lungs_L_lower_lobe",
             "ontology": ""
+          }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA7370",
+            "source_name": "FMA7370",
+            "ontology": "FMA7370"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA7371",
+            "source_name": "FMA7371",
+            "ontology": "FMA7371"
           }
         ]
       }
@@ -4810,7 +5526,12 @@
             "source_name": "VH_M_duodenum_superior",
             "ontology": "FMA:7206"
           }
-        ]
+        ],
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA7206",
+          "source_name": "FMA7206",
+          "ontology": "FMA7206"
+        }
       }
     },
     "anatomy.jejunum": {
@@ -4838,6 +5559,11 @@
           "id": "source.hra-v1-1.male.n459",
           "source_name": "VH_M_jejunum",
           "ontology": "UBERON:0002115"
+        },
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA7207",
+          "source_name": "FMA7207",
+          "ontology": "FMA7207"
         }
       }
     },
@@ -4880,7 +5606,12 @@
             "source_name": "VH_M_ileum_terminal",
             "ontology": "FMA:14966"
           }
-        ]
+        ],
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA7208",
+          "source_name": "FMA7208",
+          "ontology": "FMA7208"
+        }
       }
     },
     "anatomy.ileocecal-valve": {
@@ -5048,6 +5779,18 @@
             "source_name": "VH_M_quadrate_lobe_of_liver",
             "ontology": "UBERON:0001116"
           }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA13363",
+            "source_name": "FMA13363",
+            "ontology": "FMA13363"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA13362",
+            "source_name": "FMA13362",
+            "ontology": "FMA13362"
+          }
         ]
       }
     },
@@ -5075,6 +5818,11 @@
           "id": "source.hra-v1-1.male.n455",
           "source_name": "VH_M_cystic_duct",
           "ontology": "UBERON:0001152"
+        },
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA14539",
+          "source_name": "FMA14539",
+          "ontology": "FMA14539"
         }
       }
     },
@@ -5381,6 +6129,18 @@
             "source_name": "VH_M_optic_choroid_R",
             "ontology": "FMA:58299"
           }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA58300",
+            "source_name": "FMA58300",
+            "ontology": "FMA58300"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA58299",
+            "source_name": "FMA58299",
+            "ontology": "FMA58299"
+          }
         ]
       }
     },
@@ -5421,6 +6181,18 @@
             "id": "source.hra-v1-1.male.n947",
             "source_name": "VH_M_vitreous_humor_R",
             "ontology": "FMA:261236"
+          }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA58829",
+            "source_name": "FMA58829",
+            "ontology": "FMA58829"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA58828",
+            "source_name": "FMA58828",
+            "ontology": "FMA58828"
           }
         ]
       }
@@ -5692,6 +6464,18 @@
             "source_name": "VH_M_sclera_R",
             "ontology": "FMA:58271"
           }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA58272",
+            "source_name": "FMA58272",
+            "ontology": "FMA58272"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA58271",
+            "source_name": "FMA58271",
+            "ontology": "FMA58271"
+          }
         ]
       }
     },
@@ -5809,7 +6593,19 @@
           "id": "source.hra-v1-1.male.n889",
           "source_name": "VH_M_optic_chiasm",
           "ontology": "UBERON:0000959"
-        }
+        },
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1771",
+            "source_name": "FJ1771",
+            "ontology": "FMA62045"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1818",
+            "source_name": "FJ1818",
+            "ontology": "FMA62045"
+          }
+        ]
       }
     },
     "anatomy.olfactory-bulbs": {
@@ -5888,7 +6684,12 @@
             "source_name": "Allen_pineal_body_R",
             "ontology": "UBERON:0001905"
           }
-        ]
+        ],
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA62033",
+          "source_name": "FMA62033",
+          "ontology": "FMA62033"
+        }
       }
     },
     "anatomy.brain-ventricles": {
@@ -6049,6 +6850,18 @@
             "source_name": "Allen_atrium_of_lateral_ventricle_R",
             "ontology": "-"
           }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA78469",
+            "source_name": "FMA78469",
+            "ontology": "FMA78469"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA78454",
+            "source_name": "FMA78454",
+            "ontology": "FMA78454"
+          }
         ]
       }
     },
@@ -6166,7 +6979,12 @@
             "source_name": "VH_M_ventral_pancreatic_duct",
             "ontology": "UBERON:0001064"
           }
-        ]
+        ],
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA10419",
+          "source_name": "FMA10419",
+          "ontology": "FMA10419"
+        }
       }
     },
     "anatomy.hepatic-arteries": {
@@ -6256,6 +7074,28 @@
             "id": "source.hra-v1-1.male.n279",
             "source_name": "VH_M_middle_hepatic_artery_branch_of_left_hepatic_artery",
             "ontology": "-"
+          }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA14771",
+            "source_name": "FMA14771",
+            "ontology": "FMA14771"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA14772",
+            "source_name": "FMA14772",
+            "ontology": "FMA14772"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA14779",
+            "source_name": "FMA14779",
+            "ontology": "FMA14779"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA14778",
+            "source_name": "FMA14778",
+            "ontology": "FMA14778"
           }
         ]
       }
@@ -6373,7 +7213,12 @@
             "source_name": "VH_M_diagonal_branch_of_left_anterior_descending_artery",
             "ontology": "FMA:3860"
           }
-        ]
+        ],
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA3860",
+          "source_name": "FMA3860",
+          "ontology": "FMA3860"
+        }
       }
     },
     "anatomy.coronary.circumflex": {
@@ -6416,6 +7261,11 @@
           "id": "source.hra-v1-1.male.n233",
           "source_name": "VH_M_left_marginal_branch",
           "ontology": "FMA:3902"
+        },
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA3895",
+          "source_name": "FMA3895",
+          "ontology": "FMA3895"
         }
       }
     },
@@ -6448,6 +7298,18 @@
             "id": "source.hra-v1-1.male.n228",
             "source_name": "VH_M_right_posterior_descending_artery",
             "ontology": "FMA:3840"
+          }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA3818",
+            "source_name": "FMA3818",
+            "ontology": "FMA3818"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA3840",
+            "source_name": "FMA3840",
+            "ontology": "FMA3840"
           }
         ]
       }
@@ -6591,6 +7453,68 @@
             "source_name": "VH_M_superior_oblique_extraocular_muscle_R",
             "ontology": "FMA:49052"
           }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA49051",
+            "source_name": "FMA49051",
+            "ontology": "FMA49051"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA49047",
+            "source_name": "FMA49047",
+            "ontology": "FMA49047"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA49055",
+            "source_name": "FMA49055",
+            "ontology": "FMA49055"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA49057",
+            "source_name": "FMA49057",
+            "ontology": "FMA49057"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA49053",
+            "source_name": "FMA49053",
+            "ontology": "FMA49053"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA49045",
+            "source_name": "FMA49045",
+            "ontology": "FMA49045"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA49050",
+            "source_name": "FMA49050",
+            "ontology": "FMA49050"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA49046",
+            "source_name": "FMA49046",
+            "ontology": "FMA49046"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA49054",
+            "source_name": "FMA49054",
+            "ontology": "FMA49054"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA49056",
+            "source_name": "FMA49056",
+            "ontology": "FMA49056"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA49052",
+            "source_name": "FMA49052",
+            "ontology": "FMA49052"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA49044",
+            "source_name": "FMA49044",
+            "ontology": "FMA49044"
+          }
         ]
       }
     },
@@ -6631,6 +7555,18 @@
             "id": "source.hra-v1-1.male.n960",
             "source_name": "VH_M_levator_palpebrae_superioris_R",
             "ontology": "FMA:49048"
+          }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA49049",
+            "source_name": "FMA49049",
+            "ontology": "FMA49049"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA49048",
+            "source_name": "FMA49048",
+            "ontology": "FMA49048"
           }
         ]
       }
@@ -6731,6 +7667,18 @@
             "id": "source.hra-v1-1.male.n153",
             "source_name": "VH_M_opthalmic_artery_L",
             "ontology": "UBERON:0001619"
+          }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA49870",
+            "source_name": "FMA49870",
+            "ontology": "FMA49870"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA49869",
+            "source_name": "FMA49869",
+            "ontology": "FMA49869"
           }
         ]
       }
@@ -6844,6 +7792,63 @@
             "source_name": "VH_M_arytenoid",
             "ontology": "UBERON:0010958"
           }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ2778",
+            "source_name": "FJ2778",
+            "ontology": "FMA46581"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ2796",
+            "source_name": "FJ2796",
+            "ontology": "FMA46580"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ2782",
+            "source_name": "FJ2782",
+            "ontology": "FMA46578"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ2800",
+            "source_name": "FJ2800",
+            "ontology": "FMA46577"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ2780",
+            "source_name": "FJ2780",
+            "ontology": "FMA46585"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ2798",
+            "source_name": "FJ2798",
+            "ontology": "FMA46584"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ2809",
+            "source_name": "FJ2809",
+            "ontology": "FMA46582"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ2781",
+            "source_name": "FJ2781",
+            "ontology": "FMA46614"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ2799",
+            "source_name": "FJ2799",
+            "ontology": "FMA46613"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ2783",
+            "source_name": "FJ2783",
+            "ontology": "FMA46612"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ2801",
+            "source_name": "FJ2801",
+            "ontology": "FMA46611"
+          }
         ]
       }
     },
@@ -6874,6 +7879,38 @@
             "source_name": "VH_M_thyroarytenoid",
             "ontology": ""
           }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ2788",
+            "source_name": "FJ2788",
+            "ontology": "FMA46593"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ2806",
+            "source_name": "FJ2806",
+            "ontology": "FMA46592"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ2784",
+            "source_name": "FJ2784",
+            "ontology": "FMA46590"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ2785",
+            "source_name": "FJ2785",
+            "ontology": "FMA46590"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ2802",
+            "source_name": "FJ2802",
+            "ontology": "FMA46589"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ2803",
+            "source_name": "FJ2803",
+            "ontology": "FMA46589"
+          }
         ]
       }
     },
@@ -6894,6 +7931,11 @@
           "id": "source.hra-v1-1.male.n291",
           "source_name": "VH_M_hyoid",
           "ontology": "UBERON:0001685"
+        },
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA52749",
+          "source_name": "FMA52749",
+          "ontology": "FMA52749"
         }
       }
     },
@@ -6966,7 +8008,19 @@
           "id": "source.hra-v1-1.male.n382",
           "source_name": "VH_M_seminal_vesicle",
           "ontology": "UBERON:0000998"
-        }
+        },
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3137",
+            "source_name": "FJ3137",
+            "ontology": "FMA19388"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3143",
+            "source_name": "FJ3143",
+            "ontology": "FMA19387"
+          }
+        ]
       }
     },
     "anatomy.ejaculatory-ducts": {
@@ -7019,7 +8073,12 @@
             "source_name": "VH_M_prostatic_urethra",
             "ontology": "UBERON:0001335"
           }
-        ]
+        ],
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA19667",
+          "source_name": "FMA19667",
+          "ontology": "FMA19667"
+        }
       }
     },
     "anatomy.uterine-ligaments": {
@@ -7189,6 +8248,23 @@
             "source_name": "VH_M_common_hepatic_duct",
             "ontology": "UBERON:0001175"
           }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA14668",
+            "source_name": "FMA14668",
+            "ontology": "FMA14668"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA14670",
+            "source_name": "FMA14670",
+            "ontology": "FMA14670"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA14669",
+            "source_name": "FMA14669",
+            "ontology": "FMA14669"
+          }
         ]
       }
     },
@@ -7241,6 +8317,23 @@
             "source_name": "VH_M_middle_hepatic_vein",
             "ontology": "FMA:14340"
           }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA14339",
+            "source_name": "FMA14339",
+            "ontology": "FMA14339"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ2414",
+            "source_name": "FJ2414",
+            "ontology": "FMA14340"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA14338",
+            "source_name": "FMA14338",
+            "ontology": "FMA14338"
+          }
         ]
       }
     },
@@ -7283,6 +8376,18 @@
             "id": "source.hra-v1-1.male.n264",
             "source_name": "VH_M_splenic_artery",
             "ontology": "UBERON:0001194"
+          }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA14773",
+            "source_name": "FMA14773",
+            "ontology": "FMA14773"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3641",
+            "source_name": "FJ3641",
+            "ontology": "FMA14331"
           }
         ]
       }
@@ -7335,6 +8440,18 @@
             "id": "source.hra-v1-1.male.n165",
             "source_name": "VH_M_inferior_pancreaticoduodenal_vein",
             "ontology": "FMA:0329299"
+          }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3443",
+            "source_name": "FJ3443",
+            "ontology": "FMA15391"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3647",
+            "source_name": "FJ3647",
+            "ontology": "FMA14332"
           }
         ]
       }
@@ -7474,6 +8591,73 @@
             "source_name": "VH_M_marginal_artery_of_Drummond",
             "ontology": "FMA:14824"
           }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA14815",
+            "source_name": "FMA14815",
+            "ontology": "FMA14815"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3415",
+            "source_name": "FJ3415",
+            "ontology": "FMA15408"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3440",
+            "source_name": "FJ3440",
+            "ontology": "FMA15408"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA14826",
+            "source_name": "FMA14826",
+            "ontology": "FMA14826"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3400",
+            "source_name": "FJ3400",
+            "ontology": "FMA15394"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3429",
+            "source_name": "FJ3429",
+            "ontology": "FMA15394"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3495",
+            "source_name": "FJ3495",
+            "ontology": "FMA15394"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA14810",
+            "source_name": "FMA14810",
+            "ontology": "FMA14810"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3543",
+            "source_name": "FJ3543",
+            "ontology": "FMA15406"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA14811",
+            "source_name": "FMA14811",
+            "ontology": "FMA14811"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3591",
+            "source_name": "FJ3591",
+            "ontology": "FMA15407"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA14830",
+            "source_name": "FMA14830",
+            "ontology": "FMA14830"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3639",
+            "source_name": "FJ3639",
+            "ontology": "FMA15395"
+          }
         ]
       }
     },
@@ -7529,6 +8713,18 @@
             "id": "source.hra-v1-1.male.n183",
             "source_name": "VH_M_middle_rectal_vein",
             "ontology": ""
+          }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA14832",
+            "source_name": "FMA14832",
+            "ontology": "FMA14832"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3657",
+            "source_name": "FJ3657",
+            "ontology": "FMA15393"
           }
         ]
       }
@@ -7638,6 +8834,53 @@
             "source_name": "VH_M_internal_iliac_vein",
             "ontology": ""
           }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA21388",
+            "source_name": "FMA21388",
+            "ontology": "FMA21388"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA21387",
+            "source_name": "FMA21387",
+            "ontology": "FMA21387"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA18886",
+            "source_name": "FMA18886",
+            "ontology": "FMA18886"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA18885",
+            "source_name": "FMA18885",
+            "ontology": "FMA18885"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA18888",
+            "source_name": "FMA18888",
+            "ontology": "FMA18888"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA18887",
+            "source_name": "FMA18887",
+            "ontology": "FMA18887"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3541",
+            "source_name": "FJ3541",
+            "ontology": "FMA77168"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3525",
+            "source_name": "FJ3525",
+            "ontology": "FMA18919"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3610",
+            "source_name": "FJ3610",
+            "ontology": "FMA18918"
+          }
         ]
       }
     },
@@ -7658,7 +8901,19 @@
           "id": "source.hra-v1-1.male.n252",
           "source_name": "VH_M_brachiocephalic_vein",
           "ontology": ""
-        }
+        },
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA4761",
+            "source_name": "FMA4761",
+            "ontology": "FMA4761"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA4751",
+            "source_name": "FMA4751",
+            "ontology": "FMA4751"
+          }
+        ]
       }
     },
     "anatomy.patellar-ligament": {
@@ -7701,6 +8956,1290 @@
             "ontology": "FMA:44586"
           }
         ]
+      }
+    },
+    "anatomy.stomach": {
+      "overview": "An organ of the digestive system in the upper left quadrant of the abdomen. It receives food from the esophagus.",
+      "function": "Helps digest food by mixing it with digestive juices and churning it into a thin liquid. Relaxing the pyloric sphincter lets this pass into the small intestine.",
+      "related": [
+        "anatomy.esophagus",
+        "anatomy.small-intestine",
+        "anatomy.diaphragm"
+      ],
+      "source_ids": [
+        "nci-def-stomach",
+        "seer-stomach"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    },
+    "anatomy.esophagus": {
+      "overview": "The muscular tube through which food passes from the throat to the stomach. It lies behind the trachea and in front of the vertebral column.",
+      "function": "Carries food to the stomach. It passes through an opening in the diaphragm, the esophageal hiatus, and sphincters at each end control food moving in and out.",
+      "related": [
+        "anatomy.stomach",
+        "anatomy.trachea",
+        "anatomy.diaphragm",
+        "anatomy.pharynx-muscles"
+      ],
+      "source_ids": [
+        "nci-def-esophagus",
+        "seer-pharynx"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    },
+    "anatomy.diaphragm": {
+      "overview": "The thin, dome-shaped muscle below the lungs and heart that separates the chest from the abdomen. It has three openings for structures passing between them.",
+      "function": "When it contracts during breathing in, the chest cavity gets larger and air flows into the lungs; when it relaxes, air flows out.",
+      "related": [
+        "anatomy.esophagus",
+        "anatomy.stomach",
+        "anatomy.lung.left",
+        "anatomy.lung.right"
+      ],
+      "source_ids": [
+        "nci-def-diaphragm",
+        "seer-muscles-trunk",
+        "seer-mechanics"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    },
+    "anatomy.spinal-cord": {
+      "overview": "A column of nerve tissue that runs from the base of the skull down the center of the back, inside the vertebral column.",
+      "function": "With the brain it forms the central nervous system, carrying signals between the brain and the rest of the body.",
+      "related": [
+        "anatomy.brain",
+        "anatomy.brainstem",
+        "anatomy.vertebral-column"
+      ],
+      "source_ids": [
+        "nci-def-spinal-cord",
+        "mlp-spinal-cord-injury",
+        "seer-cns"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    },
+    "anatomy.pituitary": {
+      "overview": "A pea-sized gland attached to the hypothalamus at the base of the brain. It rests in a hollow of the sphenoid bone and has anterior and posterior lobes.",
+      "function": "Signalled by the hypothalamus, it makes hormones that control other glands and many body functions, including growth and fertility. Its hormones include growth hormone, thyroid-stimulating hormone and the hormone that stimulates the adrenal cortex.",
+      "related": [
+        "anatomy.hypothalamus",
+        "anatomy.brain",
+        "anatomy.adrenal-glands"
+      ],
+      "source_ids": [
+        "nci-def-pituitary-gland",
+        "seer-pituitary"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    },
+    "anatomy.tongue": {
+      "overview": "An organ of the mouth whose surface is covered with papillae that provide friction and contain the taste buds.",
+      "function": "Moves food in the mouth, pushes it into the pharynx for swallowing, and is used in speech.",
+      "related": [
+        "anatomy.teeth",
+        "anatomy.soft-palate",
+        "anatomy.pharynx-muscles"
+      ],
+      "source_ids": [
+        "seer-mouth",
+        "seer-pharynx"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    },
+    "anatomy.skull": {
+      "overview": "The bones of the head: cranial bones that surround and protect the brain, and facial bones. The skull has 28 bones, including the auditory ossicles.",
+      "function": "Protects the brain and forms the face.",
+      "related": [
+        "anatomy.brain",
+        "anatomy.mandible",
+        "anatomy.vertebral-column"
+      ],
+      "source_ids": [
+        "nci-def-skull",
+        "seer-axial"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    },
+    "anatomy.vertebral-column": {
+      "overview": "The spine's column of bones: 7 cervical, 12 thoracic and 5 lumbar vertebrae, the sacrum and the coccyx, reaching from the base of the skull to the tailbone.",
+      "function": "Encloses the spinal cord and the fluid around it.",
+      "related": [
+        "anatomy.spinal-cord",
+        "anatomy.skull",
+        "anatomy.sacrum",
+        "anatomy.intervertebral-disks"
+      ],
+      "source_ids": [
+        "nci-def-spine",
+        "seer-axial"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    },
+    "anatomy.adrenal-glands": {
+      "overview": "A pair of small, triangle-shaped glands, one on top of each kidney. Each has an outer cortex and an inner medulla.",
+      "function": "The cortex makes steroid hormones, including aldosterone and cortisol; the medulla makes epinephrine and norepinephrine, especially in stressful situations.",
+      "related": [
+        "anatomy.kidney.left",
+        "anatomy.kidney.right",
+        "anatomy.pituitary"
+      ],
+      "source_ids": [
+        "nci-def-adrenal-gland",
+        "seer-adrenal"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA15630",
+            "source_name": "FMA15630",
+            "ontology": "FMA15630"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA15629",
+            "source_name": "FMA15629",
+            "ontology": "FMA15629"
+          }
+        ]
+      }
+    },
+    "anatomy.testes": {
+      "overview": "Two egg-shaped glands inside the scrotum, also called testicles. Each is about 5 cm long.",
+      "function": "Produce sperm and male hormones. Their position outside the abdomen keeps them about 3 °C cooler than the body, which sperm production needs.",
+      "related": [
+        "anatomy.epididymis",
+        "anatomy.vas-deferens",
+        "anatomy.penis"
+      ],
+      "source_ids": [
+        "nci-def-testicle",
+        "seer-testes"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3138",
+            "source_name": "FJ3138",
+            "ontology": "FMA7212"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3142",
+            "source_name": "FJ3142",
+            "ontology": "FMA7211"
+          }
+        ]
+      }
+    },
+    "anatomy.epididymis": {
+      "overview": "A narrow, tightly coiled tube, about 6 metres long, attached along the top and back of each testicle.",
+      "function": "Sperm leaving the testes mature here and are stored in its lower part, then pass into the vas deferens.",
+      "related": [
+        "anatomy.testes",
+        "anatomy.vas-deferens"
+      ],
+      "source_ids": [
+        "nci-def-epididymis",
+        "seer-male-duct"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3136",
+            "source_name": "FJ3136",
+            "ontology": "FMA18257"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3141",
+            "source_name": "FJ3141",
+            "ontology": "FMA18256"
+          }
+        ]
+      }
+    },
+    "anatomy.penis": {
+      "overview": "An external male reproductive organ made of three columns of erectile tissue: two corpora cavernosa and the corpus spongiosum, which surrounds the urethra and widens into the glans.",
+      "function": "Contains the urethra, which carries semen and urine out of the body.",
+      "related": [
+        "anatomy.urethra",
+        "anatomy.testes"
+      ],
+      "source_ids": [
+        "nci-def-penis",
+        "seer-penis"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3132",
+            "source_name": "FJ3132",
+            "ontology": "FMA19618"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3133",
+            "source_name": "FJ3133",
+            "ontology": "FMA19617"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3134",
+            "source_name": "FJ3134",
+            "ontology": "FMA18247"
+          }
+        ]
+      }
+    },
+    "anatomy.sternum": {
+      "overview": "The breastbone: the long flat bone that forms the center front of the chest wall.",
+      "function": "The collarbones and the first seven ribs attach to it.",
+      "related": [
+        "anatomy.ribs",
+        "anatomy.clavicles"
+      ],
+      "source_ids": [
+        "nci-def-sternum",
+        "seer-axial"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA7485",
+          "source_name": "FMA7485",
+          "ontology": "FMA7485"
+        }
+      }
+    },
+    "anatomy.ribs": {
+      "overview": "The ribs of the chest; the thoracic cage is made of the sternum and 24 ribs.",
+      "function": "The intercostal muscles between the ribs move them during breathing.",
+      "related": [
+        "anatomy.sternum",
+        "anatomy.vertebral-column",
+        "anatomy.intercostal-muscles",
+        "anatomy.diaphragm"
+      ],
+      "source_ids": [
+        "seer-axial",
+        "seer-muscles-trunk"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA7480",
+          "source_name": "FMA7480",
+          "ontology": "FMA7480"
+        }
+      }
+    },
+    "anatomy.clavicles": {
+      "overview": "The collarbones: a pair of bones at the base of the front of the neck.",
+      "function": "Connect the breastbone to the shoulder blades.",
+      "related": [
+        "anatomy.sternum",
+        "anatomy.scapulae"
+      ],
+      "source_ids": [
+        "nci-def-clavicle"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA13323",
+            "source_name": "FMA13323",
+            "ontology": "FMA13323"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA13322",
+            "source_name": "FMA13322",
+            "ontology": "FMA13322"
+          }
+        ]
+      }
+    },
+    "anatomy.scapulae": {
+      "overview": "The shoulder blades: a pair of triangular bones at the back of the shoulder.",
+      "function": "Each connects the collarbone with the upper arm bone. Muscles attached to them move the shoulder and arm.",
+      "related": [
+        "anatomy.clavicles",
+        "anatomy.humerus",
+        "anatomy.trapezius"
+      ],
+      "source_ids": [
+        "nci-def-scapula",
+        "seer-muscles-upper"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA13396",
+            "source_name": "FMA13396",
+            "ontology": "FMA13396"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA13395",
+            "source_name": "FMA13395",
+            "ontology": "FMA13395"
+          }
+        ]
+      }
+    },
+    "anatomy.humerus": {
+      "overview": "The upper arm bone, one in each arm.",
+      "function": "The pectoralis major, deltoid and rotator cuff muscles connect to it and move the arm; muscles along it move the forearm.",
+      "related": [
+        "anatomy.scapulae",
+        "anatomy.forearm-bones",
+        "anatomy.deltoids",
+        "anatomy.biceps-brachii"
+      ],
+      "source_ids": [
+        "nci-def-scapula",
+        "seer-appendicular",
+        "seer-muscles-upper"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA23131",
+            "source_name": "FMA23131",
+            "ontology": "FMA23131"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA23130",
+            "source_name": "FMA23130",
+            "ontology": "FMA23130"
+          }
+        ]
+      }
+    },
+    "anatomy.forearm-bones": {
+      "overview": "The radius and ulna, the two parallel bones of each forearm; the radius lies on the outer (lateral) side and the ulna on the inner (medial) side.",
+      "function": "The 20 or more muscles that move the wrist, hand and fingers lie along the forearm.",
+      "related": [
+        "anatomy.humerus",
+        "anatomy.hand-bones"
+      ],
+      "source_ids": [
+        "tm-radius",
+        "tm-ulna",
+        "seer-muscles-upper"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA23465",
+            "source_name": "FMA23465",
+            "ontology": "FMA23465"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA23464",
+            "source_name": "FMA23464",
+            "ontology": "FMA23464"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA23468",
+            "source_name": "FMA23468",
+            "ontology": "FMA23468"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA23467",
+            "source_name": "FMA23467",
+            "ontology": "FMA23467"
+          }
+        ]
+      }
+    },
+    "anatomy.hand-bones": {
+      "overview": "The bones of the hands: 16 carpals, 10 metacarpals and 28 phalanges in the two hands.",
+      "function": "Part of the upper extremity of the appendicular skeleton.",
+      "related": [
+        "anatomy.forearm-bones"
+      ],
+      "source_ids": [
+        "seer-appendicular"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA9714",
+            "source_name": "FMA9714",
+            "ontology": "FMA9714"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA9713",
+            "source_name": "FMA9713",
+            "ontology": "FMA9713"
+          }
+        ]
+      }
+    },
+    "anatomy.foot-bones": {
+      "overview": "The bones of the feet: 14 tarsals, 10 metatarsals and 28 phalanges in the two feet.",
+      "function": "Part of the lower extremity of the appendicular skeleton.",
+      "related": [
+        "anatomy.tibia",
+        "anatomy.calf-muscles"
+      ],
+      "source_ids": [
+        "seer-appendicular"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA11344",
+            "source_name": "FMA11344",
+            "ontology": "FMA11344"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA11343",
+            "source_name": "FMA11343",
+            "ontology": "FMA11343"
+          }
+        ]
+      }
+    },
+    "anatomy.sacrum": {
+      "overview": "The large, triangle-shaped bone in the lower spine, made of 5 fused bones of the spine.",
+      "function": "Forms part of the pelvis.",
+      "related": [
+        "anatomy.vertebral-column",
+        "anatomy.pelvis"
+      ],
+      "source_ids": [
+        "nci-def-sacrum"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA16202",
+          "source_name": "FMA16202",
+          "ontology": "FMA16202"
+        }
+      }
+    },
+    "anatomy.mandible": {
+      "overview": "The lower jaw: the largest and strongest bone in the face, forming part of the mouth.",
+      "function": "The only movable bone of the skull. It holds the bottom teeth, and the chewing muscles connect to it.",
+      "related": [
+        "anatomy.skull",
+        "anatomy.maxillae",
+        "anatomy.teeth"
+      ],
+      "source_ids": [
+        "nci-def-mandible",
+        "seer-muscles-head-neck"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA52748",
+          "source_name": "FMA52748",
+          "ontology": "FMA52748"
+        }
+      }
+    },
+    "anatomy.maxillae": {
+      "overview": "The bones that form the upper jaw, the roof of the mouth, and parts of the eye socket and nose.",
+      "function": "Hold the top teeth in place.",
+      "related": [
+        "anatomy.mandible",
+        "anatomy.teeth",
+        "anatomy.nasal-bones"
+      ],
+      "source_ids": [
+        "nci-def-maxilla"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA53650",
+            "source_name": "FMA53650",
+            "ontology": "FMA53650"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA53649",
+            "source_name": "FMA53649",
+            "ontology": "FMA53649"
+          }
+        ]
+      }
+    },
+    "anatomy.teeth": {
+      "overview": "The teeth of the source model. A complete permanent set has 32 teeth; a set of primary teeth has 20.",
+      "function": "The shape of each tooth type corresponds to the way it handles food.",
+      "related": [
+        "anatomy.mandible",
+        "anatomy.maxillae",
+        "anatomy.tongue"
+      ],
+      "source_ids": [
+        "seer-mouth"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-complete.group.teeth",
+          "source_name": "extra:teeth",
+          "ontology": ""
+        }
+      }
+    },
+    "anatomy.soft-palate": {
+      "overview": "The back, muscular part of the roof of the mouth, ending in a small flap called the uvula.",
+      "function": "During swallowing the soft palate and uvula move upward to keep food out of the nasal cavity.",
+      "related": [
+        "anatomy.tongue",
+        "anatomy.pharynx-muscles"
+      ],
+      "source_ids": [
+        "nci-def-soft-palate",
+        "seer-mouth"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA55021",
+          "source_name": "FMA55021",
+          "ontology": "FMA55021"
+        }
+      }
+    },
+    "anatomy.pharynx-muscles": {
+      "overview": "The constrictor muscles of the pharynx, the hollow, muscular tube in the neck that runs from behind the nose to the larynx and esophagus.",
+      "function": "When food reaches the pharynx, an involuntary swallowing reflex and wave-like muscle movements push it into the esophagus.",
+      "related": [
+        "anatomy.esophagus",
+        "anatomy.soft-palate",
+        "anatomy.larynx"
+      ],
+      "source_ids": [
+        "nci-def-pharynx",
+        "seer-pharynx"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ2747",
+            "source_name": "FJ2747",
+            "ontology": "FMA46632"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ2759",
+            "source_name": "FJ2759",
+            "ontology": "FMA46631"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ2754",
+            "source_name": "FJ2754",
+            "ontology": "FMA46634"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ2742",
+            "source_name": "FJ2742",
+            "ontology": "FMA46633"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ2740",
+            "source_name": "FJ2740",
+            "ontology": "FMA46636"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ2752",
+            "source_name": "FJ2752",
+            "ontology": "FMA46635"
+          }
+        ]
+      }
+    },
+    "anatomy.salivary-glands": {
+      "overview": "The submandibular glands, one of the three pairs of major salivary glands.",
+      "function": "Salivary glands make saliva and empty it into the mouth through ducts.",
+      "related": [
+        "anatomy.tongue",
+        "anatomy.mandible"
+      ],
+      "source_ids": [
+        "seer-accessory",
+        "mlp-salivary"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA59803",
+            "source_name": "FMA59803",
+            "ontology": "FMA59803"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA59802",
+            "source_name": "FMA59802",
+            "ontology": "FMA59802"
+          }
+        ]
+      }
+    },
+    "anatomy.nasal-bones": {
+      "overview": "Two small bones that, with extensions of the maxillae, form the bony bridge of the nose.",
+      "function": "The rest of the nose's framework is flexible cartilage.",
+      "related": [
+        "anatomy.maxillae",
+        "anatomy.skull"
+      ],
+      "source_ids": [
+        "seer-nose"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA53648",
+            "source_name": "FMA53648",
+            "ontology": "FMA53648"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA53647",
+            "source_name": "FMA53647",
+            "ontology": "FMA53647"
+          }
+        ]
+      }
+    },
+    "anatomy.carotid-arteries": {
+      "overview": "Major arteries, one on each side of the neck. The left common carotid artery branches from the aortic arch.",
+      "function": "Carry blood from the heart to the head. With the vertebral arteries, the internal carotid arteries supply the brain.",
+      "related": [
+        "anatomy.aorta.arch",
+        "anatomy.brain"
+      ],
+      "source_ids": [
+        "nci-def-carotid-artery",
+        "seer-pathways"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA4058",
+            "source_name": "FMA4058",
+            "ontology": "FMA4058"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA3941",
+            "source_name": "FMA3941",
+            "ontology": "FMA3941"
+          }
+        ]
+      }
+    },
+    "anatomy.subclavian-arteries": {
+      "overview": "The left and right subclavian arteries. The left subclavian artery branches from the aortic arch.",
+      "function": "Supply blood to the arms.",
+      "related": [
+        "anatomy.aorta.arch",
+        "anatomy.humerus"
+      ],
+      "source_ids": [
+        "seer-pathways"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA4694",
+            "source_name": "FMA4694",
+            "ontology": "FMA4694"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA3953",
+            "source_name": "FMA3953",
+            "ontology": "FMA3953"
+          }
+        ]
+      }
+    },
+    "anatomy.leg-arteries": {
+      "overview": "The external iliac arteries, whose branches supply the legs.",
+      "function": "Branches of the external iliac artery supply the legs.",
+      "related": [
+        "anatomy.iliac-veins",
+        "anatomy.pelvis"
+      ],
+      "source_ids": [
+        "seer-pathways",
+        "nhlbi-pad"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA18807",
+            "source_name": "FMA18807",
+            "ontology": "FMA18807"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA18806",
+            "source_name": "FMA18806",
+            "ontology": "FMA18806"
+          }
+        ]
+      }
+    },
+    "anatomy.intercostal-muscles": {
+      "overview": "Muscles in the spaces between the ribs.",
+      "function": "Move the ribs in breathing: the external intercostals raise the ribs when breathing in.",
+      "related": [
+        "anatomy.ribs",
+        "anatomy.diaphragm"
+      ],
+      "source_ids": [
+        "seer-muscles-trunk"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1451M",
+            "source_name": "FJ1451M",
+            "ontology": "FMA9756"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1454M",
+            "source_name": "FJ1454M",
+            "ontology": "FMA9758"
+          }
+        ]
+      }
+    },
+    "anatomy.pectoralis-major": {
+      "overview": "The pectoralis major muscle on each side, one of the muscles that connect to the humerus.",
+      "function": "Connects to the humerus and moves the arm.",
+      "related": [
+        "anatomy.humerus",
+        "anatomy.sternum",
+        "anatomy.deltoids"
+      ],
+      "source_ids": [
+        "seer-muscles-upper"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA13374",
+            "source_name": "FMA13374",
+            "ontology": "FMA13374"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA13373",
+            "source_name": "FMA13373",
+            "ontology": "FMA13373"
+          }
+        ]
+      }
+    },
+    "anatomy.deltoids": {
+      "overview": "The deltoid muscle on each side; the source model divides it into three parts.",
+      "function": "Connects to the humerus and moves the arm.",
+      "related": [
+        "anatomy.humerus",
+        "anatomy.scapulae",
+        "anatomy.clavicles"
+      ],
+      "source_ids": [
+        "seer-muscles-upper"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1467M",
+            "source_name": "FJ1467M",
+            "ontology": "FMA34683"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1468M",
+            "source_name": "FJ1468M",
+            "ontology": "FMA34681"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1513M",
+            "source_name": "FJ1513M",
+            "ontology": "FMA34685"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1467",
+            "source_name": "FJ1467",
+            "ontology": "FMA34682"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1468",
+            "source_name": "FJ1468",
+            "ontology": "FMA34680"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1513",
+            "source_name": "FJ1513",
+            "ontology": "FMA34684"
+          }
+        ]
+      }
+    },
+    "anatomy.biceps-brachii": {
+      "overview": "The biceps brachii of each arm, with its long and short heads.",
+      "function": "One of the muscles along the humerus that move the forearm.",
+      "related": [
+        "anatomy.humerus",
+        "anatomy.triceps-brachii",
+        "anatomy.forearm-bones"
+      ],
+      "source_ids": [
+        "seer-muscles-upper"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1478M",
+            "source_name": "FJ1478M",
+            "ontology": "FMA37687"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1512M",
+            "source_name": "FJ1512M",
+            "ontology": "FMA37685"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1478",
+            "source_name": "FJ1478",
+            "ontology": "FMA37686"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1512",
+            "source_name": "FJ1512",
+            "ontology": "FMA37684"
+          }
+        ]
+      }
+    },
+    "anatomy.triceps-brachii": {
+      "overview": "The triceps brachii of each arm, with its long, lateral and medial heads.",
+      "function": "One of the muscles along the humerus that move the forearm.",
+      "related": [
+        "anatomy.humerus",
+        "anatomy.biceps-brachii"
+      ],
+      "source_ids": [
+        "seer-muscles-upper"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1479M",
+            "source_name": "FJ1479M",
+            "ontology": "FMA37700"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1477M",
+            "source_name": "FJ1477M",
+            "ontology": "FMA37698"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1480M",
+            "source_name": "FJ1480M",
+            "ontology": "FMA37696"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1479",
+            "source_name": "FJ1479",
+            "ontology": "FMA37699"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1477",
+            "source_name": "FJ1477",
+            "ontology": "FMA37697"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1480",
+            "source_name": "FJ1480",
+            "ontology": "FMA37695"
+          }
+        ]
+      }
+    },
+    "anatomy.trapezius": {
+      "overview": "One of the more obvious superficial muscles of the neck, on each side.",
+      "function": "Moves the shoulder and arm.",
+      "related": [
+        "anatomy.scapulae",
+        "anatomy.vertebral-column"
+      ],
+      "source_ids": [
+        "seer-muscles-upper",
+        "seer-muscles-head-neck"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1521M",
+            "source_name": "FJ1521M",
+            "ontology": "FMA33587"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1554M",
+            "source_name": "FJ1554M",
+            "ontology": "FMA33585"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1520M",
+            "source_name": "FJ1520M",
+            "ontology": "FMA33583"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1521",
+            "source_name": "FJ1521",
+            "ontology": "FMA33586"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1554",
+            "source_name": "FJ1554",
+            "ontology": "FMA33584"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1520",
+            "source_name": "FJ1520",
+            "ontology": "FMA33581"
+          }
+        ]
+      }
+    },
+    "anatomy.gluteus-maximus": {
+      "overview": "One of the gluteal muscles on each side, the posterior group of the muscles that move the thigh.",
+      "function": "The gluteal muscles are the largest muscle mass among the muscles that move the thigh.",
+      "related": [
+        "anatomy.pelvis",
+        "anatomy.femur",
+        "anatomy.hamstrings"
+      ],
+      "source_ids": [
+        "seer-lower-muscles"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1418M",
+            "source_name": "FJ1418M",
+            "ontology": "FMA22329"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1418",
+            "source_name": "FJ1418",
+            "ontology": "FMA22328"
+          }
+        ]
+      }
+    },
+    "anatomy.quadriceps": {
+      "overview": "The quadriceps femoris group of each thigh: the rectus femoris and three vastus muscles.",
+      "function": "Straightens the leg at the knee.",
+      "related": [
+        "anatomy.quadriceps-tendon",
+        "anatomy.femur",
+        "anatomy.hamstrings"
+      ],
+      "source_ids": [
+        "seer-lower-muscles"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1433M",
+            "source_name": "FJ1433M",
+            "ontology": "FMA38929"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1442M",
+            "source_name": "FJ1442M",
+            "ontology": "FMA38931"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1443M",
+            "source_name": "FJ1443M",
+            "ontology": "FMA38933"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1441M",
+            "source_name": "FJ1441M",
+            "ontology": "FMA38935"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1433",
+            "source_name": "FJ1433",
+            "ontology": "FMA38928"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1442",
+            "source_name": "FJ1442",
+            "ontology": "FMA38930"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1443",
+            "source_name": "FJ1443",
+            "ontology": "FMA38932"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1441",
+            "source_name": "FJ1441",
+            "ontology": "FMA38934"
+          }
+        ]
+      }
+    },
+    "anatomy.hamstrings": {
+      "overview": "The hamstring muscles of each thigh: the biceps femoris, semitendinosus and semimembranosus.",
+      "function": "Bend the leg at the knee, working against the quadriceps.",
+      "related": [
+        "anatomy.quadriceps",
+        "anatomy.femur",
+        "anatomy.tibia"
+      ],
+      "source_ids": [
+        "seer-lower-muscles"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1395M",
+            "source_name": "FJ1395M",
+            "ontology": "FMA45889"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1444M",
+            "source_name": "FJ1444M",
+            "ontology": "FMA45892"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1436M",
+            "source_name": "FJ1436M",
+            "ontology": "FMA22359"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1435M",
+            "source_name": "FJ1435M",
+            "ontology": "FMA22449"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1395",
+            "source_name": "FJ1395",
+            "ontology": "FMA45888"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1444",
+            "source_name": "FJ1444",
+            "ontology": "FMA45891"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1436",
+            "source_name": "FJ1436",
+            "ontology": "FMA22358"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1435",
+            "source_name": "FJ1435",
+            "ontology": "FMA22448"
+          }
+        ]
+      }
+    },
+    "anatomy.calf-muscles": {
+      "overview": "The gastrocnemius and soleus muscles of each lower leg.",
+      "function": "Point the foot downward (plantar flexion), working against the tibialis anterior.",
+      "related": [
+        "anatomy.tibialis-anterior",
+        "anatomy.tibia",
+        "anatomy.foot-bones"
+      ],
+      "source_ids": [
+        "seer-lower-muscles"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1394M",
+            "source_name": "FJ1394M",
+            "ontology": "FMA45961"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1397M",
+            "source_name": "FJ1397M",
+            "ontology": "FMA45958"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1437M",
+            "source_name": "FJ1437M",
+            "ontology": "FMA22559"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1394",
+            "source_name": "FJ1394",
+            "ontology": "FMA45960"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1397",
+            "source_name": "FJ1397",
+            "ontology": "FMA45957"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1437",
+            "source_name": "FJ1437",
+            "ontology": "FMA22558"
+          }
+        ]
+      }
+    },
+    "anatomy.tibialis-anterior": {
+      "overview": "A muscle of each lower leg.",
+      "function": "Lifts the foot upward (dorsiflexion), working against the calf muscles.",
+      "related": [
+        "anatomy.calf-muscles",
+        "anatomy.tibia"
+      ],
+      "source_ids": [
+        "seer-lower-muscles"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1439M",
+            "source_name": "FJ1439M",
+            "ontology": "FMA22545"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1439",
+            "source_name": "FJ1439",
+            "ontology": "FMA22544"
+          }
+        ]
+      }
+    },
+    "anatomy.intervertebral-disks": {
+      "overview": "Soft disks filled with a jelly-like substance between the vertebrae.",
+      "function": "Cushion the vertebrae and keep them in place. As the disks age they break down and lose their cushioning.",
+      "related": [
+        "anatomy.vertebral-column",
+        "anatomy.spinal-cord"
+      ],
+      "source_ids": [
+        "mlp-herniated-disk"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA10446",
+          "source_name": "FMA10446",
+          "ontology": "FMA10446"
+        }
       }
     }
   },
@@ -9370,7 +11909,8 @@
       ],
       "display_on": [
         "anatomy.spongy-bone",
-        "anatomy.compact-bone"
+        "anatomy.compact-bone",
+        "anatomy.vertebral-column"
       ],
       "geometry_mode": "reference_location_only",
       "source_ids": [
@@ -9642,7 +12182,8 @@
         "anatomy.brain"
       ],
       "display_on": [
-        "anatomy.brain"
+        "anatomy.brain",
+        "anatomy.skull"
       ],
       "geometry_mode": "reference_location_only",
       "source_ids": [
@@ -10021,6 +12562,549 @@
       "expert_review": "pending",
       "human_source_review": "pending",
       "not_depicted": "Inflammation is not depicted."
+    },
+    "condition.gerd": {
+      "title": "GERD (acid reflux disease)",
+      "summary": "In gastroesophageal reflux, stomach contents come back up into the esophagus, sometimes causing heartburn. GERD is a more severe, long-lasting form in which this causes repeated bothersome symptoms or leads to complications.",
+      "location": "The esophagus carries food down to the stomach through an opening in the diaphragm.",
+      "focus_id": "anatomy.esophagus",
+      "related_anatomy": [
+        "anatomy.esophagus",
+        "anatomy.stomach"
+      ],
+      "display_on": [
+        "anatomy.esophagus",
+        "anatomy.stomach"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-gerd",
+        "seer-pharynx"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Reflux and irritation are not depicted."
+    },
+    "condition.peptic-ulcer": {
+      "title": "Peptic ulcer",
+      "summary": "A sore on the lining of the stomach or duodenum, also called a stomach or duodenal ulcer. The two most common causes are infection with H. pylori bacteria and taking NSAIDs such as aspirin, ibuprofen and naproxen.",
+      "location": "The stomach empties into the duodenum, the first part of the small intestine.",
+      "focus_id": "anatomy.stomach",
+      "related_anatomy": [
+        "anatomy.stomach",
+        "anatomy.duodenum"
+      ],
+      "display_on": [
+        "anatomy.stomach",
+        "anatomy.duodenum"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-peptic-ulcer",
+        "seer-stomach"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Ulcers are not depicted."
+    },
+    "condition.stomach-cancer": {
+      "title": "Stomach cancer",
+      "summary": "Cancer that starts in the cells lining the stomach, also called gastric cancer. Most is adenocarcinoma, which begins in the mucus-producing cells of the innermost lining.",
+      "location": "The stomach lies in the upper left of the abdomen and receives food from the esophagus.",
+      "focus_id": "anatomy.stomach",
+      "related_anatomy": [
+        "anatomy.stomach"
+      ],
+      "display_on": [
+        "anatomy.stomach"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nci-stomach-cancer",
+        "seer-stomach"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Tumors and their spread are not depicted."
+    },
+    "condition.esophageal-cancer": {
+      "title": "Esophageal cancer",
+      "summary": "The most common types are adenocarcinoma and squamous cell carcinoma, which tend to develop in different parts of the esophagus.",
+      "location": "The esophagus runs from the throat to the stomach, behind the trachea.",
+      "focus_id": "anatomy.esophagus",
+      "related_anatomy": [
+        "anatomy.esophagus"
+      ],
+      "display_on": [
+        "anatomy.esophagus"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nci-esophageal-cancer",
+        "nci-def-esophagus",
+        "seer-pharynx"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Tumors and their spread are not depicted."
+    },
+    "condition.hiatal-hernia": {
+      "title": "Hiatal hernia",
+      "summary": "The upper part of the stomach bulges through an opening in the diaphragm. This makes it easier for stomach acid to come up into the esophagus (GERD).",
+      "location": "The diaphragm, the thin muscle separating the chest from the abdomen, has an opening through which the esophagus passes.",
+      "focus_id": "anatomy.diaphragm",
+      "related_anatomy": [
+        "anatomy.diaphragm",
+        "anatomy.stomach",
+        "anatomy.esophagus"
+      ],
+      "display_on": [
+        "anatomy.diaphragm",
+        "anatomy.stomach"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-hiatal-hernia",
+        "seer-pharynx"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The hernia is not depicted."
+    },
+    "condition.hiccups": {
+      "title": "Hiccups",
+      "summary": "An unintentional movement (spasm) of the diaphragm, the muscle at the base of the lungs. Hiccups often start for no apparent reason.",
+      "location": "The diaphragm separates the chest from the abdomen.",
+      "focus_id": "anatomy.diaphragm",
+      "related_anatomy": [
+        "anatomy.diaphragm"
+      ],
+      "display_on": [
+        "anatomy.diaphragm"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-hiccups",
+        "nci-def-diaphragm"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Movement is not depicted."
+    },
+    "condition.spinal-cord-injury": {
+      "title": "Spinal cord injury",
+      "summary": "Usually begins with a blow that breaks or dislocates vertebrae; pieces of vertebrae then tear into or press on the cord. A complete injury stops signals below the injury; with an incomplete injury some movement and feeling remain.",
+      "location": "The spinal cord runs down the middle of the back inside the vertebral column.",
+      "focus_id": "anatomy.spinal-cord",
+      "related_anatomy": [
+        "anatomy.spinal-cord",
+        "anatomy.vertebral-column"
+      ],
+      "display_on": [
+        "anatomy.spinal-cord",
+        "anatomy.vertebral-column"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-spinal-cord-injury",
+        "nci-def-spinal-cord"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Injury and nerve damage are not depicted."
+    },
+    "condition.pituitary-tumors": {
+      "title": "Pituitary tumors",
+      "summary": "Common, but often they cause no health problems and most people never know they have one. The most common type makes hormones and upsets the body's hormone balance, which can cause conditions such as Cushing syndrome.",
+      "location": "The pituitary gland is a pea-sized gland at the base of the brain.",
+      "focus_id": "anatomy.pituitary",
+      "related_anatomy": [
+        "anatomy.pituitary"
+      ],
+      "display_on": [
+        "anatomy.pituitary"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-pituitary-tumors",
+        "nci-def-pituitary-gland"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Tumors are not depicted."
+    },
+    "condition.adrenal-insufficiency": {
+      "title": "Adrenal insufficiency (Addison's disease)",
+      "summary": "The adrenal glands do not make enough of certain hormones, including cortisol, which is essential for life. The most common symptoms are fatigue, muscle weakness, loss of appetite, weight loss and abdominal pain.",
+      "location": "The adrenal glands sit on top of the kidneys.",
+      "focus_id": "anatomy.adrenal-glands",
+      "related_anatomy": [
+        "anatomy.adrenal-glands"
+      ],
+      "display_on": [
+        "anatomy.adrenal-glands"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-adrenal-insufficiency",
+        "nci-def-adrenal-gland"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Hormone levels are not depicted."
+    },
+    "condition.cushings": {
+      "title": "Cushing's syndrome",
+      "summary": "The body makes too much of the hormone cortisol over a long time. Cortisol helps the body respond to stress, maintain blood pressure and regulate blood glucose.",
+      "location": "The adrenal glands, two small glands on top of the kidneys, make cortisol.",
+      "focus_id": "anatomy.adrenal-glands",
+      "related_anatomy": [
+        "anatomy.adrenal-glands"
+      ],
+      "display_on": [
+        "anatomy.adrenal-glands",
+        "anatomy.pituitary"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-cushings"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Hormone levels are not depicted."
+    },
+    "condition.testicular-cancer": {
+      "title": "Testicular cancer",
+      "summary": "Most often begins in germ cells, the cells that make sperm. It is rare, most often diagnosed in men aged 20 to 34, and most cases can be cured even at an advanced stage.",
+      "location": "The testes lie inside the scrotum.",
+      "focus_id": "anatomy.testes",
+      "related_anatomy": [
+        "anatomy.testes"
+      ],
+      "display_on": [
+        "anatomy.testes"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nci-testicular-cancer",
+        "nci-def-testicle"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Tumors and their spread are not depicted."
+    },
+    "condition.erectile-dysfunction": {
+      "title": "Erectile dysfunction",
+      "summary": "A condition that prevents getting or keeping an erection firm enough for sex. It can often be treated.",
+      "location": "The penis contains three columns of erectile tissue.",
+      "focus_id": "anatomy.penis",
+      "related_anatomy": [
+        "anatomy.penis"
+      ],
+      "display_on": [
+        "anatomy.penis"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-ed",
+        "seer-penis"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Function is not depicted."
+    },
+    "condition.scoliosis": {
+      "title": "Scoliosis",
+      "summary": "A sideways curve of the spine. Children and teens with scoliosis have an abnormal S- or C-shaped curve; in most people the cause is unknown.",
+      "location": "The vertebral column runs from the base of the skull to the tailbone.",
+      "focus_id": "anatomy.vertebral-column",
+      "related_anatomy": [
+        "anatomy.vertebral-column"
+      ],
+      "display_on": [
+        "anatomy.vertebral-column"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niams-scoliosis",
+        "nci-def-spine"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The curve is not depicted."
+    },
+    "condition.herniated-disk": {
+      "title": "Herniated disk",
+      "summary": "A disk between the vertebrae ruptures, letting its jelly-like center leak and irritate nearby nerves. This can cause sciatica or back pain; with treatment most people recover.",
+      "location": "Soft disks between the vertebrae cushion them and keep them in place.",
+      "focus_id": "anatomy.intervertebral-disks",
+      "related_anatomy": [
+        "anatomy.intervertebral-disks",
+        "anatomy.vertebral-column"
+      ],
+      "display_on": [
+        "anatomy.intervertebral-disks",
+        "anatomy.vertebral-column"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-herniated-disk"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The rupture and nerve irritation are not depicted."
+    },
+    "condition.back-pain": {
+      "title": "Back pain",
+      "summary": "One of the most common medical problems in the United States. It becomes more common with age, particularly after 45, and is more common in people who are not physically fit.",
+      "location": "The spine includes the bones, muscles, tendons and other tissues from the base of the skull to the tailbone.",
+      "focus_id": "anatomy.vertebral-column",
+      "related_anatomy": [
+        "anatomy.vertebral-column"
+      ],
+      "display_on": [
+        "anatomy.vertebral-column",
+        "anatomy.intervertebral-disks"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niams-back-pain",
+        "nci-def-spine"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Pain and its causes are not depicted."
+    },
+    "condition.carpal-tunnel": {
+      "title": "Carpal tunnel syndrome",
+      "summary": "Numbness, tingling, weakness or pain in the wrist or hand when the median nerve is squeezed in the carpal tunnel, a narrow opening between the wrist bones and the ligament that holds them together.",
+      "location": "The carpal tunnel lies between the bones of the wrist and the ligament that holds them together.",
+      "focus_id": "anatomy.hand-bones",
+      "related_anatomy": [
+        "anatomy.hand-bones"
+      ],
+      "display_on": [
+        "anatomy.hand-bones",
+        "anatomy.forearm-bones"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-carpal-tunnel",
+        "seer-appendicular"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The median nerve and carpal tunnel are not depicted."
+    },
+    "condition.gout": {
+      "title": "Gout",
+      "summary": "A type of inflammatory arthritis causing pain and swelling in the joints, usually in flares that last a week or two and then resolve. Flares often begin in the big toe or a lower limb.",
+      "location": "Each foot has tarsals, metatarsals and phalanges; flares often begin in the big toe.",
+      "focus_id": "anatomy.foot-bones",
+      "related_anatomy": [
+        "anatomy.foot-bones"
+      ],
+      "display_on": [
+        "anatomy.foot-bones"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niams-gout",
+        "seer-appendicular"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Joint inflammation and crystals are not depicted."
+    },
+    "condition.rheumatoid-arthritis": {
+      "title": "Rheumatoid arthritis",
+      "summary": "A long-lasting autoimmune disease that mostly affects joints, causing pain, swelling, stiffness and loss of function. It can affect the joints of the wrists, hands, elbows, shoulders, feet, spine, knees and jaw.",
+      "location": "The hands and wrists are among the joints it often affects.",
+      "focus_id": "anatomy.hand-bones",
+      "related_anatomy": [
+        "anatomy.hand-bones"
+      ],
+      "display_on": [
+        "anatomy.hand-bones",
+        "anatomy.foot-bones",
+        "anatomy.knee"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niams-ra"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Joint inflammation is not depicted."
+    },
+    "condition.pad": {
+      "title": "Peripheral artery disease",
+      "summary": "Plaque builds up in arteries and reduces blood flow. The most common type reduces blood flow to the legs and feet.",
+      "location": "Branches of the external iliac arteries supply the legs.",
+      "focus_id": "anatomy.leg-arteries",
+      "related_anatomy": [
+        "anatomy.leg-arteries"
+      ],
+      "display_on": [
+        "anatomy.leg-arteries"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nhlbi-pad",
+        "seer-pathways"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Plaque and reduced flow are not depicted."
+    },
+    "condition.carotid-artery-disease": {
+      "title": "Carotid artery disease",
+      "summary": "The carotid arteries become narrow or blocked, usually by atherosclerosis, a buildup of plaque made of fat, cholesterol, calcium and other substances.",
+      "location": "There is a carotid artery on each side of the neck, carrying blood from the heart to the head.",
+      "focus_id": "anatomy.carotid-arteries",
+      "related_anatomy": [
+        "anatomy.carotid-arteries"
+      ],
+      "display_on": [
+        "anatomy.carotid-arteries"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-carotid",
+        "nci-def-carotid-artery"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Plaque is not depicted."
+    },
+    "condition.rotator-cuff": {
+      "title": "Rotator cuff injuries",
+      "summary": "Rotator cuff injuries are common. The rotator cuff is a group of muscles and tendons that holds the top of the upper arm bone firmly in the shoulder socket and keeps the shoulder stable.",
+      "location": "The rotator cuff muscles connect to the humerus.",
+      "focus_id": "anatomy.humerus",
+      "related_anatomy": [
+        "anatomy.humerus",
+        "anatomy.scapulae"
+      ],
+      "display_on": [
+        "anatomy.humerus",
+        "anatomy.scapulae"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-rotator-cuff",
+        "seer-muscles-upper"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The rotator cuff and its injury are not depicted."
+    },
+    "condition.oral-cancer": {
+      "title": "Lip and oral cavity cancer",
+      "summary": "A cancer that starts in the lips or mouth, including the front two-thirds of the tongue, the gums, the lining of the cheeks, the floor of the mouth and the hard palate.",
+      "location": "The oral cavity contains the teeth and tongue.",
+      "focus_id": "anatomy.tongue",
+      "related_anatomy": [
+        "anatomy.tongue"
+      ],
+      "display_on": [
+        "anatomy.tongue",
+        "anatomy.teeth"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nci-oral-cancer",
+        "seer-mouth"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Tumors are not depicted."
+    },
+    "condition.tooth-decay": {
+      "title": "Tooth decay",
+      "summary": "Damage to a tooth's surface, or enamel, which happens when bacteria in the mouth make acids that attack the enamel.",
+      "location": "A complete permanent set has 32 teeth.",
+      "focus_id": "anatomy.teeth",
+      "related_anatomy": [
+        "anatomy.teeth"
+      ],
+      "display_on": [
+        "anatomy.teeth"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-tooth-decay",
+        "seer-mouth"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Decay is not depicted."
+    },
+    "condition.salivary-disorders": {
+      "title": "Salivary gland disorders",
+      "summary": "Problems affecting the three pairs of major salivary glands and hundreds of minor ones, which make saliva and empty it into the mouth through ducts.",
+      "location": "The submandibular glands are one of the three pairs of major salivary glands.",
+      "focus_id": "anatomy.salivary-glands",
+      "related_anatomy": [
+        "anatomy.salivary-glands"
+      ],
+      "display_on": [
+        "anatomy.salivary-glands"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-salivary"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Disorders are not depicted."
+    },
+    "condition.muscle-strain": {
+      "title": "Muscle strain",
+      "summary": "A stretched or torn muscle or tendon. Back and hamstring muscle strains are common.",
+      "location": "The hamstrings are thigh muscles that bend the leg at the knee.",
+      "focus_id": "anatomy.hamstrings",
+      "related_anatomy": [
+        "anatomy.hamstrings"
+      ],
+      "display_on": [
+        "anatomy.hamstrings",
+        "anatomy.calf-muscles",
+        "anatomy.quadriceps"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-sprains-strains",
+        "seer-lower-muscles"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Tears are not depicted."
     }
   },
   "assistant_checks": {
@@ -10036,11 +13120,16 @@
       "mlp-acl",
       "mlp-alzheimers",
       "mlp-brain",
+      "mlp-carotid",
+      "mlp-carpal-tunnel",
       "mlp-cerebellum",
       "mlp-dvt",
       "mlp-ectopic-pregnancy",
       "mlp-epilepsy",
       "mlp-eyelid-disorders",
+      "mlp-herniated-disk",
+      "mlp-hiatal-hernia",
+      "mlp-hiccups",
       "mlp-hydrocephalus",
       "mlp-knee",
       "mlp-laryngitis",
@@ -10053,11 +13142,17 @@
       "mlp-parkinson-disease",
       "mlp-parkinsons",
       "mlp-pelvic-support",
+      "mlp-pituitary-tumors",
       "mlp-retinal-artery-occlusion",
+      "mlp-rotator-cuff",
+      "mlp-salivary",
+      "mlp-spinal-cord-injury",
       "mlp-spleen-diseases",
+      "mlp-sprains-strains",
       "mlp-strabismus",
       "mlp-stroke",
       "mlp-tbi",
+      "mlp-tooth-decay",
       "mlp-urethral-disorders",
       "mlp-voice-disorders",
       "nci-bile-duct-cancer",
@@ -10065,38 +13160,62 @@
       "nci-brain-tumors",
       "nci-cervical-cancer",
       "nci-colorectal-cancer",
+      "nci-def-adrenal-gland",
       "nci-def-bile-duct",
       "nci-def-broad-ligament",
       "nci-def-carina-of-trachea",
+      "nci-def-carotid-artery",
       "nci-def-cerebrospinal-fluid",
+      "nci-def-clavicle",
       "nci-def-conjunctiva",
       "nci-def-coronary-artery-disease",
+      "nci-def-diaphragm",
       "nci-def-dura-mater",
+      "nci-def-epididymis",
+      "nci-def-esophagus",
       "nci-def-fundus",
       "nci-def-hepatic-artery",
       "nci-def-inferior-vena-cava",
+      "nci-def-mandible",
+      "nci-def-maxilla",
       "nci-def-meninges",
       "nci-def-olfactory-bulb",
       "nci-def-optic-chiasm",
       "nci-def-pancreatic-duct",
       "nci-def-pelvis",
+      "nci-def-penis",
+      "nci-def-pharynx",
       "nci-def-pineal-gland",
+      "nci-def-pituitary-gland",
       "nci-def-prostate",
+      "nci-def-sacrum",
+      "nci-def-scapula",
       "nci-def-sclera",
       "nci-def-seminal-vesicle",
+      "nci-def-skull",
+      "nci-def-soft-palate",
+      "nci-def-spinal-cord",
+      "nci-def-spine",
+      "nci-def-sternum",
+      "nci-def-stomach",
+      "nci-def-testicle",
       "nci-def-trachea",
       "nci-def-ureter",
       "nci-def-urethra",
       "nci-def-vas-deferens",
       "nci-def-ventricle",
       "nci-def-vocal-cord",
+      "nci-esophageal-cancer",
       "nci-kidney-cancer",
       "nci-liver-cancer",
       "nci-lung-cancer",
+      "nci-oral-cancer",
       "nci-ovarian-cancer",
       "nci-pancreatic-cancer",
       "nci-prostate-cancer",
       "nci-skin-cancer",
+      "nci-stomach-cancer",
+      "nci-testicular-cancer",
       "nci-uterine-cancer",
       "nei-amd",
       "nei-cataracts",
@@ -10114,16 +13233,22 @@
       "nhlbi-copd",
       "nhlbi-heart-attack",
       "nhlbi-heart-failure",
+      "nhlbi-pad",
       "nhlbi-pneumonia",
       "nhlbi-pulmonary-embolism",
       "nhlbi-pulmonary-hypertension",
       "niams-atopic-dermatitis",
+      "niams-back-pain",
+      "niams-gout",
       "niams-osteoarthritis",
       "niams-osteoporosis",
       "niams-psoriasis",
+      "niams-ra",
+      "niams-scoliosis",
       "nichd-endometriosis",
       "nichd-fibroids",
       "nichd-pcos",
+      "niddk-adrenal-insufficiency",
       "niddk-appendicitis",
       "niddk-bladder-infection",
       "niddk-bph",
@@ -10131,16 +13256,20 @@
       "niddk-cirrhosis",
       "niddk-ckd",
       "niddk-crohns",
+      "niddk-cushings",
       "niddk-diabetes",
       "niddk-digestive",
       "niddk-diverticular",
+      "niddk-ed",
       "niddk-gallstones",
+      "niddk-gerd",
       "niddk-hemorrhoids",
       "niddk-kidney-stones",
       "niddk-kidneys",
       "niddk-lactose-intolerance",
       "niddk-nafld",
       "niddk-pancreatitis",
+      "niddk-peptic-ulcer",
       "niddk-pkd",
       "niddk-prostatitis",
       "niddk-ulcerative-colitis",
@@ -10148,7 +13277,10 @@
       "niddk-viral-hepatitis",
       "pulmonary-branches",
       "seer-accessory",
+      "seer-adrenal",
+      "seer-appendicular",
       "seer-articulations",
+      "seer-axial",
       "seer-bladder",
       "seer-bone-tissue",
       "seer-bronchi",
@@ -10160,11 +13292,23 @@
       "seer-larynx",
       "seer-lower-muscles",
       "seer-lymph-nodes",
+      "seer-male-duct",
       "seer-male-glands",
+      "seer-mechanics",
+      "seer-mouth",
+      "seer-muscles-head-neck",
+      "seer-muscles-trunk",
+      "seer-muscles-upper",
+      "seer-nose",
       "seer-ovaries",
       "seer-pathways",
+      "seer-penis",
+      "seer-pharynx",
+      "seer-pituitary",
       "seer-skin",
       "seer-spleen",
+      "seer-stomach",
+      "seer-testes",
       "seer-thymus",
       "seer-ureters",
       "tm-abdominal-veins",
@@ -10182,6 +13326,7 @@
       "tm-ovaries",
       "tm-patella",
       "tm-pelvic-veins",
+      "tm-radius",
       "tm-rectum",
       "tm-seminal-vesicles",
       "tm-sma",
@@ -10189,6 +13334,7 @@
       "tm-spleen",
       "tm-svc",
       "tm-tracheobronchial",
+      "tm-ulna",
       "tm-urethra",
       "tm-uterus",
       "valve-disease-types"

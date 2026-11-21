@@ -34,6 +34,8 @@ func _initialize() -> void:
 		"VH_F_left_ureter": "urinary",
 		"VH_F_skin": "skin",
 		"VH_F_trabecular_meshwork_L": "",
+		"diaphragm": "muscle",
+		"linea alba": "ligament",
 	}
 	for name in expected:
 		check(TissueAppearance.classify(name) == expected[name], "%s -> %s (got %s)" % [name, expected[name], TissueAppearance.classify(name)])

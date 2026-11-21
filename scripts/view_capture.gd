@@ -8,7 +8,13 @@ static func credits(reference: Dictionary, selection_label: String) -> String:
 		context += " · " + selection_label
 	var lines: Array[String] = ["PRAXIS CORPORIS · " + context,
 		"Private anatomy prototype · draft geometry/labels · medical review pending"]
-	if reference.get("id") == "bodyparts-male-bones-study":
+	if reference.get("study_kind") == "bodyparts3d-complete":
+		lines.append("BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International")
+		lines.append("Source v4.0: https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html")
+		lines.append("Current grant: https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html · https://creativecommons.org/licenses/by/4.0/")
+		lines.append("Separate complete male body; no HRA/female alignment. Legacy OBJ notices retain CC BY-SA 2.1 Japan.")
+		lines.append("Changes: repeated source meshes kept once, mm/Z-up to metre/Y-up, source normals retained; display colours and inspection effects.")
+	elif reference.get("id") == "bodyparts-male-bones-study":
 		lines.append("BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International")
 		lines.append("Source v4.0: https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html")
 		lines.append("Current grant: https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html · https://creativecommons.org/licenses/by/4.0/")

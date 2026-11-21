@@ -17,6 +17,7 @@ from native_sources import SNAPSHOT_VERSION, source_paths, verify_identity_recor
 FIXED_SOURCES = {
     'project.godot', 'export_presets.cfg', 'content/sample_pack.json', 'content/source_manifest.json',
     'content/toolchain_manifest.json', 'content/coverage_notes.json', 'content/bodyparts3d_bone_study.json',
+    'content/bodyparts3d_complete_body.json',
     'content/bodyparts3d_source_manifest.json', 'addons/private_native_export/plugin.gd',
 }
 NOTICES = {name: 'third_party/' + name for name in [

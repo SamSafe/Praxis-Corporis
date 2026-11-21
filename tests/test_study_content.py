@@ -58,7 +58,7 @@ class StudyContentTests(unittest.TestCase):
     def test_conditions_are_sourced_reference_locations_with_explicit_associations(self):
         content = json.loads((ROOT / "content/study_content.json").read_text())
         catalogue = json.loads((ROOT / "content/sample_pack.json").read_text())
-        self.assertEqual(len(content["conditions"]), 82)
+        self.assertEqual(len(content["conditions"]), 107)
         for body in catalogue["bodies"]:
             available = {s["id"]: s for s in body["structures"]}
             offered = set()
@@ -110,7 +110,7 @@ class StudyContentTests(unittest.TestCase):
         content = json.loads((ROOT / "content/study_content.json").read_text())
         catalogue = json.loads((ROOT / "content/sample_pack.json").read_text())
         self.assertEqual(content["expert_review"], "pending")
-        self.assertEqual(len(content["cards"]), 153)
+        self.assertEqual(len(content["cards"]), 196)
         mapped = {}
         for identity, card in content["cards"].items():
             self.assertEqual(card["review_status"], "draft")
@@ -123,11 +123,16 @@ class StudyContentTests(unittest.TestCase):
                 self.assertNotIn(mapping["id"], mapped, "one structure carries one card")
                 self.assertNotIn(mapping["id"], content["cards"])
                 mapped[mapping["id"]] = identity
+        complete = {s["id"] for s in json.loads((ROOT / "content/bodyparts3d_complete_body.json").read_text())["structures"]}
         for body in catalogue["bodies"]:
             available = {s["id"]: s for s in body["structures"]}
             for identity, card in content["cards"].items():
                 if "geometry" not in card:
-                    self.assertIn(identity, available)
+                    # Shared IDs name the structure directly; some exist only in the
+                    # complete BodyParts3D body (for example the stomach).
+                    if identity not in available:
+                        self.assertIn(identity, complete)
+                        continue
                 elif body["id"] not in card["geometry"]:
                     continue
                 else:
@@ -140,6 +145,32 @@ class StudyContentTests(unittest.TestCase):
                     related_card = content["cards"].get(related, {})
                     sex_specific = "geometry" in related_card and body["id"] not in related_card["geometry"]
                     self.assertTrue(resolve(content, related, available) or sex_specific, related)
+
+    def test_complete_body_mappings_match_its_catalogue(self):
+        content = json.loads((ROOT / "content/study_content.json").read_text())
+        body = json.loads((ROOT / "content/bodyparts3d_complete_body.json").read_text())
+        available = {s["id"]: s for s in body["structures"]}
+        self.assertEqual(body["study_kind"], "bodyparts3d-complete")
+        self.assertIn("No registration", body["coverage_notes"]["notice"].replace("no registration", "No registration"))
+        for record in available.values():
+            self.assertTrue(set(record["children"]) <= available.keys())
+            self.assertTrue(record["mesh_nodes"])
+        on_body = 0
+        for identity, card in content["cards"].items():
+            if identity in available:
+                on_body += 1
+                continue
+            if body["id"] not in card.get("geometry", {}):
+                continue
+            on_body += 1
+            for mapping in mapping_list(card["geometry"][body["id"]]):
+                source = available[mapping["id"]]
+                self.assertEqual(mapping["source_name"], source["source_name"])
+                self.assertEqual(mapping["ontology"], source["ontology"])
+                self.assertNotIn(mapping["id"], content["cards"])
+        # Cards whose anatomy the complete male source supplies (no female or
+        # source-absent parts); see docs/BODY_STUDY_CONTENT.md.
+        self.assertEqual(on_body, 142)
 
     def test_spinal_studies_preserve_ambiguous_source_identity(self):
         studies = json.loads((ROOT / "content/spinal_studies.json").read_text())["bodies"]

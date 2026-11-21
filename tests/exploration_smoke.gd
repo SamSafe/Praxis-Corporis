@@ -141,8 +141,19 @@ func run() -> void:
 		viewer.orbit.focus(viewer.model.bounds_for("anatomy.skin"))
 		await physics_frame
 		await physics_frame
+		# With the selection reveal off, opaque skin must still hide the heart's labels.
+		viewer.model.reveal_selection = false
+		viewer.model.refresh_appearance()
+		await physics_frame
+		await physics_frame
 		labels.update_labels()
 		check(labels.visible_ids.is_empty(), "Opaque skin prevents misleading heart surface labels")
+		viewer.model.reveal_selection = true
+		viewer.model.refresh_appearance()
+		await physics_frame
+		await physics_frame
+		labels.update_labels()
+		check(not labels.visible_ids.is_empty(), "Revealing the selected heart lets its surface labels show")
 		viewer.model.set_visibility("anatomy.body", "hidden")
 		viewer.model.set_visibility("anatomy.heart", "faded")
 		viewer.focus_selection()

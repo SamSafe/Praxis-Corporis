@@ -108,7 +108,7 @@ static func run(viewer: Control, rendered: bool = false) -> bool:
 			valid = await step(viewer, func(): viewer.apply_preferences(settings), "text size", rendered, report, true) and valid
 			valid = await step(viewer, func(): viewer.get_window().size = Vector2i(1100, 720) if viewer.get_window().size != Vector2i(1100, 720) else Vector2i(1440, 900), "window size", rendered, report, true) and valid
 	valid = await step(viewer, func(): viewer.restore_view_state(before), "restore saved view", rendered, report) and valid
-	if viewer.model.structures.has("anatomy.heart"):
+	if viewer.chest_supported():
 		viewer.start_guided_chest()
 		valid = await step(viewer, func(): viewer.apply_chest_step(2), "guided study", rendered, report) and valid
 		await viewer.finish_guided_chest()

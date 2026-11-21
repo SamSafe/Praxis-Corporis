@@ -39,16 +39,21 @@ func run() -> void:
 			await viewer.switch_body(reference)
 		for id in viewer.study_content.data.cards:
 			var record: Dictionary = viewer.study_content.card(id)
-			if record.has("geometry") and not record.geometry.has(reference):
+			# Cards named directly by a shared structure ID may also carry explicit
+			# mappings for another body; only mapping-only cards must stay unresolved.
+			if record.has("geometry") and not record.geometry.has(reference) and not viewer.model.structures.has(id):
 				check(viewer.study_content.structure_id(id, viewer.model.structures).is_empty(), "Body-specific card has no inferred structure: " + id)
 				continue
+			if not record.has("geometry") and not viewer.model.structures.has(id):
+				continue # Organs only the complete BodyParts3D body supplies, such as the stomach.
 			var structure: String = viewer.study_content.structure_id(id, viewer.model.structures)
 			check(not structure.is_empty(), "Study card maps to actual geometry: " + id)
 			check(viewer.study_content.card(structure) == record, "Selecting the mapped structure finds its card: " + id)
 			for related in record.related:
 				var target: String = viewer.study_content.structure_id(related, viewer.model.structures)
 				var related_card: Dictionary = viewer.study_content.card(related)
-				check(not target.is_empty() or (related_card.has("geometry") and not related_card.geometry.has(reference)), "Study relationship maps to this reference: " + related)
+				var absent_here: bool = (related_card.has("geometry") and not related_card.geometry.has(reference)) or (not related_card.has("geometry") and not viewer.model.structures.has(related))
+				check(not target.is_empty() or absent_here, "Study relationship maps to this reference: " + related)
 		viewer.select_structure("anatomy.heart")
 		check("Pumps blood" in viewer.study_summary.text and viewer.study_links.get_child_count() == 5, "Heart card shows authored text, relationships and primary sources")
 		viewer.study_links.get_child(0).pressed.emit()

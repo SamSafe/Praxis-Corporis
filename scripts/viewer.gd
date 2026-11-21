@@ -942,6 +942,20 @@ func verify_part_check(condition: bool, stage: String) -> bool:
 	return condition
 
 
+func toolbar_divider() -> Control:
+	var divider := ColorRect.new()
+	divider.color = Color("223246")
+	divider.custom_minimum_size = Vector2(1, 26)
+	divider.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	divider.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var holder := MarginContainer.new()
+	holder.add_theme_constant_override("margin_left", 4)
+	holder.add_theme_constant_override("margin_right", 4)
+	holder.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	holder.add_child(divider)
+	return holder
+
+
 func make_button(text: String, callback: Callable, parent: Node, hint: String = "") -> Button:
 	var button := Button.new()
 	button.text = text
@@ -995,6 +1009,23 @@ func build_interface() -> void:
 	for state in ["font_hover_color", "font_focus_color", "font_pressed_color"]:
 		palette.set_color(state, "LinkButton", Color("e4f8fb"))
 	palette.set_stylebox("panel", "PanelContainer", panel_style(Color("0e1926"), Color("263447")))
+	# Dialog bodies and embedded window chrome in the app palette, not the engine grey.
+	var dialog_panel := panel_style(Color("0e1926"), Color("0e1926"), 0)
+	for type in ["AcceptDialog", "ConfirmationDialog", "FileDialog", "Window"]:
+		palette.set_stylebox("panel", type, dialog_panel)
+	var chrome := panel_style(Color("0e1926"), Color("2b3c50"), 10)
+	chrome.set_border_width_all(1)
+	chrome.expand_margin_top = 34
+	chrome.expand_margin_left = 1
+	chrome.expand_margin_right = 1
+	chrome.expand_margin_bottom = 1
+	chrome.content_margin_left = 0
+	chrome.content_margin_right = 0
+	chrome.content_margin_top = 0
+	chrome.content_margin_bottom = 0
+	palette.set_stylebox("embedded_border", "Window", chrome)
+	palette.set_stylebox("embedded_unfocused_border", "Window", chrome)
+	palette.set_color("title_color", "Window", Color("e3edf5"))
 	palette.set_stylebox("panel", "Tree", panel_style(Color("0e1926"), Color("263447")))
 	palette.set_color("font_color", "Tree", Color("c8d6e3"))
 	# Rows and scrollbars in the app's palette instead of the engine's grey defaults.
@@ -1078,10 +1109,15 @@ func build_interface() -> void:
 	body_choice.item_selected.connect(func(index: int): switch_body(str(body_choice.get_item_metadata(index))))
 	top.add_child(body_choice)
 	reference_buttons.append(make_button("Saved views", show_saved_views, top, "Keep multiple named exploration setups on this computer."))
+	# Thin dividers group the bar by purpose: reference and views, guided study,
+	# reference information, then view and export.
+	top.add_child(toolbar_divider())
 	guide_button = make_button("Guided chest", start_guided_chest, top)
 	route_button = make_button("Heart ↔ lungs", start_circulation_route, top, "Follow a sourced circulation sequence, choose either lung branch and see coverage gaps.")
+	top.add_child(toolbar_divider())
 	reference_buttons.append(make_button("Coverage", show_coverage, top))
 	make_button("Sources", show_sources, top)
+	top.add_child(toolbar_divider())
 	panels_menu = MenuButton.new()
 	panels_menu.text = "View"
 	panels_menu.flat = false
@@ -1114,7 +1150,6 @@ func build_interface() -> void:
 	left.custom_minimum_size.x = 255
 	left.add_theme_constant_override("separation", 10)
 	columns.add_child(left)
-	left.add_child(make_label("EXPLORE ANATOMY", 13, Color("83cfc9")))
 	search = UiAccessibility.ValueInput.new()
 	search.placeholder_text = "Name or source ID…"
 	search.max_length = 256
@@ -1144,7 +1179,7 @@ func build_interface() -> void:
 	search_results.visible = false
 	search_results.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	search_results.custom_minimum_size = Vector2(255, 160)
-	search_results.icon_mode = ItemList.ICON_MODE_TOP
+	search_results.icon_mode = ItemList.ICON_MODE_LEFT
 	search_results.max_text_lines = 2
 	search_results.fixed_column_width = 235
 	search_results.allow_reselect = true
@@ -1316,7 +1351,6 @@ func build_interface() -> void:
 	right.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	right.add_theme_constant_override("separation", 12)
 	right_scroll.add_child(right)
-	right.add_child(make_label("SELECTED STRUCTURE", 13, Color("83cfc9")))
 	heading = make_label("Explore the body", 23, Color("f2f6fa"))
 	heading.autowrap_mode = TextServer.AUTOWRAP_ARBITRARY
 	right.add_child(heading)
@@ -1346,6 +1380,11 @@ func build_interface() -> void:
 	right.add_child(visibility_row)
 	visibility_buttons.append(make_button("Hide", func(): change_visibility("hidden"), visibility_row))
 	visibility_buttons.append(make_button("Fade", func(): change_visibility("faded"), visibility_row, "Faded anatomy is click-through."))
+	# Paired actions share the panel width evenly, aligned with the full-width actions below.
+	for row in [action_row, visibility_row]:
+		row.add_theme_constant_override("separation", 8)
+		for button in row.get_children():
+			button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	inspect_button = make_button("Inspect alone", inspect_alone, right, "Temporarily reveal only the selected supplied geometry at its current position.")
 	action_buttons.append(make_button("Restore selected", restore_selected, right))
 	action_buttons.append(make_button("Copy source record", copy_source_record, right, "Copy this structure’s source identity and reference fingerprint. Study notes are excluded."))
@@ -2013,7 +2052,7 @@ func refresh_expanded_menu() -> void:
 	popup.set_item_disabled(popup.get_item_index(ExpandedAction.UNDO), undo_button.disabled)
 	popup.set_item_disabled(popup.get_item_index(ExpandedAction.REDO), redo_button.disabled)
 	popup.set_item_disabled(popup.get_item_index(ExpandedAction.SCREENSHOT), unavailable or capture_in_progress)
-	popup.set_item_disabled(popup.get_item_index(ExpandedAction.GUIDED_CHEST), unavailable or not model.structures.has("anatomy.heart"))
+	popup.set_item_disabled(popup.get_item_index(ExpandedAction.GUIDED_CHEST), unavailable or not chest_supported())
 	popup.set_item_disabled(popup.get_item_index(ExpandedAction.CIRCULATION_ROUTE), unavailable or not route_supported)
 	popup.set_item_disabled(popup.get_item_index(ExpandedAction.READ_STUDY), unavailable or study_content.card(model.selected_id).is_empty())
 	popup.set_item_tooltip(popup.get_item_index(ExpandedAction.READ_STUDY),
@@ -2186,12 +2225,21 @@ func apply_preferences(settings: Dictionary) -> void:
 func show_preferences() -> Window:
 	var dialog := AcceptDialog.new()
 	dialog.title = "Viewing preferences"
-	dialog.dialog_text = "Preferences are remembered on this computer.\nSaved anatomy views keep their own label settings."
+	var content := VBoxContainer.new()
+	content.add_theme_constant_override("separation", 14)
+	var note := make_label("Remembered on this computer. Saved anatomy views keep their own label settings.", 14, Color("9fb3c6"))
+	note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	note.custom_minimum_size.x = 460
+	content.add_child(note)
 	var row := HBoxContainer.new()
-	row.add_child(make_label("Text size", 15))
+	row.add_theme_constant_override("separation", 12)
+	var size_label := make_label("Text size", 15)
+	size_label.custom_minimum_size.x = 150
+	row.add_child(size_label)
 	var sizes := OptionButton.new()
-	for size_label in ["100%", "115%", "130%"]:
-		sizes.add_item(size_label)
+	sizes.custom_minimum_size = Vector2(120, 38)
+	for size_label_text in ["100%", "115%", "130%"]:
+		sizes.add_item(size_label_text)
 	sizes.select([1.0, 1.15, 1.3].find(text_scale))
 	sizes.item_selected.connect(func(index: int):
 		var settings := preference_state()
@@ -2199,8 +2247,10 @@ func show_preferences() -> Window:
 		apply_preferences(settings)
 		save_preferences())
 	row.add_child(sizes)
+	content.add_child(row)
 	var motion := CheckButton.new()
 	motion.text = "Smooth camera motion"
+	motion.custom_minimum_size.y = 38
 	motion.button_pressed = smooth_motion
 	motion.tooltip_text = "Eases camera moves, lets a flicked orbit glide and zooms towards the pointer. Turn off for instant movement."
 	UiAccessibility.describe(motion, "Smooth camera motion", motion.tooltip_text)
@@ -2209,17 +2259,18 @@ func show_preferences() -> Window:
 		settings.smooth_motion = enabled
 		apply_preferences(settings)
 		save_preferences())
-	row.add_child(motion)
-	make_button("Reset preferences", func():
+	content.add_child(motion)
+	var reset := make_button("Reset preferences", func():
 		apply_preferences(ViewerPreferences.DEFAULTS)
 		sizes.select(0)
 		motion.set_pressed_no_signal(true)
-		save_preferences(), row)
-	dialog.add_child(row)
+		save_preferences(), content)
+	reset.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+	dialog.add_child(content)
 	dialog.confirmed.connect(dialog.queue_free)
 	dialog.canceled.connect(dialog.queue_free)
 	add_child(dialog)
-	dialog.popup_centered_clamped(Vector2i(800, 190), 0.9)
+	dialog.popup_centered_clamped(Vector2i(520, 260), 0.9)
 	return dialog
 
 
@@ -2346,10 +2397,14 @@ func refresh_details() -> void:
 		coverage_hint.text = "SEPARATE BONE STUDY\nSource geometry only.\nHRA alignment unreviewed." if model.body.get("study", false) else "PARTIAL ATLAS\nSkeleton, muscles and nerves\ncover selected regions."
 		if model.body.get("study_kind") == "hra-spinal":
 			coverage_hint.text = "SPINAL SOURCE STUDY\nSeparate source coordinates.\nBody registration pending."
+		elif model.body.get("study_kind") == "bodyparts3d-complete":
+			coverage_hint.text = "COMPLETE MALE BODY\nEvery BodyParts3D source part.\nUnaligned to HRA · unreviewed."
 	if source_credit:
 		source_credit.text = "BodyParts3D · Database Center for Life Science\nSeparate male bone study · review pending\nLicence records: Sources" if model.body.get("study", false) else "HuBMAP / Human Reference Atlas\n3D Reference Object Library v1.1\nCC BY 4.0 · draft catalogue"
 		if model.body.get("study_kind") == "hra-spinal":
 			source_credit.text = "HuBMAP / Human Reference Atlas\nSeparate v1.2 spinal source\nCC BY 4.0 · review pending"
+		elif model.body.get("study_kind") == "bodyparts3d-complete":
+			source_credit.text = "BodyParts3D · Database Center for Life Science\nComplete male body · review pending\nLicence records: Sources"
 	for button in reference_buttons:
 		button.disabled = loading or model.body.is_empty()
 	for control in [labels_button, local_labels_button, original_positions_button]:
@@ -2367,7 +2422,7 @@ func refresh_details() -> void:
 	panels_menu.get_popup().set_item_disabled(panels_menu.get_popup().get_item_index(5), loading or model.body.is_empty())
 	var selected: bool = model.structures.has(model.selected_id)
 	if guide_button:
-		guide_button.disabled = loading or not model.structures.has("anatomy.heart")
+		guide_button.disabled = loading or not chest_supported()
 		guide_button.text = "Finish chest guide" if guided_chest.active and guided_chest.mode == "chest" else "Guided chest"
 	if route_button:
 		route_button.disabled = loading or not route_supported
@@ -2659,8 +2714,16 @@ func chest_view() -> void:
 	remember_view(previous)
 
 
+## The guided chest tour needs the HRA heart parts it separates and labels.
+func chest_supported() -> bool:
+	for id in ["anatomy.heart", "anatomy.heart.atrium.right", "anatomy.heart.ventricle.right", "anatomy.heart.atrium.left", "anatomy.heart.ventricle.left"]:
+		if not model.structures.has(id):
+			return false
+	return true
+
+
 func start_guided_chest() -> void:
-	if loading or not model.structures.has("anatomy.heart"):
+	if loading or not chest_supported():
 		return
 	if guided_chest.active:
 		var same_mode: bool = guided_chest.mode == "chest"
@@ -3108,11 +3171,13 @@ func show_sources() -> Window:
 	var reference_id: String = str(model.body.get("id", ""))
 	dialog.title = "Sources and prototype status"
 	dialog.message = "Anatomy: HuBMAP / Human Reference Atlas 3D Reference Object Library, United v1.1.\nCC BY 4.0. Source files unchanged; sampling sites excluded, cache conversion,\nselection colours, fading and temporary inspection movements applied.\n\nhttps://github.com/hubmapconsortium/ccf-3d-reference-object-library\nhttps://creativecommons.org/licenses/by/4.0/\n\nGodot Engine: MIT licence; https://godotengine.org/license/\n\nThis is a private, partial atlas prototype. Anatomy labels and coverage are draft\nimports; qualified medical review is pending. Condition summaries are draft text; pathological geometry is unavailable."
-	if reference_id == "bodyparts-male-bones-study":
+	if model.body.get("study_kind") == "bodyparts3d-complete":
+		dialog.message = "BodyParts3D, © The Database Center for Life Science licensed under CC\nAttribution 4.0 International. Official archive v4.0 (IS-A and PART-OF trees);\ncurrent grant from the 2025 licence page. Original OBJ comments retain legacy\nCC BY-SA 2.1 Japan notices. Both records are retained. Every source mesh is\nincluded once (repeated source meshes kept once), converted from millimetres\nto metres and Z-up to Y-up with source normals preserved. Display colours and\ninspection effects are runtime modifications.\n\nhttps://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html\nhttps://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html\n\nSeparate complete male body; no registration to HRA or female anatomy.\nGeometry and labels are unreviewed. The source has no thyroid gland, tonsils,\nparotid glands, breasts or scrotum.\nGodot Engine: MIT licence; https://godotengine.org/license/"
+	elif reference_id == "bodyparts-male-bones-study":
 		dialog.message = "BodyParts3D, © The Database Center for Life Science licensed under CC\nAttribution 4.0 International. Official archive v4.0; current grant from the\n2025 licence page. Original OBJ comments retain legacy CC BY-SA 2.1 Japan\nnotices. Both records are retained. Geometry was converted from millimetres\nto metres and Z-up to Y-up, with source normals preserved. Display colour\nand inspection effects are runtime modifications.\n\nhttps://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html\nhttps://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html\n\nSeparate male bone study; no registration to HRA or female anatomy. Geometry\nand labels are unreviewed. Reference geometry only.\nGodot Engine: MIT licence; https://godotengine.org/license/"
 	elif model.body.get("study_kind") == "hra-spinal":
 		dialog.message = ViewCapture.credits(model.body, "") + "\n\n" + str(model.body.coverage)
-	if reference_id in ["", "female", "male"] and not study_content.data.is_empty():
+	if reference_id in ["", "female", "male", "bodyparts-male-complete"] and not study_content.data.is_empty():
 		dialog.message += "\n\nStudy explanations and circulation route\nOriginal summaries. Assistant source cross-check: %s. Human source and qualified medical review are pending. No source illustrations or videos are reused.\n" % str(study_content.data.assistant_checks.checked_on)
 		for source in study_content.data.sources.values():
 			dialog.message += "\n%s\n%s\n" % [source.title, source.url]

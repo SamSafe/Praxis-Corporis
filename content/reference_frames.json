@@ -55,6 +55,24 @@
         0,
         1
       ]
+    },
+    "bodyparts-male-complete": {
+      "source_sha256": "a06fc78c3b8c36f55a3c53ba63ff288af5267049d34788c81d2b19f9f23044a1",
+      "left": [
+        1,
+        0,
+        0
+      ],
+      "superior": [
+        0,
+        1,
+        0
+      ],
+      "anterior": [
+        0,
+        0,
+        1
+      ]
     }
   }
 }

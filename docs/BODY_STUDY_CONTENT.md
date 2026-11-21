@@ -9,7 +9,7 @@ the brain, eyes and knees, for 63 cards and 25 conditions.
 [Revisions 3 and 4](#revisions-3-and-4-vessels-organ-interiors-airways-skin-and-bone)
 bring the totals to 112 cards and 54 conditions, and
 [revision 5](#revision-5-dictionary-terms-brain-fluid-spaces-and-more-cancers)
-to 153 cards and 82 conditions.
+to 196 cards and 107 conditions.
 
 **Everything here is a private draft.** Every record keeps `review_status: draft`
 with human source review and expert review pending, and the app labels it that
@@ -320,6 +320,54 @@ sentence against freshly downloaded copies of its sources, and 16 records were
 corrected. See the [accuracy pass report](audit/ACCURACY_PASS_2026-11-21.md). It is
 an assistant check, not a medical review.
 
+## Revision 7: the complete male body
+
+Added 2026-11-21 as `body-study-7-draft`, together with a new reference: the
+**complete male body** built from every BodyParts3D v4.0 source mesh
+([tools/build_full_body.py](../tools/build_full_body.py)). It supplies anatomy the HRA
+bodies lack: stomach, esophagus, diaphragm, spinal cord, pituitary and adrenal
+glands, tongue, teeth, salivary glands, testes, epididymis, penis, the whole
+skeleton and most muscles, and the neck and limb vessels.
+
+- **New cards (43):** stomach, esophagus, diaphragm, spinal cord, pituitary,
+  tongue, skull, vertebral column, adrenal glands, testes, epididymis, penis,
+  sternum, ribs, collarbones, shoulder blades, humerus, forearm bones, hand and
+  foot bones, sacrum, mandible, maxillae, teeth, soft palate, pharynx muscles,
+  salivary glands, nasal bones, carotid, subclavian and external iliac arteries,
+  intercostal muscles, pectoralis major, deltoids, biceps, triceps, trapezius,
+  gluteus maximus, quadriceps, hamstrings, calf muscles, tibialis anterior and the
+  intervertebral disks.
+- **New conditions (25):** GERD, peptic ulcer, stomach cancer, esophageal cancer,
+  hiatal hernia, hiccups, spinal cord injury, pituitary tumors, adrenal
+  insufficiency, Cushing's syndrome, testicular cancer, erectile dysfunction,
+  scoliosis, herniated disk, back pain, carpal tunnel syndrome, gout, rheumatoid
+  arthritis, peripheral artery disease, carotid artery disease, rotator cuff
+  injuries, lip and oral cavity cancer, tooth decay, salivary gland disorders and
+  muscle strain. They appear on the complete body only, because their anatomy is
+  not in the HRA bodies.
+- **Existing cards on the complete body:** 99 of the 153 earlier cards now also
+  resolve on it, by card-named organs or by mappings matched on source names
+  (142 of 196 cards in total). On this body the aortic-arch-branches card keeps
+  the brachiocephalic artery; the carotid and subclavian arteries have their own
+  cards.
+- **Sources:** NCI dictionary entries and NCI SEER Training pages for anatomy,
+  NIDDK, NIAMS, NHLBI, NCI and MedlinePlus for conditions, and TeachMeAnatomy for
+  the radius and ulna. Each new sentence was checked against its source text.
+
+### Revision 7 limits
+
+- **Male only.** BodyParts3D models one adult male. Female-specific conditions
+  stay on the HRA female body, and the complete body is not aligned to either HRA
+  body.
+- **Not in the source at all:** thyroid gland, tonsils, parotid glands, breasts,
+  scrotum, the meninges, kidney interiors and the knee ligaments and menisci.
+  Thyroid conditions therefore have nowhere to point.
+- **Reduced geometry.** The archive is the source's 99% polygon-reduced version;
+  small structures look coarse. Unclassified parts keep a softened source colour.
+- **Mapping by name.** Existing cards were matched to complete-body parts by
+  source names; the [mapping test](../tests/test_study_content.py) checks every
+  mapping against the catalogue, but anatomical equivalence is unreviewed.
+
 ## Deliberate limits
 
 - **Sources (revision 1).** Claims come only from NIH pages: NHLBI, NIDDK, NICHD and NCI SEER
@@ -503,3 +551,65 @@ an assistant check, not a medical review.
 - `tm-uterus`: [TeachMeAnatomy: The uterus](https://teachmeanatomy.info/pelvis/female-reproductive-tract/uterus/)
 - `nci-def-prostate`: [NCI Dictionary of Cancer Terms: prostate](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/prostate)
 - `nci-def-trachea`: [NCI Dictionary of Cancer Terms: trachea](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/trachea)
+- `mlp-carotid`: [MedlinePlus: Carotid artery disease](https://medlineplus.gov/carotidarterydisease.html)
+- `mlp-carpal-tunnel`: [MedlinePlus: Carpal tunnel syndrome](https://medlineplus.gov/carpaltunnelsyndrome.html)
+- `mlp-herniated-disk`: [MedlinePlus: Herniated disk](https://medlineplus.gov/herniateddisk.html)
+- `mlp-hiatal-hernia`: [MedlinePlus: Hiatal hernia](https://medlineplus.gov/hiatalhernia.html)
+- `mlp-hiccups`: [MedlinePlus Medical Encyclopedia: Hiccups](https://medlineplus.gov/ency/article/003068.htm)
+- `mlp-pituitary-tumors`: [MedlinePlus: Pituitary tumors](https://medlineplus.gov/pituitarytumors.html)
+- `mlp-rotator-cuff`: [MedlinePlus: Rotator cuff injuries](https://medlineplus.gov/rotatorcuffinjuries.html)
+- `mlp-salivary`: [MedlinePlus: Salivary gland disorders](https://medlineplus.gov/salivaryglanddisorders.html)
+- `mlp-spinal-cord-injury`: [MedlinePlus: Spinal cord injury](https://medlineplus.gov/spinalcordinjuries.html)
+- `mlp-sprains-strains`: [MedlinePlus: Sprains and strains](https://medlineplus.gov/sprainsandstrains.html)
+- `mlp-tooth-decay`: [MedlinePlus: Tooth decay](https://medlineplus.gov/toothdecay.html)
+- `nci-def-adrenal-gland`: [NCI Dictionary of Cancer Terms: adrenal gland](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/adrenal-gland)
+- `nci-def-carotid-artery`: [NCI Dictionary of Cancer Terms: carotid artery](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/carotid-artery)
+- `nci-def-clavicle`: [NCI Dictionary of Cancer Terms: clavicle](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/clavicle)
+- `nci-def-diaphragm`: [NCI Dictionary of Cancer Terms: diaphragm](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/diaphragm)
+- `nci-def-epididymis`: [NCI Dictionary of Cancer Terms: epididymis](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/epididymis)
+- `nci-def-esophagus`: [NCI Dictionary of Cancer Terms: esophagus](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/esophagus)
+- `nci-def-mandible`: [NCI Dictionary of Cancer Terms: mandible](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/mandible)
+- `nci-def-maxilla`: [NCI Dictionary of Cancer Terms: maxilla](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/maxilla)
+- `nci-def-penis`: [NCI Dictionary of Cancer Terms: penis](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/penis)
+- `nci-def-pharynx`: [NCI Dictionary of Cancer Terms: pharynx](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/pharynx)
+- `nci-def-pituitary-gland`: [NCI Dictionary of Cancer Terms: pituitary gland](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/pituitary-gland)
+- `nci-def-sacrum`: [NCI Dictionary of Cancer Terms: sacrum](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/sacrum)
+- `nci-def-scapula`: [NCI Dictionary of Cancer Terms: scapula](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/scapula)
+- `nci-def-skull`: [NCI Dictionary of Cancer Terms: skull](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/skull)
+- `nci-def-soft-palate`: [NCI Dictionary of Cancer Terms: soft palate](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/soft-palate)
+- `nci-def-spinal-cord`: [NCI Dictionary of Cancer Terms: spinal cord](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/spinal-cord)
+- `nci-def-spine`: [NCI Dictionary of Cancer Terms: spine](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/spine)
+- `nci-def-sternum`: [NCI Dictionary of Cancer Terms: sternum](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/sternum)
+- `nci-def-stomach`: [NCI Dictionary of Cancer Terms: stomach](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/stomach)
+- `nci-def-testicle`: [NCI Dictionary of Cancer Terms: testicle](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/testicle)
+- `nci-esophageal-cancer`: [NCI: Esophageal cancer](https://www.cancer.gov/types/esophageal)
+- `nci-oral-cancer`: [NCI: Lip and oral cavity cancer treatment (PDQ) - patient version](https://www.cancer.gov/types/head-and-neck/patient/adult/lip-mouth-treatment-pdq)
+- `nci-stomach-cancer`: [NCI: What is stomach cancer?](https://www.cancer.gov/types/stomach)
+- `nci-testicular-cancer`: [NCI: Testicular cancer](https://www.cancer.gov/types/testicular)
+- `nhlbi-pad`: [NHLBI: Peripheral artery disease](https://www.nhlbi.nih.gov/health/peripheral-artery-disease)
+- `niams-back-pain`: [NIAMS: Back pain](https://www.niams.nih.gov/health-topics/back-pain)
+- `niams-gout`: [NIAMS: Gout](https://www.niams.nih.gov/health-topics/gout)
+- `niams-ra`: [NIAMS: Rheumatoid arthritis](https://www.niams.nih.gov/health-topics/rheumatoid-arthritis)
+- `niams-scoliosis`: [NIAMS: Scoliosis](https://www.niams.nih.gov/health-topics/scoliosis)
+- `niddk-adrenal-insufficiency`: [NIDDK: Adrenal insufficiency and Addison's disease](https://www.niddk.nih.gov/health-information/endocrine-diseases/adrenal-insufficiency-addisons-disease)
+- `niddk-cushings`: [NIDDK: Cushing's syndrome](https://www.niddk.nih.gov/health-information/endocrine-diseases/cushings-syndrome)
+- `niddk-ed`: [NIDDK: Definition and facts for erectile dysfunction](https://www.niddk.nih.gov/health-information/urologic-diseases/erectile-dysfunction/definition-facts)
+- `niddk-gerd`: [NIDDK: Definition and facts for GER and GERD](https://www.niddk.nih.gov/health-information/digestive-diseases/acid-reflux-ger-gerd-adults/definition-facts)
+- `niddk-peptic-ulcer`: [NIDDK: Definition and facts for peptic ulcers](https://www.niddk.nih.gov/health-information/digestive-diseases/peptic-ulcers-stomach-ulcers/definition-facts)
+- `seer-adrenal`: [NCI SEER Training: Adrenal gland](https://training.seer.cancer.gov/anatomy/endocrine/glands/adrenal.html)
+- `seer-appendicular`: [NCI SEER Training: Appendicular skeleton](https://training.seer.cancer.gov/anatomy/skeletal/divisions/appendicular.html)
+- `seer-axial`: [NCI SEER Training: Axial skeleton](https://training.seer.cancer.gov/anatomy/skeletal/divisions/axial.html)
+- `seer-male-duct`: [NCI SEER Training: Male duct system](https://training.seer.cancer.gov/anatomy/reproductive/male/duct.html)
+- `seer-mechanics`: [NCI SEER Training: Mechanics of ventilation](https://training.seer.cancer.gov/anatomy/respiratory/mechanics.html)
+- `seer-mouth`: [NCI SEER Training: Mouth](https://training.seer.cancer.gov/anatomy/digestive/regions/mouth.html)
+- `seer-muscles-head-neck`: [NCI SEER Training: Muscles of the head and neck](https://training.seer.cancer.gov/anatomy/muscular/groups/head_neck.html)
+- `seer-muscles-trunk`: [NCI SEER Training: Muscles of the trunk](https://training.seer.cancer.gov/anatomy/muscular/groups/trunk.html)
+- `seer-muscles-upper`: [NCI SEER Training: Muscles of the upper extremity](https://training.seer.cancer.gov/anatomy/muscular/groups/upper.html)
+- `seer-nose`: [NCI SEER Training: Nose, nasal cavities and paranasal sinuses](https://training.seer.cancer.gov/anatomy/respiratory/passages/nose.html)
+- `seer-penis`: [NCI SEER Training: Penis](https://training.seer.cancer.gov/anatomy/reproductive/male/penis.html)
+- `seer-pharynx`: [NCI SEER Training: Pharynx and esophagus](https://training.seer.cancer.gov/anatomy/digestive/regions/pharynx.html)
+- `seer-pituitary`: [NCI SEER Training: Pituitary and pineal glands](https://training.seer.cancer.gov/anatomy/endocrine/glands/pituitary.html)
+- `seer-stomach`: [NCI SEER Training: Stomach](https://training.seer.cancer.gov/anatomy/digestive/regions/stomach.html)
+- `seer-testes`: [NCI SEER Training: Testes](https://training.seer.cancer.gov/anatomy/reproductive/male/testes.html)
+- `tm-radius`: [TeachMeAnatomy: The radius](https://teachmeanatomy.info/upper-limb/bones/radius/)
+- `tm-ulna`: [TeachMeAnatomy: The ulna](https://teachmeanatomy.info/upper-limb/bones/ulna/)

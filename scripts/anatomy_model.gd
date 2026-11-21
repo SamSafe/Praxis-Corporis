@@ -19,6 +19,9 @@ var baseline_world: Dictionary = {}
 var states: Dictionary = {}
 var materials: Dictionary = {}
 var tissues: Dictionary = {} # Mesh index -> illustrative tissue class; display only.
+var reveal_selection := true
+var reveal_cache_id := "<unset>"
+var reveal_cache: Dictionary = {}
 var colliders: Dictionary = {}
 var selected_id := ""
 var isolated_id := ""
@@ -409,6 +412,8 @@ func clear_body() -> void:
 	states.clear()
 	materials.clear()
 	tissues.clear()
+	reveal_cache_id = "<unset>"
+	reveal_cache.clear()
 	colliders.clear()
 	undo_stack.clear()
 	redo_stack.clear()
@@ -459,7 +464,42 @@ func effective_visibility(index: int) -> String:
 	# states. Baseline geometry, saved displacements and undo history are untouched.
 	if not isolated_id.is_empty():
 		return "visible" if isolated_meshes.has(index) else "hidden"
+	# While a part is selected, the layers in front of it are drawn faded (and so
+	# become click-through) so it can be seen: the skin for any internal part, and
+	# also muscle, bone, ligament and cartilage when the selection is an organ, vessel
+	# or nerve.
+	# Display only: stored states, saved views and undo history are unchanged.
+	if reveal_selection and states[index].visibility == "visible" and revealed_layers().has(index):
+		return "faded"
 	return states[index].visibility
+
+
+const OUTER_LAYERS := ["skin", "muscle", "bone", "ligament", "cartilage"]
+
+
+## Meshes drawn faded to reveal the current selection, cached per selection.
+func revealed_layers() -> Dictionary:
+	if reveal_cache_id == selected_id:
+		return reveal_cache
+	reveal_cache_id = selected_id
+	reveal_cache = {}
+	if selected_id.is_empty() or not structures.has(selected_id):
+		return reveal_cache
+	var selected := {}
+	var structural := false
+	for index in structures[selected_id].mesh_nodes:
+		selected[int(index)] = true
+		if tissues.get(int(index), "") in OUTER_LAYERS:
+			structural = true
+	if tissues.get(int(structures[selected_id].mesh_nodes[0]) if not structures[selected_id].mesh_nodes.is_empty() else -1, "") == "skin":
+		return reveal_cache
+	for index in tissues:
+		var tissue: String = tissues[index]
+		if selected.has(index) or not meshes.has(index):
+			continue
+		if tissue == "skin" or (not structural and tissue in OUTER_LAYERS):
+			reveal_cache[index] = true
+	return reveal_cache
 
 
 func refresh_appearance() -> void:

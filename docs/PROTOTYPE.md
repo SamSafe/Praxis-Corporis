@@ -2,8 +2,13 @@
 
 The viewer uses real, separate HRA male and female reference samples inside
 one continuous scene. It is a partial atlas with medical review pending. Draft
-study cards and 82 condition summaries ([body study content](BODY_STUDY_CONTENT.md))
+study cards and 107 condition summaries ([body study content](BODY_STUDY_CONTENT.md))
 provide reference locations; pathological geometry is unavailable. Detailed source findings are in [the sample audit](audit/HRA_SAMPLE_FINDINGS.md).
+
+A separate **complete male body** (BodyParts3D v4.0, every source mesh) adds the
+organs, skeleton, muscles and vessels the HRA bodies lack, such as the stomach,
+esophagus, diaphragm, spinal cord and glands. It is not aligned to the HRA bodies;
+choose it from the reference menu. See [revision 7](BODY_STUDY_CONTENT.md#revision-7-the-complete-male-body).
 
 The [study workspace guide](STUDY_WORKSPACE.md) covers portable saved views/notes,
 the six-step guided chest exploration, fifteen draft study cards, text sizing and
@@ -138,6 +143,7 @@ checkout revision and only the references prepared in that checkout.
 | Pan | Shift + primary drag, right/middle drag, or supported trackpad pan gesture. |
 | Zoom | Scroll wheel or supported pinch gesture. The wheel zooms towards the point under the pointer. |
 | Focus a part | Double-click it in the 3D view to select it and bring it into focus. |
+| See a selected part | Selecting an internal part draws the layers in front of it faded: the skin for any internal part, and also muscle, bone, ligament and cartilage for an organ, vessel or nerve. Faded layers are click-through. This is display only; selecting the skin, or clearing the selection, shows every layer again, and saved views and undo are unaffected. |
 | Camera motion | Camera moves ease into place. View > Preferences > Smooth camera motion turns easing, gliding and pointer zoom off for instant movement. |
 | Keyboard camera | Tab/click to focus the 3D view (teal border). Arrows orbit; Shift-arrows pan; +/- zoom; F fits selection; Home shows the body. |
 | Orient the camera | Camera views offers Front, Back, From body left/right and angled Above/Below around the current focus. The direction cue rotates with the camera; L/R refer to the body's sides. |
@@ -470,7 +476,7 @@ text is selected, preserving the current anatomy view.
 - Source labels, grouping and ontology fields remain draft import metadata.
 - Heart parts exist, but prepared cutaways, caps, reviewed interiors and tissue
   explanations are not implemented.
-- Draft condition summaries for 82 conditions and an unreviewed conceptual
+- Draft condition summaries for 107 conditions and an unreviewed conceptual
   heart–lung route are available. Pathological geometry, disease comparisons, injury simulation and
   physiological animation are not implemented.
 - Source labels remain unreviewed. Broader system sets, authored label anchors,

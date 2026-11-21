@@ -74,6 +74,15 @@ static func study_body() -> Dictionary:
 	return {}
 
 
+## Every BodyParts3D v4.0 source mesh as one separate male body, when prepared.
+static func complete_body() -> Dictionary:
+	if FileAccess.file_exists("res://content/bodyparts3d_complete_body.json"):
+		var study = JSON.parse_string(FileAccess.get_file_as_string("res://content/bodyparts3d_complete_body.json"))
+		if study is Dictionary and study.get("study_kind") == "bodyparts3d-complete" and FileAccess.file_exists("res://" + str(study.get("asset_path", ""))):
+			return study
+	return {}
+
+
 static func supplemental_files() -> Array[Dictionary]:
 	var files: Array[Dictionary] = []
 	for study in study_bodies():
@@ -83,6 +92,9 @@ static func supplemental_files() -> Array[Dictionary]:
 
 static func study_bodies() -> Array[Dictionary]:
 	var bodies: Array[Dictionary] = []
+	var complete := complete_body()
+	if not complete.is_empty():
+		bodies.append(complete)
 	var bones := study_body()
 	if not bones.is_empty():
 		bodies.append(bones)

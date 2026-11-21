@@ -598,7 +598,7 @@ static func verify_study_reader(viewer: Control, rendered: bool = false) -> bool
 	var expanded: bool = viewer.scene_expanded
 	var valid := true
 	var captured := 0
-	if viewer.model.structures.has("anatomy.heart"):
+	if viewer.chest_supported(): # HRA bodies; the complete body has its own smoke test
 		for scale in [1.0, 1.3]:
 			var settings := preferences.duplicate(true)
 			settings.text_scale = scale
@@ -1773,13 +1773,13 @@ static func run(viewer: Control, rendered: bool) -> bool:
 	var redo: Array = viewer.model.redo_stack.duplicate(true)
 	var back: Array = viewer.back_views.duplicate(true)
 	var forward: Array = viewer.forward_views.duplicate(true)
-	var valid: bool = viewer.study_content.data.get("cards", {}).size() == 153
+	var valid: bool = viewer.study_content.data.get("cards", {}).size() == 196
 	valid = valid and viewer.study_content.error.is_empty()
 	if viewer.model.body.id == "female":
 		valid = await verify_cancel_loading(viewer) and valid
 		valid = await verify_information(viewer, rendered) and valid
 		valid = verify_recovery(before) and valid
-	if viewer.model.structures.has("anatomy.heart"):
+	if viewer.chest_supported():
 		valid = await verify_conditions(viewer, rendered) and valid
 		viewer.model.undo_stack = undo.duplicate(true)
 		viewer.model.redo_stack = redo.duplicate(true)
@@ -1831,7 +1831,7 @@ static func run(viewer: Control, rendered: bool) -> bool:
 	valid = await verify_note_carets(viewer) and valid
 	valid = await preload("res://scripts/label_reuse_verification.gd").run(viewer, rendered) and valid
 	valid = await preload("res://scripts/scene_render_verification.gd").run(viewer, rendered) and valid
-	if viewer.model.structures.has("anatomy.heart"):
+	if viewer.chest_supported():
 		valid = await verify_source_fallback(viewer, rendered) and valid
 		valid = await verify_study_navigation(viewer) and valid
 		viewer.start_guided_chest()
@@ -2075,7 +2075,7 @@ static func verify_conditions(viewer: Control, rendered: bool) -> bool:
 	large.text_scale = 1.3
 	viewer.apply_preferences(large)
 	viewer.get_window().size = Vector2i(1100, 720)
-	var valid: bool = viewer.study_content.data.get("conditions", {}).size() == 82
+	var valid: bool = viewer.study_content.data.get("conditions", {}).size() == 107
 	var available: Array[String] = []
 	for id in viewer.study_content.data.conditions:
 		if viewer.study_content.condition_available(id, viewer.model.structures):

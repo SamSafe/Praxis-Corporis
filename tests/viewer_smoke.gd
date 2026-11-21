@@ -77,6 +77,8 @@ func run() -> void:
 		check(model.apply_saved_state(model.export_state()).is_empty(), "The viewer must be able to reload its own extreme inspection states")
 		model.restore()
 		# Use actual physics ray picking after a synchronization frame.
+		# Nothing selected: no layer is faded to reveal a selection.
+		model.select("")
 		orbit.focus(model.bounds_for("anatomy.skin"))
 		await physics_frame
 		await physics_frame
@@ -102,6 +104,7 @@ func run() -> void:
 		await physics_frame
 		check(model.pick(orbit.camera, click_position).is_empty(), "Faded anatomy must be click-through in actual ray picking")
 		model.set_visibility("anatomy.heart", "visible")
+		model.select("anatomy.heart")
 		model.offset_selection(Vector3(0.8, 0, 0))
 		await physics_frame
 		await physics_frame
