@@ -334,8 +334,8 @@ an assistant check, not a medical review.
   samples, so they have no cards. (An earlier version of this note also listed
   the brain; the samples do include it, and revision 2 adds brain cards.)
 - **Review packet.** The [content-review packet](CONTENT_REVIEW_PACKET.md) now
-  covers build `6689187` (revision `body-study-5-draft`, all 125 cards and 66
-  conditions). Regenerate it with `tools/build_review_packet.py` after any later
+  covers build `3f98159` (revision `body-study-6-draft` after the accuracy pass,
+  all 153 cards and 82 conditions). Regenerate it with `tools/build_review_packet.py` after any later
   content change.
 
 ## Sources

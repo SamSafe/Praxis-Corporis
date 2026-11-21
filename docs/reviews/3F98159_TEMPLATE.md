@@ -1,4 +1,4 @@
-# Human content-review result: 6689187
+# Human content-review result: 3f98159
 
 Uncompleted template. Every item below starts **not reviewed**. Copy to a dated record and complete only the scope actually inspected.
 
@@ -6,19 +6,19 @@ Uncompleted template. Every item below starts **not reviewed**. Copy to a dated 
 - Relevant qualifications / role:
 - Review date:
 - Role in this record: human source check / qualified medical review / both (specify scope).
-- Expected source revision: `6689187519b8feeb0ea2aa5975d909abe146be6b`.
-- Expected build ID: `902058f3beff45a5a5c7bc30eb967880`.
+- Expected source revision: `3f98159e401ab12be0c9c73ec0bd1a19500e9fbd`.
+- Expected build ID: `373f22ca60e5484ab09efedbec30b2ec`.
 - Actual app archive and SHA-256:
 - Actual app build ID / source shown in Sources:
 - Device / OS / input method used for visual checks:
-- Frozen study SHA-256: `d6c6648392e4fe1617d87e02f61cc8e4bdd8cd2cd4abe3d02fa18a97b082c3e7`.
+- Frozen study SHA-256: `666bdfbbb6823094f2486fbd1f75f25efc4863a5010f719beb604d55066f1e97`.
 - Other exact content/catalogue/geometry versions checked:
 - Review scope and exclusions:
 - Sources or references used:
 
-Use the [review packet](../CONTENT_REVIEW_PACKET.md), the [reviewer text](6689187-reviewer-text.md) and the [frozen JSON](6689187-study-content.json). For each column use **not reviewed**, **changes required** or **accepted unchanged**, with finding/evidence IDs. If text or visuals need changes, approval requires review of the corrected version. Blank cells do not record approval.
+Use the [review packet](../CONTENT_REVIEW_PACKET.md), the [reviewer text](3f98159-reviewer-text.md) and the [frozen JSON](3f98159-study-content.json). For each column use **not reviewed**, **changes required** or **accepted unchanged**, with finding/evidence IDs. If text or visuals need changes, approval requires review of the corrected version. Blank cells do not record approval.
 
-## Authored items (192)
+## Authored items (236)
 
 | Type | Item ID | Human source check | Qualified review, including applicable visuals | Finding / evidence IDs |
 | --- | --- | --- | --- | --- |
@@ -147,6 +147,34 @@ Use the [review packet](../CONTENT_REVIEW_PACKET.md), the [reviewer text](668918
 | Card | `anatomy.pelvis` | not reviewed | not reviewed | |
 | Card | `anatomy.broad-ligament` | not reviewed | not reviewed | |
 | Card | `anatomy.uterus-fundus` | not reviewed | not reviewed | |
+| Card | `anatomy.coronary.lad` | not reviewed | not reviewed | |
+| Card | `anatomy.coronary.circumflex` | not reviewed | not reviewed | |
+| Card | `anatomy.coronary.right-branches` | not reviewed | not reviewed | |
+| Card | `anatomy.extraocular-muscles` | not reviewed | not reviewed | |
+| Card | `anatomy.levator-palpebrae` | not reviewed | not reviewed | |
+| Card | `anatomy.ophthalmic-vessels` | not reviewed | not reviewed | |
+| Card | `anatomy.central-retinal-vessels` | not reviewed | not reviewed | |
+| Card | `anatomy.larynx-muscles` | not reviewed | not reviewed | |
+| Card | `anatomy.vocal-folds` | not reviewed | not reviewed | |
+| Card | `anatomy.hyoid` | not reviewed | not reviewed | |
+| Card | `anatomy.bronchial-cartilage` | not reviewed | not reviewed | |
+| Card | `anatomy.vas-deferens` | not reviewed | not reviewed | |
+| Card | `anatomy.seminal-vesicles` | not reviewed | not reviewed | |
+| Card | `anatomy.ejaculatory-ducts` | not reviewed | not reviewed | |
+| Card | `anatomy.urethra` | not reviewed | not reviewed | |
+| Card | `anatomy.uterine-ligaments` | not reviewed | not reviewed | |
+| Card | `anatomy.ovarian-ligaments` | not reviewed | not reviewed | |
+| Card | `anatomy.uterine-vessels` | not reviewed | not reviewed | |
+| Card | `anatomy.hepatic-ducts` | not reviewed | not reviewed | |
+| Card | `anatomy.hepatic-veins` | not reviewed | not reviewed | |
+| Card | `anatomy.splenic-vessels` | not reviewed | not reviewed | |
+| Card | `anatomy.mesenteric-veins` | not reviewed | not reviewed | |
+| Card | `anatomy.colic-vessels` | not reviewed | not reviewed | |
+| Card | `anatomy.rectal-vessels` | not reviewed | not reviewed | |
+| Card | `anatomy.cystic-vessels` | not reviewed | not reviewed | |
+| Card | `anatomy.iliac-veins` | not reviewed | not reviewed | |
+| Card | `anatomy.brachiocephalic-veins` | not reviewed | not reviewed | |
+| Card | `anatomy.patellar-ligament` | not reviewed | not reviewed | |
 | Condition | `condition.aortic-stenosis` | not reviewed | not reviewed | |
 | Condition | `condition.mitral-regurgitation` | not reviewed | not reviewed | |
 | Condition | `condition.coronary-heart-disease` | not reviewed | not reviewed | |
@@ -213,6 +241,22 @@ Use the [review packet](../CONTENT_REVIEW_PACKET.md), the [reviewer text](668918
 | Condition | `condition.hydrocephalus` | not reviewed | not reviewed | |
 | Condition | `condition.meningitis` | not reviewed | not reviewed | |
 | Condition | `condition.tbi` | not reviewed | not reviewed | |
+| Condition | `condition.strabismus` | not reviewed | not reviewed | |
+| Condition | `condition.ptosis` | not reviewed | not reviewed | |
+| Condition | `condition.retinal-artery-occlusion` | not reviewed | not reviewed | |
+| Condition | `condition.voice-disorders` | not reviewed | not reviewed | |
+| Condition | `condition.laryngitis` | not reviewed | not reviewed | |
+| Condition | `condition.dvt` | not reviewed | not reviewed | |
+| Condition | `condition.multiple-sclerosis` | not reviewed | not reviewed | |
+| Condition | `condition.migraine` | not reviewed | not reviewed | |
+| Condition | `condition.pelvic-support-problems` | not reviewed | not reviewed | |
+| Condition | `condition.bile-duct-cancer` | not reviewed | not reviewed | |
+| Condition | `condition.ectopic-pregnancy` | not reviewed | not reviewed | |
+| Condition | `condition.ovarian-cysts` | not reviewed | not reviewed | |
+| Condition | `condition.spleen-diseases` | not reviewed | not reviewed | |
+| Condition | `condition.male-infertility` | not reviewed | not reviewed | |
+| Condition | `condition.urethral-disorders` | not reviewed | not reviewed | |
+| Condition | `condition.prostatitis` | not reviewed | not reviewed | |
 | Route | `heart-lung` | not reviewed | not reviewed | |
 
 ## Reference and mapping scope

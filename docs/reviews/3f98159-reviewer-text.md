@@ -1,6 +1,6 @@
-# Study text for review: build `6689187`
+# Study text for review: build `3f98159`
 
-Every card, condition and route in study revision `body-study-5-draft`, as shipped in private build `902058f3beff45a5a5c7bc30eb967880`. The [frozen JSON](6689187-study-content.json) is the authoritative copy. All items are drafts: an assistant compared each statement with its cited page, which is not reviewer evidence.
+Every card, condition and route in study revision `body-study-6-draft`, as shipped in private build `373f22ca60e5484ab09efedbec30b2ec`. The [frozen JSON](3f98159-study-content.json) is the authoritative copy. All items are drafts: an assistant compared each statement with its cited page, which is not reviewer evidence.
 
 **What to check for each item:** whether each statement is correct and supported by the cited source, whether anything important is missing or misleading, whether the related anatomy is right, and whether the named 3D parts are the right structures.
 
@@ -12,7 +12,7 @@ Every card, condition and route in study revision `body-study-5-draft`, as shipp
 
 - **3D parts (female):** Heart
 - **3D parts (male):** Heart
-- **Overview:** A muscular organ in the chest between the lungs.
+- **Overview:** Sits in the center of the chest, near the lungs. It has four hollow chambers surrounded by muscle and other heart tissue.
 - **Function:** Pumps blood through the lungs and the body.
 - **Related:** `anatomy.heart.chambers`, `anatomy.heart.valves`, `anatomy.lungs`
 - **Sources:**
@@ -200,13 +200,14 @@ Every card, condition and route in study revision `body-study-5-draft`, as shipp
 
 #### `anatomy.portal-vein`
 
-- **3D parts (female):** Hepatic portal vein
-- **3D parts (male):** Hepatic portal vein
+- **3D parts (female):** Hepatic portal vein; Right branch of portal vein; Left branch of portal vein
+- **3D parts (male):** Hepatic portal vein; Left branch of portal vein; Right branch of portal vein; Portal vein
 - **Overview:** The hepatic portal vein leads to the liver.
 - **Function:** Carries nutrient-rich blood from the digestive tract to the liver.
 - **Related:** `anatomy.liver`, `anatomy.small-intestine`
 - **Sources:**
   - `seer-accessory`: [NCI SEER Training: Accessory digestive organs](https://training.seer.cancer.gov/anatomy/digestive/regions/accessory.html)
+  - `tm-liver`: [TeachMeAnatomy: The liver](https://teachmeanatomy.info/abdomen/viscera/liver/)
 
 #### `anatomy.pulmonary-arteries`
 
@@ -332,13 +333,159 @@ Every card, condition and route in study revision `body-study-5-draft`, as shipp
 
 #### `anatomy.hepatic-arteries`
 
-- **3D parts (female):** Hepatic artery proper; Right hepatic artery; Common hepatic artery; Left hepatic artery
-- **3D parts (male):** Left hepatic artery; Hepatic artery proper; Right hepatic artery; Common hepatic artery
+- **3D parts (female):** Hepatic artery proper; Right hepatic artery; Common hepatic artery; Left hepatic artery; Middle hepatic artery branch of left hepatic artery; Posterior segmental right hepatic artery; Anterior segmental right hepatic artery
+- **3D parts (male):** Left hepatic artery; Hepatic artery proper; Right hepatic artery; Common hepatic artery; Posterior segmental right hepatic artery; Anterior segmental right hepatic artery; Middle hepatic artery branch of left hepatic artery
 - **Overview:** The hepatic artery is the major blood vessel that carries blood to the liver. The supplied parts include its common, proper, left and right portions.
 - **Function:** Carries blood to the liver.
 - **Related:** `anatomy.liver`, `anatomy.celiac-trunk`, `anatomy.portal-vein`
 - **Sources:**
   - `nci-def-hepatic-artery`: [NCI Dictionary of Cancer Terms: hepatic artery](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/hepatic-artery)
+
+#### `anatomy.coronary.lad`
+
+- **3D parts (female):** Anterior descending branch of left pulmonary artery; Diagonal branch of anterior descending branch of left coronary artery
+- **3D parts (male):** Anterior descending branch of left pulmonary artery; Diagonal branch of anterior descending branch of left coronary artery; Diagonal branch of anterior descending branch of left coronary artery
+- **Overview:** The left anterior descending artery (LAD), also called the anterior interventricular artery, is a branch of the left coronary artery. The supplied parts include its diagonal branches.
+- **Function:** Follows the groove between the ventricles on the front of the heart towards its apex, supplying heart muscle.
+- **Related:** `anatomy.coronary.left`, `anatomy.heart.septum`, `anatomy.heart.ventricle.left`
+- **Sources:**
+  - `tm-coronary`: [TeachMeAnatomy: Coronary arteries and veins](https://teachmeanatomy.info/thorax/organs/heart/heart-vasculature/)
+
+#### `anatomy.coronary.circumflex`
+
+- **3D parts (female):** Circumflex branch of left coronary artery; Left marginal artery; Left posterior descending branch of circumflex branch of left coronary artery; Posterior ventricular branch of circumflex coronary artery
+- **3D parts (male):** Left marginal artery
+- **Overview:** The circumflex branch of the left coronary artery and its left marginal branch. In about 20-25% of people the circumflex also contributes to the posterior interventricular artery.
+- **Function:** Follows the groove between the atria and ventricles to the left border and back of the heart; its left marginal branch follows the left border.
+- **Related:** `anatomy.coronary.left`, `anatomy.heart.ventricle.left`
+- **Sources:**
+  - `tm-coronary`: [TeachMeAnatomy: Coronary arteries and veins](https://teachmeanatomy.info/thorax/organs/heart/heart-vasculature/)
+
+#### `anatomy.coronary.right-branches`
+
+- **3D parts (female):** Marginal branch of right coronary artery
+- **3D parts (male):** Marginal branch of right coronary artery; Posterior interventricular branch of right coronary artery
+- **Overview:** Branches of the right coronary artery: the right marginal artery and, in 80-85% of people, the posterior interventricular (posterior descending) artery.
+- **Function:** The right marginal artery runs along the right and lower border of the heart towards the apex; the posterior interventricular artery follows the groove on the back of the heart.
+- **Related:** `anatomy.coronary.right`, `anatomy.heart.ventricle.right`
+- **Sources:**
+  - `tm-coronary`: [TeachMeAnatomy: Coronary arteries and veins](https://teachmeanatomy.info/thorax/organs/heart/heart-vasculature/)
+
+#### `anatomy.ophthalmic-vessels`
+
+- **3D parts (female):** Left inferior ophthalmic vein; Left superior ophthalmic vein; Ophthalmic vein; Right superior ophthalmic vein; Ophthalmic vein; Right inferior ophthalmic vein; Ophthalmic artery; Ophthalmic artery
+- **3D parts (male):** Left inferior ophthalmic vein; Left superior ophthalmic vein; Ophthalmic vein; Right superior ophthalmic vein; Ophthalmic vein; Right inferior ophthalmic vein; Ophthalmic artery; Ophthalmic artery
+- **Overview:** The ophthalmic artery, a branch of the internal carotid artery, and the superior and inferior ophthalmic veins of each eye.
+- **Function:** The ophthalmic artery is the main arterial supply of the eyeball; the ophthalmic veins drain it into the cavernous sinus.
+- **Related:** `anatomy.central-retinal-vessels`, `anatomy.eyes`
+- **Sources:**
+  - `tm-eyeball`: [TeachMeAnatomy: The eyeball - structure - vasculature](https://teachmeanatomy.info/head/organs/eye/eyeball/)
+
+#### `anatomy.central-retinal-vessels`
+
+- **3D parts (female):** Left central retinal vein; Right central retinal vein; Right central retinal artery; Left central retinal artery
+- **3D parts (male):** Left central retinal vein; Right central retinal vein; Right central retinal artery; Left central retinal artery
+- **Overview:** The central retinal artery and vein of each eye. The central artery of the retina is the most important branch of the ophthalmic artery.
+- **Function:** The artery supplies the internal surface of the retina; its blockage quickly causes blindness.
+- **Related:** `anatomy.retina`, `anatomy.ophthalmic-vessels`, `anatomy.optic-nerves`
+- **Sources:**
+  - `tm-eyeball`: [TeachMeAnatomy: The eyeball - structure - vasculature](https://teachmeanatomy.info/head/organs/eye/eyeball/)
+  - `mlp-retinal-artery-occlusion`: [MedlinePlus Medical Encyclopedia: Retinal artery occlusion](https://medlineplus.gov/ency/article/001028.htm)
+
+#### `anatomy.uterine-vessels`
+
+- **3D parts (female):** Left uterine artery; Right uterine artery; Left uterine vein; Right uterine vein
+- **3D parts (male):** not in this body
+- **Overview:** The uterine arteries, branches of the internal iliac arteries, and the uterine veins.
+- **Function:** The uterine arteries supply the uterus; a venous plexus in the broad ligament drains into the uterine veins. Each uterine artery crosses above a ureter near the cervix.
+- **Related:** `anatomy.uterus`, `anatomy.uterine-ligaments`, `anatomy.ureters`
+- **Sources:**
+  - `tm-uterus`: [TeachMeAnatomy: The uterus](https://teachmeanatomy.info/pelvis/female-reproductive-tract/uterus/)
+
+#### `anatomy.hepatic-veins`
+
+- **3D parts (female):** Middle hepatic vein; Left hepatic vein; Right hepatic vein
+- **3D parts (male):** Right hepatic vein; Left hepatic vein; Middle hepatic vein
+- **Overview:** The left, middle and right hepatic veins.
+- **Function:** Drain blood from the liver into the inferior vena cava. Blood from the spleen, pancreas, gallbladder and gut reaches them only after passing through the liver.
+- **Related:** `anatomy.liver`, `anatomy.vena-cava.inferior`, `anatomy.portal-vein`
+- **Sources:**
+  - `tm-liver`: [TeachMeAnatomy: The liver](https://teachmeanatomy.info/abdomen/viscera/liver/)
+  - `tm-abdominal-veins`: [TeachMeAnatomy: Venous drainage of the abdomen](https://teachmeanatomy.info/abdomen/vasculature/venous-drainage/)
+
+#### `anatomy.splenic-vessels`
+
+- **3D parts (female):** Splenic artery; Splenic vein
+- **3D parts (male):** Splenic vein; Splenic artery
+- **Overview:** The splenic artery, a branch of the celiac trunk that runs along the top of the pancreas to the spleen, and the splenic vein.
+- **Function:** The splenic artery supplies the spleen and gives branches to the stomach and pancreas. The splenic vein joins the superior mesenteric vein to form the hepatic portal vein.
+- **Related:** `anatomy.spleen`, `anatomy.celiac-trunk`, `anatomy.portal-vein`, `anatomy.pancreas`
+- **Sources:**
+  - `tm-coeliac-trunk`: [TeachMeAnatomy: The coeliac trunk](https://teachmeanatomy.info/abdomen/vasculature/arteries/coeliac-trunk/)
+  - `tm-spleen`: [TeachMeAnatomy: The spleen](https://teachmeanatomy.info/abdomen/viscera/spleen/)
+
+#### `anatomy.mesenteric-veins`
+
+- **3D parts (female):** Superior mesenteric vein; Inferior pancreaticoduodenal vein; Superior mesenteric artery
+- **3D parts (male):** Inferior mesenteric vein; Superior mesenteric artery; Inferior pancreaticoduodenal vein
+- **Overview:** The superior and inferior mesenteric veins and the inferior pancreaticoduodenal vein, part of the portal venous system.
+- **Function:** The portal venous system carries blood from the gut to the liver for processing. The superior mesenteric vein joins the splenic vein to form the portal vein.
+- **Related:** `anatomy.portal-vein`, `anatomy.splenic-vessels`, `anatomy.small-intestine`, `anatomy.colon`
+- **Sources:**
+  - `tm-abdominal-veins`: [TeachMeAnatomy: Venous drainage of the abdomen](https://teachmeanatomy.info/abdomen/vasculature/venous-drainage/)
+
+#### `anatomy.colic-vessels`
+
+- **3D parts (female):** Left colic vein; Right colic vein; Ileocolic vein; Middle colic vein; Sigmoid vein; Sigmoid vein; Left colic artery; Right colic artery; Ileocolic artery; Middle colic artery; Marginal colic artery; Sigmoid artery
+- **3D parts (male):** Sigmoid vein; Left colic vein; Ileocolic vein; Right colic vein; Middle colic vein; Right colic artery; Middle colic artery; Left colic artery; Ileocolic artery; Sigmoid artery; Marginal colic artery
+- **Overview:** Arteries and veins of the colon: the ileocolic, right, middle and left colic, and sigmoid vessels, and the marginal artery (of Drummond).
+- **Function:** The ileocolic, right and middle colic arteries (from the superior mesenteric artery) and the left colic and sigmoid arteries (from the inferior mesenteric artery) supply the colon. The marginal artery joins them in a continuous arterial circle along the inner border of the colon.
+- **Related:** `anatomy.colon`, `anatomy.mesenteric-artery.superior`, `anatomy.mesenteric-artery.inferior`, `anatomy.sigmoid-colon`
+- **Sources:**
+  - `tm-sma`: [TeachMeAnatomy: The superior mesenteric artery](https://teachmeanatomy.info/abdomen/vasculature/arteries/superior-mesenteric/)
+  - `tm-ima`: [TeachMeAnatomy: The inferior mesenteric artery](https://teachmeanatomy.info/abdomen/vasculature/arteries/inferior-mesenteric/)
+
+#### `anatomy.rectal-vessels`
+
+- **3D parts (female):** Superior rectal artery; Inferior rectal vein; Middle rectal vein; Superior rectal artery
+- **3D parts (male):** Superior rectal artery; Inferior rectal vein; Middle rectal vein
+- **Overview:** The superior rectal artery, the continuation of the inferior mesenteric artery, and the superior, middle and inferior rectal veins.
+- **Function:** The superior rectal artery supplies the rectum. The superior rectal vein drains into the portal venous system; the middle and inferior rectal veins drain into the systemic veins.
+- **Related:** `anatomy.rectum`, `anatomy.mesenteric-artery.inferior`, `anatomy.mesenteric-veins`
+- **Sources:**
+  - `tm-rectum`: [TeachMeAnatomy: The rectum](https://teachmeanatomy.info/abdomen/gi-tract/rectum/)
+
+#### `anatomy.cystic-vessels`
+
+- **3D parts (female):** Cystic artery; Cystic vein
+- **3D parts (male):** Cystic vein; Cystic artery
+- **Overview:** The cystic artery, a branch of the right hepatic artery, and the cystic vein.
+- **Function:** The cystic artery supplies the gallbladder. Cystic veins drain the neck of the gallbladder directly into the portal vein.
+- **Related:** `anatomy.gallbladder`, `anatomy.hepatic-arteries`, `anatomy.portal-vein`
+- **Sources:**
+  - `tm-gallbladder`: [TeachMeAnatomy: The gallbladder - biliary tree](https://teachmeanatomy.info/abdomen/viscera/gallbladder/)
+
+#### `anatomy.iliac-veins`
+
+- **3D parts (female):** Common iliac vein; Internal iliac vein; Internal pudendal vein; Median sacral vein
+- **3D parts (male):** Median sacral vein; Common iliac vein; External iliac vein; Internal pudendal vein; Internal iliac vein
+- **Overview:** The common, external and internal iliac veins of the pelvis, with the median sacral and internal pudendal veins. Each common iliac vein is formed by the external and internal iliac veins.
+- **Function:** The external iliac vein continues from the femoral vein and drains the leg; the internal iliac vein drains most of the pelvis. The two common iliac veins join to form the inferior vena cava.
+- **Related:** `anatomy.vena-cava.inferior`, `anatomy.pelvis`
+- **Sources:**
+  - `tm-pelvic-veins`: [TeachMeAnatomy: The pelvic veins](https://teachmeanatomy.info/pelvis/vasculature/venous-drainage/)
+  - `tm-abdominal-veins`: [TeachMeAnatomy: Venous drainage of the abdomen](https://teachmeanatomy.info/abdomen/vasculature/venous-drainage/)
+  - `nci-def-inferior-vena-cava`: [NCI Dictionary of Cancer Terms: inferior vena cava](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/inferior-vena-cava)
+
+#### `anatomy.brachiocephalic-veins`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** Brachiocephalic vein
+- **Overview:** The left and right brachiocephalic veins in the upper chest.
+- **Function:** They drain the head, neck and arms, and join to form the superior vena cava.
+- **Related:** `anatomy.vena-cava.superior`
+- **Sources:**
+  - `tm-svc`: [TeachMeAnatomy: The superior vena cava](https://teachmeanatomy.info/thorax/vasculature/superior-vena-cava/)
 
 ### Respiratory
 
@@ -346,7 +493,7 @@ Every card, condition and route in study revision `body-study-5-draft`, as shipp
 
 - **3D parts (female):** Lungs
 - **3D parts (male):** Lungs
-- **Overview:** Paired organs in the chest connected to the airways.
+- **Overview:** The main organs of the respiratory system, one on each side of the heart inside the chest cavity.
 - **Function:** Exchange oxygen and carbon dioxide between air and blood.
 - **Related:** `anatomy.lung.left`, `anatomy.lung.right`, `anatomy.heart`
 - **Sources:**
@@ -357,7 +504,7 @@ Every card, condition and route in study revision `body-study-5-draft`, as shipp
 
 - **3D parts (female):** Left lung
 - **3D parts (male):** Left lung
-- **Overview:** The left lung has two lobes and shares chest space with the heart.
+- **Overview:** The left lung has two lobes. It is slightly smaller than the right lung because the heart takes up some space on the left side.
 - **Function:** Participates in gas exchange.
 - **Related:** `anatomy.lungs`, `anatomy.heart`
 - **Sources:**
@@ -379,12 +526,13 @@ Every card, condition and route in study revision `body-study-5-draft`, as shipp
 
 - **3D parts (female):** Trachea
 - **3D parts (male):** Trachea
-- **Overview:** The windpipe. In the chest it divides into the right and left primary bronchi.
-- **Function:** An airway that carries air to and from the lungs.
+- **Overview:** The windpipe: the airway that leads from the larynx (voice box) to the bronchi. In the chest it divides into the right and left primary bronchi.
+- **Function:** Carries air between the larynx and the bronchi, which lead to the lungs.
 - **Related:** `anatomy.bronchi`, `anatomy.lungs`
 - **Sources:**
   - `seer-bronchi`: [NCI SEER Training: Bronchi, bronchial tree and lungs](https://training.seer.cancer.gov/anatomy/respiratory/passages/bronchi.html)
   - `nhlbi-asthma`: [NHLBI: Asthma](https://www.nhlbi.nih.gov/health/asthma)
+  - `nci-def-trachea`: [NCI Dictionary of Cancer Terms: trachea](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/trachea)
 
 #### `anatomy.bronchi`
 
@@ -466,6 +614,16 @@ Every card, condition and route in study revision `body-study-5-draft`, as shipp
 - **Related:** `anatomy.trachea`, `anatomy.bronchi`
 - **Sources:**
   - `nci-def-carina-of-trachea`: [NCI Dictionary of Cancer Terms: carina of trachea](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/carina-of-trachea)
+
+#### `anatomy.bronchial-cartilage`
+
+- **3D parts (female):** Cartilage of bronchus
+- **3D parts (male):** Cartilage of bronchus
+- **Overview:** Cartilage in the walls of the bronchi. In the main bronchi, cartilage rings completely encircle the airway.
+- **Function:** Like the C-shaped rings of the trachea, this cartilage holds the larger airways open.
+- **Related:** `anatomy.bronchi`, `anatomy.tracheal-cartilage`
+- **Sources:**
+  - `tm-tracheobronchial`: [TeachMeAnatomy: The tracheobronchial tree](https://teachmeanatomy.info/thorax/organs/tracheobronchial-tree/)
 
 ### Nervous
 
@@ -689,7 +847,7 @@ Every card, condition and route in study revision `body-study-5-draft`, as shipp
 - **3D parts (female):** Pineal body; Pineal body
 - **3D parts (male):** Pineal body; Pineal body
 - **Overview:** A tiny organ in the cerebrum, also called the pineal body.
-- **Function:** Produces the hormone melatonin.
+- **Function:** Produces melatonin.
 - **Related:** `anatomy.brain`, `anatomy.thalamus`
 - **Sources:**
   - `nci-def-pineal-gland`: [NCI Dictionary of Cancer Terms: pineal gland](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/pineal-gland)
@@ -754,7 +912,7 @@ Every card, condition and route in study revision `body-study-5-draft`, as shipp
 
 - **3D parts (female):** Pancreas
 - **3D parts (male):** Pancreas
-- **Overview:** A gland of the digestive system closely associated with the small intestine.
+- **Overview:** One of the solid organs of the digestive system. Its digestive juice reaches the small intestine through small tubes called ducts.
 - **Function:** Releases digestive enzymes into the small intestine and the hormones insulin and glucagon into the blood.
 - **Related:** `anatomy.small-intestine`, `anatomy.bile-duct.common`
 - **Sources:**
@@ -900,6 +1058,18 @@ Every card, condition and route in study revision `body-study-5-draft`, as shipp
 - **Sources:**
   - `nci-def-pancreatic-duct`: [NCI Dictionary of Cancer Terms: pancreatic duct](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/pancreatic-duct)
 
+#### `anatomy.hepatic-ducts`
+
+- **3D parts (female):** Right hepatic duct; Left hepatic duct; Common hepatic duct
+- **3D parts (male):** Right hepatic duct; Left hepatic duct; Common hepatic duct
+- **Overview:** The right and left hepatic ducts, which lead bile out of the liver, and the common hepatic duct they form when they join outside the liver.
+- **Function:** Carry bile from the liver. The common hepatic duct is joined by the cystic duct to form the common bile duct.
+- **Related:** `anatomy.liver`, `anatomy.cystic-duct`, `anatomy.bile-duct.common`
+- **Sources:**
+  - `nci-def-bile-duct`: [NCI Dictionary of Cancer Terms: bile duct](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/bile-duct)
+  - `nci-bile-duct-cancer`: [NCI: What is bile duct cancer (cholangiocarcinoma)?](https://www.cancer.gov/types/liver/bile-duct-cancer)
+  - `tm-gallbladder`: [TeachMeAnatomy: The gallbladder - biliary tree](https://teachmeanatomy.info/abdomen/viscera/gallbladder/)
+
 ### Urinary
 
 #### `anatomy.kidneys`
@@ -939,7 +1109,7 @@ Every card, condition and route in study revision `body-study-5-draft`, as shipp
 
 - **3D parts (female):** Urinary bladder
 - **3D parts (male):** Urinary bladder
-- **Overview:** A hollow organ in the pelvic cavity. Its size and shape change with the amount of urine it holds.
+- **Overview:** Located in the pelvic cavity, behind the pubic symphysis. Its size and shape change with the amount of urine it holds.
 - **Function:** A temporary storage reservoir for urine.
 - **Related:** `anatomy.kidneys`, `anatomy.ureters`
 - **Sources:**
@@ -948,7 +1118,7 @@ Every card, condition and route in study revision `body-study-5-draft`, as shipp
 
 #### `anatomy.ureters`
 
-- **3D parts (female):** not in this body
+- **3D parts (female):** Ureters
 - **3D parts (male):** Ureter
 - **Overview:** Two small tubes, each about 25 cm long, that descend along the back wall of the abdomen.
 - **Function:** Carry urine from the kidneys to the bladder.
@@ -956,6 +1126,7 @@ Every card, condition and route in study revision `body-study-5-draft`, as shipp
 - **Sources:**
   - `seer-ureters`: [NCI SEER Training: Ureters](https://training.seer.cancer.gov/anatomy/urinary/components/ureters.html)
   - `niddk-urinary`: [NIDDK: The urinary tract and how it works](https://www.niddk.nih.gov/health-information/urologic-diseases/urinary-tract-how-it-works)
+  - `nci-def-ureter`: [NCI Dictionary of Cancer Terms: ureter](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/ureter)
 
 #### `anatomy.kidney-capsule`
 
@@ -1047,13 +1218,24 @@ Every card, condition and route in study revision `body-study-5-draft`, as shipp
 - **Sources:**
   - `seer-kidney`: [NCI SEER Training: Kidneys](https://training.seer.cancer.gov/anatomy/urinary/components/kidney.html)
 
+#### `anatomy.urethra`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** Other urethra; Prostatic urethra
+- **Overview:** The tube through which urine leaves the body from the bladder. The male urethra is about 15-20 cm long and also carries semen. The prostatic urethra passes through the prostate.
+- **Function:** Empties urine from the bladder. The prostatic urethra receives the ejaculatory ducts and the ducts of the prostate.
+- **Related:** `anatomy.bladder`, `anatomy.prostate`, `anatomy.ejaculatory-ducts`
+- **Sources:**
+  - `nci-def-urethra`: [NCI Dictionary of Cancer Terms: urethra](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/urethra)
+  - `tm-urethra`: [TeachMeAnatomy: The urethra](https://teachmeanatomy.info/pelvis/viscera/urethra/)
+
 ### Reproductive
 
 #### `anatomy.uterus`
 
 - **3D parts (female):** Uterus
 - **3D parts (male):** not in this body
-- **Overview:** A muscular organ in the pelvis.
+- **Overview:** A muscular organ. Before a first pregnancy it is about the size and shape of a pear.
 - **Function:** Receives a fertilized egg and provides the environment for a developing fetus.
 - **Related:** `anatomy.ovaries`, `anatomy.bladder`
 - **Sources:**
@@ -1141,6 +1323,59 @@ Every card, condition and route in study revision `body-study-5-draft`, as shipp
 - **Related:** `anatomy.uterus`, `anatomy.cervix`
 - **Sources:**
   - `nci-def-fundus`: [NCI Dictionary of Cancer Terms: fundus](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/fundus)
+
+#### `anatomy.vas-deferens`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** Vas deferens
+- **Overview:** A coiled tube that carries sperm out of the testes. It is a thick muscular tube whose wall is mostly smooth muscle.
+- **Function:** Carries sperm from the epididymis to the ejaculatory duct, which drains into the prostatic urethra.
+- **Related:** `anatomy.seminal-vesicles`, `anatomy.ejaculatory-ducts`, `anatomy.prostate`
+- **Sources:**
+  - `nci-def-vas-deferens`: [NCI Dictionary of Cancer Terms: vas deferens](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/vas-deferens)
+  - `tm-spermatic-cord`: [TeachMeAnatomy: The spermatic cord](https://teachmeanatomy.info/pelvis/the-male-reproductive-system/spermatic-cord/)
+
+#### `anatomy.seminal-vesicles`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** Seminal vesicle
+- **Overview:** A pair of tubular glands that help produce semen, between the bladder and the rectum.
+- **Function:** They produce about 70% of the volume of semen, including an alkaline fluid that helps sperm survive.
+- **Related:** `anatomy.vas-deferens`, `anatomy.ejaculatory-ducts`, `anatomy.bladder`
+- **Sources:**
+  - `nci-def-seminal-vesicle`: [NCI Dictionary of Cancer Terms: seminal vesicle](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/seminal-vesicle)
+  - `tm-seminal-vesicles`: [TeachMeAnatomy: The seminal vesicles](https://teachmeanatomy.info/pelvis/the-male-reproductive-system/seminal-vesicles/)
+
+#### `anatomy.ejaculatory-ducts`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** Ejaculatory duct
+- **Overview:** Ducts formed where each vas deferens joins the duct of a seminal vesicle.
+- **Function:** They drain sperm and seminal fluid into the prostatic urethra.
+- **Related:** `anatomy.vas-deferens`, `anatomy.seminal-vesicles`, `anatomy.urethra`
+- **Sources:**
+  - `tm-seminal-vesicles`: [TeachMeAnatomy: The seminal vesicles](https://teachmeanatomy.info/pelvis/the-male-reproductive-system/seminal-vesicles/)
+  - `tm-urethra`: [TeachMeAnatomy: The urethra](https://teachmeanatomy.info/pelvis/viscera/urethra/)
+
+#### `anatomy.uterine-ligaments`
+
+- **3D parts (female):** Right round ligament of uterus; Left round ligament of uterus; Right uterosacral ligament; Left uterosacral ligament; Cardinal ligament; Cardinal ligament
+- **3D parts (male):** not in this body
+- **Overview:** Ligaments that support the uterus: the round ligaments, which run from the uterus through the inguinal canal; the cardinal ligaments, from the cervix to the side walls of the pelvis; and the uterosacral ligaments, from the cervix to the sacrum.
+- **Function:** They support the uterus. The round ligaments help keep it tilted forward, and the cardinal ligaments carry the uterine artery and vein.
+- **Related:** `anatomy.uterus`, `anatomy.cervix`, `anatomy.broad-ligament`
+- **Sources:**
+  - `tm-uterus`: [TeachMeAnatomy: The uterus](https://teachmeanatomy.info/pelvis/female-reproductive-tract/uterus/)
+
+#### `anatomy.ovarian-ligaments`
+
+- **3D parts (female):** Suspensory ligament of ovary; Ovarian ligament
+- **3D parts (male):** not in this body
+- **Overview:** The two ligaments of each ovary: the suspensory ligament, a fold of peritoneum running to the pelvic wall, and the ligament of the ovary, which runs to the fundus of the uterus.
+- **Function:** They support the ovaries. The suspensory ligament carries the ovary's blood vessels and nerves.
+- **Related:** `anatomy.ovaries`, `anatomy.uterus-fundus`, `anatomy.broad-ligament`
+- **Sources:**
+  - `tm-ovaries`: [TeachMeAnatomy: The ovaries](https://teachmeanatomy.info/pelvis/female-reproductive-tract/ovaries/)
 
 ### Lymphatic
 
@@ -1252,7 +1487,7 @@ Every card, condition and route in study revision `body-study-5-draft`, as shipp
 #### `anatomy.mcl`
 
 - **3D parts (female):** Right tibial collateral ligament; Left tibial collateral ligament
-- **3D parts (male):** Left tibial collateral ligament
+- **3D parts (male):** Right tibial collateral ligament; Left tibial collateral ligament
 - **Overview:** The medial collateral ligament, which runs along the inside of the knee.
 - **Function:** Prevents the knee from bending inward.
 - **Related:** `anatomy.lcl`, `anatomy.knee`
@@ -1299,6 +1534,27 @@ Every card, condition and route in study revision `body-study-5-draft`, as shipp
 - **Sources:**
   - `nci-def-pelvis`: [NCI Dictionary of Cancer Terms: pelvis](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/pelvis)
 
+#### `anatomy.hyoid`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** Hyoid bone
+- **Overview:** A U-shaped bone in the front of the neck, at the base of the jaw at about the level of the third cervical vertebra.
+- **Function:** It does not join any other bone; it is held in place by muscles and ligaments and is an attachment site for the front neck muscles.
+- **Related:** `anatomy.larynx`
+- **Sources:**
+  - `tm-hyoid`: [TeachMeAnatomy: The hyoid bone](https://teachmeanatomy.info/neck/bones/hyoid-bone/)
+
+#### `anatomy.patellar-ligament`
+
+- **3D parts (female):** Right patellar ligament; Left patellar ligament
+- **3D parts (male):** Right patellar ligament; Left patellar ligament
+- **Overview:** The patellar ligament (often called the patellar tendon), the continuation of the quadriceps tendon below the kneecap.
+- **Function:** Connects the bottom of the kneecap to the tibial tuberosity on the front of the tibia. The kneecap above it increases the leverage of the quadriceps tendon when the leg straightens.
+- **Related:** `anatomy.quadriceps-tendon`, `anatomy.tibia`, `anatomy.knee`
+- **Sources:**
+  - `tm-knee`: [TeachMeAnatomy: The knee joint](https://teachmeanatomy.info/lower-limb/joints/knee-joint/)
+  - `tm-patella`: [TeachMeAnatomy: The patella](https://teachmeanatomy.info/lower-limb/bones/patella/)
+
 ### Muscular
 
 #### `anatomy.quadriceps-tendon`
@@ -1311,6 +1567,50 @@ Every card, condition and route in study revision `body-study-5-draft`, as shipp
 - **Sources:**
   - `seer-lower-muscles`: [NCI SEER Training: Muscles of the lower extremity](https://training.seer.cancer.gov/anatomy/muscular/groups/lower.html)
   - `mlp-knee`: [MedlinePlus: Knee injuries and disorders](https://medlineplus.gov/kneeinjuriesanddisorders.html)
+
+#### `anatomy.extraocular-muscles`
+
+- **3D parts (female):** Left superior oblique; Left lateral rectus; Left inferior oblique; Left inferior rectus; Left superior rectus; Left medial rectus; Right medial rectus; Right superior rectus; Right inferior rectus; Right inferior oblique; Right lateral rectus; Right superior oblique
+- **3D parts (male):** Left superior oblique; Left lateral rectus; Left inferior oblique; Left inferior rectus; Left superior rectus; Left medial rectus; Right medial rectus; Right superior rectus; Right inferior rectus; Right inferior oblique; Right lateral rectus; Right superior oblique
+- **Overview:** Six muscles around each eye that move the eyeball: the superior, inferior, medial and lateral rectus muscles and the superior and inferior oblique muscles. They lie in the orbit but are separate from the eyeball.
+- **Function:** The medial rectus turns the eye inward and the lateral rectus outward; the superior rectus mainly raises it and the inferior rectus mainly lowers it. The obliques also raise, lower and rotate the eye.
+- **Related:** `anatomy.eyes`, `anatomy.sclera`, `anatomy.levator-palpebrae`
+- **Sources:**
+  - `tm-extraocular`: [TeachMeAnatomy: The extraocular muscles](https://teachmeanatomy.info/head/organs/eye/extraocular-muscles/)
+  - `mlp-strabismus`: [MedlinePlus Medical Encyclopedia: Strabismus](https://medlineplus.gov/ency/article/001004.htm)
+
+#### `anatomy.levator-palpebrae`
+
+- **3D parts (female):** Left levator palpebrae superioris; Right levator palpebrae superioris
+- **3D parts (male):** Left levator palpebrae superioris; Right levator palpebrae superioris
+- **Overview:** The levator palpebrae superioris, a muscle in each orbit attached to the upper eyelid.
+- **Function:** It is the only muscle that raises the upper eyelid.
+- **Related:** `anatomy.extraocular-muscles`, `anatomy.conjunctiva`, `anatomy.eyes`
+- **Sources:**
+  - `tm-extraocular`: [TeachMeAnatomy: The extraocular muscles](https://teachmeanatomy.info/head/organs/eye/extraocular-muscles/)
+
+#### `anatomy.larynx-muscles`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** Thyroepiglotticus muscle; Muscle fasciculus of left posterior crico-arytenoid; Muscle fasciculus of right posterior crico-arytenoid; Lateral cricoarytenoid; Cricothyroid; Arytenoid muscle
+- **Overview:** Intrinsic muscles of the larynx: the cricothyroid, posterior and lateral cricoarytenoid, arytenoid and thyroepiglottic muscles.
+- **Function:** They control the opening between the vocal folds and the length and tension of the vocal folds. The posterior cricoarytenoids are the only muscles that open the vocal folds; the lateral cricoarytenoids are the main ones that close them.
+- **Related:** `anatomy.larynx`, `anatomy.vocal-folds`, `anatomy.epiglottis`
+- **Sources:**
+  - `tm-larynx-muscles`: [TeachMeAnatomy: Muscles of the larynx](https://teachmeanatomy.info/neck/viscera/larynx/muscles/)
+  - `seer-larynx`: [NCI SEER Training: Larynx and trachea](https://training.seer.cancer.gov/anatomy/respiratory/passages/larynx.html)
+
+#### `anatomy.vocal-folds`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** Vocalis muscle; Thyroarytenoid
+- **Overview:** The vocalis and thyroarytenoid muscles of the vocal folds (true vocal cords). The vocal cords are two small bands of muscle within the larynx.
+- **Function:** The vocal cords vibrate to produce the voice. The thyroarytenoid relaxes the vocal ligament, allowing a softer voice.
+- **Related:** `anatomy.larynx`, `anatomy.larynx-muscles`
+- **Sources:**
+  - `nci-def-vocal-cord`: [NCI Dictionary of Cancer Terms: vocal cord](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/vocal-cord)
+  - `tm-larynx-folds`: [TeachMeAnatomy: Laryngeal ligaments and folds](https://teachmeanatomy.info/neck/viscera/larynx/ligaments-folds/)
+  - `tm-larynx-muscles`: [TeachMeAnatomy: Muscles of the larynx](https://teachmeanatomy.info/neck/viscera/larynx/muscles/)
 
 ### Integumentary
 
@@ -1329,7 +1629,7 @@ Conditions only locate the healthy reference anatomy; no disease geometry is sho
 
 ### Aortic stenosis (`condition.aortic-stenosis`)
 
-- **Summary:** Narrowing of the aortic-valve opening can obstruct forward blood flow.
+- **Summary:** The aortic valve opening is too small or narrow, for example when the valve forms with two flaps instead of three. Valve problems can make the heart work harder and affect its ability to pump blood.
 - **Reference location:** The aortic valve is at the outlet from the left ventricle into the aorta.
 - **Focus:** `anatomy.heart.valve.aortic`
 - **Requires:** `anatomy.heart.valve.aortic`, `anatomy.heart.ventricle.left`
@@ -1357,11 +1657,12 @@ Conditions only locate the healthy reference anatomy; no disease geometry is sho
 - **Reference location:** The right and left coronary arteries branch from the aorta and run over the surface of the heart.
 - **Focus:** `anatomy.coronary.left`
 - **Requires:** `anatomy.coronary.left`, `anatomy.coronary.right`
-- **Listed on:** `anatomy.coronary.left`, `anatomy.coronary.right`, `anatomy.heart`
+- **Listed on:** `anatomy.coronary.left`, `anatomy.coronary.right`, `anatomy.heart`, `anatomy.coronary.lad`, `anatomy.coronary.circumflex`, `anatomy.coronary.right-branches`
 - **Not depicted:** Plaque, arterial narrowing and blood flow are not depicted.
 - **Sources:**
   - `nhlbi-chd`: [NHLBI: Coronary heart disease](https://www.nhlbi.nih.gov/health/coronary-heart-disease)
   - `seer-heart`: [NCI SEER Training: Structure of the heart](https://training.seer.cancer.gov/anatomy/cardiovascular/heart/structure.html)
+  - `nci-def-coronary-artery-disease`: [NCI Dictionary of Cancer Terms: coronary artery disease](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/coronary-artery-disease)
 
 ### Aortic aneurysm (`condition.aortic-aneurysm`)
 
@@ -1417,7 +1718,7 @@ Conditions only locate the healthy reference anatomy; no disease geometry is sho
 - **Reference location:** The gallbladder stores bile and squeezes it through the bile ducts into the small intestine.
 - **Focus:** `anatomy.gallbladder`
 - **Requires:** `anatomy.gallbladder`, `anatomy.bile-duct.common`
-- **Listed on:** `anatomy.gallbladder`, `anatomy.bile-duct.common`, `anatomy.liver`
+- **Listed on:** `anatomy.gallbladder`, `anatomy.bile-duct.common`, `anatomy.liver`, `anatomy.hepatic-ducts`
 - **Not depicted:** Stones, blocked ducts and bile flow are not depicted.
 - **Sources:**
   - `niddk-gallstones`: [NIDDK: Gallstones](https://www.niddk.nih.gov/health-information/digestive-diseases/gallstones)
@@ -1446,6 +1747,7 @@ Conditions only locate the healthy reference anatomy; no disease geometry is sho
 - **Sources:**
   - `niddk-pancreatitis`: [NIDDK: Pancreatitis](https://www.niddk.nih.gov/health-information/digestive-diseases/pancreatitis)
   - `seer-accessory`: [NCI SEER Training: Accessory digestive organs](https://training.seer.cancer.gov/anatomy/digestive/regions/accessory.html)
+  - `niddk-digestive`: [NIDDK: Your digestive system and how it works](https://www.niddk.nih.gov/health-information/digestive-diseases/digestive-system-how-it-works)
 
 ### Appendicitis (`condition.appendicitis`)
 
@@ -1487,7 +1789,7 @@ Conditions only locate the healthy reference anatomy; no disease geometry is sho
 ### Endometriosis (`condition.endometriosis`)
 
 - **Summary:** Tissue similar to the lining of the uterus grows outside the uterus. It can cause pain, infertility and other symptoms.
-- **Reference location:** The uterus is a muscular organ in the pelvis, with an ovary on each side of it.
+- **Reference location:** The uterus is a muscular organ, with an ovary on each side of it.
 - **Focus:** `anatomy.uterus`
 - **Requires:** `anatomy.uterus`, `anatomy.ovaries`
 - **Listed on:** `anatomy.uterus`, `anatomy.ovaries`
@@ -1596,7 +1898,7 @@ Conditions only locate the healthy reference anatomy; no disease geometry is sho
 
 ### Anterior cruciate ligament (ACL) injury (`condition.acl-injury`)
 
-- **Summary:** Over-stretching or tearing, partial or complete, of the ACL in the knee. It is often caused by a sudden twist or by stopping and changing direction quickly, and often occurs with other knee injuries such as a meniscus tear.
+- **Summary:** Over-stretching or tearing, partial or complete, of the ACL in the knee. It can happen from a hard hit to the side of the knee, over-extending the knee, or quickly stopping and changing direction while running, landing from a jump or turning. It often occurs with other injuries, such as tears of the MCL and the menisci.
 - **Reference location:** The ACL is in the middle of the knee, connecting the thigh bone and shin bone.
 - **Focus:** `anatomy.acl`
 - **Requires:** `anatomy.acl`, `anatomy.knee`
@@ -1636,12 +1938,13 @@ Conditions only locate the healthy reference anatomy; no disease geometry is sho
 - **Reference location:** The coronary arteries branch from the ascending aorta and supply the heart muscle.
 - **Focus:** `anatomy.coronary.left`
 - **Requires:** `anatomy.coronary.left`, `anatomy.coronary.right`, `anatomy.heart`
-- **Listed on:** `anatomy.heart`, `anatomy.coronary.left`, `anatomy.coronary.right`
+- **Listed on:** `anatomy.heart`, `anatomy.coronary.left`, `anatomy.coronary.right`, `anatomy.coronary.lad`, `anatomy.coronary.circumflex`, `anatomy.coronary.right-branches`
 - **Not depicted:** Blocked arteries, blood flow and damaged heart muscle are not depicted.
 - **Sources:**
   - `nhlbi-heart-attack`: [NHLBI: Heart attack](https://www.nhlbi.nih.gov/health/heart-attack)
   - `nhlbi-chd`: [NHLBI: Coronary heart disease](https://www.nhlbi.nih.gov/health/coronary-heart-disease)
   - `seer-pathways`: [NCI SEER Training: Circulatory pathways](https://training.seer.cancer.gov/anatomy/cardiovascular/blood/pathways.html)
+  - `nci-def-coronary-artery-disease`: [NCI Dictionary of Cancer Terms: coronary artery disease](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/coronary-artery-disease)
 
 ### Heart failure (`condition.heart-failure`)
 
@@ -1666,6 +1969,7 @@ Conditions only locate the healthy reference anatomy; no disease geometry is sho
 - **Sources:**
   - `nhlbi-afib`: [NHLBI: Atrial fibrillation](https://www.nhlbi.nih.gov/health/atrial-fibrillation)
   - `heart-flow`: [NHLBI: Blood flow through the heart](https://www.nhlbi.nih.gov/health/heart/blood-flow)
+  - `heart-anatomy`: [NHLBI: Heart anatomy](https://www.nhlbi.nih.gov/health/heart/anatomy)
 
 ### Pneumonia (`condition.pneumonia`)
 
@@ -1706,7 +2010,7 @@ Conditions only locate the healthy reference anatomy; no disease geometry is sho
 ### Bladder infection (cystitis) (`condition.bladder-infection`)
 
 - **Summary:** An illness most often caused by bacteria that enter the bladder and multiply. It is the most common type of urinary tract infection and, if untreated, can spread to the kidneys.
-- **Reference location:** The bladder is a hollow organ in the pelvis that stores urine.
+- **Reference location:** The bladder, in the pelvic cavity, is a temporary storage reservoir for urine.
 - **Focus:** `anatomy.bladder`
 - **Requires:** `anatomy.bladder`
 - **Listed on:** `anatomy.bladder`
@@ -1798,6 +2102,7 @@ Conditions only locate the healthy reference anatomy; no disease geometry is sho
 - **Sources:**
   - `niddk-diabetes`: [NIDDK: What is diabetes?](https://www.niddk.nih.gov/health-information/diabetes/overview/what-is-diabetes)
   - `seer-accessory`: [NCI SEER Training: Accessory digestive organs](https://training.seer.cancer.gov/anatomy/digestive/regions/accessory.html)
+  - `niddk-digestive`: [NIDDK: Your digestive system and how it works](https://www.niddk.nih.gov/health-information/digestive-diseases/digestive-system-how-it-works)
 
 ### Hemorrhoids (`condition.hemorrhoids`)
 
@@ -1826,7 +2131,7 @@ Conditions only locate the healthy reference anatomy; no disease geometry is sho
 ### Uterine fibroids (`condition.fibroids`)
 
 - **Summary:** Growths made of smooth muscle cells and other tissue that grow in or on the wall of the uterus. They can cause pain and abnormal bleeding.
-- **Reference location:** The uterus is a muscular organ in the pelvis.
+- **Reference location:** The uterus is a muscular organ in which a fetus develops.
 - **Focus:** `anatomy.uterus`
 - **Requires:** `anatomy.uterus`
 - **Listed on:** `anatomy.uterus`
@@ -1862,7 +2167,7 @@ Conditions only locate the healthy reference anatomy; no disease geometry is sho
 ### Prostate cancer (`condition.prostate-cancer`)
 
 - **Summary:** The most common cancer among men in the United States. It usually grows very slowly.
-- **Reference location:** The prostate sits below the bladder and surrounds the urethra at the neck of the bladder.
+- **Reference location:** The prostate lies just below the bladder and surrounds the part of the urethra just below it.
 - **Focus:** `anatomy.prostate`
 - **Requires:** `anatomy.prostate`
 - **Listed on:** `anatomy.prostate`
@@ -1870,6 +2175,7 @@ Conditions only locate the healthy reference anatomy; no disease geometry is sho
 - **Sources:**
   - `nci-prostate-cancer`: [NCI: Prostate cancer — patient version](https://www.cancer.gov/types/prostate)
   - `seer-male-glands`: [NCI SEER Training: Male accessory glands](https://training.seer.cancer.gov/anatomy/reproductive/male/glands.html)
+  - `nci-def-prostate`: [NCI Dictionary of Cancer Terms: prostate](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/prostate)
 
 ### Retinal detachment (`condition.retinal-detachment`)
 
@@ -1968,7 +2274,7 @@ Conditions only locate the healthy reference anatomy; no disease geometry is sho
 ### Osteoporosis (`condition.osteoporosis`)
 
 - **Summary:** A bone disease in which bone mineral density and mass decrease, or bone structure and strength change, raising the risk of fractures. It is often "silent" until a bone breaks; fractures happen most often in the hip, spine and wrist.
-- **Reference location:** The supplied pelvis shows compact and spongy bone tissue. Osteoporosis can affect any bone.
+- **Reference location:** The supplied pelvis shows compact and spongy bone tissue. Fractures can occur in any bone.
 - **Focus:** `anatomy.spongy-bone`
 - **Requires:** `anatomy.spongy-bone`, `anatomy.compact-bone`
 - **Listed on:** `anatomy.spongy-bone`, `anatomy.compact-bone`
@@ -1988,6 +2294,7 @@ Conditions only locate the healthy reference anatomy; no disease geometry is sho
 - **Sources:**
   - `nci-pancreatic-cancer`: [NCI: Pancreatic cancer](https://www.cancer.gov/types/pancreatic)
   - `seer-accessory`: [NCI SEER Training: Accessory digestive organs](https://training.seer.cancer.gov/anatomy/digestive/regions/accessory.html)
+  - `niddk-digestive`: [NIDDK: Your digestive system and how it works](https://www.niddk.nih.gov/health-information/digestive-diseases/digestive-system-how-it-works)
 
 ### Liver cancer (`condition.liver-cancer`)
 
@@ -1995,7 +2302,7 @@ Conditions only locate the healthy reference anatomy; no disease geometry is sho
 - **Reference location:** The liver lies mainly in the upper right abdomen, just beneath the diaphragm.
 - **Focus:** `anatomy.liver`
 - **Requires:** `anatomy.liver`
-- **Listed on:** `anatomy.liver`, `anatomy.liver-lobes`
+- **Listed on:** `anatomy.liver`, `anatomy.liver-lobes`, `anatomy.hepatic-ducts`
 - **Not depicted:** Tumors and their spread are not depicted.
 - **Sources:**
   - `nci-liver-cancer`: [NCI: Liver and bile duct cancer](https://www.cancer.gov/types/liver)
@@ -2016,10 +2323,10 @@ Conditions only locate the healthy reference anatomy; no disease geometry is sho
 ### Ovarian cancer (`condition.ovarian-cancer`)
 
 - **Summary:** Ovarian epithelial cancer, Fallopian tube cancer and primary peritoneal cancer form in the same kind of tissue and are treated the same way. These cancers are often advanced when diagnosed.
-- **Reference location:** The ovaries lie on each side of the uterus, each next to a Fallopian tube.
+- **Reference location:** The ovaries lie one on each side of the uterus, in the side walls of the pelvic cavity.
 - **Focus:** `anatomy.ovaries`
 - **Requires:** `anatomy.ovaries`, `anatomy.fallopian-tubes`
-- **Listed on:** `anatomy.ovaries`, `anatomy.fallopian-tubes`
+- **Listed on:** `anatomy.ovaries`, `anatomy.fallopian-tubes`, `anatomy.ovarian-ligaments`
 - **Not depicted:** Tumors and their spread are not depicted.
 - **Sources:**
   - `nci-ovarian-cancer`: [NCI: Ovarian, fallopian tube, and primary peritoneal cancer — patient version](https://www.cancer.gov/types/ovarian)
@@ -2028,7 +2335,7 @@ Conditions only locate the healthy reference anatomy; no disease geometry is sho
 ### Uterine cancer (`condition.uterine-cancer`)
 
 - **Summary:** Uterine cancers are of two types: endometrial cancer, which is common and can often be cured, and uterine sarcoma, which is rare and often more aggressive.
-- **Reference location:** The uterus is a muscular organ in the pelvis.
+- **Reference location:** The uterus is a muscular organ in which a fetus develops.
 - **Focus:** `anatomy.uterus`
 - **Requires:** `anatomy.uterus`
 - **Listed on:** `anatomy.uterus`, `anatomy.uterus-fundus`
@@ -2120,6 +2427,196 @@ Conditions only locate the healthy reference anatomy; no disease geometry is sho
 - **Sources:**
   - `mlp-tbi`: [MedlinePlus: Traumatic brain injury](https://medlineplus.gov/traumaticbraininjury.html)
   - `seer-cns`: [NCI SEER Training: Central nervous system](https://training.seer.cancer.gov/anatomy/nervous/organization/cns.html)
+
+### Strabismus (crossed eyes) (`condition.strabismus`)
+
+- **Summary:** The six muscles around each eye normally work as a team so both eyes focus on the same object. In strabismus they do not, so one eye turns in a different direction. In children, untreated strabismus can lead to amblyopia (lazy eye).
+- **Reference location:** The six muscles that move each eye lie in the orbit around the eyeball.
+- **Focus:** `anatomy.extraocular-muscles`
+- **Requires:** `anatomy.extraocular-muscles`, `anatomy.eyes`
+- **Listed on:** `anatomy.extraocular-muscles`, `anatomy.eyes`
+- **Not depicted:** Eye misalignment is not depicted.
+- **Sources:**
+  - `mlp-strabismus`: [MedlinePlus Medical Encyclopedia: Strabismus](https://medlineplus.gov/ency/article/001004.htm)
+  - `tm-extraocular`: [TeachMeAnatomy: The extraocular muscles](https://teachmeanatomy.info/head/organs/eye/extraocular-muscles/)
+
+### Ptosis (drooping eyelid) (`condition.ptosis`)
+
+- **Summary:** A drooping upper eyelid, one of the common eyelid disorders.
+- **Reference location:** The levator palpebrae superioris is the only muscle that raises the upper eyelid.
+- **Focus:** `anatomy.levator-palpebrae`
+- **Requires:** `anatomy.levator-palpebrae`
+- **Listed on:** `anatomy.levator-palpebrae`, `anatomy.conjunctiva`
+- **Not depicted:** The eyelids and their drooping are not depicted.
+- **Sources:**
+  - `mlp-eyelid-disorders`: [MedlinePlus: Eyelid disorders](https://medlineplus.gov/eyeliddisorders.html)
+  - `tm-extraocular`: [TeachMeAnatomy: The extraocular muscles](https://teachmeanatomy.info/head/organs/eye/extraocular-muscles/)
+
+### Retinal artery occlusion (`condition.retinal-artery-occlusion`)
+
+- **Summary:** A blockage of an artery of the retina, usually by a blood clot or fat deposit. Clots most often come from the heart or the carotid artery in the neck. Part or all of the retina then does not get enough blood and oxygen, and vision can be lost.
+- **Reference location:** The central retinal artery supplies the internal surface of the retina.
+- **Focus:** `anatomy.central-retinal-vessels`
+- **Requires:** `anatomy.central-retinal-vessels`, `anatomy.retina`
+- **Listed on:** `anatomy.central-retinal-vessels`, `anatomy.retina`, `anatomy.ophthalmic-vessels`
+- **Not depicted:** The blockage and retinal damage are not depicted.
+- **Sources:**
+  - `mlp-retinal-artery-occlusion`: [MedlinePlus Medical Encyclopedia: Retinal artery occlusion](https://medlineplus.gov/ency/article/001028.htm)
+  - `tm-eyeball`: [TeachMeAnatomy: The eyeball - structure - vasculature](https://teachmeanatomy.info/head/organs/eye/eyeball/)
+
+### Voice disorders (`condition.voice-disorders`)
+
+- **Summary:** Talking too much, screaming, constant throat clearing or smoking can injure the vocal cords, causing hoarseness and problems such as nodules, polyps and sores. Infections and other conditions can also cause voice disorders.
+- **Reference location:** The vocal cords are two bands of muscle in the larynx (voice box). The vocal fold muscles are supplied only in the male model.
+- **Focus:** `anatomy.larynx`
+- **Requires:** `anatomy.larynx`, `anatomy.vocal-folds`
+- **Listed on:** `anatomy.larynx`, `anatomy.vocal-folds`, `anatomy.larynx-muscles`
+- **Not depicted:** Nodules, polyps and inflammation are not depicted.
+- **Sources:**
+  - `mlp-voice-disorders`: [MedlinePlus: Voice disorders](https://medlineplus.gov/voicedisorders.html)
+  - `nci-def-vocal-cord`: [NCI Dictionary of Cancer Terms: vocal cord](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/vocal-cord)
+
+### Laryngitis (`condition.laryngitis`)
+
+- **Summary:** Swelling and irritation of the voice box, usually caused by a virus, that causes hoarseness. Allergies, bacterial infection, GERD, injury, irritants and overuse of the voice can also cause it.
+- **Reference location:** The larynx sits at the top of the airway to the lungs and contains the vocal cords.
+- **Focus:** `anatomy.larynx`
+- **Requires:** `anatomy.larynx`
+- **Listed on:** `anatomy.larynx`, `anatomy.vocal-folds`, `anatomy.epiglottis`
+- **Not depicted:** Swelling and infection are not depicted.
+- **Sources:**
+  - `mlp-laryngitis`: [MedlinePlus Medical Encyclopedia: Laryngitis](https://medlineplus.gov/ency/article/001385.htm)
+  - `seer-larynx`: [NCI SEER Training: Larynx and trachea](https://training.seer.cancer.gov/anatomy/respiratory/passages/larynx.html)
+
+### Deep vein thrombosis (DVT) (`condition.dvt`)
+
+- **Summary:** A blood clot in a vein deep in the body. A DVT can break loose and cause a pulmonary embolism in the lung. Sitting still for a long time makes it more likely.
+- **Reference location:** Most deep vein clots occur in the lower leg or thigh, which these models do not include. The iliac veins shown carry blood from the legs towards the heart.
+- **Focus:** `anatomy.iliac-veins`
+- **Requires:** `anatomy.iliac-veins`, `anatomy.vena-cava.inferior`
+- **Listed on:** `anatomy.iliac-veins`, `anatomy.vena-cava.inferior`
+- **Not depicted:** Clots and the leg veins are not depicted.
+- **Sources:**
+  - `mlp-dvt`: [MedlinePlus: Deep vein thrombosis](https://medlineplus.gov/deepveinthrombosis.html)
+  - `tm-pelvic-veins`: [TeachMeAnatomy: The pelvic veins](https://teachmeanatomy.info/pelvis/vasculature/venous-drainage/)
+
+### Multiple sclerosis (MS) (`condition.multiple-sclerosis`)
+
+- **Summary:** A disease of the brain and spinal cord that damages myelin, the protective coating around nerve cells. Messages between the brain and body then slow down or are blocked.
+- **Reference location:** MS affects the central nervous system: the brain and spinal cord.
+- **Focus:** `anatomy.brain`
+- **Requires:** `anatomy.brain`
+- **Listed on:** `anatomy.brain`, `anatomy.optic-nerves`
+- **Not depicted:** Myelin and its damage are not depicted.
+- **Sources:**
+  - `mlp-ms`: [MedlinePlus: Multiple sclerosis](https://medlineplus.gov/multiplesclerosis.html)
+  - `mlp-brain`: [MedlinePlus: Brain diseases](https://medlineplus.gov/braindiseases.html)
+
+### Migraine (`condition.migraine`)
+
+- **Summary:** A recurring headache with moderate to severe throbbing or pulsing pain, often on one side of the head, sometimes with nausea, weakness and sensitivity to light and sound. Researchers believe it has a genetic cause; triggers vary between people.
+- **Reference location:** Migraine pain is felt in the head; the brain is shown for reference.
+- **Focus:** `anatomy.brain`
+- **Requires:** `anatomy.brain`
+- **Listed on:** `anatomy.brain`
+- **Not depicted:** Headache and its triggers are not depicted.
+- **Sources:**
+  - `mlp-migraine`: [MedlinePlus: Migraine](https://medlineplus.gov/migraine.html)
+  - `mlp-brain`: [MedlinePlus: Brain diseases](https://medlineplus.gov/braindiseases.html)
+
+### Pelvic support problems (prolapse) (`condition.pelvic-support-problems`)
+
+- **Summary:** The pelvic floor holds the uterus, bladder and bowel in place. It can be weakened or injured, mainly by pregnancy and childbirth, and organs can then drop into the vagina.
+- **Reference location:** The uterus is also supported by its round, cardinal and uterosacral ligaments.
+- **Focus:** `anatomy.uterus`
+- **Requires:** `anatomy.uterus`, `anatomy.uterine-ligaments`, `anatomy.bladder`
+- **Listed on:** `anatomy.uterus`, `anatomy.uterine-ligaments`, `anatomy.vagina`
+- **Not depicted:** The pelvic floor muscles and prolapse are not depicted.
+- **Sources:**
+  - `mlp-pelvic-support`: [MedlinePlus: Pelvic support problems](https://medlineplus.gov/pelvicsupportproblems.html)
+  - `tm-uterus`: [TeachMeAnatomy: The uterus](https://teachmeanatomy.info/pelvis/female-reproductive-tract/uterus/)
+
+### Bile duct cancer (cholangiocarcinoma) (`condition.bile-duct-cancer`)
+
+- **Summary:** A rare disease in which cancer cells form in the bile ducts, the network of tubes connecting the liver, gallbladder and small intestine.
+- **Reference location:** The right and left hepatic ducts lead out of the liver and join to form the common hepatic duct.
+- **Focus:** `anatomy.hepatic-ducts`
+- **Requires:** `anatomy.hepatic-ducts`, `anatomy.bile-duct.common`, `anatomy.liver`
+- **Listed on:** `anatomy.hepatic-ducts`, `anatomy.bile-duct.common`, `anatomy.cystic-duct`
+- **Not depicted:** Tumors and their spread are not depicted.
+- **Sources:**
+  - `nci-bile-duct-cancer`: [NCI: What is bile duct cancer (cholangiocarcinoma)?](https://www.cancer.gov/types/liver/bile-duct-cancer)
+  - `nci-def-bile-duct`: [NCI Dictionary of Cancer Terms: bile duct](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/bile-duct)
+
+### Ectopic pregnancy (`condition.ectopic-pregnancy`)
+
+- **Summary:** The fertilized egg grows outside the uterus, usually in a fallopian tube. It cannot become a healthy pregnancy, and a growing pregnancy can burst the tube and cause life-threatening internal bleeding.
+- **Reference location:** The fallopian tubes carry eggs from the ovaries to the uterus.
+- **Focus:** `anatomy.fallopian-tubes`
+- **Requires:** `anatomy.fallopian-tubes`, `anatomy.uterus`
+- **Listed on:** `anatomy.fallopian-tubes`, `anatomy.ovaries`
+- **Not depicted:** The pregnancy and bleeding are not depicted.
+- **Sources:**
+  - `mlp-ectopic-pregnancy`: [MedlinePlus: Ectopic pregnancy](https://medlineplus.gov/ectopicpregnancy.html)
+
+### Ovarian cysts (`condition.ovarian-cysts`)
+
+- **Summary:** Fluid-filled sacs in or on an ovary, usually formed during ovulation. Most are small, harmless and go away by themselves. Larger cysts can cause pain or complications such as ovarian torsion.
+- **Reference location:** The ovaries lie on each side of the uterus, attached by their suspensory ligaments and the ligaments of the ovary.
+- **Focus:** `anatomy.ovaries`
+- **Requires:** `anatomy.ovaries`, `anatomy.ovarian-ligaments`
+- **Listed on:** `anatomy.ovaries`, `anatomy.ovarian-ligaments`
+- **Not depicted:** Cysts are not depicted.
+- **Sources:**
+  - `mlp-ovarian-cysts`: [MedlinePlus: Ovarian cysts](https://medlineplus.gov/ovariancysts.html)
+  - `tm-ovaries`: [TeachMeAnatomy: The ovaries](https://teachmeanatomy.info/pelvis/female-reproductive-tract/ovaries/)
+
+### Swollen or ruptured spleen (`condition.spleen-diseases`)
+
+- **Summary:** Certain diseases can make the spleen swell, and an injury can damage or rupture it, especially when it is already swollen. A badly damaged spleen may need to be removed; people can live without one.
+- **Reference location:** The spleen sits under the ribs on the left side, above the stomach.
+- **Focus:** `anatomy.spleen`
+- **Requires:** `anatomy.spleen`, `anatomy.splenic-vessels`
+- **Listed on:** `anatomy.spleen`, `anatomy.splenic-vessels`
+- **Not depicted:** Swelling and injury are not depicted.
+- **Sources:**
+  - `mlp-spleen-diseases`: [MedlinePlus: Spleen diseases](https://medlineplus.gov/spleendiseases.html)
+  - `seer-spleen`: [NCI SEER Training: Spleen](https://training.seer.cancer.gov/anatomy/lymphatic/components/spleen.html)
+
+### Male infertility (`condition.male-infertility`)
+
+- **Summary:** When a man has not been able to get a partner pregnant after at least a year of trying. Causes include problems with the testicles, blockages in the ducts that carry sperm, hormone problems and genetic disorders.
+- **Reference location:** The vas deferens and ejaculatory ducts carry sperm. The testes are not supplied in this model.
+- **Focus:** `anatomy.vas-deferens`
+- **Requires:** `anatomy.vas-deferens`, `anatomy.ejaculatory-ducts`, `anatomy.seminal-vesicles`
+- **Listed on:** `anatomy.vas-deferens`, `anatomy.ejaculatory-ducts`, `anatomy.seminal-vesicles`
+- **Not depicted:** Sperm, blockages and the testes are not depicted.
+- **Sources:**
+  - `mlp-male-infertility`: [MedlinePlus: Male infertility](https://medlineplus.gov/maleinfertility.html)
+  - `tm-spermatic-cord`: [TeachMeAnatomy: The spermatic cord](https://teachmeanatomy.info/pelvis/the-male-reproductive-system/spermatic-cord/)
+
+### Urethral stricture and urethritis (`condition.urethral-disorders`)
+
+- **Summary:** Urethral problems include urethral stricture, a narrowing of the urethra, and urethritis, its inflammation, sometimes caused by infection. They can cause pain or difficulty passing urine.
+- **Reference location:** In men the urethra is a long tube that also carries semen; it begins at the bladder and passes through the prostate.
+- **Focus:** `anatomy.urethra`
+- **Requires:** `anatomy.urethra`, `anatomy.bladder`
+- **Listed on:** `anatomy.urethra`
+- **Not depicted:** Narrowing and inflammation are not depicted.
+- **Sources:**
+  - `mlp-urethral-disorders`: [MedlinePlus: Urethral disorders](https://medlineplus.gov/urethraldisorders.html)
+  - `tm-urethra`: [TeachMeAnatomy: The urethra](https://teachmeanatomy.info/pelvis/viscera/urethra/)
+
+### Prostatitis (`condition.prostatitis`)
+
+- **Summary:** A frequently painful condition involving inflammation of the prostate and sometimes the areas around it. There are four types, including chronic pelvic pain syndrome and acute and chronic bacterial prostatitis.
+- **Reference location:** The prostate surrounds the part of the urethra just below the bladder.
+- **Focus:** `anatomy.prostate`
+- **Requires:** `anatomy.prostate`, `anatomy.urethra`
+- **Listed on:** `anatomy.prostate`
+- **Not depicted:** Inflammation is not depicted.
+- **Sources:**
+  - `niddk-prostatitis`: [NIDDK: Prostatitis: inflammation of the prostate](https://www.niddk.nih.gov/health-information/urologic-diseases/prostate-problems/prostatitis-inflammation-prostate)
 
 ## Routes
 
