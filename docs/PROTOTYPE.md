@@ -2,7 +2,7 @@
 
 The viewer uses real, separate HRA male and female reference samples inside
 one continuous scene. It is a partial atlas with medical review pending. Draft
-study cards and 66 condition summaries ([body study content](BODY_STUDY_CONTENT.md))
+study cards and 82 condition summaries ([body study content](BODY_STUDY_CONTENT.md))
 provide reference locations; pathological geometry is unavailable. Detailed source findings are in [the sample audit](audit/HRA_SAMPLE_FINDINGS.md).
 
 The [study workspace guide](STUDY_WORKSPACE.md) covers portable saved views/notes,
@@ -452,7 +452,7 @@ text is selected, preserving the current anatomy view.
 - Source labels, grouping and ontology fields remain draft import metadata.
 - Heart parts exist, but prepared cutaways, caps, reviewed interiors and tissue
   explanations are not implemented.
-- Draft condition summaries for 66 conditions and an unreviewed conceptual
+- Draft condition summaries for 82 conditions and an unreviewed conceptual
   heart–lung route are available. Pathological geometry, disease comparisons, injury simulation and
   physiological animation are not implemented.
 - Source labels remain unreviewed. Broader system sets, authored label anchors,

@@ -17,6 +17,15 @@ def is_government_source(url):
                            "https://www.niams.nih.gov/", "https://medlineplus.gov/", "https://www.cancer.gov/"))
 
 
+# Non-government anatomy references the user approved on 2026-11-21 for parts that have no
+# fetchable government page. Every condition still cites at least one government source.
+APPROVED_REFERENCES = ("https://teachmeanatomy.info/",)
+
+
+def is_approved_source(url):
+    return is_government_source(url) or url.startswith(APPROVED_REFERENCES)
+
+
 def mapping_list(value):
     """Mirror study_content.gd: one body maps a single structure or a list of them."""
     return value if isinstance(value, list) else [value]
@@ -49,7 +58,7 @@ class StudyContentTests(unittest.TestCase):
     def test_conditions_are_sourced_reference_locations_with_explicit_associations(self):
         content = json.loads((ROOT / "content/study_content.json").read_text())
         catalogue = json.loads((ROOT / "content/sample_pack.json").read_text())
-        self.assertEqual(len(content["conditions"]), 66)
+        self.assertEqual(len(content["conditions"]), 82)
         for body in catalogue["bodies"]:
             available = {s["id"]: s for s in body["structures"]}
             offered = set()
@@ -61,15 +70,16 @@ class StudyContentTests(unittest.TestCase):
                 self.assertTrue(condition["not_depicted"].endswith("not depicted."))
                 self.assertIn(condition["focus_id"], condition["related_anatomy"])
                 self.assertTrue(condition["source_ids"])
-                for source in condition["source_ids"]:
-                    self.assertTrue(is_government_source(content["sources"][source]["url"]))
+                urls = [content["sources"][source]["url"] for source in condition["source_ids"]]
+                self.assertTrue(all(is_approved_source(url) for url in urls))
+                self.assertTrue(any(is_government_source(url) for url in urls), identity)
                 for anatomy in condition["display_on"]:
                     self.assertTrue(anatomy in available or anatomy in content["cards"], anatomy)
                 if all(resolve(content, anatomy, available) for anatomy in condition["related_anatomy"]):
                     offered.add(identity)
-            # Each adult reference offers the 58 shared conditions plus its own
-            # sex-specific ones (6 female, 2 male); none is inferred from missing anatomy.
-            self.assertEqual(len(offered), 64 if body["id"] == "female" else 60)
+            # Each adult reference offers the 67 shared conditions plus those its own supplied
+            # anatomy supports (9 female, 6 male); none is inferred from missing anatomy.
+            self.assertEqual(len(offered), 76 if body["id"] == "female" else 73)
             self.assertEqual("condition.bph" in offered, body["id"] == "male")
             self.assertEqual("condition.endometriosis" in offered, body["id"] == "female")
 
@@ -100,7 +110,7 @@ class StudyContentTests(unittest.TestCase):
         content = json.loads((ROOT / "content/study_content.json").read_text())
         catalogue = json.loads((ROOT / "content/sample_pack.json").read_text())
         self.assertEqual(content["expert_review"], "pending")
-        self.assertEqual(len(content["cards"]), 125)
+        self.assertEqual(len(content["cards"]), 153)
         mapped = {}
         for identity, card in content["cards"].items():
             self.assertEqual(card["review_status"], "draft")
@@ -108,7 +118,7 @@ class StudyContentTests(unittest.TestCase):
             self.assertEqual(card["expert_review"], "pending")
             self.assertTrue(card["source_ids"])
             for source in card["source_ids"]:
-                self.assertTrue(is_government_source(content["sources"][source]["url"]))
+                self.assertTrue(is_approved_source(content["sources"][source]["url"]))
             for mapping in [m for value in card.get("geometry", {}).values() for m in mapping_list(value)]:
                 self.assertNotIn(mapping["id"], mapped, "one structure carries one card")
                 self.assertNotIn(mapping["id"], content["cards"])

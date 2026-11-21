@@ -13,7 +13,7 @@ func check(condition: bool, message: String) -> void:
 func _initialize() -> void:
 	var content := Content.new()
 	var original: Dictionary = content.data.duplicate(true)
-	check(content.error.is_empty() and original.cards.size() == 125 and original.routes.size() == 1 and original.conditions.size() == 66, "Bundled explanations, route and conditions retain explicit draft-review status")
+	check(content.error.is_empty() and original.cards.size() == 153 and original.routes.size() == 1 and original.conditions.size() == 82, "Bundled explanations, route and conditions retain explicit draft-review status")
 	var invalid: Array = [null, [], {}, {"schema_version": 2}]
 	for change in ["source", "card", "related", "citation", "review", "date", "promotion", "human-review", "assistant-actor", "route-target", "route-gap", "route-unreachable", "route-return", "mapping", "condition", "condition-focus", "condition-geometry", "condition-review", "condition-citation", "card-geometry", "card-mapping", "card-duplicate", "card-shadow", "condition-depiction", "card-list-empty", "card-list-entry", "card-list-duplicate"]:
 		var candidate := original.duplicate(true)
@@ -72,7 +72,7 @@ func _initialize() -> void:
 		# Paired parts share one card; the first mapped side is its focus.
 		var corneas: Array = original.cards["anatomy.cornea"].geometry[body.id]
 		check(corneas.size() == 2 and content.card(corneas[1].id) == content.card("anatomy.cornea") and content.structure_id("anatomy.cornea", structures) == corneas[0].id, "Both corneas resolve to one card in " + body.id)
-		check(content.conditions_for(content.structure_id("anatomy.retina", structures)) == ["condition.glaucoma", "condition.amd", "condition.diabetic-retinopathy", "condition.retinal-detachment", "condition.floaters"], "Retina lists its sourced eye conditions in " + body.id)
+		check(content.conditions_for(content.structure_id("anatomy.retina", structures)) == ["condition.glaucoma", "condition.amd", "condition.diabetic-retinopathy", "condition.retinal-detachment", "condition.floaters", "condition.retinal-artery-occlusion"], "Retina lists its sourced eye conditions in " + body.id)
 		check(content.condition_focus("condition.amd", structures) == content.structure_id("anatomy.macula", structures), "AMD focuses the supplied macula in " + body.id)
 		check(content.structure_id("anatomy.heart", structures) == "anatomy.heart", "Shared IDs resolve unchanged in " + body.id)
 		check(content.structure_id("anatomy.prostate", structures).is_empty() == (body.id == "female"), "Sex-specific cards stay in their own body: " + body.id)

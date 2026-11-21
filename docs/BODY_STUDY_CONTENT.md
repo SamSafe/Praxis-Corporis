@@ -9,7 +9,7 @@ the brain, eyes and knees, for 63 cards and 25 conditions.
 [Revisions 3 and 4](#revisions-3-and-4-vessels-organ-interiors-airways-skin-and-bone)
 bring the totals to 112 cards and 54 conditions, and
 [revision 5](#revision-5-dictionary-terms-brain-fluid-spaces-and-more-cancers)
-to 125 cards and 66 conditions.
+to 153 cards and 82 conditions.
 
 **Everything here is a private draft.** Every record keeps `review_status: draft`
 with human source review and expert review pending, and the app labels it that
@@ -262,12 +262,63 @@ and the male body 60.
 - **IBS was left out.** NIDDK describes it as a functional disorder with no
   single location, so pointing at one organ would mislead.
 
+## Revision 6: heart and gut vessels, eye muscles, voice box and pelvic organs
+
+Added 2026-11-21 as `body-study-6-draft`: **28 cards and 16 conditions**, for
+**153 cards and 82 conditions** in total. The female body offers 76 conditions
+and the male body 73 (67 shared).
+
+- **Cards:**
+  - heart: the left anterior descending artery, the circumflex artery, and the
+    right coronary artery's branches;
+  - eye: the six eye-moving muscles, the eyelid-raising muscle, the ophthalmic
+    vessels, and the central retinal artery and vein;
+  - voice box and neck (male model only): the larynx muscles, the vocal-fold
+    muscles and the hyoid bone; bronchial cartilage on both bodies;
+  - male reproductive and urinary: vas deferens, seminal vesicles, ejaculatory
+    ducts and urethra;
+  - female reproductive: the uterine ligaments, the ovarian ligaments and the
+    uterine vessels;
+  - liver and gut: hepatic ducts, hepatic veins, splenic, mesenteric, colic,
+    rectal and cystic vessels;
+  - veins: iliac veins (both bodies) and brachiocephalic veins (male model);
+  - knee: the patellar ligament.
+- **Existing cards extended** with parts that one body was missing: the female
+  ureters, the portal vein's branches, the male right MCL and the hepatic
+  arteries' segmental branches.
+- **Conditions:** strabismus, ptosis, retinal artery occlusion, voice
+  disorders, laryngitis, deep vein thrombosis, multiple sclerosis, migraine,
+  pelvic support problems, bile duct cancer, ectopic pregnancy, ovarian cysts,
+  swollen or ruptured spleen, male infertility, urethral disorders and
+  prostatitis. Coronary heart disease and heart attack now also show on the new
+  coronary branches.
+- **New source type:** anatomy without a fetchable government page cites
+  [TeachMeAnatomy](https://teachmeanatomy.info/), a non-government anatomy
+  teaching reference. The user approved non-government sources on
+  2026-11-21. Every condition still cites at least one government page
+  (MedlinePlus, NIDDK or NCI), and the Python tests enforce both rules.
+
+### Revision 6 limits
+
+- **Left out for lack of a fetchable source:** the anterolateral ligament of the
+  knee and the uterovesical pouch. Cleveland Clinic, Johns Hopkins and
+  Radiopaedia refuse automated downloads and were not used.
+- **No stomach, esophagus or testes** in the supplied models, so GERD, ulcers,
+  stomach cancer and testicular cancer have nowhere to point.
+- **Hemorrhoids are not linked to the rectal veins.** TeachMeAnatomy states that
+  hemorrhoids are enlarged vascular cushions of the anal canal, not rectal
+  varices.
+- **DVT** usually occurs in the leg, which the models do not include. The
+  condition points at the iliac veins and says so.
+- **Migraine and MS** point at the whole brain; neither source places them in
+  one region.
+
 ## Deliberate limits
 
 - **Sources (revision 1).** Claims come only from NIH pages: NHLBI, NIDDK, NICHD and NCI SEER
   Training. Each page returned HTTP 200 on 2026-11-20. Some well-known details
   were left out because no cited page states them:
-  - left anterior descending artery: no card was added for it;
+  - left anterior descending artery: no card was added for it (revision 6 adds one);
   - which regions each vena cava drains: both venae cavae share wording;
   - where the pancreas sits relative to the stomach.
 - **No new geometry.** No disease geometry, cutaways or flow are added. The
@@ -395,3 +446,52 @@ and the male body 60.
 - `nhlbi-pulmonary-hypertension`: [NHLBI: Pulmonary hypertension](https://www.nhlbi.nih.gov/health/pulmonary-hypertension)
 - `niddk-lactose-intolerance`: [NIDDK: Definition & facts for lactose intolerance](https://www.niddk.nih.gov/health-information/digestive-diseases/lactose-intolerance/definition-facts)
 - `niddk-pkd`: [NIDDK: What is polycystic kidney disease?](https://www.niddk.nih.gov/health-information/kidney-disease/polycystic-kidney-disease/what-is-pkd)
+- `mlp-dvt`: [MedlinePlus: Deep vein thrombosis](https://medlineplus.gov/deepveinthrombosis.html)
+- `mlp-ectopic-pregnancy`: [MedlinePlus: Ectopic pregnancy](https://medlineplus.gov/ectopicpregnancy.html)
+- `mlp-eyelid-disorders`: [MedlinePlus: Eyelid disorders](https://medlineplus.gov/eyeliddisorders.html)
+- `mlp-laryngitis`: [MedlinePlus Medical Encyclopedia: Laryngitis](https://medlineplus.gov/ency/article/001385.htm)
+- `mlp-male-infertility`: [MedlinePlus: Male infertility](https://medlineplus.gov/maleinfertility.html)
+- `mlp-migraine`: [MedlinePlus: Migraine](https://medlineplus.gov/migraine.html)
+- `mlp-ms`: [MedlinePlus: Multiple sclerosis](https://medlineplus.gov/multiplesclerosis.html)
+- `mlp-ovarian-cysts`: [MedlinePlus: Ovarian cysts](https://medlineplus.gov/ovariancysts.html)
+- `mlp-pelvic-support`: [MedlinePlus: Pelvic support problems](https://medlineplus.gov/pelvicsupportproblems.html)
+- `mlp-retinal-artery-occlusion`: [MedlinePlus Medical Encyclopedia: Retinal artery occlusion](https://medlineplus.gov/ency/article/001028.htm)
+- `mlp-spleen-diseases`: [MedlinePlus: Spleen diseases](https://medlineplus.gov/spleendiseases.html)
+- `mlp-strabismus`: [MedlinePlus Medical Encyclopedia: Strabismus](https://medlineplus.gov/ency/article/001004.htm)
+- `mlp-urethral-disorders`: [MedlinePlus: Urethral disorders](https://medlineplus.gov/urethraldisorders.html)
+- `mlp-voice-disorders`: [MedlinePlus: Voice disorders](https://medlineplus.gov/voicedisorders.html)
+- `nci-bile-duct-cancer`: [NCI: What is bile duct cancer (cholangiocarcinoma)?](https://www.cancer.gov/types/liver/bile-duct-cancer)
+- `nci-def-bile-duct`: [NCI Dictionary of Cancer Terms: bile duct](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/bile-duct)
+- `nci-def-coronary-artery-disease`: [NCI Dictionary of Cancer Terms: coronary artery disease](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/coronary-artery-disease)
+- `nci-def-inferior-vena-cava`: [NCI Dictionary of Cancer Terms: inferior vena cava](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/inferior-vena-cava)
+- `nci-def-seminal-vesicle`: [NCI Dictionary of Cancer Terms: seminal vesicle](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/seminal-vesicle)
+- `nci-def-tendon`: [NCI Dictionary of Cancer Terms: tendon](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/tendon)
+- `nci-def-ureter`: [NCI Dictionary of Cancer Terms: ureter](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/ureter)
+- `nci-def-urethra`: [NCI Dictionary of Cancer Terms: urethra](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/urethra)
+- `nci-def-vas-deferens`: [NCI Dictionary of Cancer Terms: vas deferens](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/vas-deferens)
+- `nci-def-vocal-cord`: [NCI Dictionary of Cancer Terms: vocal cord](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/vocal-cord)
+- `niddk-prostatitis`: [NIDDK: Prostatitis: inflammation of the prostate](https://www.niddk.nih.gov/health-information/urologic-diseases/prostate-problems/prostatitis-inflammation-prostate)
+- `tm-abdominal-veins`: [TeachMeAnatomy: Venous drainage of the abdomen](https://teachmeanatomy.info/abdomen/vasculature/venous-drainage/)
+- `tm-coeliac-trunk`: [TeachMeAnatomy: The coeliac trunk](https://teachmeanatomy.info/abdomen/vasculature/arteries/coeliac-trunk/)
+- `tm-coronary`: [TeachMeAnatomy: Coronary arteries and veins](https://teachmeanatomy.info/thorax/organs/heart/heart-vasculature/)
+- `tm-extraocular`: [TeachMeAnatomy: The extraocular muscles](https://teachmeanatomy.info/head/organs/eye/extraocular-muscles/)
+- `tm-eyeball`: [TeachMeAnatomy: The eyeball - structure - vasculature](https://teachmeanatomy.info/head/organs/eye/eyeball/)
+- `tm-gallbladder`: [TeachMeAnatomy: The gallbladder - biliary tree](https://teachmeanatomy.info/abdomen/viscera/gallbladder/)
+- `tm-hyoid`: [TeachMeAnatomy: The hyoid bone](https://teachmeanatomy.info/neck/bones/hyoid-bone/)
+- `tm-ima`: [TeachMeAnatomy: The inferior mesenteric artery](https://teachmeanatomy.info/abdomen/vasculature/arteries/inferior-mesenteric/)
+- `tm-knee`: [TeachMeAnatomy: The knee joint](https://teachmeanatomy.info/lower-limb/joints/knee-joint/)
+- `tm-larynx-folds`: [TeachMeAnatomy: Laryngeal ligaments and folds](https://teachmeanatomy.info/neck/viscera/larynx/ligaments-folds/)
+- `tm-larynx-muscles`: [TeachMeAnatomy: Muscles of the larynx](https://teachmeanatomy.info/neck/viscera/larynx/muscles/)
+- `tm-liver`: [TeachMeAnatomy: The liver](https://teachmeanatomy.info/abdomen/viscera/liver/)
+- `tm-ovaries`: [TeachMeAnatomy: The ovaries](https://teachmeanatomy.info/pelvis/female-reproductive-tract/ovaries/)
+- `tm-patella`: [TeachMeAnatomy: The patella](https://teachmeanatomy.info/lower-limb/bones/patella/)
+- `tm-pelvic-veins`: [TeachMeAnatomy: The pelvic veins](https://teachmeanatomy.info/pelvis/vasculature/venous-drainage/)
+- `tm-rectum`: [TeachMeAnatomy: The rectum](https://teachmeanatomy.info/abdomen/gi-tract/rectum/)
+- `tm-seminal-vesicles`: [TeachMeAnatomy: The seminal vesicles](https://teachmeanatomy.info/pelvis/the-male-reproductive-system/seminal-vesicles/)
+- `tm-sma`: [TeachMeAnatomy: The superior mesenteric artery](https://teachmeanatomy.info/abdomen/vasculature/arteries/superior-mesenteric/)
+- `tm-spermatic-cord`: [TeachMeAnatomy: The spermatic cord](https://teachmeanatomy.info/pelvis/the-male-reproductive-system/spermatic-cord/)
+- `tm-spleen`: [TeachMeAnatomy: The spleen](https://teachmeanatomy.info/abdomen/viscera/spleen/)
+- `tm-svc`: [TeachMeAnatomy: The superior vena cava](https://teachmeanatomy.info/thorax/vasculature/superior-vena-cava/)
+- `tm-tracheobronchial`: [TeachMeAnatomy: The tracheobronchial tree](https://teachmeanatomy.info/thorax/organs/tracheobronchial-tree/)
+- `tm-urethra`: [TeachMeAnatomy: The urethra](https://teachmeanatomy.info/pelvis/viscera/urethra/)
+- `tm-uterus`: [TeachMeAnatomy: The uterus](https://teachmeanatomy.info/pelvis/female-reproductive-tract/uterus/)

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": "body-study-5-draft",
+  "revision": "body-study-6-draft",
   "review_status": "draft",
   "expert_review": "pending",
   "scope": "Private draft explanations covering the chest, abdomen, pelvis, brain, eyes, knees and skin, including selected vessels, kidney interior, intestines, airways, bone tissue and the lymphatic system. General anatomy is separate from completeness and accuracy of the supplied source meshes. No source illustrations or video are reused.",
@@ -456,6 +456,202 @@
     "mlp-tbi": {
       "title": "MedlinePlus: Traumatic brain injury",
       "url": "https://medlineplus.gov/traumaticbraininjury.html"
+    },
+    "nci-def-ureter": {
+      "title": "NCI Dictionary of Cancer Terms: ureter",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/ureter"
+    },
+    "nci-def-vas-deferens": {
+      "title": "NCI Dictionary of Cancer Terms: vas deferens",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/vas-deferens"
+    },
+    "nci-def-seminal-vesicle": {
+      "title": "NCI Dictionary of Cancer Terms: seminal vesicle",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/seminal-vesicle"
+    },
+    "nci-def-urethra": {
+      "title": "NCI Dictionary of Cancer Terms: urethra",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/urethra"
+    },
+    "nci-def-vocal-cord": {
+      "title": "NCI Dictionary of Cancer Terms: vocal cord",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/vocal-cord"
+    },
+    "nci-def-bile-duct": {
+      "title": "NCI Dictionary of Cancer Terms: bile duct",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/bile-duct"
+    },
+    "nci-def-tendon": {
+      "title": "NCI Dictionary of Cancer Terms: tendon",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/tendon"
+    },
+    "nci-def-coronary-artery-disease": {
+      "title": "NCI Dictionary of Cancer Terms: coronary artery disease",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/coronary-artery-disease"
+    },
+    "nci-def-inferior-vena-cava": {
+      "title": "NCI Dictionary of Cancer Terms: inferior vena cava",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/inferior-vena-cava"
+    },
+    "tm-coronary": {
+      "title": "TeachMeAnatomy: Coronary arteries and veins",
+      "url": "https://teachmeanatomy.info/thorax/organs/heart/heart-vasculature/"
+    },
+    "tm-extraocular": {
+      "title": "TeachMeAnatomy: The extraocular muscles",
+      "url": "https://teachmeanatomy.info/head/organs/eye/extraocular-muscles/"
+    },
+    "tm-eyeball": {
+      "title": "TeachMeAnatomy: The eyeball - structure - vasculature",
+      "url": "https://teachmeanatomy.info/head/organs/eye/eyeball/"
+    },
+    "tm-larynx-muscles": {
+      "title": "TeachMeAnatomy: Muscles of the larynx",
+      "url": "https://teachmeanatomy.info/neck/viscera/larynx/muscles/"
+    },
+    "tm-larynx-folds": {
+      "title": "TeachMeAnatomy: Laryngeal ligaments and folds",
+      "url": "https://teachmeanatomy.info/neck/viscera/larynx/ligaments-folds/"
+    },
+    "tm-hyoid": {
+      "title": "TeachMeAnatomy: The hyoid bone",
+      "url": "https://teachmeanatomy.info/neck/bones/hyoid-bone/"
+    },
+    "tm-uterus": {
+      "title": "TeachMeAnatomy: The uterus",
+      "url": "https://teachmeanatomy.info/pelvis/female-reproductive-tract/uterus/"
+    },
+    "tm-ovaries": {
+      "title": "TeachMeAnatomy: The ovaries",
+      "url": "https://teachmeanatomy.info/pelvis/female-reproductive-tract/ovaries/"
+    },
+    "tm-seminal-vesicles": {
+      "title": "TeachMeAnatomy: The seminal vesicles",
+      "url": "https://teachmeanatomy.info/pelvis/the-male-reproductive-system/seminal-vesicles/"
+    },
+    "tm-spermatic-cord": {
+      "title": "TeachMeAnatomy: The spermatic cord",
+      "url": "https://teachmeanatomy.info/pelvis/the-male-reproductive-system/spermatic-cord/"
+    },
+    "tm-urethra": {
+      "title": "TeachMeAnatomy: The urethra",
+      "url": "https://teachmeanatomy.info/pelvis/viscera/urethra/"
+    },
+    "tm-gallbladder": {
+      "title": "TeachMeAnatomy: The gallbladder - biliary tree",
+      "url": "https://teachmeanatomy.info/abdomen/viscera/gallbladder/"
+    },
+    "tm-liver": {
+      "title": "TeachMeAnatomy: The liver",
+      "url": "https://teachmeanatomy.info/abdomen/viscera/liver/"
+    },
+    "tm-abdominal-veins": {
+      "title": "TeachMeAnatomy: Venous drainage of the abdomen",
+      "url": "https://teachmeanatomy.info/abdomen/vasculature/venous-drainage/"
+    },
+    "tm-pelvic-veins": {
+      "title": "TeachMeAnatomy: The pelvic veins",
+      "url": "https://teachmeanatomy.info/pelvis/vasculature/venous-drainage/"
+    },
+    "tm-coeliac-trunk": {
+      "title": "TeachMeAnatomy: The coeliac trunk",
+      "url": "https://teachmeanatomy.info/abdomen/vasculature/arteries/coeliac-trunk/"
+    },
+    "tm-sma": {
+      "title": "TeachMeAnatomy: The superior mesenteric artery",
+      "url": "https://teachmeanatomy.info/abdomen/vasculature/arteries/superior-mesenteric/"
+    },
+    "tm-ima": {
+      "title": "TeachMeAnatomy: The inferior mesenteric artery",
+      "url": "https://teachmeanatomy.info/abdomen/vasculature/arteries/inferior-mesenteric/"
+    },
+    "tm-rectum": {
+      "title": "TeachMeAnatomy: The rectum",
+      "url": "https://teachmeanatomy.info/abdomen/gi-tract/rectum/"
+    },
+    "tm-spleen": {
+      "title": "TeachMeAnatomy: The spleen",
+      "url": "https://teachmeanatomy.info/abdomen/viscera/spleen/"
+    },
+    "tm-svc": {
+      "title": "TeachMeAnatomy: The superior vena cava",
+      "url": "https://teachmeanatomy.info/thorax/vasculature/superior-vena-cava/"
+    },
+    "tm-knee": {
+      "title": "TeachMeAnatomy: The knee joint",
+      "url": "https://teachmeanatomy.info/lower-limb/joints/knee-joint/"
+    },
+    "tm-patella": {
+      "title": "TeachMeAnatomy: The patella",
+      "url": "https://teachmeanatomy.info/lower-limb/bones/patella/"
+    },
+    "tm-tracheobronchial": {
+      "title": "TeachMeAnatomy: The tracheobronchial tree",
+      "url": "https://teachmeanatomy.info/thorax/organs/tracheobronchial-tree/"
+    },
+    "mlp-strabismus": {
+      "title": "MedlinePlus Medical Encyclopedia: Strabismus",
+      "url": "https://medlineplus.gov/ency/article/001004.htm"
+    },
+    "mlp-retinal-artery-occlusion": {
+      "title": "MedlinePlus Medical Encyclopedia: Retinal artery occlusion",
+      "url": "https://medlineplus.gov/ency/article/001028.htm"
+    },
+    "mlp-eyelid-disorders": {
+      "title": "MedlinePlus: Eyelid disorders",
+      "url": "https://medlineplus.gov/eyeliddisorders.html"
+    },
+    "mlp-voice-disorders": {
+      "title": "MedlinePlus: Voice disorders",
+      "url": "https://medlineplus.gov/voicedisorders.html"
+    },
+    "mlp-laryngitis": {
+      "title": "MedlinePlus Medical Encyclopedia: Laryngitis",
+      "url": "https://medlineplus.gov/ency/article/001385.htm"
+    },
+    "mlp-dvt": {
+      "title": "MedlinePlus: Deep vein thrombosis",
+      "url": "https://medlineplus.gov/deepveinthrombosis.html"
+    },
+    "mlp-ms": {
+      "title": "MedlinePlus: Multiple sclerosis",
+      "url": "https://medlineplus.gov/multiplesclerosis.html"
+    },
+    "mlp-migraine": {
+      "title": "MedlinePlus: Migraine",
+      "url": "https://medlineplus.gov/migraine.html"
+    },
+    "mlp-pelvic-support": {
+      "title": "MedlinePlus: Pelvic support problems",
+      "url": "https://medlineplus.gov/pelvicsupportproblems.html"
+    },
+    "mlp-ectopic-pregnancy": {
+      "title": "MedlinePlus: Ectopic pregnancy",
+      "url": "https://medlineplus.gov/ectopicpregnancy.html"
+    },
+    "mlp-ovarian-cysts": {
+      "title": "MedlinePlus: Ovarian cysts",
+      "url": "https://medlineplus.gov/ovariancysts.html"
+    },
+    "mlp-spleen-diseases": {
+      "title": "MedlinePlus: Spleen diseases",
+      "url": "https://medlineplus.gov/spleendiseases.html"
+    },
+    "mlp-male-infertility": {
+      "title": "MedlinePlus: Male infertility",
+      "url": "https://medlineplus.gov/maleinfertility.html"
+    },
+    "mlp-urethral-disorders": {
+      "title": "MedlinePlus: Urethral disorders",
+      "url": "https://medlineplus.gov/urethraldisorders.html"
+    },
+    "niddk-prostatitis": {
+      "title": "NIDDK: Prostatitis: inflammation of the prostate",
+      "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/prostate-problems/prostatitis-inflammation-prostate"
+    },
+    "nci-bile-duct-cancer": {
+      "title": "NCI: What is bile duct cancer (cholangiocarcinoma)?",
+      "url": "https://www.cancer.gov/types/liver/bile-duct-cancer"
     }
   },
   "cards": {
@@ -1020,22 +1216,52 @@
         "anatomy.small-intestine"
       ],
       "source_ids": [
-        "seer-accessory"
+        "seer-accessory",
+        "tm-liver"
       ],
       "review_status": "draft",
       "expert_review": "pending",
       "human_source_review": "pending",
       "geometry": {
-        "female": {
-          "id": "source.hra-v1-1.female.n726",
-          "source_name": "VH_F_hepatic_portal_vein",
-          "ontology": "UBERON:0001639"
-        },
-        "male": {
-          "id": "source.hra-v1-1.male.n287",
-          "source_name": "VH_M_hepatic_portal_vein",
-          "ontology": "UBERON:0001639"
-        }
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n726",
+            "source_name": "VH_F_hepatic_portal_vein",
+            "ontology": "UBERON:0001639"
+          },
+          {
+            "id": "source.hra-v1-1.female.n730",
+            "source_name": "VH_F_right_branch_of_portal_vein",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n731",
+            "source_name": "VH_F_left_branch_of_portal_vein",
+            "ontology": "-"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n287",
+            "source_name": "VH_M_hepatic_portal_vein",
+            "ontology": "UBERON:0001639"
+          },
+          {
+            "id": "source.hra-v1-1.male.n284",
+            "source_name": "VH_M_left_branch_of_portal_vein",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n285",
+            "source_name": "VH_M_right_branch_of_portal_vein",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n286",
+            "source_name": "VH_M_portal_vein",
+            "ontology": "-"
+          }
+        ]
       }
     },
     "anatomy.small-intestine": {
@@ -1290,7 +1516,8 @@
       ],
       "source_ids": [
         "seer-ureters",
-        "niddk-urinary"
+        "niddk-urinary",
+        "nci-def-ureter"
       ],
       "review_status": "draft",
       "expert_review": "pending",
@@ -1299,6 +1526,11 @@
         "male": {
           "id": "source.hra-v1-1.male.n579",
           "source_name": "VH_M_ureter",
+          "ontology": ""
+        },
+        "female": {
+          "id": "source.hra-v1-1.female.n596",
+          "source_name": "VH_F_ureters",
           "ontology": ""
         }
       }
@@ -2615,11 +2847,18 @@
             "ontology": "FMA:44602"
           }
         ],
-        "male": {
-          "id": "source.hra-v1-1.male.n352",
-          "source_name": "VH_M_left_tibial_collateral_ligament",
-          "ontology": "FMA:44602"
-        }
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n352",
+            "source_name": "VH_M_left_tibial_collateral_ligament",
+            "ontology": "FMA:44602"
+          },
+          {
+            "id": "source.hra-v1-1.male.n321",
+            "source_name": "VH_M_right_tibial_collaterial_ligament",
+            "ontology": "FMA:44601"
+          }
+        ]
       }
     },
     "anatomy.lcl": {
@@ -5960,6 +6199,21 @@
             "id": "source.hra-v1-1.female.n724",
             "source_name": "VH_F_left_hepatic_artery",
             "ontology": "FMA:14779"
+          },
+          {
+            "id": "source.hra-v1-1.female.n718",
+            "source_name": "VH_F_middle_hepatic_artery_branch_of_left_hepatic_artery",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n722",
+            "source_name": "VH_F_posterior_segmental_right_hepatic_artery",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n723",
+            "source_name": "VH_F_anterior_segmental_right_hepatic_artery",
+            "ontology": "-"
           }
         ],
         "male": [
@@ -5982,6 +6236,21 @@
             "id": "source.hra-v1-1.male.n278",
             "source_name": "VH_M_common_hepatic_artery",
             "ontology": "UBERON:0005436"
+          },
+          {
+            "id": "source.hra-v1-1.male.n275",
+            "source_name": "VH_M_posterior_segmental_right_hepatic_artery",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n277",
+            "source_name": "VH_M_anterior_segmental_right_hepatic_artery",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n279",
+            "source_name": "VH_M_middle_hepatic_artery_branch_of_left_hepatic_artery",
+            "ontology": "-"
           }
         ]
       }
@@ -6054,6 +6323,1379 @@
           "source_name": "VH_F_fundus_of_uterus",
           "ontology": "FMA:17561"
         }
+      }
+    },
+    "anatomy.coronary.lad": {
+      "overview": "The left anterior descending artery (LAD), also called the anterior interventricular artery, is a branch of the left coronary artery. The supplied parts include its diagonal branches.",
+      "function": "Follows the groove between the ventricles on the front of the heart towards its apex, supplying heart muscle.",
+      "related": [
+        "anatomy.coronary.left",
+        "anatomy.heart.septum",
+        "anatomy.heart.ventricle.left"
+      ],
+      "source_ids": [
+        "tm-coronary"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n754",
+            "source_name": "VH_F_left_anterior_descending_artery",
+            "ontology": "FMA:8636"
+          },
+          {
+            "id": "source.hra-v1-1.female.n756",
+            "source_name": "VH_F_diagonal_branch_of_left_anterior_descending_artery",
+            "ontology": "FMA:3860"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n226",
+            "source_name": "VH_M_left_anterior_descending_artery",
+            "ontology": "FMA:8636"
+          },
+          {
+            "id": "source.hra-v1-1.male.n229",
+            "source_name": "VH_M_diagonal_branch_of_anterior_descending_branch_of_left_coronary_artery",
+            "ontology": "FMA:3860"
+          },
+          {
+            "id": "source.hra-v1-1.male.n232",
+            "source_name": "VH_M_diagonal_branch_of_left_anterior_descending_artery",
+            "ontology": "FMA:3860"
+          }
+        ]
+      }
+    },
+    "anatomy.coronary.circumflex": {
+      "overview": "The circumflex branch of the left coronary artery and its left marginal branch. In about 20-25% of people the circumflex also contributes to the posterior interventricular artery.",
+      "function": "Follows the groove between the atria and ventricles to the left border and back of the heart; its left marginal branch follows the left border.",
+      "related": [
+        "anatomy.coronary.left",
+        "anatomy.heart.ventricle.left"
+      ],
+      "source_ids": [
+        "tm-coronary"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n755",
+            "source_name": "VH_F_left_circumflex_artery",
+            "ontology": "UBERON:0035422"
+          },
+          {
+            "id": "source.hra-v1-1.female.n758",
+            "source_name": "VH_F_left_marginal_branch",
+            "ontology": "FMA:3902"
+          },
+          {
+            "id": "source.hra-v1-1.female.n759",
+            "source_name": "VH_F_left_posterior_descending_branch_of_circumflex_branch_of_left_coronary_artery",
+            "ontology": "FMA:322904"
+          },
+          {
+            "id": "source.hra-v1-1.female.n760",
+            "source_name": "VH_F_posterior_left_ventricular_branch",
+            "ontology": "FMA:13905"
+          }
+        ],
+        "male": {
+          "id": "source.hra-v1-1.male.n233",
+          "source_name": "VH_M_left_marginal_branch",
+          "ontology": "FMA:3902"
+        }
+      }
+    },
+    "anatomy.coronary.right-branches": {
+      "overview": "Branches of the right coronary artery: the right marginal artery and, in 80-85% of people, the posterior interventricular (posterior descending) artery.",
+      "function": "The right marginal artery runs along the right and lower border of the heart towards the apex; the posterior interventricular artery follows the groove on the back of the heart.",
+      "related": [
+        "anatomy.coronary.right",
+        "anatomy.heart.ventricle.right"
+      ],
+      "source_ids": [
+        "tm-coronary"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n762",
+          "source_name": "VH_F_right_marginal_artery",
+          "ontology": "FMA:3818"
+        },
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n227",
+            "source_name": "VH_M_right_marginal_artery",
+            "ontology": "FMA:3818"
+          },
+          {
+            "id": "source.hra-v1-1.male.n228",
+            "source_name": "VH_M_right_posterior_descending_artery",
+            "ontology": "FMA:3840"
+          }
+        ]
+      }
+    },
+    "anatomy.extraocular-muscles": {
+      "overview": "Six muscles around each eye that move the eyeball: the superior, inferior, medial and lateral rectus muscles and the superior and inferior oblique muscles. They lie in the orbit but are separate from the eyeball.",
+      "function": "The medial rectus turns the eye inward and the lateral rectus outward; the superior rectus mainly raises it and the inferior rectus mainly lowers it. The obliques also raise, lower and rotate the eye.",
+      "related": [
+        "anatomy.eyes",
+        "anatomy.sclera",
+        "anatomy.levator-palpebrae"
+      ],
+      "source_ids": [
+        "tm-extraocular",
+        "mlp-strabismus"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n349",
+            "source_name": "VH_F_superior_oblique_extraocular_muscle_L",
+            "ontology": "FMA:49053"
+          },
+          {
+            "id": "source.hra-v1-1.female.n350",
+            "source_name": "VH_F_lateral_rectus_extraocular_muscle_L",
+            "ontology": "FMA:49055"
+          },
+          {
+            "id": "source.hra-v1-1.female.n351",
+            "source_name": "VH_F_inferior_oblique_extraocular_muscle_L",
+            "ontology": "FMA:49051"
+          },
+          {
+            "id": "source.hra-v1-1.female.n352",
+            "source_name": "VH_F_inferior_rectus_extraocular_muscle_L",
+            "ontology": "FMA:49047"
+          },
+          {
+            "id": "source.hra-v1-1.female.n353",
+            "source_name": "VH_F_superior_rectus_extraocular_muscle_L",
+            "ontology": "FMA:49045"
+          },
+          {
+            "id": "source.hra-v1-1.female.n355",
+            "source_name": "VH_F_medial_rectus_extraocular_muscle_L",
+            "ontology": "FMA:49057"
+          },
+          {
+            "id": "source.hra-v1-1.female.n357",
+            "source_name": "VH_F_medial_rectus_extraocular_muscle_R",
+            "ontology": "FMA:49056"
+          },
+          {
+            "id": "source.hra-v1-1.female.n359",
+            "source_name": "VH_F_superior_rectus_extraocular_muscle_R",
+            "ontology": "FMA:49044"
+          },
+          {
+            "id": "source.hra-v1-1.female.n360",
+            "source_name": "VH_F_inferior_rectus_extraocular_muscle_R",
+            "ontology": "FMA:49046"
+          },
+          {
+            "id": "source.hra-v1-1.female.n361",
+            "source_name": "VH_F_inferior_oblique_extraocular_muscle_R",
+            "ontology": "FMA:49050"
+          },
+          {
+            "id": "source.hra-v1-1.female.n362",
+            "source_name": "VH_F_lateral_rectus_extraocular_muscle_R",
+            "ontology": "FMA:49054"
+          },
+          {
+            "id": "source.hra-v1-1.female.n363",
+            "source_name": "VH_F_superior_oblique_extraocular_muscle_R",
+            "ontology": "FMA:49052"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n951",
+            "source_name": "VH_M_superior_oblique_extraocular_muscle_L",
+            "ontology": "FMA:49053"
+          },
+          {
+            "id": "source.hra-v1-1.male.n952",
+            "source_name": "VH_M_lateral_rectus_extraocular_muscle_L",
+            "ontology": "FMA:49055"
+          },
+          {
+            "id": "source.hra-v1-1.male.n953",
+            "source_name": "VH_M_inferior_oblique_extraocular_muscle_L",
+            "ontology": "FMA:49051"
+          },
+          {
+            "id": "source.hra-v1-1.male.n954",
+            "source_name": "VH_M_inferior_rectus_extraocular_muscle_L",
+            "ontology": "FMA:49047"
+          },
+          {
+            "id": "source.hra-v1-1.male.n955",
+            "source_name": "VH_M_superior_rectus_extraocular_muscle_L",
+            "ontology": "FMA:49045"
+          },
+          {
+            "id": "source.hra-v1-1.male.n957",
+            "source_name": "VH_M_medial_rectus_extraocular_muscle_L",
+            "ontology": "FMA:49057"
+          },
+          {
+            "id": "source.hra-v1-1.male.n959",
+            "source_name": "VH_M_medial_rectus_extraocular_muscle_R",
+            "ontology": "FMA:49056"
+          },
+          {
+            "id": "source.hra-v1-1.male.n961",
+            "source_name": "VH_M_superior_rectus_extraocular_muscle_R",
+            "ontology": "FMA:49044"
+          },
+          {
+            "id": "source.hra-v1-1.male.n962",
+            "source_name": "VH_M_inferior_rectus_extraocular_muscle_R",
+            "ontology": "FMA:49046"
+          },
+          {
+            "id": "source.hra-v1-1.male.n963",
+            "source_name": "VH_M_inferior_oblique_extraocular_muscle_R",
+            "ontology": "FMA:49050"
+          },
+          {
+            "id": "source.hra-v1-1.male.n964",
+            "source_name": "VH_M_lateral_rectus_extraocular_muscle_R",
+            "ontology": "FMA:49054"
+          },
+          {
+            "id": "source.hra-v1-1.male.n965",
+            "source_name": "VH_M_superior_oblique_extraocular_muscle_R",
+            "ontology": "FMA:49052"
+          }
+        ]
+      }
+    },
+    "anatomy.levator-palpebrae": {
+      "overview": "The levator palpebrae superioris, a muscle in each orbit attached to the upper eyelid.",
+      "function": "It is the only muscle that raises the upper eyelid.",
+      "related": [
+        "anatomy.extraocular-muscles",
+        "anatomy.conjunctiva",
+        "anatomy.eyes"
+      ],
+      "source_ids": [
+        "tm-extraocular"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n354",
+            "source_name": "VH_F_levator_palpebrae_superioris_L",
+            "ontology": "FMA:49049"
+          },
+          {
+            "id": "source.hra-v1-1.female.n358",
+            "source_name": "VH_F_levator_palpebrae_superioris_R",
+            "ontology": "FMA:49048"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n956",
+            "source_name": "VH_M_levator_palpebrae_superioris_L",
+            "ontology": "FMA:49049"
+          },
+          {
+            "id": "source.hra-v1-1.male.n960",
+            "source_name": "VH_M_levator_palpebrae_superioris_R",
+            "ontology": "FMA:49048"
+          }
+        ]
+      }
+    },
+    "anatomy.ophthalmic-vessels": {
+      "overview": "The ophthalmic artery, a branch of the internal carotid artery, and the superior and inferior ophthalmic veins of each eye.",
+      "function": "The ophthalmic artery is the main arterial supply of the eyeball; the ophthalmic veins drain it into the cavernous sinus.",
+      "related": [
+        "anatomy.central-retinal-vessels",
+        "anatomy.eyes"
+      ],
+      "source_ids": [
+        "tm-eyeball"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n637",
+            "source_name": "VH_F_inferior_ophthalmic_vein_L",
+            "ontology": "FMA:51251"
+          },
+          {
+            "id": "source.hra-v1-1.female.n638",
+            "source_name": "VH_F_superior_ophthalmic_vein_L",
+            "ontology": "FMA:51249"
+          },
+          {
+            "id": "source.hra-v1-1.female.n640",
+            "source_name": "VH_F_ophthalmic_vein_L",
+            "ontology": "UBERON:0011191"
+          },
+          {
+            "id": "source.hra-v1-1.female.n642",
+            "source_name": "VH_F_superior_ophthalmic_vein_R",
+            "ontology": "FMA:51248"
+          },
+          {
+            "id": "source.hra-v1-1.female.n643",
+            "source_name": "VH_F_ophthalmic_vein_R",
+            "ontology": "UBERON:0011191"
+          },
+          {
+            "id": "source.hra-v1-1.female.n645",
+            "source_name": "VH_F_inferior_ophthalmic_vein_R",
+            "ontology": "FMA:51250"
+          },
+          {
+            "id": "source.hra-v1-1.female.n649",
+            "source_name": "VH_F_opthalmic_artery_R",
+            "ontology": "UBERON:0001619"
+          },
+          {
+            "id": "source.hra-v1-1.female.n651",
+            "source_name": "VH_F_opthalmic_artery_L",
+            "ontology": "UBERON:0001619"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n139",
+            "source_name": "VH_M_inferior_ophthalmic_vein_L",
+            "ontology": "FMA:51251"
+          },
+          {
+            "id": "source.hra-v1-1.male.n140",
+            "source_name": "VH_M_superior_ophthalmic_vein_L",
+            "ontology": "FMA:51249"
+          },
+          {
+            "id": "source.hra-v1-1.male.n142",
+            "source_name": "VH_M_ophthalmic_vein_L",
+            "ontology": "UBERON:0011191"
+          },
+          {
+            "id": "source.hra-v1-1.male.n144",
+            "source_name": "VH_M_superior_ophthalmic_vein_R",
+            "ontology": "FMA:51248"
+          },
+          {
+            "id": "source.hra-v1-1.male.n145",
+            "source_name": "VH_M_ophthalmic_vein_R",
+            "ontology": "UBERON:0011191"
+          },
+          {
+            "id": "source.hra-v1-1.male.n147",
+            "source_name": "VH_M_inferior_ophthalmic_vein_R",
+            "ontology": "FMA:51250"
+          },
+          {
+            "id": "source.hra-v1-1.male.n151",
+            "source_name": "VH_M_opthalmic_artery_R",
+            "ontology": "UBERON:0001619"
+          },
+          {
+            "id": "source.hra-v1-1.male.n153",
+            "source_name": "VH_M_opthalmic_artery_L",
+            "ontology": "UBERON:0001619"
+          }
+        ]
+      }
+    },
+    "anatomy.central-retinal-vessels": {
+      "overview": "The central retinal artery and vein of each eye. The central artery of the retina is the most important branch of the ophthalmic artery.",
+      "function": "The artery supplies the internal surface of the retina; its blockage quickly causes blindness.",
+      "related": [
+        "anatomy.retina",
+        "anatomy.ophthalmic-vessels",
+        "anatomy.optic-nerves"
+      ],
+      "source_ids": [
+        "tm-eyeball",
+        "mlp-retinal-artery-occlusion"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n639",
+            "source_name": "VH_F_central_retinal_vein_L",
+            "ontology": "FMA:51885"
+          },
+          {
+            "id": "source.hra-v1-1.female.n644",
+            "source_name": "VH_F_central_retinal_vein_R",
+            "ontology": "FMA:51884"
+          },
+          {
+            "id": "source.hra-v1-1.female.n648",
+            "source_name": "VH_F_central_retinal_artery_R",
+            "ontology": "FMA:49880"
+          },
+          {
+            "id": "source.hra-v1-1.female.n652",
+            "source_name": "VH_F_central_retinal_artery_L",
+            "ontology": "FMA:49881"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n141",
+            "source_name": "VH_M_central_retinal_vein_L",
+            "ontology": "FMA:51885"
+          },
+          {
+            "id": "source.hra-v1-1.male.n146",
+            "source_name": "VH_M_central_retinal_vein_R",
+            "ontology": "FMA:51884"
+          },
+          {
+            "id": "source.hra-v1-1.male.n150",
+            "source_name": "VH_M_central_retinal_artery_R",
+            "ontology": "FMA:49880"
+          },
+          {
+            "id": "source.hra-v1-1.male.n154",
+            "source_name": "VH_M_central_retinal_artery_L",
+            "ontology": "FMA:49881"
+          }
+        ]
+      }
+    },
+    "anatomy.larynx-muscles": {
+      "overview": "Intrinsic muscles of the larynx: the cricothyroid, posterior and lateral cricoarytenoid, arytenoid and thyroepiglottic muscles.",
+      "function": "They control the opening between the vocal folds and the length and tension of the vocal folds. The posterior cricoarytenoids are the only muscles that open the vocal folds; the lateral cricoarytenoids are the main ones that close them.",
+      "related": [
+        "anatomy.larynx",
+        "anatomy.vocal-folds",
+        "anatomy.epiglottis"
+      ],
+      "source_ids": [
+        "tm-larynx-muscles",
+        "seer-larynx"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n974",
+            "source_name": "VH_M_thyroepiglottideus",
+            "ontology": "UBERON:0010927"
+          },
+          {
+            "id": "source.hra-v1-1.male.n977",
+            "source_name": "VH_M_posterior_cricoarytenoid_L",
+            "ontology": "FMA:47754"
+          },
+          {
+            "id": "source.hra-v1-1.male.n978",
+            "source_name": "VH_M_posterior_cricoarytenoid_R",
+            "ontology": "FMA:47753"
+          },
+          {
+            "id": "source.hra-v1-1.male.n979",
+            "source_name": "VH_M_lateral_cricoarytenoid",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n982",
+            "source_name": "VH_M_cricothyroid",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n988",
+            "source_name": "VH_M_arytenoid",
+            "ontology": "UBERON:0010958"
+          }
+        ]
+      }
+    },
+    "anatomy.vocal-folds": {
+      "overview": "The vocalis and thyroarytenoid muscles of the vocal folds (true vocal cords). The vocal cords are two small bands of muscle within the larynx.",
+      "function": "The vocal cords vibrate to produce the voice. The thyroarytenoid relaxes the vocal ligament, allowing a softer voice.",
+      "related": [
+        "anatomy.larynx",
+        "anatomy.larynx-muscles"
+      ],
+      "source_ids": [
+        "nci-def-vocal-cord",
+        "tm-larynx-folds",
+        "tm-larynx-muscles"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n975",
+            "source_name": "VH_M_vocalis",
+            "ontology": "UBERON:0008577"
+          },
+          {
+            "id": "source.hra-v1-1.male.n985",
+            "source_name": "VH_M_thyroarytenoid",
+            "ontology": ""
+          }
+        ]
+      }
+    },
+    "anatomy.hyoid": {
+      "overview": "A U-shaped bone in the front of the neck, at the base of the jaw at about the level of the third cervical vertebra.",
+      "function": "It does not join any other bone; it is held in place by muscles and ligaments and is an attachment site for the front neck muscles.",
+      "related": [
+        "anatomy.larynx"
+      ],
+      "source_ids": [
+        "tm-hyoid"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "male": {
+          "id": "source.hra-v1-1.male.n291",
+          "source_name": "VH_M_hyoid",
+          "ontology": "UBERON:0001685"
+        }
+      }
+    },
+    "anatomy.bronchial-cartilage": {
+      "overview": "Cartilage in the walls of the bronchi. In the main bronchi, cartilage rings completely encircle the airway.",
+      "function": "Like the C-shaped rings of the trachea, this cartilage holds the larger airways open.",
+      "related": [
+        "anatomy.bronchi",
+        "anatomy.tracheal-cartilage"
+      ],
+      "source_ids": [
+        "tm-tracheobronchial"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n864",
+          "source_name": "VH_F_bronchial_cartilage",
+          "ontology": "FMA:62649"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n1028",
+          "source_name": "VH_M_bronchial_cartilage",
+          "ontology": "FMA:62649"
+        }
+      }
+    },
+    "anatomy.vas-deferens": {
+      "overview": "A coiled tube that carries sperm out of the testes. It is a thick muscular tube whose wall is mostly smooth muscle.",
+      "function": "Carries sperm from the epididymis to the ejaculatory duct, which drains into the prostatic urethra.",
+      "related": [
+        "anatomy.seminal-vesicles",
+        "anatomy.ejaculatory-ducts",
+        "anatomy.prostate"
+      ],
+      "source_ids": [
+        "nci-def-vas-deferens",
+        "tm-spermatic-cord"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "male": {
+          "id": "source.hra-v1-1.male.n379",
+          "source_name": "VH_M_vas_deferens",
+          "ontology": ""
+        }
+      }
+    },
+    "anatomy.seminal-vesicles": {
+      "overview": "A pair of tubular glands that help produce semen, between the bladder and the rectum.",
+      "function": "They produce about 70% of the volume of semen, including an alkaline fluid that helps sperm survive.",
+      "related": [
+        "anatomy.vas-deferens",
+        "anatomy.ejaculatory-ducts",
+        "anatomy.bladder"
+      ],
+      "source_ids": [
+        "nci-def-seminal-vesicle",
+        "tm-seminal-vesicles"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "male": {
+          "id": "source.hra-v1-1.male.n382",
+          "source_name": "VH_M_seminal_vesicle",
+          "ontology": "UBERON:0000998"
+        }
+      }
+    },
+    "anatomy.ejaculatory-ducts": {
+      "overview": "Ducts formed where each vas deferens joins the duct of a seminal vesicle.",
+      "function": "They drain sperm and seminal fluid into the prostatic urethra.",
+      "related": [
+        "anatomy.vas-deferens",
+        "anatomy.seminal-vesicles",
+        "anatomy.urethra"
+      ],
+      "source_ids": [
+        "tm-seminal-vesicles",
+        "tm-urethra"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "male": {
+          "id": "source.hra-v1-1.male.n383",
+          "source_name": "VH_M_ejaculatory_duct",
+          "ontology": "UBERON:0000999"
+        }
+      }
+    },
+    "anatomy.urethra": {
+      "overview": "The tube through which urine leaves the body from the bladder. The male urethra is about 15-20 cm long and also carries semen. The prostatic urethra passes through the prostate.",
+      "function": "Empties urine from the bladder. The prostatic urethra receives the ejaculatory ducts and the ducts of the prostate.",
+      "related": [
+        "anatomy.bladder",
+        "anatomy.prostate",
+        "anatomy.ejaculatory-ducts"
+      ],
+      "source_ids": [
+        "nci-def-urethra",
+        "tm-urethra"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n583",
+            "source_name": "VH_M_other_urethra",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n584",
+            "source_name": "VH_M_prostatic_urethra",
+            "ontology": "UBERON:0001335"
+          }
+        ]
+      }
+    },
+    "anatomy.uterine-ligaments": {
+      "overview": "Ligaments that support the uterus: the round ligaments, which run from the uterus through the inguinal canal; the cardinal ligaments, from the cervix to the side walls of the pelvis; and the uterosacral ligaments, from the cervix to the sacrum.",
+      "function": "They support the uterus. The round ligaments help keep it tilted forward, and the cardinal ligaments carry the uterine artery and vein.",
+      "related": [
+        "anatomy.uterus",
+        "anatomy.cervix",
+        "anatomy.broad-ligament"
+      ],
+      "source_ids": [
+        "tm-uterus"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n388",
+            "source_name": "VH_F_right_round_ligament_of_uterus",
+            "ontology": "FMA:57789"
+          },
+          {
+            "id": "source.hra-v1-1.female.n389",
+            "source_name": "VH_F_left_round_ligament_of_uterus",
+            "ontology": "FMA:57790"
+          },
+          {
+            "id": "source.hra-v1-1.female.n391",
+            "source_name": "VH_F_right_uterosacral_ligament",
+            "ontology": "FMA:19119"
+          },
+          {
+            "id": "source.hra-v1-1.female.n392",
+            "source_name": "VH_F_left_uterosacral_ligament",
+            "ontology": "FMA:19120"
+          },
+          {
+            "id": "source.hra-v1-1.female.n394",
+            "source_name": "VH_F_right_cardinal_ligament_of_uterus",
+            "ontology": "FMA:77064"
+          },
+          {
+            "id": "source.hra-v1-1.female.n395",
+            "source_name": "VH_F_left_cardinal_ligament_of_uterus",
+            "ontology": "FMA:77064"
+          }
+        ]
+      }
+    },
+    "anatomy.ovarian-ligaments": {
+      "overview": "The two ligaments of each ovary: the suspensory ligament, a fold of peritoneum running to the pelvic wall, and the ligament of the ovary, which runs to the fundus of the uterus.",
+      "function": "They support the ovaries. The suspensory ligament carries the ovary's blood vessels and nerves.",
+      "related": [
+        "anatomy.ovaries",
+        "anatomy.uterus-fundus",
+        "anatomy.broad-ligament"
+      ],
+      "source_ids": [
+        "tm-ovaries"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n396",
+            "source_name": "VH_F_suspensory_ligament_of_ovary",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n399",
+            "source_name": "VH_F_ovarian_ligament",
+            "ontology": ""
+          }
+        ]
+      }
+    },
+    "anatomy.uterine-vessels": {
+      "overview": "The uterine arteries, branches of the internal iliac arteries, and the uterine veins.",
+      "function": "The uterine arteries supply the uterus; a venous plexus in the broad ligament drains into the uterine veins. Each uterine artery crosses above a ureter near the cervix.",
+      "related": [
+        "anatomy.uterus",
+        "anatomy.uterine-ligaments",
+        "anatomy.ureters"
+      ],
+      "source_ids": [
+        "tm-uterus"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n629",
+            "source_name": "VH_F_left_uterine_artery",
+            "ontology": "FMA:18831"
+          },
+          {
+            "id": "source.hra-v1-1.female.n630",
+            "source_name": "VH_F_right_uterine_artery",
+            "ontology": "FMA:18830"
+          },
+          {
+            "id": "source.hra-v1-1.female.n632",
+            "source_name": "VH_F_left_uterine_vein",
+            "ontology": "FMA:18898"
+          },
+          {
+            "id": "source.hra-v1-1.female.n633",
+            "source_name": "VH_F_right_uterine_vein",
+            "ontology": "FMA:18897"
+          }
+        ]
+      }
+    },
+    "anatomy.hepatic-ducts": {
+      "overview": "The right and left hepatic ducts, which lead bile out of the liver, and the common hepatic duct they form when they join outside the liver.",
+      "function": "Carry bile from the liver. The common hepatic duct is joined by the cystic duct to form the common bile duct.",
+      "related": [
+        "anatomy.liver",
+        "anatomy.cystic-duct",
+        "anatomy.bile-duct.common"
+      ],
+      "source_ids": [
+        "nci-def-bile-duct",
+        "nci-bile-duct-cancer",
+        "tm-gallbladder"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n448",
+            "source_name": "VH_F_right_hepatic_duct",
+            "ontology": "UBERON:0001176"
+          },
+          {
+            "id": "source.hra-v1-1.female.n449",
+            "source_name": "VH_F_left_hepatic_duct",
+            "ontology": "UBERON:0001177"
+          },
+          {
+            "id": "source.hra-v1-1.female.n450",
+            "source_name": "VH_F_common_hepatic_duct",
+            "ontology": "UBERON:0001175"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n451",
+            "source_name": "VH_M_right_hepatic_duct",
+            "ontology": "UBERON:0001176"
+          },
+          {
+            "id": "source.hra-v1-1.male.n452",
+            "source_name": "VH_M_left_hepatic_duct",
+            "ontology": "UBERON:0001177"
+          },
+          {
+            "id": "source.hra-v1-1.male.n453",
+            "source_name": "VH_M_common_hepatic_duct",
+            "ontology": "UBERON:0001175"
+          }
+        ]
+      }
+    },
+    "anatomy.hepatic-veins": {
+      "overview": "The left, middle and right hepatic veins.",
+      "function": "Drain blood from the liver into the inferior vena cava. Blood from the spleen, pancreas, gallbladder and gut reaches them only after passing through the liver.",
+      "related": [
+        "anatomy.liver",
+        "anatomy.vena-cava.inferior",
+        "anatomy.portal-vein"
+      ],
+      "source_ids": [
+        "tm-liver",
+        "tm-abdominal-veins"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n727",
+            "source_name": "VH_F_middle_hepatic_vein",
+            "ontology": "FMA:14340"
+          },
+          {
+            "id": "source.hra-v1-1.female.n728",
+            "source_name": "VH_F_left_hepatic_vein",
+            "ontology": "FMA:14339"
+          },
+          {
+            "id": "source.hra-v1-1.female.n729",
+            "source_name": "VH_F_right_hepatic_vein",
+            "ontology": "FMA:14338"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n281",
+            "source_name": "VH_M_right_hepatic_vein",
+            "ontology": "FMA:14338"
+          },
+          {
+            "id": "source.hra-v1-1.male.n282",
+            "source_name": "VH_M_left_hepatic_vein",
+            "ontology": "FMA:14339"
+          },
+          {
+            "id": "source.hra-v1-1.male.n283",
+            "source_name": "VH_M_middle_hepatic_vein",
+            "ontology": "FMA:14340"
+          }
+        ]
+      }
+    },
+    "anatomy.splenic-vessels": {
+      "overview": "The splenic artery, a branch of the celiac trunk that runs along the top of the pancreas to the spleen, and the splenic vein.",
+      "function": "The splenic artery supplies the spleen and gives branches to the stomach and pancreas. The splenic vein joins the superior mesenteric vein to form the hepatic portal vein.",
+      "related": [
+        "anatomy.spleen",
+        "anatomy.celiac-trunk",
+        "anatomy.portal-vein",
+        "anatomy.pancreas"
+      ],
+      "source_ids": [
+        "tm-coeliac-trunk",
+        "tm-spleen"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n708",
+            "source_name": "VH_F_splenic_artery",
+            "ontology": "UBERON:0001194"
+          },
+          {
+            "id": "source.hra-v1-1.female.n710",
+            "source_name": "VH_F_splenic_vein",
+            "ontology": "UBERON:0003713"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n262",
+            "source_name": "VH_M_splenic_vein",
+            "ontology": "UBERON:0003713"
+          },
+          {
+            "id": "source.hra-v1-1.male.n264",
+            "source_name": "VH_M_splenic_artery",
+            "ontology": "UBERON:0001194"
+          }
+        ]
+      }
+    },
+    "anatomy.mesenteric-veins": {
+      "overview": "The superior and inferior mesenteric veins and the inferior pancreaticoduodenal vein, part of the portal venous system.",
+      "function": "The portal venous system carries blood from the gut to the liver for processing. The superior mesenteric vein joins the splenic vein to form the portal vein.",
+      "related": [
+        "anatomy.portal-vein",
+        "anatomy.splenic-vessels",
+        "anatomy.small-intestine",
+        "anatomy.colon"
+      ],
+      "source_ids": [
+        "tm-abdominal-veins"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n664",
+            "source_name": "VH_F_superior_mesenteric_vein",
+            "ontology": "UBERON:0001138"
+          },
+          {
+            "id": "source.hra-v1-1.female.n690",
+            "source_name": "VH_F_inferior_pancreaticoduodenal_vein",
+            "ontology": "FMA:0329299"
+          },
+          {
+            "id": "source.hra-v1-1.female.n691",
+            "source_name": "VH_F_inferior_mesenteric_vein",
+            "ontology": "UBERON:0001182"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n157",
+            "source_name": "VH_M_inferior_mesenteric_vein",
+            "ontology": "UBERON:0001215"
+          },
+          {
+            "id": "source.hra-v1-1.male.n160",
+            "source_name": "VH_M_superior_mesenteric_vein",
+            "ontology": "UBERON:0001182"
+          },
+          {
+            "id": "source.hra-v1-1.male.n165",
+            "source_name": "VH_M_inferior_pancreaticoduodenal_vein",
+            "ontology": "FMA:0329299"
+          }
+        ]
+      }
+    },
+    "anatomy.colic-vessels": {
+      "overview": "Arteries and veins of the colon: the ileocolic, right, middle and left colic, and sigmoid vessels, and the marginal artery (of Drummond).",
+      "function": "The ileocolic, right and middle colic arteries (from the superior mesenteric artery) and the left colic and sigmoid arteries (from the inferior mesenteric artery) supply the colon. The marginal artery joins them in a continuous arterial circle along the inner border of the colon.",
+      "related": [
+        "anatomy.colon",
+        "anatomy.mesenteric-artery.superior",
+        "anatomy.mesenteric-artery.inferior",
+        "anatomy.sigmoid-colon"
+      ],
+      "source_ids": [
+        "tm-sma",
+        "tm-ima"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n669",
+            "source_name": "VH_F_left_colic_vein",
+            "ontology": "FMA:15394"
+          },
+          {
+            "id": "source.hra-v1-1.female.n670",
+            "source_name": "VH_F_right_colic_vein",
+            "ontology": "FMA:15407"
+          },
+          {
+            "id": "source.hra-v1-1.female.n671",
+            "source_name": "VH_F_ileocolic_vein",
+            "ontology": "UBERON:0001219"
+          },
+          {
+            "id": "source.hra-v1-1.female.n672",
+            "source_name": "VH_F_middle_colic_vein",
+            "ontology": "UBERON:0001218"
+          },
+          {
+            "id": "source.hra-v1-1.female.n685",
+            "source_name": "VH_F_sigmoid_vein",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n689",
+            "source_name": "VH_F_sigmoid_vein_b",
+            "ontology": "FMA:15395"
+          },
+          {
+            "id": "source.hra-v1-1.female.n693",
+            "source_name": "VH_F_left_colic_artery",
+            "ontology": "FMA:14826"
+          },
+          {
+            "id": "source.hra-v1-1.female.n694",
+            "source_name": "VH_F_right_colic_artery",
+            "ontology": "FMA:14811"
+          },
+          {
+            "id": "source.hra-v1-1.female.n695",
+            "source_name": "VH_F_ileocolic_artery",
+            "ontology": "UBERON:0035548"
+          },
+          {
+            "id": "source.hra-v1-1.female.n696",
+            "source_name": "VH_F_middle_colic_artery",
+            "ontology": "UBERON:0001196"
+          },
+          {
+            "id": "source.hra-v1-1.female.n701",
+            "source_name": "VH_F_marginal_artery_of_Drummond",
+            "ontology": "FMA:14824"
+          },
+          {
+            "id": "source.hra-v1-1.female.n702",
+            "source_name": "VH_F_sigmoid_artery",
+            "ontology": ""
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n159",
+            "source_name": "VH_M_sigmoid_vein",
+            "ontology": "FMA:15395"
+          },
+          {
+            "id": "source.hra-v1-1.male.n179",
+            "source_name": "VH_M_left_colic_vein",
+            "ontology": "FMA:15394"
+          },
+          {
+            "id": "source.hra-v1-1.male.n180",
+            "source_name": "VH_M_ileocolic_vein",
+            "ontology": "UBERON:0001219"
+          },
+          {
+            "id": "source.hra-v1-1.male.n181",
+            "source_name": "VH_M_right_colic_vein",
+            "ontology": "FMA:15407"
+          },
+          {
+            "id": "source.hra-v1-1.male.n182",
+            "source_name": "VH_M_middle_colic_vein",
+            "ontology": "UBERON:0001218"
+          },
+          {
+            "id": "source.hra-v1-1.male.n188",
+            "source_name": "VH_M_right_colic_artery",
+            "ontology": "FMA:14811"
+          },
+          {
+            "id": "source.hra-v1-1.male.n189",
+            "source_name": "VH_M_middle_colic_artery",
+            "ontology": "UBERON:0001196"
+          },
+          {
+            "id": "source.hra-v1-1.male.n190",
+            "source_name": "VH_M_left_colic_artery",
+            "ontology": "FMA:14826"
+          },
+          {
+            "id": "source.hra-v1-1.male.n191",
+            "source_name": "VH_M_ileocolic_artery",
+            "ontology": "UBERON:0035548"
+          },
+          {
+            "id": "source.hra-v1-1.male.n192",
+            "source_name": "VH_M_sigmoid_artery",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n198",
+            "source_name": "VH_M_marginal_artery_of_Drummond",
+            "ontology": "FMA:14824"
+          }
+        ]
+      }
+    },
+    "anatomy.rectal-vessels": {
+      "overview": "The superior rectal artery, the continuation of the inferior mesenteric artery, and the superior, middle and inferior rectal veins.",
+      "function": "The superior rectal artery supplies the rectum. The superior rectal vein drains into the portal venous system; the middle and inferior rectal veins drain into the systemic veins.",
+      "related": [
+        "anatomy.rectum",
+        "anatomy.mesenteric-artery.inferior",
+        "anatomy.mesenteric-veins"
+      ],
+      "source_ids": [
+        "tm-rectum"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n665",
+            "source_name": "VH_F_superior_rectal_vein",
+            "ontology": "UBERON:0035040"
+          },
+          {
+            "id": "source.hra-v1-1.female.n673",
+            "source_name": "VH_F_inferior_rectal_vein",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n682",
+            "source_name": "VH_F_middle_rectal_vein",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n698",
+            "source_name": "VH_F_superior_rectal_artery",
+            "ontology": "UBERON:0035040"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n161",
+            "source_name": "VH_M_superior_rectal_vein",
+            "ontology": "UBERON:0035040"
+          },
+          {
+            "id": "source.hra-v1-1.male.n169",
+            "source_name": "VH_M_inferior_rectal_vein",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n183",
+            "source_name": "VH_M_middle_rectal_vein",
+            "ontology": ""
+          }
+        ]
+      }
+    },
+    "anatomy.cystic-vessels": {
+      "overview": "The cystic artery, a branch of the right hepatic artery, and the cystic vein.",
+      "function": "The cystic artery supplies the gallbladder. Cystic veins drain the neck of the gallbladder directly into the portal vein.",
+      "related": [
+        "anatomy.gallbladder",
+        "anatomy.hepatic-arteries",
+        "anatomy.portal-vein"
+      ],
+      "source_ids": [
+        "tm-gallbladder"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n713",
+            "source_name": "VH_F_cystic_artery",
+            "ontology": "UBERON:0039222"
+          },
+          {
+            "id": "source.hra-v1-1.female.n715",
+            "source_name": "VH_F_cystic_vein",
+            "ontology": "UBERON:0035392"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n267",
+            "source_name": "VH_M_cystic_vein",
+            "ontology": "UBERON:0035392"
+          },
+          {
+            "id": "source.hra-v1-1.male.n269",
+            "source_name": "VH_M_cystic_artery",
+            "ontology": "UBERON:0039222"
+          }
+        ]
+      }
+    },
+    "anatomy.iliac-veins": {
+      "overview": "The common, external and internal iliac veins of the pelvis, with the median sacral and internal pudendal veins. Each common iliac vein is formed by the external and internal iliac veins.",
+      "function": "The external iliac vein continues from the femoral vein and drains the leg; the internal iliac vein drains most of the pelvis. The two common iliac veins join to form the inferior vena cava.",
+      "related": [
+        "anatomy.vena-cava.inferior",
+        "anatomy.pelvis"
+      ],
+      "source_ids": [
+        "tm-pelvic-veins",
+        "tm-abdominal-veins",
+        "nci-def-inferior-vena-cava"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n666",
+            "source_name": "VH_F_common_iliac_vein",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n676",
+            "source_name": "VH_F_internal_iliac_vein",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n679",
+            "source_name": "VH_F_internal_pudendal_vein",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n688",
+            "source_name": "VH_F_median_sacral_vein",
+            "ontology": "UBERON:0006687"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n158",
+            "source_name": "VH_M_median_sacral_vein",
+            "ontology": "UBERON:0006687"
+          },
+          {
+            "id": "source.hra-v1-1.male.n162",
+            "source_name": "VH_M_common_iliac_vein",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n166",
+            "source_name": "VH_M_external_iliac_vein",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n172",
+            "source_name": "VH_M_internal_pudendal_vein",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n175",
+            "source_name": "VH_M_internal_iliac_vein",
+            "ontology": ""
+          }
+        ]
+      }
+    },
+    "anatomy.brachiocephalic-veins": {
+      "overview": "The left and right brachiocephalic veins in the upper chest.",
+      "function": "They drain the head, neck and arms, and join to form the superior vena cava.",
+      "related": [
+        "anatomy.vena-cava.superior"
+      ],
+      "source_ids": [
+        "tm-svc"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "male": {
+          "id": "source.hra-v1-1.male.n252",
+          "source_name": "VH_M_brachiocephalic_vein",
+          "ontology": ""
+        }
+      }
+    },
+    "anatomy.patellar-ligament": {
+      "overview": "The patellar ligament (often called the patellar tendon), the continuation of the quadriceps tendon below the kneecap.",
+      "function": "Connects the bottom of the kneecap to the tibial tuberosity on the front of the tibia. The kneecap above it increases the leverage of the quadriceps tendon when the leg straightens.",
+      "related": [
+        "anatomy.quadriceps-tendon",
+        "anatomy.tibia",
+        "anatomy.knee"
+      ],
+      "source_ids": [
+        "tm-knee",
+        "tm-patella"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n917",
+            "source_name": "VH_F_patellar_ligament_R",
+            "ontology": "FMA:44585"
+          },
+          {
+            "id": "source.hra-v1-1.female.n944",
+            "source_name": "VH_F_patellar_ligament_L",
+            "ontology": "FMA:44586"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n324",
+            "source_name": "VH_M_patellar_ligament_R",
+            "ontology": "FMA:44585"
+          },
+          {
+            "id": "source.hra-v1-1.male.n354",
+            "source_name": "VH_M_patellar_ligament_L",
+            "ontology": "FMA:44586"
+          }
+        ]
       }
     }
   },
@@ -6550,12 +8192,16 @@
       "display_on": [
         "anatomy.coronary.left",
         "anatomy.coronary.right",
-        "anatomy.heart"
+        "anatomy.heart",
+        "anatomy.coronary.lad",
+        "anatomy.coronary.circumflex",
+        "anatomy.coronary.right-branches"
       ],
       "geometry_mode": "reference_location_only",
       "source_ids": [
         "nhlbi-chd",
-        "seer-heart"
+        "seer-heart",
+        "nci-def-coronary-artery-disease"
       ],
       "review_status": "draft",
       "expert_review": "pending",
@@ -6666,7 +8312,8 @@
       "display_on": [
         "anatomy.gallbladder",
         "anatomy.bile-duct.common",
-        "anatomy.liver"
+        "anatomy.liver",
+        "anatomy.hepatic-ducts"
       ],
       "geometry_mode": "reference_location_only",
       "source_ids": [
@@ -7078,13 +8725,17 @@
       "display_on": [
         "anatomy.heart",
         "anatomy.coronary.left",
-        "anatomy.coronary.right"
+        "anatomy.coronary.right",
+        "anatomy.coronary.lad",
+        "anatomy.coronary.circumflex",
+        "anatomy.coronary.right-branches"
       ],
       "geometry_mode": "reference_location_only",
       "source_ids": [
         "nhlbi-heart-attack",
         "nhlbi-chd",
-        "seer-pathways"
+        "seer-pathways",
+        "nci-def-coronary-artery-disease"
       ],
       "review_status": "draft",
       "expert_review": "pending",
@@ -7754,7 +9405,8 @@
       ],
       "display_on": [
         "anatomy.liver",
-        "anatomy.liver-lobes"
+        "anatomy.liver-lobes",
+        "anatomy.hepatic-ducts"
       ],
       "geometry_mode": "reference_location_only",
       "source_ids": [
@@ -7801,7 +9453,8 @@
       ],
       "display_on": [
         "anatomy.ovaries",
-        "anatomy.fallopian-tubes"
+        "anatomy.fallopian-tubes",
+        "anatomy.ovarian-ligaments"
       ],
       "geometry_mode": "reference_location_only",
       "source_ids": [
@@ -7990,12 +9643,380 @@
       "expert_review": "pending",
       "human_source_review": "pending",
       "not_depicted": "Injury and brain damage are not depicted."
+    },
+    "condition.strabismus": {
+      "title": "Strabismus (crossed eyes)",
+      "summary": "The six muscles around each eye normally work as a team so both eyes focus on the same object. In strabismus they do not, so one eye turns in a different direction. In children, untreated strabismus can lead to amblyopia (lazy eye).",
+      "location": "The six muscles that move each eye lie in the orbit around the eyeball.",
+      "focus_id": "anatomy.extraocular-muscles",
+      "related_anatomy": [
+        "anatomy.extraocular-muscles",
+        "anatomy.eyes"
+      ],
+      "display_on": [
+        "anatomy.extraocular-muscles",
+        "anatomy.eyes"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-strabismus",
+        "tm-extraocular"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Eye misalignment is not depicted."
+    },
+    "condition.ptosis": {
+      "title": "Ptosis (drooping eyelid)",
+      "summary": "A drooping upper eyelid, one of the common eyelid disorders.",
+      "location": "The levator palpebrae superioris is the only muscle that raises the upper eyelid.",
+      "focus_id": "anatomy.levator-palpebrae",
+      "related_anatomy": [
+        "anatomy.levator-palpebrae"
+      ],
+      "display_on": [
+        "anatomy.levator-palpebrae",
+        "anatomy.conjunctiva"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-eyelid-disorders",
+        "tm-extraocular"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The eyelids and their drooping are not depicted."
+    },
+    "condition.retinal-artery-occlusion": {
+      "title": "Retinal artery occlusion",
+      "summary": "A blockage of an artery of the retina, usually by a blood clot or fat deposit. Clots most often come from the heart or the carotid artery in the neck. Part or all of the retina then does not get enough blood and oxygen, and vision can be lost.",
+      "location": "The central retinal artery supplies the internal surface of the retina.",
+      "focus_id": "anatomy.central-retinal-vessels",
+      "related_anatomy": [
+        "anatomy.central-retinal-vessels",
+        "anatomy.retina"
+      ],
+      "display_on": [
+        "anatomy.central-retinal-vessels",
+        "anatomy.retina",
+        "anatomy.ophthalmic-vessels"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-retinal-artery-occlusion",
+        "tm-eyeball"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The blockage and retinal damage are not depicted."
+    },
+    "condition.voice-disorders": {
+      "title": "Voice disorders",
+      "summary": "Talking too much, screaming, constant throat clearing or smoking can injure the vocal cords, causing hoarseness and problems such as nodules, polyps and sores. Infections and other conditions can also cause voice disorders.",
+      "location": "The vocal cords are two bands of muscle in the larynx (voice box). The vocal fold muscles are supplied only in the male model.",
+      "focus_id": "anatomy.larynx",
+      "related_anatomy": [
+        "anatomy.larynx",
+        "anatomy.vocal-folds"
+      ],
+      "display_on": [
+        "anatomy.larynx",
+        "anatomy.vocal-folds",
+        "anatomy.larynx-muscles"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-voice-disorders",
+        "nci-def-vocal-cord"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Nodules, polyps and inflammation are not depicted."
+    },
+    "condition.laryngitis": {
+      "title": "Laryngitis",
+      "summary": "Swelling and irritation of the voice box, usually caused by a virus, that causes hoarseness. Allergies, bacterial infection, GERD, injury, irritants and overuse of the voice can also cause it.",
+      "location": "The larynx sits at the top of the airway to the lungs and contains the vocal cords.",
+      "focus_id": "anatomy.larynx",
+      "related_anatomy": [
+        "anatomy.larynx"
+      ],
+      "display_on": [
+        "anatomy.larynx",
+        "anatomy.vocal-folds",
+        "anatomy.epiglottis"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-laryngitis",
+        "seer-larynx"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Swelling and infection are not depicted."
+    },
+    "condition.dvt": {
+      "title": "Deep vein thrombosis (DVT)",
+      "summary": "A blood clot in a vein deep in the body. A DVT can break loose and cause a pulmonary embolism in the lung. Sitting still for a long time makes it more likely.",
+      "location": "Most deep vein clots occur in the lower leg or thigh, which these models do not include. The iliac veins shown carry blood from the legs towards the heart.",
+      "focus_id": "anatomy.iliac-veins",
+      "related_anatomy": [
+        "anatomy.iliac-veins",
+        "anatomy.vena-cava.inferior"
+      ],
+      "display_on": [
+        "anatomy.iliac-veins",
+        "anatomy.vena-cava.inferior"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-dvt",
+        "tm-pelvic-veins"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Clots and the leg veins are not depicted."
+    },
+    "condition.multiple-sclerosis": {
+      "title": "Multiple sclerosis (MS)",
+      "summary": "A disease of the brain and spinal cord that damages myelin, the protective coating around nerve cells. Messages between the brain and body then slow down or are blocked.",
+      "location": "MS affects the central nervous system: the brain and spinal cord.",
+      "focus_id": "anatomy.brain",
+      "related_anatomy": [
+        "anatomy.brain"
+      ],
+      "display_on": [
+        "anatomy.brain",
+        "anatomy.optic-nerves"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-ms",
+        "mlp-brain"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Myelin and its damage are not depicted."
+    },
+    "condition.migraine": {
+      "title": "Migraine",
+      "summary": "A recurring headache with moderate to severe throbbing or pulsing pain, often on one side of the head, sometimes with nausea, weakness and sensitivity to light and sound. Researchers believe it has a genetic cause; triggers vary between people.",
+      "location": "Migraine pain is felt in the head; the brain is shown for reference.",
+      "focus_id": "anatomy.brain",
+      "related_anatomy": [
+        "anatomy.brain"
+      ],
+      "display_on": [
+        "anatomy.brain"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-migraine",
+        "mlp-brain"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Headache and its triggers are not depicted."
+    },
+    "condition.pelvic-support-problems": {
+      "title": "Pelvic support problems (prolapse)",
+      "summary": "The pelvic floor holds the uterus, bladder and bowel in place. It can be weakened or injured, mainly by pregnancy and childbirth, and organs can then drop into the vagina.",
+      "location": "The uterus is also supported by its round, cardinal and uterosacral ligaments.",
+      "focus_id": "anatomy.uterus",
+      "related_anatomy": [
+        "anatomy.uterus",
+        "anatomy.uterine-ligaments",
+        "anatomy.bladder"
+      ],
+      "display_on": [
+        "anatomy.uterus",
+        "anatomy.uterine-ligaments",
+        "anatomy.vagina"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-pelvic-support",
+        "tm-uterus"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The pelvic floor muscles and prolapse are not depicted."
+    },
+    "condition.bile-duct-cancer": {
+      "title": "Bile duct cancer (cholangiocarcinoma)",
+      "summary": "A rare disease in which cancer cells form in the bile ducts, the network of tubes connecting the liver, gallbladder and small intestine.",
+      "location": "The right and left hepatic ducts lead out of the liver and join to form the common hepatic duct.",
+      "focus_id": "anatomy.hepatic-ducts",
+      "related_anatomy": [
+        "anatomy.hepatic-ducts",
+        "anatomy.bile-duct.common",
+        "anatomy.liver"
+      ],
+      "display_on": [
+        "anatomy.hepatic-ducts",
+        "anatomy.bile-duct.common",
+        "anatomy.cystic-duct"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nci-bile-duct-cancer",
+        "nci-def-bile-duct"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Tumors and their spread are not depicted."
+    },
+    "condition.ectopic-pregnancy": {
+      "title": "Ectopic pregnancy",
+      "summary": "The fertilized egg grows outside the uterus, usually in a fallopian tube. It cannot become a healthy pregnancy, and a growing pregnancy can burst the tube and cause life-threatening internal bleeding.",
+      "location": "The fallopian tubes carry eggs from the ovaries to the uterus.",
+      "focus_id": "anatomy.fallopian-tubes",
+      "related_anatomy": [
+        "anatomy.fallopian-tubes",
+        "anatomy.uterus"
+      ],
+      "display_on": [
+        "anatomy.fallopian-tubes",
+        "anatomy.ovaries"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-ectopic-pregnancy"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The pregnancy and bleeding are not depicted."
+    },
+    "condition.ovarian-cysts": {
+      "title": "Ovarian cysts",
+      "summary": "Fluid-filled sacs in or on an ovary, usually formed during ovulation. Most are small, harmless and go away by themselves. Larger cysts can cause pain or complications such as ovarian torsion.",
+      "location": "The ovaries lie on each side of the uterus, attached by their suspensory ligaments and the ligaments of the ovary.",
+      "focus_id": "anatomy.ovaries",
+      "related_anatomy": [
+        "anatomy.ovaries",
+        "anatomy.ovarian-ligaments"
+      ],
+      "display_on": [
+        "anatomy.ovaries",
+        "anatomy.ovarian-ligaments"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-ovarian-cysts",
+        "tm-ovaries"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Cysts are not depicted."
+    },
+    "condition.spleen-diseases": {
+      "title": "Swollen or ruptured spleen",
+      "summary": "Certain diseases can make the spleen swell, and an injury can damage or rupture it, especially when it is already swollen. A badly damaged spleen may need to be removed; people can live without one.",
+      "location": "The spleen sits under the ribs on the left side, above the stomach.",
+      "focus_id": "anatomy.spleen",
+      "related_anatomy": [
+        "anatomy.spleen",
+        "anatomy.splenic-vessels"
+      ],
+      "display_on": [
+        "anatomy.spleen",
+        "anatomy.splenic-vessels"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-spleen-diseases",
+        "seer-spleen"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Swelling and injury are not depicted."
+    },
+    "condition.male-infertility": {
+      "title": "Male infertility",
+      "summary": "When a man has not been able to get a partner pregnant after at least a year of trying. Causes include problems with the testicles, blockages in the ducts that carry sperm, hormone problems and genetic disorders.",
+      "location": "The vas deferens and ejaculatory ducts carry sperm. The testes are not supplied in this model.",
+      "focus_id": "anatomy.vas-deferens",
+      "related_anatomy": [
+        "anatomy.vas-deferens",
+        "anatomy.ejaculatory-ducts",
+        "anatomy.seminal-vesicles"
+      ],
+      "display_on": [
+        "anatomy.vas-deferens",
+        "anatomy.ejaculatory-ducts",
+        "anatomy.seminal-vesicles"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-male-infertility",
+        "tm-spermatic-cord"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Sperm, blockages and the testes are not depicted."
+    },
+    "condition.urethral-disorders": {
+      "title": "Urethral stricture and urethritis",
+      "summary": "Urethral problems include urethral stricture, a narrowing of the urethra, and urethritis, its inflammation, sometimes caused by infection. They can cause pain or difficulty passing urine.",
+      "location": "In men the urethra is a long tube that also carries semen; it begins at the bladder and passes through the prostate.",
+      "focus_id": "anatomy.urethra",
+      "related_anatomy": [
+        "anatomy.urethra",
+        "anatomy.bladder"
+      ],
+      "display_on": [
+        "anatomy.urethra"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-urethral-disorders",
+        "tm-urethra"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Narrowing and inflammation are not depicted."
+    },
+    "condition.prostatitis": {
+      "title": "Prostatitis",
+      "summary": "A frequently painful condition involving inflammation of the prostate and sometimes the areas around it. There are four types, including chronic pelvic pain syndrome and acute and chronic bacterial prostatitis.",
+      "location": "The prostate surrounds the part of the urethra just below the bladder.",
+      "focus_id": "anatomy.prostate",
+      "related_anatomy": [
+        "anatomy.prostate",
+        "anatomy.urethra"
+      ],
+      "display_on": [
+        "anatomy.prostate"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-prostatitis"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Inflammation is not depicted."
     }
   },
   "assistant_checks": {
     "actor": "assistant",
     "kind": "preliminary_source_cross_check",
-    "checked_on": "2026-11-20",
+    "checked_on": "2026-11-21",
     "scope": "Preliminary comparison of the short explanations, route order and condition associations with the linked sources. This is not human reviewer evidence and does not establish anatomical mesh accuracy.",
     "source_ids": [
       "gas-exchange",
@@ -8006,26 +10027,44 @@
       "mlp-alzheimers",
       "mlp-brain",
       "mlp-cerebellum",
+      "mlp-dvt",
+      "mlp-ectopic-pregnancy",
       "mlp-epilepsy",
+      "mlp-eyelid-disorders",
       "mlp-hydrocephalus",
       "mlp-knee",
+      "mlp-laryngitis",
+      "mlp-male-infertility",
       "mlp-meningitis",
       "mlp-meniscus",
+      "mlp-migraine",
+      "mlp-ms",
+      "mlp-ovarian-cysts",
       "mlp-parkinson-disease",
       "mlp-parkinsons",
+      "mlp-pelvic-support",
+      "mlp-retinal-artery-occlusion",
+      "mlp-spleen-diseases",
+      "mlp-strabismus",
       "mlp-stroke",
       "mlp-tbi",
+      "mlp-urethral-disorders",
+      "mlp-voice-disorders",
+      "nci-bile-duct-cancer",
       "nci-bladder-cancer",
       "nci-brain-tumors",
       "nci-cervical-cancer",
       "nci-colorectal-cancer",
+      "nci-def-bile-duct",
       "nci-def-broad-ligament",
       "nci-def-carina-of-trachea",
       "nci-def-cerebrospinal-fluid",
       "nci-def-conjunctiva",
+      "nci-def-coronary-artery-disease",
       "nci-def-dura-mater",
       "nci-def-fundus",
       "nci-def-hepatic-artery",
+      "nci-def-inferior-vena-cava",
       "nci-def-meninges",
       "nci-def-olfactory-bulb",
       "nci-def-optic-chiasm",
@@ -8033,7 +10072,13 @@
       "nci-def-pelvis",
       "nci-def-pineal-gland",
       "nci-def-sclera",
+      "nci-def-seminal-vesicle",
+      "nci-def-tendon",
+      "nci-def-ureter",
+      "nci-def-urethra",
+      "nci-def-vas-deferens",
       "nci-def-ventricle",
+      "nci-def-vocal-cord",
       "nci-kidney-cancer",
       "nci-liver-cancer",
       "nci-lung-cancer",
@@ -8086,6 +10131,7 @@
       "niddk-nafld",
       "niddk-pancreatitis",
       "niddk-pkd",
+      "niddk-prostatitis",
       "niddk-ulcerative-colitis",
       "niddk-urinary",
       "niddk-viral-hepatitis",
@@ -8110,6 +10156,30 @@
       "seer-spleen",
       "seer-thymus",
       "seer-ureters",
+      "tm-abdominal-veins",
+      "tm-coeliac-trunk",
+      "tm-coronary",
+      "tm-extraocular",
+      "tm-eyeball",
+      "tm-gallbladder",
+      "tm-hyoid",
+      "tm-ima",
+      "tm-knee",
+      "tm-larynx-folds",
+      "tm-larynx-muscles",
+      "tm-liver",
+      "tm-ovaries",
+      "tm-patella",
+      "tm-pelvic-veins",
+      "tm-rectum",
+      "tm-seminal-vesicles",
+      "tm-sma",
+      "tm-spermatic-cord",
+      "tm-spleen",
+      "tm-svc",
+      "tm-tracheobronchial",
+      "tm-urethra",
+      "tm-uterus",
       "valve-disease-types"
     ]
   },
