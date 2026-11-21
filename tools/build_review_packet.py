@@ -15,7 +15,7 @@ import pathlib
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 STUDY = "content/study_content.json"
 SYSTEM_ORDER = ["circulatory", "respiratory", "nervous", "digestive", "urinary", "reproductive",
-                "lymphatic", "skeletal", "muscular", "integumentary"]
+                "endocrine", "lymphatic", "skeletal", "muscular", "integumentary"]
 
 
 def sha256(path: pathlib.Path) -> str:
@@ -32,6 +32,10 @@ def references():
     rows = [(b["id"], len(b["structures"]), manifest[b["id"]]) for b in pack["bodies"]]
     bone = json.loads((ROOT / "content/bodyparts3d_bone_study.json").read_text())
     rows.append((bone["id"], len(bone["structures"]), bone["sha256"]))
+    complete = json.loads((ROOT / "content/bodyparts3d_complete_body.json").read_text())
+    rows.append((complete["id"], len(complete["structures"]), complete["sha256"]))
+    # Cards are reviewed against the two HRA bodies and the complete body.
+    pack = dict(pack, bodies=[*pack["bodies"], complete])
     for study in json.loads((ROOT / "content/spinal_studies.json").read_text())["bodies"]:
         rows.append((study["id"], len(study["structures"]), study.get("sha256", "")))
     return pack, rows
@@ -43,12 +47,23 @@ def card_structures(content, pack, identity):
     out = {}
     for body in pack["bodies"]:
         index = {s["id"]: s for s in body["structures"]}
-        if "geometry" not in card:
-            ids = [identity] if identity in index else []
+        # A body-specific mapping applies to its own body; otherwise the card names
+        # the structure directly by its shared ID.
+        if body["id"] in card.get("geometry", {}):
+            ids = [m["id"] for m in mapping_list(card["geometry"][body["id"]]) if m]
         else:
-            ids = [m["id"] for m in mapping_list(card["geometry"].get(body["id"], [])) if m]
+            ids = [identity] if identity in index else []
         out[body["id"]] = [index[i] for i in ids if i in index]
     return out
+
+
+COMPLETE_SYSTEMS = {
+    "alimentary system": "digestive", "cardiovascular system": "circulatory", "vasculature of body": "circulatory",
+    "respiratory system": "respiratory", "nervous system": "nervous", "urinary system": "urinary",
+    "genital system": "reproductive", "endocrine system": "endocrine", "integument": "integumentary",
+    "musculoskeletal system": "skeletal", "muscles": "muscular", "arteries": "circulatory", "veins": "circulatory",
+    "nerves": "nervous", "brain structures": "nervous", "teeth": "digestive",
+}
 
 
 def system_of(pack, structure):
@@ -63,15 +78,32 @@ def system_of(pack, structure):
             name = current["source_name"].removeprefix("VH_F_").removeprefix("VH_M_")
             if name.endswith("_system"):
                 return name.removesuffix("_system").removeprefix("male_").removeprefix("female_")
+            # The complete BodyParts3D body names its systems and groups by FMA label.
+            label = current["label"].lower()
+            if label in COMPLETE_SYSTEMS:
+                return COMPLETE_SYSTEMS[label]
             current = index.get(current.get("parent"))
     return "other"
 
 
+# Cards whose complete-body parts sit only in the source's regional groupings.
+REGIONAL_CARD_SYSTEMS = {
+    "anatomy.diaphragm": "muscular", "anatomy.pectoralis-major": "muscular", "anatomy.trapezius": "muscular",
+    "anatomy.testes": "reproductive", "anatomy.epididymis": "reproductive", "anatomy.penis": "reproductive",
+    **{f"anatomy.{bone}": "skeletal" for bone in ["sternum", "ribs", "clavicles", "scapulae", "humerus",
+                                                    "forearm-bones", "hand-bones", "foot-bones"]},
+}
+
+
 def card_system(content, pack, identity):
+    if identity in REGIONAL_CARD_SYSTEMS:
+        return REGIONAL_CARD_SYSTEMS[identity]
     labelled = card_structures(content, pack, identity)
-    for body in ("female", "male"):
+    for body in ("female", "male", "bodyparts-male-complete"):
         if labelled.get(body):
-            return system_of(pack, labelled[body][0]["id"])
+            system = system_of(pack, labelled[body][0]["id"])
+            if system != "other":
+                return system
     return "other"
 
 
@@ -116,9 +148,9 @@ def write(args):
             labelled = card_structures(content, pack, cid)
             text.append(f"#### `{cid}`")
             text.append("")
-            for body in ("female", "male"):
+            for body, title in (("female", "female"), ("male", "male"), ("bodyparts-male-complete", "complete male body")):
                 names = "; ".join(s["label"] for s in labelled.get(body, [])) or "not in this body"
-                text.append(f"- **3D parts ({body}):** {names}")
+                text.append(f"- **3D parts ({title}):** {names}")
             text += [f"- **Overview:** {card['overview']}", f"- **Function:** {card['function']}"]
             if card["related"]:
                 text.append("- **Related:** " + ", ".join(f"`{r}`" for r in card["related"]))

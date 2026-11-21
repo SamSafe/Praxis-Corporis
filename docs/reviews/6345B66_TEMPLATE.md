@@ -1,4 +1,4 @@
-# Human content-review result: 3f98159
+# Human content-review result: 6345b66
 
 Uncompleted template. Every item below starts **not reviewed**. Copy to a dated record and complete only the scope actually inspected.
 
@@ -6,19 +6,19 @@ Uncompleted template. Every item below starts **not reviewed**. Copy to a dated 
 - Relevant qualifications / role:
 - Review date:
 - Role in this record: human source check / qualified medical review / both (specify scope).
-- Expected source revision: `3f98159e401ab12be0c9c73ec0bd1a19500e9fbd`.
-- Expected build ID: `373f22ca60e5484ab09efedbec30b2ec`.
+- Expected source revision: `6345b668068bbd414b29398aba28dd8b0e3db7c9`.
+- Expected build ID: `f8b5d28661ad47e8af5626e09e1694a3`.
 - Actual app archive and SHA-256:
 - Actual app build ID / source shown in Sources:
 - Device / OS / input method used for visual checks:
-- Frozen study SHA-256: `666bdfbbb6823094f2486fbd1f75f25efc4863a5010f719beb604d55066f1e97`.
+- Frozen study SHA-256: `10629a5f6e9595ada556dc1cac15db37ee07d9e608d3f4d3be2240ae3edbee4c`.
 - Other exact content/catalogue/geometry versions checked:
 - Review scope and exclusions:
 - Sources or references used:
 
-Use the [review packet](../CONTENT_REVIEW_PACKET.md), the [reviewer text](3f98159-reviewer-text.md) and the [frozen JSON](3f98159-study-content.json). For each column use **not reviewed**, **changes required** or **accepted unchanged**, with finding/evidence IDs. If text or visuals need changes, approval requires review of the corrected version. Blank cells do not record approval.
+Use the [review packet](../CONTENT_REVIEW_PACKET.md), the [reviewer text](6345b66-reviewer-text.md) and the [frozen JSON](6345b66-study-content.json). For each column use **not reviewed**, **changes required** or **accepted unchanged**, with finding/evidence IDs. If text or visuals need changes, approval requires review of the corrected version. Blank cells do not record approval.
 
-## Authored items (236)
+## Authored items (304)
 
 | Type | Item ID | Human source check | Qualified review, including applicable visuals | Finding / evidence IDs |
 | --- | --- | --- | --- | --- |
@@ -175,6 +175,49 @@ Use the [review packet](../CONTENT_REVIEW_PACKET.md), the [reviewer text](3f9815
 | Card | `anatomy.iliac-veins` | not reviewed | not reviewed | |
 | Card | `anatomy.brachiocephalic-veins` | not reviewed | not reviewed | |
 | Card | `anatomy.patellar-ligament` | not reviewed | not reviewed | |
+| Card | `anatomy.stomach` | not reviewed | not reviewed | |
+| Card | `anatomy.esophagus` | not reviewed | not reviewed | |
+| Card | `anatomy.diaphragm` | not reviewed | not reviewed | |
+| Card | `anatomy.spinal-cord` | not reviewed | not reviewed | |
+| Card | `anatomy.pituitary` | not reviewed | not reviewed | |
+| Card | `anatomy.tongue` | not reviewed | not reviewed | |
+| Card | `anatomy.skull` | not reviewed | not reviewed | |
+| Card | `anatomy.vertebral-column` | not reviewed | not reviewed | |
+| Card | `anatomy.adrenal-glands` | not reviewed | not reviewed | |
+| Card | `anatomy.testes` | not reviewed | not reviewed | |
+| Card | `anatomy.epididymis` | not reviewed | not reviewed | |
+| Card | `anatomy.penis` | not reviewed | not reviewed | |
+| Card | `anatomy.sternum` | not reviewed | not reviewed | |
+| Card | `anatomy.ribs` | not reviewed | not reviewed | |
+| Card | `anatomy.clavicles` | not reviewed | not reviewed | |
+| Card | `anatomy.scapulae` | not reviewed | not reviewed | |
+| Card | `anatomy.humerus` | not reviewed | not reviewed | |
+| Card | `anatomy.forearm-bones` | not reviewed | not reviewed | |
+| Card | `anatomy.hand-bones` | not reviewed | not reviewed | |
+| Card | `anatomy.foot-bones` | not reviewed | not reviewed | |
+| Card | `anatomy.sacrum` | not reviewed | not reviewed | |
+| Card | `anatomy.mandible` | not reviewed | not reviewed | |
+| Card | `anatomy.maxillae` | not reviewed | not reviewed | |
+| Card | `anatomy.teeth` | not reviewed | not reviewed | |
+| Card | `anatomy.soft-palate` | not reviewed | not reviewed | |
+| Card | `anatomy.pharynx-muscles` | not reviewed | not reviewed | |
+| Card | `anatomy.salivary-glands` | not reviewed | not reviewed | |
+| Card | `anatomy.nasal-bones` | not reviewed | not reviewed | |
+| Card | `anatomy.carotid-arteries` | not reviewed | not reviewed | |
+| Card | `anatomy.subclavian-arteries` | not reviewed | not reviewed | |
+| Card | `anatomy.leg-arteries` | not reviewed | not reviewed | |
+| Card | `anatomy.intercostal-muscles` | not reviewed | not reviewed | |
+| Card | `anatomy.pectoralis-major` | not reviewed | not reviewed | |
+| Card | `anatomy.deltoids` | not reviewed | not reviewed | |
+| Card | `anatomy.biceps-brachii` | not reviewed | not reviewed | |
+| Card | `anatomy.triceps-brachii` | not reviewed | not reviewed | |
+| Card | `anatomy.trapezius` | not reviewed | not reviewed | |
+| Card | `anatomy.gluteus-maximus` | not reviewed | not reviewed | |
+| Card | `anatomy.quadriceps` | not reviewed | not reviewed | |
+| Card | `anatomy.hamstrings` | not reviewed | not reviewed | |
+| Card | `anatomy.calf-muscles` | not reviewed | not reviewed | |
+| Card | `anatomy.tibialis-anterior` | not reviewed | not reviewed | |
+| Card | `anatomy.intervertebral-disks` | not reviewed | not reviewed | |
 | Condition | `condition.aortic-stenosis` | not reviewed | not reviewed | |
 | Condition | `condition.mitral-regurgitation` | not reviewed | not reviewed | |
 | Condition | `condition.coronary-heart-disease` | not reviewed | not reviewed | |
@@ -257,6 +300,31 @@ Use the [review packet](../CONTENT_REVIEW_PACKET.md), the [reviewer text](3f9815
 | Condition | `condition.male-infertility` | not reviewed | not reviewed | |
 | Condition | `condition.urethral-disorders` | not reviewed | not reviewed | |
 | Condition | `condition.prostatitis` | not reviewed | not reviewed | |
+| Condition | `condition.gerd` | not reviewed | not reviewed | |
+| Condition | `condition.peptic-ulcer` | not reviewed | not reviewed | |
+| Condition | `condition.stomach-cancer` | not reviewed | not reviewed | |
+| Condition | `condition.esophageal-cancer` | not reviewed | not reviewed | |
+| Condition | `condition.hiatal-hernia` | not reviewed | not reviewed | |
+| Condition | `condition.hiccups` | not reviewed | not reviewed | |
+| Condition | `condition.spinal-cord-injury` | not reviewed | not reviewed | |
+| Condition | `condition.pituitary-tumors` | not reviewed | not reviewed | |
+| Condition | `condition.adrenal-insufficiency` | not reviewed | not reviewed | |
+| Condition | `condition.cushings` | not reviewed | not reviewed | |
+| Condition | `condition.testicular-cancer` | not reviewed | not reviewed | |
+| Condition | `condition.erectile-dysfunction` | not reviewed | not reviewed | |
+| Condition | `condition.scoliosis` | not reviewed | not reviewed | |
+| Condition | `condition.herniated-disk` | not reviewed | not reviewed | |
+| Condition | `condition.back-pain` | not reviewed | not reviewed | |
+| Condition | `condition.carpal-tunnel` | not reviewed | not reviewed | |
+| Condition | `condition.gout` | not reviewed | not reviewed | |
+| Condition | `condition.rheumatoid-arthritis` | not reviewed | not reviewed | |
+| Condition | `condition.pad` | not reviewed | not reviewed | |
+| Condition | `condition.carotid-artery-disease` | not reviewed | not reviewed | |
+| Condition | `condition.rotator-cuff` | not reviewed | not reviewed | |
+| Condition | `condition.oral-cancer` | not reviewed | not reviewed | |
+| Condition | `condition.tooth-decay` | not reviewed | not reviewed | |
+| Condition | `condition.salivary-disorders` | not reviewed | not reviewed | |
+| Condition | `condition.muscle-strain` | not reviewed | not reviewed | |
 | Route | `heart-lung` | not reviewed | not reviewed | |
 
 ## Reference and mapping scope
@@ -268,6 +336,7 @@ List every catalogue ID or attached exact ID inventory that was inspected. A row
 | `female` | | not reviewed | |
 | `male` | | not reviewed | |
 | `bodyparts-male-bones-study` | | not reviewed | |
+| `bodyparts-male-complete` | | not reviewed | |
 | `hra-v1-2-female-cord-study` | | not reviewed | |
 | `hra-v1-2-female-vertebrae-study` | | not reviewed | |
 | `hra-v1-2-male-cord-study` | | not reviewed | |

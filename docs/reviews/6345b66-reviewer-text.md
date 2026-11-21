@@ -1,6 +1,6 @@
-# Study text for review: build `3f98159`
+# Study text for review: build `6345b66`
 
-Every card, condition and route in study revision `body-study-6-draft`, as shipped in private build `373f22ca60e5484ab09efedbec30b2ec`. The [frozen JSON](3f98159-study-content.json) is the authoritative copy. All items are drafts: an assistant compared each statement with its cited page, which is not reviewer evidence.
+Every card, condition and route in study revision `body-study-7-draft`, as shipped in private build `f8b5d28661ad47e8af5626e09e1694a3`. The [frozen JSON](6345b66-study-content.json) is the authoritative copy. All items are drafts: an assistant compared each statement with its cited page, which is not reviewer evidence.
 
 **What to check for each item:** whether each statement is correct and supported by the cited source, whether anything important is missing or misleading, whether the related anatomy is right, and whether the named 3D parts are the right structures.
 
@@ -12,6 +12,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Heart
 - **3D parts (male):** Heart
+- **3D parts (complete male body):** Heart
 - **Overview:** Sits in the center of the chest, near the lungs. It has four hollow chambers surrounded by muscle and other heart tissue.
 - **Function:** Pumps blood through the lungs and the body.
 - **Related:** `anatomy.heart.chambers`, `anatomy.heart.valves`, `anatomy.lungs`
@@ -23,6 +24,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Cardiac chambers
 - **3D parts (male):** Cardiac chambers
+- **3D parts (complete male body):** not in this body
 - **Overview:** The heart has two atria and two ventricles.
 - **Function:** Atria receive blood; ventricles pump it onward.
 - **Related:** `anatomy.heart.atrium.right`, `anatomy.heart.ventricle.right`, `anatomy.heart.atrium.left`, `anatomy.heart.ventricle.left`
@@ -33,6 +35,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Interventricular septum
 - **3D parts (male):** Interventricular septum
+- **3D parts (complete male body):** not in this body
 - **Overview:** A wall separates the right and left sides of the heart.
 - **Function:** The interventricular portion separates the ventricles.
 - **Related:** `anatomy.heart.ventricle.left`, `anatomy.heart.ventricle.right`
@@ -43,6 +46,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Right cardiac atrium
 - **3D parts (male):** Right cardiac atrium
+- **3D parts (complete male body):** Right atrium
 - **Overview:** The right atrium is one of the upper chambers.
 - **Function:** Receives blood returning from the body.
 - **Related:** `anatomy.heart.valve.tricuspid`, `anatomy.heart.ventricle.right`
@@ -54,6 +58,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Left cardiac atrium
 - **3D parts (male):** Left cardiac atrium
+- **3D parts (complete male body):** Left atrium
 - **Overview:** The left atrium is one of the upper chambers.
 - **Function:** Receives blood returning from the lungs.
 - **Related:** `anatomy.heart.valve.mitral`, `anatomy.heart.ventricle.left`
@@ -65,6 +70,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Right ventricle
 - **3D parts (male):** Right ventricle
+- **3D parts (complete male body):** Right ventricle
 - **Overview:** The right ventricle is a lower chamber.
 - **Function:** Pumps blood toward the lungs through the pulmonary valve.
 - **Related:** `anatomy.heart.valve.pulmonary`, `anatomy.lungs`
@@ -76,6 +82,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Left ventricle
 - **3D parts (male):** Left ventricle
+- **3D parts (complete male body):** Left ventricle
 - **Overview:** The left ventricle is a lower chamber.
 - **Function:** Pumps blood through the aortic valve toward the body.
 - **Related:** `anatomy.heart.valve.aortic`, `anatomy.heart.atrium.left`
@@ -87,6 +94,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Heart valves
 - **3D parts (male):** Heart valves
+- **3D parts (complete male body):** not in this body
 - **Overview:** Four valves control forward flow through the heart.
 - **Function:** Their leaflets open and close to limit backward flow.
 - **Related:** `anatomy.heart.valve.tricuspid`, `anatomy.heart.valve.pulmonary`, `anatomy.heart.valve.mitral`, `anatomy.heart.valve.aortic`
@@ -97,6 +105,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Tricuspid valve
 - **3D parts (male):** Tricuspid valve
+- **3D parts (complete male body):** Tricuspid valve
 - **Overview:** Between the right atrium and right ventricle.
 - **Function:** Helps prevent backward blood flow.
 - **Related:** `anatomy.heart.atrium.right`, `anatomy.heart.ventricle.right`
@@ -107,6 +116,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Pulmonary valve
 - **3D parts (male):** Pulmonary valve
+- **3D parts (complete male body):** Pulmonary valve
 - **Overview:** Between the right ventricle and pulmonary artery.
 - **Function:** Helps prevent backward blood flow.
 - **Related:** `anatomy.heart.ventricle.right`, `anatomy.lungs`
@@ -117,6 +127,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Mitral valve
 - **3D parts (male):** Mitral valve
+- **3D parts (complete male body):** Mitral valve
 - **Overview:** Between the left atrium and left ventricle.
 - **Function:** Helps prevent backward blood flow.
 - **Related:** `anatomy.heart.atrium.left`, `anatomy.heart.ventricle.left`
@@ -127,6 +138,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Aortic valve
 - **3D parts (male):** Aortic valve
+- **3D parts (complete male body):** Aortic valve
 - **Overview:** Between the left ventricle and aorta.
 - **Function:** Helps prevent backward blood flow.
 - **Related:** `anatomy.heart.ventricle.left`, `anatomy.heart`
@@ -137,6 +149,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Aorta
 - **3D parts (male):** Aorta
+- **3D parts (complete male body):** Aorta
 - **Overview:** The main artery of the body, leaving the left ventricle through the aortic valve.
 - **Function:** Carries oxygen-rich blood from the heart to the rest of the body.
 - **Related:** `anatomy.heart.ventricle.left`, `anatomy.heart.valve.aortic`, `anatomy.coronary.left`, `anatomy.coronary.right`
@@ -148,6 +161,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Left coronary artery
 - **3D parts (male):** Left coronary artery
+- **3D parts (complete male body):** Left coronary artery
 - **Overview:** One of the two coronary arteries that branch from the aorta and run over the surface of the heart.
 - **Function:** Supplies oxygen-rich blood to the heart muscle.
 - **Related:** `anatomy.coronary.right`, `anatomy.aorta`, `anatomy.heart`
@@ -160,6 +174,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Right coronary artery
 - **3D parts (male):** Right coronary artery
+- **3D parts (complete male body):** Right coronary artery
 - **Overview:** One of the two coronary arteries that branch from the aorta and run over the surface of the heart.
 - **Function:** Supplies oxygen-rich blood to the heart muscle.
 - **Related:** `anatomy.coronary.left`, `anatomy.aorta`, `anatomy.heart`
@@ -172,6 +187,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Superior vena cava
 - **3D parts (male):** Superior vena cava
+- **3D parts (complete male body):** Superior vena cava
 - **Overview:** One of the two venae cavae, the large veins through which blood returns to the heart.
 - **Function:** Returns oxygen-poor blood from the body to the right atrium.
 - **Related:** `anatomy.vena-cava.inferior`, `anatomy.heart.atrium.right`
@@ -182,6 +198,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Inferior vena cava
 - **3D parts (male):** Inferior vena cava
+- **3D parts (complete male body):** Inferior vena cava
 - **Overview:** One of the two venae cavae, the large veins through which blood returns to the heart.
 - **Function:** Returns oxygen-poor blood from the body to the right atrium.
 - **Related:** `anatomy.vena-cava.superior`, `anatomy.heart.atrium.right`
@@ -192,6 +209,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Pulmonary vein
 - **3D parts (male):** Pulmonary vein
+- **3D parts (complete male body):** Left inferior pulmonary vein; Left superior pulmonary vein; Right inferior pulmonary vein; Right superior pulmonary vein
 - **Overview:** Veins running from the lungs back to the heart.
 - **Function:** Return oxygen-rich blood from the lungs to the left atrium.
 - **Related:** `anatomy.lungs`, `anatomy.heart.atrium.left`
@@ -202,6 +220,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Hepatic portal vein; Right branch of portal vein; Left branch of portal vein
 - **3D parts (male):** Hepatic portal vein; Left branch of portal vein; Right branch of portal vein; Portal vein
+- **3D parts (complete male body):** Hepatic portal vein
 - **Overview:** The hepatic portal vein leads to the liver.
 - **Function:** Carries nutrient-rich blood from the digestive tract to the liver.
 - **Related:** `anatomy.liver`, `anatomy.small-intestine`
@@ -213,6 +232,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Left pulmonary artery; Pulmonary trunk; Right pulmonary artery
 - **3D parts (male):** Left pulmonary artery; Right pulmonary artery; Pulmonary trunk
+- **3D parts (complete male body):** Left pulmonary artery; Pulmonary trunk; Right pulmonary artery
 - **Overview:** The pulmonary trunk leaves the right ventricle through the pulmonary valve. The supplied parts include the left and right pulmonary arteries.
 - **Function:** Carry oxygen-poor blood from the heart to the lungs.
 - **Related:** `anatomy.heart.ventricle.right`, `anatomy.heart.valve.pulmonary`, `anatomy.lungs`
@@ -224,6 +244,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Coronary sinus
 - **3D parts (male):** Coronary sinus
+- **3D parts (complete male body):** Coronary sinus
 - **Overview:** A channel into which most of the cardiac veins drain. It opens into the right atrium.
 - **Function:** Returns blood from the cardiac veins to the right atrium.
 - **Related:** `anatomy.cardiac-veins`, `anatomy.heart.atrium.right`
@@ -234,6 +255,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Great vein of heart; Middle cardiac vein; Oblique vein of left atrium; Left marginal vein; Posterior vein of left ventricle; Anterior cardiac vein; Small cardiac vein
 - **3D parts (male):** Great vein of heart; Middle cardiac vein; Oblique vein of left atrium; Anterior cardiac vein; Posterior vein of left ventricle; Small cardiac vein
+- **3D parts (complete male body):** Anterior cardiac vein; Anterior cardiac vein; Great cardiac vein; Left marginal vein; Middle cardiac vein; Posterior vein of left ventricle; Small cardiac vein
 - **Overview:** Veins of the heart.
 - **Function:** Most of them drain into the coronary sinus, which opens into the right atrium.
 - **Related:** `anatomy.coronary-sinus`, `anatomy.heart`
@@ -244,6 +266,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Ascending aorta
 - **3D parts (male):** Ascending aorta
+- **3D parts (complete male body):** Ascending aorta
 - **Overview:** The first of the aorta's three portions: ascending aorta, aortic arch and descending aorta.
 - **Function:** The coronary arteries are the only vessels that branch from it.
 - **Related:** `anatomy.aorta`, `anatomy.aorta.arch`, `anatomy.coronary.left`, `anatomy.coronary.right`
@@ -254,6 +277,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Arch of aorta
 - **3D parts (male):** Arch of aorta
+- **3D parts (complete male body):** Arch of aorta
 - **Overview:** The middle of the aorta's three portions, between the ascending and descending aorta.
 - **Function:** The brachiocephalic, left common carotid and left subclavian arteries branch from it.
 - **Related:** `anatomy.aorta`, `anatomy.aorta.ascending`, `anatomy.aorta.descending`, `anatomy.aortic-arch-branches`
@@ -264,6 +288,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Descending aorta; Descending aorta; Descending aorta
 - **3D parts (male):** Descending aorta; Descending aorta; Descending aorta
+- **3D parts (complete male body):** Descending aorta
 - **Overview:** The last of the aorta's three portions, continuing down from the aortic arch.
 - **Function:** In the abdomen, the celiac, superior mesenteric, renal and inferior mesenteric arteries branch from it to supply the abdominal organs.
 - **Related:** `anatomy.aorta`, `anatomy.aorta.arch`, `anatomy.celiac-trunk`, `anatomy.mesenteric-artery.superior`, `anatomy.renal-arteries`
@@ -274,6 +299,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Left common carotid artery; Left common carotid artery plus branches; Left common carotid artery plus branches; Left subclavian artery; Left subclavian artery; Left subclavian artery; Brachiocephalic artery; Brachiocephalic artery
 - **3D parts (male):** Brachiocephalic artery; Brachiocephalic artery; Brachiocephalic artery; Left common carotid artery; Left common carotid artery plus branches; Left common carotid artery plus branches; Left subclavian artery; Left subclavian artery; Left subclavian artery
+- **3D parts (complete male body):** Brachiocephalic artery
 - **Overview:** The brachiocephalic, left common carotid and left subclavian arteries, which branch from the aortic arch.
 - **Function:** Carry blood from the aortic arch. The subclavian arteries supply the upper limbs.
 - **Related:** `anatomy.aorta.arch`
@@ -284,6 +310,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Celiac trunk
 - **3D parts (male):** Celiac trunk
+- **3D parts (complete male body):** Celiac artery
 - **Overview:** An artery branching from the abdominal aorta.
 - **Function:** One of the arteries that supply the abdominal organs.
 - **Related:** `anatomy.aorta.descending`, `anatomy.mesenteric-artery.superior`
@@ -294,6 +321,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Superior mesenteric artery
 - **3D parts (male):** Superior mesenteric artery
+- **3D parts (complete male body):** Superior mesenteric artery
 - **Overview:** An artery branching from the abdominal aorta.
 - **Function:** One of the arteries that supply the abdominal organs.
 - **Related:** `anatomy.aorta.descending`, `anatomy.celiac-trunk`, `anatomy.mesenteric-artery.inferior`
@@ -304,6 +332,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Inferior mesenteric artery
 - **3D parts (male):** Inferior mesenteric artery
+- **3D parts (complete male body):** Inferior mesenteric artery
 - **Overview:** An artery branching from the abdominal aorta.
 - **Function:** One of the arteries that supply the abdominal organs.
 - **Related:** `anatomy.aorta.descending`, `anatomy.mesenteric-artery.superior`
@@ -314,6 +343,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Right renal artery; Left renal artery
 - **3D parts (male):** Left renal artery; Right renal artery
+- **3D parts (complete male body):** Left renal artery; Right renal artery
 - **Overview:** Arteries branching from the abdominal aorta. Each enters a kidney at its hilum.
 - **Function:** Bring blood to the kidneys to be filtered.
 - **Related:** `anatomy.kidneys`, `anatomy.kidney-hilum`, `anatomy.renal-veins`
@@ -325,6 +355,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Left renal vein; Right renal vein
 - **3D parts (male):** Left renal vein; Right renal vein
+- **3D parts (complete male body):** Left renal vein; Left renal vein; Right renal vein; Right renal vein
 - **Overview:** Veins that leave each kidney at its hilum.
 - **Function:** Carry blood away from the kidneys.
 - **Related:** `anatomy.kidneys`, `anatomy.kidney-hilum`, `anatomy.renal-arteries`
@@ -335,6 +366,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Hepatic artery proper; Right hepatic artery; Common hepatic artery; Left hepatic artery; Middle hepatic artery branch of left hepatic artery; Posterior segmental right hepatic artery; Anterior segmental right hepatic artery
 - **3D parts (male):** Left hepatic artery; Hepatic artery proper; Right hepatic artery; Common hepatic artery; Posterior segmental right hepatic artery; Anterior segmental right hepatic artery; Middle hepatic artery branch of left hepatic artery
+- **3D parts (complete male body):** Common hepatic artery; Hepatic artery proper; Left hepatic artery; Right hepatic artery
 - **Overview:** The hepatic artery is the major blood vessel that carries blood to the liver. The supplied parts include its common, proper, left and right portions.
 - **Function:** Carries blood to the liver.
 - **Related:** `anatomy.liver`, `anatomy.celiac-trunk`, `anatomy.portal-vein`
@@ -345,6 +377,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Anterior descending branch of left pulmonary artery; Diagonal branch of anterior descending branch of left coronary artery
 - **3D parts (male):** Anterior descending branch of left pulmonary artery; Diagonal branch of anterior descending branch of left coronary artery; Diagonal branch of anterior descending branch of left coronary artery
+- **3D parts (complete male body):** Diagonal branch of anterior descending branch of left coronary artery
 - **Overview:** The left anterior descending artery (LAD), also called the anterior interventricular artery, is a branch of the left coronary artery. The supplied parts include its diagonal branches.
 - **Function:** Follows the groove between the ventricles on the front of the heart towards its apex, supplying heart muscle.
 - **Related:** `anatomy.coronary.left`, `anatomy.heart.septum`, `anatomy.heart.ventricle.left`
@@ -355,6 +388,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Circumflex branch of left coronary artery; Left marginal artery; Left posterior descending branch of circumflex branch of left coronary artery; Posterior ventricular branch of circumflex coronary artery
 - **3D parts (male):** Left marginal artery
+- **3D parts (complete male body):** Circumflex branch of left coronary artery
 - **Overview:** The circumflex branch of the left coronary artery and its left marginal branch. In about 20-25% of people the circumflex also contributes to the posterior interventricular artery.
 - **Function:** Follows the groove between the atria and ventricles to the left border and back of the heart; its left marginal branch follows the left border.
 - **Related:** `anatomy.coronary.left`, `anatomy.heart.ventricle.left`
@@ -365,6 +399,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Marginal branch of right coronary artery
 - **3D parts (male):** Marginal branch of right coronary artery; Posterior interventricular branch of right coronary artery
+- **3D parts (complete male body):** Marginal branch of right coronary artery; Posterior interventricular branch of right coronary artery
 - **Overview:** Branches of the right coronary artery: the right marginal artery and, in 80-85% of people, the posterior interventricular (posterior descending) artery.
 - **Function:** The right marginal artery runs along the right and lower border of the heart towards the apex; the posterior interventricular artery follows the groove on the back of the heart.
 - **Related:** `anatomy.coronary.right`, `anatomy.heart.ventricle.right`
@@ -375,6 +410,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Left inferior ophthalmic vein; Left superior ophthalmic vein; Ophthalmic vein; Right superior ophthalmic vein; Ophthalmic vein; Right inferior ophthalmic vein; Ophthalmic artery; Ophthalmic artery
 - **3D parts (male):** Left inferior ophthalmic vein; Left superior ophthalmic vein; Ophthalmic vein; Right superior ophthalmic vein; Ophthalmic vein; Right inferior ophthalmic vein; Ophthalmic artery; Ophthalmic artery
+- **3D parts (complete male body):** Left ophthalmic artery; Right ophthalmic artery
 - **Overview:** The ophthalmic artery, a branch of the internal carotid artery, and the superior and inferior ophthalmic veins of each eye.
 - **Function:** The ophthalmic artery is the main arterial supply of the eyeball; the ophthalmic veins drain it into the cavernous sinus.
 - **Related:** `anatomy.central-retinal-vessels`, `anatomy.eyes`
@@ -385,6 +421,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Left central retinal vein; Right central retinal vein; Right central retinal artery; Left central retinal artery
 - **3D parts (male):** Left central retinal vein; Right central retinal vein; Right central retinal artery; Left central retinal artery
+- **3D parts (complete male body):** not in this body
 - **Overview:** The central retinal artery and vein of each eye. The central artery of the retina is the most important branch of the ophthalmic artery.
 - **Function:** The artery supplies the internal surface of the retina; its blockage quickly causes blindness.
 - **Related:** `anatomy.retina`, `anatomy.ophthalmic-vessels`, `anatomy.optic-nerves`
@@ -396,6 +433,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Left uterine artery; Right uterine artery; Left uterine vein; Right uterine vein
 - **3D parts (male):** not in this body
+- **3D parts (complete male body):** not in this body
 - **Overview:** The uterine arteries, branches of the internal iliac arteries, and the uterine veins.
 - **Function:** The uterine arteries supply the uterus; a venous plexus in the broad ligament drains into the uterine veins. Each uterine artery crosses above a ureter near the cervix.
 - **Related:** `anatomy.uterus`, `anatomy.uterine-ligaments`, `anatomy.ureters`
@@ -406,6 +444,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Middle hepatic vein; Left hepatic vein; Right hepatic vein
 - **3D parts (male):** Right hepatic vein; Left hepatic vein; Middle hepatic vein
+- **3D parts (complete male body):** Left hepatic vein; Middle hepatic vein; Right hepatic vein
 - **Overview:** The left, middle and right hepatic veins.
 - **Function:** Drain blood from the liver into the inferior vena cava. Blood from the spleen, pancreas, gallbladder and gut reaches them only after passing through the liver.
 - **Related:** `anatomy.liver`, `anatomy.vena-cava.inferior`, `anatomy.portal-vein`
@@ -417,6 +456,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Splenic artery; Splenic vein
 - **3D parts (male):** Splenic vein; Splenic artery
+- **3D parts (complete male body):** Splenic artery; Splenic vein
 - **Overview:** The splenic artery, a branch of the celiac trunk that runs along the top of the pancreas to the spleen, and the splenic vein.
 - **Function:** The splenic artery supplies the spleen and gives branches to the stomach and pancreas. The splenic vein joins the superior mesenteric vein to form the hepatic portal vein.
 - **Related:** `anatomy.spleen`, `anatomy.celiac-trunk`, `anatomy.portal-vein`, `anatomy.pancreas`
@@ -428,6 +468,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Superior mesenteric vein; Inferior pancreaticoduodenal vein; Superior mesenteric artery
 - **3D parts (male):** Inferior mesenteric vein; Superior mesenteric artery; Inferior pancreaticoduodenal vein
+- **3D parts (complete male body):** Inferior mesenteric vein; Superior mesenteric vein
 - **Overview:** The superior and inferior mesenteric veins and the inferior pancreaticoduodenal vein, part of the portal venous system.
 - **Function:** The portal venous system carries blood from the gut to the liver for processing. The superior mesenteric vein joins the splenic vein to form the portal vein.
 - **Related:** `anatomy.portal-vein`, `anatomy.splenic-vessels`, `anatomy.small-intestine`, `anatomy.colon`
@@ -438,6 +479,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Left colic vein; Right colic vein; Ileocolic vein; Middle colic vein; Sigmoid vein; Sigmoid vein; Left colic artery; Right colic artery; Ileocolic artery; Middle colic artery; Marginal colic artery; Sigmoid artery
 - **3D parts (male):** Sigmoid vein; Left colic vein; Ileocolic vein; Right colic vein; Middle colic vein; Right colic artery; Middle colic artery; Left colic artery; Ileocolic artery; Sigmoid artery; Marginal colic artery
+- **3D parts (complete male body):** Ileocolic artery; Ileocolic vein; Ileocolic vein; Left colic artery; Left colic vein; Left colic vein; Left colic vein; Middle colic artery; Middle colic vein; Right colic artery; Right colic vein; Sigmoid artery; Sigmoid vein
 - **Overview:** Arteries and veins of the colon: the ileocolic, right, middle and left colic, and sigmoid vessels, and the marginal artery (of Drummond).
 - **Function:** The ileocolic, right and middle colic arteries (from the superior mesenteric artery) and the left colic and sigmoid arteries (from the inferior mesenteric artery) supply the colon. The marginal artery joins them in a continuous arterial circle along the inner border of the colon.
 - **Related:** `anatomy.colon`, `anatomy.mesenteric-artery.superior`, `anatomy.mesenteric-artery.inferior`, `anatomy.sigmoid-colon`
@@ -449,6 +491,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Superior rectal artery; Inferior rectal vein; Middle rectal vein; Superior rectal artery
 - **3D parts (male):** Superior rectal artery; Inferior rectal vein; Middle rectal vein
+- **3D parts (complete male body):** Superior rectal artery; Superior rectal vein
 - **Overview:** The superior rectal artery, the continuation of the inferior mesenteric artery, and the superior, middle and inferior rectal veins.
 - **Function:** The superior rectal artery supplies the rectum. The superior rectal vein drains into the portal venous system; the middle and inferior rectal veins drain into the systemic veins.
 - **Related:** `anatomy.rectum`, `anatomy.mesenteric-artery.inferior`, `anatomy.mesenteric-veins`
@@ -459,6 +502,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Cystic artery; Cystic vein
 - **3D parts (male):** Cystic vein; Cystic artery
+- **3D parts (complete male body):** not in this body
 - **Overview:** The cystic artery, a branch of the right hepatic artery, and the cystic vein.
 - **Function:** The cystic artery supplies the gallbladder. Cystic veins drain the neck of the gallbladder directly into the portal vein.
 - **Related:** `anatomy.gallbladder`, `anatomy.hepatic-arteries`, `anatomy.portal-vein`
@@ -469,6 +513,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Common iliac vein; Internal iliac vein; Internal pudendal vein; Median sacral vein
 - **3D parts (male):** Median sacral vein; Common iliac vein; External iliac vein; Internal pudendal vein; Internal iliac vein
+- **3D parts (complete male body):** Left common iliac vein; Right common iliac vein; Left external iliac vein; Right external iliac vein; Left internal iliac vein; Right internal iliac vein; Median sacral vein; Left internal pudendal vein; Right internal pudendal vein
 - **Overview:** The common, external and internal iliac veins of the pelvis, with the median sacral and internal pudendal veins. Each common iliac vein is formed by the external and internal iliac veins.
 - **Function:** The external iliac vein continues from the femoral vein and drains the leg; the internal iliac vein drains most of the pelvis. The two common iliac veins join to form the inferior vena cava.
 - **Related:** `anatomy.vena-cava.inferior`, `anatomy.pelvis`
@@ -481,11 +526,47 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** not in this body
 - **3D parts (male):** Brachiocephalic vein
+- **3D parts (complete male body):** Left brachiocephalic vein; Right brachiocephalic vein
 - **Overview:** The left and right brachiocephalic veins in the upper chest.
 - **Function:** They drain the head, neck and arms, and join to form the superior vena cava.
 - **Related:** `anatomy.vena-cava.superior`
 - **Sources:**
   - `tm-svc`: [TeachMeAnatomy: The superior vena cava](https://teachmeanatomy.info/thorax/vasculature/superior-vena-cava/)
+
+#### `anatomy.carotid-arteries`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Left common carotid artery; Right common carotid artery
+- **Overview:** Major arteries, one on each side of the neck. The left common carotid artery branches from the aortic arch.
+- **Function:** Carry blood from the heart to the head. With the vertebral arteries, the internal carotid arteries supply the brain.
+- **Related:** `anatomy.aorta.arch`, `anatomy.brain`
+- **Sources:**
+  - `nci-def-carotid-artery`: [NCI Dictionary of Cancer Terms: carotid artery](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/carotid-artery)
+  - `seer-pathways`: [NCI SEER Training: Circulatory pathways](https://training.seer.cancer.gov/anatomy/cardiovascular/blood/pathways.html)
+
+#### `anatomy.subclavian-arteries`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Left subclavian artery; Right subclavian artery
+- **Overview:** The left and right subclavian arteries. The left subclavian artery branches from the aortic arch.
+- **Function:** Supply blood to the arms.
+- **Related:** `anatomy.aorta.arch`, `anatomy.humerus`
+- **Sources:**
+  - `seer-pathways`: [NCI SEER Training: Circulatory pathways](https://training.seer.cancer.gov/anatomy/cardiovascular/blood/pathways.html)
+
+#### `anatomy.leg-arteries`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Left external iliac artery; Right external iliac artery
+- **Overview:** The external iliac arteries, whose branches supply the legs.
+- **Function:** Branches of the external iliac artery supply the legs.
+- **Related:** `anatomy.iliac-veins`, `anatomy.pelvis`
+- **Sources:**
+  - `seer-pathways`: [NCI SEER Training: Circulatory pathways](https://training.seer.cancer.gov/anatomy/cardiovascular/blood/pathways.html)
+  - `nhlbi-pad`: [NHLBI: Peripheral artery disease](https://www.nhlbi.nih.gov/health/peripheral-artery-disease)
 
 ### Respiratory
 
@@ -493,6 +574,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Lungs
 - **3D parts (male):** Lungs
+- **3D parts (complete male body):** not in this body
 - **Overview:** The main organs of the respiratory system, one on each side of the heart inside the chest cavity.
 - **Function:** Exchange oxygen and carbon dioxide between air and blood.
 - **Related:** `anatomy.lung.left`, `anatomy.lung.right`, `anatomy.heart`
@@ -504,6 +586,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Left lung
 - **3D parts (male):** Left lung
+- **3D parts (complete male body):** Left lung
 - **Overview:** The left lung has two lobes. It is slightly smaller than the right lung because the heart takes up some space on the left side.
 - **Function:** Participates in gas exchange.
 - **Related:** `anatomy.lungs`, `anatomy.heart`
@@ -515,6 +598,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Right lung
 - **3D parts (male):** Right lung
+- **3D parts (complete male body):** Right lung
 - **Overview:** The right lung has three lobes.
 - **Function:** Participates in gas exchange.
 - **Related:** `anatomy.lungs`, `anatomy.heart`
@@ -526,6 +610,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Trachea
 - **3D parts (male):** Trachea
+- **3D parts (complete male body):** Trachea
 - **Overview:** The windpipe: the airway that leads from the larynx (voice box) to the bronchi. In the chest it divides into the right and left primary bronchi.
 - **Function:** Carries air between the larynx and the bronchi, which lead to the lungs.
 - **Related:** `anatomy.bronchi`, `anatomy.lungs`
@@ -538,6 +623,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Bronchi
 - **3D parts (male):** Bronchi
+- **3D parts (complete male body):** Left main bronchus; Right main bronchus
 - **Overview:** The right and left primary bronchi branch from the trachea into smaller and smaller airways inside the lungs.
 - **Function:** Conduct air between the trachea and the tiny air sacs of the lungs.
 - **Related:** `anatomy.trachea`, `anatomy.lung.left`, `anatomy.lung.right`
@@ -549,6 +635,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Left corniculate cartilage; Right corniculate cartilage; Right arytenoid cartilage; Left arytenoid cartilage; Thyroid cartilage; Cricoid cartilage
 - **3D parts (male):** Cricoid cartilage; Thyroid cartilage; Left arytenoid cartilage; Right arytenoid cartilage; Left corniculate cartilage; Right corniculate cartilage
+- **3D parts (complete male body):** Cricoid cartilage; Left arytenoid cartilage; Left corniculate cartilage; Right arytenoid cartilage; Right corniculate cartilage; Thyroid cartilage
 - **Overview:** The larynx is formed by nine cartilages connected by muscles and ligaments. The thyroid cartilage is the Adam's apple.
 - **Function:** Produces sound: its vocal cords close together and vibrate as air from the lungs passes between them.
 - **Related:** `anatomy.epiglottis`, `anatomy.trachea`
@@ -559,6 +646,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Epiglottic cartilage
 - **3D parts (male):** Epiglottic cartilage
+- **3D parts (complete male body):** Epiglottis
 - **Overview:** One of the cartilages of the larynx.
 - **Function:** Acts like a trap door to keep food and other particles from entering the larynx.
 - **Related:** `anatomy.larynx`, `anatomy.trachea`
@@ -569,6 +657,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Tracheal cartilage
 - **3D parts (male):** Tracheal cartilage
+- **3D parts (complete male body):** not in this body
 - **Overview:** Hyaline cartilage in the wall of the trachea, the main airway to the lungs.
 - **Function:** Supports the trachea and keeps it from collapsing.
 - **Related:** `anatomy.trachea`, `anatomy.larynx`
@@ -579,6 +668,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** R lung lower lobe; R lung middle lobe; R lung upper lobe
 - **3D parts (male):** Lungs r middle lobe; Lungs r lower lobe; Lungs r upper lobe
+- **3D parts (complete male body):** Upper lobe of right lung; Middle lobe of lung; Lower lobe of right lung
 - **Overview:** The right lung is shorter and broader than the left and has a greater volume. It is divided into three lobes.
 - **Function:** Each lobe is supplied by one of the secondary bronchi.
 - **Related:** `anatomy.lung.right`, `anatomy.bronchi`, `anatomy.lung.left.lobes`
@@ -589,6 +679,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** L lung upper lobe; L lung lower lobe
 - **3D parts (male):** Lungs l upper lobe; Lungs l lower lobe
+- **3D parts (complete male body):** Upper lobe of left lung; Lower lobe of left lung
 - **Overview:** The left lung is longer and narrower than the right lung. It has two lobes.
 - **Function:** Each lobe is supplied by one of the secondary bronchi.
 - **Related:** `anatomy.lung.left`, `anatomy.bronchi`, `anatomy.lung.right.lobes`
@@ -599,6 +690,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Left lung hilus; Right lung hilus
 - **3D parts (male):** Left lung hilus; Right lung hilus
+- **3D parts (complete male body):** not in this body
 - **Overview:** The hilum, or root, on the medial side of each lung.
 - **Function:** The only point of attachment for each lung.
 - **Related:** `anatomy.lungs`, `anatomy.bronchi`
@@ -609,6 +701,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Carina of trachea
 - **3D parts (male):** Carina of trachea
+- **3D parts (complete male body):** not in this body
 - **Overview:** A ridge at the base of the trachea, also called the tracheal carina.
 - **Function:** Separates the openings of the right and left main bronchi.
 - **Related:** `anatomy.trachea`, `anatomy.bronchi`
@@ -619,6 +712,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Cartilage of bronchus
 - **3D parts (male):** Cartilage of bronchus
+- **3D parts (complete male body):** not in this body
 - **Overview:** Cartilage in the walls of the bronchi. In the main bronchi, cartilage rings completely encircle the airway.
 - **Function:** Like the C-shaped rings of the trachea, this cartilage holds the larger airways open.
 - **Related:** `anatomy.bronchi`, `anatomy.tracheal-cartilage`
@@ -631,6 +725,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Brain
 - **3D parts (male):** Brain
+- **3D parts (complete male body):** Brain
 - **Overview:** Divided into the cerebrum, diencephalon, brain stem and cerebellum. With the spinal cord it forms the central nervous system.
 - **Function:** The body's control center. It controls thoughts, memory, speech and movement, and regulates the function of many organs.
 - **Related:** `anatomy.cerebellum`, `anatomy.brainstem`, `anatomy.thalamus`, `anatomy.corpus-callosum`, `anatomy.optic-nerves`
@@ -642,6 +737,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Cerebellar vermis; Paravermis of cerebellum, left; Lateral hemisphere of cerebellum, left; Cerebellar vermis, right; Paravermis of cerebellum, right; Lateral hemisphere of cerebellum, right
 - **3D parts (male):** Cerebellar vermis; Paravermis of cerebellum, left; Lateral hemisphere of cerebellum, left; Cerebellar vermis, right; Paravermis of cerebellum, right; Lateral hemisphere of cerebellum, right
+- **3D parts (complete male body):** Cerebellum
 - **Overview:** The second largest part of the brain, below the occipital lobes of the cerebrum. The supplied cerebellum is split into several source parts.
 - **Function:** Processes input from other areas of the brain, the spinal cord and sensory receptors to time coordinated, smooth movements.
 - **Related:** `anatomy.brain`, `anatomy.brainstem`
@@ -653,6 +749,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Pontine nuclear group; Pontine tegmentum; Pyramidal part of medulla oblongata, left; Tegmentum of medulla oblongata, left; Pontine nuclear group; Pontine tegmentum; Pyramidal part of medulla oblongata, right; Tegmentum of medulla oblongata, right; Midbrain tegmentum, right; Midbrain tegmentum, left
 - **3D parts (male):** Pontine nuclear group; Pontine tegmentum; Pyramidal part of medulla oblongata, left; Tegmentum of medulla oblongata, left; Pontine nuclear group; Pontine tegmentum; Pyramidal part of medulla oblongata, right; Tegmentum of medulla oblongata, right; Midbrain tegmentum, right; Midbrain tegmentum, left
+- **3D parts (complete male body):** Brainstem
 - **Overview:** The region between the diencephalon and the spinal cord, made of three parts: the midbrain, pons and medulla oblongata.
 - **Function:** Links the brain and spinal cord. All the sensory and motor nerve fibers connecting them pass through the medulla.
 - **Related:** `anatomy.brain`, `anatomy.cerebellum`
@@ -663,6 +760,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Thalamus, left; Anterior nuclear complex of thalamus, left; Lateral dorsal nucleus of thalamus, left; Mediodorsal nucleus of thalamus, left; Reuniens nucleus medioventral nucleus of thalamus, left; Lateral posterior nucleus of thalamus, left; Pulvinar of thalamus, left; Ventral anterior nucleus of thalamus, left; Ventral lateral nucleus of thalamus, left; Centromedian nucleus of thalamus, left; Parafascicular nucleus of thalamus, left; Thalamus, right; Anterior nuclear complex of thalamus, right; Lateral dorsal nucleus of thalamus, right; Mediodorsal nucleus of thalamus, right; Reuniens nucleus medioventral nucleus of thalamus, right; Lateral posterior nucleus of thalamus, right; Pulvinar of thalamus, right; Ventral anterior nucleus of thalamus, right; Ventral lateral nucleus of thalamus, right; Centromedian nucleus of thalamus, right; Parafascicular nucleus of thalamus, right
 - **3D parts (male):** Thalamus, left; Anterior nuclear complex of thalamus, left; Lateral dorsal nucleus of thalamus, left; Mediodorsal nucleus of thalamus, left; Reuniens nucleus medioventral nucleus of thalamus, left; Lateral posterior nucleus of thalamus, left; Pulvinar of thalamus, left; Ventral anterior nucleus of thalamus, left; Ventral lateral nucleus of thalamus, left; Centromedian nucleus of thalamus, left; Parafascicular nucleus of thalamus, left; Thalamus, right; Anterior nuclear complex of thalamus, right; Lateral dorsal nucleus of thalamus, right; Mediodorsal nucleus of thalamus, right; Reuniens nucleus medioventral nucleus of thalamus, right; Lateral posterior nucleus of thalamus, right; Pulvinar of thalamus, right; Ventral anterior nucleus of thalamus, right; Ventral lateral nucleus of thalamus, right; Centromedian nucleus of thalamus, right; Parafascicular nucleus of thalamus, right
+- **3D parts (complete male body):** Left thalamus; Right thalamus
 - **Overview:** Two oval masses of gray matter making up about 80 percent of the diencephalon, which the cerebral hemispheres nearly surround.
 - **Function:** Relays sensory impulses, except for smell, to the cerebral cortex.
 - **Related:** `anatomy.hypothalamus`, `anatomy.brain`
@@ -673,6 +771,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Supraoptic region of hypothalamus, left; Preoptic region of hypothalamus, left; Tuberal region of hypothalamus, left; Supraoptic region of hypothalamus, right; Hypothalamus; Hypothalamus; Mammillary region of hypothalamus, right; Tuberal region of hypothalamus, right; Preoptic region of hypothalamus, right; Mammillary region of hypothalamus, left
 - **3D parts (male):** Supraoptic region of hypothalamus, left; Preoptic region of hypothalamus, left; Tuberal region of hypothalamus, left; Supraoptic region of hypothalamus, right; Hypothalamus; Hypothalamus; Mammillary region of hypothalamus, right; Tuberal region of hypothalamus, right; Preoptic region of hypothalamus, right; Mammillary region of hypothalamus, left
+- **3D parts (complete male body):** Hypothalamus
 - **Overview:** A small region of the diencephalon below the thalamus.
 - **Function:** Plays a key role in maintaining homeostasis because it regulates many visceral activities.
 - **Related:** `anatomy.thalamus`, `anatomy.brain`
@@ -683,6 +782,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Corpus callosum; Corpus callosum
 - **3D parts (male):** Corpus callosum; Corpus callosum
+- **3D parts (complete male body):** Corpus callosum
 - **Overview:** An arching band of white fibers joining the two cerebral hemispheres.
 - **Function:** Provides a communication pathway between the two halves of the cerebrum.
 - **Related:** `anatomy.brain`
@@ -693,6 +793,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Eyes; Eye, left; Eye, right
 - **3D parts (male):** Eyes; Eye, left; Eye, right
+- **3D parts (complete male body):** Left eye; Right eye
 - **Overview:** Light passes through the cornea, enters through the pupil, then passes through the lens to the retina at the back of the eye.
 - **Function:** The parts of the eye work together so you can see: they focus light and turn it into signals the brain makes into images.
 - **Related:** `anatomy.cornea`, `anatomy.iris`, `anatomy.lens`, `anatomy.retina`, `anatomy.optic-nerves`
@@ -703,6 +804,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Left cornea; Right cornea
 - **3D parts (male):** Left cornea; Right cornea
+- **3D parts (complete male body):** Left cornea; Right cornea
 - **Overview:** The clear, dome-shaped front layer of the eye.
 - **Function:** Bends light to help the eye focus.
 - **Related:** `anatomy.eyes`, `anatomy.iris`, `anatomy.lens`
@@ -713,6 +815,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Left iris; Right iris
 - **3D parts (male):** Left iris; Right iris
+- **3D parts (complete male body):** Left iris; Right iris
 - **Overview:** The colored part of the eye, around an opening called the pupil.
 - **Function:** Controls how much light the pupil lets in.
 - **Related:** `anatomy.eyes`, `anatomy.cornea`, `anatomy.lens`
@@ -723,6 +826,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Left lens; Right lens
 - **3D parts (male):** Left lens; Right lens
+- **3D parts (complete male body):** Left lens; Right lens
 - **Overview:** A clear inner part of the eye. Light passes through it after entering through the pupil.
 - **Function:** Works together with the cornea to focus light correctly on the retina.
 - **Related:** `anatomy.eyes`, `anatomy.cornea`, `anatomy.retina`
@@ -734,6 +838,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Left retina; Right retina
 - **3D parts (male):** Left retina; Right retina
+- **3D parts (complete male body):** Optic part of left retina; Optic part of right retina
 - **Overview:** A light-sensitive layer of tissue at the back of the eye.
 - **Function:** Special cells called photoreceptors turn light into electrical signals, which travel through the optic nerve to the brain.
 - **Related:** `anatomy.eyes`, `anatomy.macula`, `anatomy.optic-nerves`
@@ -744,6 +849,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Left macula lutea; Right macula lutea
 - **3D parts (male):** Left macula lutea; Right macula lutea
+- **3D parts (complete male body):** not in this body
 - **Overview:** Part of the retina, the light-sensitive tissue at the back of the eye.
 - **Function:** Controls sharp, straight-ahead vision.
 - **Related:** `anatomy.retina`, `anatomy.eyes`
@@ -754,6 +860,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Right optic nerve; Left optic nerve
 - **3D parts (male):** Left optic nerve; Right optic nerve
+- **3D parts (complete male body):** Left optic nerve; Left optic nerve; Right optic nerve; Right optic nerve
 - **Overview:** Each optic nerve leaves the back of an eye.
 - **Function:** Carries electrical signals from the retina to the brain.
 - **Related:** `anatomy.retina`, `anatomy.eyes`, `anatomy.brain`
@@ -765,6 +872,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Left pupil; Right pupil
 - **3D parts (male):** Left pupil; Right pupil
+- **3D parts (complete male body):** not in this body
 - **Overview:** An opening through which light enters the eye.
 - **Function:** Lets light into the eye; the iris controls how much.
 - **Related:** `anatomy.iris`, `anatomy.lens`, `anatomy.eyes`
@@ -775,6 +883,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Left ciliary body; Right ciliary body
 - **3D parts (male):** Left ciliary body; Right ciliary body
+- **3D parts (complete male body):** not in this body
 - **Overview:** One of the three parts of the uvea, with the iris and the choroid.
 - **Function:** Helps the lens focus.
 - **Related:** `anatomy.lens`, `anatomy.iris`, `anatomy.choroid`
@@ -785,6 +894,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Left choroid; Right choroid
 - **3D parts (male):** Left choroid; Right choroid
+- **3D parts (complete male body):** Left choroid; Right choroid
 - **Overview:** One of the three parts of the uvea, at the back of the eye.
 - **Function:** Connects the retina to the sclera.
 - **Related:** `anatomy.retina`, `anatomy.ciliary-body`, `anatomy.eyes`
@@ -795,6 +905,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Humor of left vitreous body; Humor of right vitreous body
 - **3D parts (male):** Humor of left vitreous body; Humor of right vitreous body
+- **3D parts (complete male body):** Left vitreous body; Right vitreous body
 - **Overview:** The vitreous, a gel-like fluid that fills the eye.
 - **Function:** Fills the eye. With age, tiny strands in it can stick together and cast shadows on the retina, seen as floaters.
 - **Related:** `anatomy.retina`, `anatomy.lens`, `anatomy.eyes`
@@ -805,6 +916,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Left sclera; Right sclera
 - **3D parts (male):** Left sclera; Right sclera
+- **3D parts (complete male body):** Left sclera; Right sclera
 - **Overview:** The white layer of the eye.
 - **Function:** Covers most of the outside of the eyeball.
 - **Related:** `anatomy.cornea`, `anatomy.choroid`, `anatomy.eyes`
@@ -815,6 +927,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Palpebral conjunctiva of left lower eyelid; Palpebral conjunctiva of left upper eyelid; Left bulbar conjunctiva; Right bulbar conjunctiva; Palpebral conjunctiva of right lower eyelid; Palpebral conjunctiva of right upper eyelid
 - **3D parts (male):** Left bulbar conjunctiva; Palpebral conjunctiva, left; Palpebral conjunctiva of left upper eyelid; Palpebral conjunctiva of left lower eyelid; Palpebral conjunctiva, right; Palpebral conjunctiva of right upper eyelid; Palpebral conjunctiva of right lower eyelid; Right bulbar conjunctiva
+- **3D parts (complete male body):** not in this body
 - **Overview:** A membrane that lines the inner surface of the eyelids and also covers the front part of the eye.
 - **Function:** Lines and covers the front of the eye. Its inflammation is called conjunctivitis.
 - **Related:** `anatomy.sclera`, `anatomy.eyes`
@@ -826,6 +939,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Optic chiasma
 - **3D parts (male):** Optic chiasma
+- **3D parts (complete male body):** Optic chiasm; Optic chiasm
 - **Overview:** The place in the brain where some of the optic nerve fibers from one eye cross fibers from the other eye.
 - **Function:** Where optic nerve fibers from the two eyes partly cross on their way into the brain.
 - **Related:** `anatomy.optic-nerves`, `anatomy.brain`
@@ -836,6 +950,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Olfactory bulb; Olfactory bulb, right
 - **3D parts (male):** Olfactory bulb; Olfactory bulb, right
+- **3D parts (complete male body):** not in this body
 - **Overview:** Two rounded masses of nerve tissue on the bottom side of the brain, one above each nasal cavity.
 - **Function:** Involved in the sense of smell: they receive information about smells from the nose and send it to the brain through the olfactory tracts.
 - **Related:** `anatomy.brain`
@@ -846,6 +961,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Pineal body; Pineal body
 - **3D parts (male):** Pineal body; Pineal body
+- **3D parts (complete male body):** Pineal body
 - **Overview:** A tiny organ in the cerebrum, also called the pineal body.
 - **Function:** Produces melatonin.
 - **Related:** `anatomy.brain`, `anatomy.thalamus`
@@ -856,6 +972,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Anterior horn of lateral ventricle, left; Body of lateral ventricle, left; Posterior horn of lateral ventricle, left; Inferior horn of lateral ventricle, left; Third ventricle, left; Fourth ventricle; Atrium of lateral ventricle, left; Anterior horn of lateral ventricle, right; Body of lateral ventricle, right; Posterior horn of lateral ventricle, right; Inferior horn of lateral ventricle, right; Third ventricle, right; Fourth ventricle; Atrium of lateral ventricle, right
 - **3D parts (male):** Anterior horn of lateral ventricle, left; Body of lateral ventricle, left; Posterior horn of lateral ventricle, left; Inferior horn of lateral ventricle, left; Third ventricle, left; Fourth ventricle; Atrium of lateral ventricle, left; Anterior horn of lateral ventricle, right; Body of lateral ventricle, right; Posterior horn of lateral ventricle, right; Inferior horn of lateral ventricle, right; Third ventricle, right; Fourth ventricle; Atrium of lateral ventricle, right
+- **3D parts (complete male body):** Fourth ventricle; Third ventricle
 - **Overview:** Fluid-filled cavities in the brain: the parts of each lateral ventricle, the third ventricle and the fourth ventricle.
 - **Function:** Tissue called the choroid plexus in the ventricles makes cerebrospinal fluid, which flows in and around the hollow spaces of the brain and spinal cord.
 - **Related:** `anatomy.brain`, `anatomy.brainstem`
@@ -867,6 +984,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Dura mater; Dura mater
 - **3D parts (male):** Dura mater; Dura mater
+- **3D parts (complete male body):** not in this body
 - **Overview:** The tough outer layer of the meninges, the three thin layers that cover and protect the brain and spinal cord. In these models, dura mater is supplied only with the nerves of each eye.
 - **Function:** Covers and protects the brain and spinal cord; it is the meningeal layer closest to the skull.
 - **Related:** `anatomy.optic-nerves`, `anatomy.brain`
@@ -874,12 +992,26 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
   - `nci-def-dura-mater`: [NCI Dictionary of Cancer Terms: dura mater](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/dura-mater)
   - `nci-def-meninges`: [NCI Dictionary of Cancer Terms: meninges](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/meninges)
 
+#### `anatomy.spinal-cord`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Spinal cord
+- **Overview:** A column of nerve tissue that runs from the base of the skull down the center of the back, inside the vertebral column.
+- **Function:** With the brain it forms the central nervous system, carrying signals between the brain and the rest of the body.
+- **Related:** `anatomy.brain`, `anatomy.brainstem`, `anatomy.vertebral-column`
+- **Sources:**
+  - `nci-def-spinal-cord`: [NCI Dictionary of Cancer Terms: spinal cord](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/spinal-cord)
+  - `mlp-spinal-cord-injury`: [MedlinePlus: Spinal cord injury](https://medlineplus.gov/spinalcordinjuries.html)
+  - `seer-cns`: [NCI SEER Training: Central nervous system](https://training.seer.cancer.gov/anatomy/nervous/organization/cns.html)
+
 ### Digestive
 
 #### `anatomy.liver`
 
 - **3D parts (female):** Liver
 - **3D parts (male):** Liver
+- **3D parts (complete male body):** Liver
 - **Overview:** The largest gland in the body, lying mainly in the upper right abdomen just beneath the diaphragm.
 - **Function:** Makes bile and processes the nutrient-rich blood that arrives from the digestive tract through the hepatic portal vein.
 - **Related:** `anatomy.gallbladder`, `anatomy.portal-vein`, `anatomy.bile-duct.common`
@@ -891,6 +1023,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Gallbladder
 - **3D parts (male):** Gallbladder
+- **3D parts (complete male body):** Gallbladder
 - **Overview:** A pear-shaped sac attached to the underside of the liver.
 - **Function:** Stores bile between meals and squeezes it through the bile ducts into the small intestine when you eat.
 - **Related:** `anatomy.liver`, `anatomy.bile-duct.common`
@@ -902,6 +1035,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Common bile duct
 - **3D parts (male):** Common bile duct
+- **3D parts (complete male body):** not in this body
 - **Overview:** Part of the duct system that carries bile toward the small intestine.
 - **Function:** Delivers bile, which helps digest fats.
 - **Related:** `anatomy.gallbladder`, `anatomy.liver`, `anatomy.small-intestine`
@@ -912,6 +1046,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Pancreas
 - **3D parts (male):** Pancreas
+- **3D parts (complete male body):** Pancreas
 - **Overview:** One of the solid organs of the digestive system. Its digestive juice reaches the small intestine through small tubes called ducts.
 - **Function:** Releases digestive enzymes into the small intestine and the hormones insulin and glucagon into the blood.
 - **Related:** `anatomy.small-intestine`, `anatomy.bile-duct.common`
@@ -923,6 +1058,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Small intestine
 - **3D parts (male):** Small intestine
+- **3D parts (complete male body):** Small intestine
 - **Overview:** A long tube divided into three parts: the duodenum, jejunum and ileum.
 - **Function:** Finishes digesting food and absorbs its nutrients.
 - **Related:** `anatomy.colon`, `anatomy.pancreas`, `anatomy.liver`
@@ -934,6 +1070,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Colon
 - **3D parts (male):** Colon
+- **3D parts (complete male body):** Ascending colon; Transverse colon; Descending colon
 - **Overview:** The main part of the large intestine, which also includes the rectum and anal canal.
 - **Function:** Absorbs water and electrolytes and moves waste toward the rectum for elimination.
 - **Related:** `anatomy.small-intestine`, `anatomy.appendix`
@@ -945,6 +1082,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Vermiform appendix
 - **3D parts (male):** Vermiform appendix
+- **3D parts (complete male body):** Appendix
 - **Overview:** A finger-shaped pouch attached to the cecum, the first part of the large intestine.
 - **Function:** Part of the large intestine. Inflammation of the appendix is called appendicitis.
 - **Related:** `anatomy.colon`
@@ -956,6 +1094,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Duodenum; Superior part of duodenum; Descending part of duodenum; Ascending part of duodenum; Horizontal part of duodenum
 - **3D parts (male):** Duodenum; Ascending part of duodenum; Descending part of duodenum; Horizontal part of duodenum; Superior part of duodenum
+- **3D parts (complete male body):** Duodenum
 - **Overview:** The first part of the small intestine.
 - **Function:** Part of the small intestine, which digests food and absorbs its nutrients.
 - **Related:** `anatomy.small-intestine`, `anatomy.jejunum`, `anatomy.pancreas`
@@ -967,6 +1106,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Jejunum
 - **3D parts (male):** Jejunum
+- **3D parts (complete male body):** Jejunum
 - **Overview:** The middle of the three parts of the small intestine: duodenum, jejunum and ileum.
 - **Function:** Part of the small intestine, which digests food and absorbs its nutrients.
 - **Related:** `anatomy.duodenum`, `anatomy.ileum`, `anatomy.small-intestine`
@@ -978,6 +1118,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Ileum; Distal part of ileum
 - **3D parts (male):** Ileum; Distal part of ileum
+- **3D parts (complete male body):** Ileum
 - **Overview:** The last of the three parts of the small intestine. It enters the large intestine at the ileocecal junction.
 - **Function:** Part of the small intestine, which digests food and absorbs its nutrients.
 - **Related:** `anatomy.jejunum`, `anatomy.ileocecal-valve`, `anatomy.cecum`
@@ -989,6 +1130,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Ileocecal valve
 - **3D parts (male):** Ileocecal valve
+- **3D parts (complete male body):** not in this body
 - **Overview:** Where the small intestine empties into the large intestine.
 - **Function:** Marks the end of the small intestine.
 - **Related:** `anatomy.ileum`, `anatomy.cecum`
@@ -999,6 +1141,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Caecum
 - **3D parts (male):** Caecum
+- **3D parts (complete male body):** not in this body
 - **Overview:** Part of the large intestine, which includes the appendix, cecum, colon and rectum. The appendix is attached to it.
 - **Function:** Part of the large intestine, which absorbs water and moves waste toward the rectum.
 - **Related:** `anatomy.appendix`, `anatomy.colon`, `anatomy.ileocecal-valve`
@@ -1010,6 +1153,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Sigmoid colon
 - **3D parts (male):** Sigmoid colon
+- **3D parts (complete male body):** not in this body
 - **Overview:** The lower part of the colon. The rectum continues from it.
 - **Function:** Part of the colon, which absorbs water and moves waste toward the rectum.
 - **Related:** `anatomy.colon`, `anatomy.rectum`
@@ -1021,6 +1165,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Rectum
 - **3D parts (male):** Rectum
+- **3D parts (complete male body):** Rectum
 - **Overview:** The end of the large intestine. It continues from the sigmoid colon to the anal canal and has a thick muscular layer.
 - **Function:** Receives stool moved along from the colon by muscle contractions (peristalsis).
 - **Related:** `anatomy.sigmoid-colon`, `anatomy.colon`
@@ -1032,6 +1177,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Left lobe of liver; Quadrate lobe of liver; Right lobe of liver; Caudate lobe of liver
 - **3D parts (male):** Caudate lobe of liver; Right lobe of liver; Left lobe of liver; Quadrate lobe of liver
+- **3D parts (complete male body):** Left lobe of liver; Right lobe of liver
 - **Overview:** On the surface, the liver is divided into two major lobes and two smaller lobes.
 - **Function:** Together they make up the liver, which makes bile and processes nutrient-rich blood from the digestive tract.
 - **Related:** `anatomy.liver`, `anatomy.gallbladder`
@@ -1042,6 +1188,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Cystic duct
 - **3D parts (male):** Cystic duct
+- **3D parts (complete male body):** Cystic duct
 - **Overview:** The duct that attaches the gallbladder to the underside of the liver.
 - **Function:** Attaches the gallbladder to the liver.
 - **Related:** `anatomy.gallbladder`, `anatomy.bile-duct.common`, `anatomy.liver`
@@ -1052,6 +1199,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Ducts of pancreas; Dorsal pancreatic duct; Ventral pancreatic duct
 - **3D parts (male):** Ducts of pancreas; Dorsal pancreatic duct; Ventral pancreatic duct
+- **3D parts (complete male body):** Pancreatic duct
 - **Overview:** Part of a system of ducts in the pancreas.
 - **Function:** Pancreatic juices containing enzymes are released into these ducts and flow into the small intestine.
 - **Related:** `anatomy.pancreas`, `anatomy.duodenum`
@@ -1062,6 +1210,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Right hepatic duct; Left hepatic duct; Common hepatic duct
 - **3D parts (male):** Right hepatic duct; Left hepatic duct; Common hepatic duct
+- **3D parts (complete male body):** Common hepatic duct; Left hepatic duct; Right hepatic duct
 - **Overview:** The right and left hepatic ducts, which lead bile out of the liver, and the common hepatic duct they form when they join outside the liver.
 - **Function:** Carry bile from the liver. The common hepatic duct is joined by the cystic duct to form the common bile duct.
 - **Related:** `anatomy.liver`, `anatomy.cystic-duct`, `anatomy.bile-duct.common`
@@ -1070,12 +1219,84 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
   - `nci-bile-duct-cancer`: [NCI: What is bile duct cancer (cholangiocarcinoma)?](https://www.cancer.gov/types/liver/bile-duct-cancer)
   - `tm-gallbladder`: [TeachMeAnatomy: The gallbladder - biliary tree](https://teachmeanatomy.info/abdomen/viscera/gallbladder/)
 
+#### `anatomy.stomach`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Stomach
+- **Overview:** An organ of the digestive system in the upper left quadrant of the abdomen. It receives food from the esophagus.
+- **Function:** Helps digest food by mixing it with digestive juices and churning it into a thin liquid. Relaxing the pyloric sphincter lets this pass into the small intestine.
+- **Related:** `anatomy.esophagus`, `anatomy.small-intestine`, `anatomy.diaphragm`
+- **Sources:**
+  - `nci-def-stomach`: [NCI Dictionary of Cancer Terms: stomach](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/stomach)
+  - `seer-stomach`: [NCI SEER Training: Stomach](https://training.seer.cancer.gov/anatomy/digestive/regions/stomach.html)
+
+#### `anatomy.esophagus`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Esophagus
+- **Overview:** The muscular tube through which food passes from the throat to the stomach. It lies behind the trachea and in front of the vertebral column.
+- **Function:** Carries food to the stomach. It passes through an opening in the diaphragm, the esophageal hiatus, and sphincters at each end control food moving in and out.
+- **Related:** `anatomy.stomach`, `anatomy.trachea`, `anatomy.diaphragm`, `anatomy.pharynx-muscles`
+- **Sources:**
+  - `nci-def-esophagus`: [NCI Dictionary of Cancer Terms: esophagus](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/esophagus)
+  - `seer-pharynx`: [NCI SEER Training: Pharynx and esophagus](https://training.seer.cancer.gov/anatomy/digestive/regions/pharynx.html)
+
+#### `anatomy.tongue`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Tongue
+- **Overview:** An organ of the mouth whose surface is covered with papillae that provide friction and contain the taste buds.
+- **Function:** Moves food in the mouth, pushes it into the pharynx for swallowing, and is used in speech.
+- **Related:** `anatomy.teeth`, `anatomy.soft-palate`, `anatomy.pharynx-muscles`
+- **Sources:**
+  - `seer-mouth`: [NCI SEER Training: Mouth](https://training.seer.cancer.gov/anatomy/digestive/regions/mouth.html)
+  - `seer-pharynx`: [NCI SEER Training: Pharynx and esophagus](https://training.seer.cancer.gov/anatomy/digestive/regions/pharynx.html)
+
+#### `anatomy.teeth`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Teeth
+- **Overview:** The teeth of the source model. A complete permanent set has 32 teeth; a set of primary teeth has 20.
+- **Function:** The shape of each tooth type corresponds to the way it handles food.
+- **Related:** `anatomy.mandible`, `anatomy.maxillae`, `anatomy.tongue`
+- **Sources:**
+  - `seer-mouth`: [NCI SEER Training: Mouth](https://training.seer.cancer.gov/anatomy/digestive/regions/mouth.html)
+
+#### `anatomy.soft-palate`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Soft palate
+- **Overview:** The back, muscular part of the roof of the mouth, ending in a small flap called the uvula.
+- **Function:** During swallowing the soft palate and uvula move upward to keep food out of the nasal cavity.
+- **Related:** `anatomy.tongue`, `anatomy.pharynx-muscles`
+- **Sources:**
+  - `nci-def-soft-palate`: [NCI Dictionary of Cancer Terms: soft palate](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/soft-palate)
+  - `seer-mouth`: [NCI SEER Training: Mouth](https://training.seer.cancer.gov/anatomy/digestive/regions/mouth.html)
+
+#### `anatomy.salivary-glands`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Left submandibular gland; Right submandibular gland
+- **Overview:** The submandibular glands, one of the three pairs of major salivary glands.
+- **Function:** Salivary glands make saliva and empty it into the mouth through ducts.
+- **Related:** `anatomy.tongue`, `anatomy.mandible`
+- **Sources:**
+  - `seer-accessory`: [NCI SEER Training: Accessory digestive organs](https://training.seer.cancer.gov/anatomy/digestive/regions/accessory.html)
+  - `mlp-salivary`: [MedlinePlus: Salivary gland disorders](https://medlineplus.gov/salivaryglanddisorders.html)
+
 ### Urinary
 
 #### `anatomy.kidneys`
 
 - **3D parts (female):** Kidney
 - **3D parts (male):** Kidney
+- **3D parts (complete male body):** not in this body
 - **Overview:** Two bean-shaped organs, each about the size of a fist, just below the rib cage on each side of the spine.
 - **Function:** Filter wastes and extra water from the blood to make urine, and make hormones that help control blood pressure.
 - **Related:** `anatomy.kidney.left`, `anatomy.kidney.right`, `anatomy.ureters`, `anatomy.bladder`
@@ -1087,6 +1308,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Left kidney
 - **3D parts (male):** Left kidney
+- **3D parts (complete male body):** Left kidney
 - **Overview:** Lies against the back wall of the abdomen, usually slightly higher than the right kidney.
 - **Function:** Filters blood to make urine.
 - **Related:** `anatomy.kidneys`, `anatomy.kidney.right`
@@ -1098,6 +1320,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Right kidney
 - **3D parts (male):** Right kidney
+- **3D parts (complete male body):** Right kidney
 - **Overview:** Usually sits slightly lower than the left kidney because the liver displaces it downward.
 - **Function:** Filters blood to make urine.
 - **Related:** `anatomy.kidneys`, `anatomy.kidney.left`, `anatomy.liver`
@@ -1109,6 +1332,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Urinary bladder
 - **3D parts (male):** Urinary bladder
+- **3D parts (complete male body):** Urinary bladder
 - **Overview:** Located in the pelvic cavity, behind the pubic symphysis. Its size and shape change with the amount of urine it holds.
 - **Function:** A temporary storage reservoir for urine.
 - **Related:** `anatomy.kidneys`, `anatomy.ureters`
@@ -1120,6 +1344,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Ureters
 - **3D parts (male):** Ureter
+- **3D parts (complete male body):** Left ureter; Right ureter
 - **Overview:** Two small tubes, each about 25 cm long, that descend along the back wall of the abdomen.
 - **Function:** Carry urine from the kidneys to the bladder.
 - **Related:** `anatomy.kidneys`, `anatomy.bladder`
@@ -1132,6 +1357,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Kidney capsule; Kidney capsule
 - **3D parts (male):** Kidney capsule; Kidney capsule
+- **3D parts (complete male body):** not in this body
 - **Overview:** A tough, fibrous connective tissue capsule that closely envelops each kidney.
 - **Function:** Supports the soft tissue inside the kidney.
 - **Related:** `anatomy.kidneys`, `anatomy.renal-cortex`
@@ -1142,6 +1368,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Cortex of kidney, left; Outer cortex of kidney; Cortex of kidney, right; Outer cortex of kidney
 - **3D parts (male):** Cortex of kidney, left; Outer cortex of kidney; Cortex of kidney, right; Outer cortex of kidney
+- **3D parts (complete male body):** not in this body
 - **Overview:** The outer, reddish region of the kidney, next to the capsule.
 - **Function:** Surrounds the darker renal medulla.
 - **Related:** `anatomy.kidney-capsule`, `anatomy.renal-medulla`, `anatomy.kidneys`
@@ -1152,6 +1379,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Renal medulla, left; Renal medulla, right
 - **3D parts (male):** Renal medulla, left; Renal medulla, right
+- **3D parts (complete male body):** not in this body
 - **Overview:** A darker reddish-brown region surrounded by the renal cortex. It consists of a series of renal pyramids.
 - **Function:** Its pyramids contain straight tubular structures and blood vessels.
 - **Related:** `anatomy.renal-pyramids`, `anatomy.renal-cortex`
@@ -1162,6 +1390,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Renal pyramid, left; Renal pyramid; Renal pyramid; Renal pyramid; Renal pyramid; Renal pyramid; Renal pyramid; Renal pyramid; Renal pyramid; Renal pyramid; Renal pyramid; Renal pyramid; Renal pyramid, right; Renal pyramid; Renal pyramid; Renal pyramid; Renal pyramid; Renal pyramid; Renal pyramid; Renal pyramid; Renal pyramid; Renal pyramid; Renal pyramid
 - **3D parts (male):** Renal pyramid, left; Renal pyramid; Renal pyramid; Renal pyramid; Renal pyramid; Renal pyramid; Renal pyramid; Renal pyramid; Renal pyramid; Renal pyramid; Renal pyramid, right; Renal pyramid; Renal pyramid; Renal pyramid; Renal pyramid; Renal pyramid; Renal pyramid; Renal pyramid; Renal pyramid; Renal pyramid; Renal pyramid
+- **3D parts (complete male body):** not in this body
 - **Overview:** The pyramids of the renal medulla. Their wide bases lie next to the cortex and their pointed ends, the renal papillae, face the center of the kidney.
 - **Function:** They appear striated because they contain straight tubular structures and blood vessels.
 - **Related:** `anatomy.renal-medulla`, `anatomy.renal-papillae`
@@ -1172,6 +1401,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Renal papilla, left; Renal papilla; Renal papilla; Renal papilla; Renal papilla; Renal papilla; Renal papilla; Renal papilla; Renal papilla; Renal papilla; Renal papilla; Renal papilla; Renal papilla, right; Renal papilla; Renal papilla; Renal papilla; Renal papilla; Renal papilla; Renal papilla; Renal papilla; Renal papilla; Renal papilla; Renal papilla
 - **3D parts (male):** Renal papilla, left; Renal papilla; Renal papilla; Renal papilla; Renal papilla; Renal papilla; Renal papilla; Renal papilla; Renal papilla; Renal papilla; Renal papilla, right; Renal papilla; Renal papilla; Renal papilla; Renal papilla; Renal papilla; Renal papilla; Renal papilla; Renal papilla; Renal papilla; Renal papilla
+- **3D parts (complete male body):** not in this body
 - **Overview:** The pointed ends of the renal pyramids, directed toward the center of the kidney.
 - **Function:** Each is surrounded by a minor calyx that collects urine from its pyramid.
 - **Related:** `anatomy.renal-pyramids`, `anatomy.minor-calyces`
@@ -1182,6 +1412,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Minor calyx, left; Minor calyx; Minor calyx; Minor calyx; Minor calyx; Minor calyx; Minor calyx; Minor calyx; Minor calyx; Minor calyx; Minor calyx; Minor calyx, right; Minor calyx; Minor calyx; Minor calyx; Minor calyx; Minor calyx; Minor calyx; Minor calyx; Minor calyx; Minor calyx; Minor calyx
 - **3D parts (male):** Minor calyx, left; Minor calyx; Minor calyx; Minor calyx; Minor calyx; Minor calyx; Minor calyx; Minor calyx; Minor calyx; Minor calyx; Minor calyx, right; Minor calyx; Minor calyx; Minor calyx; Minor calyx; Minor calyx; Minor calyx; Minor calyx; Minor calyx; Minor calyx
+- **3D parts (complete male body):** not in this body
 - **Overview:** Cuplike projections of the renal pelvis. A minor calyx surrounds the renal papillae of each pyramid.
 - **Function:** Collect urine from each pyramid. Several minor calyces converge to form a major calyx.
 - **Related:** `anatomy.renal-papillae`, `anatomy.major-calyces`
@@ -1192,6 +1423,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Major calyx, left; Major calyx; Major calyx; Major calyx; Major calyx; Major calyx, right; Major calyx; Major calyx; Major calyx
 - **3D parts (male):** Major calyx, left; Major calyx; Major calyx; Major calyx; Major calyx, right; Major calyx; Major calyx
+- **3D parts (complete male body):** not in this body
 - **Overview:** Formed where several minor calyces converge.
 - **Function:** Part of the cuplike edge of the renal pelvis, which collects urine.
 - **Related:** `anatomy.minor-calyces`, `anatomy.renal-pelvis`
@@ -1202,6 +1434,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Renal pelvis; Renal pelvis
 - **3D parts (male):** Renal pelvis; Renal pelvis
+- **3D parts (complete male body):** not in this body
 - **Overview:** A large cavity in the central region of the kidney, continuous with the ureter.
 - **Function:** Collects the urine as it is produced.
 - **Related:** `anatomy.major-calyces`, `anatomy.ureters`, `anatomy.kidney-hilum`
@@ -1212,6 +1445,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Hilum of kidney; Hilum of kidney
 - **3D parts (male):** Hilum of kidney; Hilum of kidney
+- **3D parts (complete male body):** not in this body
 - **Overview:** An indentation on the medial side of each bean-shaped kidney.
 - **Function:** Where the renal artery enters the kidney and the ureter and renal vein leave it.
 - **Related:** `anatomy.renal-arteries`, `anatomy.renal-veins`, `anatomy.renal-pelvis`
@@ -1222,6 +1456,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** not in this body
 - **3D parts (male):** Other urethra; Prostatic urethra
+- **3D parts (complete male body):** Urethra
 - **Overview:** The tube through which urine leaves the body from the bladder. The male urethra is about 15-20 cm long and also carries semen. The prostatic urethra passes through the prostate.
 - **Function:** Empties urine from the bladder. The prostatic urethra receives the ejaculatory ducts and the ducts of the prostate.
 - **Related:** `anatomy.bladder`, `anatomy.prostate`, `anatomy.ejaculatory-ducts`
@@ -1235,6 +1470,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Uterus
 - **3D parts (male):** not in this body
+- **3D parts (complete male body):** not in this body
 - **Overview:** A muscular organ. Before a first pregnancy it is about the size and shape of a pear.
 - **Function:** Receives a fertilized egg and provides the environment for a developing fetus.
 - **Related:** `anatomy.ovaries`, `anatomy.bladder`
@@ -1245,6 +1481,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Ovary
 - **3D parts (male):** not in this body
+- **3D parts (complete male body):** not in this body
 - **Overview:** Two almond-sized organs, one on each side of the uterus in the side walls of the pelvic cavity.
 - **Function:** Develop egg cells and secrete hormones such as estrogen.
 - **Related:** `anatomy.uterus`
@@ -1255,6 +1492,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** not in this body
 - **3D parts (male):** Prostate gland
+- **3D parts (complete male body):** Prostate
 - **Overview:** A gland that sits below the bladder and surrounds the urethra at the bladder's neck.
 - **Function:** An accessory gland whose secretions enter the urethra and form part of semen.
 - **Related:** `anatomy.bladder`
@@ -1266,6 +1504,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Fallopian tube; Fallopian tube, right; Fallopian tube, left
 - **3D parts (male):** not in this body
+- **3D parts (complete male body):** not in this body
 - **Overview:** The two uterine tubes, also called Fallopian tubes or oviducts.
 - **Function:** Fertilization usually occurs in a Fallopian tube, because an egg cell is fertile for only 24 to 48 hours.
 - **Related:** `anatomy.ovaries`, `anatomy.uterus`, `anatomy.tube-infundibulum`
@@ -1276,6 +1515,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Fimbria of right uterine tube; Infundibulum of right uterine tube; Fimbria of left uterine tube; Infundibulum of left uterine tube
 - **3D parts (male):** not in this body
+- **3D parts (complete male body):** not in this body
 - **Overview:** The funnel-shaped end of each tube near the ovary, surrounded by fingerlike extensions called fimbriae.
 - **Function:** At ovulation the fimbriae become more active and create currents that help draw the egg cell into the tube.
 - **Related:** `anatomy.fallopian-tubes`, `anatomy.ovaries`
@@ -1286,6 +1526,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Uterine cervix
 - **3D parts (male):** not in this body
+- **3D parts (complete male body):** not in this body
 - **Overview:** The lower, narrow end of the uterus. It projects into the vagina at nearly a right angle.
 - **Function:** Connects the uterus to the vagina.
 - **Related:** `anatomy.uterus`, `anatomy.vagina`
@@ -1297,6 +1538,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Vagina
 - **3D parts (male):** not in this body
+- **3D parts (complete male body):** not in this body
 - **Overview:** A fibromuscular tube, about 10 cm long, that extends from the cervix of the uterus to the outside.
 - **Function:** Connects the cervix to the outside of the body. It is also called the birth canal.
 - **Related:** `anatomy.cervix`, `anatomy.uterus`
@@ -1308,6 +1550,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Broad ligament of uterus
 - **3D parts (male):** not in this body
+- **3D parts (complete male body):** not in this body
 - **Overview:** The layer of tissue connecting the sides of the uterus to the walls and floor of the pelvis.
 - **Function:** Covers the uterus, ovaries and Fallopian tubes, and carries nerves and blood vessels to these organs.
 - **Related:** `anatomy.uterus`, `anatomy.ovaries`, `anatomy.fallopian-tubes`
@@ -1318,6 +1561,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Fundus of uterus
 - **3D parts (male):** not in this body
+- **3D parts (complete male body):** not in this body
 - **Overview:** The top part of the uterus, across from the cervix.
 - **Function:** The part of the uterus farthest from its opening, the cervix.
 - **Related:** `anatomy.uterus`, `anatomy.cervix`
@@ -1328,6 +1572,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** not in this body
 - **3D parts (male):** Vas deferens
+- **3D parts (complete male body):** not in this body
 - **Overview:** A coiled tube that carries sperm out of the testes. It is a thick muscular tube whose wall is mostly smooth muscle.
 - **Function:** Carries sperm from the epididymis to the ejaculatory duct, which drains into the prostatic urethra.
 - **Related:** `anatomy.seminal-vesicles`, `anatomy.ejaculatory-ducts`, `anatomy.prostate`
@@ -1339,6 +1584,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** not in this body
 - **3D parts (male):** Seminal vesicle
+- **3D parts (complete male body):** Left seminal vesicle; Right seminal vesicle
 - **Overview:** A pair of tubular glands that help produce semen, between the bladder and the rectum.
 - **Function:** They produce about 70% of the volume of semen, including an alkaline fluid that helps sperm survive.
 - **Related:** `anatomy.vas-deferens`, `anatomy.ejaculatory-ducts`, `anatomy.bladder`
@@ -1350,6 +1596,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** not in this body
 - **3D parts (male):** Ejaculatory duct
+- **3D parts (complete male body):** not in this body
 - **Overview:** Ducts formed where each vas deferens joins the duct of a seminal vesicle.
 - **Function:** They drain sperm and seminal fluid into the prostatic urethra.
 - **Related:** `anatomy.vas-deferens`, `anatomy.seminal-vesicles`, `anatomy.urethra`
@@ -1361,6 +1608,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Right round ligament of uterus; Left round ligament of uterus; Right uterosacral ligament; Left uterosacral ligament; Cardinal ligament; Cardinal ligament
 - **3D parts (male):** not in this body
+- **3D parts (complete male body):** not in this body
 - **Overview:** Ligaments that support the uterus: the round ligaments, which run from the uterus through the inguinal canal; the cardinal ligaments, from the cervix to the side walls of the pelvis; and the uterosacral ligaments, from the cervix to the sacrum.
 - **Function:** They support the uterus. The round ligaments help keep it tilted forward, and the cardinal ligaments carry the uterine artery and vein.
 - **Related:** `anatomy.uterus`, `anatomy.cervix`, `anatomy.broad-ligament`
@@ -1371,11 +1619,74 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Suspensory ligament of ovary; Ovarian ligament
 - **3D parts (male):** not in this body
+- **3D parts (complete male body):** not in this body
 - **Overview:** The two ligaments of each ovary: the suspensory ligament, a fold of peritoneum running to the pelvic wall, and the ligament of the ovary, which runs to the fundus of the uterus.
 - **Function:** They support the ovaries. The suspensory ligament carries the ovary's blood vessels and nerves.
 - **Related:** `anatomy.ovaries`, `anatomy.uterus-fundus`, `anatomy.broad-ligament`
 - **Sources:**
   - `tm-ovaries`: [TeachMeAnatomy: The ovaries](https://teachmeanatomy.info/pelvis/female-reproductive-tract/ovaries/)
+
+#### `anatomy.testes`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Left testis; Right testis
+- **Overview:** Two egg-shaped glands inside the scrotum, also called testicles. Each is about 5 cm long.
+- **Function:** Produce sperm and male hormones. Their position outside the abdomen keeps them about 3 °C cooler than the body, which sperm production needs.
+- **Related:** `anatomy.epididymis`, `anatomy.vas-deferens`, `anatomy.penis`
+- **Sources:**
+  - `nci-def-testicle`: [NCI Dictionary of Cancer Terms: testicle](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/testicle)
+  - `seer-testes`: [NCI SEER Training: Testes](https://training.seer.cancer.gov/anatomy/reproductive/male/testes.html)
+
+#### `anatomy.epididymis`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Left epididymis; Right epididymis
+- **Overview:** A narrow, tightly coiled tube, about 6 metres long, attached along the top and back of each testicle.
+- **Function:** Sperm leaving the testes mature here and are stored in its lower part, then pass into the vas deferens.
+- **Related:** `anatomy.testes`, `anatomy.vas-deferens`
+- **Sources:**
+  - `nci-def-epididymis`: [NCI Dictionary of Cancer Terms: epididymis](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/epididymis)
+  - `seer-male-duct`: [NCI SEER Training: Male duct system](https://training.seer.cancer.gov/anatomy/reproductive/male/duct.html)
+
+#### `anatomy.penis`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Corpus cavernosum of penis; Corpus spongiosum of penis; Glans penis
+- **Overview:** An external male reproductive organ made of three columns of erectile tissue: two corpora cavernosa and the corpus spongiosum, which surrounds the urethra and widens into the glans.
+- **Function:** Contains the urethra, which carries semen and urine out of the body.
+- **Related:** `anatomy.urethra`, `anatomy.testes`
+- **Sources:**
+  - `nci-def-penis`: [NCI Dictionary of Cancer Terms: penis](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/penis)
+  - `seer-penis`: [NCI SEER Training: Penis](https://training.seer.cancer.gov/anatomy/reproductive/male/penis.html)
+
+### Endocrine
+
+#### `anatomy.pituitary`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Pituitary gland
+- **Overview:** A pea-sized gland attached to the hypothalamus at the base of the brain. It rests in a hollow of the sphenoid bone and has anterior and posterior lobes.
+- **Function:** Signalled by the hypothalamus, it makes hormones that control other glands and many body functions, including growth and fertility. Its hormones include growth hormone, thyroid-stimulating hormone and the hormone that stimulates the adrenal cortex.
+- **Related:** `anatomy.hypothalamus`, `anatomy.brain`, `anatomy.adrenal-glands`
+- **Sources:**
+  - `nci-def-pituitary-gland`: [NCI Dictionary of Cancer Terms: pituitary gland](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/pituitary-gland)
+  - `seer-pituitary`: [NCI SEER Training: Pituitary and pineal glands](https://training.seer.cancer.gov/anatomy/endocrine/glands/pituitary.html)
+
+#### `anatomy.adrenal-glands`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Left adrenal gland; Right adrenal gland
+- **Overview:** A pair of small, triangle-shaped glands, one on top of each kidney. Each has an outer cortex and an inner medulla.
+- **Function:** The cortex makes steroid hormones, including aldosterone and cortisol; the medulla makes epinephrine and norepinephrine, especially in stressful situations.
+- **Related:** `anatomy.kidney.left`, `anatomy.kidney.right`, `anatomy.pituitary`
+- **Sources:**
+  - `nci-def-adrenal-gland`: [NCI Dictionary of Cancer Terms: adrenal gland](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/adrenal-gland)
+  - `seer-adrenal`: [NCI SEER Training: Adrenal gland](https://training.seer.cancer.gov/anatomy/endocrine/glands/adrenal.html)
 
 ### Lymphatic
 
@@ -1383,6 +1694,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Spleen
 - **3D parts (male):** Spleen
+- **3D parts (complete male body):** Spleen
 - **Overview:** The largest lymphatic organ, in the upper left abdomen just beneath the diaphragm and behind the stomach.
 - **Function:** Filters blood. Its lymphocytes react to pathogens carried in the blood.
 - **Related:** `anatomy.thymus`
@@ -1393,6 +1705,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Thymus
 - **3D parts (male):** Thymus
+- **3D parts (complete male body):** Thymus
 - **Overview:** A lymphatic organ behind the sternum. It is relatively large in children and shrinks after puberty.
 - **Function:** Processes and matures special lymphocytes called T cells.
 - **Related:** `anatomy.spleen`, `anatomy.heart`
@@ -1403,6 +1716,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Lymph node
 - **3D parts (male):** Lymph node
+- **3D parts (complete male body):** not in this body
 - **Overview:** A sample lymph node. A typical node is surrounded by a connective tissue capsule and divided into compartments called lymph nodules.
 - **Function:** Lymph nodes lie along the lymphatic pathways and filter lymph before it returns to the blood.
 - **Related:** `anatomy.spleen`, `anatomy.thymus`
@@ -1415,6 +1729,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Knee, right; Knee, left
 - **3D parts (male):** Knee, right; Knee, left
+- **3D parts (complete male body):** Left knee; Right knee
 - **Overview:** The joint where the end of the thigh bone (femur) meets the top of the shin bone (tibia). It is made up of bone, cartilage, ligaments and fluid.
 - **Function:** Four main ligaments connect the thigh bone and shin bone; muscles and tendons help the joint move.
 - **Related:** `anatomy.femur`, `anatomy.tibia`, `anatomy.knee-cartilage`, `anatomy.meniscus`, `anatomy.acl`, `anatomy.pcl`, `anatomy.mcl`, `anatomy.lcl`
@@ -1426,6 +1741,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Right femur; Left femur
 - **3D parts (male):** Right femur; Left femur
+- **3D parts (complete male body):** Left femur; Right femur
 - **Overview:** The thigh bone. Its lower end meets the top of the shin bone at the knee joint.
 - **Function:** Forms the upper part of the knee joint.
 - **Related:** `anatomy.knee`, `anatomy.tibia`, `anatomy.knee-cartilage`
@@ -1436,6 +1752,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Right tibia; Left tibia
 - **3D parts (male):** Right tibia; Left tibia
+- **3D parts (complete male body):** Left tibia; Right tibia
 - **Overview:** The shin bone. Its top meets the end of the thigh bone at the knee joint.
 - **Function:** Forms the lower part of the knee joint. The cruciate ligaments keep it from sliding forward or backward against the thigh bone.
 - **Related:** `anatomy.knee`, `anatomy.femur`, `anatomy.acl`, `anatomy.pcl`
@@ -1446,6 +1763,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Articular cartilage of distal epiphysis of right femur; Articular cartilage of distal epiphysis of left femur
 - **3D parts (male):** Articular cartilage of distal epiphysis of right femur; Articular cartilage of distal epiphysis of left femur
+- **3D parts (complete male body):** not in this body
 - **Overview:** Articular cartilage covers the ends of the bones where they meet in a freely movable joint. The supplied cartilage covers the lower end of the femur.
 - **Function:** Covers the bone ends inside the joint. In osteoarthritis this cartilage breaks down.
 - **Related:** `anatomy.knee`, `anatomy.femur`, `anatomy.meniscus`
@@ -1457,6 +1775,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Articular disk of knee joint; Articular disk of knee joint
 - **3D parts (male):** Articular disk of knee joint; Articular disk of knee joint
+- **3D parts (complete male body):** not in this body
 - **Overview:** A C-shaped piece of tough but flexible cartilage in the knee joint. Each knee has two.
 - **Function:** Cushions the bones of the knee like a shock absorber, helps distribute weight to the cartilage and helps stabilize the joint.
 - **Related:** `anatomy.knee`, `anatomy.knee-cartilage`
@@ -1467,6 +1786,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Right anterior cruciate ligament; Left anterior cruciate ligament
 - **3D parts (male):** Right anterior cruciate ligament; Left anterior cruciate ligament
+- **3D parts (complete male body):** not in this body
 - **Overview:** The anterior cruciate ligament, in the middle of the knee. One of the four main ligaments connecting the thigh bone and shin bone.
 - **Function:** Prevents the shin bone from sliding out in front of the thigh bone.
 - **Related:** `anatomy.pcl`, `anatomy.knee`, `anatomy.meniscus`
@@ -1478,6 +1798,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Right posterior cruciate ligament; Left posterior cruciate ligament
 - **3D parts (male):** Right posterior cruciate ligament; Left posterior cruciate ligament
+- **3D parts (complete male body):** not in this body
 - **Overview:** The posterior cruciate ligament, one of the four main knee ligaments. It works opposite to the ACL.
 - **Function:** Prevents the shin bone from sliding backward under the thigh bone.
 - **Related:** `anatomy.acl`, `anatomy.knee`
@@ -1488,6 +1809,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Right tibial collateral ligament; Left tibial collateral ligament
 - **3D parts (male):** Right tibial collateral ligament; Left tibial collateral ligament
+- **3D parts (complete male body):** not in this body
 - **Overview:** The medial collateral ligament, which runs along the inside of the knee.
 - **Function:** Prevents the knee from bending inward.
 - **Related:** `anatomy.lcl`, `anatomy.knee`
@@ -1498,6 +1820,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Right fibular collateral ligament; Left fibular collateral ligament
 - **3D parts (male):** Right fibular collateral ligament; Left fibular collateral ligament
+- **3D parts (complete male body):** not in this body
 - **Overview:** The lateral collateral ligament, which runs along the outside of the knee.
 - **Function:** Prevents the knee from bending outward.
 - **Related:** `anatomy.mcl`, `anatomy.knee`
@@ -1508,6 +1831,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Pubis compact bone; Compact bone tissue; Compact bone tissue; Ilium compact bone; Compact bone tissue; Compact bone tissue; Ischium compact bone; Compact bone tissue; Compact bone tissue
 - **3D parts (male):** Pubis compact bone; Compact bone tissue; Compact bone tissue; Ilium compact bone; Compact bone tissue; Compact bone tissue; Ischium compact bone; Compact bone tissue; Compact bone tissue
+- **3D parts (complete male body):** not in this body
 - **Overview:** Compact bone tissue, supplied here for the pubis, ilium and ischium of the pelvis.
 - **Function:** Made of closely packed osteons (haversian systems) that form what appears to be a solid mass.
 - **Related:** `anatomy.spongy-bone`
@@ -1518,6 +1842,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Pubis spongy bone; Trabecular bone tissue; Trabecular bone tissue; Ilium spongy bone; Trabecular bone tissue; Trabecular bone tissue; Ischium spongy bone; Trabecular bone tissue; Trabecular bone tissue
 - **3D parts (male):** Pubis spongy bone; Trabecular bone tissue; Trabecular bone tissue; Ilium spongy bone; Trabecular bone tissue; Trabecular bone tissue; Ischium spongy bone; Trabecular bone tissue; Trabecular bone tissue
+- **3D parts (complete male body):** not in this body
 - **Overview:** Spongy bone, made of plates (trabeculae) and bars of bone next to small, irregular cavities that contain red bone marrow. Supplied here for the pubis, ilium and ischium of the pelvis.
 - **Function:** Its trabeculae follow the lines of stress and can realign if the direction of stress changes.
 - **Related:** `anatomy.compact-bone`
@@ -1528,6 +1853,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Pelvis
 - **3D parts (male):** Pelvis
+- **3D parts (complete male body):** Pelvis
 - **Overview:** The bones between the lower abdomen and upper thighs that connect the spine to the legs.
 - **Function:** Supports upper body weight, aids balance and walking, and protects the bladder, reproductive organs, colon and rectum.
 - **Related:** `anatomy.compact-bone`, `anatomy.spongy-bone`, `anatomy.bladder`
@@ -1538,6 +1864,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** not in this body
 - **3D parts (male):** Hyoid bone
+- **3D parts (complete male body):** Hyoid bone
 - **Overview:** A U-shaped bone in the front of the neck, at the base of the jaw at about the level of the third cervical vertebra.
 - **Function:** It does not join any other bone; it is held in place by muscles and ligaments and is an attachment site for the front neck muscles.
 - **Related:** `anatomy.larynx`
@@ -1548,6 +1875,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Right patellar ligament; Left patellar ligament
 - **3D parts (male):** Right patellar ligament; Left patellar ligament
+- **3D parts (complete male body):** not in this body
 - **Overview:** The patellar ligament (often called the patellar tendon), the continuation of the quadriceps tendon below the kneecap.
 - **Function:** Connects the bottom of the kneecap to the tibial tuberosity on the front of the tibia. The kneecap above it increases the leverage of the quadriceps tendon when the leg straightens.
 - **Related:** `anatomy.quadriceps-tendon`, `anatomy.tibia`, `anatomy.knee`
@@ -1555,12 +1883,188 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
   - `tm-knee`: [TeachMeAnatomy: The knee joint](https://teachmeanatomy.info/lower-limb/joints/knee-joint/)
   - `tm-patella`: [TeachMeAnatomy: The patella](https://teachmeanatomy.info/lower-limb/bones/patella/)
 
+#### `anatomy.skull`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Skull
+- **Overview:** The bones of the head: cranial bones that surround and protect the brain, and facial bones. The skull has 28 bones, including the auditory ossicles.
+- **Function:** Protects the brain and forms the face.
+- **Related:** `anatomy.brain`, `anatomy.mandible`, `anatomy.vertebral-column`
+- **Sources:**
+  - `nci-def-skull`: [NCI Dictionary of Cancer Terms: skull](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/skull)
+  - `seer-axial`: [NCI SEER Training: Axial skeleton](https://training.seer.cancer.gov/anatomy/skeletal/divisions/axial.html)
+
+#### `anatomy.vertebral-column`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Vertebral column
+- **Overview:** The spine's column of bones: 7 cervical, 12 thoracic and 5 lumbar vertebrae, the sacrum and the coccyx, reaching from the base of the skull to the tailbone.
+- **Function:** Encloses the spinal cord and the fluid around it.
+- **Related:** `anatomy.spinal-cord`, `anatomy.skull`, `anatomy.sacrum`, `anatomy.intervertebral-disks`
+- **Sources:**
+  - `nci-def-spine`: [NCI Dictionary of Cancer Terms: spine](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/spine)
+  - `seer-axial`: [NCI SEER Training: Axial skeleton](https://training.seer.cancer.gov/anatomy/skeletal/divisions/axial.html)
+
+#### `anatomy.sternum`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Sternum
+- **Overview:** The breastbone: the long flat bone that forms the center front of the chest wall.
+- **Function:** The collarbones and the first seven ribs attach to it.
+- **Related:** `anatomy.ribs`, `anatomy.clavicles`
+- **Sources:**
+  - `nci-def-sternum`: [NCI Dictionary of Cancer Terms: sternum](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/sternum)
+  - `seer-axial`: [NCI SEER Training: Axial skeleton](https://training.seer.cancer.gov/anatomy/skeletal/divisions/axial.html)
+
+#### `anatomy.ribs`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Rib cage
+- **Overview:** The ribs of the chest; the thoracic cage is made of the sternum and 24 ribs.
+- **Function:** The intercostal muscles between the ribs move them during breathing.
+- **Related:** `anatomy.sternum`, `anatomy.vertebral-column`, `anatomy.intercostal-muscles`, `anatomy.diaphragm`
+- **Sources:**
+  - `seer-axial`: [NCI SEER Training: Axial skeleton](https://training.seer.cancer.gov/anatomy/skeletal/divisions/axial.html)
+  - `seer-muscles-trunk`: [NCI SEER Training: Muscles of the trunk](https://training.seer.cancer.gov/anatomy/muscular/groups/trunk.html)
+
+#### `anatomy.clavicles`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Left clavicle; Right clavicle
+- **Overview:** The collarbones: a pair of bones at the base of the front of the neck.
+- **Function:** Connect the breastbone to the shoulder blades.
+- **Related:** `anatomy.sternum`, `anatomy.scapulae`
+- **Sources:**
+  - `nci-def-clavicle`: [NCI Dictionary of Cancer Terms: clavicle](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/clavicle)
+
+#### `anatomy.scapulae`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Left scapula; Right scapula
+- **Overview:** The shoulder blades: a pair of triangular bones at the back of the shoulder.
+- **Function:** Each connects the collarbone with the upper arm bone. Muscles attached to them move the shoulder and arm.
+- **Related:** `anatomy.clavicles`, `anatomy.humerus`, `anatomy.trapezius`
+- **Sources:**
+  - `nci-def-scapula`: [NCI Dictionary of Cancer Terms: scapula](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/scapula)
+  - `seer-muscles-upper`: [NCI SEER Training: Muscles of the upper extremity](https://training.seer.cancer.gov/anatomy/muscular/groups/upper.html)
+
+#### `anatomy.humerus`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Left humerus; Right humerus
+- **Overview:** The upper arm bone, one in each arm.
+- **Function:** The pectoralis major, deltoid and rotator cuff muscles connect to it and move the arm; muscles along it move the forearm.
+- **Related:** `anatomy.scapulae`, `anatomy.forearm-bones`, `anatomy.deltoids`, `anatomy.biceps-brachii`
+- **Sources:**
+  - `nci-def-scapula`: [NCI Dictionary of Cancer Terms: scapula](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/scapula)
+  - `seer-appendicular`: [NCI SEER Training: Appendicular skeleton](https://training.seer.cancer.gov/anatomy/skeletal/divisions/appendicular.html)
+  - `seer-muscles-upper`: [NCI SEER Training: Muscles of the upper extremity](https://training.seer.cancer.gov/anatomy/muscular/groups/upper.html)
+
+#### `anatomy.forearm-bones`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Left radius; Right radius; Left ulna; Right ulna
+- **Overview:** The radius and ulna, the two parallel bones of each forearm; the radius lies on the outer (lateral) side and the ulna on the inner (medial) side.
+- **Function:** The 20 or more muscles that move the wrist, hand and fingers lie along the forearm.
+- **Related:** `anatomy.humerus`, `anatomy.hand-bones`
+- **Sources:**
+  - `tm-radius`: [TeachMeAnatomy: The radius](https://teachmeanatomy.info/upper-limb/bones/radius/)
+  - `tm-ulna`: [TeachMeAnatomy: The ulna](https://teachmeanatomy.info/upper-limb/bones/ulna/)
+  - `seer-muscles-upper`: [NCI SEER Training: Muscles of the upper extremity](https://training.seer.cancer.gov/anatomy/muscular/groups/upper.html)
+
+#### `anatomy.hand-bones`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Left hand; Right hand
+- **Overview:** The bones of the hands: 16 carpals, 10 metacarpals and 28 phalanges in the two hands.
+- **Function:** Part of the upper extremity of the appendicular skeleton.
+- **Related:** `anatomy.forearm-bones`
+- **Sources:**
+  - `seer-appendicular`: [NCI SEER Training: Appendicular skeleton](https://training.seer.cancer.gov/anatomy/skeletal/divisions/appendicular.html)
+
+#### `anatomy.foot-bones`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Left foot; Right foot
+- **Overview:** The bones of the feet: 14 tarsals, 10 metatarsals and 28 phalanges in the two feet.
+- **Function:** Part of the lower extremity of the appendicular skeleton.
+- **Related:** `anatomy.tibia`, `anatomy.calf-muscles`
+- **Sources:**
+  - `seer-appendicular`: [NCI SEER Training: Appendicular skeleton](https://training.seer.cancer.gov/anatomy/skeletal/divisions/appendicular.html)
+
+#### `anatomy.sacrum`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Sacrum
+- **Overview:** The large, triangle-shaped bone in the lower spine, made of 5 fused bones of the spine.
+- **Function:** Forms part of the pelvis.
+- **Related:** `anatomy.vertebral-column`, `anatomy.pelvis`
+- **Sources:**
+  - `nci-def-sacrum`: [NCI Dictionary of Cancer Terms: sacrum](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/sacrum)
+
+#### `anatomy.mandible`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Mandible
+- **Overview:** The lower jaw: the largest and strongest bone in the face, forming part of the mouth.
+- **Function:** The only movable bone of the skull. It holds the bottom teeth, and the chewing muscles connect to it.
+- **Related:** `anatomy.skull`, `anatomy.maxillae`, `anatomy.teeth`
+- **Sources:**
+  - `nci-def-mandible`: [NCI Dictionary of Cancer Terms: mandible](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/mandible)
+  - `seer-muscles-head-neck`: [NCI SEER Training: Muscles of the head and neck](https://training.seer.cancer.gov/anatomy/muscular/groups/head_neck.html)
+
+#### `anatomy.maxillae`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Left maxilla; Right maxilla
+- **Overview:** The bones that form the upper jaw, the roof of the mouth, and parts of the eye socket and nose.
+- **Function:** Hold the top teeth in place.
+- **Related:** `anatomy.mandible`, `anatomy.teeth`, `anatomy.nasal-bones`
+- **Sources:**
+  - `nci-def-maxilla`: [NCI Dictionary of Cancer Terms: maxilla](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/maxilla)
+
+#### `anatomy.nasal-bones`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Left nasal bone; Right nasal bone
+- **Overview:** Two small bones that, with extensions of the maxillae, form the bony bridge of the nose.
+- **Function:** The rest of the nose's framework is flexible cartilage.
+- **Related:** `anatomy.maxillae`, `anatomy.skull`
+- **Sources:**
+  - `seer-nose`: [NCI SEER Training: Nose, nasal cavities and paranasal sinuses](https://training.seer.cancer.gov/anatomy/respiratory/passages/nose.html)
+
+#### `anatomy.intervertebral-disks`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Intervertebral disk
+- **Overview:** Soft disks filled with a jelly-like substance between the vertebrae.
+- **Function:** Cushion the vertebrae and keep them in place. As the disks age they break down and lose their cushioning.
+- **Related:** `anatomy.vertebral-column`, `anatomy.spinal-cord`
+- **Sources:**
+  - `mlp-herniated-disk`: [MedlinePlus: Herniated disk](https://medlineplus.gov/herniateddisk.html)
+
 ### Muscular
 
 #### `anatomy.quadriceps-tendon`
 
 - **3D parts (female):** Tendon of right quadriceps femoris; Tendon of left quadriceps femoris
 - **3D parts (male):** Tendon of left quadriceps femoris; Tendon of right quadriceps femoris
+- **3D parts (complete male body):** not in this body
 - **Overview:** The tendon of the quadriceps femoris muscle group, at the knee.
 - **Function:** The quadriceps femoris muscle group straightens the leg at the knee.
 - **Related:** `anatomy.knee`, `anatomy.femur`
@@ -1572,6 +2076,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Left superior oblique; Left lateral rectus; Left inferior oblique; Left inferior rectus; Left superior rectus; Left medial rectus; Right medial rectus; Right superior rectus; Right inferior rectus; Right inferior oblique; Right lateral rectus; Right superior oblique
 - **3D parts (male):** Left superior oblique; Left lateral rectus; Left inferior oblique; Left inferior rectus; Left superior rectus; Left medial rectus; Right medial rectus; Right superior rectus; Right inferior rectus; Right inferior oblique; Right lateral rectus; Right superior oblique
+- **3D parts (complete male body):** Left inferior oblique; Left inferior rectus; Left lateral rectus; Left medial rectus; Left superior oblique; Left superior rectus; Right inferior oblique; Right inferior rectus; Right lateral rectus; Right medial rectus; Right superior oblique; Right superior rectus
 - **Overview:** Six muscles around each eye that move the eyeball: the superior, inferior, medial and lateral rectus muscles and the superior and inferior oblique muscles. They lie in the orbit but are separate from the eyeball.
 - **Function:** The medial rectus turns the eye inward and the lateral rectus outward; the superior rectus mainly raises it and the inferior rectus mainly lowers it. The obliques also raise, lower and rotate the eye.
 - **Related:** `anatomy.eyes`, `anatomy.sclera`, `anatomy.levator-palpebrae`
@@ -1583,6 +2088,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** Left levator palpebrae superioris; Right levator palpebrae superioris
 - **3D parts (male):** Left levator palpebrae superioris; Right levator palpebrae superioris
+- **3D parts (complete male body):** Left levator palpebrae superioris; Right levator palpebrae superioris
 - **Overview:** The levator palpebrae superioris, a muscle in each orbit attached to the upper eyelid.
 - **Function:** It is the only muscle that raises the upper eyelid.
 - **Related:** `anatomy.extraocular-muscles`, `anatomy.conjunctiva`, `anatomy.eyes`
@@ -1593,6 +2099,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** not in this body
 - **3D parts (male):** Thyroepiglotticus muscle; Muscle fasciculus of left posterior crico-arytenoid; Muscle fasciculus of right posterior crico-arytenoid; Lateral cricoarytenoid; Cricothyroid; Arytenoid muscle
+- **3D parts (complete male body):** Left lateral crico-arytenoid; Right lateral crico-arytenoid; Left posterior crico-arytenoid; Right posterior crico-arytenoid; Left oblique arytenoid; Right oblique arytenoid; Transverse arytenoid; Oblique part of left cricothyroid; Oblique part of right cricothyroid; Straight part of left cricothyroid; Straight part of right cricothyroid
 - **Overview:** Intrinsic muscles of the larynx: the cricothyroid, posterior and lateral cricoarytenoid, arytenoid and thyroepiglottic muscles.
 - **Function:** They control the opening between the vocal folds and the length and tension of the vocal folds. The posterior cricoarytenoids are the only muscles that open the vocal folds; the lateral cricoarytenoids are the main ones that close them.
 - **Related:** `anatomy.larynx`, `anatomy.vocal-folds`, `anatomy.epiglottis`
@@ -1604,6 +2111,7 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
 
 - **3D parts (female):** not in this body
 - **3D parts (male):** Vocalis muscle; Thyroarytenoid
+- **3D parts (complete male body):** Left vocalis; Right vocalis; Left thyro-arytenoid; Left thyro-arytenoid; Right thyro-arytenoid; Right thyro-arytenoid
 - **Overview:** The vocalis and thyroarytenoid muscles of the vocal folds (true vocal cords). The vocal cords are two small bands of muscle within the larynx.
 - **Function:** The vocal cords vibrate to produce the voice. The thyroarytenoid relaxes the vocal ligament, allowing a softer voice.
 - **Related:** `anatomy.larynx`, `anatomy.larynx-muscles`
@@ -1612,12 +2120,160 @@ Every card, condition and route in study revision `body-study-6-draft`, as shipp
   - `tm-larynx-folds`: [TeachMeAnatomy: Laryngeal ligaments and folds](https://teachmeanatomy.info/neck/viscera/larynx/ligaments-folds/)
   - `tm-larynx-muscles`: [TeachMeAnatomy: Muscles of the larynx](https://teachmeanatomy.info/neck/viscera/larynx/muscles/)
 
+#### `anatomy.diaphragm`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Diaphragm
+- **Overview:** The thin, dome-shaped muscle below the lungs and heart that separates the chest from the abdomen. It has three openings for structures passing between them.
+- **Function:** When it contracts during breathing in, the chest cavity gets larger and air flows into the lungs; when it relaxes, air flows out.
+- **Related:** `anatomy.esophagus`, `anatomy.stomach`, `anatomy.lung.left`, `anatomy.lung.right`
+- **Sources:**
+  - `nci-def-diaphragm`: [NCI Dictionary of Cancer Terms: diaphragm](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/diaphragm)
+  - `seer-muscles-trunk`: [NCI SEER Training: Muscles of the trunk](https://training.seer.cancer.gov/anatomy/muscular/groups/trunk.html)
+  - `seer-mechanics`: [NCI SEER Training: Mechanics of ventilation](https://training.seer.cancer.gov/anatomy/respiratory/mechanics.html)
+
+#### `anatomy.pharynx-muscles`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Left superior pharyngeal constrictor; Right superior pharyngeal constrictor; Left middle pharyngeal constrictor; Right middle pharyngeal constrictor; Left inferior pharyngeal constrictor; Right inferior pharyngeal constrictor
+- **Overview:** The constrictor muscles of the pharynx, the hollow, muscular tube in the neck that runs from behind the nose to the larynx and esophagus.
+- **Function:** When food reaches the pharynx, an involuntary swallowing reflex and wave-like muscle movements push it into the esophagus.
+- **Related:** `anatomy.esophagus`, `anatomy.soft-palate`, `anatomy.larynx`
+- **Sources:**
+  - `nci-def-pharynx`: [NCI Dictionary of Cancer Terms: pharynx](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/pharynx)
+  - `seer-pharynx`: [NCI SEER Training: Pharynx and esophagus](https://training.seer.cancer.gov/anatomy/digestive/regions/pharynx.html)
+
+#### `anatomy.intercostal-muscles`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** External intercostal muscle; Innermost intercostal muscle
+- **Overview:** Muscles in the spaces between the ribs.
+- **Function:** Move the ribs in breathing: the external intercostals raise the ribs when breathing in.
+- **Related:** `anatomy.ribs`, `anatomy.diaphragm`
+- **Sources:**
+  - `seer-muscles-trunk`: [NCI SEER Training: Muscles of the trunk](https://training.seer.cancer.gov/anatomy/muscular/groups/trunk.html)
+
+#### `anatomy.pectoralis-major`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Left pectoralis major; Right pectoralis major
+- **Overview:** The pectoralis major muscle on each side, one of the muscles that connect to the humerus.
+- **Function:** Connects to the humerus and moves the arm.
+- **Related:** `anatomy.humerus`, `anatomy.sternum`, `anatomy.deltoids`
+- **Sources:**
+  - `seer-muscles-upper`: [NCI SEER Training: Muscles of the upper extremity](https://training.seer.cancer.gov/anatomy/muscular/groups/upper.html)
+
+#### `anatomy.deltoids`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Acromial part of left deltoid; Clavicular part of left deltoid; Spinal part of left deltoid; Acromial part of right deltoid; Clavicular part of right deltoid; Spinal part of right deltoid
+- **Overview:** The deltoid muscle on each side; the source model divides it into three parts.
+- **Function:** Connects to the humerus and moves the arm.
+- **Related:** `anatomy.humerus`, `anatomy.scapulae`, `anatomy.clavicles`
+- **Sources:**
+  - `seer-muscles-upper`: [NCI SEER Training: Muscles of the upper extremity](https://training.seer.cancer.gov/anatomy/muscular/groups/upper.html)
+
+#### `anatomy.biceps-brachii`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Long head of left biceps brachii; Short head of left biceps brachii; Long head of right biceps brachii; Short head of right biceps brachii
+- **Overview:** The biceps brachii of each arm, with its long and short heads.
+- **Function:** One of the muscles along the humerus that move the forearm.
+- **Related:** `anatomy.humerus`, `anatomy.triceps-brachii`, `anatomy.forearm-bones`
+- **Sources:**
+  - `seer-muscles-upper`: [NCI SEER Training: Muscles of the upper extremity](https://training.seer.cancer.gov/anatomy/muscular/groups/upper.html)
+
+#### `anatomy.triceps-brachii`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Long head of left triceps brachii; Lateral head of left triceps brachii; Medial head of left triceps brachii; Long head of right triceps brachii; Lateral head of right triceps brachii; Medial head of right triceps brachii
+- **Overview:** The triceps brachii of each arm, with its long, lateral and medial heads.
+- **Function:** One of the muscles along the humerus that move the forearm.
+- **Related:** `anatomy.humerus`, `anatomy.biceps-brachii`
+- **Sources:**
+  - `seer-muscles-upper`: [NCI SEER Training: Muscles of the upper extremity](https://training.seer.cancer.gov/anatomy/muscular/groups/upper.html)
+
+#### `anatomy.trapezius`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Descending part of left trapezius; Transverse part of left trapezius; Ascending part of left trapezius; Descending part of right trapezius; Transverse part of right trapezius; Ascending part of right trapezius
+- **Overview:** One of the more obvious superficial muscles of the neck, on each side.
+- **Function:** Moves the shoulder and arm.
+- **Related:** `anatomy.scapulae`, `anatomy.vertebral-column`
+- **Sources:**
+  - `seer-muscles-upper`: [NCI SEER Training: Muscles of the upper extremity](https://training.seer.cancer.gov/anatomy/muscular/groups/upper.html)
+  - `seer-muscles-head-neck`: [NCI SEER Training: Muscles of the head and neck](https://training.seer.cancer.gov/anatomy/muscular/groups/head_neck.html)
+
+#### `anatomy.gluteus-maximus`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Left gluteus maximus; Right gluteus maximus
+- **Overview:** One of the gluteal muscles on each side, the posterior group of the muscles that move the thigh.
+- **Function:** The gluteal muscles are the largest muscle mass among the muscles that move the thigh.
+- **Related:** `anatomy.pelvis`, `anatomy.femur`, `anatomy.hamstrings`
+- **Sources:**
+  - `seer-lower-muscles`: [NCI SEER Training: Muscles of the lower extremity](https://training.seer.cancer.gov/anatomy/muscular/groups/lower.html)
+
+#### `anatomy.quadriceps`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Left rectus femoris; Left vastus lateralis; Left vastus medialis; Left vastus intermedius; Right rectus femoris; Right vastus lateralis; Right vastus medialis; Right vastus intermedius
+- **Overview:** The quadriceps femoris group of each thigh: the rectus femoris and three vastus muscles.
+- **Function:** Straightens the leg at the knee.
+- **Related:** `anatomy.quadriceps-tendon`, `anatomy.femur`, `anatomy.hamstrings`
+- **Sources:**
+  - `seer-lower-muscles`: [NCI SEER Training: Muscles of the lower extremity](https://training.seer.cancer.gov/anatomy/muscular/groups/lower.html)
+
+#### `anatomy.hamstrings`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Long head of left biceps femoris; Short head of left biceps femoris; Left semitendinosus; Left semimembranosus; Long head of right biceps femoris; Short head of right biceps femoris; Right semitendinosus; Right semimembranosus
+- **Overview:** The hamstring muscles of each thigh: the biceps femoris, semitendinosus and semimembranosus.
+- **Function:** Bend the leg at the knee, working against the quadriceps.
+- **Related:** `anatomy.quadriceps`, `anatomy.femur`, `anatomy.tibia`
+- **Sources:**
+  - `seer-lower-muscles`: [NCI SEER Training: Muscles of the lower extremity](https://training.seer.cancer.gov/anatomy/muscular/groups/lower.html)
+
+#### `anatomy.calf-muscles`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Lateral head of left gastrocnemius; Medial head of left gastrocnemius; Left soleus; Lateral head of right gastrocnemius; Medial head of right gastrocnemius; Right soleus
+- **Overview:** The gastrocnemius and soleus muscles of each lower leg.
+- **Function:** Point the foot downward (plantar flexion), working against the tibialis anterior.
+- **Related:** `anatomy.tibialis-anterior`, `anatomy.tibia`, `anatomy.foot-bones`
+- **Sources:**
+  - `seer-lower-muscles`: [NCI SEER Training: Muscles of the lower extremity](https://training.seer.cancer.gov/anatomy/muscular/groups/lower.html)
+
+#### `anatomy.tibialis-anterior`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Left tibialis anterior; Right tibialis anterior
+- **Overview:** A muscle of each lower leg.
+- **Function:** Lifts the foot upward (dorsiflexion), working against the calf muscles.
+- **Related:** `anatomy.calf-muscles`, `anatomy.tibia`
+- **Sources:**
+  - `seer-lower-muscles`: [NCI SEER Training: Muscles of the lower extremity](https://training.seer.cancer.gov/anatomy/muscular/groups/lower.html)
+
 ### Integumentary
 
 #### `anatomy.skin`
 
 - **3D parts (female):** Skin of body
 - **3D parts (male):** Skin of body
+- **3D parts (complete male body):** Skin
 - **Overview:** The body's largest organ, covering the entire outside of the body. It is about 2 mm thick. Its outer layer, the epidermis, is tough and protective; the dermis beneath it contains nerve endings, sweat glands, oil glands and hair follicles.
 - **Function:** Forms a protective barrier against pathogens and injury. It also helps regulate body temperature, gathers sensory information and stores water, fat and vitamin D.
 - **Sources:**
@@ -2277,7 +2933,7 @@ Conditions only locate the healthy reference anatomy; no disease geometry is sho
 - **Reference location:** The supplied pelvis shows compact and spongy bone tissue. Fractures can occur in any bone.
 - **Focus:** `anatomy.spongy-bone`
 - **Requires:** `anatomy.spongy-bone`, `anatomy.compact-bone`
-- **Listed on:** `anatomy.spongy-bone`, `anatomy.compact-bone`
+- **Listed on:** `anatomy.spongy-bone`, `anatomy.compact-bone`, `anatomy.vertebral-column`
 - **Not depicted:** Loss of bone density and fractures are not depicted.
 - **Sources:**
   - `niams-osteoporosis`: [NIAMS: Osteoporosis](https://www.niams.nih.gov/health-topics/osteoporosis)
@@ -2422,7 +3078,7 @@ Conditions only locate the healthy reference anatomy; no disease geometry is sho
 - **Reference location:** The brain is divided into the cerebrum, diencephalon, brain stem and cerebellum.
 - **Focus:** `anatomy.brain`
 - **Requires:** `anatomy.brain`
-- **Listed on:** `anatomy.brain`
+- **Listed on:** `anatomy.brain`, `anatomy.skull`
 - **Not depicted:** Injury and brain damage are not depicted.
 - **Sources:**
   - `mlp-tbi`: [MedlinePlus: Traumatic brain injury](https://medlineplus.gov/traumaticbraininjury.html)
@@ -2617,6 +3273,303 @@ Conditions only locate the healthy reference anatomy; no disease geometry is sho
 - **Not depicted:** Inflammation is not depicted.
 - **Sources:**
   - `niddk-prostatitis`: [NIDDK: Prostatitis: inflammation of the prostate](https://www.niddk.nih.gov/health-information/urologic-diseases/prostate-problems/prostatitis-inflammation-prostate)
+
+### GERD (acid reflux disease) (`condition.gerd`)
+
+- **Summary:** In gastroesophageal reflux, stomach contents come back up into the esophagus, sometimes causing heartburn. GERD is a more severe, long-lasting form in which this causes repeated bothersome symptoms or leads to complications.
+- **Reference location:** The esophagus carries food down to the stomach through an opening in the diaphragm.
+- **Focus:** `anatomy.esophagus`
+- **Requires:** `anatomy.esophagus`, `anatomy.stomach`
+- **Listed on:** `anatomy.esophagus`, `anatomy.stomach`
+- **Not depicted:** Reflux and irritation are not depicted.
+- **Sources:**
+  - `niddk-gerd`: [NIDDK: Definition and facts for GER and GERD](https://www.niddk.nih.gov/health-information/digestive-diseases/acid-reflux-ger-gerd-adults/definition-facts)
+  - `seer-pharynx`: [NCI SEER Training: Pharynx and esophagus](https://training.seer.cancer.gov/anatomy/digestive/regions/pharynx.html)
+
+### Peptic ulcer (`condition.peptic-ulcer`)
+
+- **Summary:** A sore on the lining of the stomach or duodenum, also called a stomach or duodenal ulcer. The two most common causes are infection with H. pylori bacteria and taking NSAIDs such as aspirin, ibuprofen and naproxen.
+- **Reference location:** The stomach empties into the duodenum, the first part of the small intestine.
+- **Focus:** `anatomy.stomach`
+- **Requires:** `anatomy.stomach`, `anatomy.duodenum`
+- **Listed on:** `anatomy.stomach`, `anatomy.duodenum`
+- **Not depicted:** Ulcers are not depicted.
+- **Sources:**
+  - `niddk-peptic-ulcer`: [NIDDK: Definition and facts for peptic ulcers](https://www.niddk.nih.gov/health-information/digestive-diseases/peptic-ulcers-stomach-ulcers/definition-facts)
+  - `seer-stomach`: [NCI SEER Training: Stomach](https://training.seer.cancer.gov/anatomy/digestive/regions/stomach.html)
+
+### Stomach cancer (`condition.stomach-cancer`)
+
+- **Summary:** Cancer that starts in the cells lining the stomach, also called gastric cancer. Most is adenocarcinoma, which begins in the mucus-producing cells of the innermost lining.
+- **Reference location:** The stomach lies in the upper left of the abdomen and receives food from the esophagus.
+- **Focus:** `anatomy.stomach`
+- **Requires:** `anatomy.stomach`
+- **Listed on:** `anatomy.stomach`
+- **Not depicted:** Tumors and their spread are not depicted.
+- **Sources:**
+  - `nci-stomach-cancer`: [NCI: What is stomach cancer?](https://www.cancer.gov/types/stomach)
+  - `seer-stomach`: [NCI SEER Training: Stomach](https://training.seer.cancer.gov/anatomy/digestive/regions/stomach.html)
+
+### Esophageal cancer (`condition.esophageal-cancer`)
+
+- **Summary:** The most common types are adenocarcinoma and squamous cell carcinoma, which tend to develop in different parts of the esophagus.
+- **Reference location:** The esophagus runs from the throat to the stomach, behind the trachea.
+- **Focus:** `anatomy.esophagus`
+- **Requires:** `anatomy.esophagus`
+- **Listed on:** `anatomy.esophagus`
+- **Not depicted:** Tumors and their spread are not depicted.
+- **Sources:**
+  - `nci-esophageal-cancer`: [NCI: Esophageal cancer](https://www.cancer.gov/types/esophageal)
+  - `nci-def-esophagus`: [NCI Dictionary of Cancer Terms: esophagus](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/esophagus)
+  - `seer-pharynx`: [NCI SEER Training: Pharynx and esophagus](https://training.seer.cancer.gov/anatomy/digestive/regions/pharynx.html)
+
+### Hiatal hernia (`condition.hiatal-hernia`)
+
+- **Summary:** The upper part of the stomach bulges through an opening in the diaphragm. This makes it easier for stomach acid to come up into the esophagus (GERD).
+- **Reference location:** The diaphragm, the thin muscle separating the chest from the abdomen, has an opening through which the esophagus passes.
+- **Focus:** `anatomy.diaphragm`
+- **Requires:** `anatomy.diaphragm`, `anatomy.stomach`, `anatomy.esophagus`
+- **Listed on:** `anatomy.diaphragm`, `anatomy.stomach`
+- **Not depicted:** The hernia is not depicted.
+- **Sources:**
+  - `mlp-hiatal-hernia`: [MedlinePlus: Hiatal hernia](https://medlineplus.gov/hiatalhernia.html)
+  - `seer-pharynx`: [NCI SEER Training: Pharynx and esophagus](https://training.seer.cancer.gov/anatomy/digestive/regions/pharynx.html)
+
+### Hiccups (`condition.hiccups`)
+
+- **Summary:** An unintentional movement (spasm) of the diaphragm, the muscle at the base of the lungs. Hiccups often start for no apparent reason.
+- **Reference location:** The diaphragm separates the chest from the abdomen.
+- **Focus:** `anatomy.diaphragm`
+- **Requires:** `anatomy.diaphragm`
+- **Listed on:** `anatomy.diaphragm`
+- **Not depicted:** Movement is not depicted.
+- **Sources:**
+  - `mlp-hiccups`: [MedlinePlus Medical Encyclopedia: Hiccups](https://medlineplus.gov/ency/article/003068.htm)
+  - `nci-def-diaphragm`: [NCI Dictionary of Cancer Terms: diaphragm](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/diaphragm)
+
+### Spinal cord injury (`condition.spinal-cord-injury`)
+
+- **Summary:** Usually begins with a blow that breaks or dislocates vertebrae; pieces of vertebrae then tear into or press on the cord. A complete injury stops signals below the injury; with an incomplete injury some movement and feeling remain.
+- **Reference location:** The spinal cord runs down the middle of the back inside the vertebral column.
+- **Focus:** `anatomy.spinal-cord`
+- **Requires:** `anatomy.spinal-cord`, `anatomy.vertebral-column`
+- **Listed on:** `anatomy.spinal-cord`, `anatomy.vertebral-column`
+- **Not depicted:** Injury and nerve damage are not depicted.
+- **Sources:**
+  - `mlp-spinal-cord-injury`: [MedlinePlus: Spinal cord injury](https://medlineplus.gov/spinalcordinjuries.html)
+  - `nci-def-spinal-cord`: [NCI Dictionary of Cancer Terms: spinal cord](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/spinal-cord)
+
+### Pituitary tumors (`condition.pituitary-tumors`)
+
+- **Summary:** Common, but often they cause no health problems and most people never know they have one. The most common type makes hormones and upsets the body's hormone balance, which can cause conditions such as Cushing syndrome.
+- **Reference location:** The pituitary gland is a pea-sized gland at the base of the brain.
+- **Focus:** `anatomy.pituitary`
+- **Requires:** `anatomy.pituitary`
+- **Listed on:** `anatomy.pituitary`
+- **Not depicted:** Tumors are not depicted.
+- **Sources:**
+  - `mlp-pituitary-tumors`: [MedlinePlus: Pituitary tumors](https://medlineplus.gov/pituitarytumors.html)
+  - `nci-def-pituitary-gland`: [NCI Dictionary of Cancer Terms: pituitary gland](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/pituitary-gland)
+
+### Adrenal insufficiency (Addison's disease) (`condition.adrenal-insufficiency`)
+
+- **Summary:** The adrenal glands do not make enough of certain hormones, including cortisol, which is essential for life. The most common symptoms are fatigue, muscle weakness, loss of appetite, weight loss and abdominal pain.
+- **Reference location:** The adrenal glands sit on top of the kidneys.
+- **Focus:** `anatomy.adrenal-glands`
+- **Requires:** `anatomy.adrenal-glands`
+- **Listed on:** `anatomy.adrenal-glands`
+- **Not depicted:** Hormone levels are not depicted.
+- **Sources:**
+  - `niddk-adrenal-insufficiency`: [NIDDK: Adrenal insufficiency and Addison's disease](https://www.niddk.nih.gov/health-information/endocrine-diseases/adrenal-insufficiency-addisons-disease)
+  - `nci-def-adrenal-gland`: [NCI Dictionary of Cancer Terms: adrenal gland](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/adrenal-gland)
+
+### Cushing's syndrome (`condition.cushings`)
+
+- **Summary:** The body makes too much of the hormone cortisol over a long time. Cortisol helps the body respond to stress, maintain blood pressure and regulate blood glucose.
+- **Reference location:** The adrenal glands, two small glands on top of the kidneys, make cortisol.
+- **Focus:** `anatomy.adrenal-glands`
+- **Requires:** `anatomy.adrenal-glands`
+- **Listed on:** `anatomy.adrenal-glands`, `anatomy.pituitary`
+- **Not depicted:** Hormone levels are not depicted.
+- **Sources:**
+  - `niddk-cushings`: [NIDDK: Cushing's syndrome](https://www.niddk.nih.gov/health-information/endocrine-diseases/cushings-syndrome)
+
+### Testicular cancer (`condition.testicular-cancer`)
+
+- **Summary:** Most often begins in germ cells, the cells that make sperm. It is rare, most often diagnosed in men aged 20 to 34, and most cases can be cured even at an advanced stage.
+- **Reference location:** The testes lie inside the scrotum.
+- **Focus:** `anatomy.testes`
+- **Requires:** `anatomy.testes`
+- **Listed on:** `anatomy.testes`
+- **Not depicted:** Tumors and their spread are not depicted.
+- **Sources:**
+  - `nci-testicular-cancer`: [NCI: Testicular cancer](https://www.cancer.gov/types/testicular)
+  - `nci-def-testicle`: [NCI Dictionary of Cancer Terms: testicle](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/testicle)
+
+### Erectile dysfunction (`condition.erectile-dysfunction`)
+
+- **Summary:** A condition that prevents getting or keeping an erection firm enough for sex. It can often be treated.
+- **Reference location:** The penis contains three columns of erectile tissue.
+- **Focus:** `anatomy.penis`
+- **Requires:** `anatomy.penis`
+- **Listed on:** `anatomy.penis`
+- **Not depicted:** Function is not depicted.
+- **Sources:**
+  - `niddk-ed`: [NIDDK: Definition and facts for erectile dysfunction](https://www.niddk.nih.gov/health-information/urologic-diseases/erectile-dysfunction/definition-facts)
+  - `seer-penis`: [NCI SEER Training: Penis](https://training.seer.cancer.gov/anatomy/reproductive/male/penis.html)
+
+### Scoliosis (`condition.scoliosis`)
+
+- **Summary:** A sideways curve of the spine. Children and teens with scoliosis have an abnormal S- or C-shaped curve; in most people the cause is unknown.
+- **Reference location:** The vertebral column runs from the base of the skull to the tailbone.
+- **Focus:** `anatomy.vertebral-column`
+- **Requires:** `anatomy.vertebral-column`
+- **Listed on:** `anatomy.vertebral-column`
+- **Not depicted:** The curve is not depicted.
+- **Sources:**
+  - `niams-scoliosis`: [NIAMS: Scoliosis](https://www.niams.nih.gov/health-topics/scoliosis)
+  - `nci-def-spine`: [NCI Dictionary of Cancer Terms: spine](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/spine)
+
+### Herniated disk (`condition.herniated-disk`)
+
+- **Summary:** A disk between the vertebrae ruptures, letting its jelly-like center leak and irritate nearby nerves. This can cause sciatica or back pain; with treatment most people recover.
+- **Reference location:** Soft disks between the vertebrae cushion them and keep them in place.
+- **Focus:** `anatomy.intervertebral-disks`
+- **Requires:** `anatomy.intervertebral-disks`, `anatomy.vertebral-column`
+- **Listed on:** `anatomy.intervertebral-disks`, `anatomy.vertebral-column`
+- **Not depicted:** The rupture and nerve irritation are not depicted.
+- **Sources:**
+  - `mlp-herniated-disk`: [MedlinePlus: Herniated disk](https://medlineplus.gov/herniateddisk.html)
+
+### Back pain (`condition.back-pain`)
+
+- **Summary:** One of the most common medical problems in the United States. It becomes more common with age, particularly after 45, and is more common in people who are not physically fit.
+- **Reference location:** The spine includes the bones, muscles, tendons and other tissues from the base of the skull to the tailbone.
+- **Focus:** `anatomy.vertebral-column`
+- **Requires:** `anatomy.vertebral-column`
+- **Listed on:** `anatomy.vertebral-column`, `anatomy.intervertebral-disks`
+- **Not depicted:** Pain and its causes are not depicted.
+- **Sources:**
+  - `niams-back-pain`: [NIAMS: Back pain](https://www.niams.nih.gov/health-topics/back-pain)
+  - `nci-def-spine`: [NCI Dictionary of Cancer Terms: spine](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/spine)
+
+### Carpal tunnel syndrome (`condition.carpal-tunnel`)
+
+- **Summary:** Numbness, tingling, weakness or pain in the wrist or hand when the median nerve is squeezed in the carpal tunnel, a narrow opening between the wrist bones and the ligament that holds them together.
+- **Reference location:** The carpal tunnel lies between the bones of the wrist and the ligament that holds them together.
+- **Focus:** `anatomy.hand-bones`
+- **Requires:** `anatomy.hand-bones`
+- **Listed on:** `anatomy.hand-bones`, `anatomy.forearm-bones`
+- **Not depicted:** The median nerve and carpal tunnel are not depicted.
+- **Sources:**
+  - `mlp-carpal-tunnel`: [MedlinePlus: Carpal tunnel syndrome](https://medlineplus.gov/carpaltunnelsyndrome.html)
+  - `seer-appendicular`: [NCI SEER Training: Appendicular skeleton](https://training.seer.cancer.gov/anatomy/skeletal/divisions/appendicular.html)
+
+### Gout (`condition.gout`)
+
+- **Summary:** A type of inflammatory arthritis causing pain and swelling in the joints, usually in flares that last a week or two and then resolve. Flares often begin in the big toe or a lower limb.
+- **Reference location:** Each foot has tarsals, metatarsals and phalanges; flares often begin in the big toe.
+- **Focus:** `anatomy.foot-bones`
+- **Requires:** `anatomy.foot-bones`
+- **Listed on:** `anatomy.foot-bones`
+- **Not depicted:** Joint inflammation and crystals are not depicted.
+- **Sources:**
+  - `niams-gout`: [NIAMS: Gout](https://www.niams.nih.gov/health-topics/gout)
+  - `seer-appendicular`: [NCI SEER Training: Appendicular skeleton](https://training.seer.cancer.gov/anatomy/skeletal/divisions/appendicular.html)
+
+### Rheumatoid arthritis (`condition.rheumatoid-arthritis`)
+
+- **Summary:** A long-lasting autoimmune disease that mostly affects joints, causing pain, swelling, stiffness and loss of function. It can affect the joints of the wrists, hands, elbows, shoulders, feet, spine, knees and jaw.
+- **Reference location:** The hands and wrists are among the joints it often affects.
+- **Focus:** `anatomy.hand-bones`
+- **Requires:** `anatomy.hand-bones`
+- **Listed on:** `anatomy.hand-bones`, `anatomy.foot-bones`, `anatomy.knee`
+- **Not depicted:** Joint inflammation is not depicted.
+- **Sources:**
+  - `niams-ra`: [NIAMS: Rheumatoid arthritis](https://www.niams.nih.gov/health-topics/rheumatoid-arthritis)
+
+### Peripheral artery disease (`condition.pad`)
+
+- **Summary:** Plaque builds up in arteries and reduces blood flow. The most common type reduces blood flow to the legs and feet.
+- **Reference location:** Branches of the external iliac arteries supply the legs.
+- **Focus:** `anatomy.leg-arteries`
+- **Requires:** `anatomy.leg-arteries`
+- **Listed on:** `anatomy.leg-arteries`
+- **Not depicted:** Plaque and reduced flow are not depicted.
+- **Sources:**
+  - `nhlbi-pad`: [NHLBI: Peripheral artery disease](https://www.nhlbi.nih.gov/health/peripheral-artery-disease)
+  - `seer-pathways`: [NCI SEER Training: Circulatory pathways](https://training.seer.cancer.gov/anatomy/cardiovascular/blood/pathways.html)
+
+### Carotid artery disease (`condition.carotid-artery-disease`)
+
+- **Summary:** The carotid arteries become narrow or blocked, usually by atherosclerosis, a buildup of plaque made of fat, cholesterol, calcium and other substances.
+- **Reference location:** There is a carotid artery on each side of the neck, carrying blood from the heart to the head.
+- **Focus:** `anatomy.carotid-arteries`
+- **Requires:** `anatomy.carotid-arteries`
+- **Listed on:** `anatomy.carotid-arteries`
+- **Not depicted:** Plaque is not depicted.
+- **Sources:**
+  - `mlp-carotid`: [MedlinePlus: Carotid artery disease](https://medlineplus.gov/carotidarterydisease.html)
+  - `nci-def-carotid-artery`: [NCI Dictionary of Cancer Terms: carotid artery](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/carotid-artery)
+
+### Rotator cuff injuries (`condition.rotator-cuff`)
+
+- **Summary:** Rotator cuff injuries are common. The rotator cuff is a group of muscles and tendons that holds the top of the upper arm bone firmly in the shoulder socket and keeps the shoulder stable.
+- **Reference location:** The rotator cuff muscles connect to the humerus.
+- **Focus:** `anatomy.humerus`
+- **Requires:** `anatomy.humerus`, `anatomy.scapulae`
+- **Listed on:** `anatomy.humerus`, `anatomy.scapulae`
+- **Not depicted:** The rotator cuff and its injury are not depicted.
+- **Sources:**
+  - `mlp-rotator-cuff`: [MedlinePlus: Rotator cuff injuries](https://medlineplus.gov/rotatorcuffinjuries.html)
+  - `seer-muscles-upper`: [NCI SEER Training: Muscles of the upper extremity](https://training.seer.cancer.gov/anatomy/muscular/groups/upper.html)
+
+### Lip and oral cavity cancer (`condition.oral-cancer`)
+
+- **Summary:** A cancer that starts in the lips or mouth, including the front two-thirds of the tongue, the gums, the lining of the cheeks, the floor of the mouth and the hard palate.
+- **Reference location:** The oral cavity contains the teeth and tongue.
+- **Focus:** `anatomy.tongue`
+- **Requires:** `anatomy.tongue`
+- **Listed on:** `anatomy.tongue`, `anatomy.teeth`
+- **Not depicted:** Tumors are not depicted.
+- **Sources:**
+  - `nci-oral-cancer`: [NCI: Lip and oral cavity cancer treatment (PDQ) - patient version](https://www.cancer.gov/types/head-and-neck/patient/adult/lip-mouth-treatment-pdq)
+  - `seer-mouth`: [NCI SEER Training: Mouth](https://training.seer.cancer.gov/anatomy/digestive/regions/mouth.html)
+
+### Tooth decay (`condition.tooth-decay`)
+
+- **Summary:** Damage to a tooth's surface, or enamel, which happens when bacteria in the mouth make acids that attack the enamel.
+- **Reference location:** A complete permanent set has 32 teeth.
+- **Focus:** `anatomy.teeth`
+- **Requires:** `anatomy.teeth`
+- **Listed on:** `anatomy.teeth`
+- **Not depicted:** Decay is not depicted.
+- **Sources:**
+  - `mlp-tooth-decay`: [MedlinePlus: Tooth decay](https://medlineplus.gov/toothdecay.html)
+  - `seer-mouth`: [NCI SEER Training: Mouth](https://training.seer.cancer.gov/anatomy/digestive/regions/mouth.html)
+
+### Salivary gland disorders (`condition.salivary-disorders`)
+
+- **Summary:** Problems affecting the three pairs of major salivary glands and hundreds of minor ones, which make saliva and empty it into the mouth through ducts.
+- **Reference location:** The submandibular glands are one of the three pairs of major salivary glands.
+- **Focus:** `anatomy.salivary-glands`
+- **Requires:** `anatomy.salivary-glands`
+- **Listed on:** `anatomy.salivary-glands`
+- **Not depicted:** Disorders are not depicted.
+- **Sources:**
+  - `mlp-salivary`: [MedlinePlus: Salivary gland disorders](https://medlineplus.gov/salivaryglanddisorders.html)
+
+### Muscle strain (`condition.muscle-strain`)
+
+- **Summary:** A stretched or torn muscle or tendon. Back and hamstring muscle strains are common.
+- **Reference location:** The hamstrings are thigh muscles that bend the leg at the knee.
+- **Focus:** `anatomy.hamstrings`
+- **Requires:** `anatomy.hamstrings`
+- **Listed on:** `anatomy.hamstrings`, `anatomy.calf-muscles`, `anatomy.quadriceps`
+- **Not depicted:** Tears are not depicted.
+- **Sources:**
+  - `mlp-sprains-strains`: [MedlinePlus: Sprains and strains](https://medlineplus.gov/sprainsandstrains.html)
+  - `seer-lower-muscles`: [NCI SEER Training: Muscles of the lower extremity](https://training.seer.cancer.gov/anatomy/muscular/groups/lower.html)
 
 ## Routes
 
