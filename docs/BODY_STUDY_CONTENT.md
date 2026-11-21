@@ -313,6 +313,13 @@ and the male body 73 (67 shared).
 - **Migraine and MS** point at the whole brain; neither source places them in
   one region.
 
+### Accuracy pass
+
+On 2026-11-21 every card, condition and route step was re-checked sentence by
+sentence against freshly downloaded copies of its sources, and 16 records were
+corrected. See the [accuracy pass report](audit/ACCURACY_PASS_2026-11-21.md). It is
+an assistant check, not a medical review.
+
 ## Deliberate limits
 
 - **Sources (revision 1).** Claims come only from NIH pages: NHLBI, NIDDK, NICHD and NCI SEER
@@ -465,7 +472,6 @@ and the male body 73 (67 shared).
 - `nci-def-coronary-artery-disease`: [NCI Dictionary of Cancer Terms: coronary artery disease](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/coronary-artery-disease)
 - `nci-def-inferior-vena-cava`: [NCI Dictionary of Cancer Terms: inferior vena cava](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/inferior-vena-cava)
 - `nci-def-seminal-vesicle`: [NCI Dictionary of Cancer Terms: seminal vesicle](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/seminal-vesicle)
-- `nci-def-tendon`: [NCI Dictionary of Cancer Terms: tendon](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/tendon)
 - `nci-def-ureter`: [NCI Dictionary of Cancer Terms: ureter](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/ureter)
 - `nci-def-urethra`: [NCI Dictionary of Cancer Terms: urethra](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/urethra)
 - `nci-def-vas-deferens`: [NCI Dictionary of Cancer Terms: vas deferens](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/vas-deferens)
@@ -495,3 +501,5 @@ and the male body 73 (67 shared).
 - `tm-tracheobronchial`: [TeachMeAnatomy: The tracheobronchial tree](https://teachmeanatomy.info/thorax/organs/tracheobronchial-tree/)
 - `tm-urethra`: [TeachMeAnatomy: The urethra](https://teachmeanatomy.info/pelvis/viscera/urethra/)
 - `tm-uterus`: [TeachMeAnatomy: The uterus](https://teachmeanatomy.info/pelvis/female-reproductive-tract/uterus/)
+- `nci-def-prostate`: [NCI Dictionary of Cancer Terms: prostate](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/prostate)
+- `nci-def-trachea`: [NCI Dictionary of Cancer Terms: trachea](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/trachea)

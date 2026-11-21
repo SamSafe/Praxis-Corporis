@@ -481,10 +481,6 @@
       "title": "NCI Dictionary of Cancer Terms: bile duct",
       "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/bile-duct"
     },
-    "nci-def-tendon": {
-      "title": "NCI Dictionary of Cancer Terms: tendon",
-      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/tendon"
-    },
     "nci-def-coronary-artery-disease": {
       "title": "NCI Dictionary of Cancer Terms: coronary artery disease",
       "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/coronary-artery-disease"
@@ -652,11 +648,19 @@
     "nci-bile-duct-cancer": {
       "title": "NCI: What is bile duct cancer (cholangiocarcinoma)?",
       "url": "https://www.cancer.gov/types/liver/bile-duct-cancer"
+    },
+    "nci-def-trachea": {
+      "title": "NCI Dictionary of Cancer Terms: trachea",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/trachea"
+    },
+    "nci-def-prostate": {
+      "title": "NCI Dictionary of Cancer Terms: prostate",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/prostate"
     }
   },
   "cards": {
     "anatomy.heart": {
-      "overview": "A muscular organ in the chest between the lungs.",
+      "overview": "Sits in the center of the chest, near the lungs. It has four hollow chambers surrounded by muscle and other heart tissue.",
       "function": "Pumps blood through the lungs and the body.",
       "related": [
         "anatomy.heart.chambers",
@@ -834,7 +838,7 @@
       "human_source_review": "pending"
     },
     "anatomy.lungs": {
-      "overview": "Paired organs in the chest connected to the airways.",
+      "overview": "The main organs of the respiratory system, one on each side of the heart inside the chest cavity.",
       "function": "Exchange oxygen and carbon dioxide between air and blood.",
       "related": [
         "anatomy.lung.left",
@@ -850,7 +854,7 @@
       "human_source_review": "pending"
     },
     "anatomy.lung.left": {
-      "overview": "The left lung has two lobes and shares chest space with the heart.",
+      "overview": "The left lung has two lobes. It is slightly smaller than the right lung because the heart takes up some space on the left side.",
       "function": "Participates in gas exchange.",
       "related": [
         "anatomy.lungs",
@@ -1045,15 +1049,16 @@
       }
     },
     "anatomy.trachea": {
-      "overview": "The windpipe. In the chest it divides into the right and left primary bronchi.",
-      "function": "An airway that carries air to and from the lungs.",
+      "overview": "The windpipe: the airway that leads from the larynx (voice box) to the bronchi. In the chest it divides into the right and left primary bronchi.",
+      "function": "Carries air between the larynx and the bronchi, which lead to the lungs.",
       "related": [
         "anatomy.bronchi",
         "anatomy.lungs"
       ],
       "source_ids": [
         "seer-bronchi",
-        "nhlbi-asthma"
+        "nhlbi-asthma",
+        "nci-def-trachea"
       ],
       "review_status": "draft",
       "expert_review": "pending",
@@ -1182,7 +1187,7 @@
       }
     },
     "anatomy.pancreas": {
-      "overview": "A gland of the digestive system closely associated with the small intestine.",
+      "overview": "One of the solid organs of the digestive system. Its digestive juice reaches the small intestine through small tubes called ducts.",
       "function": "Releases digestive enzymes into the small intestine and the hormones insulin and glucagon into the blood.",
       "related": [
         "anatomy.small-intestine",
@@ -1481,7 +1486,7 @@
       }
     },
     "anatomy.bladder": {
-      "overview": "A hollow organ in the pelvic cavity. Its size and shape change with the amount of urine it holds.",
+      "overview": "Located in the pelvic cavity, behind the pubic symphysis. Its size and shape change with the amount of urine it holds.",
       "function": "A temporary storage reservoir for urine.",
       "related": [
         "anatomy.kidneys",
@@ -1536,7 +1541,7 @@
       }
     },
     "anatomy.uterus": {
-      "overview": "A muscular organ in the pelvis.",
+      "overview": "A muscular organ. Before a first pregnancy it is about the size and shape of a pear.",
       "function": "Receives a fertilized egg and provides the environment for a developing fetus.",
       "related": [
         "anatomy.ovaries",
@@ -5848,7 +5853,7 @@
     },
     "anatomy.pineal-gland": {
       "overview": "A tiny organ in the cerebrum, also called the pineal body.",
-      "function": "Produces the hormone melatonin.",
+      "function": "Produces melatonin.",
       "related": [
         "anatomy.brain",
         "anatomy.thalamus"
@@ -8133,7 +8138,7 @@
   "conditions": {
     "condition.aortic-stenosis": {
       "title": "Aortic stenosis",
-      "summary": "Narrowing of the aortic-valve opening can obstruct forward blood flow.",
+      "summary": "The aortic valve opening is too small or narrow, for example when the valve forms with two flaps instead of three. Valve problems can make the heart work harder and affect its ability to pump blood.",
       "location": "The aortic valve is at the outlet from the left ventricle into the aorta.",
       "focus_id": "anatomy.heart.valve.aortic",
       "related_anatomy": [
@@ -8360,7 +8365,8 @@
       "geometry_mode": "reference_location_only",
       "source_ids": [
         "niddk-pancreatitis",
-        "seer-accessory"
+        "seer-accessory",
+        "niddk-digestive"
       ],
       "review_status": "draft",
       "expert_review": "pending",
@@ -8441,7 +8447,7 @@
     "condition.endometriosis": {
       "title": "Endometriosis",
       "summary": "Tissue similar to the lining of the uterus grows outside the uterus. It can cause pain, infertility and other symptoms.",
-      "location": "The uterus is a muscular organ in the pelvis, with an ovary on each side of it.",
+      "location": "The uterus is a muscular organ, with an ovary on each side of it.",
       "focus_id": "anatomy.uterus",
       "related_anatomy": [
         "anatomy.uterus",
@@ -8644,7 +8650,7 @@
     },
     "condition.acl-injury": {
       "title": "Anterior cruciate ligament (ACL) injury",
-      "summary": "Over-stretching or tearing, partial or complete, of the ACL in the knee. It is often caused by a sudden twist or by stopping and changing direction quickly, and often occurs with other knee injuries such as a meniscus tear.",
+      "summary": "Over-stretching or tearing, partial or complete, of the ACL in the knee. It can happen from a hard hit to the side of the knee, over-extending the knee, or quickly stopping and changing direction while running, landing from a jump or turning. It often occurs with other injuries, such as tears of the MCL and the menisci.",
       "location": "The ACL is in the middle of the knee, connecting the thigh bone and shin bone.",
       "focus_id": "anatomy.acl",
       "related_anatomy": [
@@ -8782,7 +8788,8 @@
       "geometry_mode": "reference_location_only",
       "source_ids": [
         "nhlbi-afib",
-        "heart-flow"
+        "heart-flow",
+        "heart-anatomy"
       ],
       "review_status": "draft",
       "expert_review": "pending",
@@ -8864,7 +8871,7 @@
     "condition.bladder-infection": {
       "title": "Bladder infection (cystitis)",
       "summary": "An illness most often caused by bacteria that enter the bladder and multiply. It is the most common type of urinary tract infection and, if untreated, can spread to the kidneys.",
-      "location": "The bladder is a hollow organ in the pelvis that stores urine.",
+      "location": "The bladder, in the pelvic cavity, is a temporary storage reservoir for urine.",
       "focus_id": "anatomy.bladder",
       "related_anatomy": [
         "anatomy.bladder"
@@ -9036,7 +9043,8 @@
       "geometry_mode": "reference_location_only",
       "source_ids": [
         "niddk-diabetes",
-        "seer-accessory"
+        "seer-accessory",
+        "niddk-digestive"
       ],
       "review_status": "draft",
       "expert_review": "pending",
@@ -9092,7 +9100,7 @@
     "condition.fibroids": {
       "title": "Uterine fibroids",
       "summary": "Growths made of smooth muscle cells and other tissue that grow in or on the wall of the uterus. They can cause pain and abnormal bleeding.",
-      "location": "The uterus is a muscular organ in the pelvis.",
+      "location": "The uterus is a muscular organ in which a fetus develops.",
       "focus_id": "anatomy.uterus",
       "related_anatomy": [
         "anatomy.uterus"
@@ -9157,7 +9165,7 @@
     "condition.prostate-cancer": {
       "title": "Prostate cancer",
       "summary": "The most common cancer among men in the United States. It usually grows very slowly.",
-      "location": "The prostate sits below the bladder and surrounds the urethra at the neck of the bladder.",
+      "location": "The prostate lies just below the bladder and surrounds the part of the urethra just below it.",
       "focus_id": "anatomy.prostate",
       "related_anatomy": [
         "anatomy.prostate"
@@ -9168,7 +9176,8 @@
       "geometry_mode": "reference_location_only",
       "source_ids": [
         "nci-prostate-cancer",
-        "seer-male-glands"
+        "seer-male-glands",
+        "nci-def-prostate"
       ],
       "review_status": "draft",
       "expert_review": "pending",
@@ -9353,7 +9362,7 @@
     "condition.osteoporosis": {
       "title": "Osteoporosis",
       "summary": "A bone disease in which bone mineral density and mass decrease, or bone structure and strength change, raising the risk of fractures. It is often \"silent\" until a bone breaks; fractures happen most often in the hip, spine and wrist.",
-      "location": "The supplied pelvis shows compact and spongy bone tissue. Osteoporosis can affect any bone.",
+      "location": "The supplied pelvis shows compact and spongy bone tissue. Fractures can occur in any bone.",
       "focus_id": "anatomy.spongy-bone",
       "related_anatomy": [
         "anatomy.spongy-bone",
@@ -9388,7 +9397,8 @@
       "geometry_mode": "reference_location_only",
       "source_ids": [
         "nci-pancreatic-cancer",
-        "seer-accessory"
+        "seer-accessory",
+        "niddk-digestive"
       ],
       "review_status": "draft",
       "expert_review": "pending",
@@ -9445,7 +9455,7 @@
     "condition.ovarian-cancer": {
       "title": "Ovarian cancer",
       "summary": "Ovarian epithelial cancer, Fallopian tube cancer and primary peritoneal cancer form in the same kind of tissue and are treated the same way. These cancers are often advanced when diagnosed.",
-      "location": "The ovaries lie on each side of the uterus, each next to a Fallopian tube.",
+      "location": "The ovaries lie one on each side of the uterus, in the side walls of the pelvic cavity.",
       "focus_id": "anatomy.ovaries",
       "related_anatomy": [
         "anatomy.ovaries",
@@ -9469,7 +9479,7 @@
     "condition.uterine-cancer": {
       "title": "Uterine cancer",
       "summary": "Uterine cancers are of two types: endometrial cancer, which is common and can often be cured, and uterine sarcoma, which is rare and often more aggressive.",
-      "location": "The uterus is a muscular organ in the pelvis.",
+      "location": "The uterus is a muscular organ in which a fetus develops.",
       "focus_id": "anatomy.uterus",
       "related_anatomy": [
         "anatomy.uterus"
@@ -10071,9 +10081,10 @@
       "nci-def-pancreatic-duct",
       "nci-def-pelvis",
       "nci-def-pineal-gland",
+      "nci-def-prostate",
       "nci-def-sclera",
       "nci-def-seminal-vesicle",
-      "nci-def-tendon",
+      "nci-def-trachea",
       "nci-def-ureter",
       "nci-def-urethra",
       "nci-def-vas-deferens",
