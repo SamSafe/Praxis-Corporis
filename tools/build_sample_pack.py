@@ -61,7 +61,9 @@ def source_label(node: dict) -> str:
 
 
 def build_body(record: dict) -> tuple[dict, dict]:
-    path = ROOT / record["local_path"]
+    # A supplemented body is the United file plus later HRA organs appended after its
+    # own nodes (tools/build_hra_supplements.py); United node indices are unchanged.
+    path = ROOT / record.get("supplemented_path", record["local_path"])
     document = read_glb(path)
     audit = inventory(path, record["anatomy_root"])
     indices = descendants(document, audit["anatomy_root"])
@@ -102,9 +104,9 @@ def build_body(record: dict) -> tuple[dict, dict]:
     return {
         "id": record["body_id"],
         "label": record["label"],
-        "asset_path": record["local_path"],
-        "sha256": record["sha256"],
-        "bytes": record["bytes"],
+        "asset_path": record.get("supplemented_path", record["local_path"]),
+        "sha256": record.get("supplemented_sha256", record["sha256"]),
+        "bytes": record.get("supplemented_bytes", record["bytes"]),
         "root_id": "anatomy.body",
         "structures": records,
         "coordinates": "Original glTF metre coordinates and Y-up axes; no registration or scaling applied.",
@@ -119,7 +121,7 @@ def main() -> None:
     for record in manifest["files"]:
         if "body_id" in record:
             body, audit = build_body(record)
-            if audit["sha256"] != record["sha256"]:
+            if audit["sha256"] != record.get("supplemented_sha256", record["sha256"]):
                 raise ValueError("Source hash differs from the pinned manifest")
             bodies.append(body)
             audits[body["id"]] = audit

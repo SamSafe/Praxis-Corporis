@@ -9,7 +9,7 @@ the brain, eyes and knees, for 63 cards and 25 conditions.
 [Revisions 3 and 4](#revisions-3-and-4-vessels-organ-interiors-airways-skin-and-bone)
 bring the totals to 112 cards and 54 conditions, and
 [revision 5](#revision-5-dictionary-terms-brain-fluid-spaces-and-more-cancers)
-to 196 cards and 107 conditions.
+to 200 cards and 117 conditions.
 
 **Everything here is a private draft.** Every record keeps `review_status: draft`
 with human source review and expert review pending, and the app labels it that
@@ -368,6 +368,41 @@ skeleton and most muscles, and the neck and limb vessels.
   source names; the [mapping test](../tests/test_study_content.py) checks every
   mapping against the catalogue, but anatomical equivalence is unreviewed.
 
+## Revision 8: breasts, tonsils, thyroid and parathyroid glands, and the HRA spine
+
+Added 2026-11-21 as `body-study-8-draft`, with new geometry in three bodies:
+
+- **HRA bodies.** [tools/build_hra_supplements.py](../tools/build_hra_supplements.py)
+  appends later HRA organs to each United v1.1 body: the female mammary glands
+  (HRA v1.3), the palatine tonsils of both bodies (v1.4), and the spinal cord and
+  vertebrae of both bodies (v1.2). They share the United coordinate frame (the
+  v1.4 larynx matches the United thyroid cartilage's width exactly, and the v1.2
+  heart encloses the United left ventricle with the same outer edge), and existing node indices and catalogue IDs are unchanged
+  ([audit](audit/HRA_SUPPLEMENTS.md)).
+- **Complete male body.** The thyroid gland, four parathyroid glands and the
+  sublingual glands come from BodyParts3D / Anatomography 4.3, which shares the
+  4.0 frame (five shared meshes have identical bounds).
+- **New cards (4):** breasts (female), palatine tonsils (both HRA bodies), thyroid
+  and parathyroid glands (complete body). The spinal cord and vertebral column
+  cards now also resolve on both HRA bodies, and the salivary-glands card
+  includes the sublingual glands.
+- **New conditions (10):** breast cancer, benign breast changes, tonsillitis,
+  hypothyroidism, hyperthyroidism, Hashimoto's disease, Graves' disease, thyroid
+  nodules, thyroid cancer and primary hyperparathyroidism. Spinal cord injury,
+  scoliosis and back pain now also appear on the HRA bodies.
+
+### Revision 8 limits
+
+- **Still absent from every open source found:** the parotid glands, the scrotum,
+  the female external genitalia (vulva) and the pharyngeal and lingual tonsils.
+  No openly licensed model was found in the HRA library (to its latest
+  release) or BodyParts3D 4.0 and 4.3.
+- **No complete female body.** The female body has every HRA female organ, but
+  no open source supplies a full female skeleton or muscle set; those exist only
+  in the male BodyParts3D body, which is not aligned to the female body.
+- **Licence.** The BodyParts3D 4.3 meshes are CC BY-SA 2.1 Japan, from a public
+  mirror pinned by commit and checked by SHA-256 and file headers.
+
 ## Deliberate limits
 
 - **Sources (revision 1).** Claims come only from NIH pages: NHLBI, NIDDK, NICHD and NCI SEER
@@ -614,3 +649,21 @@ skeleton and most muscles, and the neck and limb vessels.
 - `seer-testes`: [NCI SEER Training: Testes](https://training.seer.cancer.gov/anatomy/reproductive/male/testes.html)
 - `tm-radius`: [TeachMeAnatomy: The radius](https://teachmeanatomy.info/upper-limb/bones/radius/)
 - `tm-ulna`: [TeachMeAnatomy: The ulna](https://teachmeanatomy.info/upper-limb/bones/ulna/)
+- `mlp-breast-diseases`: [MedlinePlus: Breast diseases](https://medlineplus.gov/breastdiseases.html)
+- `mlp-thyroid-nodules`: [MedlinePlus Medical Encyclopedia: Thyroid nodule](https://medlineplus.gov/ency/article/007265.htm)
+- `mlp-tonsillitis`: [MedlinePlus: Tonsillitis](https://medlineplus.gov/tonsillitis.html)
+- `nci-breast-cancer`: [NCI: Breast cancer](https://www.cancer.gov/types/breast)
+- `nci-def-areola`: [NCI Dictionary of Cancer Terms: areola](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/areola)
+- `nci-def-breast`: [NCI Dictionary of Cancer Terms: breast](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/breast)
+- `nci-def-nipple`: [NCI Dictionary of Cancer Terms: nipple](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/nipple)
+- `nci-def-parathyroid-gland`: [NCI Dictionary of Cancer Terms: parathyroid gland](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/parathyroid-gland)
+- `nci-def-thyroid`: [NCI Dictionary of Cancer Terms: thyroid](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/thyroid)
+- `nci-def-tonsil`: [NCI Dictionary of Cancer Terms: tonsil](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/tonsil)
+- `nci-thyroid-cancer`: [NCI: Thyroid cancer - patient version](https://www.cancer.gov/types/thyroid)
+- `niddk-graves`: [NIDDK: Graves' disease](https://www.niddk.nih.gov/health-information/endocrine-diseases/graves-disease)
+- `niddk-hashimotos`: [NIDDK: Hashimoto's disease](https://www.niddk.nih.gov/health-information/endocrine-diseases/hashimotos-disease)
+- `niddk-hyperparathyroidism`: [NIDDK: Primary hyperparathyroidism](https://www.niddk.nih.gov/health-information/endocrine-diseases/primary-hyperparathyroidism)
+- `niddk-hyperthyroidism`: [NIDDK: Hyperthyroidism (overactive thyroid)](https://www.niddk.nih.gov/health-information/endocrine-diseases/hyperthyroidism)
+- `niddk-hypothyroidism`: [NIDDK: Hypothyroidism (underactive thyroid)](https://www.niddk.nih.gov/health-information/endocrine-diseases/hypothyroidism)
+- `seer-thyroid`: [NCI SEER Training: Thyroid and parathyroid glands](https://training.seer.cancer.gov/anatomy/endocrine/glands/thyroid.html)
+- `seer-tonsils`: [NCI SEER Training: Tonsils](https://training.seer.cancer.gov/anatomy/lymphatic/components/tonsils.html)

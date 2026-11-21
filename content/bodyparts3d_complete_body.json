@@ -5,8 +5,8 @@
   "study": true,
   "study_kind": "bodyparts3d-complete",
   "asset_path": "assets/bodyparts3d/complete-body.glb",
-  "sha256": "a06fc78c3b8c36f55a3c53ba63ff288af5267049d34788c81d2b19f9f23044a1",
-  "bytes": 182473384,
+  "sha256": "9e3b751a4f34cc018cc01c127a7e6187d29bf29c5b9ef9b222eb22353c6eac9c",
+  "bytes": 183462852,
   "root_id": "anatomy.body",
   "qa_leaf_id": "source.bodyparts3d-v4-complete.FJ2564",
   "structures": [
@@ -2237,7 +2237,14 @@
         2218,
         2219,
         2220,
-        2221
+        2221,
+        2222,
+        2223,
+        2224,
+        2225,
+        2226,
+        2227,
+        2228
       ],
       "children": [
         "source.bodyparts3d-v4-complete.FMA7152",
@@ -2351,7 +2358,9 @@
         1452,
         1453,
         1454,
+        1457,
         1458,
+        1459,
         1460,
         1507,
         1508,
@@ -6525,7 +6534,9 @@
         1452,
         1453,
         1454,
+        1457,
         1458,
+        1459,
         1460
       ],
       "children": [
@@ -6533,6 +6544,7 @@
         "source.bodyparts3d-v4-complete.FMA59763",
         "source.bodyparts3d-v4-complete.FMA59398",
         "source.bodyparts3d-v4-complete.FMA55021",
+        "source.bodyparts3d-complete.group.sublingual",
         "anatomy.tongue"
       ],
       "parent": "source.bodyparts3d-v4-complete.FMA7152",
@@ -6843,6 +6855,49 @@
       ],
       "children": [],
       "parent": "source.bodyparts3d-v4-complete.FMA46733",
+      "review_status": "draft"
+    },
+    {
+      "id": "source.bodyparts3d-complete.group.sublingual",
+      "label": "Sublingual glands",
+      "source_node": 0,
+      "source_name": "v43:sublingual",
+      "ontology": "",
+      "mesh_nodes": [
+        1457,
+        1459
+      ],
+      "children": [
+        "source.bodyparts3d-v4-complete.FJ2765",
+        "source.bodyparts3d-v4-complete.FJ2767"
+      ],
+      "parent": "source.bodyparts3d-v4-complete.FMA49184",
+      "review_status": "draft"
+    },
+    {
+      "id": "source.bodyparts3d-v4-complete.FJ2765",
+      "label": "Left sublingual gland",
+      "source_node": 1457,
+      "source_name": "FJ2765",
+      "ontology": "FMA59805",
+      "mesh_nodes": [
+        1457
+      ],
+      "children": [],
+      "parent": "source.bodyparts3d-complete.group.sublingual",
+      "review_status": "draft"
+    },
+    {
+      "id": "source.bodyparts3d-v4-complete.FJ2767",
+      "label": "Right sublingual gland",
+      "source_node": 1459,
+      "source_name": "FJ2767",
+      "ontology": "FMA59804",
+      "mesh_nodes": [
+        1459
+      ],
+      "children": [],
+      "parent": "source.bodyparts3d-complete.group.sublingual",
       "review_status": "draft"
     },
     {
@@ -35605,12 +35660,21 @@
       "mesh_nodes": [
         713,
         1761,
-        1762
+        1762,
+        2222,
+        2223,
+        2224,
+        2225,
+        2226,
+        2227,
+        2228
       ],
       "children": [
         "source.bodyparts3d-v4-complete.FMA15630",
+        "anatomy.parathyroid-glands",
         "anatomy.pituitary",
-        "source.bodyparts3d-v4-complete.FMA15629"
+        "source.bodyparts3d-v4-complete.FMA15629",
+        "anatomy.thyroid"
       ],
       "parent": "anatomy.body",
       "review_status": "draft"
@@ -35641,6 +35705,79 @@
       ],
       "children": [],
       "parent": "source.bodyparts3d-v4-complete.FMA15630",
+      "review_status": "draft"
+    },
+    {
+      "id": "anatomy.parathyroid-glands",
+      "label": "Parathyroid glands",
+      "source_node": 0,
+      "source_name": "v43:parathyroid",
+      "ontology": "",
+      "mesh_nodes": [
+        2225,
+        2226,
+        2227,
+        2228
+      ],
+      "children": [
+        "source.bodyparts3d-v4-complete.FJ3673",
+        "source.bodyparts3d-v4-complete.FJ3674",
+        "source.bodyparts3d-v4-complete.FJ3675",
+        "source.bodyparts3d-v4-complete.FJ3676"
+      ],
+      "parent": "source.bodyparts3d-v4-complete.FMA9668",
+      "review_status": "draft"
+    },
+    {
+      "id": "source.bodyparts3d-v4-complete.FJ3673",
+      "label": "Left inferior parathyroid gland",
+      "source_node": 2225,
+      "source_name": "FJ3673",
+      "ontology": "FMA55563",
+      "mesh_nodes": [
+        2225
+      ],
+      "children": [],
+      "parent": "anatomy.parathyroid-glands",
+      "review_status": "draft"
+    },
+    {
+      "id": "source.bodyparts3d-v4-complete.FJ3674",
+      "label": "Left superior parathyroid gland",
+      "source_node": 2226,
+      "source_name": "FJ3674",
+      "ontology": "FMA55561",
+      "mesh_nodes": [
+        2226
+      ],
+      "children": [],
+      "parent": "anatomy.parathyroid-glands",
+      "review_status": "draft"
+    },
+    {
+      "id": "source.bodyparts3d-v4-complete.FJ3675",
+      "label": "Right inferior parathyroid gland",
+      "source_node": 2227,
+      "source_name": "FJ3675",
+      "ontology": "FMA55562",
+      "mesh_nodes": [
+        2227
+      ],
+      "children": [],
+      "parent": "anatomy.parathyroid-glands",
+      "review_status": "draft"
+    },
+    {
+      "id": "source.bodyparts3d-v4-complete.FJ3676",
+      "label": "Right superior parathyroid gland",
+      "source_node": 2228,
+      "source_name": "FJ3676",
+      "ontology": "FMA55560",
+      "mesh_nodes": [
+        2228
+      ],
+      "children": [],
+      "parent": "anatomy.parathyroid-glands",
       "review_status": "draft"
     },
     {
@@ -35697,6 +35834,64 @@
       ],
       "children": [],
       "parent": "source.bodyparts3d-v4-complete.FMA15629",
+      "review_status": "draft"
+    },
+    {
+      "id": "anatomy.thyroid",
+      "label": "Thyroid gland",
+      "source_node": 0,
+      "source_name": "v43:thyroid",
+      "ontology": "",
+      "mesh_nodes": [
+        2222,
+        2223,
+        2224
+      ],
+      "children": [
+        "source.bodyparts3d-v4-complete.FJ3670",
+        "source.bodyparts3d-v4-complete.FJ3671",
+        "source.bodyparts3d-v4-complete.FJ3672"
+      ],
+      "parent": "source.bodyparts3d-v4-complete.FMA9668",
+      "review_status": "draft"
+    },
+    {
+      "id": "source.bodyparts3d-v4-complete.FJ3670",
+      "label": "Isthmus of thyroid gland",
+      "source_node": 2222,
+      "source_name": "FJ3670",
+      "ontology": "FMA49178",
+      "mesh_nodes": [
+        2222
+      ],
+      "children": [],
+      "parent": "anatomy.thyroid",
+      "review_status": "draft"
+    },
+    {
+      "id": "source.bodyparts3d-v4-complete.FJ3671",
+      "label": "Left lobe of thyroid gland",
+      "source_node": 2223,
+      "source_name": "FJ3671",
+      "ontology": "FMA13369",
+      "mesh_nodes": [
+        2223
+      ],
+      "children": [],
+      "parent": "anatomy.thyroid",
+      "review_status": "draft"
+    },
+    {
+      "id": "source.bodyparts3d-v4-complete.FJ3672",
+      "label": "Right lobe of thyroid gland",
+      "source_node": 2224,
+      "source_name": "FJ3672",
+      "ontology": "FMA13368",
+      "mesh_nodes": [
+        2224
+      ],
+      "children": [],
+      "parent": "anatomy.thyroid",
       "review_status": "draft"
     },
     {
@@ -36604,8 +36799,6 @@
         1451,
         1455,
         1456,
-        1457,
-        1459,
         1461,
         1462,
         1464,
@@ -46569,8 +46762,6 @@
         1448,
         1455,
         1456,
-        1457,
-        1459,
         1461,
         1462,
         1464,
@@ -46670,7 +46861,6 @@
         "source.bodyparts3d-v4-complete.FJ3137",
         "source.bodyparts3d-v4-complete.FJ1778",
         "source.bodyparts3d-v4-complete.FJ2763",
-        "source.bodyparts3d-v4-complete.FJ2765",
         "source.bodyparts3d-v4-complete.FJ3138",
         "source.bodyparts3d-v4-complete.FJ2786",
         "source.bodyparts3d-v4-complete.FJ2787",
@@ -46695,7 +46885,6 @@
         "source.bodyparts3d-v4-complete.FJ2756",
         "source.bodyparts3d-v4-complete.FJ3143",
         "source.bodyparts3d-v4-complete.FJ2764",
-        "source.bodyparts3d-v4-complete.FJ2767",
         "source.bodyparts3d-v4-complete.FJ3142",
         "source.bodyparts3d-v4-complete.FJ2804",
         "source.bodyparts3d-v4-complete.FJ2805",
@@ -47471,19 +47660,6 @@
       "review_status": "draft"
     },
     {
-      "id": "source.bodyparts3d-v4-complete.FJ2765",
-      "label": "Left sublingual gland",
-      "source_node": 1457,
-      "source_name": "FJ2765",
-      "ontology": "FMA59805",
-      "mesh_nodes": [
-        1457
-      ],
-      "children": [],
-      "parent": "source.bodyparts3d-complete.group.other",
-      "review_status": "draft"
-    },
-    {
       "id": "source.bodyparts3d-v4-complete.FJ3138",
       "label": "Left testis",
       "source_node": 1770,
@@ -47790,19 +47966,6 @@
       "ontology": "FMA72309",
       "mesh_nodes": [
         1456
-      ],
-      "children": [],
-      "parent": "source.bodyparts3d-complete.group.other",
-      "review_status": "draft"
-    },
-    {
-      "id": "source.bodyparts3d-v4-complete.FJ2767",
-      "label": "Right sublingual gland",
-      "source_node": 1459,
-      "source_name": "FJ2767",
-      "ontology": "FMA59804",
-      "mesh_nodes": [
-        1459
       ],
       "children": [],
       "parent": "source.bodyparts3d-complete.group.other",
@@ -60555,14 +60718,14 @@
     }
   ],
   "coordinates": "[x,z,-y] * 0.001; millimetres to glTF metres and Z-up to Y-up; source normals retained",
-  "coverage": "2221 source meshes from the official BodyParts3D v4.0 archive (13 repeated source meshes kept once). Adult male only; no alignment to the HRA bodies.",
+  "coverage": "2228 source meshes: the official BodyParts3D v4.0 archive (13 repeated source meshes kept once) plus thyroid, parathyroid and sublingual glands from BodyParts3D 4.3. Adult male only; no alignment to the HRA bodies.",
   "coverage_notes": {
     "audit_date": "2026-11-21",
     "source_label": "BodyParts3D v4.0 complete body",
     "reference_ids": [
       "bodyparts-male-complete"
     ],
-    "notice": "Separate adult male body built from every BodyParts3D v4.0 source mesh. No registration to the HRA references or female anatomy. Imported geometry and names remain unreviewed.",
+    "notice": "Separate adult male body built from every BodyParts3D v4.0 source mesh, with the thyroid, parathyroid and sublingual glands from BodyParts3D 4.3. No registration to the HRA references or female anatomy. Imported geometry and names remain unreviewed.",
     "systems": [
       {
         "id": "complete",
@@ -60571,9 +60734,9 @@
           "bodyparts-male-complete": "anatomy.body"
         },
         "supplied": {
-          "bodyparts-male-complete": "2221 source meshes: organs, bones, muscles, vessels and nerves."
+          "bodyparts-male-complete": "2228 source meshes: organs, glands, bones, muscles, vessels and nerves."
         },
-        "gaps": "The source has no thyroid gland, tonsils, parotid glands, breasts or scrotum, and no female anatomy. The archive is the 99% polygon-reduced version. Presence does not establish completeness, interiors or clinical suitability."
+        "gaps": "BodyParts3D has no tonsils, parotid glands, breasts or scrotum, and no female anatomy. The archive is the 99% polygon-reduced version. Presence does not establish completeness, interiors or clinical suitability."
       }
     ]
   }

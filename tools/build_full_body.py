@@ -66,6 +66,10 @@ def verify_inputs(folder: pathlib.Path, manifest: dict) -> None:
         if path.suffix in (".zip", ".txt") and (not path.exists() or path.stat().st_size != record["bytes"]
                                                 or hashlib.sha256(path.read_bytes()).hexdigest() != record["sha256"]):
             raise ValueError("Source input differs from the pinned manifest: " + path.name)
+        if record.get("release") == "4.3":
+            local = ROOT / record["local_path"]
+            if not local.exists() or local.stat().st_size != record["bytes"] or hashlib.sha256(local.read_bytes()).hexdigest() != record["sha256"]:
+                raise ValueError("4.3 mesh differs from the pinned manifest: " + local.name)
 
 
 def box_overlap(a: dict, b: dict) -> float:
@@ -117,6 +121,26 @@ def build(folder: pathlib.Path, output: pathlib.Path, catalogue: pathlib.Path) -
             elements[file_id] = {"headers": headers, "vertices": vertices, "normals": normals,
                                  "indices": indices, "box": box, "partof": file_id in partof_files}
 
+    # BodyParts3D 4.3 meshes absent from the 4.0 archive (thyroid, parathyroid and
+    # sublingual glands). 4.3 shares 4.0's frame; each file must match its pinned hash.
+    supplement_groups = {}
+    for record in manifest["files"]:
+        if record.get("release") != "4.3":
+            continue
+        path = ROOT / record["local_path"]
+        with path.open("rb") as stream:
+            headers, vertices, normals, indices = read_geometry(stream)
+        file_id = path.name.split("_", 1)[0]
+        if headers.get("File ID") != file_id:
+            raise ValueError("4.3 file identity mismatch: " + path.name)
+        box = {"min": [min(v[axis] for v in vertices) for axis in range(3)],
+               "max": [max(v[axis] for v in vertices) for axis in range(3)]}
+        elements[file_id] = {"headers": headers, "vertices": vertices, "normals": normals,
+                             "indices": indices, "box": box, "partof": False}
+        name = headers.get("English name", "").lower()
+        group = "v43:parathyroid" if "parathyroid" in name else "v43:thyroid" if "thyroid gland" in name else "v43:sublingual"
+        supplement_groups[file_id] = group
+
     # Drop repeated source meshes: near-identical bounds and vertex counts. Keep the
     # PART-OF copy, then a file without the mirrored "M" suffix, then the lower ID.
     rank = lambda fid: (not elements[fid]["partof"], fid.endswith("M"), int(re.sub(r"\D", "", fid)))
@@ -159,6 +183,8 @@ def build(folder: pathlib.Path, output: pathlib.Path, catalogue: pathlib.Path) -
                 used_concepts.add(node)
                 node = parent[node]
             used_concepts.add(node)
+        elif file_id in supplement_groups:
+            leaf_parent[file_id] = supplement_groups[file_id]
         else:
             ancestry, frontier = [], [concept]
             seen = set()
@@ -179,7 +205,13 @@ def build(folder: pathlib.Path, output: pathlib.Path, catalogue: pathlib.Path) -
     for file_id, owner in leaf_parent.items():
         concept_children[owner].append(file_id)
 
-    concept_id_for = {}
+    # Place the 4.3 glands: thyroid and parathyroid under the endocrine system,
+    # sublingual glands under the mouth.
+    by_label = {names[c].lower(): c for c in used_concepts}
+    for group, home in (("v43:thyroid", "endocrine system"), ("v43:parathyroid", "endocrine system"), ("v43:sublingual", "mouth")):
+        if any(g == group for g in supplement_groups.values()):
+            concept_children[by_label[home]].append(group)
+    concept_id_for = {"v43:thyroid": "anatomy.thyroid", "v43:parathyroid": "anatomy.parathyroid-glands"}
     by_name = {names[c].lower(): c for c in used_concepts}
     leaf_by_name = collections.defaultdict(list)
     for file_id in kept:
@@ -262,6 +294,8 @@ def build(folder: pathlib.Path, output: pathlib.Path, catalogue: pathlib.Path) -
             text = elements[node]["headers"].get("English name", node)
         elif node.startswith("extra:"):
             text = next(label for key, label, _ in EXTRA_GROUPS if key == node[6:])
+        elif node.startswith("v43:"):
+            text = {"v43:thyroid": "Thyroid gland", "v43:parathyroid": "Parathyroid glands", "v43:sublingual": "Sublingual glands"}[node]
         elif node == "group:regions":
             text = "By region (source groupings)"
         elif node == "group:extras":
@@ -306,13 +340,13 @@ def build(folder: pathlib.Path, output: pathlib.Path, catalogue: pathlib.Path) -
             "asset_path": output.relative_to(ROOT).as_posix(), "sha256": hashlib.sha256(glb).hexdigest(), "bytes": len(glb),
             "root_id": "anatomy.body", "qa_leaf_id": qa_leaf, "structures": records,
             "coordinates": document["extras"]["conversion"],
-            "coverage": f"{len(kept)} source meshes from the official BodyParts3D v4.0 archive ({len(duplicates)} repeated source meshes kept once). Adult male only; no alignment to the HRA bodies."}
+            "coverage": f"{len(kept)} source meshes: the official BodyParts3D v4.0 archive ({len(duplicates)} repeated source meshes kept once) plus thyroid, parathyroid and sublingual glands from BodyParts3D 4.3. Adult male only; no alignment to the HRA bodies."}
     body["coverage_notes"] = {
         "audit_date": "2026-11-21", "source_label": "BodyParts3D v4.0 complete body", "reference_ids": [BODY_ID],
-        "notice": "Separate adult male body built from every BodyParts3D v4.0 source mesh. No registration to the HRA references or female anatomy. Imported geometry and names remain unreviewed.",
+        "notice": "Separate adult male body built from every BodyParts3D v4.0 source mesh, with the thyroid, parathyroid and sublingual glands from BodyParts3D 4.3. No registration to the HRA references or female anatomy. Imported geometry and names remain unreviewed.",
         "systems": [{"id": "complete", "label": "Source part-of tree and grouped extras", "roots": {BODY_ID: "anatomy.body"},
-                     "supplied": {BODY_ID: f"{len(kept)} source meshes: organs, bones, muscles, vessels and nerves."},
-                     "gaps": "The source has no thyroid gland, tonsils, parotid glands, breasts or scrotum, and no female anatomy. The archive is the 99% polygon-reduced version. Presence does not establish completeness, interiors or clinical suitability."}]}
+                     "supplied": {BODY_ID: f"{len(kept)} source meshes: organs, glands, bones, muscles, vessels and nerves."},
+                     "gaps": "BodyParts3D has no tonsils, parotid glands, breasts or scrotum, and no female anatomy. The archive is the 99% polygon-reduced version. Presence does not establish completeness, interiors or clinical suitability."}]}
     catalogue.parent.mkdir(parents=True, exist_ok=True)
     catalogue.write_text(json.dumps(body, indent=2) + "\n")
     print(f"Complete body: {len(kept)} meshes ({len(duplicates)} duplicates removed), {len(records)} structures, "

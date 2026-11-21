@@ -1773,7 +1773,7 @@ static func run(viewer: Control, rendered: bool) -> bool:
 	var redo: Array = viewer.model.redo_stack.duplicate(true)
 	var back: Array = viewer.back_views.duplicate(true)
 	var forward: Array = viewer.forward_views.duplicate(true)
-	var valid: bool = viewer.study_content.data.get("cards", {}).size() == 196
+	var valid: bool = viewer.study_content.data.get("cards", {}).size() == 200
 	valid = valid and viewer.study_content.error.is_empty()
 	if viewer.model.body.id == "female":
 		valid = await verify_cancel_loading(viewer) and valid
@@ -2075,13 +2075,13 @@ static func verify_conditions(viewer: Control, rendered: bool) -> bool:
 	large.text_scale = 1.3
 	viewer.apply_preferences(large)
 	viewer.get_window().size = Vector2i(1100, 720)
-	var valid: bool = viewer.study_content.data.get("conditions", {}).size() == 107
+	var valid: bool = viewer.study_content.data.get("conditions", {}).size() == 117
 	var available: Array[String] = []
 	for id in viewer.study_content.data.conditions:
 		if viewer.study_content.condition_available(id, viewer.model.structures):
 			available.append(str(id))
 	# Both adult references share 58 conditions; the female body adds 6 sex-specific ones and the male body 2.
-	valid = valid and available.size() == (76 if viewer.model.body.id == "female" else 73)
+	valid = valid and available.size() == (82 if viewer.model.body.id == "female" else 77)
 	for id in available:
 		var dialog: Window = viewer.show_condition(id)
 		if dialog == null:

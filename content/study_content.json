@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": "body-study-7-draft",
+  "revision": "body-study-8-draft",
   "review_status": "draft",
   "expert_review": "pending",
   "scope": "Private draft explanations covering the chest, abdomen, pelvis, brain, eyes, knees and skin, including selected vessels, kidney interior, intestines, airways, bone tissue and the lymphatic system. General anatomy is separate from completeness and accuracy of the supplied source meshes. No source illustrations or video are reused.",
@@ -904,6 +904,78 @@
     "mlp-hiccups": {
       "title": "MedlinePlus Medical Encyclopedia: Hiccups",
       "url": "https://medlineplus.gov/ency/article/003068.htm"
+    },
+    "nci-def-breast": {
+      "title": "NCI Dictionary of Cancer Terms: breast",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/breast"
+    },
+    "nci-def-nipple": {
+      "title": "NCI Dictionary of Cancer Terms: nipple",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/nipple"
+    },
+    "nci-def-areola": {
+      "title": "NCI Dictionary of Cancer Terms: areola",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/areola"
+    },
+    "nci-def-tonsil": {
+      "title": "NCI Dictionary of Cancer Terms: tonsil",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/tonsil"
+    },
+    "nci-def-thyroid": {
+      "title": "NCI Dictionary of Cancer Terms: thyroid",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/thyroid"
+    },
+    "nci-def-parathyroid-gland": {
+      "title": "NCI Dictionary of Cancer Terms: parathyroid gland",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/parathyroid-gland"
+    },
+    "seer-thyroid": {
+      "title": "NCI SEER Training: Thyroid and parathyroid glands",
+      "url": "https://training.seer.cancer.gov/anatomy/endocrine/glands/thyroid.html"
+    },
+    "seer-tonsils": {
+      "title": "NCI SEER Training: Tonsils",
+      "url": "https://training.seer.cancer.gov/anatomy/lymphatic/components/tonsils.html"
+    },
+    "nci-breast-cancer": {
+      "title": "NCI: Breast cancer",
+      "url": "https://www.cancer.gov/types/breast"
+    },
+    "mlp-breast-diseases": {
+      "title": "MedlinePlus: Breast diseases",
+      "url": "https://medlineplus.gov/breastdiseases.html"
+    },
+    "mlp-tonsillitis": {
+      "title": "MedlinePlus: Tonsillitis",
+      "url": "https://medlineplus.gov/tonsillitis.html"
+    },
+    "niddk-hypothyroidism": {
+      "title": "NIDDK: Hypothyroidism (underactive thyroid)",
+      "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/hypothyroidism"
+    },
+    "niddk-hyperthyroidism": {
+      "title": "NIDDK: Hyperthyroidism (overactive thyroid)",
+      "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/hyperthyroidism"
+    },
+    "nci-thyroid-cancer": {
+      "title": "NCI: Thyroid cancer - patient version",
+      "url": "https://www.cancer.gov/types/thyroid"
+    },
+    "mlp-thyroid-nodules": {
+      "title": "MedlinePlus Medical Encyclopedia: Thyroid nodule",
+      "url": "https://medlineplus.gov/ency/article/007265.htm"
+    },
+    "niddk-hashimotos": {
+      "title": "NIDDK: Hashimoto's disease",
+      "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/hashimotos-disease"
+    },
+    "niddk-graves": {
+      "title": "NIDDK: Graves' disease",
+      "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/graves-disease"
+    },
+    "niddk-hyperparathyroidism": {
+      "title": "NIDDK: Primary hyperparathyroidism",
+      "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/primary-hyperparathyroidism"
     }
   },
   "cards": {
@@ -9024,7 +9096,19 @@
       ],
       "review_status": "draft",
       "expert_review": "pending",
-      "human_source_review": "pending"
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n1107",
+          "source_name": "VH_F_spinal_cord",
+          "ontology": ""
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n1079",
+          "source_name": "VH_M_spinal_cord",
+          "ontology": ""
+        }
+      }
     },
     "anatomy.pituitary": {
       "overview": "A pea-sized gland attached to the hypothalamus at the base of the brain. It rests in a hollow of the sphenoid bone and has anterior and posterior lobes.",
@@ -9089,7 +9173,19 @@
       ],
       "review_status": "draft",
       "expert_review": "pending",
-      "human_source_review": "pending"
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n1137",
+          "source_name": "VH_F_vertebrae",
+          "ontology": ""
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n1110",
+          "source_name": "VH_M_vertebrae",
+          "ontology": ""
+        }
+      }
     },
     "anatomy.adrenal-glands": {
       "overview": "A pair of small, triangle-shaped glands, one on top of each kidney. Each has an outer cortex and an inner medulla.",
@@ -9613,7 +9709,7 @@
       }
     },
     "anatomy.salivary-glands": {
-      "overview": "The submandibular glands, one of the three pairs of major salivary glands.",
+      "overview": "The submandibular and sublingual glands, two of the three pairs of major salivary glands. The parotid glands, the third pair, are not supplied.",
       "function": "Salivary glands make saliva and empty it into the mouth through ducts.",
       "related": [
         "anatomy.tongue",
@@ -9637,6 +9733,11 @@
             "id": "source.bodyparts3d-v4-complete.FMA59802",
             "source_name": "FMA59802",
             "ontology": "FMA59802"
+          },
+          {
+            "id": "source.bodyparts3d-complete.group.sublingual",
+            "source_name": "v43:sublingual",
+            "ontology": ""
           }
         ]
       }
@@ -10241,6 +10342,89 @@
           "ontology": "FMA10446"
         }
       }
+    },
+    "anatomy.breasts": {
+      "overview": "The breasts (mammary glands): glandular organs on the chest made of connective tissue, fat, and breast tissue containing the glands that can make milk.",
+      "function": "Their glands can make milk, which can flow out through the nipple, the small raised area in the center of each breast. The areola is the darker skin surrounding the nipple.",
+      "related": [
+        "anatomy.lung.left",
+        "anatomy.lung.right",
+        "anatomy.skin"
+      ],
+      "source_ids": [
+        "nci-def-breast",
+        "nci-def-nipple",
+        "nci-def-areola"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n1103",
+          "source_name": "VH_F_mammary_glands",
+          "ontology": ""
+        }
+      }
+    },
+    "anatomy.tonsils": {
+      "overview": "The palatine tonsils: two small masses of lymphoid tissue on either side of the throat, near where the mouth opens into the pharynx.",
+      "function": "Lymphocytes and macrophages in the tonsils help protect against harmful substances and germs entering through the nose or mouth. The pharyngeal tonsils (adenoids) and lingual tonsils are not supplied here.",
+      "related": [
+        "anatomy.tongue",
+        "anatomy.pharynx-muscles",
+        "anatomy.lymph-node"
+      ],
+      "source_ids": [
+        "nci-def-tonsil",
+        "seer-tonsils"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n1106",
+          "source_name": "VH_F_palatine_tonsils",
+          "ontology": ""
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n1078",
+          "source_name": "VH_M_palatine_tonsils",
+          "ontology": ""
+        }
+      }
+    },
+    "anatomy.thyroid": {
+      "overview": "A very vascular gland in the neck, beneath the larynx. Its two lobes lie on each side of the trachea and are joined by a narrow band called the isthmus.",
+      "function": "Makes thyroid hormones, which contain iodine and help regulate growth and metabolism, and the hormone calcitonin.",
+      "related": [
+        "anatomy.parathyroid-glands",
+        "anatomy.trachea",
+        "anatomy.larynx",
+        "anatomy.pituitary"
+      ],
+      "source_ids": [
+        "nci-def-thyroid",
+        "seer-thyroid"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    },
+    "anatomy.parathyroid-glands": {
+      "overview": "Four pea-sized glands on the surface of the thyroid, in the neck.",
+      "function": "Their only purpose is to make parathyroid hormone, which raises the calcium level in the blood and keeps the body's calcium in balance.",
+      "related": [
+        "anatomy.thyroid"
+      ],
+      "source_ids": [
+        "nci-def-parathyroid-gland",
+        "niddk-hyperparathyroidism"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
     }
   },
   "routes": {
@@ -13105,6 +13289,218 @@
       "expert_review": "pending",
       "human_source_review": "pending",
       "not_depicted": "Tears are not depicted."
+    },
+    "condition.breast-cancer": {
+      "title": "Breast cancer",
+      "summary": "Breast cancer is the second most common cancer in women after skin cancer. Mammograms can detect it early, possibly before it has spread.",
+      "location": "The breasts are glandular organs on the chest.",
+      "focus_id": "anatomy.breasts",
+      "related_anatomy": [
+        "anatomy.breasts"
+      ],
+      "display_on": [
+        "anatomy.breasts"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nci-breast-cancer",
+        "nci-def-breast"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Tumors and their spread are not depicted."
+    },
+    "condition.breast-changes": {
+      "title": "Benign breast changes",
+      "summary": "Most women have breast changes at some time. Age, hormone levels and medicines can cause lumps, bumps and discharges that are not breast milk. Most breast changes are benign, meaning they are not cancer.",
+      "location": "The breasts are made of connective tissue, fat and glandular tissue.",
+      "focus_id": "anatomy.breasts",
+      "related_anatomy": [
+        "anatomy.breasts"
+      ],
+      "display_on": [
+        "anatomy.breasts"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-breast-diseases",
+        "nci-def-breast"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Lumps and other changes are not depicted."
+    },
+    "condition.tonsillitis": {
+      "title": "Tonsillitis",
+      "summary": "Inflammation (swelling) of the tonsils, usually caused by a viral infection; bacterial infections such as strep throat can also cause it. It is most common in children over age two.",
+      "location": "The palatine tonsils lie on either side of the throat.",
+      "focus_id": "anatomy.tonsils",
+      "related_anatomy": [
+        "anatomy.tonsils"
+      ],
+      "display_on": [
+        "anatomy.tonsils"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-tonsillitis",
+        "seer-tonsils",
+        "nci-def-tonsil"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Swelling and infection are not depicted."
+    },
+    "condition.hypothyroidism": {
+      "title": "Hypothyroidism (underactive thyroid)",
+      "summary": "The thyroid gland does not make enough thyroid hormones to meet the body's needs.",
+      "location": "The thyroid sits in the neck, its two lobes on each side of the trachea.",
+      "focus_id": "anatomy.thyroid",
+      "related_anatomy": [
+        "anatomy.thyroid"
+      ],
+      "display_on": [
+        "anatomy.thyroid"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-hypothyroidism",
+        "seer-thyroid"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Hormone levels are not depicted."
+    },
+    "condition.hyperthyroidism": {
+      "title": "Hyperthyroidism (overactive thyroid)",
+      "summary": "The thyroid gland makes more thyroid hormones than the body needs. With too much thyroid hormone, many of the body's functions speed up.",
+      "location": "The thyroid sits in the neck, its two lobes on each side of the trachea.",
+      "focus_id": "anatomy.thyroid",
+      "related_anatomy": [
+        "anatomy.thyroid"
+      ],
+      "display_on": [
+        "anatomy.thyroid"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-hyperthyroidism",
+        "seer-thyroid"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Hormone levels are not depicted."
+    },
+    "condition.hashimotos": {
+      "title": "Hashimoto's disease",
+      "summary": "An autoimmune disorder that can cause hypothyroidism (underactive thyroid). It is 4 to 10 times more common in women than men.",
+      "location": "The thyroid sits in the neck, beneath the larynx.",
+      "focus_id": "anatomy.thyroid",
+      "related_anatomy": [
+        "anatomy.thyroid"
+      ],
+      "display_on": [
+        "anatomy.thyroid"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-hashimotos",
+        "nci-def-thyroid"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Inflammation and hormone levels are not depicted."
+    },
+    "condition.graves": {
+      "title": "Graves' disease",
+      "summary": "An autoimmune disorder that can cause hyperthyroidism (overactive thyroid).",
+      "location": "The thyroid sits in the neck, beneath the larynx.",
+      "focus_id": "anatomy.thyroid",
+      "related_anatomy": [
+        "anatomy.thyroid"
+      ],
+      "display_on": [
+        "anatomy.thyroid"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-graves",
+        "nci-def-thyroid"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Hormone levels are not depicted."
+    },
+    "condition.thyroid-nodules": {
+      "title": "Thyroid nodules",
+      "summary": "A thyroid nodule is a growth (lump) in the thyroid gland, caused by an overgrowth of cells. Nodules are very common, and can be benign or thyroid cancer.",
+      "location": "The thyroid sits in the neck, beneath the larynx.",
+      "focus_id": "anatomy.thyroid",
+      "related_anatomy": [
+        "anatomy.thyroid"
+      ],
+      "display_on": [
+        "anatomy.thyroid"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-thyroid-nodules",
+        "nci-def-thyroid"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Nodules are not depicted."
+    },
+    "condition.thyroid-cancer": {
+      "title": "Thyroid cancer",
+      "summary": "There are four main types: papillary, follicular, medullary and anaplastic. Papillary is the most common, and thyroid cancer found at an early stage can often be treated successfully.",
+      "location": "The thyroid sits in the neck, its two lobes on each side of the trachea.",
+      "focus_id": "anatomy.thyroid",
+      "related_anatomy": [
+        "anatomy.thyroid"
+      ],
+      "display_on": [
+        "anatomy.thyroid"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nci-thyroid-cancer",
+        "seer-thyroid"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Tumors and their spread are not depicted."
+    },
+    "condition.hyperparathyroidism": {
+      "title": "Primary hyperparathyroidism",
+      "summary": "One or more parathyroid glands is overactive and makes too much parathyroid hormone. Blood calcium then rises too high, which can lead to problems such as bone thinning and kidney stones.",
+      "location": "The four parathyroid glands lie on or near the thyroid gland in the neck.",
+      "focus_id": "anatomy.parathyroid-glands",
+      "related_anatomy": [
+        "anatomy.parathyroid-glands"
+      ],
+      "display_on": [
+        "anatomy.parathyroid-glands",
+        "anatomy.thyroid"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-hyperparathyroidism",
+        "nci-def-parathyroid-gland"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Hormone and calcium levels are not depicted."
     }
   },
   "assistant_checks": {
@@ -13120,6 +13516,7 @@
       "mlp-acl",
       "mlp-alzheimers",
       "mlp-brain",
+      "mlp-breast-diseases",
       "mlp-carotid",
       "mlp-carpal-tunnel",
       "mlp-cerebellum",
@@ -13152,16 +13549,21 @@
       "mlp-strabismus",
       "mlp-stroke",
       "mlp-tbi",
+      "mlp-thyroid-nodules",
+      "mlp-tonsillitis",
       "mlp-tooth-decay",
       "mlp-urethral-disorders",
       "mlp-voice-disorders",
       "nci-bile-duct-cancer",
       "nci-bladder-cancer",
       "nci-brain-tumors",
+      "nci-breast-cancer",
       "nci-cervical-cancer",
       "nci-colorectal-cancer",
       "nci-def-adrenal-gland",
+      "nci-def-areola",
       "nci-def-bile-duct",
+      "nci-def-breast",
       "nci-def-broad-ligament",
       "nci-def-carina-of-trachea",
       "nci-def-carotid-artery",
@@ -13179,9 +13581,11 @@
       "nci-def-mandible",
       "nci-def-maxilla",
       "nci-def-meninges",
+      "nci-def-nipple",
       "nci-def-olfactory-bulb",
       "nci-def-optic-chiasm",
       "nci-def-pancreatic-duct",
+      "nci-def-parathyroid-gland",
       "nci-def-pelvis",
       "nci-def-penis",
       "nci-def-pharynx",
@@ -13199,6 +13603,8 @@
       "nci-def-sternum",
       "nci-def-stomach",
       "nci-def-testicle",
+      "nci-def-thyroid",
+      "nci-def-tonsil",
       "nci-def-trachea",
       "nci-def-ureter",
       "nci-def-urethra",
@@ -13216,6 +13622,7 @@
       "nci-skin-cancer",
       "nci-stomach-cancer",
       "nci-testicular-cancer",
+      "nci-thyroid-cancer",
       "nci-uterine-cancer",
       "nei-amd",
       "nei-cataracts",
@@ -13263,7 +13670,12 @@
       "niddk-ed",
       "niddk-gallstones",
       "niddk-gerd",
+      "niddk-graves",
+      "niddk-hashimotos",
       "niddk-hemorrhoids",
+      "niddk-hyperparathyroidism",
+      "niddk-hyperthyroidism",
+      "niddk-hypothyroidism",
       "niddk-kidney-stones",
       "niddk-kidneys",
       "niddk-lactose-intolerance",
@@ -13310,6 +13722,8 @@
       "seer-stomach",
       "seer-testes",
       "seer-thymus",
+      "seer-thyroid",
+      "seer-tonsils",
       "seer-ureters",
       "tm-abdominal-veins",
       "tm-coeliac-trunk",

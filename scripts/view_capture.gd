@@ -13,6 +13,7 @@ static func credits(reference: Dictionary, selection_label: String) -> String:
 		lines.append("Source v4.0: https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html")
 		lines.append("Current grant: https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html · https://creativecommons.org/licenses/by/4.0/")
 		lines.append("Separate complete male body; no HRA/female alignment. Legacy OBJ notices retain CC BY-SA 2.1 Japan.")
+		lines.append("Thyroid, parathyroid and sublingual glands: BodyParts3D 4.3, CC BY-SA 2.1 Japan.")
 		lines.append("Changes: repeated source meshes kept once, mm/Z-up to metre/Y-up, source normals retained; display colours and inspection effects.")
 	elif reference.get("id") == "bodyparts-male-bones-study":
 		lines.append("BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International")

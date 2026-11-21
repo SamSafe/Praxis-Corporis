@@ -73,7 +73,7 @@ func run() -> void:
 			if viewer.study_content.condition_available(identity, viewer.model.structures):
 				available.append(str(identity))
 		# Both bodies share 58 conditions; the female body adds 6 sex-specific ones and the male body 2.
-		check(available.size() == (76 if reference == "female" else 73) and ("condition.bph" in available) == (reference == "male") and ("condition.endometriosis" in available) == (reference == "female"), "Each body offers exactly the conditions its supplied anatomy supports")
+		check(available.size() == (82 if reference == "female" else 77) and ("condition.bph" in available) == (reference == "male") and ("condition.endometriosis" in available) == (reference == "female"), "Each body offers exactly the conditions its supplied anatomy supports")
 		for identity in available:
 			undo = viewer.model.undo_stack.duplicate(true)
 			dialog = viewer.show_condition(identity)

@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "source_commit": "f1a3a63f110e27ff0736047d52d04dba5d3087f9",
+  "access_date": "2026-11-21",
+  "source": "HuBMAP / Human Reference Atlas 3D Reference Object Library",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "modifications": "Source GLB files unchanged. tools/build_hra_supplements.py appends their nodes to a derived copy of each United v1.1 body without altering existing nodes.",
+  "bodies": [
+    {
+      "body_id": "female",
+      "output": "assets/hra/female-supplemented.glb",
+      "groups": [
+        {
+          "node_name": "VH_F_mammary_glands",
+          "label": "Mammary glands",
+          "source": "VH_Female/v1.3",
+          "files": [
+            {
+              "local_path": "assets/hra-extra/VH_F_mammary_gland_L.glb",
+              "url": "https://raw.githubusercontent.com/hubmapconsortium/ccf-3d-reference-object-library/f1a3a63f110e27ff0736047d52d04dba5d3087f9/VH_Female/v1.3/VH_F_mammary_gland_L.glb",
+              "bytes": 13727160,
+              "sha256": "5181797d8b669580d0243684ce10e61657881178c9bd56b4ba338547ecb1099e"
+            },
+            {
+              "local_path": "assets/hra-extra/VH_F_mammary_gland_R.glb",
+              "url": "https://raw.githubusercontent.com/hubmapconsortium/ccf-3d-reference-object-library/f1a3a63f110e27ff0736047d52d04dba5d3087f9/VH_Female/v1.3/VH_F_mammary_gland_R.glb",
+              "bytes": 24388424,
+              "sha256": "7fb6c2dd90190a80dbcca487e3aaa27cc801d1c66a205840ea36a6c851082ff0"
+            }
+          ]
+        },
+        {
+          "node_name": "VH_F_palatine_tonsils",
+          "label": "Palatine tonsils",
+          "source": "VH_Female/v1.4",
+          "files": [
+            {
+              "local_path": "assets/hra-extra/3d-vh-f-palatine-tonsil-l.glb",
+              "url": "https://raw.githubusercontent.com/hubmapconsortium/ccf-3d-reference-object-library/f1a3a63f110e27ff0736047d52d04dba5d3087f9/VH_Female/v1.4/3d-vh-f-palatine-tonsil-l.glb",
+              "bytes": 930316,
+              "sha256": "3c1fcecff3f0cf13af95de5da148b59d67a8a969a34f71ef206db18c5a383261"
+            },
+            {
+              "local_path": "assets/hra-extra/3d-vh-f-palatine-tonsil-r.glb",
+              "url": "https://raw.githubusercontent.com/hubmapconsortium/ccf-3d-reference-object-library/f1a3a63f110e27ff0736047d52d04dba5d3087f9/VH_Female/v1.4/3d-vh-f-palatine-tonsil-r.glb",
+              "bytes": 663232,
+              "sha256": "a32ede5f92b23d81b7c54318819166958b52fbad3e4ef50b52be43237d3b30dc"
+            }
+          ]
+        },
+        {
+          "source": "VH_Female/v1.2",
+          "label": "Spinal cord and vertebrae",
+          "files": [
+            {
+              "local_path": "assets/hra-extra/VH_F_Spinal_Cord.glb",
+              "url": "https://raw.githubusercontent.com/hubmapconsortium/ccf-3d-reference-object-library/f1a3a63f110e27ff0736047d52d04dba5d3087f9/VH_Female/v1.2/VH_F_Spinal_Cord.glb",
+              "bytes": 7656588,
+              "sha256": "d9bfc840783a415068e34b8a1a9343fff40ad03d0025fafabf74f9d8664887f8"
+            },
+            {
+              "local_path": "assets/hra-extra/VH_F_Vertebrae.glb",
+              "url": "https://raw.githubusercontent.com/hubmapconsortium/ccf-3d-reference-object-library/f1a3a63f110e27ff0736047d52d04dba5d3087f9/VH_Female/v1.2/VH_F_Vertebrae.glb",
+              "bytes": 7700856,
+              "sha256": "bdbea49a40e9e64cac1c8f0d67b6483686a3cc9617f7cae645e58159e4b02984"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "body_id": "male",
+      "output": "assets/hra/male-supplemented.glb",
+      "groups": [
+        {
+          "node_name": "VH_M_palatine_tonsils",
+          "label": "Palatine tonsils",
+          "source": "VH_Male/v1.4",
+          "files": [
+            {
+              "local_path": "assets/hra-extra/3d-vh-m-palatine-tonsil-l.glb",
+              "url": "https://raw.githubusercontent.com/hubmapconsortium/ccf-3d-reference-object-library/f1a3a63f110e27ff0736047d52d04dba5d3087f9/VH_Male/v1.4/3d-vh-m-palatine-tonsil-l.glb",
+              "bytes": 930308,
+              "sha256": "0b2b2f14642133cf5221938fbc7b685f6429c8e9983fcc0e9733767bee4e397e"
+            },
+            {
+              "local_path": "assets/hra-extra/3d-vh-m-palatine-tonsil-r.glb",
+              "url": "https://raw.githubusercontent.com/hubmapconsortium/ccf-3d-reference-object-library/f1a3a63f110e27ff0736047d52d04dba5d3087f9/VH_Male/v1.4/3d-vh-m-palatine-tonsil-r.glb",
+              "bytes": 663220,
+              "sha256": "2e713522c689580d52fa471c501d04986a1244cda8cfd7c61aa04ea11e075d7c"
+            }
+          ]
+        },
+        {
+          "source": "VH_Male/v1.2",
+          "label": "Spinal cord and vertebrae",
+          "files": [
+            {
+              "local_path": "assets/hra-extra/VH_M_Spinal_Cord.glb",
+              "url": "https://raw.githubusercontent.com/hubmapconsortium/ccf-3d-reference-object-library/f1a3a63f110e27ff0736047d52d04dba5d3087f9/VH_Male/v1.2/VH_M_Spinal_Cord.glb",
+              "bytes": 489992,
+              "sha256": "a7858d88c2237aa7d559c4c1d638923d213d2a9f46c575dea03d6ba67a9975c0"
+            },
+            {
+              "local_path": "assets/hra-extra/VH_M_Vertebrae.glb",
+              "url": "https://raw.githubusercontent.com/hubmapconsortium/ccf-3d-reference-object-library/f1a3a63f110e27ff0736047d52d04dba5d3087f9/VH_Male/v1.2/VH_M_Vertebrae.glb",
+              "bytes": 12578172,
+              "sha256": "981041904438bd74c14d671af8f87b3f407b675294bbf297af673c8df7144451"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

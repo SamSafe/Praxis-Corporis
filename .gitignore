@@ -42,9 +42,11 @@ __pycache__/
 
 # Reproducible atlas downloads; provenance and hashes are versioned in content/.
 assets/hra/*.glb
+assets/hra-extra/
 assets/prepared/
 
 # Audited supplemental source downloads and generated study geometry.
 assets/bodyparts3d/raw/
 assets/bodyparts3d/*.glb
 assets/hra-spinal/*.glb
+assets/bodyparts3d/v43/

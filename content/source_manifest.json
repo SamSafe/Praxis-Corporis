@@ -6,7 +6,7 @@
   "version": "United source files v1.1 (deliberately pinned; not a latest-release claim)",
   "license": "CC-BY-4.0",
   "license_url": "https://creativecommons.org/licenses/by/4.0/",
-  "modifications": "GLB files unchanged. The draft catalogue excludes extraction-site roots; display materials and inspection displacement are runtime changes.",
+  "modifications": "GLB files unchanged. The draft catalogue excludes extraction-site roots; display materials and inspection displacement are runtime changes. The female and male bodies also carry later HRA organs appended by tools/build_hra_supplements.py (content/hra_supplements_manifest.json); United nodes are unchanged.",
   "files": [
     {
       "local_path": "assets/hra/female.glb",
@@ -15,7 +15,10 @@
       "url": "https://raw.githubusercontent.com/hubmapconsortium/ccf-3d-reference-object-library/f1a3a63f110e27ff0736047d52d04dba5d3087f9/VH_Female/v1.1/VH_F_United.glb",
       "body_id": "female",
       "label": "Female reference (HRA v1.1)",
-      "anatomy_root": "VH_F"
+      "anatomy_root": "VH_F",
+      "supplemented_path": "assets/hra/female-supplemented.glb",
+      "supplemented_sha256": "eda63a70173b58cf292d96bc3cf97bcf2f636ebb0baa1868143a9ffed2f11d37",
+      "supplemented_bytes": 131214196
     },
     {
       "local_path": "assets/hra/male.glb",
@@ -24,7 +27,10 @@
       "url": "https://raw.githubusercontent.com/hubmapconsortium/ccf-3d-reference-object-library/f1a3a63f110e27ff0736047d52d04dba5d3087f9/VH_Male/v1.1/VH_M_United.glb",
       "body_id": "male",
       "label": "Male reference (HRA v1.1)",
-      "anatomy_root": "VH_M"
+      "anatomy_root": "VH_M",
+      "supplemented_path": "assets/hra/male-supplemented.glb",
+      "supplemented_sha256": "1c7e7be131b2b124d4f36eb03a7963856494dc6b5702531ff336d4d79839feed",
+      "supplemented_bytes": 93176536
     },
     {
       "local_path": "third_party/HRA-LICENSE.txt",

@@ -58,7 +58,7 @@ class StudyContentTests(unittest.TestCase):
     def test_conditions_are_sourced_reference_locations_with_explicit_associations(self):
         content = json.loads((ROOT / "content/study_content.json").read_text())
         catalogue = json.loads((ROOT / "content/sample_pack.json").read_text())
-        self.assertEqual(len(content["conditions"]), 107)
+        self.assertEqual(len(content["conditions"]), 117)
         for body in catalogue["bodies"]:
             available = {s["id"]: s for s in body["structures"]}
             offered = set()
@@ -77,9 +77,9 @@ class StudyContentTests(unittest.TestCase):
                     self.assertTrue(anatomy in available or anatomy in content["cards"], anatomy)
                 if all(resolve(content, anatomy, available) for anatomy in condition["related_anatomy"]):
                     offered.add(identity)
-            # Each adult reference offers the 67 shared conditions plus those its own supplied
-            # anatomy supports (9 female, 6 male); none is inferred from missing anatomy.
-            self.assertEqual(len(offered), 76 if body["id"] == "female" else 73)
+            # Each adult reference offers the 71 shared conditions plus those its own supplied
+            # anatomy supports (11 female, 6 male); none is inferred from missing anatomy.
+            self.assertEqual(len(offered), 82 if body["id"] == "female" else 77)
             self.assertEqual("condition.bph" in offered, body["id"] == "male")
             self.assertEqual("condition.endometriosis" in offered, body["id"] == "female")
 
@@ -110,7 +110,7 @@ class StudyContentTests(unittest.TestCase):
         content = json.loads((ROOT / "content/study_content.json").read_text())
         catalogue = json.loads((ROOT / "content/sample_pack.json").read_text())
         self.assertEqual(content["expert_review"], "pending")
-        self.assertEqual(len(content["cards"]), 196)
+        self.assertEqual(len(content["cards"]), 200)
         mapped = {}
         for identity, card in content["cards"].items():
             self.assertEqual(card["review_status"], "draft")
@@ -144,7 +144,9 @@ class StudyContentTests(unittest.TestCase):
                 for related in card["related"]:
                     related_card = content["cards"].get(related, {})
                     sex_specific = "geometry" in related_card and body["id"] not in related_card["geometry"]
-                    self.assertTrue(resolve(content, related, available) or sex_specific, related)
+                    # Shared IDs present only in the complete BodyParts3D body (the skull).
+                    complete_only = "geometry" not in related_card and related not in available and related in complete
+                    self.assertTrue(resolve(content, related, available) or sex_specific or complete_only, related)
 
     def test_complete_body_mappings_match_its_catalogue(self):
         content = json.loads((ROOT / "content/study_content.json").read_text())
@@ -170,7 +172,7 @@ class StudyContentTests(unittest.TestCase):
                 self.assertNotIn(mapping["id"], content["cards"])
         # Cards whose anatomy the complete male source supplies (no female or
         # source-absent parts); see docs/BODY_STUDY_CONTENT.md.
-        self.assertEqual(on_body, 142)
+        self.assertEqual(on_body, 144)
 
     def test_spinal_studies_preserve_ambiguous_source_identity(self):
         studies = json.loads((ROOT / "content/spinal_studies.json").read_text())["bodies"]

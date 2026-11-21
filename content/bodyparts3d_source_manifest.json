@@ -67,6 +67,79 @@
       "url": "https://dbarchive.biosciencedbc.jp/data/bodyparts3d/LATEST/partof_BP3D_4.0_obj_99.zip",
       "bytes": 64888505,
       "sha256": "9fbc713fffeee924a5a657d9813d84d7eb957bded63adb854931dd5e3eb61c97"
+    },
+    {
+      "local_path": "assets/bodyparts3d/v43/FJ2765_BP23722_FMA59805_Left sublingual gland.obj",
+      "url": "https://media.githubusercontent.com/media/olivercase/body_parts_3d_api/fd527e6f4daf732fd814314d9257df5877b844bc/meshes/FJ2765_BP23722_FMA59805_Left%20sublingual%20gland.obj",
+      "bytes": 14328,
+      "sha256": "970c0dfe0bde1e9206b9c5d60a4f2d46e121e607351e45f44f2fd3a31dd4a857",
+      "release": "4.3",
+      "license": "CC BY-SA 2.1 Japan (BodyParts3D / Anatomography 4.3 mesh data; mirror code MIT)"
+    },
+    {
+      "local_path": "assets/bodyparts3d/v43/FJ2767_BP23401_FMA59804_Right sublingual gland.obj",
+      "url": "https://media.githubusercontent.com/media/olivercase/body_parts_3d_api/fd527e6f4daf732fd814314d9257df5877b844bc/meshes/FJ2767_BP23401_FMA59804_Right%20sublingual%20gland.obj",
+      "bytes": 14871,
+      "sha256": "1fd9e10f40654745b106f7208b168be5c4d854f8ab3a09ec2d54d1a647daaab2",
+      "release": "4.3",
+      "license": "CC BY-SA 2.1 Japan (BodyParts3D / Anatomography 4.3 mesh data; mirror code MIT)"
+    },
+    {
+      "local_path": "assets/bodyparts3d/v43/FJ3670_BP21406_FMA49178_Isthmus of thyroid gland.obj",
+      "url": "https://media.githubusercontent.com/media/olivercase/body_parts_3d_api/fd527e6f4daf732fd814314d9257df5877b844bc/meshes/FJ3670_BP21406_FMA49178_Isthmus%20of%20thyroid%20gland.obj",
+      "bytes": 493303,
+      "sha256": "798a3b54f78eb3cc20f118b914202855e003b252a7e479f022fe1c2d6b9b14c0",
+      "release": "4.3",
+      "license": "CC BY-SA 2.1 Japan (BodyParts3D / Anatomography 4.3 mesh data; mirror code MIT)"
+    },
+    {
+      "local_path": "assets/bodyparts3d/v43/FJ3671_BP21433_FMA13369_Left lobe of thyroid gland.obj",
+      "url": "https://media.githubusercontent.com/media/olivercase/body_parts_3d_api/fd527e6f4daf732fd814314d9257df5877b844bc/meshes/FJ3671_BP21433_FMA13369_Left%20lobe%20of%20thyroid%20gland.obj",
+      "bytes": 1338937,
+      "sha256": "2a137c718b0f7f6150978730c78f9003db6dce5324e31ba5cb368d6ce7f57c58",
+      "release": "4.3",
+      "license": "CC BY-SA 2.1 Japan (BodyParts3D / Anatomography 4.3 mesh data; mirror code MIT)"
+    },
+    {
+      "local_path": "assets/bodyparts3d/v43/FJ3672_BP19828_FMA13368_Right lobe of thyroid gland.obj",
+      "url": "https://media.githubusercontent.com/media/olivercase/body_parts_3d_api/fd527e6f4daf732fd814314d9257df5877b844bc/meshes/FJ3672_BP19828_FMA13368_Right%20lobe%20of%20thyroid%20gland.obj",
+      "bytes": 1453612,
+      "sha256": "579d28267ec22b2536878fe2c78947f812d60e3ce3b9e5621f1faab7ce6f63f2",
+      "release": "4.3",
+      "license": "CC BY-SA 2.1 Japan (BodyParts3D / Anatomography 4.3 mesh data; mirror code MIT)"
+    },
+    {
+      "local_path": "assets/bodyparts3d/v43/FJ3673_BP21598_FMA55563_Left inferior parathyroid gland.obj",
+      "url": "https://media.githubusercontent.com/media/olivercase/body_parts_3d_api/fd527e6f4daf732fd814314d9257df5877b844bc/meshes/FJ3673_BP21598_FMA55563_Left%20inferior%20parathyroid%20gland.obj",
+      "bytes": 8821,
+      "sha256": "28856a004c1398a05a667947cc0df0f01f2d02319b9fe0ad53fe4ffa7b49417a",
+      "release": "4.3",
+      "license": "CC BY-SA 2.1 Japan (BodyParts3D / Anatomography 4.3 mesh data; mirror code MIT)"
+    },
+    {
+      "local_path": "assets/bodyparts3d/v43/FJ3674_BP23783_FMA55561_Left superior parathyroid gland.obj",
+      "url": "https://media.githubusercontent.com/media/olivercase/body_parts_3d_api/fd527e6f4daf732fd814314d9257df5877b844bc/meshes/FJ3674_BP23783_FMA55561_Left%20superior%20parathyroid%20gland.obj",
+      "bytes": 7984,
+      "sha256": "8c0fa01bc501ccca78d11bf3c4572160d96d1f284c171c64deb2992a1ea445fd",
+      "release": "4.3",
+      "license": "CC BY-SA 2.1 Japan (BodyParts3D / Anatomography 4.3 mesh data; mirror code MIT)"
+    },
+    {
+      "local_path": "assets/bodyparts3d/v43/FJ3675_BP23812_FMA55562_Right inferior parathyroid gland.obj",
+      "url": "https://media.githubusercontent.com/media/olivercase/body_parts_3d_api/fd527e6f4daf732fd814314d9257df5877b844bc/meshes/FJ3675_BP23812_FMA55562_Right%20inferior%20parathyroid%20gland.obj",
+      "bytes": 8182,
+      "sha256": "f8c9b50c20f355868e1b522ddb38cf8f25779afd40fc7505012361964ea1bc00",
+      "release": "4.3",
+      "license": "CC BY-SA 2.1 Japan (BodyParts3D / Anatomography 4.3 mesh data; mirror code MIT)"
+    },
+    {
+      "local_path": "assets/bodyparts3d/v43/FJ3676_BP23811_FMA55560_Right superior parathyroid gland.obj",
+      "url": "https://media.githubusercontent.com/media/olivercase/body_parts_3d_api/fd527e6f4daf732fd814314d9257df5877b844bc/meshes/FJ3676_BP23811_FMA55560_Right%20superior%20parathyroid%20gland.obj",
+      "bytes": 7796,
+      "sha256": "aa3bd725d5702aeaab656f42c0d3c423b609628c00680a4be113c01e3d9c8d1a",
+      "release": "4.3",
+      "license": "CC BY-SA 2.1 Japan (BodyParts3D / Anatomography 4.3 mesh data; mirror code MIT)"
     }
-  ]
+  ],
+  "supplement_note": "Thyroid, parathyroid and sublingual meshes come from BodyParts3D / Anatomography 4.3 (absent from the 4.0 archive) via the olivercase/body_parts_3d_api mirror at commit fd527e6f4daf732fd814314d9257df5877b844bc. Their coordinates match 4.0: five shared elements have identical bounds."
 }

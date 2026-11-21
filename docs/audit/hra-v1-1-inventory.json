@@ -1,13 +1,13 @@
 {
   "female": {
-    "sha256": "149c9dade4a914c02f73eed96cef68079fc98e70019fcf69185cae24050dcfe5",
-    "bytes": 76147432,
+    "sha256": "eda63a70173b58cf292d96bc3cf97bcf2f636ebb0baa1868143a9ffed2f11d37",
+    "bytes": 131214196,
     "generator": "babylon.js glTF exporter for Autodesk MAYA 2022.2 v20211115.1",
     "anatomy_root": 0,
-    "total_nodes": 1085,
-    "anatomy_nodes": 970,
-    "anatomy_mesh_nodes": 801,
-    "anatomy_triangles": 3523547,
+    "total_nodes": 1163,
+    "anatomy_nodes": 1048,
+    "anatomy_mesh_nodes": 873,
+    "anatomy_triangles": 5124514,
     "excluded_nodes": 115,
     "systems": [
       {
@@ -59,19 +59,39 @@
         "source_name": "VH_F_skeletal_system",
         "mesh_nodes": 66,
         "triangles": 139376
+      },
+      {
+        "source_name": "VH_F_mammary_glands",
+        "mesh_nodes": 16,
+        "triangles": 856129
+      },
+      {
+        "source_name": "VH_F_palatine_tonsils",
+        "mesh_nodes": 2,
+        "triangles": 29458
+      },
+      {
+        "source_name": "VH_F_spinal_cord",
+        "mesh_nodes": 29,
+        "triangles": 288912
+      },
+      {
+        "source_name": "VH_F_vertebrae",
+        "mesh_nodes": 25,
+        "triangles": 426468
       }
     ],
     "note": "Source node counts are not verified anatomical coverage or clinical review."
   },
   "male": {
-    "sha256": "f8dce99e28b64109b4419b579f8c53bb3af5b6d7739eb1f0406c34289b4f5863",
-    "bytes": 78514500,
+    "sha256": "1c7e7be131b2b124d4f36eb03a7963856494dc6b5702531ff336d4d79839feed",
+    "bytes": 93176536,
     "generator": "babylon.js glTF exporter for Autodesk MAYA 2022.2 v20211115.1",
     "anatomy_root": 115,
-    "total_nodes": 1076,
-    "anatomy_nodes": 961,
-    "anatomy_mesh_nodes": 788,
-    "anatomy_triangles": 3612750,
+    "total_nodes": 1135,
+    "anatomy_nodes": 1020,
+    "anatomy_mesh_nodes": 844,
+    "anatomy_triangles": 3979008,
     "excluded_nodes": 115,
     "systems": [
       {
@@ -123,6 +143,21 @@
         "source_name": "VH_M_respiratory_system",
         "mesh_nodes": 67,
         "triangles": 288463
+      },
+      {
+        "source_name": "VH_M_palatine_tonsils",
+        "mesh_nodes": 2,
+        "triangles": 29458
+      },
+      {
+        "source_name": "VH_M_spinal_cord",
+        "mesh_nodes": 30,
+        "triangles": 16358
+      },
+      {
+        "source_name": "VH_M_vertebrae",
+        "mesh_nodes": 24,
+        "triangles": 320442
       }
     ],
     "note": "Source node counts are not verified anatomical coverage or clinical review."

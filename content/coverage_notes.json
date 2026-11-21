@@ -78,6 +78,34 @@
       "gaps": "A complete lymphatic vessel/node collection and reviewed routes are not established."
     },
     {
+      "id": "mammary",
+      "label": "Breasts (HRA v1.3)",
+      "roots": {"female": "source.hra-v1-1.female.n1103", "male": ""},
+      "supplied": {"female": "Left and right mammary glands with lobes, fat, nipple, areola and areolar tubercles, appended from the HRA v1.3 release.", "male": "Not supplied: the HRA library has no male mammary model."},
+      "gaps": "Reference shapes only; no breast tissue states, lymphatics or disease geometry."
+    },
+    {
+      "id": "tonsils",
+      "label": "Palatine tonsils (HRA v1.4)",
+      "roots": {"female": "source.hra-v1-1.female.n1106", "male": "source.hra-v1-1.male.n1078"},
+      "supplied": {"female": "Left and right palatine tonsils, appended from the HRA v1.4 release.", "male": "Left and right palatine tonsils, appended from the HRA v1.4 release."},
+      "gaps": "The pharyngeal tonsils (adenoids) and lingual tonsils are not supplied."
+    },
+    {
+      "id": "spinal-cord",
+      "label": "Spinal cord (HRA v1.2)",
+      "roots": {"female": "source.hra-v1-1.female.n1107", "male": "source.hra-v1-1.male.n1079"},
+      "supplied": {"female": "Spinal cord segments, appended from the HRA v1.2 release.", "male": "Spinal cord segments, appended from the HRA v1.2 release."},
+      "gaps": "No spinal nerves, meninges or internal cord structure."
+    },
+    {
+      "id": "vertebrae",
+      "label": "Vertebrae (HRA v1.2)",
+      "roots": {"female": "source.hra-v1-1.female.n1137", "male": "source.hra-v1-1.male.n1110"},
+      "supplied": {"female": "Vertebrae, appended from the HRA v1.2 release.", "male": "Vertebrae, appended from the HRA v1.2 release."},
+      "gaps": "No intervertebral disks, spinal ligaments or back muscles in the HRA bodies; the complete male body supplies those."
+    },
+    {
       "id": "unestablished",
       "label": "Other / unestablished coverage",
       "roots": {"female": "", "male": ""},
