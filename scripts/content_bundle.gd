@@ -115,8 +115,19 @@ static func catalogue() -> Dictionary:
 	return parsed
 
 
+## True when every adult reference's source file named in the catalogue is present.
+static func reference_files_present() -> bool:
+	var parsed = JSON.parse_string(FileAccess.get_file_as_string("res://content/sample_pack.json"))
+	if not parsed is Dictionary or not parsed.get("bodies") is Array or parsed.bodies.is_empty():
+		return false
+	for body in parsed.bodies:
+		if not FileAccess.file_exists("res://" + str(body.get("asset_path", ""))):
+			return false
+	return true
+
+
 static func mount_if_needed() -> String:
-	if FileAccess.file_exists("res://assets/hra/female.glb") and FileAccess.file_exists("res://assets/hra/male.glb"):
+	if reference_files_present():
 		return ""
 	var directory := OS.get_executable_path().get_base_dir()
 	var candidates: Array[String] = [directory.path_join(PACK_NAME)]
@@ -124,7 +135,7 @@ static func mount_if_needed() -> String:
 		if FileAccess.file_exists(path):
 			if not ProjectSettings.load_resource_pack(path, false):
 				return "The anatomy package could not be opened. Re-extract the complete private build."
-			if FileAccess.file_exists("res://assets/hra/female.glb") and FileAccess.file_exists("res://assets/hra/male.glb"):
+			if reference_files_present():
 				return ""
 			return "The anatomy package is incomplete. Re-extract the complete private build."
 	if OS.has_feature("template"):
