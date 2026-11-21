@@ -1,4 +1,4 @@
-# Human content-review result: 6345b66
+# Human content-review result: 0eb727b
 
 Uncompleted template. Every item below starts **not reviewed**. Copy to a dated record and complete only the scope actually inspected.
 
@@ -6,19 +6,19 @@ Uncompleted template. Every item below starts **not reviewed**. Copy to a dated 
 - Relevant qualifications / role:
 - Review date:
 - Role in this record: human source check / qualified medical review / both (specify scope).
-- Expected source revision: `6345b668068bbd414b29398aba28dd8b0e3db7c9`.
-- Expected build ID: `f8b5d28661ad47e8af5626e09e1694a3`.
+- Expected source revision: `0eb727b292f6b59aa5a43ec5bfe3ab1b452da463`.
+- Expected build ID: `2710ac3ff52947af9ad6af74ae4ba232`.
 - Actual app archive and SHA-256:
 - Actual app build ID / source shown in Sources:
 - Device / OS / input method used for visual checks:
-- Frozen study SHA-256: `10629a5f6e9595ada556dc1cac15db37ee07d9e608d3f4d3be2240ae3edbee4c`.
+- Frozen study SHA-256: `05214340eeedad01f2bd76425665649dee73907e0da6ad2528732bd9ada757e9`.
 - Other exact content/catalogue/geometry versions checked:
 - Review scope and exclusions:
 - Sources or references used:
 
-Use the [review packet](../CONTENT_REVIEW_PACKET.md), the [reviewer text](6345b66-reviewer-text.md) and the [frozen JSON](6345b66-study-content.json). For each column use **not reviewed**, **changes required** or **accepted unchanged**, with finding/evidence IDs. If text or visuals need changes, approval requires review of the corrected version. Blank cells do not record approval.
+Use the [review packet](../CONTENT_REVIEW_PACKET.md), the [reviewer text](0eb727b-reviewer-text.md) and the [frozen JSON](0eb727b-study-content.json). For each column use **not reviewed**, **changes required** or **accepted unchanged**, with finding/evidence IDs. If text or visuals need changes, approval requires review of the corrected version. Blank cells do not record approval.
 
-## Authored items (304)
+## Authored items (318)
 
 | Type | Item ID | Human source check | Qualified review, including applicable visuals | Finding / evidence IDs |
 | --- | --- | --- | --- | --- |
@@ -218,6 +218,10 @@ Use the [review packet](../CONTENT_REVIEW_PACKET.md), the [reviewer text](6345b6
 | Card | `anatomy.calf-muscles` | not reviewed | not reviewed | |
 | Card | `anatomy.tibialis-anterior` | not reviewed | not reviewed | |
 | Card | `anatomy.intervertebral-disks` | not reviewed | not reviewed | |
+| Card | `anatomy.breasts` | not reviewed | not reviewed | |
+| Card | `anatomy.tonsils` | not reviewed | not reviewed | |
+| Card | `anatomy.thyroid` | not reviewed | not reviewed | |
+| Card | `anatomy.parathyroid-glands` | not reviewed | not reviewed | |
 | Condition | `condition.aortic-stenosis` | not reviewed | not reviewed | |
 | Condition | `condition.mitral-regurgitation` | not reviewed | not reviewed | |
 | Condition | `condition.coronary-heart-disease` | not reviewed | not reviewed | |
@@ -325,6 +329,16 @@ Use the [review packet](../CONTENT_REVIEW_PACKET.md), the [reviewer text](6345b6
 | Condition | `condition.tooth-decay` | not reviewed | not reviewed | |
 | Condition | `condition.salivary-disorders` | not reviewed | not reviewed | |
 | Condition | `condition.muscle-strain` | not reviewed | not reviewed | |
+| Condition | `condition.breast-cancer` | not reviewed | not reviewed | |
+| Condition | `condition.breast-changes` | not reviewed | not reviewed | |
+| Condition | `condition.tonsillitis` | not reviewed | not reviewed | |
+| Condition | `condition.hypothyroidism` | not reviewed | not reviewed | |
+| Condition | `condition.hyperthyroidism` | not reviewed | not reviewed | |
+| Condition | `condition.hashimotos` | not reviewed | not reviewed | |
+| Condition | `condition.graves` | not reviewed | not reviewed | |
+| Condition | `condition.thyroid-nodules` | not reviewed | not reviewed | |
+| Condition | `condition.thyroid-cancer` | not reviewed | not reviewed | |
+| Condition | `condition.hyperparathyroidism` | not reviewed | not reviewed | |
 | Route | `heart-lung` | not reviewed | not reviewed | |
 
 ## Reference and mapping scope

@@ -1,0 +1,294 @@
+{
+  "engine_actual": "4.7.2.stable.official.ed1daf0bf",
+  "renderer": null,
+  "process_memory_observations": {
+    "peak_working_set_bytes_observed": 2278707200,
+    "maximum_private_bytes_sampled": 2165485568,
+    "sampling_interval_ms": 500,
+    "scope": "Entire native process; not per-scene or GPU memory."
+  },
+  "references": {
+    "female": 873,
+    "male": 844,
+    "bodyparts-male-complete": 2228,
+    "bodyparts-male-bones-study": 203,
+    "hra-v1-2-female-cord-study": 29,
+    "hra-v1-2-female-vertebrae-study": 25,
+    "hra-v1-2-male-cord-study": 30,
+    "hra-v1-2-male-vertebrae-study": 24
+  },
+  "ui_process_frames_during_successful_load": {
+    "female": 231,
+    "male": 187,
+    "bodyparts-male-complete": 371,
+    "bodyparts-male-bones-study": 33,
+    "hra-v1-2-female-cord-study": 17,
+    "hra-v1-2-female-vertebrae-study": 18,
+    "hra-v1-2-male-cord-study": 6,
+    "hra-v1-2-male-vertebrae-study": 19
+  },
+  "pointer_interruption_references": [
+    "female",
+    "male",
+    "bodyparts-male-complete",
+    "bodyparts-male-bones-study",
+    "hra-v1-2-female-cord-study",
+    "hra-v1-2-female-vertebrae-study",
+    "hra-v1-2-male-cord-study",
+    "hra-v1-2-male-vertebrae-study"
+  ],
+  "saved_view_anatomy_search_references": [
+    "female",
+    "male",
+    "bodyparts-male-complete",
+    "bodyparts-male-bones-study",
+    "hra-v1-2-female-cord-study",
+    "hra-v1-2-female-vertebrae-study",
+    "hra-v1-2-male-cord-study",
+    "hra-v1-2-male-vertebrae-study"
+  ],
+  "camera_zoom_references": [
+    "female",
+    "male",
+    "bodyparts-male-complete",
+    "bodyparts-male-bones-study",
+    "hra-v1-2-female-cord-study",
+    "hra-v1-2-female-vertebrae-study",
+    "hra-v1-2-male-cord-study",
+    "hra-v1-2-male-vertebrae-study"
+  ],
+  "coverage_keyboard_references": [
+    "female",
+    "male",
+    "bodyparts-male-complete",
+    "bodyparts-male-bones-study",
+    "hra-v1-2-female-cord-study",
+    "hra-v1-2-female-vertebrae-study",
+    "hra-v1-2-male-cord-study",
+    "hra-v1-2-male-vertebrae-study"
+  ],
+  "study_navigation_references": [
+    "female",
+    "male"
+  ],
+  "import_preview_references": [
+    "female",
+    "male",
+    "bodyparts-male-complete",
+    "bodyparts-male-bones-study",
+    "hra-v1-2-female-cord-study",
+    "hra-v1-2-female-vertebrae-study",
+    "hra-v1-2-male-cord-study",
+    "hra-v1-2-male-vertebrae-study"
+  ],
+  "unchanged_edit_references": [
+    "female",
+    "male",
+    "bodyparts-male-complete",
+    "bodyparts-male-bones-study",
+    "hra-v1-2-female-cord-study",
+    "hra-v1-2-female-vertebrae-study",
+    "hra-v1-2-male-cord-study",
+    "hra-v1-2-male-vertebrae-study"
+  ],
+  "movement_history_references": [
+    "female",
+    "male",
+    "bodyparts-male-complete",
+    "bodyparts-male-bones-study",
+    "hra-v1-2-female-cord-study",
+    "hra-v1-2-female-vertebrae-study",
+    "hra-v1-2-male-cord-study",
+    "hra-v1-2-male-vertebrae-study"
+  ],
+  "move_mode_boundary_references": [
+    "female",
+    "male",
+    "bodyparts-male-complete",
+    "bodyparts-male-bones-study",
+    "hra-v1-2-female-cord-study",
+    "hra-v1-2-female-vertebrae-study",
+    "hra-v1-2-male-cord-study",
+    "hra-v1-2-male-vertebrae-study"
+  ],
+  "nudge_gesture_references": [
+    "female",
+    "male",
+    "bodyparts-male-complete",
+    "bodyparts-male-bones-study",
+    "hra-v1-2-female-cord-study",
+    "hra-v1-2-female-vertebrae-study",
+    "hra-v1-2-male-cord-study",
+    "hra-v1-2-male-vertebrae-study"
+  ],
+  "source_fallback_references": [
+    "female",
+    "male"
+  ],
+  "study_reader_references": [
+    "female",
+    "male",
+    "bodyparts-male-complete",
+    "bodyparts-male-bones-study",
+    "hra-v1-2-female-cord-study",
+    "hra-v1-2-female-vertebrae-study",
+    "hra-v1-2-male-cord-study",
+    "hra-v1-2-male-vertebrae-study"
+  ],
+  "exploration_return_references": [
+    "female",
+    "male",
+    "bodyparts-male-complete",
+    "bodyparts-male-bones-study",
+    "hra-v1-2-female-cord-study",
+    "hra-v1-2-female-vertebrae-study",
+    "hra-v1-2-male-cord-study",
+    "hra-v1-2-male-vertebrae-study"
+  ],
+  "text_encoding_references": [
+    "female",
+    "male",
+    "bodyparts-male-complete",
+    "bodyparts-male-bones-study",
+    "hra-v1-2-female-cord-study",
+    "hra-v1-2-female-vertebrae-study",
+    "hra-v1-2-male-cord-study",
+    "hra-v1-2-male-vertebrae-study"
+  ],
+  "draft_export_references": [
+    "female",
+    "male",
+    "bodyparts-male-complete",
+    "bodyparts-male-bones-study",
+    "hra-v1-2-female-cord-study",
+    "hra-v1-2-female-vertebrae-study",
+    "hra-v1-2-male-cord-study",
+    "hra-v1-2-male-vertebrae-study"
+  ],
+  "scene_redraw_references": [
+    "female",
+    "male",
+    "bodyparts-male-complete",
+    "bodyparts-male-bones-study",
+    "hra-v1-2-female-cord-study",
+    "hra-v1-2-female-vertebrae-study",
+    "hra-v1-2-male-cord-study",
+    "hra-v1-2-male-vertebrae-study"
+  ],
+  "note_history_references": [
+    "female",
+    "male",
+    "bodyparts-male-complete",
+    "bodyparts-male-bones-study",
+    "hra-v1-2-female-cord-study",
+    "hra-v1-2-female-vertebrae-study",
+    "hra-v1-2-male-cord-study",
+    "hra-v1-2-male-vertebrae-study"
+  ],
+  "note_caret_references": [
+    "female",
+    "male",
+    "bodyparts-male-complete",
+    "bodyparts-male-bones-study",
+    "hra-v1-2-female-cord-study",
+    "hra-v1-2-female-vertebrae-study",
+    "hra-v1-2-male-cord-study",
+    "hra-v1-2-male-vertebrae-study"
+  ],
+  "label_reuse_references": [
+    "female",
+    "male",
+    "bodyparts-male-complete",
+    "bodyparts-male-bones-study",
+    "hra-v1-2-female-cord-study",
+    "hra-v1-2-female-vertebrae-study",
+    "hra-v1-2-male-cord-study",
+    "hra-v1-2-male-vertebrae-study"
+  ],
+  "search_spacing_references": [
+    "female",
+    "male",
+    "bodyparts-male-complete",
+    "bodyparts-male-bones-study",
+    "hra-v1-2-female-cord-study",
+    "hra-v1-2-female-vertebrae-study",
+    "hra-v1-2-male-cord-study",
+    "hra-v1-2-male-vertebrae-study"
+  ],
+  "schema_version": 1,
+  "recorded_at_utc": "2026-11-21T16:59:55.838381+00:00",
+  "build_identity": {
+    "schema_version": 1,
+    "channel": "private",
+    "build_id": "2710ac3ff52947af9ad6af74ae4ba232",
+    "application_version": "0.1.0",
+    "source_revision": "0eb727b292f6b59aa5a43ec5bfe3ab1b452da463",
+    "source_snapshot_sha256": "f78480519be2469fae6db19f20e5d242b478b7ebdeb6ae792e6edad031d88eca",
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "content_pack": "hra-united-v1-1-prototype-1"
+  },
+  "mode": "headless",
+  "result": "passed; native exit code 0",
+  "source_revision": "0eb727b292f6b59aa5a43ec5bfe3ab1b452da463",
+  "artifact": {
+    "file": "PraxisCorporis-Windows-x64-private.zip",
+    "bytes": 634683882,
+    "sha256": "1524280f0ea189b4572a9eddfd989edaa7eab01df770016bb3c3c58d30f0bb75",
+    "architectures": [
+      "x86_64"
+    ]
+  },
+  "engine_expected": "4.7.2.stable.official.ed1daf0bf",
+  "verifier_sha256": "10c7fa81383976caa6903fbdcd7cfd0207d1c740bc9f565379fa329f8482abbd",
+  "archive_crc": "passed during extraction",
+  "user_data": "APPDATA and LOCALAPPDATA isolated in a generated QA session; user libraries untouched.",
+  "limits": [
+    "Scripted actions; human input, clipboard and native OS picker acceptance remain open.",
+    "No sustained-performance or maximum-loading-pause claim.",
+    "This checks actual Windows execution; Mac device validation is separate."
+  ],
+  "reference_settings_ignored_during_scripted_qa": true,
+  "window_settings_ignored_during_scripted_qa": true,
+  "loading_shutdown": [
+    {
+      "case": "initial/anatomy",
+      "owned_resource_at_close": true,
+      "hash_worker_at_close": false,
+      "staged_scene_at_close": false,
+      "ownership_cleanup_verified": true,
+      "engine_actual": "4.7.2.stable.official.ed1daf0bf",
+      "renderer": null,
+      "process_memory_observations": {
+        "peak_working_set_bytes_observed": 204087296,
+        "maximum_private_bytes_sampled": 77705216,
+        "sampling_interval_ms": 500,
+        "scope": "Entire native process; not per-scene or GPU memory."
+      },
+      "log": "loading-shutdown/initial-anatomy/native-runtime.log",
+      "log_sha256": "929916ce08160b21d2aa29f22f0dcb79f8902314e6edb47bbba1ed1c2dd3c927",
+      "settings_unchanged": true
+    },
+    {
+      "case": "replacement/selection",
+      "owned_resource_at_close": true,
+      "hash_worker_at_close": false,
+      "staged_scene_at_close": true,
+      "ownership_cleanup_verified": true,
+      "engine_actual": "4.7.2.stable.official.ed1daf0bf",
+      "renderer": null,
+      "process_memory_observations": {
+        "peak_working_set_bytes_observed": 1173147648,
+        "maximum_private_bytes_sampled": 1056395264,
+        "sampling_interval_ms": 500,
+        "scope": "Entire native process; not per-scene or GPU memory."
+      },
+      "log": "loading-shutdown/replacement-selection/native-runtime.log",
+      "log_sha256": "494219d61c1fcab16296fd27bd8d10fb2112fae5e9a78031ce8963093ecc9b2c",
+      "settings_unchanged": true
+    }
+  ],
+  "session_cleanup": {
+    "status": "removed",
+    "path": "/mnt/c/Users/king-/AppData/Local/Temp/PraxisCorporis-QA-8f9ca69802bc4096a1c183f1e4b102a1"
+  }
+}

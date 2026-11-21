@@ -1,6 +1,6 @@
-# Study text for review: build `6345b66`
+# Study text for review: build `0eb727b`
 
-Every card, condition and route in study revision `body-study-7-draft`, as shipped in private build `f8b5d28661ad47e8af5626e09e1694a3`. The [frozen JSON](6345b66-study-content.json) is the authoritative copy. All items are drafts: an assistant compared each statement with its cited page, which is not reviewer evidence.
+Every card, condition and route in study revision `body-study-8-draft`, as shipped in private build `2710ac3ff52947af9ad6af74ae4ba232`. The [frozen JSON](0eb727b-study-content.json) is the authoritative copy. All items are drafts: an assistant compared each statement with its cited page, which is not reviewer evidence.
 
 **What to check for each item:** whether each statement is correct and supported by the cited source, whether anything important is missing or misleading, whether the related anatomy is right, and whether the named 3D parts are the right structures.
 
@@ -994,8 +994,8 @@ Every card, condition and route in study revision `body-study-7-draft`, as shipp
 
 #### `anatomy.spinal-cord`
 
-- **3D parts (female):** not in this body
-- **3D parts (male):** not in this body
+- **3D parts (female):** Spinal cord
+- **3D parts (male):** Spinal cord
 - **3D parts (complete male body):** Spinal cord
 - **Overview:** A column of nerve tissue that runs from the base of the skull down the center of the back, inside the vertebral column.
 - **Function:** With the brain it forms the central nervous system, carrying signals between the brain and the rest of the body.
@@ -1282,8 +1282,8 @@ Every card, condition and route in study revision `body-study-7-draft`, as shipp
 
 - **3D parts (female):** not in this body
 - **3D parts (male):** not in this body
-- **3D parts (complete male body):** Left submandibular gland; Right submandibular gland
-- **Overview:** The submandibular glands, one of the three pairs of major salivary glands.
+- **3D parts (complete male body):** Left submandibular gland; Right submandibular gland; Sublingual glands
+- **Overview:** The submandibular and sublingual glands, two of the three pairs of major salivary glands. The parotid glands, the third pair, are not supplied.
 - **Function:** Salivary glands make saliva and empty it into the mouth through ducts.
 - **Related:** `anatomy.tongue`, `anatomy.mandible`
 - **Sources:**
@@ -1662,6 +1662,19 @@ Every card, condition and route in study revision `body-study-7-draft`, as shipp
   - `nci-def-penis`: [NCI Dictionary of Cancer Terms: penis](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/penis)
   - `seer-penis`: [NCI SEER Training: Penis](https://training.seer.cancer.gov/anatomy/reproductive/male/penis.html)
 
+#### `anatomy.breasts`
+
+- **3D parts (female):** Mammary glands
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** not in this body
+- **Overview:** The breasts (mammary glands): glandular organs on the chest made of connective tissue, fat, and breast tissue containing the glands that can make milk.
+- **Function:** Their glands can make milk, which can flow out through the nipple, the small raised area in the center of each breast. The areola is the darker skin surrounding the nipple.
+- **Related:** `anatomy.lung.left`, `anatomy.lung.right`, `anatomy.skin`
+- **Sources:**
+  - `nci-def-breast`: [NCI Dictionary of Cancer Terms: breast](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/breast)
+  - `nci-def-nipple`: [NCI Dictionary of Cancer Terms: nipple](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/nipple)
+  - `nci-def-areola`: [NCI Dictionary of Cancer Terms: areola](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/areola)
+
 ### Endocrine
 
 #### `anatomy.pituitary`
@@ -1687,6 +1700,30 @@ Every card, condition and route in study revision `body-study-7-draft`, as shipp
 - **Sources:**
   - `nci-def-adrenal-gland`: [NCI Dictionary of Cancer Terms: adrenal gland](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/adrenal-gland)
   - `seer-adrenal`: [NCI SEER Training: Adrenal gland](https://training.seer.cancer.gov/anatomy/endocrine/glands/adrenal.html)
+
+#### `anatomy.thyroid`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Thyroid gland
+- **Overview:** A very vascular gland in the neck, beneath the larynx. Its two lobes lie on each side of the trachea and are joined by a narrow band called the isthmus.
+- **Function:** Makes thyroid hormones, which contain iodine and help regulate growth and metabolism, and the hormone calcitonin.
+- **Related:** `anatomy.parathyroid-glands`, `anatomy.trachea`, `anatomy.larynx`, `anatomy.pituitary`
+- **Sources:**
+  - `nci-def-thyroid`: [NCI Dictionary of Cancer Terms: thyroid](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/thyroid)
+  - `seer-thyroid`: [NCI SEER Training: Thyroid and parathyroid glands](https://training.seer.cancer.gov/anatomy/endocrine/glands/thyroid.html)
+
+#### `anatomy.parathyroid-glands`
+
+- **3D parts (female):** not in this body
+- **3D parts (male):** not in this body
+- **3D parts (complete male body):** Parathyroid glands
+- **Overview:** Four pea-sized glands on the surface of the thyroid, in the neck.
+- **Function:** Their only purpose is to make parathyroid hormone, which raises the calcium level in the blood and keeps the body's calcium in balance.
+- **Related:** `anatomy.thyroid`
+- **Sources:**
+  - `nci-def-parathyroid-gland`: [NCI Dictionary of Cancer Terms: parathyroid gland](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/parathyroid-gland)
+  - `niddk-hyperparathyroidism`: [NIDDK: Primary hyperparathyroidism](https://www.niddk.nih.gov/health-information/endocrine-diseases/primary-hyperparathyroidism)
 
 ### Lymphatic
 
@@ -1722,6 +1759,18 @@ Every card, condition and route in study revision `body-study-7-draft`, as shipp
 - **Related:** `anatomy.spleen`, `anatomy.thymus`
 - **Sources:**
   - `seer-lymph-nodes`: [NCI SEER Training: Lymph nodes](https://training.seer.cancer.gov/anatomy/lymphatic/components/nodes.html)
+
+#### `anatomy.tonsils`
+
+- **3D parts (female):** Palatine tonsils
+- **3D parts (male):** Palatine tonsils
+- **3D parts (complete male body):** not in this body
+- **Overview:** The palatine tonsils: two small masses of lymphoid tissue on either side of the throat, near where the mouth opens into the pharynx.
+- **Function:** Lymphocytes and macrophages in the tonsils help protect against harmful substances and germs entering through the nose or mouth. The pharyngeal tonsils (adenoids) and lingual tonsils are not supplied here.
+- **Related:** `anatomy.tongue`, `anatomy.pharynx-muscles`, `anatomy.lymph-node`
+- **Sources:**
+  - `nci-def-tonsil`: [NCI Dictionary of Cancer Terms: tonsil](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/tonsil)
+  - `seer-tonsils`: [NCI SEER Training: Tonsils](https://training.seer.cancer.gov/anatomy/lymphatic/components/tonsils.html)
 
 ### Skeletal
 
@@ -1897,8 +1946,8 @@ Every card, condition and route in study revision `body-study-7-draft`, as shipp
 
 #### `anatomy.vertebral-column`
 
-- **3D parts (female):** not in this body
-- **3D parts (male):** not in this body
+- **3D parts (female):** Vertebrae
+- **3D parts (male):** Vertebrae
 - **3D parts (complete male body):** Vertebral column
 - **Overview:** The spine's column of bones: 7 cervical, 12 thoracic and 5 lumbar vertebrae, the sacrum and the coccyx, reaching from the base of the skull to the tailbone.
 - **Function:** Encloses the spinal cord and the fluid around it.
@@ -3570,6 +3619,127 @@ Conditions only locate the healthy reference anatomy; no disease geometry is sho
 - **Sources:**
   - `mlp-sprains-strains`: [MedlinePlus: Sprains and strains](https://medlineplus.gov/sprainsandstrains.html)
   - `seer-lower-muscles`: [NCI SEER Training: Muscles of the lower extremity](https://training.seer.cancer.gov/anatomy/muscular/groups/lower.html)
+
+### Breast cancer (`condition.breast-cancer`)
+
+- **Summary:** Breast cancer is the second most common cancer in women after skin cancer. Mammograms can detect it early, possibly before it has spread.
+- **Reference location:** The breasts are glandular organs on the chest.
+- **Focus:** `anatomy.breasts`
+- **Requires:** `anatomy.breasts`
+- **Listed on:** `anatomy.breasts`
+- **Not depicted:** Tumors and their spread are not depicted.
+- **Sources:**
+  - `nci-breast-cancer`: [NCI: Breast cancer](https://www.cancer.gov/types/breast)
+  - `nci-def-breast`: [NCI Dictionary of Cancer Terms: breast](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/breast)
+
+### Benign breast changes (`condition.breast-changes`)
+
+- **Summary:** Most women have breast changes at some time. Age, hormone levels and medicines can cause lumps, bumps and discharges that are not breast milk. Most breast changes are benign, meaning they are not cancer.
+- **Reference location:** The breasts are made of connective tissue, fat and glandular tissue.
+- **Focus:** `anatomy.breasts`
+- **Requires:** `anatomy.breasts`
+- **Listed on:** `anatomy.breasts`
+- **Not depicted:** Lumps and other changes are not depicted.
+- **Sources:**
+  - `mlp-breast-diseases`: [MedlinePlus: Breast diseases](https://medlineplus.gov/breastdiseases.html)
+  - `nci-def-breast`: [NCI Dictionary of Cancer Terms: breast](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/breast)
+
+### Tonsillitis (`condition.tonsillitis`)
+
+- **Summary:** Inflammation (swelling) of the tonsils, usually caused by a viral infection; bacterial infections such as strep throat can also cause it. It is most common in children over age two.
+- **Reference location:** The palatine tonsils lie on either side of the throat.
+- **Focus:** `anatomy.tonsils`
+- **Requires:** `anatomy.tonsils`
+- **Listed on:** `anatomy.tonsils`
+- **Not depicted:** Swelling and infection are not depicted.
+- **Sources:**
+  - `mlp-tonsillitis`: [MedlinePlus: Tonsillitis](https://medlineplus.gov/tonsillitis.html)
+  - `seer-tonsils`: [NCI SEER Training: Tonsils](https://training.seer.cancer.gov/anatomy/lymphatic/components/tonsils.html)
+  - `nci-def-tonsil`: [NCI Dictionary of Cancer Terms: tonsil](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/tonsil)
+
+### Hypothyroidism (underactive thyroid) (`condition.hypothyroidism`)
+
+- **Summary:** The thyroid gland does not make enough thyroid hormones to meet the body's needs.
+- **Reference location:** The thyroid sits in the neck, its two lobes on each side of the trachea.
+- **Focus:** `anatomy.thyroid`
+- **Requires:** `anatomy.thyroid`
+- **Listed on:** `anatomy.thyroid`
+- **Not depicted:** Hormone levels are not depicted.
+- **Sources:**
+  - `niddk-hypothyroidism`: [NIDDK: Hypothyroidism (underactive thyroid)](https://www.niddk.nih.gov/health-information/endocrine-diseases/hypothyroidism)
+  - `seer-thyroid`: [NCI SEER Training: Thyroid and parathyroid glands](https://training.seer.cancer.gov/anatomy/endocrine/glands/thyroid.html)
+
+### Hyperthyroidism (overactive thyroid) (`condition.hyperthyroidism`)
+
+- **Summary:** The thyroid gland makes more thyroid hormones than the body needs. With too much thyroid hormone, many of the body's functions speed up.
+- **Reference location:** The thyroid sits in the neck, its two lobes on each side of the trachea.
+- **Focus:** `anatomy.thyroid`
+- **Requires:** `anatomy.thyroid`
+- **Listed on:** `anatomy.thyroid`
+- **Not depicted:** Hormone levels are not depicted.
+- **Sources:**
+  - `niddk-hyperthyroidism`: [NIDDK: Hyperthyroidism (overactive thyroid)](https://www.niddk.nih.gov/health-information/endocrine-diseases/hyperthyroidism)
+  - `seer-thyroid`: [NCI SEER Training: Thyroid and parathyroid glands](https://training.seer.cancer.gov/anatomy/endocrine/glands/thyroid.html)
+
+### Hashimoto's disease (`condition.hashimotos`)
+
+- **Summary:** An autoimmune disorder that can cause hypothyroidism (underactive thyroid). It is 4 to 10 times more common in women than men.
+- **Reference location:** The thyroid sits in the neck, beneath the larynx.
+- **Focus:** `anatomy.thyroid`
+- **Requires:** `anatomy.thyroid`
+- **Listed on:** `anatomy.thyroid`
+- **Not depicted:** Inflammation and hormone levels are not depicted.
+- **Sources:**
+  - `niddk-hashimotos`: [NIDDK: Hashimoto's disease](https://www.niddk.nih.gov/health-information/endocrine-diseases/hashimotos-disease)
+  - `nci-def-thyroid`: [NCI Dictionary of Cancer Terms: thyroid](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/thyroid)
+
+### Graves' disease (`condition.graves`)
+
+- **Summary:** An autoimmune disorder that can cause hyperthyroidism (overactive thyroid).
+- **Reference location:** The thyroid sits in the neck, beneath the larynx.
+- **Focus:** `anatomy.thyroid`
+- **Requires:** `anatomy.thyroid`
+- **Listed on:** `anatomy.thyroid`
+- **Not depicted:** Hormone levels are not depicted.
+- **Sources:**
+  - `niddk-graves`: [NIDDK: Graves' disease](https://www.niddk.nih.gov/health-information/endocrine-diseases/graves-disease)
+  - `nci-def-thyroid`: [NCI Dictionary of Cancer Terms: thyroid](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/thyroid)
+
+### Thyroid nodules (`condition.thyroid-nodules`)
+
+- **Summary:** A thyroid nodule is a growth (lump) in the thyroid gland, caused by an overgrowth of cells. Nodules are very common, and can be benign or thyroid cancer.
+- **Reference location:** The thyroid sits in the neck, beneath the larynx.
+- **Focus:** `anatomy.thyroid`
+- **Requires:** `anatomy.thyroid`
+- **Listed on:** `anatomy.thyroid`
+- **Not depicted:** Nodules are not depicted.
+- **Sources:**
+  - `mlp-thyroid-nodules`: [MedlinePlus Medical Encyclopedia: Thyroid nodule](https://medlineplus.gov/ency/article/007265.htm)
+  - `nci-def-thyroid`: [NCI Dictionary of Cancer Terms: thyroid](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/thyroid)
+
+### Thyroid cancer (`condition.thyroid-cancer`)
+
+- **Summary:** There are four main types: papillary, follicular, medullary and anaplastic. Papillary is the most common, and thyroid cancer found at an early stage can often be treated successfully.
+- **Reference location:** The thyroid sits in the neck, its two lobes on each side of the trachea.
+- **Focus:** `anatomy.thyroid`
+- **Requires:** `anatomy.thyroid`
+- **Listed on:** `anatomy.thyroid`
+- **Not depicted:** Tumors and their spread are not depicted.
+- **Sources:**
+  - `nci-thyroid-cancer`: [NCI: Thyroid cancer - patient version](https://www.cancer.gov/types/thyroid)
+  - `seer-thyroid`: [NCI SEER Training: Thyroid and parathyroid glands](https://training.seer.cancer.gov/anatomy/endocrine/glands/thyroid.html)
+
+### Primary hyperparathyroidism (`condition.hyperparathyroidism`)
+
+- **Summary:** One or more parathyroid glands is overactive and makes too much parathyroid hormone. Blood calcium then rises too high, which can lead to problems such as bone thinning and kidney stones.
+- **Reference location:** The four parathyroid glands lie on or near the thyroid gland in the neck.
+- **Focus:** `anatomy.parathyroid-glands`
+- **Requires:** `anatomy.parathyroid-glands`
+- **Listed on:** `anatomy.parathyroid-glands`, `anatomy.thyroid`
+- **Not depicted:** Hormone and calcium levels are not depicted.
+- **Sources:**
+  - `niddk-hyperparathyroidism`: [NIDDK: Primary hyperparathyroidism](https://www.niddk.nih.gov/health-information/endocrine-diseases/primary-hyperparathyroidism)
+  - `nci-def-parathyroid-gland`: [NCI Dictionary of Cancer Terms: parathyroid gland](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/parathyroid-gland)
 
 ## Routes
 

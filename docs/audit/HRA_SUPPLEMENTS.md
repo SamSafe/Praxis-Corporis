@@ -63,3 +63,18 @@ are refreshed or reported as changed.
 Parotid glands, scrotum, female external genitalia (vulva), pharyngeal and
 lingual tonsils. Searched: HRA library (all releases to v1.4), BodyParts3D 4.0
 and 4.3. No complete female skeleton or muscle set exists in these sources.
+
+## Build verification
+
+Build `0eb727b` (build ID `2710ac3f…`) packages the supplemented bodies. A packaging
+bug was found and fixed first: the package had carried the original United files
+while the app expected the supplemented ones, and the startup check looked for the
+old file names. `tools/pack_anatomy.gd` now refuses a body whose file differs from
+the catalogue the app loads.
+
+- **Exported Linux run:** all eight references passed every bundled check and the
+  run ended with `PASS offline native bundle`. The strict runner still rejects it
+  for the known engine popup errors described in
+  [the popup-template diagnostic](POPUP_TEMPLATE_VERIFICATION.md).
+- **Native Windows, headless:** passed for all eight references, native exit code 0,
+  user data isolated ([report](windows-qa-0eb727b/report.json)).

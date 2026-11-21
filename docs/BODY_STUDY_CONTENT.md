@@ -417,7 +417,7 @@ Added 2026-11-21 as `body-study-8-draft`, with new geometry in three bodies:
   samples, so they have no cards. (An earlier version of this note also listed
   the brain; the samples do include it, and revision 2 adds brain cards.)
 - **Review packet.** The [content-review packet](CONTENT_REVIEW_PACKET.md) now
-  covers build `6345b66` (revision `body-study-7-draft`, all 196 cards and 107
+  covers build `0eb727b` (revision `body-study-8-draft`, all 200 cards and 117
   conditions, with each card's parts listed for the female, male and complete
   bodies). Regenerate it with `tools/build_review_packet.py` after any later
   content change.

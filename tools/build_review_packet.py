@@ -90,6 +90,8 @@ def system_of(pack, structure):
 REGIONAL_CARD_SYSTEMS = {
     "anatomy.diaphragm": "muscular", "anatomy.pectoralis-major": "muscular", "anatomy.trapezius": "muscular",
     "anatomy.testes": "reproductive", "anatomy.epididymis": "reproductive", "anatomy.penis": "reproductive",
+    # Appended HRA organs sit directly under the body root, outside a system group.
+    "anatomy.breasts": "reproductive", "anatomy.tonsils": "lymphatic",
     **{f"anatomy.{bone}": "skeletal" for bone in ["sternum", "ribs", "clavicles", "scapulae", "humerus",
                                                     "forearm-bones", "hand-bones", "foot-bones"]},
 }
