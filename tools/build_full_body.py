@@ -338,7 +338,7 @@ def build(folder: pathlib.Path, output: pathlib.Path, catalogue: pathlib.Path) -
     body = {"id": BODY_ID, "label": "BodyParts3D complete male body · unregistered study",
             "short_label": "Complete male body · BodyParts3D", "study": True, "study_kind": "bodyparts3d-complete",
             "asset_path": output.relative_to(ROOT).as_posix(), "sha256": hashlib.sha256(glb).hexdigest(), "bytes": len(glb),
-            "root_id": "anatomy.body", "qa_leaf_id": qa_leaf, "structures": records,
+            "root_id": "anatomy.body", "qa_leaf_id": qa_leaf, "inspection_root": "anatomy.heart", "structures": records,
             "coordinates": document["extras"]["conversion"],
             "coverage": f"{len(kept)} source meshes: the official BodyParts3D v4.0 archive ({len(duplicates)} repeated source meshes kept once) plus thyroid, parathyroid and sublingual glands from BodyParts3D 4.3. Adult male only; no alignment to the HRA bodies."}
     body["coverage_notes"] = {

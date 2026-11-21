@@ -9,6 +9,7 @@
   "bytes": 183462852,
   "root_id": "anatomy.body",
   "qa_leaf_id": "source.bodyparts3d-v4-complete.FJ2564",
+  "inspection_root": "anatomy.heart",
   "structures": [
     {
       "id": "anatomy.body",

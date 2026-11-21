@@ -269,9 +269,12 @@ func verify_bundle() -> void:
 			get_tree().quit(1)
 			return
 		print("PASS interface frames while loading: %s · %d" % [reference.id, load_frame_count])
-		var target: String = "anatomy.heart" if model.structures.has("anatomy.heart") else str(reference.get("inspection_root", "anatomy.system.skeletal"))
+		# HRA bodies use their labelled heart parts; other references name an
+		# inspection root and use the part that owns its first mesh.
+		var hra_heart := chest_supported()
+		var target: String = "anatomy.heart" if hra_heart else str(reference.get("inspection_root", "anatomy.system.skeletal"))
 		var leaf := "anatomy.heart.valve.mitral"
-		if target != "anatomy.heart":
+		if not hra_heart:
 			var first_index := int(model.structures[target].mesh_nodes[0])
 			for id in model.structures:
 				if int(model.structures[id].source_node) == first_index:
@@ -290,7 +293,7 @@ func verify_bundle() -> void:
 		var previous := current_view()
 		select_structure(leaf)
 		navigate_history(true)
-		if current_view() != previous or model.export_state() != saved or (target == "anatomy.heart" and anatomy_labels.local_ids().size() != 14):
+		if current_view() != previous or model.export_state() != saved or (hra_heart and anatomy_labels.local_ids().size() != 14):
 			push_error("Bundled exploration navigation failed")
 			get_tree().quit(1)
 			return
