@@ -134,9 +134,11 @@ checkout revision and only the references prepared in that checkout.
 
 | Action | Control |
 |---|---|
-| Orbit | Primary-button drag in the 3D view. |
+| Orbit | Primary-button drag in the 3D view. A quick flick keeps the view turning briefly after release; pressing again stops it. |
 | Pan | Shift + primary drag, right/middle drag, or supported trackpad pan gesture. |
-| Zoom | Scroll wheel or supported pinch gesture. |
+| Zoom | Scroll wheel or supported pinch gesture. The wheel zooms towards the point under the pointer. |
+| Focus a part | Double-click it in the 3D view to select it and bring it into focus. |
+| Camera motion | Camera moves ease into place. View > Preferences > Smooth camera motion turns easing, gliding and pointer zoom off for instant movement. |
 | Keyboard camera | Tab/click to focus the 3D view (teal border). Arrows orbit; Shift-arrows pan; +/- zoom; F fits selection; Home shows the body. |
 | Orient the camera | Camera views offers Front, Back, From body left/right and angled Above/Below around the current focus. The direction cue rotates with the camera; L/R refer to the body's sides. |
 | Find a source record | Ctrl/Cmd+F or View/Explore > Find anatomy opens search. Search names, source names, ontology IDs or catalogue IDs; Enter selects the first ranked result. Escape clears the query, then returns focus to 3D. |
@@ -187,8 +189,24 @@ Assistive-technology and human accessibility acceptance remain open.
 Wheel zoom uses the amount reported by the input device, so fine scrolling makes
 smaller changes. Equal opposite wheel amounts or keyboard zoom steps return to
 the same framing before reaching the near/far limits. Pinch uses its reported
-positive scale factor; invalid factors leave the view unchanged. Zoom preserves
-the focus point, anatomy edits and inspection history.
+positive scale factor; invalid factors leave the view unchanged. Keyboard and
+pinch zoom preserve the focus point; wheel zoom with smooth motion on moves the
+focus point towards the pointer, and with smooth motion off preserves it. Zoom
+keeps anatomy edits and inspection history.
+
+Smooth motion only changes how the camera is drawn. The stored view (focus point,
+distance and angles) changes immediately, so saved views, Back/Forward and
+picking use exact values. Scripted checks and the native verification modes
+always use instant movement.
+
+**Appearance.** Parts are drawn in illustrative tissue colours and finishes chosen
+from their names: for example dark red-brown liver, ivory bone, pearly cartilage,
+red arteries and blue veins. These are display choices, not medical data, and
+the source geometry, labels and IDs are unchanged. A part the rules do not
+recognise keeps a softened version of its source colour. The selected part is
+tinted amber with a bright rim, so it keeps its shading. A warm key light, a
+cool fill light and a back light give depth, over a vignetted backdrop. There are
+no cast shadows: they added about 70% to frame time in testing.
 
 Switching to another app/window or focusing another control stops the current
 pointer drag. A lost mouse release or canceled click also stops it. Your existing

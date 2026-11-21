@@ -110,6 +110,7 @@ var panels_menu: MenuButton
 var navigation_hint: Label
 var capture_in_progress := false
 var preferences := ViewerPreferences.new()
+var smooth_motion := true
 var window_state := WindowState.new()
 var reference_state := ReferenceState.new()
 var preferences_active := false
@@ -996,6 +997,29 @@ func build_interface() -> void:
 	palette.set_stylebox("panel", "PanelContainer", panel_style(Color("0e1926"), Color("263447")))
 	palette.set_stylebox("panel", "Tree", panel_style(Color("0e1926"), Color("263447")))
 	palette.set_color("font_color", "Tree", Color("c8d6e3"))
+	# Rows and scrollbars in the app's palette instead of the engine's grey defaults.
+	for type in ["Tree", "ItemList"]:
+		palette.set_stylebox("selected", type, panel_style(Color("1f4250"), Color("1f4250"), 6))
+		palette.set_stylebox("selected_focus", type, panel_style(Color("26535b"), Color("83d9d2"), 6))
+		palette.set_stylebox("hovered", type, panel_style(Color("16283a"), Color("16283a"), 6))
+		palette.set_color("font_selected_color", type, Color("f2fbfc"))
+		palette.set_color("font_hovered_color", type, Color("e3edf5"))
+	palette.set_stylebox("hover_pressed", "Button", panel_style(Color("2c6068"), Color("8fd6d4")))
+	for bar in ["VScrollBar", "HScrollBar"]:
+		var track := StyleBoxFlat.new()
+		track.bg_color = Color("0b1520")
+		track.set_corner_radius_all(4)
+		var grabber := StyleBoxFlat.new()
+		grabber.bg_color = Color("2f4459")
+		grabber.set_corner_radius_all(4)
+		var grabber_hover := grabber.duplicate() as StyleBoxFlat
+		grabber_hover.bg_color = Color("4d6f85")
+		var grabber_drag := grabber.duplicate() as StyleBoxFlat
+		grabber_drag.bg_color = Color("6db9c2")
+		palette.set_stylebox("scroll", bar, track)
+		palette.set_stylebox("grabber", bar, grabber)
+		palette.set_stylebox("grabber_highlight", bar, grabber_hover)
+		palette.set_stylebox("grabber_pressed", bar, grabber_drag)
 	palette.set_stylebox("panel", "ItemList", panel_style(Color("0e1926"), Color("263447")))
 	palette.set_color("font_color", "ItemList", Color("c8d6e3"))
 	palette.set_stylebox("panel", "PopupMenu", panel_style(Color("0e1926"), Color("6db9c2")))
@@ -1223,34 +1247,21 @@ func build_interface() -> void:
 	container.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	container.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	frame.add_child(container)
+	# Drawn behind the surface and moved with it into the expanded view.
+	container.add_child(scene_backdrop())
 	viewport = SubViewport.new()
 	viewport.size = Vector2i(800, 650)
 	viewport.own_world_3d = true
 	# Anatomy and lighting are static between inspection/camera/display changes.
 	viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
 	viewport.msaa_3d = Viewport.MSAA_2X
+	viewport.transparent_bg = true
 	# Keep the 3D world attached while its display moves between workspace and expanded view.
 	add_child(viewport)
 	container.bind_viewport(viewport)
 	var world := Node3D.new()
 	viewport.add_child(world)
-	var environment := WorldEnvironment.new()
-	environment.environment = Environment.new()
-	environment.environment.background_mode = Environment.BG_COLOR
-	environment.environment.background_color = Color("0b1522")
-	environment.environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	environment.environment.ambient_light_color = Color("b1c4d9")
-	environment.environment.ambient_light_energy = 0.55
-	world.add_child(environment)
-	var key := DirectionalLight3D.new()
-	key.rotation_degrees = Vector3(-25, -35, 0)
-	key.light_energy = 1.5
-	world.add_child(key)
-	var fill := DirectionalLight3D.new()
-	fill.rotation_degrees = Vector3(20, 130, 0)
-	fill.light_color = Color("9dbdcc")
-	fill.light_energy = 0.65
-	world.add_child(fill)
+	add_scene_lighting(world)
 	model = AnatomyModel.new()
 	world.add_child(model)
 	model.appearance_changed.connect(request_scene_render)
@@ -1262,6 +1273,7 @@ func build_interface() -> void:
 	container.display_changed.connect(on_scene_display_changed)
 	orbit.display_size = container.size
 	orbit.clicked.connect(on_viewport_clicked)
+	orbit.double_clicked.connect(on_viewport_double_clicked)
 	orbit.move_started.connect(func(): pending_move_checkpoint = true)
 	orbit.moved.connect(func(delta: Vector3):
 		if model.offset_selection(delta, pending_move_checkpoint):
@@ -1294,7 +1306,7 @@ func build_interface() -> void:
 	center.add_child(navigation_hint)
 	var right_panel := PanelContainer.new()
 	details_panel = right_panel
-	right_panel.custom_minimum_size.x = 265
+	right_panel.custom_minimum_size.x = 285
 	columns.add_child(right_panel)
 	var right_scroll := ScrollContainer.new()
 	right_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
@@ -1872,6 +1884,18 @@ func refresh_navigation() -> void:
 			context.text += " · inspecting alone"
 
 
+## Double-click a part to select it and bring it into focus.
+func on_viewport_double_clicked(position: Vector2) -> void:
+	if loading:
+		return
+	var id: String = model.pick(orbit.camera, position)
+	if id.is_empty():
+		return
+	if id != model.selected_id:
+		select_structure(id)
+	focus_selection()
+
+
 func on_viewport_clicked(position: Vector2) -> void:
 	if loading:
 		return
@@ -2116,7 +2140,7 @@ func preference_state() -> Dictionary:
 	return {"text_scale": text_scale, "resolution": scene_container.resolution_fraction,
 		"explorer": explorer_panel.visible, "details": details_panel.visible,
 		"selection_labels": labels_button.button_pressed, "local_labels": local_labels_button.button_pressed,
-		"label_density": int(label_density.value)}
+		"label_density": int(label_density.value), "smooth_motion": smooth_motion}
 
 
 func save_preferences() -> void:
@@ -2151,6 +2175,8 @@ func apply_preferences(settings: Dictionary) -> void:
 	labels_button.button_pressed = settings.selection_labels
 	local_labels_button.button_pressed = settings.local_labels
 	label_density.value = settings.label_density
+	smooth_motion = settings.get("smooth_motion", true)
+	orbit.set_interactive_motion(smooth_motion and preferences_active)
 	set_scene_resolution(float(settings.resolution))
 	anatomy_labels.text_scale = text_scale
 	anatomy_labels.update_labels()
@@ -2173,15 +2199,27 @@ func show_preferences() -> Window:
 		apply_preferences(settings)
 		save_preferences())
 	row.add_child(sizes)
+	var motion := CheckButton.new()
+	motion.text = "Smooth camera motion"
+	motion.button_pressed = smooth_motion
+	motion.tooltip_text = "Eases camera moves, lets a flicked orbit glide and zooms towards the pointer. Turn off for instant movement."
+	UiAccessibility.describe(motion, "Smooth camera motion", motion.tooltip_text)
+	motion.toggled.connect(func(enabled: bool):
+		var settings := preference_state()
+		settings.smooth_motion = enabled
+		apply_preferences(settings)
+		save_preferences())
+	row.add_child(motion)
 	make_button("Reset preferences", func():
 		apply_preferences(ViewerPreferences.DEFAULTS)
 		sizes.select(0)
+		motion.set_pressed_no_signal(true)
 		save_preferences(), row)
 	dialog.add_child(row)
 	dialog.confirmed.connect(dialog.queue_free)
 	dialog.canceled.connect(dialog.queue_free)
 	add_child(dialog)
-	dialog.popup_centered_clamped(Vector2i(580, 190), 0.9)
+	dialog.popup_centered_clamped(Vector2i(800, 190), 0.9)
 	return dialog
 
 
@@ -2408,6 +2446,7 @@ func refresh_study_content() -> void:
 		var link := LinkButton.new()
 		link.focus_mode = Control.FOCUS_ALL
 		link.text = str(model.structures[target].label)
+		link.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 		link.tooltip_text = "Select this related structure in the current body."
 		link.disabled = loading
 		link.pressed.connect(select_related_study.bind(target))
@@ -2417,7 +2456,9 @@ func refresh_study_content() -> void:
 		var link := LinkButton.new()
 		link.focus_mode = Control.FOCUS_ALL
 		link.text = str(source.title)
-		link.tooltip_text = str(source.url) + " · opens in your browser"
+		# Long titles end in an ellipsis so the panel keeps its width; the tooltip has it all.
+		link.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+		link.tooltip_text = str(source.title) + "\n" + str(source.url) + " · opens in your browser"
 		link.add_theme_font_size_override("font_size", roundi(12 * text_scale))
 		link.set_meta("base_font_size", 12)
 		link.pressed.connect(open_study_source.bind(str(source.url)))
@@ -2433,6 +2474,7 @@ func refresh_study_content() -> void:
 		var link := LinkButton.new()
 		link.focus_mode = Control.FOCUS_ALL
 		link.text = str(study_content.condition(id).title)
+		link.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 		link.tooltip_text = "Read the sourced summary and locate its reference anatomy. Pathological geometry is unavailable."
 		link.disabled = loading or not study_content.condition_available(id, model.structures)
 		link.pressed.connect(show_condition.bind(id))
@@ -3139,3 +3181,82 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		elif event.alt_pressed and event.keycode in [KEY_LEFT, KEY_RIGHT]:
 			navigate_history(event.keycode == KEY_LEFT)
 			get_viewport().set_input_as_handled()
+
+
+const STUDIO_SKY := """
+shader_type sky;
+// Ambient light only: a soft top-lit gradient. The backdrop is drawn behind the viewport.
+uniform vec3 top_color : source_color = vec3(0.62, 0.67, 0.75);
+uniform vec3 bottom_color : source_color = vec3(0.22, 0.19, 0.18);
+
+void sky() {
+	COLOR = mix(bottom_color, top_color, smoothstep(-0.7, 0.9, EYEDIR.y));
+}
+"""
+
+
+## Studio lighting: a warm key light, a cool fill and a back light that
+## outlines silhouettes. Display only; anatomy is unchanged.
+func add_scene_lighting(world: Node3D) -> void:
+	var environment := WorldEnvironment.new()
+	var settings := Environment.new()
+	var sky_material := ShaderMaterial.new()
+	sky_material.shader = Shader.new()
+	sky_material.shader.code = STUDIO_SKY
+	settings.sky = Sky.new()
+	settings.sky.sky_material = sky_material
+	settings.sky.radiance_size = Sky.RADIANCE_SIZE_32
+	# Transparent: the vignette backdrop behind the 3D surface shows through.
+	settings.background_mode = Environment.BG_CLEAR_COLOR
+	settings.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
+	settings.ambient_light_color = Color("9aabc2")
+	settings.ambient_light_energy = 0.38
+	settings.reflected_light_source = Environment.REFLECTION_SOURCE_SKY
+	settings.tonemap_mode = Environment.TONE_MAPPER_LINEAR
+	settings.tonemap_exposure = 1.0
+	environment.environment = settings
+	world.add_child(environment)
+	var key := DirectionalLight3D.new()
+	key.name = "KeyLight"
+	key.rotation_degrees = Vector3(-38, -32, 0)
+	key.light_color = Color("fff3e6")
+	key.light_energy = 1.15
+	# No shadows: the shadow pass redraws every part each frame (about +70% frame time
+	# when measured), too costly for integrated GPUs while orbiting.
+	world.add_child(key)
+	var fill := DirectionalLight3D.new()
+	fill.name = "FillLight"
+	fill.rotation_degrees = Vector3(-8, 140, 0)
+	fill.light_color = Color("b7cde6")
+	fill.light_energy = 0.32
+	world.add_child(fill)
+	var back := DirectionalLight3D.new()
+	back.name = "BackLight"
+	back.rotation_degrees = Vector3(-30, 175, 0)
+	back.light_color = Color("dfe9ff")
+	back.light_energy = 0.55
+	world.add_child(back)
+
+
+## A soft vignette behind the transparent 3D surface, lighter where the body sits.
+func scene_backdrop() -> TextureRect:
+	var gradient := Gradient.new()
+	gradient.set_color(0, Color("1a2a3e"))
+	gradient.set_color(1, Color("060b13"))
+	gradient.add_point(0.55, Color("0e1928"))
+	var texture := GradientTexture2D.new()
+	texture.gradient = gradient
+	texture.fill = GradientTexture2D.FILL_RADIAL
+	texture.fill_from = Vector2(0.5, 0.42)
+	texture.fill_to = Vector2(1.05, 1.05)
+	texture.width = 256
+	texture.height = 256
+	var backdrop := TextureRect.new()
+	backdrop.name = "SceneBackdrop"
+	backdrop.texture = texture
+	backdrop.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	backdrop.stretch_mode = TextureRect.STRETCH_SCALE
+	backdrop.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	backdrop.show_behind_parent = true
+	backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	return backdrop

@@ -8,6 +8,7 @@ signal load_progress(stage: String, fraction: float)
 const SourceIndexExtension = preload("res://scripts/source_index_extension.gd")
 const ContentBundle = preload("res://scripts/content_bundle.gd")
 const PreparedSelection = preload("res://scripts/prepared_selection.gd")
+const TissueAppearance = preload("res://scripts/tissue_appearance.gd")
 const LOAD_CANCELED := "Reference opening canceled."
 
 var body: Dictionary = {}
@@ -17,6 +18,7 @@ var baseline: Dictionary = {}
 var baseline_world: Dictionary = {}
 var states: Dictionary = {}
 var materials: Dictionary = {}
+var tissues: Dictionary = {} # Mesh index -> illustrative tissue class; display only.
 var colliders: Dictionary = {}
 var selected_id := ""
 var isolated_id := ""
@@ -266,6 +268,7 @@ func prepare_body(record: Dictionary) -> String:
 	add_child(source_scene)
 	structures = next_structures
 	materials = next_materials
+	tissues = TissueAppearance.tissues_for(structures)
 	colliders = next_colliders
 	for index in root_record.mesh_nodes:
 		var mesh: MeshInstance3D = node_map[int(index)]
@@ -405,6 +408,7 @@ func clear_body() -> void:
 	baseline_world.clear()
 	states.clear()
 	materials.clear()
+	tissues.clear()
 	colliders.clear()
 	undo_stack.clear()
 	redo_stack.clear()
@@ -475,15 +479,20 @@ func refresh_appearance() -> void:
 		for surface in mesh.mesh.get_surface_count():
 			var material: StandardMaterial3D = materials[index][surface]
 			var original := mesh.mesh.surface_get_material(surface) as StandardMaterial3D
-			material.albedo_color = original.albedo_color if original else Color(0.7, 0.65, 0.6)
-			if structures.has("anatomy.skin") and index == int(structures["anatomy.skin"].source_node):
-				material.albedo_color = Color("b8a493")
+			var tissue: String = tissues.get(index, "")
+			material.albedo_color = TissueAppearance.base_color(tissue, original.albedo_color if original else Color(0.7, 0.65, 0.6))
+			TissueAppearance.apply_finish(material, tissue)
 			material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA if visibility == "faded" else BaseMaterial3D.TRANSPARENCY_DISABLED
 			material.albedo_color.a = 0.14 if visibility == "faded" else 1.0
 			material.emission_enabled = is_highlighted
 			if is_highlighted:
-				material.albedo_color = Color(0.97, 0.63, 0.29, material.albedo_color.a)
-				material.emission = Color(0.18, 0.075, 0.015)
+				# Tint rather than repaint, so the selected part keeps its shading and tissue cue.
+				var tint := material.albedo_color.lerp(Color(1.0, 0.66, 0.3), 0.42)
+				material.albedo_color = Color(tint.r, tint.g, tint.b, material.albedo_color.a)
+				material.emission = Color(0.2, 0.085, 0.015)
+				material.rim_enabled = true
+				material.rim = 0.65
+				material.rim_tint = 0.15
 			mesh.set_surface_override_material(surface, material)
 		refresh_original_ghost(index)
 	appearance_changed.emit()

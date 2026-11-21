@@ -2,7 +2,10 @@ extends RefCounted
 ## Device preferences are separate from anatomy snapshots and portable libraries.
 
 const DEFAULTS := {"text_scale": 1.0, "resolution": 1.0, "explorer": true,
-	"details": true, "selection_labels": true, "local_labels": false, "label_density": 8}
+	"details": true, "selection_labels": true, "local_labels": false, "label_density": 8,
+	"smooth_motion": true}
+# Keys added after the first release; files written before them stay valid.
+const ADDED_KEYS := ["smooth_motion"]
 var path := "user://preferences.json"
 var values: Dictionary = DEFAULTS.duplicate()
 
@@ -11,11 +14,17 @@ func valid(data: Variant) -> bool:
 	if not data is Dictionary or data.get("schema_version") != 1 or not data.get("values") is Dictionary:
 		return false
 	var settings: Dictionary = data.values
-	if settings.size() != DEFAULTS.size():
-		return false
+	for key in settings:
+		if not DEFAULTS.has(key):
+			return false
+	for key in DEFAULTS:
+		if not settings.has(key) and not key in ADDED_KEYS:
+			return false
 	for key in ["explorer", "details", "selection_labels", "local_labels"]:
 		if not settings.get(key) is bool:
 			return false
+	if settings.has("smooth_motion") and not settings.smooth_motion is bool:
+		return false
 	var density = settings.get("label_density")
 	return settings.get("text_scale") in [1.0, 1.15, 1.3] and settings.get("resolution") in [1.0, 0.75, 0.5] and (density is int or density is float) and is_finite(float(density)) and density == floorf(float(density)) and density >= 1 and density <= 12
 
@@ -31,7 +40,8 @@ func load_settings() -> String:
 	if parser.parse(file.get_as_text()) != OK or not valid(parser.data):
 		return "Preferences were invalid. Default settings are in use."
 	var data: Dictionary = parser.data
-	values = data.values.duplicate()
+	values = DEFAULTS.duplicate()
+	values.merge(data.values, true)
 	return ""
 
 

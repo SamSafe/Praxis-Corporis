@@ -67,6 +67,21 @@ func _initialize() -> void:
 	check(preferences.store(settings).is_empty(), "Preferences write successfully")
 	var load_error := preferences.load_settings()
 	check(load_error.is_empty() and is_equal_approx(preferences.values.text_scale, 1.3) and not preferences.values.explorer, "Preferences survive reopening")
+	# A file written before smooth camera motion existed still opens, with the new default.
+	var legacy: Dictionary = settings.duplicate()
+	legacy.erase("smooth_motion")
+	file = FileAccess.open(preferences.path, FileAccess.WRITE)
+	file.store_string(JSON.stringify({"schema_version": 1, "values": legacy}))
+	file.close()
+	check(preferences.load_settings().is_empty() and preferences.values.smooth_motion == true and not preferences.values.explorer, "Earlier preference files keep their settings and gain smooth motion")
+	settings.smooth_motion = false
+	check(preferences.store(settings).is_empty() and preferences.load_settings().is_empty() and preferences.values.smooth_motion == false, "Turning smooth motion off is remembered")
+	settings.smooth_motion = "yes"
+	check(not preferences.store(settings).is_empty(), "A non-boolean motion setting is rejected")
+	settings.smooth_motion = false
+	settings.unknown = true
+	check(not preferences.store(settings).is_empty(), "Unknown preference keys are rejected")
+	settings.erase("unknown")
 	file = FileAccess.open(preferences.path, FileAccess.WRITE)
 	file.store_string('{"schema_version":1,"values":{"text_scale":99999}}')
 	file.close()

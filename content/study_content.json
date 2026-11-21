@@ -2849,14 +2849,14 @@
         ],
         "male": [
           {
-            "id": "source.hra-v1-1.male.n352",
-            "source_name": "VH_M_left_tibial_collateral_ligament",
-            "ontology": "FMA:44602"
-          },
-          {
             "id": "source.hra-v1-1.male.n321",
             "source_name": "VH_M_right_tibial_collaterial_ligament",
             "ontology": "FMA:44601"
+          },
+          {
+            "id": "source.hra-v1-1.male.n352",
+            "source_name": "VH_M_left_tibial_collateral_ligament",
+            "ontology": "FMA:44602"
           }
         ]
       }
