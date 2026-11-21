@@ -250,8 +250,10 @@ def build(args: argparse.Namespace) -> dict:
             shutil.copyfile(data_pack, qa / "anatomy.pck")
             executable.chmod(0o755)
             # Run outside the source project; every anatomy read must come from the bundle.
+            # Every bundled reference is loaded and exercised, including the complete
+            # BodyParts3D body (about 2,200 meshes); allow well beyond the old 120 s.
             run([str(executable), "--headless", "--audio-driver", "Dummy", "--", "--verify-bundle"], cwd=qa, env=qa_environment,
-                required_marker="PASS offline native bundle", expected_identity=report['build_identity'])
+                required_marker="PASS offline native bundle", expected_identity=report['build_identity'], timeout=1800)
             report['linux_loading_shutdown_qa'] = check_loading_shutdown(
                 [str(executable), '--headless', '--audio-driver', 'Dummy'], qa, qa_environment)
             (qa / "anatomy.pck").rename(qa / "anatomy.unavailable")
