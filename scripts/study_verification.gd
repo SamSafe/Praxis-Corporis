@@ -717,6 +717,18 @@ static func verify_study_reader(viewer: Control, rendered: bool = false) -> bool
 		var popup: PopupMenu = viewer.expanded_menu.get_popup()
 		valid = valid and popup.is_item_disabled(popup.get_item_index(viewer.ExpandedAction.READ_STUDY))
 	else:
+		# References without the guided tour: a part with a card opens the reader
+		# (the complete body's stomach); the body root has no card and offers none.
+		if not viewer.study_content.card("anatomy.stomach").is_empty() and viewer.model.structures.has("anatomy.stomach"):
+			viewer.select_structure("anatomy.stomach", false)
+			await viewer.get_tree().process_frame
+			var reader: Window = viewer.show_study_card()
+			valid = valid and viewer.study_reader_button.visible and reader != null
+			if reader != null:
+				valid = valid and viewer.study_content.text("anatomy.stomach") in reader.message
+				await coverage_key(reader, KEY_ESCAPE)
+				await viewer.get_tree().process_frame
+		viewer.select_structure(viewer.model.body.root_id, false)
 		viewer.refresh_expanded_menu()
 		valid = not viewer.study_reader_button.visible and viewer.show_study_card() == null and valid
 		var popup: PopupMenu = viewer.expanded_menu.get_popup()
