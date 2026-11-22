@@ -64,6 +64,23 @@ Parotid glands, scrotum, female external genitalia (vulva), pharyngeal and
 lingual tonsils. Searched: HRA library (all releases to v1.4), BodyParts3D 4.0
 and 4.3. No complete female skeleton or muscle set exists in these sources.
 
+Second search, 2026-11-22:
+
+- **Z-Anatomy** (Zenodo record 4953712): its 2,649 objects are BodyParts3D
+  re-labelled to TA2, under the same CC BY-SA 2.1 Japan terms. It adds no
+  parotid gland, scrotum, tonsils or female structures; "parotidomasseteric
+  region" is a surface-region label, not a gland.
+- **AnatomyTOOL Open3DModel:** built from Z-Anatomy and male only.
+- **NIH 3D:** no CC BY parotid, scrotum, adenoid or vulva entry. The female
+  pelvis there is the HRA reference organ; its bones are already in the female
+  body.
+- **Other open models:** the few others found (Maastricht, Dundee) are CC
+  BY-NC-SA, and the remaining female sets are commercial.
+
+Hand-built models were considered and rejected. These sources are segmented
+from real anatomy, and a hand-made gland would be a guess in shape and position
+in a study app, so the gaps stay documented rather than filled.
+
 ## Build verification
 
 Build `0eb727b` (build ID `2710ac3f…`) packages the supplemented bodies. A packaging
