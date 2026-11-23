@@ -13,7 +13,7 @@ func check(condition: bool, message: String) -> void:
 func _initialize() -> void:
 	var content := Content.new()
 	var original: Dictionary = content.data.duplicate(true)
-	check(content.error.is_empty() and original.cards.size() == 205 and original.routes.size() == 1 and original.conditions.size() == 126, "Bundled explanations, route and conditions retain explicit draft-review status")
+	check(content.error.is_empty() and original.cards.size() == 209 and original.routes.size() == 1 and original.conditions.size() == 126, "Bundled explanations, route and conditions retain explicit draft-review status")
 	var invalid: Array = [null, [], {}, {"schema_version": 2}]
 	for change in ["source", "card", "related", "citation", "review", "date", "promotion", "human-review", "assistant-actor", "route-target", "route-gap", "route-unreachable", "route-return", "mapping", "condition", "condition-focus", "condition-geometry", "condition-review", "condition-citation", "card-geometry", "card-mapping", "card-duplicate", "card-shadow", "condition-depiction", "card-list-empty", "card-list-entry", "card-list-duplicate"]:
 		var candidate := original.duplicate(true)

@@ -115,7 +115,7 @@ class StudyContentTests(unittest.TestCase):
         content = json.loads((ROOT / "content/study_content.json").read_text())
         catalogue = json.loads((ROOT / "content/sample_pack.json").read_text())
         self.assertEqual(content["expert_review"], "pending")
-        self.assertEqual(len(content["cards"]), 205)
+        self.assertEqual(len(content["cards"]), 209)
         mapped = {}
         for identity, card in content["cards"].items():
             self.assertEqual(card["review_status"], "draft")
@@ -197,7 +197,7 @@ class StudyContentTests(unittest.TestCase):
                 self.assertNotIn(mapping["id"], content["cards"])
         # Cards whose anatomy the complete male source supplies (no female or
         # source-absent parts); see docs/BODY_STUDY_CONTENT.md.
-        self.assertEqual(on_body, 144)
+        self.assertEqual(on_body, 148)
 
     def test_spinal_studies_preserve_ambiguous_source_identity(self):
         studies = json.loads((ROOT / "content/spinal_studies.json").read_text())["bodies"]

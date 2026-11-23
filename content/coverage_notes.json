@@ -19,14 +19,14 @@
       "label": "Skeleton",
       "roots": {"female": "anatomy.system.skeletal", "male": "anatomy.system.skeletal"},
       "supplied": {"female": "Pelvis and lower-limb source groups.", "male": "Pelvis, lower-limb source groups and a hyoid mesh."},
-      "gaps": "A comprehensive skull, spine, rib cage and upper-limb skeleton are absent from these samples. Regional completeness and small structures need review."
+      "gaps": "No skull, shoulder girdle or upper-limb skeleton in these samples; the spine (HRA v1.2) and the ribs and sternum (Visible Human CT) are listed separately. Regional completeness and small structures need review."
     },
     {
       "id": "muscular",
       "label": "Muscles",
       "roots": {"female": "anatomy.system.muscular", "male": "anatomy.system.muscular"},
       "supplied": {"female": "Eye and knee muscle groups.", "male": "Eye, knee and laryngeal muscle groups."},
-      "gaps": "No comprehensive superficial/deep whole-body muscle collection."
+      "gaps": "No comprehensive superficial/deep whole-body muscle collection; the gluteal, iliopsoas and deep back muscles traced from the Visible Human CT are listed separately."
     },
     {
       "id": "nervous",

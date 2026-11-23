@@ -7,9 +7,10 @@ digestive, lymphatic, urinary and reproductive systems. That makes 41 cards and
 14 conditions in total. [Revision 2](#revision-2-brain-eyes-and-knees) adds
 the brain, eyes and knees, for 63 cards and 25 conditions.
 [Revisions 3 and 4](#revisions-3-and-4-vessels-organ-interiors-airways-skin-and-bone)
-bring the totals to 112 cards and 54 conditions, and
+bring the totals to 112 cards and 54 conditions. Later revisions, from
 [revision 5](#revision-5-dictionary-terms-brain-fluid-spaces-and-more-cancers)
-to 200 cards and 117 conditions.
+to [revision 11](#revision-11-organs-bones-and-muscles-traced-from-the-visible-human-ct),
+bring them to 209 cards and 126 conditions.
 
 **Everything here is a private draft.** Every record keeps `review_status: draft`
 with human source review and expert review pending, and the app labels it that
@@ -449,9 +450,15 @@ maximus on the male), iliopsoas and deep back muscles, traced from the same dono
 CT scans ([audit](audit/VHP_CT_PARTS.md)). The stomach, oesophagus, thyroid,
 adrenal-glands, ribs, sternum and gluteus maximus cards now map to them, so GERD,
 peptic ulcer, stomach and oesophageal cancer, adrenal insufficiency, Cushing's
-syndrome and the six thyroid conditions are offered on both bodies. Study text is
-unchanged. The skull, shoulder bones and upper-arm bones were traced but left out
-after review.
+syndrome and the six thyroid conditions are offered on both bodies. The skull,
+shoulder bones and upper-arm bones were traced but left out after review.
+
+`body-study-11-draft` also adds four cards, on all three bodies: gluteus medius,
+gluteus minimus, iliopsoas and the deep back muscles (cited to NCI SEER Training and
+TeachMeAnatomy; the SEER line that the gluteal group "adducts" the thigh was not used,
+since the gluteal muscles abduct and extend it). Paired and member parts now open their
+organ's card: either parotid gland, tonsil, adrenal gland or breast, and every rib and
+the costal cartilages on the female and male bodies.
 
 ## Deliberate limits
 

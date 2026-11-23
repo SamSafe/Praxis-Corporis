@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": "body-study-10-draft",
+  "revision": "body-study-11-draft",
   "review_status": "draft",
   "expert_review": "pending",
   "scope": "Private draft explanations covering the chest, abdomen, pelvis, brain, eyes, knees and skin, including selected vessels, kidney interior, intestines, airways, bone tissue and the lymphatic system. General anatomy is separate from completeness and accuracy of the supplied source meshes. No source illustrations or video are reused.",
@@ -1028,6 +1028,14 @@
     "mlp-adenoids": {
       "title": "MedlinePlus: Adenoids",
       "url": "https://medlineplus.gov/adenoids.html"
+    },
+    "tma-gluteal-muscles": {
+      "title": "TeachMeAnatomy: The gluteal muscles",
+      "url": "https://teachmeanatomy.info/lower-limb/muscles/gluteal-region/"
+    },
+    "tma-intrinsic-back-muscles": {
+      "title": "TeachMeAnatomy: The intrinsic back muscles",
+      "url": "https://teachmeanatomy.info/back/muscles/intrinsic/"
     }
   },
   "cards": {
@@ -9291,16 +9299,40 @@
             "ontology": "FMA15629"
           }
         ],
-        "female": {
-          "id": "source.hra-v1-1.female.n1171",
-          "source_name": "VH_F_adrenal_glands",
-          "ontology": ""
-        },
-        "male": {
-          "id": "source.hra-v1-1.male.n1143",
-          "source_name": "VH_M_adrenal_glands",
-          "ontology": ""
-        }
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1171",
+            "source_name": "VH_F_adrenal_glands",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1169",
+            "source_name": "VH_F_adrenal_gland_L",
+            "ontology": "FMA:15630"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1170",
+            "source_name": "VH_F_adrenal_gland_R",
+            "ontology": "FMA:15629"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n1143",
+            "source_name": "VH_M_adrenal_glands",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1141",
+            "source_name": "VH_M_adrenal_gland_L",
+            "ontology": "FMA:15630"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1142",
+            "source_name": "VH_M_adrenal_gland_R",
+            "ontology": "FMA:15629"
+          }
+        ]
       }
     },
     "anatomy.testes": {
@@ -9445,21 +9477,467 @@
       "expert_review": "pending",
       "human_source_review": "pending",
       "geometry": {
-        "bodyparts-male-complete": {
-          "id": "source.bodyparts3d-v4-complete.FMA7480",
-          "source_name": "FMA7480",
-          "ontology": "FMA7480"
-        },
-        "female": {
-          "id": "source.hra-v1-1.female.n1197",
-          "source_name": "VH_F_ribs",
-          "ontology": ""
-        },
-        "male": {
-          "id": "source.hra-v1-1.male.n1169",
-          "source_name": "VH_M_ribs",
-          "ontology": ""
-        }
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA7480",
+            "source_name": "FMA7480",
+            "ontology": "FMA7480"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3235",
+            "source_name": "FJ3235",
+            "ontology": "FMA8310"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3226",
+            "source_name": "FJ3226",
+            "ontology": "FMA8532"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3251",
+            "source_name": "FJ3251",
+            "ontology": "FMA8112"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3232",
+            "source_name": "FJ3232",
+            "ontology": "FMA8093"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3239",
+            "source_name": "FJ3239",
+            "ontology": "FMA8005"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3228",
+            "source_name": "FJ3228",
+            "ontology": "FMA7987"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3248",
+            "source_name": "FJ3248",
+            "ontology": "FMA8167"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3231",
+            "source_name": "FJ3231",
+            "ontology": "FMA8148"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3236",
+            "source_name": "FJ3236",
+            "ontology": "FMA8391"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3242",
+            "source_name": "FJ3242",
+            "ontology": "FMA8031"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3229",
+            "source_name": "FJ3229",
+            "ontology": "FMA8012"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3255",
+            "source_name": "FJ3255",
+            "ontology": "FMA8275"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3234",
+            "source_name": "FJ3234",
+            "ontology": "FMA8256"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3254",
+            "source_name": "FJ3254",
+            "ontology": "FMA8221"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3233",
+            "source_name": "FJ3233",
+            "ontology": "FMA8202"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3225",
+            "source_name": "FJ3225",
+            "ontology": "FMA8472"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3245",
+            "source_name": "FJ3245",
+            "ontology": "FMA8058"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3230",
+            "source_name": "FJ3230",
+            "ontology": "FMA8039"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3227",
+            "source_name": "FJ3227",
+            "ontology": "FMA8534"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3347",
+            "source_name": "FJ3347",
+            "ontology": "FMA8283"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3331",
+            "source_name": "FJ3331",
+            "ontology": "FMA8531"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3341",
+            "source_name": "FJ3341",
+            "ontology": "FMA8070"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3342",
+            "source_name": "FJ3342",
+            "ontology": "FMA8066"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3333",
+            "source_name": "FJ3333",
+            "ontology": "FMA7875"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3334",
+            "source_name": "FJ3334",
+            "ontology": "FMA7857"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3339",
+            "source_name": "FJ3339",
+            "ontology": "FMA7976"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3340",
+            "source_name": "FJ3340",
+            "ontology": "FMA7957"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3348",
+            "source_name": "FJ3348",
+            "ontology": "FMA8364"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3335",
+            "source_name": "FJ3335",
+            "ontology": "FMA7886"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3336",
+            "source_name": "FJ3336",
+            "ontology": "FMA7882"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3345",
+            "source_name": "FJ3345",
+            "ontology": "FMA8248"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3346",
+            "source_name": "FJ3346",
+            "ontology": "FMA8229"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3343",
+            "source_name": "FJ3343",
+            "ontology": "FMA8194"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3344",
+            "source_name": "FJ3344",
+            "ontology": "FMA8175"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3330",
+            "source_name": "FJ3330",
+            "ontology": "FMA8445"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3337",
+            "source_name": "FJ3337",
+            "ontology": "FMA7913"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3338",
+            "source_name": "FJ3338",
+            "ontology": "FMA7909"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ3332",
+            "source_name": "FJ3332",
+            "ontology": "FMA8533"
+          }
+        ],
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1197",
+            "source_name": "VH_F_ribs",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1172",
+            "source_name": "VH_F_rib_1_L",
+            "ontology": "FMA:7987"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1173",
+            "source_name": "VH_F_rib_2_L",
+            "ontology": "FMA:8012"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1174",
+            "source_name": "VH_F_rib_3_L",
+            "ontology": "FMA:8039"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1175",
+            "source_name": "VH_F_rib_4_L",
+            "ontology": "FMA:8148"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1176",
+            "source_name": "VH_F_rib_5_L",
+            "ontology": "FMA:8093"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1177",
+            "source_name": "VH_F_rib_6_L",
+            "ontology": "FMA:8202"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1178",
+            "source_name": "VH_F_rib_7_L",
+            "ontology": "FMA:8256"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1179",
+            "source_name": "VH_F_rib_8_L",
+            "ontology": "FMA:8310"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1180",
+            "source_name": "VH_F_rib_9_L",
+            "ontology": "FMA:8391"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1181",
+            "source_name": "VH_F_rib_10_L",
+            "ontology": "FMA:8472"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1182",
+            "source_name": "VH_F_rib_11_L",
+            "ontology": "FMA:8532"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1183",
+            "source_name": "VH_F_rib_12_L",
+            "ontology": "FMA:8534"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1184",
+            "source_name": "VH_F_rib_1_R",
+            "ontology": "FMA:7857"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1185",
+            "source_name": "VH_F_rib_2_R",
+            "ontology": "FMA:7882"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1186",
+            "source_name": "VH_F_rib_3_R",
+            "ontology": "FMA:7909"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1187",
+            "source_name": "VH_F_rib_4_R",
+            "ontology": "FMA:7957"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1188",
+            "source_name": "VH_F_rib_5_R",
+            "ontology": "FMA:8066"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1189",
+            "source_name": "VH_F_rib_6_R",
+            "ontology": "FMA:8175"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1190",
+            "source_name": "VH_F_rib_7_R",
+            "ontology": "FMA:8229"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1191",
+            "source_name": "VH_F_rib_8_R",
+            "ontology": "FMA:8283"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1192",
+            "source_name": "VH_F_rib_9_R",
+            "ontology": "FMA:8364"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1193",
+            "source_name": "VH_F_rib_10_R",
+            "ontology": "FMA:8445"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1194",
+            "source_name": "VH_F_rib_11_R",
+            "ontology": "FMA:8531"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1195",
+            "source_name": "VH_F_rib_12_R",
+            "ontology": "FMA:8533"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1196",
+            "source_name": "VH_F_costal_cartilages",
+            "ontology": "FMA:85213"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n1169",
+            "source_name": "VH_M_ribs",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1144",
+            "source_name": "VH_M_rib_1_L",
+            "ontology": "FMA:7987"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1145",
+            "source_name": "VH_M_rib_2_L",
+            "ontology": "FMA:8012"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1146",
+            "source_name": "VH_M_rib_3_L",
+            "ontology": "FMA:8039"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1147",
+            "source_name": "VH_M_rib_4_L",
+            "ontology": "FMA:8148"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1148",
+            "source_name": "VH_M_rib_5_L",
+            "ontology": "FMA:8093"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1149",
+            "source_name": "VH_M_rib_6_L",
+            "ontology": "FMA:8202"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1150",
+            "source_name": "VH_M_rib_7_L",
+            "ontology": "FMA:8256"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1151",
+            "source_name": "VH_M_rib_8_L",
+            "ontology": "FMA:8310"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1152",
+            "source_name": "VH_M_rib_9_L",
+            "ontology": "FMA:8391"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1153",
+            "source_name": "VH_M_rib_10_L",
+            "ontology": "FMA:8472"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1154",
+            "source_name": "VH_M_rib_11_L",
+            "ontology": "FMA:8532"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1155",
+            "source_name": "VH_M_rib_12_L",
+            "ontology": "FMA:8534"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1156",
+            "source_name": "VH_M_rib_1_R",
+            "ontology": "FMA:7857"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1157",
+            "source_name": "VH_M_rib_2_R",
+            "ontology": "FMA:7882"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1158",
+            "source_name": "VH_M_rib_3_R",
+            "ontology": "FMA:7909"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1159",
+            "source_name": "VH_M_rib_4_R",
+            "ontology": "FMA:7957"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1160",
+            "source_name": "VH_M_rib_5_R",
+            "ontology": "FMA:8066"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1161",
+            "source_name": "VH_M_rib_6_R",
+            "ontology": "FMA:8175"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1162",
+            "source_name": "VH_M_rib_7_R",
+            "ontology": "FMA:8229"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1163",
+            "source_name": "VH_M_rib_8_R",
+            "ontology": "FMA:8283"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1164",
+            "source_name": "VH_M_rib_9_R",
+            "ontology": "FMA:8364"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1165",
+            "source_name": "VH_M_rib_10_R",
+            "ontology": "FMA:8445"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1166",
+            "source_name": "VH_M_rib_11_R",
+            "ontology": "FMA:8531"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1167",
+            "source_name": "VH_M_rib_12_R",
+            "ontology": "FMA:8533"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1168",
+            "source_name": "VH_M_costal_cartilages",
+            "ontology": "FMA:85213"
+          }
+        ]
       }
     },
     "anatomy.clavicles": {
@@ -10478,11 +10956,23 @@
       "expert_review": "pending",
       "human_source_review": "pending",
       "geometry": {
-        "female": {
-          "id": "source.hra-v1-1.female.n1103",
-          "source_name": "VH_F_mammary_glands",
-          "ontology": ""
-        }
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1103",
+            "source_name": "VH_F_mammary_glands",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1085",
+            "source_name": "VH_F_mammary_gland_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1094",
+            "source_name": "VH_F_mammary_gland_R",
+            "ontology": ""
+          }
+        ]
       }
     },
     "anatomy.tonsils": {
@@ -10501,16 +10991,40 @@
       "expert_review": "pending",
       "human_source_review": "pending",
       "geometry": {
-        "female": {
-          "id": "source.hra-v1-1.female.n1106",
-          "source_name": "VH_F_palatine_tonsils",
-          "ontology": ""
-        },
-        "male": {
-          "id": "source.hra-v1-1.male.n1078",
-          "source_name": "VH_M_palatine_tonsils",
-          "ontology": ""
-        }
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1106",
+            "source_name": "VH_F_palatine_tonsils",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1104",
+            "source_name": "VH_F_palatine_tonsil_L",
+            "ontology": "FMA:54974"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1105",
+            "source_name": "VH_F_palatine_tonsil_R",
+            "ontology": "FMA:54973"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n1078",
+            "source_name": "VH_M_palatine_tonsils",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1076",
+            "source_name": "VH_M_palatine_tonsil_L",
+            "ontology": "FMA:54974"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1077",
+            "source_name": "VH_M_palatine_tonsil_R",
+            "ontology": "FMA:54973"
+          }
+        ]
       }
     },
     "anatomy.thyroid": {
@@ -10579,16 +11093,40 @@
         ]
       },
       "geometry": {
-        "female": {
-          "id": "source.hra-v1-1.female.n1165",
-          "source_name": "VH_F_parotid_glands",
-          "ontology": ""
-        },
-        "male": {
-          "id": "source.hra-v1-1.male.n1137",
-          "source_name": "VH_M_parotid_glands",
-          "ontology": ""
-        }
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1165",
+            "source_name": "VH_F_parotid_glands",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1163",
+            "source_name": "VH_F_parotid_gland_L",
+            "ontology": "FMA:59798"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1164",
+            "source_name": "VH_F_parotid_gland_R",
+            "ontology": "FMA:59797"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n1137",
+            "source_name": "VH_M_parotid_glands",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1135",
+            "source_name": "VH_M_parotid_gland_L",
+            "ontology": "FMA:59798"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1136",
+            "source_name": "VH_M_parotid_gland_R",
+            "ontology": "FMA:59797"
+          }
+        ]
       }
     },
     "anatomy.scrotum": {
@@ -10676,6 +11214,283 @@
         "near": [
           "anatomy.tongue",
           "anatomy.tonsils"
+        ]
+      }
+    },
+    "anatomy.gluteus-medius": {
+      "overview": "A fan-shaped gluteal muscle on each side, lying between the gluteus maximus and the gluteus minimus. It runs from the outer surface of the ilium to the greater trochanter of the femur.",
+      "function": "Moves the thigh away from the body's midline (abduction) and rotates it inward. It steadies the pelvis when walking, keeping the opposite side from dropping.",
+      "related": [
+        "anatomy.gluteus-maximus",
+        "anatomy.gluteus-minimus",
+        "anatomy.pelvis",
+        "anatomy.femur"
+      ],
+      "source_ids": [
+        "tma-gluteal-muscles",
+        "seer-lower-muscles"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1201",
+            "source_name": "VH_F_gluteus_medius_L",
+            "ontology": "FMA:22331"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1202",
+            "source_name": "VH_F_gluteus_medius_R",
+            "ontology": "FMA:22330"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n1171",
+            "source_name": "VH_M_gluteus_medius_L",
+            "ontology": "FMA:22331"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1172",
+            "source_name": "VH_M_gluteus_medius_R",
+            "ontology": "FMA:22330"
+          }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1419M",
+            "source_name": "FJ1419M",
+            "ontology": "FMA22331"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1419",
+            "source_name": "FJ1419",
+            "ontology": "FMA22330"
+          }
+        ]
+      }
+    },
+    "anatomy.gluteus-minimus": {
+      "overview": "The deepest and smallest of the three gluteal muscles on each side. It runs from the ilium to the front of the greater trochanter of the femur.",
+      "function": "Like the gluteus medius, it moves the thigh away from the midline, rotates it inward and steadies the pelvis when walking.",
+      "related": [
+        "anatomy.gluteus-medius",
+        "anatomy.gluteus-maximus",
+        "anatomy.pelvis",
+        "anatomy.femur"
+      ],
+      "source_ids": [
+        "tma-gluteal-muscles",
+        "seer-lower-muscles"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1203",
+            "source_name": "VH_F_gluteus_minimus_L",
+            "ontology": "FMA:22333"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1204",
+            "source_name": "VH_F_gluteus_minimus_R",
+            "ontology": "FMA:22332"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n1173",
+            "source_name": "VH_M_gluteus_minimus_L",
+            "ontology": "FMA:22333"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1174",
+            "source_name": "VH_M_gluteus_minimus_R",
+            "ontology": "FMA:22332"
+          }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1420M",
+            "source_name": "FJ1420M",
+            "ontology": "FMA22333"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1420",
+            "source_name": "FJ1420",
+            "ontology": "FMA22332"
+          }
+        ]
+      }
+    },
+    "anatomy.iliopsoas": {
+      "overview": "An anterior muscle of the hip on each side, made of the psoas major, which runs down beside the lumbar spine, and the iliacus, which lines the inside of the ilium. Both end on the femur.",
+      "function": "Flexes the thigh, bending the hip.",
+      "related": [
+        "anatomy.vertebral-column",
+        "anatomy.pelvis",
+        "anatomy.femur"
+      ],
+      "source_ids": [
+        "seer-lower-muscles"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1206",
+            "source_name": "VH_F_iliopsoas_L",
+            "ontology": "FMA:64920"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1207",
+            "source_name": "VH_F_iliopsoas_R",
+            "ontology": "FMA:64919"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n1176",
+            "source_name": "VH_M_iliopsoas_L",
+            "ontology": "FMA:64920"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1177",
+            "source_name": "VH_M_iliopsoas_R",
+            "ontology": "FMA:64919"
+          }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1431M",
+            "source_name": "FJ1431M",
+            "ontology": "FMA22343"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1431",
+            "source_name": "FJ1431",
+            "ontology": "FMA22342"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1422M",
+            "source_name": "FJ1422M",
+            "ontology": "FMA22323"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1422",
+            "source_name": "FJ1422",
+            "ontology": "FMA22322"
+          }
+        ]
+      }
+    },
+    "anatomy.deep-back-muscles": {
+      "overview": "The deep (intrinsic) back muscles on each side of the vertebral column. They include the erector spinae group, a large muscle mass extending from the sacrum to the skull, and the deeper muscles between the spinous and transverse processes of the vertebrae.",
+      "function": "Extend the vertebral column to maintain erect posture, and help bend and turn the spine.",
+      "related": [
+        "anatomy.vertebral-column",
+        "anatomy.ribs",
+        "anatomy.pelvis"
+      ],
+      "source_ids": [
+        "seer-muscles-trunk",
+        "tma-intrinsic-back-muscles"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1209",
+            "source_name": "VH_F_deep_back_muscles_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1210",
+            "source_name": "VH_F_deep_back_muscles_R",
+            "ontology": ""
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n1179",
+            "source_name": "VH_M_deep_back_muscles_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1180",
+            "source_name": "VH_M_deep_back_muscles_R",
+            "ontology": ""
+          }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1526M",
+            "source_name": "FJ1526M",
+            "ontology": "FMA22745"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1526",
+            "source_name": "FJ1526",
+            "ontology": "FMA22744"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1528M",
+            "source_name": "FJ1528M",
+            "ontology": "FMA22743"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1528",
+            "source_name": "FJ1528",
+            "ontology": "FMA22742"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1527M",
+            "source_name": "FJ1527M",
+            "ontology": "FMA22741"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1527",
+            "source_name": "FJ1527",
+            "ontology": "FMA22740"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1533M",
+            "source_name": "FJ1533M",
+            "ontology": "FMA22756"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1533",
+            "source_name": "FJ1533",
+            "ontology": "FMA22754"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1534M",
+            "source_name": "FJ1534M",
+            "ontology": "FMA22758"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1534",
+            "source_name": "FJ1534",
+            "ontology": "FMA22757"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1535M",
+            "source_name": "FJ1535M",
+            "ontology": "FMA22753"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1535",
+            "source_name": "FJ1535",
+            "ontology": "FMA22751"
+          }
         ]
       }
     }
@@ -14214,6 +15029,8 @@
       "tm-ulna",
       "tm-urethra",
       "tm-uterus",
+      "tma-gluteal-muscles",
+      "tma-intrinsic-back-muscles",
       "valve-disease-types"
     ]
   },

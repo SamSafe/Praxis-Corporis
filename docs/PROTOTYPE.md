@@ -2,8 +2,16 @@
 
 The viewer uses real, separate HRA male and female reference samples inside
 one continuous scene. It is a partial atlas with medical review pending. Draft
-study cards and 117 condition summaries ([body study content](BODY_STUDY_CONTENT.md))
+study cards (209) and 126 condition summaries ([body study content](BODY_STUDY_CONTENT.md))
 provide reference locations; pathological geometry is unavailable. Detailed source findings are in [the sample audit](audit/HRA_SAMPLE_FINDINGS.md).
+
+The female and male bodies also carry later HRA organs (breasts, palatine tonsils,
+spinal cord and vertebrae) and parts traced from the same donors' Visible Human CT:
+parotid glands, stomach, oesophagus, thyroid, adrenal glands, ribs and costal
+cartilages, sternum, and gluteal, iliopsoas and deep back muscles
+([parotid audit](audit/VHP_PAROTID.md), [CT parts audit](audit/VHP_CT_PARTS.md)).
+Structures no body models (scrotum, vulva, adenoids, lingual tonsils) have text-only
+cards that search lists as "No 3D model".
 
 A separate **complete male body** (BodyParts3D v4.0, every source mesh) adds the
 organs, skeleton, muscles and vessels the HRA bodies lack, such as the stomach,
@@ -11,7 +19,7 @@ esophagus, diaphragm, spinal cord and glands. It is not aligned to the HRA bodie
 choose it from the reference menu. See [revision 7](BODY_STUDY_CONTENT.md#revision-7-the-complete-male-body).
 
 The [study workspace guide](STUDY_WORKSPACE.md) covers portable saved views/notes,
-the six-step guided chest exploration, fifteen draft study cards, text sizing and
+the six-step guided chest exploration, the draft study cards, text sizing and
 remembered preferences, and four separate spinal source studies.
 
 The selected-part Actions menu shares the workspace inspection, label, visibility,
@@ -472,11 +480,12 @@ the text. Tab also reaches Explore and Close. Escape closes the window even whil
 text is selected, preserving the current anatomy view.
 
 - Both samples provide surrounding body context and separately named organ geometry.
-- Full skeleton/muscle/peripheral-nerve coverage is absent from these samples.
+- The HRA bodies have no skull, limb bones above the femur, or full muscle and peripheral-nerve
+  sets; the complete male body supplies those for one separate, unaligned person.
 - Source labels, grouping and ontology fields remain draft import metadata.
 - Heart parts exist, but prepared cutaways, caps, reviewed interiors and tissue
   explanations are not implemented.
-- Draft condition summaries for 117 conditions and an unreviewed conceptual
+- Draft condition summaries for 126 conditions and an unreviewed conceptual
   heart–lung route are available. Pathological geometry, disease comparisons, injury simulation and
   physiological animation are not implemented.
 - Source labels remain unreviewed. Broader system sets, authored label anchors,

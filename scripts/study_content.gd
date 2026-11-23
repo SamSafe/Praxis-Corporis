@@ -8,7 +8,7 @@ var error := ""
 var aliases: Dictionary = {}
 # The assistant cross-check lists every source in the bundle, so it may exceed
 # the per-record citation limit.
-const MAX_CHECKED_SOURCES := 256
+const MAX_CHECKED_SOURCES := 512
 
 
 func _init() -> void:
