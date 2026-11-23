@@ -1,13 +1,13 @@
 {
   "female": {
-    "sha256": "0a55c6ae97cbe065a13e999162b1b267f91ee266cf0b896ee98b6d7cbafa65da",
-    "bytes": 131431776,
+    "sha256": "d4e3d551f43e08d50a8201f39af61e01ede15b4688cfa8289dbbe2a657c3b8fe",
+    "bytes": 134268592,
     "generator": "babylon.js glTF exporter for Autodesk MAYA 2022.2 v20211115.1",
     "anatomy_root": 0,
-    "total_nodes": 1166,
-    "anatomy_nodes": 1051,
-    "anatomy_mesh_nodes": 875,
-    "anatomy_triangles": 5136514,
+    "total_nodes": 1212,
+    "anatomy_nodes": 1097,
+    "anatomy_mesh_nodes": 916,
+    "anatomy_triangles": 5292514,
     "excluded_nodes": 115,
     "systems": [
       {
@@ -84,19 +84,64 @@
         "source_name": "VH_F_parotid_glands",
         "mesh_nodes": 2,
         "triangles": 12000
+      },
+      {
+        "source_name": "VH_F_stomach",
+        "mesh_nodes": 1,
+        "triangles": 8000
+      },
+      {
+        "source_name": "VH_F_esophagus",
+        "mesh_nodes": 1,
+        "triangles": 5000
+      },
+      {
+        "source_name": "VH_F_thyroid_gland",
+        "mesh_nodes": 1,
+        "triangles": 4000
+      },
+      {
+        "source_name": "VH_F_adrenal_glands",
+        "mesh_nodes": 2,
+        "triangles": 5000
+      },
+      {
+        "source_name": "VH_F_ribs",
+        "mesh_nodes": 25,
+        "triangles": 66000
+      },
+      {
+        "source_name": "VH_F_sternum",
+        "mesh_nodes": 1,
+        "triangles": 4000
+      },
+      {
+        "source_name": "VH_F_gluteal_muscles",
+        "mesh_nodes": 6,
+        "triangles": 36000
+      },
+      {
+        "source_name": "VH_F_iliopsoas",
+        "mesh_nodes": 2,
+        "triangles": 12000
+      },
+      {
+        "source_name": "VH_F_deep_back_muscles",
+        "mesh_nodes": 2,
+        "triangles": 16000
       }
     ],
     "note": "Source node counts are not verified anatomical coverage or clinical review."
   },
   "male": {
-    "sha256": "4ed95e497adb2ecef12406829efdc07409485ad62482a94daa119b08ffd6df54",
-    "bytes": 93394108,
+    "sha256": "58776308c6728223eb5a61f77cc940efd8ee8bd59ba3b649418f65402c3737f8",
+    "bytes": 96013440,
     "generator": "babylon.js glTF exporter for Autodesk MAYA 2022.2 v20211115.1",
     "anatomy_root": 115,
-    "total_nodes": 1138,
-    "anatomy_nodes": 1023,
-    "anatomy_mesh_nodes": 846,
-    "anatomy_triangles": 3991008,
+    "total_nodes": 1182,
+    "anatomy_nodes": 1067,
+    "anatomy_mesh_nodes": 885,
+    "anatomy_triangles": 4135008,
     "excluded_nodes": 115,
     "systems": [
       {
@@ -168,6 +213,51 @@
         "source_name": "VH_M_parotid_glands",
         "mesh_nodes": 2,
         "triangles": 12000
+      },
+      {
+        "source_name": "VH_M_stomach",
+        "mesh_nodes": 1,
+        "triangles": 8000
+      },
+      {
+        "source_name": "VH_M_esophagus",
+        "mesh_nodes": 1,
+        "triangles": 5000
+      },
+      {
+        "source_name": "VH_M_thyroid_gland",
+        "mesh_nodes": 1,
+        "triangles": 4000
+      },
+      {
+        "source_name": "VH_M_adrenal_glands",
+        "mesh_nodes": 2,
+        "triangles": 5000
+      },
+      {
+        "source_name": "VH_M_ribs",
+        "mesh_nodes": 25,
+        "triangles": 66000
+      },
+      {
+        "source_name": "VH_M_sternum",
+        "mesh_nodes": 1,
+        "triangles": 4000
+      },
+      {
+        "source_name": "VH_M_gluteal_muscles",
+        "mesh_nodes": 4,
+        "triangles": 24000
+      },
+      {
+        "source_name": "VH_M_iliopsoas",
+        "mesh_nodes": 2,
+        "triangles": 12000
+      },
+      {
+        "source_name": "VH_M_deep_back_muscles",
+        "mesh_nodes": 2,
+        "triangles": 16000
       }
     ],
     "note": "Source node counts are not verified anatomical coverage or clinical review."

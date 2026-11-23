@@ -80,6 +80,124 @@
               "sha256": "ea83db33b4b86fa408ce8ea95e8257491d57a4df0a3356e292c1bdd1d490d5e5"
             }
           ]
+        },
+        {
+          "source": "Visible Human female normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 total task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/female-stomach.glb",
+              "bytes": 144848,
+              "sha256": "bf2f0ab9ef936026ec724ed5b5421c4aa8fec87a0e6f218473a92d2b061e8853"
+            }
+          ]
+        },
+        {
+          "source": "Visible Human female normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 total task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/female-esophagus.glb",
+              "bytes": 90840,
+              "sha256": "f9a611484b135492f9e421de51549193bd8f58826b9783bb7974adb6fb38a616"
+            }
+          ]
+        },
+        {
+          "source": "Visible Human female normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 total task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/female-thyroid-gland.glb",
+              "bytes": 72904,
+              "sha256": "c245e5a7ed74bf56010a9c14799c5737ec596ccb33aeec49a76a9b355a5ad76a"
+            }
+          ]
+        },
+        {
+          "node_name": "VH_F_adrenal_glands",
+          "label": "Adrenal glands",
+          "source": "Visible Human female normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 total task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/female-adrenal-glands.glb",
+              "bytes": 91556,
+              "sha256": "88936b55a7186a5981503cab9b4a8c499e4c42af6d34b36718e8bff7a9976232"
+            }
+          ]
+        },
+        {
+          "node_name": "VH_F_ribs",
+          "label": "Ribs and costal cartilages",
+          "source": "Visible Human female normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 total task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/female-ribs.glb",
+              "bytes": 1204600,
+              "sha256": "aaf34e0d3f874a7f1ae3e7f71ab15479c38640bd9b2a0776199f3a6f5080cd93"
+            }
+          ]
+        },
+        {
+          "source": "Visible Human female normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 total task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/female-sternum.glb",
+              "bytes": 72860,
+              "sha256": "a605797aba67f867a630193f619e36fae440fb8c0a55c7aea6bb8a8ecc528815"
+            }
+          ]
+        },
+        {
+          "node_name": "VH_F_gluteal_muscles",
+          "label": "Gluteal muscles",
+          "source": "Visible Human female normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 total task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/female-gluteal-muscles.glb",
+              "bytes": 652288,
+              "sha256": "64d63a562e11e615ffd305215e8f6369c968307299cfb2df3590573a22e3ee29"
+            }
+          ]
+        },
+        {
+          "node_name": "VH_F_iliopsoas",
+          "label": "Iliopsoas muscles",
+          "source": "Visible Human female normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 total task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/female-iliopsoas.glb",
+              "bytes": 217540,
+              "sha256": "eb4961f95e3da25f300e465818af347fa3dcf95c86a7177489b861d46341f531"
+            }
+          ]
+        },
+        {
+          "node_name": "VH_F_deep_back_muscles",
+          "label": "Deep back muscles",
+          "source": "Visible Human female normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 total task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/female-deep-back-muscles.glb",
+              "bytes": 289564,
+              "sha256": "ae657ab7b833033e0722c598c9877cc450effacf62ac85f833617c14f5965f95"
+            }
+          ]
         }
       ]
     },
@@ -135,6 +253,124 @@
               "local_path": "assets/vhp-parotid/male-parotid-glands.glb",
               "bytes": 217560,
               "sha256": "5d72b46bcf9a5afe3407182a0cdc46c06046daadb0db3b573aca86729a54c39f"
+            }
+          ]
+        },
+        {
+          "source": "Visible Human male normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 total task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/male-stomach.glb",
+              "bytes": 144860,
+              "sha256": "b84f13b7138994ab02737acf7e598507fc76c630f8067769fe2c9fb209e2f183"
+            }
+          ]
+        },
+        {
+          "source": "Visible Human male normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 total task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/male-esophagus.glb",
+              "bytes": 90864,
+              "sha256": "d3b10e5ee7aa85b0ed657530e443b4a1567cad4696fe6954005653f45e7616cc"
+            }
+          ]
+        },
+        {
+          "source": "Visible Human male normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 total task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/male-thyroid-gland.glb",
+              "bytes": 72864,
+              "sha256": "5032a2661f3a7d134260e725da417491a3f68e2aa4d16dfd3b2286c0115c19c1"
+            }
+          ]
+        },
+        {
+          "node_name": "VH_M_adrenal_glands",
+          "label": "Adrenal glands",
+          "source": "Visible Human male normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 total task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/male-adrenal-glands.glb",
+              "bytes": 91560,
+              "sha256": "58701ebaf840c7a1220ee9407969b296e42b80dbf7b3e1c969b0e2e526822c5d"
+            }
+          ]
+        },
+        {
+          "node_name": "VH_M_ribs",
+          "label": "Ribs and costal cartilages",
+          "source": "Visible Human male normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 total task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/male-ribs.glb",
+              "bytes": 1204636,
+              "sha256": "6db193dd156d642d229708f0b50e3be211f5f2e5a196fb0a218d45ba2853a428"
+            }
+          ]
+        },
+        {
+          "source": "Visible Human male normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 total task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/male-sternum.glb",
+              "bytes": 72856,
+              "sha256": "75bffd5ae75365f0e89dd1b44b5f5db0f464f663f1796e6af6b73f28a31a4028"
+            }
+          ]
+        },
+        {
+          "node_name": "VH_M_gluteal_muscles",
+          "label": "Gluteal muscles",
+          "source": "Visible Human male normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 total task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/male-gluteal-muscles.glb",
+              "bytes": 434924,
+              "sha256": "fa6e87e85eb16972a300e70212e69c08f63ce5fd49e46144d1394d25aee83b13"
+            }
+          ]
+        },
+        {
+          "node_name": "VH_M_iliopsoas",
+          "label": "Iliopsoas muscles",
+          "source": "Visible Human male normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 total task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/male-iliopsoas.glb",
+              "bytes": 217536,
+              "sha256": "e32e6ca05eb622280db9f8d8f5c2c5b9537705263982e32052a45692c1ba59c3"
+            }
+          ]
+        },
+        {
+          "node_name": "VH_M_deep_back_muscles",
+          "label": "Deep back muscles",
+          "source": "Visible Human male normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 total task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/male-deep-back-muscles.glb",
+              "bytes": 289568,
+              "sha256": "a69bc528ba37c525c2445b0afce6ee01d8a9db1a35e6d7b4fb0ce72a131256dd"
             }
           ]
         }

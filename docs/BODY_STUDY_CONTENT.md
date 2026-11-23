@@ -441,6 +441,18 @@ now maps to them on those bodies. An unmodelled card is now judged per body: on 
 complete male body the parotid card stays text-only with "Locate nearby anatomy",
 and mumps and salivary gland cancer locate the real glands wherever they exist.
 
+## Revision 11: organs, bones and muscles traced from the Visible Human CT
+
+Added 2026-11-23. The female and male bodies gain a stomach, oesophagus, thyroid,
+adrenal glands, ribs and costal cartilages, sternum, gluteal muscles (no gluteus
+maximus on the male), iliopsoas and deep back muscles, traced from the same donors'
+CT scans ([audit](audit/VHP_CT_PARTS.md)). The stomach, oesophagus, thyroid,
+adrenal-glands, ribs, sternum and gluteus maximus cards now map to them, so GERD,
+peptic ulcer, stomach and oesophageal cancer, adrenal insufficiency, Cushing's
+syndrome and the six thyroid conditions are offered on both bodies. Study text is
+unchanged. The skull, shoulder bones and upper-arm bones were traced but left out
+after review.
+
 ## Deliberate limits
 
 - **Sources (revision 1).** Claims come only from NIH pages: NHLBI, NIDDK, NICHD and NCI SEER

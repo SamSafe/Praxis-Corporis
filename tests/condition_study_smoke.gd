@@ -74,7 +74,7 @@ func run() -> void:
 				available.append(str(identity))
 		# Shared conditions, the 8 about anatomy no source models, and each body's own
 		# supported anatomy; see tests/test_study_content.py.
-		check(available.size() == (90 if reference == "female" else 85) and ("condition.bph" in available) == (reference == "male") and ("condition.endometriosis" in available) == (reference == "female"), "Each body offers exactly the conditions its supplied anatomy supports")
+		check(available.size() == (102 if reference == "female" else 97) and ("condition.bph" in available) == (reference == "male") and ("condition.endometriosis" in available) == (reference == "female"), "Each body offers exactly the conditions its supplied anatomy supports")
 		for identity in available:
 			undo = viewer.model.undo_stack.duplicate(true)
 			dialog = viewer.show_condition(identity)

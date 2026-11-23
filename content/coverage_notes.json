@@ -113,6 +113,69 @@
       "gaps": "Approximate: traced automatically from 1 mm CT, without the parotid duct, facial nerve or internal lobes."
     },
     {
+      "id": "ct-stomach",
+      "label": "Stomach (Visible Human CT)",
+      "roots": {"female": "source.hra-v1-1.female.n1166", "male": "source.hra-v1-1.male.n1138"},
+      "supplied": {"female": "The stomach, traced from the Visible Human female CT and fitted to this body's liver, spleen, kidneys and pancreas.", "male": "The stomach, traced from the Visible Human male CT and fitted to this body's liver, spleen, kidneys and pancreas."},
+      "gaps": "Approximate outer surface only; no wall layers, folds or the gastro-oesophageal junction detail."
+    },
+    {
+      "id": "ct-esophagus",
+      "label": "Oesophagus (Visible Human CT)",
+      "roots": {"female": "source.hra-v1-1.female.n1167", "male": "source.hra-v1-1.male.n1139"},
+      "supplied": {"female": "The oesophagus from the neck to the stomach, traced from the Visible Human female CT and fitted to this body's spine, lungs, heart and windpipe.", "male": "The oesophagus from the neck to the stomach, traced from the Visible Human male CT and fitted to this body's spine, lungs, heart and windpipe."},
+      "gaps": "Approximate outer surface only; no wall layers or sphincters."
+    },
+    {
+      "id": "ct-thyroid",
+      "label": "Thyroid gland (Visible Human CT)",
+      "roots": {"female": "source.hra-v1-1.female.n1168", "male": "source.hra-v1-1.male.n1140"},
+      "supplied": {"female": "The thyroid gland, traced from the Visible Human female CT and fitted to this body's neck and chest.", "male": "The thyroid gland, traced from the Visible Human male CT and fitted to this body's neck and chest."},
+      "gaps": "Approximate; no parathyroid glands, lobes are not separated."
+    },
+    {
+      "id": "ct-adrenal",
+      "label": "Adrenal glands (Visible Human CT)",
+      "roots": {"female": "source.hra-v1-1.female.n1171", "male": "source.hra-v1-1.male.n1143"},
+      "supplied": {"female": "Left and right adrenal glands, traced from the Visible Human female CT and fitted to this body's abdominal organs.", "male": "Left and right adrenal glands, traced from the Visible Human male CT and fitted to this body's abdominal organs."},
+      "gaps": "Approximate; small glands traced from CT, with no cortex or medulla."
+    },
+    {
+      "id": "ct-ribs",
+      "label": "Ribs and costal cartilages (Visible Human CT)",
+      "roots": {"female": "source.hra-v1-1.female.n1197", "male": "source.hra-v1-1.male.n1169"},
+      "supplied": {"female": "All 24 ribs and the costal cartilages, traced from the Visible Human female CT and fitted to this body's spine, lungs, heart and windpipe.", "male": "All 24 ribs and the costal cartilages, traced from the Visible Human male CT and fitted to this body's spine, lungs, heart and windpipe."},
+      "gaps": "Approximate; the body's lungs, from frozen sections, bulge slightly between the upper ribs."
+    },
+    {
+      "id": "ct-sternum",
+      "label": "Sternum (Visible Human CT)",
+      "roots": {"female": "source.hra-v1-1.female.n1198", "male": "source.hra-v1-1.male.n1170"},
+      "supplied": {"female": "The sternum, traced from the Visible Human female CT.", "male": "The sternum, traced from the Visible Human male CT."},
+      "gaps": "Approximate; its three parts are not separated."
+    },
+    {
+      "id": "ct-gluteal",
+      "label": "Gluteal muscles (Visible Human CT)",
+      "roots": {"female": "source.hra-v1-1.female.n1205", "male": "source.hra-v1-1.male.n1175"},
+      "supplied": {"female": "Gluteus maximus, medius and minimus on both sides, traced from the Visible Human female CT and fitted to this body's hip bones, sacrum and lumbar spine.", "male": "Gluteus medius and minimus on both sides, traced from the Visible Human male CT. Gluteus maximus is left out: the male scan's first pass ends before the muscle does."},
+      "gaps": "Approximate outer surfaces; no tendons or attachments."
+    },
+    {
+      "id": "ct-iliopsoas",
+      "label": "Iliopsoas muscles (Visible Human CT)",
+      "roots": {"female": "source.hra-v1-1.female.n1208", "male": "source.hra-v1-1.male.n1178"},
+      "supplied": {"female": "Left and right iliopsoas, traced from the Visible Human female CT and fitted to this body's hip bones, sacrum and lumbar spine.", "male": "Left and right iliopsoas, traced from the Visible Human male CT and fitted to this body's hip bones, sacrum and lumbar spine."},
+      "gaps": "Approximate; psoas and iliacus are not separated."
+    },
+    {
+      "id": "ct-back",
+      "label": "Deep back muscles (Visible Human CT)",
+      "roots": {"female": "source.hra-v1-1.female.n1211", "male": "source.hra-v1-1.male.n1181"},
+      "supplied": {"female": "The deep muscles along each side of the spine (erector spinae and transversospinalis groups), traced from the Visible Human female CT and fitted to this body's vertebrae.", "male": "The deep muscles along each side of the spine (erector spinae and transversospinalis groups), traced from the Visible Human male CT and fitted to this body's vertebrae."},
+      "gaps": "Approximate; the individual muscles of the group are not separated."
+    },
+    {
       "id": "unestablished",
       "label": "Other / unestablished coverage",
       "roots": {"female": "", "male": ""},

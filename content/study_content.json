@@ -9096,7 +9096,19 @@
       ],
       "review_status": "draft",
       "expert_review": "pending",
-      "human_source_review": "pending"
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n1166",
+          "source_name": "VH_F_stomach",
+          "ontology": "FMA:7148"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n1138",
+          "source_name": "VH_M_stomach",
+          "ontology": "FMA:7148"
+        }
+      }
     },
     "anatomy.esophagus": {
       "overview": "The muscular tube through which food passes from the throat to the stomach. It lies behind the trachea and in front of the vertebral column.",
@@ -9113,7 +9125,19 @@
       ],
       "review_status": "draft",
       "expert_review": "pending",
-      "human_source_review": "pending"
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n1167",
+          "source_name": "VH_F_esophagus",
+          "ontology": "FMA:7131"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n1139",
+          "source_name": "VH_M_esophagus",
+          "ontology": "FMA:7131"
+        }
+      }
     },
     "anatomy.diaphragm": {
       "overview": "The thin, dome-shaped muscle below the lungs and heart that separates the chest from the abdomen. It has three openings for structures passing between them.",
@@ -9266,7 +9290,17 @@
             "source_name": "FMA15629",
             "ontology": "FMA15629"
           }
-        ]
+        ],
+        "female": {
+          "id": "source.hra-v1-1.female.n1171",
+          "source_name": "VH_F_adrenal_glands",
+          "ontology": ""
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n1143",
+          "source_name": "VH_M_adrenal_glands",
+          "ontology": ""
+        }
       }
     },
     "anatomy.testes": {
@@ -9381,6 +9415,16 @@
           "id": "source.bodyparts3d-v4-complete.FMA7485",
           "source_name": "FMA7485",
           "ontology": "FMA7485"
+        },
+        "female": {
+          "id": "source.hra-v1-1.female.n1198",
+          "source_name": "VH_F_sternum",
+          "ontology": "FMA:7485"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n1170",
+          "source_name": "VH_M_sternum",
+          "ontology": "FMA:7485"
         }
       }
     },
@@ -9405,6 +9449,16 @@
           "id": "source.bodyparts3d-v4-complete.FMA7480",
           "source_name": "FMA7480",
           "ontology": "FMA7480"
+        },
+        "female": {
+          "id": "source.hra-v1-1.female.n1197",
+          "source_name": "VH_F_ribs",
+          "ontology": ""
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n1169",
+          "source_name": "VH_M_ribs",
+          "ontology": ""
         }
       }
     },
@@ -10176,6 +10230,18 @@
             "source_name": "FJ1418",
             "ontology": "FMA22328"
           }
+        ],
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1199",
+            "source_name": "VH_F_gluteus_maximus_L",
+            "ontology": "FMA:22329"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1200",
+            "source_name": "VH_F_gluteus_maximus_R",
+            "ontology": "FMA:22328"
+          }
         ]
       }
     },
@@ -10462,7 +10528,19 @@
       ],
       "review_status": "draft",
       "expert_review": "pending",
-      "human_source_review": "pending"
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n1168",
+          "source_name": "VH_F_thyroid_gland",
+          "ontology": "FMA:9603"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n1140",
+          "source_name": "VH_M_thyroid_gland",
+          "ontology": "FMA:9603"
+        }
+      }
     },
     "anatomy.parathyroid-glands": {
       "overview": "Four pea-sized glands on the surface of the thyroid, in the neck.",

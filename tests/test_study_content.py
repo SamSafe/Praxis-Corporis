@@ -81,9 +81,10 @@ class StudyContentTests(unittest.TestCase):
                        for anatomy in condition["related_anatomy"]):
                     offered.add(identity)
             # Each adult reference offers the 71 shared conditions, the 8 about unmodelled
-            # anatomy, plus those its own supplied anatomy supports (11 female, 6 male);
+            # anatomy, the 12 its CT-traced stomach, oesophagus, thyroid and adrenal glands
+            # support, plus those its own supplied anatomy supports (11 female, 6 male);
             # none is inferred from missing anatomy.
-            self.assertEqual(len(offered), 90 if body["id"] == "female" else 85)
+            self.assertEqual(len(offered), 102 if body["id"] == "female" else 97)
             self.assertEqual("condition.bph" in offered, body["id"] == "male")
             self.assertEqual("condition.endometriosis" in offered, body["id"] == "female")
 

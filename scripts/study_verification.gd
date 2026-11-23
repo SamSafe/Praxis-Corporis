@@ -2094,7 +2094,7 @@ static func verify_conditions(viewer: Control, rendered: bool) -> bool:
 			available.append(str(id))
 	# Shared conditions, the 8 about anatomy no source models, and each body's own
 	# supported anatomy; see tests/test_study_content.py.
-	valid = valid and available.size() == (90 if viewer.model.body.id == "female" else 85)
+	valid = valid and available.size() == (102 if viewer.model.body.id == "female" else 97)
 	for id in available:
 		var dialog: Window = viewer.show_condition(id)
 		if dialog == null:

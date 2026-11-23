@@ -36,6 +36,17 @@ func _initialize() -> void:
 		"VH_F_trabecular_meshwork_L": "",
 		"diaphragm": "muscle",
 		"linea alba": "ligament",
+		"VH_F_sternum": "bone",
+		"VH_F_rib_4_L": "bone",
+		"VH_F_costal_cartilages": "cartilage",
+		"VH_M_gluteus_medius_R": "muscle",
+		"VH_F_iliopsoas_L": "muscle",
+		"VH_F_deep_back_muscles_L": "muscle",
+		"VH_F_esophagus": "gut",
+		"VH_F_stomach": "gut",
+		"VH_M_thyroid_gland": "gland",
+		"VH_M_adrenal_gland_R": "gland",
+		"VH_F_adrenal_gland_L": "gland",
 	}
 	for name in expected:
 		check(TissueAppearance.classify(name) == expected[name], "%s -> %s (got %s)" % [name, expected[name], TissueAppearance.classify(name)])

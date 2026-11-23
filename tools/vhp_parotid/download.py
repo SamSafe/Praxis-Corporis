@@ -14,8 +14,15 @@ names = sorted(set(re.findall(pattern, index)))
 (out / "list.txt").write_text("\n".join(names) + "\n")
 def fetch(name):
     target = out / name
-    if not target.exists():
-        subprocess.run(["curl", "-s", "-f", "-m", "120", "-o", str(target), BASE + folder + name], check=True)
+    for _ in range(4):
+        if target.exists() and target.stat().st_size > 0:
+            return None
+        target.unlink(missing_ok=True)
+        subprocess.run(["curl", "-s", "-f", "-m", "120", "-o", str(target), BASE + folder + name])
+    target.unlink(missing_ok=True)
+    return name
 with ThreadPoolExecutor(8) as pool:
-    list(pool.map(fetch, names[:count]))
-print(body, "slices listed", len(names), "downloaded", count)
+    missing = [n for n in pool.map(fetch, names[:count]) if n]
+# Volume builders skip slices that are absent, so record what the server did not supply.
+(out / "missing.txt").write_text("\n".join(missing) + ("\n" if missing else ""))
+print(body, "slices listed", len(names), "requested", min(count, len(names)), "missing", missing)
