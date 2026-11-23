@@ -106,6 +106,13 @@
       "gaps": "No intervertebral disks, spinal ligaments or back muscles in the HRA bodies; the complete male body supplies those."
     },
     {
+      "id": "parotid",
+      "label": "Parotid glands (Visible Human CT)",
+      "roots": {"female": "source.hra-v1-1.female.n1165", "male": "source.hra-v1-1.male.n1137"},
+      "supplied": {"female": "Left and right parotid glands, traced from the Visible Human female CT and fitted to this body's eyes and neck vertebrae.", "male": "Left and right parotid glands, traced from the Visible Human male CT and fitted to this body's eyes and neck vertebrae."},
+      "gaps": "Approximate: traced automatically from 1 mm CT, without the parotid duct, facial nerve or internal lobes."
+    },
+    {
       "id": "unestablished",
       "label": "Other / unestablished coverage",
       "roots": {"female": "", "male": ""},

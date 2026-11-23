@@ -1676,7 +1676,7 @@ func rebuild_tree() -> void:
 			search_items[match_record.id] = index
 		# Structures no body models are found by name and open their study card.
 		if not list_all:
-			for card_id in study_content.find_unmodelled(AnatomySearch.words(query)):
+			for card_id in study_content.find_unmodelled(AnatomySearch.words(query), model.structures):
 				search_total += 1
 				# Broad queries keep the list cap; the summary still counts every match.
 				if search_results.item_count >= AnatomySearch.RESULT_LIMIT:
@@ -2509,7 +2509,7 @@ func refresh_study_content() -> void:
 	if key == study_key:
 		return
 	study_key = key
-	study_summary.text = study_content.text(model.selected_id) if not model.selected_id.is_empty() else "Select a structure to explore its position and read available study information."
+	study_summary.text = study_content.text(model.selected_id, model.structures) if not model.selected_id.is_empty() else "Select a structure to explore its position and read available study information."
 	for child in study_links.get_children():
 		study_links.remove_child(child)
 		child.queue_free()
@@ -2528,7 +2528,7 @@ func refresh_study_content() -> void:
 		link.disabled = loading
 		link.pressed.connect(select_related_study.bind(target))
 		study_links.add_child(link)
-	for unmodelled_id in study_content.unmodelled_near(model.selected_id):
+	for unmodelled_id in study_content.unmodelled_near(model.selected_id, model.structures):
 		var link := LinkButton.new()
 		link.focus_mode = Control.FOCUS_ALL
 		link.text = study_content.unmodelled_title(unmodelled_id) + " · no 3D model"
@@ -2553,7 +2553,7 @@ func refresh_study_content() -> void:
 		condition_links.remove_child(child)
 		child.queue_free()
 	var available_conditions: Array[String] = study_content.conditions_for(model.selected_id)
-	for unmodelled_id in study_content.unmodelled_near(model.selected_id):
+	for unmodelled_id in study_content.unmodelled_near(model.selected_id, model.structures):
 		for id in study_content.conditions_for(unmodelled_id):
 			if id not in available_conditions:
 				available_conditions.append(id)
@@ -2595,7 +2595,7 @@ func show_study_card() -> Window:
 	dialog.title = str(model.structures[model.selected_id].label) + " · draft study card"
 	dialog.message = "Reference: %s\nStructure: %s\n\n%s\n\nSources" % [
 		model.body.get("short_label", model.body.label), model.structures[model.selected_id].label,
-		study_content.text(model.selected_id)]
+		study_content.text(model.selected_id, model.structures)]
 	for source_id in card.source_ids:
 		var source: Dictionary = study_content.data.sources[source_id]
 		dialog.message += "\n\n%s\n%s" % [source.title, source.url]
@@ -2608,7 +2608,7 @@ func show_study_card() -> Window:
 ## Study card for a structure no reference body models: text, sources and
 ## conditions, plus a way to locate the nearest supplied anatomy.
 func show_unmodelled_card(id: String) -> Window:
-	if loading or not study_content.unmodelled(id):
+	if loading or not study_content.unmodelled(id, model.structures):
 		return null
 	var card := study_content.card(id)
 	var title := study_content.unmodelled_title(id)
@@ -2619,7 +2619,7 @@ func show_unmodelled_card(id: String) -> Window:
 	dialog.title = title + " · draft study card"
 	dialog.message = "Structure: %s\nReference: %s · %s\n\n%s" % [title, model.body.get("short_label", model.body.label),
 		("nearest supplied anatomy: " + str(model.structures[near].label)) if not near.is_empty() else "no nearby supplied anatomy in this body",
-		study_content.text(id)]
+		study_content.text(id, model.structures)]
 	var conditions := study_content.conditions_for(id)
 	if not conditions.is_empty():
 		dialog.message += "\n\nRelated conditions"
@@ -2677,7 +2677,7 @@ func show_condition(id: String) -> Window:
 	var dialog := InformationDialog.new()
 	dialog.theme = theme
 	dialog.title = str(record.title) + " · draft learning text"
-	dialog.message = study_content.condition_text(id)
+	dialog.message = study_content.condition_text(id, model.structures)
 	if not study_content.condition_focus(id, model.structures).is_empty():
 		dialog.add_button("Inspect reference anatomy", false, "reference")
 	dialog.custom_action.connect(func(action: StringName):
@@ -3258,6 +3258,8 @@ func show_sources() -> Window:
 		dialog.message = "BodyParts3D, © The Database Center for Life Science licensed under CC\nAttribution 4.0 International. Official archive v4.0; current grant from the\n2025 licence page. Original OBJ comments retain legacy CC BY-SA 2.1 Japan\nnotices. Both records are retained. Geometry was converted from millimetres\nto metres and Z-up to Y-up, with source normals preserved. Display colour\nand inspection effects are runtime modifications.\n\nhttps://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html\nhttps://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html\n\nSeparate male bone study; no registration to HRA or female anatomy. Geometry\nand labels are unreviewed. Reference geometry only.\nGodot Engine: MIT licence; https://godotengine.org/license/"
 	elif model.body.get("study_kind") == "hra-spinal":
 		dialog.message = ViewCapture.credits(model.body, "") + "\n\n" + str(model.body.coverage)
+	elif reference_id in ["female", "male"]:
+		dialog.message += "\n\nAdded organs\nMammary glands, palatine tonsils, spinal cord and vertebrae from later HRA releases\n(v1.2-v1.4, CC BY 4.0), appended without changing the United v1.1 parts.\nParotid glands: traced automatically from the Visible Human Project CT scans,\ncourtesy of the U.S. National Library of Medicine, with TotalSegmentator\n(Apache 2.0), then fitted to this body's eyes and neck vertebrae. Approximate.\nhttps://www.nlm.nih.gov/research/visible/visible_human.html"
 	if reference_id in ["", "female", "male", "bodyparts-male-complete"] and not study_content.data.is_empty():
 		dialog.message += "\n\nStudy explanations and circulation route\nOriginal summaries. Assistant source cross-check: %s. Human source and qualified medical review are pending. No source illustrations or videos are reused.\n" % str(study_content.data.assistant_checks.checked_on)
 		for source in study_content.data.sources.values():

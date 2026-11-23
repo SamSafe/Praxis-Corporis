@@ -8,8 +8,8 @@
       "id": "female",
       "label": "Female reference (HRA v1.1)",
       "asset_path": "assets/hra/female-supplemented.glb",
-      "sha256": "eda63a70173b58cf292d96bc3cf97bcf2f636ebb0baa1868143a9ffed2f11d37",
-      "bytes": 131214196,
+      "sha256": "0a55c6ae97cbe065a13e999162b1b267f91ee266cf0b896ee98b6d7cbafa65da",
+      "bytes": 131431776,
       "root_id": "anatomy.body",
       "structures": [
         {
@@ -891,7 +891,9 @@
             1159,
             1160,
             1161,
-            1162
+            1162,
+            1163,
+            1164
           ],
           "children": [
             "anatomy.system.integumentary",
@@ -907,7 +909,8 @@
             "source.hra-v1-1.female.n1103",
             "source.hra-v1-1.female.n1106",
             "source.hra-v1-1.female.n1107",
-            "source.hra-v1-1.female.n1137"
+            "source.hra-v1-1.female.n1137",
+            "source.hra-v1-1.female.n1165"
           ],
           "parent": "",
           "review_status": "draft"
@@ -18572,6 +18575,49 @@
           "children": [],
           "parent": "source.hra-v1-1.female.n1137",
           "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.female.n1165",
+          "label": "Parotid glands",
+          "source_node": 1165,
+          "source_name": "VH_F_parotid_glands",
+          "ontology": "",
+          "mesh_nodes": [
+            1163,
+            1164
+          ],
+          "children": [
+            "source.hra-v1-1.female.n1163",
+            "source.hra-v1-1.female.n1164"
+          ],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.female.n1163",
+          "label": "Left parotid gland",
+          "source_node": 1163,
+          "source_name": "VH_F_parotid_gland_L",
+          "ontology": "FMA:59798",
+          "mesh_nodes": [
+            1163
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.female.n1165",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.female.n1164",
+          "label": "Right parotid gland",
+          "source_node": 1164,
+          "source_name": "VH_F_parotid_gland_R",
+          "ontology": "FMA:59797",
+          "mesh_nodes": [
+            1164
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.female.n1165",
+          "review_status": "draft"
         }
       ],
       "coordinates": "Original glTF metre coordinates and Y-up axes; no registration or scaling applied.",
@@ -18581,8 +18627,8 @@
       "id": "male",
       "label": "Male reference (HRA v1.1)",
       "asset_path": "assets/hra/male-supplemented.glb",
-      "sha256": "1c7e7be131b2b124d4f36eb03a7963856494dc6b5702531ff336d4d79839feed",
-      "bytes": 93176536,
+      "sha256": "4ed95e497adb2ecef12406829efdc07409485ad62482a94daa119b08ffd6df54",
+      "bytes": 93394108,
       "root_id": "anatomy.body",
       "structures": [
         {
@@ -19435,7 +19481,9 @@
             1131,
             1132,
             1133,
-            1134
+            1134,
+            1135,
+            1136
           ],
           "children": [
             "anatomy.system.circulatory",
@@ -19450,7 +19498,8 @@
             "anatomy.system.respiratory",
             "source.hra-v1-1.male.n1078",
             "source.hra-v1-1.male.n1079",
-            "source.hra-v1-1.male.n1110"
+            "source.hra-v1-1.male.n1110",
+            "source.hra-v1-1.male.n1137"
           ],
           "parent": "",
           "review_status": "draft"
@@ -36657,6 +36706,49 @@
           ],
           "children": [],
           "parent": "source.hra-v1-1.male.n1110",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.male.n1137",
+          "label": "Parotid glands",
+          "source_node": 1137,
+          "source_name": "VH_M_parotid_glands",
+          "ontology": "",
+          "mesh_nodes": [
+            1135,
+            1136
+          ],
+          "children": [
+            "source.hra-v1-1.male.n1135",
+            "source.hra-v1-1.male.n1136"
+          ],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.male.n1135",
+          "label": "Left parotid gland",
+          "source_node": 1135,
+          "source_name": "VH_M_parotid_gland_L",
+          "ontology": "FMA:59798",
+          "mesh_nodes": [
+            1135
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.male.n1137",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.male.n1136",
+          "label": "Right parotid gland",
+          "source_node": 1136,
+          "source_name": "VH_M_parotid_gland_R",
+          "ontology": "FMA:59797",
+          "mesh_nodes": [
+            1136
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.male.n1137",
           "review_status": "draft"
         }
       ],

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": "body-study-9-draft",
+  "revision": "body-study-10-draft",
   "review_status": "draft",
   "expert_review": "pending",
   "scope": "Private draft explanations covering the chest, abdomen, pelvis, brain, eyes, knees and skin, including selected vessels, kidney interior, intestines, airways, bone tissue and the lymphatic system. General anatomy is separate from completeness and accuracy of the supplied source meshes. No source illustrations or video are reused.",
@@ -10494,11 +10494,23 @@
       "human_source_review": "pending",
       "not_modelled": {
         "title": "Parotid glands",
-        "note": "No open anatomical source supplies a model of this structure, so no body shows it. Locate selects the nearest supplied structure when the current body has one.",
+        "note": "No open anatomical source models the parotid glands for this body, so they are not shown here. The female and male bodies show glands traced from the Visible Human CT scans.",
         "near": [
           "anatomy.salivary-glands",
           "anatomy.mandible"
         ]
+      },
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n1165",
+          "source_name": "VH_F_parotid_glands",
+          "ontology": ""
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n1137",
+          "source_name": "VH_M_parotid_glands",
+          "ontology": ""
+        }
       }
     },
     "anatomy.scrotum": {

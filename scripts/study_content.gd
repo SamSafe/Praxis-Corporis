@@ -38,10 +38,10 @@ func load_data(parsed: Variant) -> String:
 		if not string_list(record.get("related")) or not valid_sources(record, parsed.sources):
 			return "Study content contains an invalid relationship or citation."
 		if record.has("not_modelled"):
-			# A structure no open source models: text, sources and conditions only.
-			# It may name nearby structures to locate, never geometry of its own.
+			# A structure some or all bodies lack: text, sources and conditions, plus
+			# nearby structures to locate where the loaded body has no geometry for it.
 			var note = record.not_modelled
-			if record.has("geometry") or not note is Dictionary or not nonempty_text(note.get("title"), 128) or not nonempty_text(note.get("note"), 512) or not string_list(note.get("near"), false, 8):
+			if not note is Dictionary or not nonempty_text(note.get("title"), 128) or not nonempty_text(note.get("note"), 512) or not string_list(note.get("near"), false, 8):
 				return "Study content contains an invalid unmodelled structure."
 		if record.has("geometry"):
 			# Explicit per-body source mappings for cards whose structures have no
@@ -215,9 +215,10 @@ func structure_id(id: String, structures: Dictionary) -> String:
 	return ""
 
 
-## True for a card that no reference body models.
-func unmodelled(id: String) -> bool:
-	return card(id).has("not_modelled")
+## True for a card that the loaded body (given by its structures) does not model.
+## Without structures, any card marked not_modelled counts as unmodelled.
+func unmodelled(id: String, structures: Dictionary = {}) -> bool:
+	return card(id).has("not_modelled") and structure_id(id, structures).is_empty()
 
 
 func unmodelled_title(id: String) -> String:
@@ -225,11 +226,11 @@ func unmodelled_title(id: String) -> String:
 
 
 ## Unmodelled cards that name this anatomy as a nearby structure to locate.
-func unmodelled_near(anatomy_id: String) -> Array[String]:
+func unmodelled_near(anatomy_id: String, structures: Dictionary = {}) -> Array[String]:
 	var result: Array[String] = []
 	var concept := concept_id(anatomy_id)
 	for id in data.get("cards", {}):
-		if concept in data.cards[id].get("not_modelled", {}).get("near", []):
+		if concept in data.cards[id].get("not_modelled", {}).get("near", []) and unmodelled(str(id), structures):
 			result.append(str(id))
 	return result
 
@@ -244,14 +245,14 @@ func stand_in(id: String, structures: Dictionary) -> String:
 
 
 ## Unmodelled cards whose title contains every word of the query.
-func find_unmodelled(query: String) -> Array[String]:
+func find_unmodelled(query: String, structures: Dictionary = {}) -> Array[String]:
 	var result: Array[String] = []
 	var words := query.to_lower().strip_edges().split(" ", false)
 	if words.is_empty():
 		return result
 	for id in data.get("cards", {}):
 		var title := unmodelled_title(str(id)).to_lower()
-		if title.is_empty():
+		if title.is_empty() or not unmodelled(str(id), structures):
 			continue
 		var matched := true
 		for word in words:
@@ -279,8 +280,8 @@ func condition_available(id: String, structures: Dictionary) -> bool:
 	if record.is_empty():
 		return false
 	for related in record.related_anatomy:
-		# Unmodelled anatomy has text only; a condition about it stays readable.
-		if unmodelled(related):
+		# Anatomy this body does not model has text only; its conditions stay readable.
+		if unmodelled(related, structures):
 			continue
 		var structure := structure_id(related, structures)
 		if structure.is_empty() or structures[structure].get("mesh_nodes", []).is_empty():
@@ -292,16 +293,16 @@ func condition_available(id: String, structures: Dictionary) -> bool:
 ## nearest supplied structure. "" when the body has neither.
 func condition_focus(id: String, structures: Dictionary) -> String:
 	var focus := str(condition(id).get("focus_id", ""))
-	return stand_in(focus, structures) if unmodelled(focus) else structure_id(focus, structures)
+	return stand_in(focus, structures) if unmodelled(focus, structures) else structure_id(focus, structures)
 
 
-func condition_text(id: String) -> String:
+func condition_text(id: String, structures: Dictionary = {}) -> String:
 	var record := condition(id)
 	if record.is_empty():
 		return "Condition information is unavailable."
 	var result: String = str(record.summary) + "\n\nReference location\n" + str(record.location)
-	if unmodelled(str(record.focus_id)):
-		result += "\n\nNO 3D MODEL\nNo open source supplies a model of the %s, so it is not shown. Where the current body has nearby anatomy, inspecting locates that instead." % unmodelled_title(str(record.focus_id)).to_lower()
+	if unmodelled(str(record.focus_id), structures):
+		result += "\n\nNO 3D MODEL\nNo open source supplies a model of the %s for this body, so it is not shown. Where the current body has nearby anatomy, inspecting locates that instead." % unmodelled_title(str(record.focus_id)).to_lower()
 	else:
 		result += "\n\nREFERENCE ANATOMY ONLY\nThe supplied geometry is unreviewed reference anatomy. " + str(record.get("not_depicted", "Disease-related tissue changes, motion and flow are not depicted."))
 	result += "\n\nDraft learning text · human source and medical review pending.\n\nSources"
@@ -310,11 +311,11 @@ func condition_text(id: String) -> String:
 	return result
 
 
-func text(id: String) -> String:
+func text(id: String, structures: Dictionary = {}) -> String:
 	var record := card(id)
 	if record.is_empty():
 		return "No authored explanation for this structure yet."
-	if record.has("not_modelled"):
+	if record.has("not_modelled") and unmodelled(concept_id(id), structures):
 		return "%s\n\nFunction\n%s\n\nNo 3D model\n%s\n\nDraft learning text · human source and medical review pending." % [record.overview, record.function, record.not_modelled.note]
 	return "%s\n\nFunction\n%s\n\nDraft learning text · human source and medical review pending.\nThe supplied geometry may omit structures or internal surfaces." % [record.overview, record.function]
 

@@ -95,3 +95,9 @@ the catalogue the app loads.
   [the popup-template diagnostic](POPUP_TEMPLATE_VERIFICATION.md).
 - **Native Windows, headless:** passed for all eight references, native exit code 0,
   user data isolated ([report](windows-qa-0eb727b/report.json)).
+
+## Parotid glands, 2026-11-22
+
+The female and male bodies now include parotid glands traced from the Visible Human
+CT scans and appended through the same supplement tool; see
+[VHP_PAROTID.md](VHP_PAROTID.md). The other gaps above remain.

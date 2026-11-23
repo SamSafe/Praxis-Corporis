@@ -640,7 +640,7 @@ static func verify_study_reader(viewer: Control, rendered: bool = false) -> bool
 					await viewer.get_tree().process_frame
 					await viewer.get_tree().process_frame
 					valid = valid and dialog.content.has_focus() and dialog.content.selection_enabled and not dialog.content.bbcode_enabled
-					valid = valid and viewer.study_content.text(id) in dialog.message and str(viewer.model.body.get("short_label", viewer.model.body.label)) in dialog.message
+					valid = valid and viewer.study_content.text(id, viewer.model.structures) in dialog.message and str(viewer.model.body.get("short_label", viewer.model.body.label)) in dialog.message
 					valid = valid and str(viewer.model.structures[id].label) in dialog.message and dialog.content.get_parsed_text() == dialog.message
 					for source_id in viewer.study_content.card(id).source_ids:
 						var source: Dictionary = viewer.study_content.data.sources[source_id]
@@ -725,7 +725,7 @@ static func verify_study_reader(viewer: Control, rendered: bool = false) -> bool
 			var reader: Window = viewer.show_study_card()
 			valid = valid and viewer.study_reader_button.visible and reader != null
 			if reader != null:
-				valid = valid and viewer.study_content.text("anatomy.stomach") in reader.message
+				valid = valid and viewer.study_content.text("anatomy.stomach", viewer.model.structures) in reader.message
 				await coverage_key(reader, KEY_ESCAPE)
 				await viewer.get_tree().process_frame
 		viewer.select_structure(viewer.model.body.root_id, false)
@@ -2100,7 +2100,7 @@ static func verify_conditions(viewer: Control, rendered: bool) -> bool:
 		if dialog == null:
 			return false
 		await viewer.get_tree().process_frame
-		var unmodelled: bool = viewer.study_content.unmodelled(str(viewer.study_content.condition(id).focus_id))
+		var unmodelled: bool = viewer.study_content.unmodelled(str(viewer.study_content.condition(id).focus_id), viewer.model.structures)
 		valid = valid and ("NO 3D MODEL" if unmodelled else "REFERENCE ANATOMY ONLY") in dialog.message and "medical review pending" in dialog.message
 		valid = valid and dialog.get_ok_button().get_global_rect().end.y <= dialog.size.y
 		if rendered and id == "condition.aortic-stenosis":

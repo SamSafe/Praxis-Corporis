@@ -432,6 +432,15 @@ cards rather than invented geometry:
   reference-anatomy notice, and their location action, where offered, shows a
   neighbouring structure, not the structure itself.
 
+## Revision 10: parotid glands on the female and male bodies
+
+Added 2026-11-22 as `body-study-10-draft`. The parotid glands were traced from the
+Visible Human CT scans of the donors behind the female and male bodies and fitted to
+each body's eyes and neck vertebrae ([audit](audit/VHP_PAROTID.md)). The parotid card
+now maps to them on those bodies. An unmodelled card is now judged per body: on the
+complete male body the parotid card stays text-only with "Locate nearby anatomy",
+and mumps and salivary gland cancer locate the real glands wherever they exist.
+
 ## Deliberate limits
 
 - **Sources (revision 1).** Claims come only from NIH pages: NHLBI, NIDDK, NICHD and NCI SEER

@@ -131,7 +131,7 @@ class StudyContentTests(unittest.TestCase):
         for body in catalogue["bodies"]:
             available = {s["id"]: s for s in body["structures"]}
             for identity, card in content["cards"].items():
-                if "not_modelled" in card:
+                if "not_modelled" in card and body["id"] not in card.get("geometry", {}):
                     continue
                 if "geometry" not in card:
                     # Shared IDs name the structure directly; some exist only in the
@@ -160,7 +160,9 @@ class StudyContentTests(unittest.TestCase):
         unmodelled = {k: c for k, c in cards.items() if "not_modelled" in c}
         self.assertEqual(sorted(unmodelled), ["anatomy.adenoids", "anatomy.lingual-tonsils", "anatomy.parotid-glands", "anatomy.scrotum", "anatomy.vulva"])
         for identity, card in unmodelled.items():
-            self.assertNotIn("geometry", card, "no geometry is invented for unmodelled anatomy")
+            # Only the parotid glands have geometry, traced from the Visible Human CT for the
+            # two bodies made from those donors; the complete body keeps the text-only card.
+            self.assertEqual(set(card.get("geometry", {})), {"female", "male"} if identity == "anatomy.parotid-glands" else set(), identity)
             self.assertTrue(card["not_modelled"]["title"] and card["not_modelled"]["note"])
             self.assertTrue(any(is_government_source(content["sources"][s]["url"]) for s in card["source_ids"]), identity)
             for near in card["not_modelled"]["near"]:

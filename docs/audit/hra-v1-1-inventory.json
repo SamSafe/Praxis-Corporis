@@ -1,13 +1,13 @@
 {
   "female": {
-    "sha256": "eda63a70173b58cf292d96bc3cf97bcf2f636ebb0baa1868143a9ffed2f11d37",
-    "bytes": 131214196,
+    "sha256": "0a55c6ae97cbe065a13e999162b1b267f91ee266cf0b896ee98b6d7cbafa65da",
+    "bytes": 131431776,
     "generator": "babylon.js glTF exporter for Autodesk MAYA 2022.2 v20211115.1",
     "anatomy_root": 0,
-    "total_nodes": 1163,
-    "anatomy_nodes": 1048,
-    "anatomy_mesh_nodes": 873,
-    "anatomy_triangles": 5124514,
+    "total_nodes": 1166,
+    "anatomy_nodes": 1051,
+    "anatomy_mesh_nodes": 875,
+    "anatomy_triangles": 5136514,
     "excluded_nodes": 115,
     "systems": [
       {
@@ -79,19 +79,24 @@
         "source_name": "VH_F_vertebrae",
         "mesh_nodes": 25,
         "triangles": 426468
+      },
+      {
+        "source_name": "VH_F_parotid_glands",
+        "mesh_nodes": 2,
+        "triangles": 12000
       }
     ],
     "note": "Source node counts are not verified anatomical coverage or clinical review."
   },
   "male": {
-    "sha256": "1c7e7be131b2b124d4f36eb03a7963856494dc6b5702531ff336d4d79839feed",
-    "bytes": 93176536,
+    "sha256": "4ed95e497adb2ecef12406829efdc07409485ad62482a94daa119b08ffd6df54",
+    "bytes": 93394108,
     "generator": "babylon.js glTF exporter for Autodesk MAYA 2022.2 v20211115.1",
     "anatomy_root": 115,
-    "total_nodes": 1135,
-    "anatomy_nodes": 1020,
-    "anatomy_mesh_nodes": 844,
-    "anatomy_triangles": 3979008,
+    "total_nodes": 1138,
+    "anatomy_nodes": 1023,
+    "anatomy_mesh_nodes": 846,
+    "anatomy_triangles": 3991008,
     "excluded_nodes": 115,
     "systems": [
       {
@@ -158,6 +163,11 @@
         "source_name": "VH_M_vertebrae",
         "mesh_nodes": 24,
         "triangles": 320442
+      },
+      {
+        "source_name": "VH_M_parotid_glands",
+        "mesh_nodes": 2,
+        "triangles": 12000
       }
     ],
     "note": "Source node counts are not verified anatomical coverage or clinical review."

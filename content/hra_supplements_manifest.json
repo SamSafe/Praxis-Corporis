@@ -66,6 +66,20 @@
               "sha256": "bdbea49a40e9e64cac1c8f0d67b6483686a3cc9617f7cae645e58159e4b02984"
             }
           ]
+        },
+        {
+          "node_name": "VH_F_parotid_glands",
+          "label": "Parotid glands",
+          "source": "Visible Human female normal CT (NLM), segmented; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 head_glands_cavities task (Apache-2.0); similarity fit to the body's eyes and cervical vertebrae; see docs/audit/VHP_PAROTID.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-parotid/female-parotid-glands.glb",
+              "bytes": 217560,
+              "sha256": "ea83db33b4b86fa408ce8ea95e8257491d57a4df0a3356e292c1bdd1d490d5e5"
+            }
+          ]
         }
       ]
     },
@@ -107,6 +121,20 @@
               "url": "https://raw.githubusercontent.com/hubmapconsortium/ccf-3d-reference-object-library/f1a3a63f110e27ff0736047d52d04dba5d3087f9/VH_Male/v1.2/VH_M_Vertebrae.glb",
               "bytes": 12578172,
               "sha256": "981041904438bd74c14d671af8f87b3f407b675294bbf297af673c8df7144451"
+            }
+          ]
+        },
+        {
+          "node_name": "VH_M_parotid_glands",
+          "label": "Parotid glands",
+          "source": "Visible Human male normal CT (NLM), segmented; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 head_glands_cavities task (Apache-2.0); similarity fit to the body's eyes and cervical vertebrae; see docs/audit/VHP_PAROTID.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-parotid/male-parotid-glands.glb",
+              "bytes": 217560,
+              "sha256": "5d72b46bcf9a5afe3407182a0cdc46c06046daadb0db3b573aca86729a54c39f"
             }
           ]
         }

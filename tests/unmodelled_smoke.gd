@@ -1,6 +1,6 @@
 extends SceneTree
-## Structures no open source models (parotid glands, scrotum, vulva, adenoids, lingual
-## tonsils): found by name, read as text with sources and conditions, and located only
+## Structures no open source models (scrotum, vulva, adenoids, lingual tonsils, and the
+## parotid glands on the complete body): found by name, read as text with sources and conditions, and located only
 ## through nearby supplied anatomy. No geometry is invented for them.
 
 var failures := 0
@@ -73,26 +73,38 @@ func run() -> void:
 		condition.hide()
 		condition.queue_free()
 	check(content.condition_focus("condition.vulvodynia", viewer.model.structures) == vagina, "The condition's focus is the stand-in structure")
-	# Nothing nearby on this body: text only, no locate action.
-	check(content.stand_in("anatomy.parotid-glands", viewer.model.structures).is_empty(), "The female body has no parotid neighbour")
+	# The parotid glands are modelled on this body (traced from the Visible Human CT).
+	var parotid_id: String = content.structure_id("anatomy.parotid-glands", viewer.model.structures)
+	check(not parotid_id.is_empty() and not content.unmodelled("anatomy.parotid-glands", viewer.model.structures), "The female body models the parotid glands")
+	check(viewer.model.structures[parotid_id].mesh_nodes.size() == 2, "Both glands have geometry")
+	check(content.find_unmodelled("parotid", viewer.model.structures).is_empty(), "Search finds the real glands, not a text-only entry")
+	check(content.condition_focus("condition.mumps", viewer.model.structures) == parotid_id, "Mumps locates the modelled glands")
 	var mumps: Window = viewer.show_condition("condition.mumps")
-	check(mumps != null and button(mumps, "Inspect reference anatomy") == null, "Mumps reads as text only on the female body")
+	check(mumps != null and "REFERENCE ANATOMY ONLY" in mumps.message and button(mumps, "Inspect reference anatomy") != null, "Mumps reads as an ordinary located condition here")
 	if mumps != null:
 		mumps.hide()
 		mumps.queue_free()
-	var parotid: Window = viewer.show_unmodelled_card("anatomy.parotid-glands")
-	check(parotid != null and button(parotid, "Locate nearby anatomy") == null and "no nearby supplied anatomy" in parotid.message, "The parotid card says nothing nearby is supplied here")
-	if parotid != null:
-		parotid.hide()
-		parotid.queue_free()
-	# No unmodelled card ever resolves to geometry.
-	for id in ["anatomy.parotid-glands", "anatomy.scrotum", "anatomy.vulva", "anatomy.adenoids", "anatomy.lingual-tonsils"]:
-		check(content.unmodelled(id) and content.structure_id(id, viewer.model.structures).is_empty(), "No geometry for " + id)
+	# Nothing nearby on this body: text only, no locate action.
+	check(content.stand_in("anatomy.scrotum", viewer.model.structures).is_empty(), "The female body has no scrotum neighbour")
+	var hydrocele: Window = viewer.show_condition("condition.hydrocele")
+	check(hydrocele != null and "NO 3D MODEL" in hydrocele.message and button(hydrocele, "Inspect reference anatomy") == null, "Hydrocele reads as text only on the female body")
+	if hydrocele != null:
+		hydrocele.hide()
+		hydrocele.queue_free()
+	var scrotum: Window = viewer.show_unmodelled_card("anatomy.scrotum")
+	check(scrotum != null and button(scrotum, "Locate nearby anatomy") == null and "no nearby supplied anatomy" in scrotum.message, "The scrotum card says nothing nearby is supplied here")
+	if scrotum != null:
+		scrotum.hide()
+		scrotum.queue_free()
+	# No other unmodelled card resolves to geometry.
+	for id in ["anatomy.scrotum", "anatomy.vulva", "anatomy.adenoids", "anatomy.lingual-tonsils"]:
+		check(content.unmodelled(id, viewer.model.structures) and content.structure_id(id, viewer.model.structures).is_empty(), "No geometry for " + id)
 	# The complete body locates the parotid glands through its salivary glands.
 	if "bodyparts-male-complete" in viewer.pack.bodies.map(func(b): return b.id):
 		await viewer.switch_body("bodyparts-male-complete")
 		var near: String = content.stand_in("anatomy.parotid-glands", viewer.model.structures)
 		check(near == content.structure_id("anatomy.salivary-glands", viewer.model.structures) and not near.is_empty(), "Complete body: parotid glands sit near the salivary glands")
+		check(content.unmodelled("anatomy.parotid-glands", viewer.model.structures) and content.find_unmodelled("parotid", viewer.model.structures) == ["anatomy.parotid-glands"], "Complete body: the parotid glands stay text-only")
 		check(content.stand_in("anatomy.scrotum", viewer.model.structures) == content.structure_id("anatomy.testes", viewer.model.structures), "Complete body: scrotum sits near the testes")
 		check(content.condition_available("condition.testicular-torsion", viewer.model.structures), "Testicular torsion is offered where the testes are supplied")
 	print("Unmodelled structure failures: ", failures)
