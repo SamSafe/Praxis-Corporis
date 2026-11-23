@@ -1036,6 +1036,10 @@
     "tma-intrinsic-back-muscles": {
       "title": "TeachMeAnatomy: The intrinsic back muscles",
       "url": "https://teachmeanatomy.info/back/muscles/intrinsic/"
+    },
+    "tma-anterior-thigh": {
+      "title": "TeachMeAnatomy: Muscles of the anterior thigh",
+      "url": "https://teachmeanatomy.info/lower-limb/muscles/thigh/anterior-compartment/"
     }
   },
   "cards": {
@@ -11328,7 +11332,7 @@
       }
     },
     "anatomy.iliopsoas": {
-      "overview": "An anterior muscle of the hip on each side, made of the psoas major, which runs down beside the lumbar spine, and the iliacus, which lines the inside of the ilium. Both end on the femur.",
+      "overview": "An anterior muscle of the hip on each side, made of two muscles: the psoas major, which arises from the lumbar vertebrae, and the iliacus, which arises from the iliac fossa of the pelvis. They insert together onto the lesser trochanter of the femur.",
       "function": "Flexes the thigh, bending the hip.",
       "related": [
         "anatomy.vertebral-column",
@@ -11336,7 +11340,8 @@
         "anatomy.femur"
       ],
       "source_ids": [
-        "seer-lower-muscles"
+        "seer-lower-muscles",
+        "tma-anterior-thigh"
       ],
       "review_status": "draft",
       "expert_review": "pending",
@@ -15029,6 +15034,7 @@
       "tm-ulna",
       "tm-urethra",
       "tm-uterus",
+      "tma-anterior-thigh",
       "tma-gluteal-muscles",
       "tma-intrinsic-back-muscles",
       "valve-disease-types"
