@@ -403,6 +403,35 @@ Added 2026-11-21 as `body-study-8-draft`, with new geometry in three bodies:
 - **Licence.** The BodyParts3D 4.3 meshes are CC BY-SA 2.1 Japan, from a public
   mirror pinned by commit and checked by SHA-256 and file headers.
 
+## Revision 9: structures no open source models
+
+Added 2026-11-22 as `body-study-9-draft`. Five structures have no openly licensed
+model (see [the second search](audit/HRA_SUPPLEMENTS.md)), so they get text-only
+cards rather than invented geometry:
+
+- **New unmodelled cards (5):** parotid glands, scrotum, vulva, adenoids
+  (pharyngeal tonsils) and lingual tonsils. Each card has a `not_modelled` record
+  with a title, a note and the nearby supplied structures to locate, and it never
+  carries geometry.
+- **How they appear:** search finds them by name, marked "No 3D model". Their card
+  lists sources and conditions. "Locate nearby anatomy" selects the first nearby
+  structure the current body supplies; for example, the vulva locates the vagina,
+  and on the complete body the parotid glands locate the submandibular and
+  sublingual glands. Where a body supplies none, the card says so and offers no
+  location. A supplied neighbour's panel links the unmodelled card and lists its
+  conditions.
+- **New conditions (9):** mumps, salivary gland cancer, hydrocele, varicocele,
+  vulvar cancer, vulvodynia, Bartholin cyst or abscess and enlarged adenoids, all
+  about unmodelled anatomy and so readable on every body; plus testicular torsion,
+  located on the testes where a body supplies them. CDC joins the government
+  sources.
+
+### Revision 9 limits
+
+- Conditions about unmodelled anatomy say "NO 3D MODEL" instead of the
+  reference-anatomy notice, and their location action, where offered, shows a
+  neighbouring structure, not the structure itself.
+
 ## Deliberate limits
 
 - **Sources (revision 1).** Claims come only from NIH pages: NHLBI, NIDDK, NICHD and NCI SEER

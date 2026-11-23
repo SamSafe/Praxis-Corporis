@@ -72,13 +72,21 @@ func run() -> void:
 		for identity in viewer.study_content.data.conditions:
 			if viewer.study_content.condition_available(identity, viewer.model.structures):
 				available.append(str(identity))
-		# Both bodies share 58 conditions; the female body adds 6 sex-specific ones and the male body 2.
-		check(available.size() == (82 if reference == "female" else 77) and ("condition.bph" in available) == (reference == "male") and ("condition.endometriosis" in available) == (reference == "female"), "Each body offers exactly the conditions its supplied anatomy supports")
+		# Shared conditions, the 8 about anatomy no source models, and each body's own
+		# supported anatomy; see tests/test_study_content.py.
+		check(available.size() == (90 if reference == "female" else 85) and ("condition.bph" in available) == (reference == "male") and ("condition.endometriosis" in available) == (reference == "female"), "Each body offers exactly the conditions its supplied anatomy supports")
 		for identity in available:
 			undo = viewer.model.undo_stack.duplicate(true)
 			dialog = viewer.show_condition(identity)
 			await process_frame
 			var action := reference_button(dialog)
+			if viewer.study_content.condition_focus(identity, viewer.model.structures).is_empty():
+				# Unmodelled anatomy with nothing nearby in this body: text only.
+				check(action == null and "NO 3D MODEL" in dialog.message, "Text-only condition offers no location action")
+				dialog.hide()
+				dialog.queue_free()
+				await process_frame
+				continue
 			check(action != null, "Condition has an explicit reference-location action")
 			action.pressed.emit()
 			await process_frame

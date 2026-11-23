@@ -14,7 +14,8 @@ from build_spinal_studies import build
 def is_government_source(url):
     return url.startswith(("https://www.nhlbi.nih.gov/", "https://www.ncbi.nlm.nih.gov/", "https://www.niddk.nih.gov/",
                            "https://www.nichd.nih.gov/", "https://training.seer.cancer.gov/", "https://www.nei.nih.gov/",
-                           "https://www.niams.nih.gov/", "https://medlineplus.gov/", "https://www.cancer.gov/"))
+                           "https://www.niams.nih.gov/", "https://medlineplus.gov/", "https://www.cancer.gov/",
+                           "https://www.cdc.gov/"))
 
 
 # Non-government anatomy references the user approved on 2026-11-21 for parts that have no
@@ -58,7 +59,7 @@ class StudyContentTests(unittest.TestCase):
     def test_conditions_are_sourced_reference_locations_with_explicit_associations(self):
         content = json.loads((ROOT / "content/study_content.json").read_text())
         catalogue = json.loads((ROOT / "content/sample_pack.json").read_text())
-        self.assertEqual(len(content["conditions"]), 117)
+        self.assertEqual(len(content["conditions"]), 126)
         for body in catalogue["bodies"]:
             available = {s["id"]: s for s in body["structures"]}
             offered = set()
@@ -75,11 +76,14 @@ class StudyContentTests(unittest.TestCase):
                 self.assertTrue(any(is_government_source(url) for url in urls), identity)
                 for anatomy in condition["display_on"]:
                     self.assertTrue(anatomy in available or anatomy in content["cards"], anatomy)
-                if all(resolve(content, anatomy, available) for anatomy in condition["related_anatomy"]):
+                # Anatomy no source models is text only, so its conditions stay readable.
+                if all(resolve(content, anatomy, available) or "not_modelled" in content["cards"].get(anatomy, {})
+                       for anatomy in condition["related_anatomy"]):
                     offered.add(identity)
-            # Each adult reference offers the 71 shared conditions plus those its own supplied
-            # anatomy supports (11 female, 6 male); none is inferred from missing anatomy.
-            self.assertEqual(len(offered), 82 if body["id"] == "female" else 77)
+            # Each adult reference offers the 71 shared conditions, the 8 about unmodelled
+            # anatomy, plus those its own supplied anatomy supports (11 female, 6 male);
+            # none is inferred from missing anatomy.
+            self.assertEqual(len(offered), 90 if body["id"] == "female" else 85)
             self.assertEqual("condition.bph" in offered, body["id"] == "male")
             self.assertEqual("condition.endometriosis" in offered, body["id"] == "female")
 
@@ -110,7 +114,7 @@ class StudyContentTests(unittest.TestCase):
         content = json.loads((ROOT / "content/study_content.json").read_text())
         catalogue = json.loads((ROOT / "content/sample_pack.json").read_text())
         self.assertEqual(content["expert_review"], "pending")
-        self.assertEqual(len(content["cards"]), 200)
+        self.assertEqual(len(content["cards"]), 205)
         mapped = {}
         for identity, card in content["cards"].items():
             self.assertEqual(card["review_status"], "draft")
@@ -127,6 +131,8 @@ class StudyContentTests(unittest.TestCase):
         for body in catalogue["bodies"]:
             available = {s["id"]: s for s in body["structures"]}
             for identity, card in content["cards"].items():
+                if "not_modelled" in card:
+                    continue
                 if "geometry" not in card:
                     # Shared IDs name the structure directly; some exist only in the
                     # complete BodyParts3D body (for example the stomach).
@@ -147,6 +153,22 @@ class StudyContentTests(unittest.TestCase):
                     # Shared IDs present only in the complete BodyParts3D body (the skull).
                     complete_only = "geometry" not in related_card and related not in available and related in complete
                     self.assertTrue(resolve(content, related, available) or sex_specific or complete_only, related)
+
+    def test_unmodelled_structures_have_text_only_and_nearby_anatomy(self):
+        content = json.loads((ROOT / "content/study_content.json").read_text())
+        cards = content["cards"]
+        unmodelled = {k: c for k, c in cards.items() if "not_modelled" in c}
+        self.assertEqual(sorted(unmodelled), ["anatomy.adenoids", "anatomy.lingual-tonsils", "anatomy.parotid-glands", "anatomy.scrotum", "anatomy.vulva"])
+        for identity, card in unmodelled.items():
+            self.assertNotIn("geometry", card, "no geometry is invented for unmodelled anatomy")
+            self.assertTrue(card["not_modelled"]["title"] and card["not_modelled"]["note"])
+            self.assertTrue(any(is_government_source(content["sources"][s]["url"]) for s in card["source_ids"]), identity)
+            for near in card["not_modelled"]["near"]:
+                self.assertIn(near, cards)
+                self.assertNotIn("not_modelled", cards[near])
+        for identity, condition in content["conditions"].items():
+            if condition["focus_id"] in unmodelled:
+                self.assertEqual(condition["related_anatomy"], [condition["focus_id"]], identity)
 
     def test_complete_body_mappings_match_its_catalogue(self):
         content = json.loads((ROOT / "content/study_content.json").read_text())

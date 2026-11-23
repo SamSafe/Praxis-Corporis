@@ -39,6 +39,8 @@ var search_index := AnatomySearch.new()
 var search_results: ItemList
 var search_summary: Label
 var search_items: Dictionary = {}
+## Search result metadata for a study card with no 3D model.
+const UNMODELLED_PREFIX := "unmodelled:"
 var search_total := 0
 var list_view_button: CheckButton
 var browse_pager: HBoxContainer
@@ -1672,6 +1674,18 @@ func rebuild_tree() -> void:
 			search_results.set_item_metadata(index, match_record.id)
 			search_results.set_item_tooltip(index, SourceRecord.tooltip(model.structures, match_record.id))
 			search_items[match_record.id] = index
+		# Structures no body models are found by name and open their study card.
+		if not list_all:
+			for card_id in study_content.find_unmodelled(AnatomySearch.words(query)):
+				search_total += 1
+				# Broad queries keep the list cap; the summary still counts every match.
+				if search_results.item_count >= AnatomySearch.RESULT_LIMIT:
+					continue
+				var near := study_content.stand_in(card_id, model.structures)
+				var index := search_results.add_item(search_line(study_content.unmodelled_title(card_id), false) + "\n" +
+					search_line("No 3D model" + (" · near " + str(model.structures[near].label) if not near.is_empty() else ""), true))
+				search_results.set_item_metadata(index, UNMODELLED_PREFIX + card_id)
+				search_results.set_item_tooltip(index, "No open source models this structure. Opens its study card and conditions.")
 		var reference := str(model.body.get("short_label", model.body.get("label", "Current reference")))
 		if list_all:
 			var start := browse_page * AnatomySearch.RESULT_LIMIT
@@ -1729,7 +1743,12 @@ func on_search_selected(index: int) -> void:
 		sync_selection_tree()
 		return
 	if index >= 0 and index < search_results.item_count:
-		select_structure(str(search_results.get_item_metadata(index)))
+		var target := str(search_results.get_item_metadata(index))
+		if target.begins_with(UNMODELLED_PREFIX):
+			sync_selection_tree()
+			show_unmodelled_card(target.trim_prefix(UNMODELLED_PREFIX))
+			return
+		select_structure(target)
 
 
 func append_tree_branch(id: String, parent: TreeItem, depth: int) -> void:
@@ -2509,6 +2528,15 @@ func refresh_study_content() -> void:
 		link.disabled = loading
 		link.pressed.connect(select_related_study.bind(target))
 		study_links.add_child(link)
+	for unmodelled_id in study_content.unmodelled_near(model.selected_id):
+		var link := LinkButton.new()
+		link.focus_mode = Control.FOCUS_ALL
+		link.text = study_content.unmodelled_title(unmodelled_id) + " · no 3D model"
+		link.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+		link.tooltip_text = "Nearby structure that no open source models. Read its study card and conditions."
+		link.disabled = loading
+		link.pressed.connect(show_unmodelled_card.bind(unmodelled_id))
+		study_links.add_child(link)
 	for source_id in card.get("source_ids", []):
 		var source: Dictionary = study_content.data.sources[source_id]
 		var link := LinkButton.new()
@@ -2525,6 +2553,10 @@ func refresh_study_content() -> void:
 		condition_links.remove_child(child)
 		child.queue_free()
 	var available_conditions: Array[String] = study_content.conditions_for(model.selected_id)
+	for unmodelled_id in study_content.unmodelled_near(model.selected_id):
+		for id in study_content.conditions_for(unmodelled_id):
+			if id not in available_conditions:
+				available_conditions.append(id)
 	condition_links.visible = not available_conditions.is_empty()
 	if condition_links.visible:
 		condition_links.add_child(make_label("RELATED CONDITIONS · DRAFT", 12, Color("83cfc9")))
@@ -2573,6 +2605,51 @@ func show_study_card() -> Window:
 	return dialog
 
 
+## Study card for a structure no reference body models: text, sources and
+## conditions, plus a way to locate the nearest supplied anatomy.
+func show_unmodelled_card(id: String) -> Window:
+	if loading or not study_content.unmodelled(id):
+		return null
+	var card := study_content.card(id)
+	var title := study_content.unmodelled_title(id)
+	var reference_id: String = str(model.body.id)
+	var near := study_content.stand_in(id, model.structures)
+	var dialog := InformationDialog.new()
+	dialog.theme = theme
+	dialog.title = title + " · draft study card"
+	dialog.message = "Structure: %s\nReference: %s · %s\n\n%s" % [title, model.body.get("short_label", model.body.label),
+		("nearest supplied anatomy: " + str(model.structures[near].label)) if not near.is_empty() else "no nearby supplied anatomy in this body",
+		study_content.text(id)]
+	var conditions := study_content.conditions_for(id)
+	if not conditions.is_empty():
+		dialog.message += "\n\nRelated conditions"
+		for condition_id in conditions:
+			dialog.message += "\n· " + str(study_content.condition(condition_id).title)
+	dialog.message += "\n\nSources"
+	for source_id in card.source_ids:
+		var source: Dictionary = study_content.data.sources[source_id]
+		dialog.message += "\n\n%s\n%s" % [source.title, source.url]
+	if not near.is_empty():
+		dialog.add_button("Locate nearby anatomy", false, "locate")
+	for index in conditions.size():
+		dialog.add_button(str(study_content.condition(conditions[index]).title), false, "condition:%d" % index)
+	dialog.custom_action.connect(func(action: StringName):
+		dialog.hide()
+		dialog.queue_free()
+		if loading or str(model.body.get("id", "")) != reference_id:
+			return
+		if action == "locate":
+			select_structure(near)
+			status.text = "%s has no 3D model · showing the nearest supplied anatomy, %s" % [title, str(model.structures[near].label)]
+			scene_container.grab_focus()
+		elif str(action).begins_with("condition:"):
+			show_condition(conditions[int(str(action).get_slice(":", 1))]))
+	add_child(dialog)
+	scale_text(dialog)
+	dialog.open(Vector2i(760, 560))
+	return dialog
+
+
 func open_study_source(url: String) -> Window:
 	if source_launcher.call(url) == OK:
 		return null
@@ -2601,7 +2678,8 @@ func show_condition(id: String) -> Window:
 	dialog.theme = theme
 	dialog.title = str(record.title) + " · draft learning text"
 	dialog.message = study_content.condition_text(id)
-	dialog.add_button("Inspect reference anatomy", false, "reference")
+	if not study_content.condition_focus(id, model.structures).is_empty():
+		dialog.add_button("Inspect reference anatomy", false, "reference")
 	dialog.custom_action.connect(func(action: StringName):
 		if action != "reference":
 			return

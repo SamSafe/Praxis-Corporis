@@ -1785,7 +1785,7 @@ static func run(viewer: Control, rendered: bool) -> bool:
 	var redo: Array = viewer.model.redo_stack.duplicate(true)
 	var back: Array = viewer.back_views.duplicate(true)
 	var forward: Array = viewer.forward_views.duplicate(true)
-	var valid: bool = viewer.study_content.data.get("cards", {}).size() == 200
+	var valid: bool = viewer.study_content.data.get("cards", {}).size() == 205
 	valid = valid and viewer.study_content.error.is_empty()
 	if viewer.model.body.id == "female":
 		valid = await verify_cancel_loading(viewer) and valid
@@ -2087,24 +2087,37 @@ static func verify_conditions(viewer: Control, rendered: bool) -> bool:
 	large.text_scale = 1.3
 	viewer.apply_preferences(large)
 	viewer.get_window().size = Vector2i(1100, 720)
-	var valid: bool = viewer.study_content.data.get("conditions", {}).size() == 117
+	var valid: bool = viewer.study_content.data.get("conditions", {}).size() == 126
 	var available: Array[String] = []
 	for id in viewer.study_content.data.conditions:
 		if viewer.study_content.condition_available(id, viewer.model.structures):
 			available.append(str(id))
-	# Both adult references share 58 conditions; the female body adds 6 sex-specific ones and the male body 2.
-	valid = valid and available.size() == (82 if viewer.model.body.id == "female" else 77)
+	# Shared conditions, the 8 about anatomy no source models, and each body's own
+	# supported anatomy; see tests/test_study_content.py.
+	valid = valid and available.size() == (90 if viewer.model.body.id == "female" else 85)
 	for id in available:
 		var dialog: Window = viewer.show_condition(id)
 		if dialog == null:
 			return false
 		await viewer.get_tree().process_frame
-		valid = valid and "REFERENCE ANATOMY ONLY" in dialog.message and "medical review pending" in dialog.message
+		var unmodelled: bool = viewer.study_content.unmodelled(str(viewer.study_content.condition(id).focus_id))
+		valid = valid and ("NO 3D MODEL" if unmodelled else "REFERENCE ANATOMY ONLY") in dialog.message and "medical review pending" in dialog.message
 		valid = valid and dialog.get_ok_button().get_global_rect().end.y <= dialog.size.y
 		if rendered and id == "condition.aortic-stenosis":
 			await RenderingServer.frame_post_draw
 			valid = valid and viewer.get_viewport().get_texture().get_image().save_png("user://native-condition-%s.png" % str(viewer.model.body.id)) == OK
+		var focus: String = viewer.study_content.condition_focus(id, viewer.model.structures)
 		var pressed := false
+		if focus.is_empty():
+			# Unmodelled anatomy with nothing nearby in this body: text only, no locate action.
+			for button in dialog.find_children("*", "Button", true, false):
+				valid = valid and not (button is Button and button.text == "Inspect reference anatomy")
+			valid = valid and unmodelled
+			dialog.hide()
+			dialog.queue_free()
+			await viewer.get_tree().process_frame
+			valid = valid and viewer.export_view_state() == before
+			continue
 		for button in dialog.find_children("*", "Button", true, false):
 			if button is Button and button.text == "Inspect reference anatomy":
 				button.pressed.emit()

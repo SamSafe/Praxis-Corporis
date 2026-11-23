@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": "body-study-8-draft",
+  "revision": "body-study-9-draft",
   "review_status": "draft",
   "expert_review": "pending",
   "scope": "Private draft explanations covering the chest, abdomen, pelvis, brain, eyes, knees and skin, including selected vessels, kidney interior, intestines, airways, bone tissue and the lymphatic system. General anatomy is separate from completeness and accuracy of the supplied source meshes. No source illustrations or video are reused.",
@@ -976,6 +976,58 @@
     "niddk-hyperparathyroidism": {
       "title": "NIDDK: Primary hyperparathyroidism",
       "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/primary-hyperparathyroidism"
+    },
+    "nci-def-parotid-gland-cancer": {
+      "title": "NCI Dictionary of Cancer Terms: parotid gland cancer",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/parotid-gland-cancer"
+    },
+    "nci-def-scrotum": {
+      "title": "NCI Dictionary of Cancer Terms: scrotum",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/scrotum"
+    },
+    "nci-def-vulva": {
+      "title": "NCI Dictionary of Cancer Terms: vulva",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/vulva"
+    },
+    "nci-salivary-cancer": {
+      "title": "NCI: Salivary gland cancer treatment (PDQ) - patient version",
+      "url": "https://www.cancer.gov/types/head-and-neck/patient/adult/salivary-gland-treatment-pdq"
+    },
+    "cdc-mumps": {
+      "title": "CDC: About mumps",
+      "url": "https://www.cdc.gov/mumps/about/index.html"
+    },
+    "mlp-mumps": {
+      "title": "MedlinePlus: Mumps",
+      "url": "https://medlineplus.gov/mumps.html"
+    },
+    "mlp-hydrocele": {
+      "title": "MedlinePlus Medical Encyclopedia: Hydrocele",
+      "url": "https://medlineplus.gov/ency/article/000518.htm"
+    },
+    "mlp-varicocele": {
+      "title": "MedlinePlus Medical Encyclopedia: Varicocele",
+      "url": "https://medlineplus.gov/ency/article/001284.htm"
+    },
+    "mlp-testicular-torsion": {
+      "title": "MedlinePlus Medical Encyclopedia: Testicular torsion",
+      "url": "https://medlineplus.gov/ency/article/000517.htm"
+    },
+    "nci-vulvar-cancer": {
+      "title": "NCI: Vulvar cancer",
+      "url": "https://www.cancer.gov/types/vulvar"
+    },
+    "nichd-vulvodynia": {
+      "title": "NICHD: About vulvodynia",
+      "url": "https://www.nichd.nih.gov/health/topics/vulvodynia/conditioninfo"
+    },
+    "mlp-bartholin": {
+      "title": "MedlinePlus Medical Encyclopedia: Bartholin cyst or abscess",
+      "url": "https://medlineplus.gov/ency/article/001489.htm"
+    },
+    "mlp-adenoids": {
+      "title": "MedlinePlus: Adenoids",
+      "url": "https://medlineplus.gov/adenoids.html"
     }
   },
   "cards": {
@@ -9709,7 +9761,7 @@
       }
     },
     "anatomy.salivary-glands": {
-      "overview": "The submandibular and sublingual glands, two of the three pairs of major salivary glands. The parotid glands, the third pair, are not supplied.",
+      "overview": "The submandibular and sublingual glands, two of the three pairs of major salivary glands. The parotid glands, the third pair, have no 3D model; they have their own study card.",
       "function": "Salivary glands make saliva and empty it into the mouth through ducts.",
       "related": [
         "anatomy.tongue",
@@ -10425,6 +10477,117 @@
       "review_status": "draft",
       "expert_review": "pending",
       "human_source_review": "pending"
+    },
+    "anatomy.parotid-glands": {
+      "overview": "The largest of the salivary glands. There are two parotid glands, one in front of and just below each ear.",
+      "function": "Like the other salivary glands, they make saliva and release it into the mouth. Most salivary gland tumors begin in the parotid glands.",
+      "related": [
+        "anatomy.salivary-glands",
+        "anatomy.mandible"
+      ],
+      "source_ids": [
+        "nci-def-parotid-gland-cancer",
+        "nci-salivary-cancer"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_modelled": {
+        "title": "Parotid glands",
+        "note": "No open anatomical source supplies a model of this structure, so no body shows it. Locate selects the nearest supplied structure when the current body has one.",
+        "near": [
+          "anatomy.salivary-glands",
+          "anatomy.mandible"
+        ]
+      }
+    },
+    "anatomy.scrotum": {
+      "overview": "In males, the external sac that contains the testicles.",
+      "function": "Holds the testes outside the abdomen, which keeps them about 3 °C cooler than the body, as sperm production needs.",
+      "related": [
+        "anatomy.testes",
+        "anatomy.penis"
+      ],
+      "source_ids": [
+        "nci-def-scrotum",
+        "seer-testes"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_modelled": {
+        "title": "Scrotum",
+        "note": "No open anatomical source supplies a model of this structure, so no body shows it. Locate selects the nearest supplied structure when the current body has one.",
+        "near": [
+          "anatomy.testes",
+          "anatomy.penis"
+        ]
+      }
+    },
+    "anatomy.vulva": {
+      "overview": "The external female genital organs. The vulva includes the inner and outer lips of the vagina, the clitoris, the opening of the vagina and its glands, the opening of the urethra, and the mons pubis, the rounded area in front of the pubic bones.",
+      "function": "Surrounds the openings of the vagina and the urethra. The Bartholin glands lie on each side of the vaginal opening.",
+      "related": [
+        "anatomy.vagina"
+      ],
+      "source_ids": [
+        "nci-def-vulva",
+        "mlp-bartholin"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_modelled": {
+        "title": "Vulva",
+        "note": "No open anatomical source supplies a model of this structure, so no body shows it. Locate selects the nearest supplied structure when the current body has one.",
+        "near": [
+          "anatomy.vagina"
+        ]
+      }
+    },
+    "anatomy.adenoids": {
+      "overview": "A patch of lymphatic tissue high up in the throat, just behind the nose, near the opening of the nasal cavity into the pharynx. They are also called the pharyngeal tonsils.",
+      "function": "With the other tonsils, they trap germs coming in through the mouth and nose. They usually start to shrink after about age 5 and are almost completely gone by the teenage years.",
+      "related": [
+        "anatomy.tonsils"
+      ],
+      "source_ids": [
+        "mlp-adenoids",
+        "seer-tonsils"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_modelled": {
+        "title": "Adenoids (pharyngeal tonsils)",
+        "note": "No open anatomical source supplies a model of this structure, so no body shows it. Locate selects the nearest supplied structure when the current body has one.",
+        "near": [
+          "anatomy.tonsils",
+          "anatomy.pharynx-muscles"
+        ]
+      }
+    },
+    "anatomy.lingual-tonsils": {
+      "overview": "Tonsils on the back surface of the tongue, near the opening of the mouth into the pharynx.",
+      "function": "Like the other tonsils, their lymphocytes and macrophages help protect against harmful substances and germs entering through the nose or mouth.",
+      "related": [
+        "anatomy.tongue",
+        "anatomy.tonsils"
+      ],
+      "source_ids": [
+        "seer-tonsils"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_modelled": {
+        "title": "Lingual tonsils",
+        "note": "No open anatomical source supplies a model of this structure, so no body shows it. Locate selects the nearest supplied structure when the current body has one.",
+        "near": [
+          "anatomy.tongue",
+          "anatomy.tonsils"
+        ]
+      }
     }
   },
   "routes": {
@@ -13501,6 +13664,203 @@
       "expert_review": "pending",
       "human_source_review": "pending",
       "not_depicted": "Hormone and calcium levels are not depicted."
+    },
+    "condition.mumps": {
+      "title": "Mumps",
+      "summary": "A contagious disease caused by the mumps virus, which affects the salivary glands. Common signs are puffy cheeks and a tender, swollen jaw from swollen salivary glands under one or both ears. Most people recover completely within 2 weeks; two doses of the MMR vaccine are the best protection.",
+      "location": "The parotid glands lie in front of and just below each ear.",
+      "focus_id": "anatomy.parotid-glands",
+      "related_anatomy": [
+        "anatomy.parotid-glands"
+      ],
+      "display_on": [
+        "anatomy.parotid-glands",
+        "anatomy.salivary-glands"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "cdc-mumps",
+        "mlp-mumps"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Swelling and infection are not depicted."
+    },
+    "condition.salivary-gland-cancer": {
+      "title": "Salivary gland cancer",
+      "summary": "A rare disease in which malignant (cancer) cells form in the tissues of the salivary glands. It is a type of head and neck cancer. Most major salivary gland tumors begin in the parotid glands.",
+      "location": "The parotid glands, the largest salivary glands, lie in front of and just below each ear.",
+      "focus_id": "anatomy.parotid-glands",
+      "related_anatomy": [
+        "anatomy.parotid-glands"
+      ],
+      "display_on": [
+        "anatomy.parotid-glands",
+        "anatomy.salivary-glands"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nci-salivary-cancer",
+        "nci-def-parotid-gland-cancer"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Tumors and their spread are not depicted."
+    },
+    "condition.hydrocele": {
+      "title": "Hydrocele",
+      "summary": "A fluid-filled sac in the scrotum. Hydroceles are common in newborn infants and most go away a few months after birth; in adults they usually do not go away on their own. The main symptom is a painless, swollen scrotum.",
+      "location": "The scrotum is the external sac that contains the testicles.",
+      "focus_id": "anatomy.scrotum",
+      "related_anatomy": [
+        "anatomy.scrotum"
+      ],
+      "display_on": [
+        "anatomy.scrotum",
+        "anatomy.testes"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-hydrocele",
+        "nci-def-scrotum"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Fluid and swelling are not depicted."
+    },
+    "condition.varicocele": {
+      "title": "Varicocele",
+      "summary": "Swelling of the veins inside the scrotum, along the spermatic cord that holds up the testicles. Damaged valves in these veins let blood back up. Varicoceles are more common in men aged 15 to 25 and are most often on the left side.",
+      "location": "The veins run along the spermatic cord inside the scrotum.",
+      "focus_id": "anatomy.scrotum",
+      "related_anatomy": [
+        "anatomy.scrotum"
+      ],
+      "display_on": [
+        "anatomy.scrotum",
+        "anatomy.testes"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-varicocele",
+        "nci-def-scrotum"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Swollen veins are not depicted."
+    },
+    "condition.testicular-torsion": {
+      "title": "Testicular torsion",
+      "summary": "Twisting of the spermatic cord, which supports the testes in the scrotum, cutting off the blood supply to the testicle. It causes sudden severe pain and needs surgery as soon as possible; done within 6 hours, most of the testicle can usually be saved.",
+      "location": "The testes lie inside the scrotum.",
+      "focus_id": "anatomy.testes",
+      "related_anatomy": [
+        "anatomy.testes"
+      ],
+      "display_on": [
+        "anatomy.testes",
+        "anatomy.scrotum"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-testicular-torsion",
+        "nci-def-testicle"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Twisting and blood flow are not depicted."
+    },
+    "condition.vulvar-cancer": {
+      "title": "Vulvar cancer",
+      "summary": "Usually forms slowly over years, most often on the vaginal lips or the sides of the vaginal opening. Infection with human papillomavirus (HPV) causes about half of all vulvar cancers.",
+      "location": "The vulva is the external female genital organs, around the opening of the vagina.",
+      "focus_id": "anatomy.vulva",
+      "related_anatomy": [
+        "anatomy.vulva"
+      ],
+      "display_on": [
+        "anatomy.vulva",
+        "anatomy.vagina"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nci-vulvar-cancer",
+        "nci-def-vulva"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Tumors and their spread are not depicted."
+    },
+    "condition.vulvodynia": {
+      "title": "Vulvodynia",
+      "summary": "Chronic pain of the vulva, lasting at least 3 months, that does not have a clear cause such as an infection or cancer. It is usually described as burning, stinging, irritation or rawness.",
+      "location": "The vulva is the external female genital organs, around the opening of the vagina.",
+      "focus_id": "anatomy.vulva",
+      "related_anatomy": [
+        "anatomy.vulva"
+      ],
+      "display_on": [
+        "anatomy.vulva"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nichd-vulvodynia",
+        "nci-def-vulva"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Pain is not depicted."
+    },
+    "condition.bartholin-cyst": {
+      "title": "Bartholin cyst or abscess",
+      "summary": "A buildup of fluid, which can become infected and form pus, in one of the Bartholin glands. It forms when the gland's small duct gets blocked, making a tender lump on one side of the vaginal opening.",
+      "location": "The Bartholin glands are on each side of the vaginal opening.",
+      "focus_id": "anatomy.vulva",
+      "related_anatomy": [
+        "anatomy.vulva"
+      ],
+      "display_on": [
+        "anatomy.vulva",
+        "anatomy.vagina"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-bartholin",
+        "nci-def-vulva"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The cyst and swelling are not depicted."
+    },
+    "condition.enlarged-adenoids": {
+      "title": "Enlarged adenoids",
+      "summary": "Swollen adenoids, a common problem in children. They may be enlarged from birth or while fighting an infection, and can make breathing through the nose hard, causing mouth breathing, snoring, restless sleep, sleep apnea or ear infections.",
+      "location": "The adenoids are high up in the throat, just behind the nose.",
+      "focus_id": "anatomy.adenoids",
+      "related_anatomy": [
+        "anatomy.adenoids"
+      ],
+      "display_on": [
+        "anatomy.adenoids",
+        "anatomy.tonsils"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-adenoids",
+        "seer-tonsils"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Swelling is not depicted."
     }
   },
   "assistant_checks": {
@@ -13509,12 +13869,15 @@
     "checked_on": "2026-11-21",
     "scope": "Preliminary comparison of the short explanations, route order and condition associations with the linked sources. This is not human reviewer evidence and does not establish anatomical mesh accuracy.",
     "source_ids": [
+      "cdc-mumps",
       "gas-exchange",
       "heart-anatomy",
       "heart-flow",
       "lungs",
       "mlp-acl",
+      "mlp-adenoids",
       "mlp-alzheimers",
+      "mlp-bartholin",
       "mlp-brain",
       "mlp-breast-diseases",
       "mlp-carotid",
@@ -13527,6 +13890,7 @@
       "mlp-herniated-disk",
       "mlp-hiatal-hernia",
       "mlp-hiccups",
+      "mlp-hydrocele",
       "mlp-hydrocephalus",
       "mlp-knee",
       "mlp-laryngitis",
@@ -13535,6 +13899,7 @@
       "mlp-meniscus",
       "mlp-migraine",
       "mlp-ms",
+      "mlp-mumps",
       "mlp-ovarian-cysts",
       "mlp-parkinson-disease",
       "mlp-parkinsons",
@@ -13549,10 +13914,12 @@
       "mlp-strabismus",
       "mlp-stroke",
       "mlp-tbi",
+      "mlp-testicular-torsion",
       "mlp-thyroid-nodules",
       "mlp-tonsillitis",
       "mlp-tooth-decay",
       "mlp-urethral-disorders",
+      "mlp-varicocele",
       "mlp-voice-disorders",
       "nci-bile-duct-cancer",
       "nci-bladder-cancer",
@@ -13586,6 +13953,7 @@
       "nci-def-optic-chiasm",
       "nci-def-pancreatic-duct",
       "nci-def-parathyroid-gland",
+      "nci-def-parotid-gland-cancer",
       "nci-def-pelvis",
       "nci-def-penis",
       "nci-def-pharynx",
@@ -13595,6 +13963,7 @@
       "nci-def-sacrum",
       "nci-def-scapula",
       "nci-def-sclera",
+      "nci-def-scrotum",
       "nci-def-seminal-vesicle",
       "nci-def-skull",
       "nci-def-soft-palate",
@@ -13611,6 +13980,7 @@
       "nci-def-vas-deferens",
       "nci-def-ventricle",
       "nci-def-vocal-cord",
+      "nci-def-vulva",
       "nci-esophageal-cancer",
       "nci-kidney-cancer",
       "nci-liver-cancer",
@@ -13619,11 +13989,13 @@
       "nci-ovarian-cancer",
       "nci-pancreatic-cancer",
       "nci-prostate-cancer",
+      "nci-salivary-cancer",
       "nci-skin-cancer",
       "nci-stomach-cancer",
       "nci-testicular-cancer",
       "nci-thyroid-cancer",
       "nci-uterine-cancer",
+      "nci-vulvar-cancer",
       "nei-amd",
       "nei-cataracts",
       "nei-diabetic-retinopathy",
@@ -13655,6 +14027,7 @@
       "nichd-endometriosis",
       "nichd-fibroids",
       "nichd-pcos",
+      "nichd-vulvodynia",
       "niddk-adrenal-insufficiency",
       "niddk-appendicitis",
       "niddk-bladder-infection",

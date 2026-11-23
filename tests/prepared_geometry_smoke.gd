@@ -19,12 +19,19 @@ func _initialize() -> void:
 func run() -> void:
 	var model := AnatomyModel.new()
 	root.add_child(model)
+	var compared := 0
 	for record in ContentBundle.catalogue().bodies:
 		var legacy_path := "res://assets/prepared/%s-%s.scn" % [record.id, str(record.sha256).left(12)]
-		var legacy_resource := load(legacy_path) as PackedScene
 		var geometry_resource := load(ContentBundle.prepared_scene_path(record.id, record.sha256)) as PackedScene
-		check(legacy_resource != null and geometry_resource != null, "Both cache generations exist for comparison")
-		if legacy_resource == null or geometry_resource == null:
+		check(geometry_resource != null, "Every body has a geometry cache")
+		# Migration only applies to bodies prepared before the geometry cache existed;
+		# bodies first prepared later (the supplemented female and male) have no legacy cache.
+		if not FileAccess.file_exists(legacy_path) or geometry_resource == null:
+			continue
+		var legacy_resource := load(legacy_path) as PackedScene
+		compared += 1
+		check(legacy_resource != null, "Legacy cache loads for comparison")
+		if legacy_resource == null:
 			continue
 		var legacy := legacy_resource.instantiate() as Node3D
 		var geometry := geometry_resource.instantiate() as Node3D
@@ -82,5 +89,6 @@ func run() -> void:
 		legacy.free()
 		geometry.free()
 	model.free()
+	check(compared >= 1, "At least one legacy cache is compared with its migration")
 	print("Prepared geometry failures: ", failures.size())
 	quit(0 if failures.is_empty() else 1)
