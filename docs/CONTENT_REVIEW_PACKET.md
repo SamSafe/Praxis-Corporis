@@ -1,8 +1,8 @@
 # Current private candidate: content-review packet
 
-Prepared 2026-11-21. Review is pending. This packet identifies the exact draft
+Prepared 2026-11-22. Review is pending. This packet identifies the exact draft
 study material in one private build and supplies a
-[results template](reviews/0EB727B_TEMPLATE.md) for a human source checker or
+[results template](reviews/4B72081_TEMPLATE.md) for a human source checker or
 qualified medical reviewer. A completed review applies only to its recorded items,
 reference mappings and exact versions. The broader release scope in
 [SCOPE.md](SCOPE.md) still includes unresolved content and capabilities.
@@ -12,17 +12,17 @@ The previous packet, for build `c86cfba` and its 15 chest cards, is kept at
 
 ## Exact material
 
-- Application source: `0eb727b292f6b59aa5a43ec5bfe3ab1b452da463`.
-- Private build ID: `2710ac3ff52947af9ad6af74ae4ba232`.
+- Application source: `4b7208119cd1f5b5230e01b1d0a0ceda12a5759e`.
+- Private build ID: `a4c142512c8d4dcd91789b7cba864f30`.
 - Application version: `0.1.0`.
-- Source snapshot SHA-256: `f78480519be2469fae6db19f20e5d242b478b7ebdeb6ae792e6edad031d88eca`.
+- Source snapshot SHA-256: `ad742ee85e72273138e6e92f20eda20128a65c2c238cc224cc977d7021232255`.
 - Engine: `4.7.2.stable.official.ed1daf0bf`.
-- Study-content revision: `body-study-8-draft`.
-- Frozen study JSON SHA-256: `05214340eeedad01f2bd76425665649dee73907e0da6ad2528732bd9ada757e9`.
+- Study-content revision: `body-study-10-draft`.
+- Frozen study JSON SHA-256: `3f9c000635e73eb4b6153a2a9b3c61029dadbd021ed7eb2b35d3f2fd723bb0a9`.
 
 | Artifact | SHA-256 |
 | --- | --- |
-| PraxisCorporis-Windows-x64-private.zip | `1524280f0ea189b4572a9eddfd989edaa7eab01df770016bb3c3c58d30f0bb75` |
+| PraxisCorporis-Windows-x64-private.zip | `5e0a5021fb8a0312b1a0278e15a07df01ea1b06e1e56c4e049ba2cbefe8b2254` |
 
 The app's Sources dialog and START_HERE file show the build ID; check that it
 matches before reviewing. Use [native setup](NATIVE_BUILDS.md) and the
@@ -30,17 +30,17 @@ matches before reviewing. Use [native setup](NATIVE_BUILDS.md) and the
 
 ## What to review
 
-- **[Reviewer text](reviews/0eb727b-reviewer-text.md):** every item in readable
+- **[Reviewer text](reviews/4b72081-reviewer-text.md):** every item in readable
   form, grouped by body system, with the 3D part names shown in each body and
   every source link. Start here.
-- **[Frozen JSON](reviews/0eb727b-study-content.json):** the authoritative copy of
+- **[Frozen JSON](reviews/4b72081-study-content.json):** the authoritative copy of
   the same material.
-- **[Results template](reviews/0EB727B_TEMPLATE.md):** one row per item.
+- **[Results template](reviews/4B72081_TEMPLATE.md):** one row per item.
 
-The build contains **200 cards, 117 condition summaries and
+The build contains **205 cards, 126 condition summaries and
 1 route**, all marked draft with human source review
-and expert review pending. The female body offers 82 conditions
-and the male body 77; the rest need anatomy only one body has.
+and expert review pending. The female body offers 84 conditions
+and the male body 79; the rest need anatomy only one body has.
 
 For each card, check every statement against its cited source, the related-anatomy
 links, and that the named 3D parts are the structures the card describes. For each
@@ -63,8 +63,8 @@ Counts include grouping records and do not establish completeness.
 
 | Reference ID | Catalogue records | Geometry source SHA-256 |
 | --- | ---: | --- |
-| `female` | 1048 | `149c9dade4a914c02f73eed96cef68079fc98e70019fcf69185cae24050dcfe5` |
-| `male` | 1020 | `f8dce99e28b64109b4419b579f8c53bb3af5b6d7739eb1f0406c34289b4f5863` |
+| `female` | 1051 | `149c9dade4a914c02f73eed96cef68079fc98e70019fcf69185cae24050dcfe5` |
+| `male` | 1023 | `f8dce99e28b64109b4419b579f8c53bb3af5b6d7739eb1f0406c34289b4f5863` |
 | `bodyparts-male-bones-study` | 205 | `30f8982452c0b4091652d14b523d7063a59aa0443e5ae766e79eb95112514c27` |
 | `bodyparts-male-complete` | 3476 | `9e3b751a4f34cc018cc01c127a7e6187d29bf29c5b9ef9b222eb22353c6eac9c` |
 | `hra-v1-2-female-cord-study` | 30 | `d9bfc840783a415068e34b8a1a9343fff40ad03d0025fafabf74f9d8664887f8` |
@@ -78,7 +78,7 @@ coordinates and pending registration/metadata questions. Catalogue paths are
 `content/spinal_studies.json`. Obtain the exact file with, for example:
 
 ```sh
-git show 0eb727b292f6b59aa5a43ec5bfe3ab1b452da463:content/sample_pack.json
+git show 4b7208119cd1f5b5230e01b1d0a0ceda12a5759e:content/sample_pack.json
 ```
 
 ## Record findings and review boundaries
