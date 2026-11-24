@@ -1899,23 +1899,32 @@ static func run(viewer: Control, rendered: bool) -> bool:
 	var path := "user://study-check-" + Crypto.new().generate_random_bytes(16).hex_encode()
 	var library := SavedViews.new()
 	library.path = path + ".json"
-	valid = valid and library.load_library().is_empty()
-	valid = valid and library.add_view("Source study", before).is_empty()
-	valid = valid and library.set_notes(library.entries[0].id, "Portable native study notes.\nKeep this source view.").is_empty()
-	valid = valid and library.export_library(path + "-export.json").is_empty()
-	var imported := SavedViews.new()
-	imported.path = path + "-import.json"
-	imported.load_library()
-	var plan := imported.preview_import(path + "-export.json", viewer.validate_view_state)
-	valid = valid and plan.get("error", "failure").is_empty() and plan.get("imported") == 1
-	valid = valid and imported.apply_import(plan, viewer.validate_view_state).is_empty()
-	valid = valid and imported.entries.size() == 1 and SavedViews.same_snapshot(imported.entries[0], library.entries[0])
-	var deleted: Dictionary = library.entries[0].duplicate(true)
-	var delete_ok := library.delete_view(deleted.id).is_empty()
-	var undo_ok := library.restore_deleted(deleted, 0).is_empty()
-	valid = delete_ok and undo_ok and library.entries.size() == 1 and library.entries[0] == deleted and valid
-	if delete_ok and undo_ok and library.entries.size() == 1 and library.entries[0] == deleted:
-		print("PASS bundled saved-view deletion undo: ", viewer.model.body.id)
+	# Setup runs even after an earlier failure (check-first "X and valid"), and entries
+	# are only indexed once present: release exports do not bounds-check typed array
+	# reads, so indexing an empty library crashes instead of reporting the failure.
+	valid = library.load_library().is_empty() and valid
+	valid = library.add_view("Source study", before).is_empty() and valid
+	var saved := library.entries.size() == 1
+	valid = saved and valid
+	if saved:
+		valid = library.set_notes(library.entries[0].id, "Portable native study notes.\nKeep this source view.").is_empty() and valid
+		valid = library.export_library(path + "-export.json").is_empty() and valid
+		var imported := SavedViews.new()
+		imported.path = path + "-import.json"
+		imported.load_library()
+		var plan := imported.preview_import(path + "-export.json", viewer.validate_view_state)
+		var planned: bool = plan.get("error", "failure").is_empty() and plan.get("imported") == 1
+		valid = planned and valid
+		if planned:
+			valid = imported.apply_import(plan, viewer.validate_view_state).is_empty() and valid
+		valid = imported.entries.size() == 1 and SavedViews.same_snapshot(imported.entries[0], library.entries[0]) and valid
+		var deleted: Dictionary = library.entries[0].duplicate(true)
+		var delete_ok := library.delete_view(deleted.id).is_empty()
+		var undo_ok := library.restore_deleted(deleted, 0).is_empty()
+		var restored := delete_ok and undo_ok and library.entries.size() == 1 and library.entries[0] == deleted
+		valid = restored and valid
+		if restored:
+			print("PASS bundled saved-view deletion undo: ", viewer.model.body.id)
 	var preferences := Preferences.new()
 	preferences.path = path + "-preferences.json"
 	var settings: Dictionary = Preferences.DEFAULTS.duplicate()
