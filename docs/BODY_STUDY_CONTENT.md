@@ -9,8 +9,8 @@ the brain, eyes and knees, for 63 cards and 25 conditions.
 [Revisions 3 and 4](#revisions-3-and-4-vessels-organ-interiors-airways-skin-and-bone)
 bring the totals to 112 cards and 54 conditions. Later revisions, from
 [revision 5](#revision-5-dictionary-terms-brain-fluid-spaces-and-more-cancers)
-to [revision 11](#revision-11-organs-bones-and-muscles-traced-from-the-visible-human-ct),
-bring them to 209 cards and 126 conditions.
+to [revision 12](#revision-12-head-neck-and-trunk-muscles-diaphragm-and-shoulders),
+bring them to 216 cards and 126 conditions.
 
 **Everything here is a private draft.** Every record keeps `review_status: draft`
 with human source review and expert review pending, and the app labels it that
@@ -459,6 +459,28 @@ TeachMeAnatomy; the SEER line that the gluteal group "adducts" the thigh was not
 since the gluteal muscles abduct and extend it). Paired and member parts now open their
 organ's card: either parotid gland, tonsil, adrenal gland or breast, and every rib and
 the costal cartilages on the female and male bodies.
+
+## Revision 12: head, neck and trunk muscles, diaphragm and shoulders
+
+Added 2026-11-24 as `body-study-12-draft`. A second CT tracing round
+([audit](audit/VHP_CT_PARTS.md#second-round-head-neck-and-trunk-muscles-jaw-diaphragm-and-shoulders))
+gives both bodies a tongue, mandible, jaw muscles, scalenes, inferior pharyngeal
+constrictor, serratus anterior, latissimus dorsi, abdominal wall muscles, quadratus
+lumborum, diaphragm, scapulae and clavicles. The female body also gains the
+submandibular glands, hyoid bone and humeri, and the male body the pectoralis major
+and temporalis; the audit lists the parts left out on each body and why.
+
+Seven cards are new, on the female, male and (where the source has the muscle) complete
+bodies: muscles of mastication, scalenes, serratus anterior, latissimus dorsi, rectus
+abdominis, abdominal obliques and quadratus lumborum, cited to TeachMeAnatomy and NCI
+SEER Training. Their text was drafted with the tracing work; the assistant's
+2026-11-21 source cross-check predates them, so their source check is pending. The
+complete male body maps the scalene, serratus anterior and external oblique cards to its
+BodyParts3D muscles. Existing tongue, mandible, hyoid, salivary-gland, pharynx-muscle,
+pectoralis, diaphragm, scapula, clavicle and humerus cards now open on the traced parts.
+
+Hiatal hernia, hiccups and oral cancer are now offered on both bodies, and rotator-cuff
+and salivary-gland disorders on the female body (107 conditions female, 100 male).
 
 ## Deliberate limits
 

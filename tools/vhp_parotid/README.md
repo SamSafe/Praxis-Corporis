@@ -14,6 +14,17 @@ trimesh, fast-simplification, networkx and rtree, under `build/parotid-work/venv
 `TOTALSEG_HOME_DIR` to a folder whose `config.json` has `"send_usage_stats": false`.
 Segmentation peaks near 4.8 GB of memory: run one heavy step at a time.
 
+On Windows the venv is `build\parotid-work\venv\Scripts\`. Start TotalSegmentator with
+`Start-Process -RedirectStandardOutput/-RedirectStandardError` rather than
+`& TotalSegmentator ... *> log`: Windows PowerShell 5.1 with `$ErrorActionPreference =
+"Stop"` turns its progress bars on stderr into an error, stopping the script and
+orphaning a worker process. `build_hra_supplements.py` and `build_sample_pack.py` import
+sibling modules, so run them without `-I`.
+
+`build_body_parts.py` re-meshes every group. To keep already-reviewed groups byte for
+byte, restore their committed GLBs from `assets/vhp-ct/` into the parts folder before
+`integrate_ct_parts.py`, and remove GLBs of groups that the skip list now empties.
+
 ## Order
 
 | Step | Tool | Output |
@@ -25,7 +36,11 @@ Segmentation peaks near 4.8 GB of memory: run one heavy step at a time.
 | Merge overlapping sections | `merge.py` | one mask per structure |
 | Body anchors | `landmarks.py` | `<body>-anchors.npz` |
 | Fit (one region) | `fit.py` | similarity transform JSON |
-| Fit all regions, mesh and label | `build_body_parts.py BODY WORK OUT [SKIP]` | one GLB per group |
+| Second round: other free tasks (`head_muscles`, `craniofacial_structures`, `headneck_muscles`, `headneck_bones_vessels`, `abdominal_muscles`, `trunk_cavities`) | `TotalSegmentator -ta TASK` | masks under `seg-<body>/extra`, merged to `abd` and `cav` |
+| Diaphragm (second round) | `diaphragm.py CAVITY_DIR` | `diaphragm.nii.gz` between the two cavities |
+| Body skin (second round) | `landmarks.py BODY.glb SKIN.npz skin=<X>_skin` | skin vertices |
+| Fit all regions, mesh and label | `build_body_parts.py BODY WORK OUT [SKIP]` | one GLB per group; shoulder groups wait for the next step |
+| Per-side shoulder fits (second round) | `shoulder_fit.py SECTIONS MERGED THORAX_FIT SKIN.npz PREFIX`, then `build_body_parts.py` again | fit JSON per side and bone group |
 | Mesh (called by the above) | `mesh.py` | labelled GLB |
 | Check against skin and organs | `check.py` | outside-skin and overlap shares |
 | Check renders | `render.py` | PNG |

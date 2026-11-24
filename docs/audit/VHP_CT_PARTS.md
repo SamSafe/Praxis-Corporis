@@ -104,6 +104,80 @@ Renders: [female front](vhp-ct/female-front.png), [female back](vhp-ct/female-ba
   bones are rough. The complete male body keeps its BodyParts3D skull.
 - **Male gluteus maximus:** cut off where the male first pass ends.
 
+## Second round: head, neck and trunk muscles, jaw, diaphragm and shoulders
+
+Date: 2026-11-24. Assistant technical check, not anatomical review. Segmentation was
+started on the Linux host and finished on Windows with the same TotalSegmentator
+2.18.0 (CPU); the round-1 files above were kept byte for byte.
+
+| Part | Female | Male |
+|---|---|---|
+| Submandibular glands | added | left out (26-43% outside the skin) |
+| Tongue, mandible | added | added |
+| Masseter, medial and lateral pterygoids | added | added |
+| Temporalis | left out (12/22% outside the skin) | added |
+| Anterior, middle and posterior scalenes | added | added |
+| Sternocleidomastoid | left out (26/62% outside) | left out (16/32% outside) |
+| Inferior pharyngeal constrictor | added | added |
+| Superior and middle pharyngeal constrictors | left out (fragments) | left out (fragments) |
+| Hyoid bone | added | not traced: the body has its own |
+| Serratus anterior, latissimus dorsi | added | added |
+| Pectoralis major | left out (24/17% outside; misfit) | added |
+| Trapezius | left out (fragments) | left out (traced beside the spine only) |
+| Rectus abdominis, external and internal obliques | added | added |
+| Quadratus lumborum | added | added |
+| Diaphragm | added | added |
+| Scapulae and clavicles | added | added |
+| Humeri | added | left out (cut off by the field of view) |
+
+The new cards (muscles of mastication, scalenes, serratus anterior, latissimus dorsi,
+rectus abdominis, abdominal obliques, quadratus lumborum) and the existing tongue,
+mandible, hyoid, salivary-gland, pharynx-muscle, pectoralis, diaphragm, scapula,
+clavicle and humerus cards map to these parts. Hiatal hernia, hiccups and oral cancer
+are now offered on both bodies, and rotator-cuff and salivary disorders on the female.
+
+### Method additions
+
+- **Tasks.** Free TotalSegmentator tasks beyond `total`: `head_muscles` and
+  `craniofacial_structures` on the 0.75 mm head volume; `headneck_muscles` and
+  `headneck_bones_vessels` on the 0-330 mm section; `abdominal_muscles` and
+  `trunk_cavities` on the three upper 1.5 mm sections, merged as before. Each
+  supplement record names its group's task.
+- **Diaphragm.** No free task traces it. `diaphragm.py` takes the sheet where the
+  traced thoracic and abdominal cavities meet (voxels within 4 mm of both): female
+  180 cm3, male 309 cm3. Its openings and crura are therefore not shown.
+- **Shoulders.** `shoulder_fit.py` refines the thorax fit per side and per bone group
+  by a rigid ICP of the scan's skin near the bones onto the body's skin. Median skin
+  distance fell from 16-26 mm to 4.6-7.4 mm, with rotations of 9-24 degrees. Round 1
+  had left these bones out at 20-42% outside the skin; after the fit they are 0-7%.
+- **Review rule.** As in round 1, a part with 20% or more of its sampled vertices
+  outside the skin is left out, with both sides of a pair left out together; renders
+  decided the fragmentary or cut-off parts.
+
+### Checks
+
+- **Outside the skin**, after the exclusions: 0% for most parts; female masseter 1/12%,
+  tongue 10%, submandibular glands 6/14%, external and internal obliques up to 18%
+  and 9% on the left; male mandible and right pectoralis major 4%. Superficial muscles
+  sit just under the skin, so a few millimetres of fit error shows here first.
+- **Inside existing organs:** female clavicles 31-49% inside the body's lungs and the
+  diaphragm 14% inside lungs and liver; male diaphragm 34% inside the lungs. As with
+  the ribs, the body's frozen-section lungs are fuller than in the CT. The male right
+  latissimus dorsi and obliques are 12-14% inside the right kidney, at its contact with
+  the body wall.
+- **Small parts:** the posterior scalenes are about 1 cm3 (thin slips at 1.5 mm);
+  the female hyoid 1.2 cm3. The female right humerus kept its unsimplified mesh
+  (33,000 faces) because simplification left needle triangles.
+
+Renders: [female front](vhp-ct/female-round2-front.png),
+[female back](vhp-ct/female-round2-back.png), [male front](vhp-ct/male-round2-front.png),
+[male back](vhp-ct/male-round2-back.png).
+
+### Possible follow-up
+
+The pharyngeal constrictors, sternocleidomastoid and trapezius might trace better on
+the 0.75 mm head volume or with a neck-specific fit; the skull remains left out.
+
 ## Licence
 
 As for the parotid glands: NLM Terms and Conditions ("Courtesy of the U.S. National

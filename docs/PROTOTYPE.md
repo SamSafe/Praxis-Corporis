@@ -2,13 +2,15 @@
 
 The viewer uses real, separate HRA male and female reference samples inside
 one continuous scene. It is a partial atlas with medical review pending. Draft
-study cards (209) and 126 condition summaries ([body study content](BODY_STUDY_CONTENT.md))
+study cards (216) and 126 condition summaries ([body study content](BODY_STUDY_CONTENT.md))
 provide reference locations; pathological geometry is unavailable. Detailed source findings are in [the sample audit](audit/HRA_SAMPLE_FINDINGS.md).
 
 The female and male bodies also carry later HRA organs (breasts, palatine tonsils,
 spinal cord and vertebrae) and parts traced from the same donors' Visible Human CT:
 parotid glands, stomach, oesophagus, thyroid, adrenal glands, ribs and costal
-cartilages, sternum, and gluteal, iliopsoas and deep back muscles
+cartilages, sternum, gluteal, iliopsoas and deep back muscles, and in a second round
+the tongue, mandible, jaw, neck, chest, back and abdominal wall muscles, diaphragm,
+shoulder bones and (female) humeri, submandibular glands and hyoid
 ([parotid audit](audit/VHP_PAROTID.md), [CT parts audit](audit/VHP_CT_PARTS.md)).
 Structures no body models (scrotum, vulva, adenoids, lingual tonsils) have text-only
 cards that search lists as "No 3D model".
@@ -541,6 +543,19 @@ godot --headless --path . --script tests/search_smoke.gd
 godot --headless --path . --script tests/render_profile_smoke.gd
 godot --headless --path . --script tests/export_boundary_smoke.gd
 ```
+
+On Windows, after placing Godot 4.7.2 at
+`build\toolchain\engine\Godot_v4.7.2-stable_win64_console.exe` (or passing `-Godot`),
+run every headless `tests\*_smoke.gd` check in its own engine process with:
+
+```powershell
+python -m unittest discover -s tests
+powershell -ExecutionPolicy Bypass -File tools\run_suite.ps1
+```
+
+The runner writes one log per check and `summary.txt` under `build\suite`; `-Only
+name,name` runs a subset. It points the engine's APPDATA at `build\dev-environment` so
+real saved views and preferences are untouched.
 
 The Python checks cover corrupt inputs, path containment, asset modification,
 catalogue references, both bodies and exclusion of sampling sites. The engine
