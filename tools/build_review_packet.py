@@ -27,16 +27,16 @@ def mapping_list(value):
 
 
 def references():
-    pack = json.loads((ROOT / "content/sample_pack.json").read_text())
-    manifest = {f.get("body_id"): f["sha256"] for f in json.loads((ROOT / "content/source_manifest.json").read_text())["files"]}
+    pack = json.loads((ROOT / "content/sample_pack.json").read_text(encoding="utf-8"))
+    manifest = {f.get("body_id"): f["sha256"] for f in json.loads((ROOT / "content/source_manifest.json").read_text(encoding="utf-8"))["files"]}
     rows = [(b["id"], len(b["structures"]), manifest[b["id"]]) for b in pack["bodies"]]
-    bone = json.loads((ROOT / "content/bodyparts3d_bone_study.json").read_text())
+    bone = json.loads((ROOT / "content/bodyparts3d_bone_study.json").read_text(encoding="utf-8"))
     rows.append((bone["id"], len(bone["structures"]), bone["sha256"]))
-    complete = json.loads((ROOT / "content/bodyparts3d_complete_body.json").read_text())
+    complete = json.loads((ROOT / "content/bodyparts3d_complete_body.json").read_text(encoding="utf-8"))
     rows.append((complete["id"], len(complete["structures"]), complete["sha256"]))
     # Cards are reviewed against the two HRA bodies and the complete body.
     pack = dict(pack, bodies=[*pack["bodies"], complete])
-    for study in json.loads((ROOT / "content/spinal_studies.json").read_text())["bodies"]:
+    for study in json.loads((ROOT / "content/spinal_studies.json").read_text(encoding="utf-8"))["bodies"]:
         rows.append((study["id"], len(study["structures"]), study.get("sha256", "")))
     return pack, rows
 
@@ -114,7 +114,7 @@ def source_lines(content, ids):
 
 
 def write(args):
-    report = json.loads(pathlib.Path(args.build_report).read_text())
+    report = json.loads(pathlib.Path(args.build_report).read_text(encoding="utf-8"))
     identity = report["build_identity"]
     revision = report["source_revision"]
     short = revision[:7]
@@ -122,7 +122,7 @@ def write(args):
     study_hash = sha256(study_path)
     if report["source_hashes"].get(STUDY) != study_hash:
         raise SystemExit("content/study_content.json differs from the build record; check out the built revision first")
-    content = json.loads(study_path.read_text())
+    content = json.loads(study_path.read_text(encoding="utf-8"))
     pack, refs = references()
     reviews = ROOT / "docs/reviews"
     reviews.mkdir(parents=True, exist_ok=True)
@@ -176,7 +176,7 @@ def write(args):
             gap = f" Gap: {node['gap']}" if node.get("gap") else ""
             text.append(f"- `{nid}` — **{node['title']}**: {node['text']}{gap} Next: {', '.join(node['next'])}.")
         text += ["", "- **Sources:**", *source_lines(content, route["source_ids"]), ""]
-    (reviews / f"{short}-reviewer-text.md").write_text("\n".join(text))
+    (reviews / f"{short}-reviewer-text.md").write_text("\n".join(text), encoding="utf-8", newline="\n")
 
     # Blank results template
     items = [("Card", c) for c in content["cards"]] + [("Condition", c) for c in content["conditions"]] + \
@@ -207,7 +207,7 @@ def write(args):
     tpl += [f"| `{ref}` | | not reviewed | |" for ref, _, _ in refs]
     tpl += ["", "## Findings", "", "| Finding ID | Item / catalogue ID | Exact wording or observation | Source / evidence | Required correction |",
             "| --- | --- | --- | --- | --- |", "| | | | | |", ""]
-    (reviews / f"{short.upper()}_TEMPLATE.md").write_text("\n".join(tpl))
+    (reviews / f"{short.upper()}_TEMPLATE.md").write_text("\n".join(tpl), encoding="utf-8", newline="\n")
 
     # Packet
     artifacts = "\n".join(f"| {a['file']} | `{a['sha256']}` |" for a in report["artifacts"])
@@ -315,7 +315,7 @@ human evidence is recorded and the change is reviewed.
 Asset/application rights, device usability, accessibility and release distribution
 have separate gates in [the production checkpoint](PRODUCTION_READINESS.md).
 """
-    (ROOT / "docs/CONTENT_REVIEW_PACKET.md").write_text(packet)
+    (ROOT / "docs/CONTENT_REVIEW_PACKET.md").write_text(packet, encoding="utf-8", newline="\n")
     print(f"Packet for {short}: {cards} cards, {conditions} conditions, {len(items)} template rows")
 
 
