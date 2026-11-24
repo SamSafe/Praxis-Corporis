@@ -1040,6 +1040,30 @@
     "tma-anterior-thigh": {
       "title": "TeachMeAnatomy: Muscles of the anterior thigh",
       "url": "https://teachmeanatomy.info/lower-limb/muscles/thigh/anterior-compartment/"
+    },
+    "tma-mastication": {
+      "title": "TeachMeAnatomy: The muscles of mastication",
+      "url": "https://teachmeanatomy.info/head/muscles/mastication/"
+    },
+    "tma-scalenes": {
+      "title": "TeachMeAnatomy: The scalene muscles",
+      "url": "https://teachmeanatomy.info/neck/muscles/scalene/"
+    },
+    "tma-abdominal-wall": {
+      "title": "TeachMeAnatomy: The anterolateral abdominal wall",
+      "url": "https://teachmeanatomy.info/abdomen/muscles/abdominal-wall/"
+    },
+    "tma-posterior-abdominal-wall": {
+      "title": "TeachMeAnatomy: The posterior abdominal wall",
+      "url": "https://teachmeanatomy.info/abdomen/muscles/posterior-wall/"
+    },
+    "tma-superficial-back": {
+      "title": "TeachMeAnatomy: The superficial back muscles",
+      "url": "https://teachmeanatomy.info/back/muscles/superficial/"
+    },
+    "tma-pectoral-region": {
+      "title": "TeachMeAnatomy: Muscles of the pectoral region",
+      "url": "https://teachmeanatomy.info/upper-limb/muscles/pectoral-region/"
     }
   },
   "cards": {
@@ -10297,7 +10321,7 @@
       }
     },
     "anatomy.salivary-glands": {
-      "overview": "The submandibular and sublingual glands, two of the three pairs of major salivary glands. The parotid glands, the third pair, have no 3D model; they have their own study card.",
+      "overview": "The submandibular and sublingual glands, two of the three pairs of major salivary glands. The parotid glands, the third pair, have their own study card.",
       "function": "Salivary glands make saliva and empty it into the mouth through ducts.",
       "related": [
         "anatomy.tongue",
@@ -10473,14 +10497,15 @@
       }
     },
     "anatomy.pectoralis-major": {
-      "overview": "The pectoralis major muscle on each side, one of the muscles that connect to the humerus.",
-      "function": "Connects to the humerus and moves the arm.",
+      "overview": "The most superficial muscle of the chest on each side, one of the muscles that connect to the humerus. It arises from the clavicle, the sternum and the upper six costal cartilages.",
+      "function": "Adducts and medially rotates the arm; its clavicular part also flexes it.",
       "related": [
         "anatomy.humerus",
         "anatomy.sternum",
         "anatomy.deltoids"
       ],
       "source_ids": [
+        "tma-pectoral-region",
         "seer-muscles-upper"
       ],
       "review_status": "draft",
@@ -10638,13 +10663,14 @@
       }
     },
     "anatomy.trapezius": {
-      "overview": "One of the more obvious superficial muscles of the neck, on each side.",
-      "function": "Moves the shoulder and arm.",
+      "overview": "A broad, flat, triangular muscle on each side, the most superficial of the back muscles. It runs from the skull and the spinous processes of C7-T12 to the clavicle and the scapula.",
+      "function": "Moves the scapula: the upper fibres raise it and rotate it as the arm is lifted, the middle fibres pull it back and the lower fibres pull it down.",
       "related": [
         "anatomy.scapulae",
         "anatomy.vertebral-column"
       ],
       "source_ids": [
+        "tma-superficial-back",
         "seer-muscles-upper",
         "seer-muscles-head-neck"
       ],
@@ -11349,6 +11375,11 @@
       "geometry": {
         "female": [
           {
+            "id": "source.hra-v1-1.female.n1208",
+            "source_name": "VH_F_iliopsoas",
+            "ontology": ""
+          },
+          {
             "id": "source.hra-v1-1.female.n1206",
             "source_name": "VH_F_iliopsoas_L",
             "ontology": "FMA:64920"
@@ -11360,6 +11391,11 @@
           }
         ],
         "male": [
+          {
+            "id": "source.hra-v1-1.male.n1178",
+            "source_name": "VH_M_iliopsoas",
+            "ontology": ""
+          },
           {
             "id": "source.hra-v1-1.male.n1176",
             "source_name": "VH_M_iliopsoas_L",
@@ -11413,6 +11449,11 @@
       "geometry": {
         "female": [
           {
+            "id": "source.hra-v1-1.female.n1211",
+            "source_name": "VH_F_deep_back_muscles",
+            "ontology": ""
+          },
+          {
             "id": "source.hra-v1-1.female.n1209",
             "source_name": "VH_F_deep_back_muscles_L",
             "ontology": ""
@@ -11424,6 +11465,11 @@
           }
         ],
         "male": [
+          {
+            "id": "source.hra-v1-1.male.n1181",
+            "source_name": "VH_M_deep_back_muscles",
+            "ontology": ""
+          },
           {
             "id": "source.hra-v1-1.male.n1179",
             "source_name": "VH_M_deep_back_muscles_L",
@@ -11498,6 +11544,119 @@
           }
         ]
       }
+    },
+    "anatomy.muscles-of-mastication": {
+      "overview": "The four pairs of chewing muscles: the masseter, the temporalis and the medial and lateral pterygoids. All of them connect to the mandible, and they are some of the strongest muscles in the body.",
+      "function": "The masseter, temporalis and medial pterygoid raise the mandible, closing the mouth; the temporalis also pulls the jaw back. The lateral pterygoids push the jaw forward and move it from side to side.",
+      "related": [
+        "anatomy.mandible",
+        "anatomy.skull",
+        "anatomy.teeth"
+      ],
+      "source_ids": [
+        "seer-muscles-head-neck",
+        "tma-mastication"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    },
+    "anatomy.scalenes": {
+      "overview": "Three paired muscles on the side of the neck: the anterior, middle and posterior scalenes. They run from the transverse processes of the cervical vertebrae to the first rib (anterior and middle scalenes) and the second rib (posterior scalene).",
+      "function": "They raise the first and second ribs, acting as accessory muscles of breathing, and bend the neck forward and to the side.",
+      "related": [
+        "anatomy.vertebral-column",
+        "anatomy.ribs"
+      ],
+      "source_ids": [
+        "tma-scalenes"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    },
+    "anatomy.rectus-abdominis": {
+      "overview": "A long muscle on each side of the front of the abdominal wall. It runs from the crest of the pubis to the xiphoid process of the sternum and the costal cartilages of ribs 5-7.",
+      "function": "Helps the flat abdominal muscles compress the abdominal organs, steadies the pelvis when walking and pulls the ribs down.",
+      "related": [
+        "anatomy.abdominal-obliques",
+        "anatomy.sternum",
+        "anatomy.ribs",
+        "anatomy.pelvis"
+      ],
+      "source_ids": [
+        "tma-abdominal-wall",
+        "seer-muscles-trunk"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    },
+    "anatomy.abdominal-obliques": {
+      "overview": "The external and internal oblique muscles on each side, two of the layered muscle pairs of the abdominal wall. The external oblique, the largest and most superficial, runs from ribs 5-12 to the iliac crest and pubic tubercle; the internal oblique lies deep to it.",
+      "function": "Both rotate the torso. The internal obliques, contracting together, also compress the abdomen.",
+      "related": [
+        "anatomy.rectus-abdominis",
+        "anatomy.ribs",
+        "anatomy.pelvis"
+      ],
+      "source_ids": [
+        "tma-abdominal-wall",
+        "seer-muscles-trunk"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    },
+    "anatomy.quadratus-lumborum": {
+      "overview": "A thick, four-sided muscle on each side of the posterior abdominal wall, behind the psoas major. It runs from the iliac crest to the lowest rib and the transverse processes of the L1-L4 vertebrae.",
+      "function": "Extends the vertebral column and bends it to the side. It also holds the 12th rib steady when breathing in, so that the diaphragm contracts more efficiently.",
+      "related": [
+        "anatomy.vertebral-column",
+        "anatomy.ribs",
+        "anatomy.iliopsoas",
+        "anatomy.diaphragm",
+        "anatomy.pelvis"
+      ],
+      "source_ids": [
+        "tma-posterior-abdominal-wall"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    },
+    "anatomy.latissimus-dorsi": {
+      "overview": "A broad muscle of the lower back on each side. It arises from the spinous processes of T6-T12, the thoracolumbar fascia, the iliac crest and the lowest three ribs, and its fibres converge into a tendon attached to the humerus.",
+      "function": "Extends, adducts and medially rotates the arm.",
+      "related": [
+        "anatomy.humerus",
+        "anatomy.vertebral-column",
+        "anatomy.ribs",
+        "anatomy.trapezius"
+      ],
+      "source_ids": [
+        "tma-superficial-back",
+        "seer-muscles-upper"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
+    },
+    "anatomy.serratus-anterior": {
+      "overview": "A muscle on each side of the chest wall, made of strips that arise from the outer surfaces of ribs 1-8 and attach to the medial border of the scapula.",
+      "function": "Rotates the scapula so the arm can be raised above shoulder height, and holds the scapula against the ribcage.",
+      "related": [
+        "anatomy.scapulae",
+        "anatomy.ribs",
+        "anatomy.pectoralis-major"
+      ],
+      "source_ids": [
+        "tma-pectoral-region",
+        "seer-muscles-upper"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending"
     }
   },
   "routes": {
@@ -15037,7 +15196,13 @@
       "tma-anterior-thigh",
       "tma-gluteal-muscles",
       "tma-intrinsic-back-muscles",
-      "valve-disease-types"
+      "valve-disease-types",
+      "tma-mastication",
+      "tma-scalenes",
+      "tma-abdominal-wall",
+      "tma-posterior-abdominal-wall",
+      "tma-superficial-back",
+      "tma-pectoral-region"
     ]
   },
   "human_source_review": "pending"

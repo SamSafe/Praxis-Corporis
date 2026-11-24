@@ -47,6 +47,15 @@ func _initialize() -> void:
 		"VH_M_thyroid_gland": "gland",
 		"VH_M_adrenal_gland_R": "gland",
 		"VH_F_adrenal_gland_L": "gland",
+		"VH_F_tongue": "muscle",
+		"VH_M_medial_pterygoid_L": "muscle",
+		"VH_F_temporalis_R": "muscle",
+		"VH_M_quadratus_lumborum": "muscle",
+		"VH_F_latissimus_dorsi_L": "muscle",
+		"VH_M_pharyngeal_constrictors": "muscle",
+		"VH_F_mandible": "bone",
+		"VH_M_humeri": "bone",
+		"VH_F_submandibular_gland_L": "gland",
 	}
 	for name in expected:
 		check(TissueAppearance.classify(name) == expected[name], "%s -> %s (got %s)" % [name, expected[name], TissueAppearance.classify(name)])

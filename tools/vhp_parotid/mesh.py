@@ -1,6 +1,6 @@
 """Gland masks -> smoothed closed meshes in the fitted body frame, written as a GLB with
 one node per gland carrying its label and ontology ID in node extras.
-usage: mesh.py SEG_DIR FIT.json OUT.glb mask=node_name=Label=ONTOLOGY:ID[=FACES] ...
+usage: mesh.py SEG_DIR FIT.json OUT.glb mask=node_name=Label=ONTOLOGY:ID[=FACES[=PART_FIT.json]] ...
 Pieces smaller than 5% of the largest are dropped (specks); larger separate pieces, such
 as individual costal cartilages, are kept."""
 import sys, json, pathlib, struct, numpy as np, nibabel as nib, trimesh
@@ -29,6 +29,9 @@ sc = trimesh.Scene(); extras = {}
 for arg in sys.argv[4:]:
     mask, node, label, ontology, *rest = arg.split("=")
     faces = int(rest[0]) if rest else 6000
+    # An optional sixth field names a fit for this part alone (per-side shoulder fits).
+    f = json.load(open(rest[1])) if len(rest) > 1 else fit
+    s, R, t = f["scale"], np.array(f["R"]), np.array(f["t"])
     extras[node] = {"label": label, "ontologyid": ontology}
     im = nib.load(next(seg.rglob(mask + ".nii.gz"))); d = np.asarray(im.dataobj) > 0
     lab, k = ndimage.label(d); sizes = ndimage.sum(d, lab, range(1, k + 1))

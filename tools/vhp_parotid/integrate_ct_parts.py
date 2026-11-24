@@ -10,16 +10,40 @@ and resolved to catalogue IDs by the second pass (--map).
 import hashlib, json, pathlib, shutil, sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-GROUPS = {  # group -> (label for multi-part groups or None, card it maps to)
-    "stomach": (None, "anatomy.stomach"),
-    "esophagus": (None, "anatomy.esophagus"),
-    "thyroid-gland": (None, "anatomy.thyroid"),
-    "adrenal-glands": ("Adrenal glands", "anatomy.adrenal-glands"),
-    "ribs": ("Ribs and costal cartilages", "anatomy.ribs"),
-    "sternum": (None, "anatomy.sternum"),
-    "gluteal-muscles": ("Gluteal muscles", None),
-    "iliopsoas": ("Iliopsoas muscles", None),
-    "deep-back-muscles": ("Deep back muscles", None),
+GROUPS = {  # group -> label for the parent node of a multi-part group, or None
+    "stomach": None, "esophagus": None, "thyroid-gland": None,
+    "adrenal-glands": "Adrenal glands", "ribs": "Ribs and costal cartilages", "sternum": None,
+    "gluteal-muscles": "Gluteal muscles", "iliopsoas": "Iliopsoas muscles", "deep-back-muscles": "Deep back muscles",
+    # Second round
+    "submandibular-glands": "Submandibular glands", "tongue": None,
+    "muscles-of-mastication": "Muscles of mastication", "mandible": None,
+    "neck-muscles": "Neck muscles", "pharyngeal-constrictors": "Pharyngeal constrictor muscles", "hyoid": None,
+    "chest-and-back-muscles": "Chest and back muscles", "abdominal-wall-muscles": "Abdominal wall muscles",
+    "quadratus-lumborum": "Quadratus lumborum muscles", "diaphragm": None,
+    "shoulder-girdle": "Shoulder girdle", "humeri": "Upper-arm bones",
+}
+# card -> traced nodes it covers (without the VH_F_/VH_M_ prefix); a group's parent node
+# brings its parts with it, so selecting one side opens the same card.
+CARDS = {
+    "anatomy.stomach": ["stomach"], "anatomy.esophagus": ["esophagus"], "anatomy.thyroid": ["thyroid_gland"],
+    "anatomy.adrenal-glands": ["adrenal_glands"], "anatomy.ribs": ["ribs"], "anatomy.sternum": ["sternum"],
+    "anatomy.gluteus-maximus": ["gluteus_maximus_L", "gluteus_maximus_R"],
+    "anatomy.gluteus-medius": ["gluteus_medius_L", "gluteus_medius_R"],
+    "anatomy.gluteus-minimus": ["gluteus_minimus_L", "gluteus_minimus_R"],
+    "anatomy.iliopsoas": ["iliopsoas"], "anatomy.deep-back-muscles": ["deep_back_muscles"],
+    "anatomy.salivary-glands": ["submandibular_glands"], "anatomy.tongue": ["tongue"],
+    "anatomy.muscles-of-mastication": ["muscles_of_mastication"], "anatomy.mandible": ["mandible"],
+    "anatomy.scalenes": [f"{m}_scalene_{s}" for m in ("anterior", "middle", "posterior") for s in "LR"],
+    "anatomy.pharynx-muscles": ["pharyngeal_constrictors"], "anatomy.hyoid": ["hyoid_bone"],
+    "anatomy.pectoralis-major": ["pectoralis_major_L", "pectoralis_major_R"],
+    "anatomy.serratus-anterior": ["serratus_anterior_L", "serratus_anterior_R"],
+    "anatomy.latissimus-dorsi": ["latissimus_dorsi_L", "latissimus_dorsi_R"],
+    "anatomy.trapezius": ["trapezius_L", "trapezius_R"],
+    "anatomy.rectus-abdominis": ["rectus_abdominis_L", "rectus_abdominis_R"],
+    "anatomy.abdominal-obliques": [f"{m}_oblique_{s}" for m in ("external", "internal") for s in "LR"],
+    "anatomy.quadratus-lumborum": ["quadratus_lumborum"], "anatomy.diaphragm": ["diaphragm"],
+    "anatomy.scapulae": ["scapula_L", "scapula_R"], "anatomy.clavicles": ["clavicle_L", "clavicle_R"],
+    "anatomy.humerus": ["humeri"],
 }
 SOURCE = {"female": "Visible Human female normal CT (NLM), traced; tools/vhp_parotid",
           "male": "Visible Human male normal CT (NLM), traced; tools/vhp_parotid"}
@@ -33,7 +57,7 @@ def register(parts: pathlib.Path) -> None:
     for body in manifest["bodies"]:
         b = body["body_id"]; X = "VH_M" if b == "male" else "VH_F"
         body["groups"] = [g for g in body["groups"] if "vhp-ct/" not in g["files"][0]["local_path"]]
-        for group, (label, _) in GROUPS.items():
+        for group, label in GROUPS.items():
             src = parts / f"{b}-{group}.glb"
             if not src.exists():
                 continue
@@ -51,26 +75,29 @@ def register(parts: pathlib.Path) -> None:
 
 
 def map_cards() -> None:
-    """Point the existing cards at the new parts, by catalogue record."""
+    """Point the cards at the traced parts, by catalogue record (a parent brings its children)."""
     pack = json.loads((ROOT / "content/sample_pack.json").read_text())
-    names = {b["id"]: {s["source_name"]: s for s in b["structures"]} for b in pack["bodies"]}
     path = ROOT / "content/study_content.json"
     content = json.loads(path.read_text())
-    cards = content["cards"]
-    want = {"anatomy.stomach": ["stomach"], "anatomy.esophagus": ["esophagus"], "anatomy.thyroid": ["thyroid_gland"],
-            "anatomy.adrenal-glands": ["adrenal_glands"], "anatomy.ribs": ["ribs_and_costal_cartilages", "ribs"],
-            "anatomy.sternum": ["sternum"], "anatomy.gluteus-maximus": ["gluteus_maximus_L", "gluteus_maximus_R"]}
-    for card, nodes in want.items():
-        for b in ("female", "male"):
-            X = "VH_M" if b == "male" else "VH_F"
-            found = [names[b][f"{X}_{n}"] for n in nodes if f"{X}_{n}" in names[b]]
-            if card == "anatomy.ribs":
-                found = found[:1]
+    for b in pack["bodies"]:
+        if b["id"] not in ("female", "male"):
+            continue
+        X = "VH_M" if b["id"] == "male" else "VH_F"
+        by_name = {s["source_name"]: s for s in b["structures"]}; by_id = {s["id"]: s for s in b["structures"]}
+        for card, nodes in CARDS.items():
+            found = []
+            def add(s):
+                if s not in found:
+                    found.append(s)
+                    for child in s.get("children", []):
+                        add(by_id[child])
+            for n in nodes:
+                if f"{X}_{n}" in by_name:
+                    add(by_name[f"{X}_{n}"])
             if not found:
-                cards[card].get("geometry", {}).pop(b, None)
-                continue
+                continue  # leave any mapping to the body's own anatomy (e.g. the male hyoid)
             mapping = [{"id": s["id"], "source_name": s["source_name"], "ontology": s["ontology"]} for s in found]
-            cards[card].setdefault("geometry", {})[b] = mapping[0] if len(mapping) == 1 else mapping
+            content["cards"][card].setdefault("geometry", {})[b["id"]] = mapping[0] if len(mapping) == 1 else mapping
     path.write_text(json.dumps(content, indent=2, ensure_ascii=False) + "\n")
 
 

@@ -40,8 +40,8 @@ def centroid(name):
     return np.array([-c[0], c[2], c[1]]) / 1000.0
 
 
-def present(name):
-    p = merged / f"{name}.nii.gz"
+def present(name, folder=None):
+    p = (folder or merged) / f"{name}.nii.gz"
     return p.exists() and np.asarray(nib.load(p).dataobj).any()
 
 
@@ -83,6 +83,11 @@ fits = {
     # partial and would bias the scale against the body's whole femurs.
     "pelvis": fit("pelvis", V("L3", "L4", "L5", "L6") + [(n, n) for n in ("sacrum", "hip_left", "hip_right")]),
 }
+# Per-side shoulder fits from shoulder_fit.py, run after the thorax fit above.
+shoulder = {f"{side}-{g}": work / f"{body}-fit-shoulder-{side}-{g}.json" for side in ("left", "right") for g in ("girdle", "humerus")}
+seg = work / f"seg-{body}"
+extra = seg / "extra"
+
 
 L, R = "left", "right"
 groups = {
@@ -96,12 +101,12 @@ groups = {
                        + [("costal_cartilages", "costal_cartilages", "Costal cartilages", "FMA:85213", 6000)]),
     "sternum": ("thorax", [("sternum", "sternum", "Sternum", "FMA:7485", 4000)]),
     "skull": ("skull", [("skull", "skull", "Skull", "FMA:46565", 25000)]),
-    "shoulder_girdle": ("thorax", [("scapula_left", "scapula_L", "Left scapula", "FMA:13396", 6000),
-                                   ("scapula_right", "scapula_R", "Right scapula", "FMA:13395", 6000),
-                                   ("clavicula_left", "clavicle_L", "Left clavicle", "FMA:13323", 3000),
-                                   ("clavicula_right", "clavicle_R", "Right clavicle", "FMA:13322", 3000)]),
-    "humeri": ("thorax", [("humerus_left", "humerus_L", "Left humerus", "FMA:23131", 5000),
-                          ("humerus_right", "humerus_R", "Right humerus", "FMA:23130", 5000)]),
+    "shoulder_girdle": ("thorax", [("scapula_left", "scapula_L", "Left scapula", "FMA:13396", 6000, shoulder["left-girdle"]),
+                                   ("scapula_right", "scapula_R", "Right scapula", "FMA:13395", 6000, shoulder["right-girdle"]),
+                                   ("clavicula_left", "clavicle_L", "Left clavicle", "FMA:13323", 3000, shoulder["left-girdle"]),
+                                   ("clavicula_right", "clavicle_R", "Right clavicle", "FMA:13322", 3000, shoulder["right-girdle"])]),
+    "humeri": ("thorax", [("humerus_left", "humerus_L", "Left humerus", "FMA:23131", 5000, shoulder["left-humerus"]),
+                          ("humerus_right", "humerus_R", "Right humerus", "FMA:23130", 5000, shoulder["right-humerus"])]),
     "gluteal_muscles": ("pelvis", [(f"gluteus_{m}_{s}", f"gluteus_{m}_{s[0].upper()}", f"{s.capitalize()} gluteus {m}", fid, 6000)
                                    for m, ids in (("maximus", ("FMA:22329", "FMA:22328")), ("medius", ("FMA:22331", "FMA:22330")),
                                                   ("minimus", ("FMA:22333", "FMA:22332")))
@@ -110,18 +115,45 @@ groups = {
                              ("iliopsoas_right", "iliopsoas_R", "Right iliopsoas", "FMA:64919", 6000)]),
     "deep_back_muscles": ("spine", [("autochthon_left", "deep_back_muscles_L", "Left deep back muscles", "", 8000),
                                     ("autochthon_right", "deep_back_muscles_R", "Right deep back muscles", "", 8000)]),
+    # Second round: head, neck and trunk muscles, the jaw and the diaphragm.
+    "submandibular_glands": ("skull", [("submandibular_gland_left", "submandibular_gland_L", "Left submandibular gland", "", 2500),
+                                       ("submandibular_gland_right", "submandibular_gland_R", "Right submandibular gland", "", 2500)], seg / "glands"),
+    "tongue": ("skull", [("tongue", "tongue", "Tongue", "FMA:54640", 6000)], extra / "head-head_muscles"),
+    "muscles_of_mastication": ("skull", [(f"{m}_{s}", f"{m}_{s[0].upper()}", f"{s.capitalize()} {m.replace('_', ' ')}", "", 4000)
+                                         for m in ("masseter", "temporalis", "medial_pterygoid", "lateral_pterygoid") for s in (L, R)],
+                               extra / "head-head_muscles"),
+    "mandible": ("skull", [("mandible", "mandible", "Mandible", "FMA:52748", 10000)], extra / "head-craniofacial_structures"),
+    "neck_muscles": ("skull", [(f"{m}_{s}", f"{m}_{s[0].upper()}", f"{s.capitalize()} {m.replace('_', ' ')}", "", 4000)
+                               for m in ("sternocleidomastoid", "anterior_scalene", "middle_scalene", "posterior_scalene") for s in (L, R)],
+                     extra / "neck-headneck_muscles"),
+    "pharyngeal_constrictors": ("skull", [(f"{p}_pharyngeal_constrictor", f"{p}_pharyngeal_constrictor", f"{p.capitalize()} pharyngeal constrictor", "", 3000)
+                                          for p in ("superior", "middle", "inferior")], extra / "neck-headneck_muscles"),
+    "hyoid": ("skull", [("hyoid", "hyoid_bone", "Hyoid bone", "FMA:52749", 2000)], extra / "neck-headneck_bones_vessels"),
+    "chest_and_back_muscles": ("thorax", [(f"{m}_{s}", f"{m}_{s[0].upper()}", f"{s.capitalize()} {m.replace('_', ' ')}", "", 8000)
+                                          for m in ("pectoralis_major", "serratus_anterior", "latissimus_dorsi", "trapezius") for s in (L, R)],
+                               seg / "abd"),
+    "abdominal_wall_muscles": ("abdomen", [(f"{m}_{s}", f"{m}_{s[0].upper()}", f"{s.capitalize()} {m.replace('_', ' ')}", "", 8000)
+                                           for m in ("rectus_abdominis", "external_oblique", "internal_oblique") for s in (L, R)],
+                               seg / "abd"),
+    "quadratus_lumborum": ("spine", [(f"quadratus_lumborum_{s}", f"quadratus_lumborum_{s[0].upper()}", f"{s.capitalize()} quadratus lumborum", "", 4000)
+                                     for s in (L, R)], seg / "abd"),
+    "diaphragm": ("abdomen", [("diaphragm", "diaphragm", "Diaphragm", "FMA:13295", 8000)], seg / "cav"),
 }
 manifest = {}
-for group, (region, parts) in groups.items():
+for group, (region, parts, *where) in groups.items():
+    folder = where[0] if where else merged
     if group in skip:
         print(f"[{group}] skipped after review"); continue
-    parts = [p for p in parts if present(p[0]) and p[0] not in skip]
+    parts = [p for p in parts if present(p[0], folder) and p[0] not in skip]
+    if any(len(p) > 5 and not pathlib.Path(p[5]).exists() for p in parts):
+        print(f"[{group}] needs shoulder_fit.py first"); continue
     if not parts:
         print(f"[{group}] nothing traced"); continue
     glb = out / f"{body}-{group.replace('_', '-')}.glb"
-    specs = [f"{m}={X}_{n}={label}={ont}={faces}" for m, n, label, ont, faces in parts]
-    r = subprocess.run([py, "-I", str(tools / "mesh.py"), str(merged), str(fits[region]), str(glb)] + specs, capture_output=True, text=True, check=True)
+    specs = [f"{p[0]}={X}_{p[1]}={p[2]}={p[3]}={p[4]}" + (f"={p[5]}" if len(p) > 5 else "") for p in parts]
+    r = subprocess.run([py, "-I", str(tools / "mesh.py"), str(folder), str(fits[region]), str(glb)] + specs, capture_output=True, text=True, check=True)
     print(f"[{group}] region {region}\n" + r.stdout.strip())
     manifest[group] = {"region": region, "fit": json.loads(pathlib.Path(fits[region]).read_text()), "file": glb.name,
-                       "parts": [{"mask": m, "node": f"{X}_{n}", "label": label, "ontology": ont} for m, n, label, ont, _ in parts]}
+                       "parts": [{"mask": p[0], "node": f"{X}_{p[1]}", "label": p[2], "ontology": p[3]}
+                                 | ({"fit": json.loads(pathlib.Path(p[5]).read_text())} if len(p) > 5 else {}) for p in parts]}
 (out / f"{body}-parts.json").write_text(json.dumps(manifest, indent=1))
