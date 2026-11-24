@@ -83,9 +83,9 @@ def append(base: dict, binary: bytearray, document: dict, extra: bytes) -> list[
 
 
 def build(body_id: str, anatomy_root: str) -> pathlib.Path:
-    manifest = json.loads(MANIFEST.read_text())
+    manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
     target = next(row for row in manifest["bodies"] if row["body_id"] == body_id)
-    source = json.loads((ROOT / "content/source_manifest.json").read_text())
+    source = json.loads((ROOT / "content/source_manifest.json").read_text(encoding="utf-8"))
     united = next(row for row in source["files"] if row.get("body_id") == body_id)
     verified(ROOT / united["local_path"], united)
     base, base_binary = chunks(ROOT / united["local_path"])

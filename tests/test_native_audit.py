@@ -30,6 +30,9 @@ def fixture(root, mac=False, modern=False):
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text('Fixture content for ' + relative, encoding='utf-8')
     subprocess.run(['git', 'init', '-q'], cwd=repository, check=True)
+    # Like the project repository: Git for Windows enables autocrlf system-wide, which
+    # would make committed blobs differ from the fixture files' recorded hashes.
+    subprocess.run(['git', 'config', 'core.autocrlf', 'false'], cwd=repository, check=True)
     subprocess.run(['git', 'add', '.'], cwd=repository, check=True)
     subprocess.run(['git', '-c', 'user.name=Archive Fixture', '-c', 'user.email=fixture@invalid', 'commit', '-qm', 'Fixture'], cwd=repository, check=True)
     revision = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=repository, text=True).strip()

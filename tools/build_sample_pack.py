@@ -115,7 +115,7 @@ def build_body(record: dict) -> tuple[dict, dict]:
 
 
 def main() -> None:
-    manifest = json.loads((ROOT / "content/source_manifest.json").read_text())
+    manifest = json.loads((ROOT / "content/source_manifest.json").read_text(encoding="utf-8"))
     bodies = []
     audits = {}
     for record in manifest["files"]:
@@ -138,7 +138,7 @@ def main() -> None:
     for name, data in outputs.items():
         path = ROOT / name
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(json.dumps(data, indent=2) + "\n")
+        path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8", newline="\n")
         print(name)
 
 
