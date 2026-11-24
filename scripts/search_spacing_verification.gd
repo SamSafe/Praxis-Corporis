@@ -4,6 +4,7 @@ extends RefCounted
 const Search = preload("res://scripts/anatomy_search.gd")
 const Browser = preload("res://scripts/saved_views_browser.gd")
 const SavedViews = preload("res://scripts/saved_views.gd")
+const StudyVerification = preload("res://scripts/study_verification.gd")
 const WHITE_SPACE := [0x0009, 0x000A, 0x000B, 0x000C, 0x000D, 0x0020, 0x0085,
 	0x00A0, 0x1680, 0x2000, 0x2001, 0x2002, 0x2003, 0x2004, 0x2005, 0x2006,
 	0x2007, 0x2008, 0x2009, 0x200A, 0x2028, 0x2029, 0x202F, 0x205F, 0x3000]
@@ -34,9 +35,13 @@ static func run(viewer: Control) -> bool:
 	library.path = "user://search-spacing-" + Crypto.new().generate_random_bytes(16).hex_encode() + ".json"
 	valid = library.load_library().is_empty() and valid
 	valid = library.add_view("Left\u00a0review", before).is_empty() and valid
+	if not StudyVerification.has_fixture_entries(library, 1, "search-spacing"):
+		return false
 	var first: String = library.entries[0].id
 	valid = library.set_notes(first, "Saved\u202fnote\nCafé 🫀").is_empty() and valid
 	valid = library.add_view("Other view", before).is_empty() and valid
+	if not StudyVerification.has_fixture_entries(library, 2, "search-spacing"):
+		return false
 	var bytes_before := FileAccess.get_file_as_bytes(library.path)
 	var browser := Browser.new()
 	browser.library = library

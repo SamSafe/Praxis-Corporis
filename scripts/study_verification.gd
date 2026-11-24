@@ -81,6 +81,9 @@ static func verify_note_carets(viewer: Control) -> bool:
 			valid = library.load_library().is_empty() and valid
 			for name in ["Third", "Second", "First"]:
 				valid = library.add_view(name, before).is_empty() and valid
+			if not has_fixture_entries(library, 3, "note-caret"):
+				valid = false
+				continue
 			var first: String = library.entries[0].id
 			var second: String = library.entries[1].id
 			var third: String = library.entries[2].id
@@ -183,6 +186,9 @@ static func verify_note_history(viewer: Control) -> bool:
 			valid = library.load_library().is_empty() and valid
 			for name in ["Fourth", "Third", "Second", "First"]:
 				valid = library.add_view(name, before).is_empty() and valid
+			if not has_fixture_entries(library, 4, "note-history"):
+				valid = false
+				continue
 			var entries: Array = library.entries.duplicate(true)
 			var first: String = entries[0].id
 			var second: String = entries[1].id
@@ -264,6 +270,8 @@ static func verify_draft_export(viewer: Control, rendered: bool = false) -> bool
 	var valid := library.load_library().is_empty()
 	for name in ["First study", "Second study", "Third study"]:
 		valid = library.add_view(name, before).is_empty() and valid
+	if not has_fixture_entries(library, 3, "draft-export"):
+		return false
 	var known: Array = library.entries.duplicate(true)
 	var first: String = known[0].id
 	var second: String = known[1].id
@@ -365,6 +373,20 @@ static func verify_draft_export(viewer: Control, rendered: bool = false) -> bool
 	return valid
 
 
+## Whether a check's saved-view fixture holds the expected number of entries. Release
+## exports do not bounds-check typed array reads, so a check must confirm its fixture
+## before indexing library.entries; otherwise a failed setup crashes the app instead of
+## being reported. On failure this reports the fixture and removes its files.
+static func has_fixture_entries(library: SavedViews, count: int, fixture: String) -> bool:
+	if library.entries.size() == count:
+		return true
+	push_error("Saved-view fixture was not created: %s (%d of %d views)" % [fixture, library.entries.size(), count])
+	for suffix in ["", ".tmp", ".bak", ".bak.tmp"]:
+		if FileAccess.file_exists(library.path + suffix):
+			DirAccess.remove_absolute(library.path + suffix)
+	return false
+
+
 static func write_encoding_fixture(path: String, bytes: PackedByteArray) -> bool:
 	var file := FileAccess.open(path, FileAccess.WRITE)
 	if file == null:
@@ -382,6 +404,8 @@ static func verify_text_encoding(snapshot: Dictionary, reference: String, valida
 	library.path = prefix + ".json"
 	var valid := library.load_library().is_empty()
 	valid = library.add_view("UTF-8 study", snapshot).is_empty() and valid
+	if not has_fixture_entries(library, 1, "text-encoding"):
+		return false
 	var note := "Keep café · 中文 · Δ · e\u0301 · 🫀 · literal �"
 	valid = library.set_notes(library.entries[0].id, note).is_empty() and valid
 	var known: Array = library.entries.duplicate(true)
@@ -430,8 +454,9 @@ static func verify_text_encoding(snapshot: Dictionary, reference: String, valida
 	bom.append_array(healthy)
 	valid = write_encoding_fixture(library.path, bom) and valid
 	valid = library.load_library().is_empty() and library.loaded_hash == FileAccess.get_sha256(library.path) and valid
-	valid = valid and library.entries[0].notes == note and FileAccess.get_file_as_bytes(library.path) == bom
-	valid = library.rename_view(library.entries[0].id, "Unicode survives").is_empty() and valid
+	var reloaded := library.entries.size() == 1
+	valid = valid and reloaded and library.entries[0].notes == note and FileAccess.get_file_as_bytes(library.path) == bom
+	valid = reloaded and library.rename_view(library.entries[0].id, "Unicode survives").is_empty() and valid
 	valid = library.export_library(prefix + "-export.json").is_empty() and valid
 	var imported := SavedViews.new()
 	imported.path = prefix + "-target.json"
@@ -1287,8 +1312,14 @@ static func verify_import_preview(viewer: Control, rendered: bool = false) -> bo
 		original.path = viewer.views_path
 		valid = original.load_library().is_empty() and valid
 		valid = original.add_view("Keep original", before).is_empty() and valid
+		if not has_fixture_entries(original, 1, "import-preview"):
+			valid = false
+			continue
 		valid = original.set_notes(original.entries[0].id, "Original saved notes").is_empty() and valid
 		valid = original.add_view("Collision view", before).is_empty() and valid
+		if not has_fixture_entries(original, 2, "import-preview"):
+			valid = false
+			continue
 		var saved: Array = original.entries.duplicate(true)
 		var kept: Dictionary = original.entries[1].duplicate(true)
 		var incoming: Array[Dictionary] = [kept.duplicate(true)]
@@ -1945,6 +1976,8 @@ static func verify_export_protection(snapshot: Dictionary, reference: String) ->
 	library.path = "user://export-guard-" + Crypto.new().generate_random_bytes(16).hex_encode() + ".json"
 	var valid := library.load_library().is_empty()
 	valid = library.add_view("Export safeguard fixture", snapshot).is_empty() and valid
+	if not has_fixture_entries(library, 1, "export-guard"):
+		return false
 	var id: String = library.entries[0].id
 	valid = library.set_notes(id, "Original visible note").is_empty() and valid
 	var stale := SavedViews.new()
@@ -1965,7 +1998,7 @@ static func verify_export_protection(snapshot: Dictionary, reference: String) ->
 	valid = DirAccess.copy_absolute(absolute, outside) == OK and valid
 	valid = stale.export_library(outside).is_empty() and valid
 	var exported := stale.read_file(outside)
-	valid = exported.error.is_empty() and exported.entries[0].notes == "Original visible note" and valid
+	valid = exported.error.is_empty() and exported.entries.size() == 1 and exported.entries[0].notes == "Original visible note" and valid
 	valid = DirAccess.rename_absolute(absolute, absolute + ".held") == OK and valid
 	result = stale.export_library(absolute if sensitive else case_alias)
 	valid = "outside the active" in result and not FileAccess.file_exists(absolute) and valid
@@ -2014,6 +2047,8 @@ static func verify_recovery(snapshot: Dictionary) -> bool:
 	library.path = path
 	var valid := library.load_library().is_empty()
 	valid = library.add_view("Recover this source view", snapshot).is_empty() and valid
+	if not has_fixture_entries(library, 1, "recovery"):
+		return false
 	valid = library.set_notes(library.entries[0].id, "Recovered source notes 🫀").is_empty() and valid
 	valid = library.add_view("Later view", snapshot).is_empty() and valid
 	var healthy := FileAccess.get_file_as_string(path)

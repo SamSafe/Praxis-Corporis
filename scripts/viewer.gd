@@ -551,6 +551,10 @@ func verify_note_editor(library_path: String, snapshot: Dictionary, rendered: bo
 	browser.filter_input.text_changed.emit(anatomy_query)
 	valid = valid and browser.view_list.item_count == 1 and browser.selected_entry().get("id") == reopened.entries[0].id
 	valid = valid and str(model.structures[snapshot.selection].label) in browser.information.text
+	if not StudyVerification.has_fixture_entries(browser.library, 1, "note-editor"):
+		browser.queue_free()
+		await get_tree().process_frame
+		return false
 	var records: Array = browser.library.entries.duplicate(true)
 	var other_reference: Dictionary = records[0].duplicate(true)
 	other_reference.id = Crypto.new().generate_random_bytes(16).hex_encode()
