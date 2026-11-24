@@ -19,7 +19,8 @@ On Windows the venv is `build\parotid-work\venv\Scripts\`. Start TotalSegmentato
 `& TotalSegmentator ... *> log`: Windows PowerShell 5.1 with `$ErrorActionPreference =
 "Stop"` turns its progress bars on stderr into an error, stopping the script and
 orphaning a worker process. `build_hra_supplements.py` and `build_sample_pack.py` import
-sibling modules, so run them without `-I`.
+sibling modules, so run them without `-I`. `build_volume.py` decompresses the `.Z`
+slices with `gzip`; Git for Windows has one in `C:\Program Files\Git\usr\bin`.
 
 `build_body_parts.py` re-meshes every group. To keep already-reviewed groups byte for
 byte, restore their committed GLBs from `assets/vhp-ct/` into the parts folder before
@@ -37,6 +38,7 @@ byte, restore their committed GLBs from `assets/vhp-ct/` into the parts folder b
 | Body anchors | `landmarks.py` | `<body>-anchors.npz` |
 | Fit (one region) | `fit.py` | similarity transform JSON |
 | Second round: other free tasks (`head_muscles`, `craniofacial_structures`, `headneck_muscles`, `headneck_bones_vessels`, `abdominal_muscles`, `trunk_cavities`) | `TotalSegmentator -ta TASK` | masks under `seg-<body>/extra`, merged to `abd` and `cav` |
+| Head-and-neck volume for `headneck_muscles` (it runs at 0.75 mm and crops to the clavicles and C1-T4) | `build_volume.py ct-<body> <body>-headneck.nii.gz 400 -180 180 A0 A1 0.75` (A0 A1 as for the head volume), then `TotalSegmentator -ta headneck_muscles` | `seg-<body>/extra/headneck-headneck_muscles` |
 | Diaphragm (second round) | `diaphragm.py CAVITY_DIR` | `diaphragm.nii.gz` between the two cavities |
 | Body skin (second round) | `landmarks.py BODY.glb SKIN.npz skin=<X>_skin` | skin vertices |
 | Fit all regions, mesh and label | `build_body_parts.py BODY WORK OUT [SKIP]` | one GLB per group; shoulder groups wait for the next step |

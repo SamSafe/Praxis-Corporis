@@ -175,8 +175,49 @@ Renders: [female front](vhp-ct/female-round2-front.png),
 
 ### Possible follow-up
 
-The pharyngeal constrictors, sternocleidomastoid and trapezius might trace better on
-the 0.75 mm head volume or with a neck-specific fit; the skull remains left out.
+The neck muscles were re-traced at 0.75 mm afterwards (next section). The
+sternocleidomastoid and trapezius might still trace better with a neck-specific fit;
+the skull remains left out.
+
+## Neck muscles re-traced at 0.75 mm
+
+Date: 2026-11-24. Assistant technical check, not anatomical review.
+
+`headneck_muscles` resamples its input to 0.75 x 0.75 x 1.0 mm and crops it to the
+clavicles and vertebrae C1-T4. Round 2 gave it the 1.5 mm 0-330 mm section, and the
+260 mm parotid head volumes stop 45 mm (female) and 70 mm (male) above the lowest
+neck muscles. `build_volume.py` therefore built a taller volume from the same slices:
+400 mm from the top of the scan, 360 mm wide, 0.75 mm voxels (female z -38 to -439 mm,
+male 390 to -12 mm). The female slices are 1 mm apart throughout; the male slices are
+1 mm apart down to about z 220 mm and 3 mm apart below, so the male lower neck is
+interpolated vertically as before. The masks use the same scanner coordinates, so the
+skull fit is unchanged.
+
+**Result.** The traced muscles are essentially the same as in round 2: each volume is
+within 5% of its 1.5 mm trace, with the same extent. The model already worked at
+0.75 mm internally; the gain is the 0.75 mm output grid, which the meshes now follow.
+A few specks at the bottom edge of the crop are dropped by the 5% rule in `mesh.py`.
+
+| Part | Female | Male |
+|---|---|---|
+| Anterior, middle and posterior scalenes | re-meshed; 0% outside the skin | re-meshed; 0% outside the skin |
+| Inferior pharyngeal constrictor | re-meshed (3.3 cm3); 0% outside | re-meshed (4.9 cm3); 0% outside |
+| Superior and middle pharyngeal constrictors | still left out: 0.1 and 0.6 cm3 in separate pieces | added: 0.7 and 2.9 cm3, single pieces continuous with the inferior constrictor, 0% outside the skin |
+| Sternocleidomastoid | still left out (28/55% outside the skin) | still left out (20/35% outside) |
+
+The sternocleidomastoid barely changed (round 2: 26/62% and 16/32%), so its misfit
+comes from the fit or neck pose rather than resolution; a neck-specific fit is the next
+thing to try. The female anterior scalenes remain 11-12% inside the lung apices, and
+the posterior scalenes about 1-1.5 cm3. Other muscles this task traces (levator
+scapulae, sternothyroid, thyrohyoid, platysma, prevertebral muscles) are not added;
+the trapezius comes from `abdominal_muscles` and reaches beyond this volume.
+
+The two new male nodes move the male catalogue IDs of the CT parts after the
+constrictors by two; card mappings and coverage roots follow them. Both supplemented
+bodies changed, so views saved against earlier builds are refused as a different
+reference geometry version. Renders (side views, body vertebrae, hyoid, thyroid
+cartilage and trachea in grey): [female](vhp-ct/female-neck-0.75mm-side.png),
+[male](vhp-ct/male-neck-0.75mm-side.png).
 
 ## Licence
 

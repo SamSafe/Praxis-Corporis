@@ -9,7 +9,7 @@ the brain, eyes and knees, for 63 cards and 25 conditions.
 [Revisions 3 and 4](#revisions-3-and-4-vessels-organ-interiors-airways-skin-and-bone)
 bring the totals to 112 cards and 54 conditions. Later revisions, from
 [revision 5](#revision-5-dictionary-terms-brain-fluid-spaces-and-more-cancers)
-to [revision 12](#revision-12-head-neck-and-trunk-muscles-diaphragm-and-shoulders),
+to [revision 13](#revision-13-neck-muscles-re-traced-at-075-mm),
 bring them to 216 cards and 126 conditions.
 
 **Everything here is a private draft.** Every record keeps `review_status: draft`
@@ -481,6 +481,16 @@ pectoralis, diaphragm, scapula, clavicle and humerus cards now open on the trace
 
 Hiatal hernia, hiccups and oral cancer are now offered on both bodies, and rotator-cuff
 and salivary-gland disorders on the female body (107 conditions female, 100 male).
+
+## Revision 13: neck muscles re-traced at 0.75 mm
+
+Added 2026-11-24 as `body-study-13-draft`. The scalenes and pharyngeal constrictors
+were re-traced on a 0.75 mm head-and-neck volume
+([audit](audit/VHP_CT_PARTS.md#neck-muscles-re-traced-at-075-mm)). The pharynx-muscle
+card now also shows the male superior and middle pharyngeal constrictors; on the female
+body it still shows the inferior constrictor only. No card or condition text changed,
+and the offered conditions are unchanged. The male catalogue IDs of the CT parts after
+the constrictors moved by two, and the card mappings follow them.
 
 ## Deliberate limits
 
