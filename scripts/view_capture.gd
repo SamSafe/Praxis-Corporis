@@ -32,7 +32,7 @@ static func credits(reference: Dictionary, selection_label: String) -> String:
 		lines.append("Source: https://github.com/hubmapconsortium/ccf-3d-reference-object-library")
 		lines.append("CC BY 4.0: https://creativecommons.org/licenses/by/4.0/")
 		lines.append("Changes: sampling sites excluded, cache conversion, selection colours, fading, labels and temporary inspection movement/isolation.")
-		lines.append("Added: HRA v1.2-v1.4 organs (CC BY 4.0); parotid glands, stomach, oesophagus, thyroid, adrenal glands, ribs, sternum and trunk muscles traced from NLM Visible Human CT (courtesy of the U.S. National Library of Medicine).")
+		lines.append("Added: HRA v1.2-v1.4 organs (CC BY 4.0); parotid glands, stomach, oesophagus, thyroid, adrenal glands, ribs, sternum, tongue, jaw, diaphragm, shoulder bones and head, neck and trunk muscles traced from NLM Visible Human CT (courtesy of the U.S. National Library of Medicine).")
 	return "\n".join(lines)
 
 
