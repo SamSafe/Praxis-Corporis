@@ -1,13 +1,13 @@
 {
   "female": {
-    "sha256": "d4e3d551f43e08d50a8201f39af61e01ede15b4688cfa8289dbbe2a657c3b8fe",
-    "bytes": 134268592,
+    "sha256": "f9554c06145d4da6e95e827a8a7dbddc28c5ef0e36ebd52160520a78a8bd63aa",
+    "bytes": 138152868,
     "generator": "babylon.js glTF exporter for Autodesk MAYA 2022.2 v20211115.1",
     "anatomy_root": 0,
-    "total_nodes": 1212,
-    "anatomy_nodes": 1097,
-    "anatomy_mesh_nodes": 916,
-    "anatomy_triangles": 5292514,
+    "total_nodes": 1258,
+    "anatomy_nodes": 1143,
+    "anatomy_mesh_nodes": 953,
+    "anatomy_triangles": 5506810,
     "excluded_nodes": 115,
     "systems": [
       {
@@ -129,19 +129,84 @@
         "source_name": "VH_F_deep_back_muscles",
         "mesh_nodes": 2,
         "triangles": 16000
+      },
+      {
+        "source_name": "VH_F_submandibular_glands",
+        "mesh_nodes": 2,
+        "triangles": 5000
+      },
+      {
+        "source_name": "VH_F_tongue",
+        "mesh_nodes": 1,
+        "triangles": 6000
+      },
+      {
+        "source_name": "VH_F_muscles_of_mastication",
+        "mesh_nodes": 6,
+        "triangles": 24000
+      },
+      {
+        "source_name": "VH_F_mandible",
+        "mesh_nodes": 1,
+        "triangles": 10000
+      },
+      {
+        "source_name": "VH_F_neck_muscles",
+        "mesh_nodes": 6,
+        "triangles": 13152
+      },
+      {
+        "source_name": "VH_F_pharyngeal_constrictors",
+        "mesh_nodes": 1,
+        "triangles": 2604
+      },
+      {
+        "source_name": "VH_F_hyoid_bone",
+        "mesh_nodes": 1,
+        "triangles": 1168
+      },
+      {
+        "source_name": "VH_F_chest_and_back_muscles",
+        "mesh_nodes": 4,
+        "triangles": 32000
+      },
+      {
+        "source_name": "VH_F_abdominal_wall_muscles",
+        "mesh_nodes": 6,
+        "triangles": 48000
+      },
+      {
+        "source_name": "VH_F_quadratus_lumborum",
+        "mesh_nodes": 2,
+        "triangles": 8000
+      },
+      {
+        "source_name": "VH_F_diaphragm",
+        "mesh_nodes": 1,
+        "triangles": 8000
+      },
+      {
+        "source_name": "VH_F_shoulder_girdle",
+        "mesh_nodes": 4,
+        "triangles": 18000
+      },
+      {
+        "source_name": "VH_F_humeri",
+        "mesh_nodes": 2,
+        "triangles": 38372
       }
     ],
     "note": "Source node counts are not verified anatomical coverage or clinical review."
   },
   "male": {
-    "sha256": "58776308c6728223eb5a61f77cc940efd8ee8bd59ba3b649418f65402c3737f8",
-    "bytes": 96013440,
+    "sha256": "bdcb5aa8b8f0e90b005f95a44e5c208a66aeccfa4555a35036e00c270abcec4e",
+    "bytes": 99606644,
     "generator": "babylon.js glTF exporter for Autodesk MAYA 2022.2 v20211115.1",
     "anatomy_root": 115,
-    "total_nodes": 1182,
-    "anatomy_nodes": 1067,
-    "anatomy_mesh_nodes": 885,
-    "anatomy_triangles": 4135008,
+    "total_nodes": 1225,
+    "anatomy_nodes": 1110,
+    "anatomy_mesh_nodes": 921,
+    "anatomy_triangles": 4333188,
     "excluded_nodes": 115,
     "systems": [
       {
@@ -258,6 +323,56 @@
         "source_name": "VH_M_deep_back_muscles",
         "mesh_nodes": 2,
         "triangles": 16000
+      },
+      {
+        "source_name": "VH_M_tongue",
+        "mesh_nodes": 1,
+        "triangles": 6000
+      },
+      {
+        "source_name": "VH_M_muscles_of_mastication",
+        "mesh_nodes": 8,
+        "triangles": 32000
+      },
+      {
+        "source_name": "VH_M_mandible",
+        "mesh_nodes": 1,
+        "triangles": 10000
+      },
+      {
+        "source_name": "VH_M_neck_muscles",
+        "mesh_nodes": 6,
+        "triangles": 17180
+      },
+      {
+        "source_name": "VH_M_pharyngeal_constrictors",
+        "mesh_nodes": 1,
+        "triangles": 3000
+      },
+      {
+        "source_name": "VH_M_chest_and_back_muscles",
+        "mesh_nodes": 6,
+        "triangles": 48000
+      },
+      {
+        "source_name": "VH_M_abdominal_wall_muscles",
+        "mesh_nodes": 6,
+        "triangles": 48000
+      },
+      {
+        "source_name": "VH_M_quadratus_lumborum",
+        "mesh_nodes": 2,
+        "triangles": 8000
+      },
+      {
+        "source_name": "VH_M_diaphragm",
+        "mesh_nodes": 1,
+        "triangles": 8000
+      },
+      {
+        "source_name": "VH_M_shoulder_girdle",
+        "mesh_nodes": 4,
+        "triangles": 18000
       }
     ],
     "note": "Source node counts are not verified anatomical coverage or clinical review."

@@ -17,8 +17,8 @@
       "label": "Female reference (HRA v1.1)",
       "anatomy_root": "VH_F",
       "supplemented_path": "assets/hra/female-supplemented.glb",
-      "supplemented_sha256": "d4e3d551f43e08d50a8201f39af61e01ede15b4688cfa8289dbbe2a657c3b8fe",
-      "supplemented_bytes": 134268592
+      "supplemented_sha256": "f9554c06145d4da6e95e827a8a7dbddc28c5ef0e36ebd52160520a78a8bd63aa",
+      "supplemented_bytes": 138152868
     },
     {
       "local_path": "assets/hra/male.glb",
@@ -29,8 +29,8 @@
       "label": "Male reference (HRA v1.1)",
       "anatomy_root": "VH_M",
       "supplemented_path": "assets/hra/male-supplemented.glb",
-      "supplemented_sha256": "58776308c6728223eb5a61f77cc940efd8ee8bd59ba3b649418f65402c3737f8",
-      "supplemented_bytes": 96013440
+      "supplemented_sha256": "bdcb5aa8b8f0e90b005f95a44e5c208a66aeccfa4555a35036e00c270abcec4e",
+      "supplemented_bytes": 99606644
     },
     {
       "local_path": "third_party/HRA-LICENSE.txt",

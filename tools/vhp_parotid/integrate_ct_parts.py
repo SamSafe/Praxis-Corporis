@@ -45,15 +45,23 @@ CARDS = {
     "anatomy.scapulae": ["scapula_L", "scapula_R"], "anatomy.clavicles": ["clavicle_L", "clavicle_R"],
     "anatomy.humerus": ["humeri"],
 }
+# TotalSegmentator task each group was traced with (all free tasks); "total" otherwise.
+TASK = {"submandibular-glands": "head_glands_cavities", "tongue": "head_muscles", "muscles-of-mastication": "head_muscles",
+        "mandible": "craniofacial_structures", "neck-muscles": "headneck_muscles", "pharyngeal-constrictors": "headneck_muscles",
+        "hyoid": "headneck_bones_vessels", "chest-and-back-muscles": "abdominal_muscles",
+        "abdominal-wall-muscles": "abdominal_muscles", "quadratus-lumborum": "abdominal_muscles",
+        "diaphragm": "trunk_cavities (the sheet between the thoracic and abdominal cavities)"}
+FIT = {"shoulder-girdle": "thorax fit refined per side by the skin around the shoulder",
+       "humeri": "thorax fit refined per side by the skin around the shoulder"}
 SOURCE = {"female": "Visible Human female normal CT (NLM), traced; tools/vhp_parotid",
           "male": "Visible Human male normal CT (NLM), traced; tools/vhp_parotid"}
 
 
 def register(parts: pathlib.Path) -> None:
     manifest_path = ROOT / "content/hra_supplements_manifest.json"
-    manifest = json.loads(manifest_path.read_text())
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     (ROOT / "assets/vhp-ct").mkdir(exist_ok=True)
-    (ROOT / "assets/vhp-ct/.gdignore").write_text("\n")
+    (ROOT / "assets/vhp-ct/.gdignore").write_text("\n", encoding="utf-8", newline="\n")
     for body in manifest["bodies"]:
         b = body["body_id"]; X = "VH_M" if b == "male" else "VH_F"
         body["groups"] = [g for g in body["groups"] if "vhp-ct/" not in g["files"][0]["local_path"]]
@@ -66,19 +74,20 @@ def register(parts: pathlib.Path) -> None:
             data = dst.read_bytes()
             record = {"source": SOURCE[b],
                       "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
-                      "derivation": "TotalSegmentator 2.18.0 total task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
-                      "files": [{"local_path": str(dst.relative_to(ROOT)), "bytes": len(data), "sha256": hashlib.sha256(data).hexdigest()}]}
+                      "derivation": f"TotalSegmentator 2.18.0 {TASK.get(group, 'total')} task (Apache-2.0); "
+                                    f"{FIT.get(group, 'regional similarity fit to shared anatomy')}; see docs/audit/VHP_CT_PARTS.md",
+                      "files": [{"local_path": dst.relative_to(ROOT).as_posix(), "bytes": len(data), "sha256": hashlib.sha256(data).hexdigest()}]}
             if label:
                 record = {"node_name": f"{X}_{group.replace('-', '_')}", "label": label, **record}
             body["groups"].append(record)
-    manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
+    manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8", newline="\n")
 
 
 def map_cards() -> None:
     """Point the cards at the traced parts, by catalogue record (a parent brings its children)."""
-    pack = json.loads((ROOT / "content/sample_pack.json").read_text())
+    pack = json.loads((ROOT / "content/sample_pack.json").read_text(encoding="utf-8"))
     path = ROOT / "content/study_content.json"
-    content = json.loads(path.read_text())
+    content = json.loads(path.read_text(encoding="utf-8"))
     for b in pack["bodies"]:
         if b["id"] not in ("female", "male"):
             continue
@@ -98,7 +107,7 @@ def map_cards() -> None:
                 continue  # leave any mapping to the body's own anatomy (e.g. the male hyoid)
             mapping = [{"id": s["id"], "source_name": s["source_name"], "ontology": s["ontology"]} for s in found]
             content["cards"][card].setdefault("geometry", {})[b["id"]] = mapping[0] if len(mapping) == 1 else mapping
-    path.write_text(json.dumps(content, indent=2, ensure_ascii=False) + "\n")
+    path.write_text(json.dumps(content, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
 
 
 if __name__ == "__main__":

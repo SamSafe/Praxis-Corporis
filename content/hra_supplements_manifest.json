@@ -198,6 +198,180 @@
               "sha256": "ae657ab7b833033e0722c598c9877cc450effacf62ac85f833617c14f5965f95"
             }
           ]
+        },
+        {
+          "node_name": "VH_F_submandibular_glands",
+          "label": "Submandibular glands",
+          "source": "Visible Human female normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 head_glands_cavities task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/female-submandibular-glands.glb",
+              "bytes": 91572,
+              "sha256": "c5f396f57631cccbb1a2a2533b64f1b242aed4f264f74ddb52fe2e4a4d1043ab"
+            }
+          ]
+        },
+        {
+          "source": "Visible Human female normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 head_muscles task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/female-tongue.glb",
+              "bytes": 108856,
+              "sha256": "c0a08771ed573a4c5a88eeecd992b68e6ffb753f42a0bfa3c6ac78e3f8618e89"
+            }
+          ]
+        },
+        {
+          "node_name": "VH_F_muscles_of_mastication",
+          "label": "Muscles of mastication",
+          "source": "Visible Human female normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 head_muscles task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/female-muscles-of-mastication.glb",
+              "bytes": 436180,
+              "sha256": "65bceff21023bb47583f744367abf6af424a4567cc211f77d367f298622a5137"
+            }
+          ]
+        },
+        {
+          "source": "Visible Human female normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 craniofacial_structures task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/female-mandible.glb",
+              "bytes": 180864,
+              "sha256": "023d4fb6d8509483d27fcbef0119242494e9699d68eb22327834fe3eda76f0ad"
+            }
+          ]
+        },
+        {
+          "node_name": "VH_F_neck_muscles",
+          "label": "Neck muscles",
+          "source": "Visible Human female normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 headneck_muscles task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/female-neck-muscles.glb",
+              "bytes": 240860,
+              "sha256": "b669f15a2a85b986e67067a27446fb0eb5e8e6143cbc3bce08522d997434c05c"
+            }
+          ]
+        },
+        {
+          "node_name": "VH_F_pharyngeal_constrictors",
+          "label": "Pharyngeal constrictor muscles",
+          "source": "Visible Human female normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 headneck_muscles task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/female-pharyngeal-constrictors.glb",
+              "bytes": 47732,
+              "sha256": "c385fae07411a52b781159564758b761a1363e018780e98472574fec7b8bb562"
+            }
+          ]
+        },
+        {
+          "source": "Visible Human female normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 headneck_bones_vessels task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/female-hyoid.glb",
+              "bytes": 21896,
+              "sha256": "1619d855c85bdc4ec88e781d0e05e0aaa34f00ce5253f445997002b245c60712"
+            }
+          ]
+        },
+        {
+          "node_name": "VH_F_chest_and_back_muscles",
+          "label": "Chest and back muscles",
+          "source": "Visible Human female normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 abdominal_muscles task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/female-chest-and-back-muscles.glb",
+              "bytes": 578712,
+              "sha256": "c94e1c2495762fde807798be6cd9428d7aab48c2757c897026a8ee8382d59b9c"
+            }
+          ]
+        },
+        {
+          "node_name": "VH_F_abdominal_wall_muscles",
+          "label": "Abdominal wall muscles",
+          "source": "Visible Human female normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 abdominal_muscles task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/female-abdominal-wall-muscles.glb",
+              "bytes": 868104,
+              "sha256": "0f2eb3bc8a6acff0ab847fe39cca9407b5aa3640462f1d2731d4012f555de8da"
+            }
+          ]
+        },
+        {
+          "node_name": "VH_F_quadratus_lumborum",
+          "label": "Quadratus lumborum muscles",
+          "source": "Visible Human female normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 abdominal_muscles task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/female-quadratus-lumborum.glb",
+              "bytes": 145572,
+              "sha256": "eaca65f62766d830955ba67b59ad8f4fb5cd1459e1823c059ede10c047baa1db"
+            }
+          ]
+        },
+        {
+          "source": "Visible Human female normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 trunk_cavities (the sheet between the thoracic and abdominal cavities) task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/female-diaphragm.glb",
+              "bytes": 144892,
+              "sha256": "1a8d3d16e7a2c46daa0501f9893fac253e32c23f535bd03b20949e42502c1492"
+            }
+          ]
+        },
+        {
+          "node_name": "VH_F_shoulder_girdle",
+          "label": "Shoulder girdle",
+          "source": "Visible Human female normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 total task (Apache-2.0); thorax fit refined per side by the skin around the shoulder; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/female-shoulder-girdle.glb",
+              "bytes": 326832,
+              "sha256": "cb248fea795a00c04eaa675639e1d84bf17970aaed7e7559c9cd80e6208bd4be"
+            }
+          ]
+        },
+        {
+          "node_name": "VH_F_humeri",
+          "label": "Upper-arm bones",
+          "source": "Visible Human female normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 total task (Apache-2.0); thorax fit refined per side by the skin around the shoulder; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/female-humeri.glb",
+              "bytes": 692204,
+              "sha256": "f39e00e1141cd7cda0d15e04ec54e4765872c477bfaea4d882a4ae301474a678"
+            }
+          ]
         }
       ]
     },
@@ -371,6 +545,140 @@
               "local_path": "assets/vhp-ct/male-deep-back-muscles.glb",
               "bytes": 289568,
               "sha256": "a69bc528ba37c525c2445b0afce6ee01d8a9db1a35e6d7b4fb0ce72a131256dd"
+            }
+          ]
+        },
+        {
+          "source": "Visible Human male normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 head_muscles task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/male-tongue.glb",
+              "bytes": 108856,
+              "sha256": "cf8a7e0cdbbb80e56b925e358a408c20ba51ed65973884da13e0f4c1978a322b"
+            }
+          ]
+        },
+        {
+          "node_name": "VH_M_muscles_of_mastication",
+          "label": "Muscles of mastication",
+          "source": "Visible Human male normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 head_muscles task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/male-muscles-of-mastication.glb",
+              "bytes": 581476,
+              "sha256": "c9296639f4ace6ebadc704d9a77cd68c9d5cae28f454f02a9b4a9e83a5337c31"
+            }
+          ]
+        },
+        {
+          "source": "Visible Human male normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 craniofacial_structures task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/male-mandible.glb",
+              "bytes": 180836,
+              "sha256": "31251d274f90d4b3a4be7132096d2db0ed4b2024b3c3e63ac299925961e374a4"
+            }
+          ]
+        },
+        {
+          "node_name": "VH_M_neck_muscles",
+          "label": "Neck muscles",
+          "source": "Visible Human male normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 headneck_muscles task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/male-neck-muscles.glb",
+              "bytes": 313500,
+              "sha256": "9dc407170bd22d0e94598f123e340bc689813a2a85c13a8d99757d8db836e179"
+            }
+          ]
+        },
+        {
+          "node_name": "VH_M_pharyngeal_constrictors",
+          "label": "Pharyngeal constrictor muscles",
+          "source": "Visible Human male normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 headneck_muscles task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/male-pharyngeal-constrictors.glb",
+              "bytes": 54920,
+              "sha256": "a352005d7f8849ed25527a1471988cfc033782a73808004aed7c1f5407dcac23"
+            }
+          ]
+        },
+        {
+          "node_name": "VH_M_chest_and_back_muscles",
+          "label": "Chest and back muscles",
+          "source": "Visible Human male normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 abdominal_muscles task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/male-chest-and-back-muscles.glb",
+              "bytes": 868176,
+              "sha256": "423f50813194586f43758299cc7ab3f7222c771f02bed51c8aee973fc7959b1d"
+            }
+          ]
+        },
+        {
+          "node_name": "VH_M_abdominal_wall_muscles",
+          "label": "Abdominal wall muscles",
+          "source": "Visible Human male normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 abdominal_muscles task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/male-abdominal-wall-muscles.glb",
+              "bytes": 868104,
+              "sha256": "052c4bae6966b540a5c85ff439319a3a3dd1c42c69162dff2f850c8bb67202ac"
+            }
+          ]
+        },
+        {
+          "node_name": "VH_M_quadratus_lumborum",
+          "label": "Quadratus lumborum muscles",
+          "source": "Visible Human male normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 abdominal_muscles task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/male-quadratus-lumborum.glb",
+              "bytes": 145572,
+              "sha256": "324976c5c1a7b35e302e9ce5fe4832ce57f043088aaa7c5912c553bff90d5b02"
+            }
+          ]
+        },
+        {
+          "source": "Visible Human male normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 trunk_cavities (the sheet between the thoracic and abdominal cavities) task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/male-diaphragm.glb",
+              "bytes": 144864,
+              "sha256": "d21f9135706db0606e55e2d297e07edb692b8213c37cda609a4a571f3b00d8d9"
+            }
+          ]
+        },
+        {
+          "node_name": "VH_M_shoulder_girdle",
+          "label": "Shoulder girdle",
+          "source": "Visible Human male normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 total task (Apache-2.0); thorax fit refined per side by the skin around the shoulder; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/male-shoulder-girdle.glb",
+              "bytes": 326836,
+              "sha256": "748c94c52e2269fccebac53c315c6cd3c684b7d0e87b51b535762958ee156a6f"
             }
           ]
         }

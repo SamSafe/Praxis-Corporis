@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": "body-study-11-draft",
+  "revision": "body-study-12-draft",
   "review_status": "draft",
   "expert_review": "pending",
   "scope": "Private draft explanations covering the chest, abdomen, pelvis, brain, eyes, knees and skin, including selected vessels, kidney interior, intestines, airways, bone tissue and the lymphatic system. General anatomy is separate from completeness and accuracy of the supplied source meshes. No source illustrations or video are reused.",
@@ -8096,6 +8096,11 @@
           "id": "source.bodyparts3d-v4-complete.FMA52749",
           "source_name": "FMA52749",
           "ontology": "FMA52749"
+        },
+        "female": {
+          "id": "source.hra-v1-1.female.n1233",
+          "source_name": "VH_F_hyoid_bone",
+          "ontology": "FMA:52749"
         }
       }
     },
@@ -9191,7 +9196,19 @@
       ],
       "review_status": "draft",
       "expert_review": "pending",
-      "human_source_review": "pending"
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n1249",
+          "source_name": "VH_F_diaphragm",
+          "ontology": "FMA:13295"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n1219",
+          "source_name": "VH_M_diaphragm",
+          "ontology": "FMA:13295"
+        }
+      }
     },
     "anatomy.spinal-cord": {
       "overview": "A column of nerve tissue that runs from the base of the skull down the center of the back, inside the vertebral column.",
@@ -9252,7 +9269,19 @@
       ],
       "review_status": "draft",
       "expert_review": "pending",
-      "human_source_review": "pending"
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n1215",
+          "source_name": "VH_F_tongue",
+          "ontology": "FMA:54640"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n1182",
+          "source_name": "VH_M_tongue",
+          "ontology": "FMA:54640"
+        }
+      }
     },
     "anatomy.skull": {
       "overview": "The bones of the head: cranial bones that surround and protect the brain, and facial bones. The skull has 28 bones, including the auditory ossicles.",
@@ -9993,6 +10022,30 @@
             "source_name": "FMA13322",
             "ontology": "FMA13322"
           }
+        ],
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1252",
+            "source_name": "VH_F_clavicle_L",
+            "ontology": "FMA:13323"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1253",
+            "source_name": "VH_F_clavicle_R",
+            "ontology": "FMA:13322"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n1222",
+            "source_name": "VH_M_clavicle_L",
+            "ontology": "FMA:13323"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1223",
+            "source_name": "VH_M_clavicle_R",
+            "ontology": "FMA:13322"
+          }
         ]
       }
     },
@@ -10022,6 +10075,30 @@
             "id": "source.bodyparts3d-v4-complete.FMA13395",
             "source_name": "FMA13395",
             "ontology": "FMA13395"
+          }
+        ],
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1250",
+            "source_name": "VH_F_scapula_L",
+            "ontology": "FMA:13396"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1251",
+            "source_name": "VH_F_scapula_R",
+            "ontology": "FMA:13395"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n1220",
+            "source_name": "VH_M_scapula_L",
+            "ontology": "FMA:13396"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1221",
+            "source_name": "VH_M_scapula_R",
+            "ontology": "FMA:13395"
           }
         ]
       }
@@ -10054,6 +10131,23 @@
             "id": "source.bodyparts3d-v4-complete.FMA23130",
             "source_name": "FMA23130",
             "ontology": "FMA23130"
+          }
+        ],
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1257",
+            "source_name": "VH_F_humeri",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1255",
+            "source_name": "VH_F_humerus_L",
+            "ontology": "FMA:23131"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1256",
+            "source_name": "VH_F_humerus_R",
+            "ontology": "FMA:23130"
           }
         ]
       }
@@ -10194,6 +10288,16 @@
           "id": "source.bodyparts3d-v4-complete.FMA52748",
           "source_name": "FMA52748",
           "ontology": "FMA52748"
+        },
+        "female": {
+          "id": "source.hra-v1-1.female.n1223",
+          "source_name": "VH_F_mandible",
+          "ontology": "FMA:52748"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n1192",
+          "source_name": "VH_M_mandible",
+          "ontology": "FMA:52748"
         }
       }
     },
@@ -10317,6 +10421,30 @@
             "source_name": "FJ2752",
             "ontology": "FMA46635"
           }
+        ],
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1232",
+            "source_name": "VH_F_pharyngeal_constrictors",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1231",
+            "source_name": "VH_F_inferior_pharyngeal_constrictor",
+            "ontology": ""
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n1201",
+            "source_name": "VH_M_pharyngeal_constrictors",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1200",
+            "source_name": "VH_M_inferior_pharyngeal_constrictor",
+            "ontology": ""
+          }
         ]
       }
     },
@@ -10349,6 +10477,23 @@
           {
             "id": "source.bodyparts3d-complete.group.sublingual",
             "source_name": "v43:sublingual",
+            "ontology": ""
+          }
+        ],
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1214",
+            "source_name": "VH_F_submandibular_glands",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1212",
+            "source_name": "VH_F_submandibular_gland_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1213",
+            "source_name": "VH_F_submandibular_gland_R",
             "ontology": ""
           }
         ]
@@ -10522,6 +10667,18 @@
             "id": "source.bodyparts3d-v4-complete.FMA13373",
             "source_name": "FMA13373",
             "ontology": "FMA13373"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n1202",
+            "source_name": "VH_M_pectoralis_major_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1203",
+            "source_name": "VH_M_pectoralis_major_R",
+            "ontology": ""
           }
         ]
       }
@@ -11559,7 +11716,93 @@
       ],
       "review_status": "draft",
       "expert_review": "pending",
-      "human_source_review": "pending"
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1222",
+            "source_name": "VH_F_muscles_of_mastication",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1216",
+            "source_name": "VH_F_masseter_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1217",
+            "source_name": "VH_F_masseter_R",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1218",
+            "source_name": "VH_F_medial_pterygoid_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1219",
+            "source_name": "VH_F_medial_pterygoid_R",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1220",
+            "source_name": "VH_F_lateral_pterygoid_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1221",
+            "source_name": "VH_F_lateral_pterygoid_R",
+            "ontology": ""
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n1191",
+            "source_name": "VH_M_muscles_of_mastication",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1183",
+            "source_name": "VH_M_masseter_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1184",
+            "source_name": "VH_M_masseter_R",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1185",
+            "source_name": "VH_M_temporalis_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1186",
+            "source_name": "VH_M_temporalis_R",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1187",
+            "source_name": "VH_M_medial_pterygoid_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1188",
+            "source_name": "VH_M_medial_pterygoid_R",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1189",
+            "source_name": "VH_M_lateral_pterygoid_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1190",
+            "source_name": "VH_M_lateral_pterygoid_R",
+            "ontology": ""
+          }
+        ]
+      }
     },
     "anatomy.scalenes": {
       "overview": "Three paired muscles on the side of the neck: the anterior, middle and posterior scalenes. They run from the transverse processes of the cervical vertebrae to the first rib (anterior and middle scalenes) and the second rib (posterior scalene).",
@@ -11573,7 +11816,105 @@
       ],
       "review_status": "draft",
       "expert_review": "pending",
-      "human_source_review": "pending"
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1570",
+            "source_name": "FJ1570",
+            "ontology": "FMA13393"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1571",
+            "source_name": "FJ1571",
+            "ontology": "FMA13391"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1572",
+            "source_name": "FJ1572",
+            "ontology": "FMA13389"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1592",
+            "source_name": "FJ1592",
+            "ontology": "FMA13392"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1593",
+            "source_name": "FJ1593",
+            "ontology": "FMA13390"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1594",
+            "source_name": "FJ1594",
+            "ontology": "FMA13388"
+          }
+        ],
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1224",
+            "source_name": "VH_F_anterior_scalene_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1225",
+            "source_name": "VH_F_anterior_scalene_R",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1226",
+            "source_name": "VH_F_middle_scalene_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1227",
+            "source_name": "VH_F_middle_scalene_R",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1228",
+            "source_name": "VH_F_posterior_scalene_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1229",
+            "source_name": "VH_F_posterior_scalene_R",
+            "ontology": ""
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n1193",
+            "source_name": "VH_M_anterior_scalene_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1194",
+            "source_name": "VH_M_anterior_scalene_R",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1195",
+            "source_name": "VH_M_middle_scalene_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1196",
+            "source_name": "VH_M_middle_scalene_R",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1197",
+            "source_name": "VH_M_posterior_scalene_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1198",
+            "source_name": "VH_M_posterior_scalene_R",
+            "ontology": ""
+          }
+        ]
+      }
     },
     "anatomy.rectus-abdominis": {
       "overview": "A long muscle on each side of the front of the abdominal wall. It runs from the crest of the pubis to the xiphoid process of the sternum and the costal cartilages of ribs 5-7.",
@@ -11590,7 +11931,33 @@
       ],
       "review_status": "draft",
       "expert_review": "pending",
-      "human_source_review": "pending"
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1239",
+            "source_name": "VH_F_rectus_abdominis_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1240",
+            "source_name": "VH_F_rectus_abdominis_R",
+            "ontology": ""
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n1209",
+            "source_name": "VH_M_rectus_abdominis_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1210",
+            "source_name": "VH_M_rectus_abdominis_R",
+            "ontology": ""
+          }
+        ]
+      }
     },
     "anatomy.abdominal-obliques": {
       "overview": "The external and internal oblique muscles on each side, two of the layered muscle pairs of the abdominal wall. The external oblique, the largest and most superficial, runs from ribs 5-12 to the iliac crest and pubic tubercle; the internal oblique lies deep to it.",
@@ -11606,7 +11973,65 @@
       ],
       "review_status": "draft",
       "expert_review": "pending",
-      "human_source_review": "pending"
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA13337",
+            "source_name": "FMA13337",
+            "ontology": "FMA13337"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA13336",
+            "source_name": "FMA13336",
+            "ontology": "FMA13336"
+          }
+        ],
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1241",
+            "source_name": "VH_F_external_oblique_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1242",
+            "source_name": "VH_F_external_oblique_R",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1243",
+            "source_name": "VH_F_internal_oblique_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1244",
+            "source_name": "VH_F_internal_oblique_R",
+            "ontology": ""
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n1211",
+            "source_name": "VH_M_external_oblique_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1212",
+            "source_name": "VH_M_external_oblique_R",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1213",
+            "source_name": "VH_M_internal_oblique_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1214",
+            "source_name": "VH_M_internal_oblique_R",
+            "ontology": ""
+          }
+        ]
+      }
     },
     "anatomy.quadratus-lumborum": {
       "overview": "A thick, four-sided muscle on each side of the posterior abdominal wall, behind the psoas major. It runs from the iliac crest to the lowest rib and the transverse processes of the L1-L4 vertebrae.",
@@ -11623,7 +12048,43 @@
       ],
       "review_status": "draft",
       "expert_review": "pending",
-      "human_source_review": "pending"
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1248",
+            "source_name": "VH_F_quadratus_lumborum",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1246",
+            "source_name": "VH_F_quadratus_lumborum_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1247",
+            "source_name": "VH_F_quadratus_lumborum_R",
+            "ontology": ""
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n1218",
+            "source_name": "VH_M_quadratus_lumborum",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1216",
+            "source_name": "VH_M_quadratus_lumborum_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1217",
+            "source_name": "VH_M_quadratus_lumborum_R",
+            "ontology": ""
+          }
+        ]
+      }
     },
     "anatomy.latissimus-dorsi": {
       "overview": "A broad muscle of the lower back on each side. It arises from the spinous processes of T6-T12, the thoracolumbar fascia, the iliac crest and the lowest three ribs, and its fibres converge into a tendon attached to the humerus.",
@@ -11640,7 +12101,33 @@
       ],
       "review_status": "draft",
       "expert_review": "pending",
-      "human_source_review": "pending"
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1236",
+            "source_name": "VH_F_latissimus_dorsi_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1237",
+            "source_name": "VH_F_latissimus_dorsi_R",
+            "ontology": ""
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n1206",
+            "source_name": "VH_M_latissimus_dorsi_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1207",
+            "source_name": "VH_M_latissimus_dorsi_R",
+            "ontology": ""
+          }
+        ]
+      }
     },
     "anatomy.serratus-anterior": {
       "overview": "A muscle on each side of the chest wall, made of strips that arise from the outer surfaces of ribs 1-8 and attach to the medial border of the scapula.",
@@ -11656,7 +12143,45 @@
       ],
       "review_status": "draft",
       "expert_review": "pending",
-      "human_source_review": "pending"
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA13399",
+            "source_name": "FMA13399",
+            "ontology": "FMA13399"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA13398",
+            "source_name": "FMA13398",
+            "ontology": "FMA13398"
+          }
+        ],
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1234",
+            "source_name": "VH_F_serratus_anterior_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1235",
+            "source_name": "VH_F_serratus_anterior_R",
+            "ontology": ""
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n1204",
+            "source_name": "VH_M_serratus_anterior_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1205",
+            "source_name": "VH_M_serratus_anterior_R",
+            "ontology": ""
+          }
+        ]
+      }
     }
   },
   "routes": {

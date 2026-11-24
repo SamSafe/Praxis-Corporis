@@ -82,9 +82,11 @@ class StudyContentTests(unittest.TestCase):
                     offered.add(identity)
             # Each adult reference offers the 71 shared conditions, the 8 about unmodelled
             # anatomy, the 12 its CT-traced stomach, oesophagus, thyroid and adrenal glands
-            # support, plus those its own supplied anatomy supports (11 female, 6 male);
-            # none is inferred from missing anatomy.
-            self.assertEqual(len(offered), 102 if body["id"] == "female" else 97)
+            # support, the 3 its traced diaphragm, tongue and jaw support (hiatal hernia,
+            # hiccups, oral cancer), plus those its own supplied anatomy supports (13 female
+            # with the traced shoulder and submandibular glands, 6 male); none is inferred
+            # from missing anatomy.
+            self.assertEqual(len(offered), 107 if body["id"] == "female" else 100)
             self.assertEqual("condition.bph" in offered, body["id"] == "male")
             self.assertEqual("condition.endometriosis" in offered, body["id"] == "female")
 
@@ -115,7 +117,7 @@ class StudyContentTests(unittest.TestCase):
         content = json.loads((ROOT / "content/study_content.json").read_text())
         catalogue = json.loads((ROOT / "content/sample_pack.json").read_text())
         self.assertEqual(content["expert_review"], "pending")
-        self.assertEqual(len(content["cards"]), 209)
+        self.assertEqual(len(content["cards"]), 216)
         mapped = {}
         for identity, card in content["cards"].items():
             self.assertEqual(card["review_status"], "draft")
@@ -197,7 +199,7 @@ class StudyContentTests(unittest.TestCase):
                 self.assertNotIn(mapping["id"], content["cards"])
         # Cards whose anatomy the complete male source supplies (no female or
         # source-absent parts); see docs/BODY_STUDY_CONTENT.md.
-        self.assertEqual(on_body, 148)
+        self.assertEqual(on_body, 151)
 
     def test_spinal_studies_preserve_ambiguous_source_identity(self):
         studies = json.loads((ROOT / "content/spinal_studies.json").read_text())["bodies"]

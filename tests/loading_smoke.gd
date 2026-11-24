@@ -120,7 +120,7 @@ func run() -> void:
 		await watch_load(viewer, id)
 		check(heartbeat > 2 and viewer.model.load_wait_frames > 2,
 			id + ": real replacement allows UI frame processing while loading")
-		check(viewer.model.body.id == id and viewer.model.meshes.size() == (203 if id == "bodyparts-male-bones-study" else (885 if id == "male" else 916)),
+		check(viewer.model.body.id == id and viewer.model.meshes.size() == (203 if id == "bodyparts-male-bones-study" else (921 if id == "male" else 953)),
 			id + ": asynchronous loading retains all audited geometry")
 		check(not viewer.orbit.move_mode and viewer.model.undo_stack.is_empty(),
 			id + ": a successful reference switch starts its own inspection history")
