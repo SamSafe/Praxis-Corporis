@@ -260,8 +260,8 @@
           "files": [
             {
               "local_path": "assets/vhp-ct/female-neck-muscles.glb",
-              "bytes": 240860,
-              "sha256": "b669f15a2a85b986e67067a27446fb0eb5e8e6143cbc3bce08522d997434c05c"
+              "bytes": 433988,
+              "sha256": "ec7c1ab72fd4d8a6a78e73378f436993a1ae348cd251acd386108dfc73369cb6"
             }
           ]
         },
@@ -274,8 +274,8 @@
           "files": [
             {
               "local_path": "assets/vhp-ct/female-pharyngeal-constrictors.glb",
-              "bytes": 47732,
-              "sha256": "c385fae07411a52b781159564758b761a1363e018780e98472574fec7b8bb562"
+              "bytes": 54920,
+              "sha256": "a06861673060bd205da35a0870d83a8e5d8cda4c03b015ce16d69e82326cd340"
             }
           ]
         },
@@ -595,8 +595,8 @@
           "files": [
             {
               "local_path": "assets/vhp-ct/male-neck-muscles.glb",
-              "bytes": 313500,
-              "sha256": "9dc407170bd22d0e94598f123e340bc689813a2a85c13a8d99757d8db836e179"
+              "bytes": 436344,
+              "sha256": "1139bc74a0b1390ed8023a65c8db1d9b7af0e1eaa1d7fed273dd4a86f805bf3f"
             }
           ]
         },
@@ -609,8 +609,8 @@
           "files": [
             {
               "local_path": "assets/vhp-ct/male-pharyngeal-constrictors.glb",
-              "bytes": 54920,
-              "sha256": "a352005d7f8849ed25527a1471988cfc033782a73808004aed7c1f5407dcac23"
+              "bytes": 164320,
+              "sha256": "2e4f23584e3130a952e068757f2a3b6cd6c28eaaf1333655aa1bbf98a8a34350"
             }
           ]
         },

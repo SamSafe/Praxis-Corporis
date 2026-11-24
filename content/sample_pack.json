@@ -8,8 +8,8 @@
       "id": "female",
       "label": "Female reference (HRA v1.1)",
       "asset_path": "assets/hra/female-supplemented.glb",
-      "sha256": "f9554c06145d4da6e95e827a8a7dbddc28c5ef0e36ebd52160520a78a8bd63aa",
-      "bytes": 138152868,
+      "sha256": "1b64801d26b9711f55bc1a5a3c164b776cd1559c024ba806a941684c848817ff",
+      "bytes": 138353180,
       "root_id": "anatomy.body",
       "structures": [
         {
@@ -20063,8 +20063,8 @@
       "id": "male",
       "label": "Male reference (HRA v1.1)",
       "asset_path": "assets/hra/male-supplemented.glb",
-      "sha256": "bdcb5aa8b8f0e90b005f95a44e5c208a66aeccfa4555a35036e00c270abcec4e",
-      "bytes": 99606644,
+      "sha256": "5f60029f78e77c5c212ddfcc0b3e48df9d73c2c98acfa7d4fed88a889d542479",
+      "bytes": 99838928,
       "root_id": "anatomy.body",
       "structures": [
         {
@@ -20976,25 +20976,27 @@
             1197,
             1198,
             1200,
+            1201,
             1202,
-            1203,
             1204,
             1205,
             1206,
             1207,
+            1208,
             1209,
-            1210,
             1211,
             1212,
             1213,
             1214,
+            1215,
             1216,
-            1217,
+            1218,
             1219,
-            1220,
             1221,
             1222,
-            1223
+            1223,
+            1224,
+            1225
           ],
           "children": [
             "anatomy.system.circulatory",
@@ -21024,12 +21026,12 @@
             "source.hra-v1-1.male.n1191",
             "source.hra-v1-1.male.n1192",
             "source.hra-v1-1.male.n1199",
-            "source.hra-v1-1.male.n1201",
-            "source.hra-v1-1.male.n1208",
-            "source.hra-v1-1.male.n1215",
-            "source.hra-v1-1.male.n1218",
-            "source.hra-v1-1.male.n1219",
-            "source.hra-v1-1.male.n1224"
+            "source.hra-v1-1.male.n1203",
+            "source.hra-v1-1.male.n1210",
+            "source.hra-v1-1.male.n1217",
+            "source.hra-v1-1.male.n1220",
+            "source.hra-v1-1.male.n1221",
+            "source.hra-v1-1.male.n1226"
           ],
           "parent": "",
           "review_status": "draft"
@@ -39186,366 +39188,396 @@
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.male.n1201",
+          "id": "source.hra-v1-1.male.n1203",
           "label": "Pharyngeal constrictor muscles",
-          "source_node": 1201,
+          "source_node": 1203,
           "source_name": "VH_M_pharyngeal_constrictors",
           "ontology": "",
           "mesh_nodes": [
-            1200
+            1200,
+            1201,
+            1202
           ],
           "children": [
-            "source.hra-v1-1.male.n1200"
+            "source.hra-v1-1.male.n1200",
+            "source.hra-v1-1.male.n1201",
+            "source.hra-v1-1.male.n1202"
           ],
           "parent": "anatomy.body",
           "review_status": "draft"
         },
         {
           "id": "source.hra-v1-1.male.n1200",
-          "label": "Inferior pharyngeal constrictor",
+          "label": "Superior pharyngeal constrictor",
           "source_node": 1200,
-          "source_name": "VH_M_inferior_pharyngeal_constrictor",
+          "source_name": "VH_M_superior_pharyngeal_constrictor",
           "ontology": "",
           "mesh_nodes": [
             1200
           ],
           "children": [],
-          "parent": "source.hra-v1-1.male.n1201",
+          "parent": "source.hra-v1-1.male.n1203",
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.male.n1208",
-          "label": "Chest and back muscles",
-          "source_node": 1208,
-          "source_name": "VH_M_chest_and_back_muscles",
+          "id": "source.hra-v1-1.male.n1201",
+          "label": "Middle pharyngeal constrictor",
+          "source_node": 1201,
+          "source_name": "VH_M_middle_pharyngeal_constrictor",
           "ontology": "",
           "mesh_nodes": [
-            1202,
-            1203,
-            1204,
-            1205,
-            1206,
-            1207
+            1201
           ],
-          "children": [
-            "source.hra-v1-1.male.n1202",
-            "source.hra-v1-1.male.n1203",
-            "source.hra-v1-1.male.n1204",
-            "source.hra-v1-1.male.n1205",
-            "source.hra-v1-1.male.n1206",
-            "source.hra-v1-1.male.n1207"
-          ],
-          "parent": "anatomy.body",
+          "children": [],
+          "parent": "source.hra-v1-1.male.n1203",
           "review_status": "draft"
         },
         {
           "id": "source.hra-v1-1.male.n1202",
-          "label": "Left pectoralis major",
+          "label": "Inferior pharyngeal constrictor",
           "source_node": 1202,
-          "source_name": "VH_M_pectoralis_major_L",
+          "source_name": "VH_M_inferior_pharyngeal_constrictor",
           "ontology": "",
           "mesh_nodes": [
             1202
           ],
           "children": [],
-          "parent": "source.hra-v1-1.male.n1208",
+          "parent": "source.hra-v1-1.male.n1203",
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.male.n1203",
-          "label": "Right pectoralis major",
-          "source_node": 1203,
-          "source_name": "VH_M_pectoralis_major_R",
+          "id": "source.hra-v1-1.male.n1210",
+          "label": "Chest and back muscles",
+          "source_node": 1210,
+          "source_name": "VH_M_chest_and_back_muscles",
           "ontology": "",
           "mesh_nodes": [
-            1203
+            1204,
+            1205,
+            1206,
+            1207,
+            1208,
+            1209
           ],
-          "children": [],
-          "parent": "source.hra-v1-1.male.n1208",
+          "children": [
+            "source.hra-v1-1.male.n1204",
+            "source.hra-v1-1.male.n1205",
+            "source.hra-v1-1.male.n1206",
+            "source.hra-v1-1.male.n1207",
+            "source.hra-v1-1.male.n1208",
+            "source.hra-v1-1.male.n1209"
+          ],
+          "parent": "anatomy.body",
           "review_status": "draft"
         },
         {
           "id": "source.hra-v1-1.male.n1204",
-          "label": "Left serratus anterior",
+          "label": "Left pectoralis major",
           "source_node": 1204,
-          "source_name": "VH_M_serratus_anterior_L",
+          "source_name": "VH_M_pectoralis_major_L",
           "ontology": "",
           "mesh_nodes": [
             1204
           ],
           "children": [],
-          "parent": "source.hra-v1-1.male.n1208",
+          "parent": "source.hra-v1-1.male.n1210",
           "review_status": "draft"
         },
         {
           "id": "source.hra-v1-1.male.n1205",
-          "label": "Right serratus anterior",
+          "label": "Right pectoralis major",
           "source_node": 1205,
-          "source_name": "VH_M_serratus_anterior_R",
+          "source_name": "VH_M_pectoralis_major_R",
           "ontology": "",
           "mesh_nodes": [
             1205
           ],
           "children": [],
-          "parent": "source.hra-v1-1.male.n1208",
+          "parent": "source.hra-v1-1.male.n1210",
           "review_status": "draft"
         },
         {
           "id": "source.hra-v1-1.male.n1206",
-          "label": "Left latissimus dorsi",
+          "label": "Left serratus anterior",
           "source_node": 1206,
-          "source_name": "VH_M_latissimus_dorsi_L",
+          "source_name": "VH_M_serratus_anterior_L",
           "ontology": "",
           "mesh_nodes": [
             1206
           ],
           "children": [],
-          "parent": "source.hra-v1-1.male.n1208",
+          "parent": "source.hra-v1-1.male.n1210",
           "review_status": "draft"
         },
         {
           "id": "source.hra-v1-1.male.n1207",
-          "label": "Right latissimus dorsi",
+          "label": "Right serratus anterior",
           "source_node": 1207,
-          "source_name": "VH_M_latissimus_dorsi_R",
+          "source_name": "VH_M_serratus_anterior_R",
           "ontology": "",
           "mesh_nodes": [
             1207
           ],
           "children": [],
-          "parent": "source.hra-v1-1.male.n1208",
+          "parent": "source.hra-v1-1.male.n1210",
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.male.n1215",
-          "label": "Abdominal wall muscles",
-          "source_node": 1215,
-          "source_name": "VH_M_abdominal_wall_muscles",
+          "id": "source.hra-v1-1.male.n1208",
+          "label": "Left latissimus dorsi",
+          "source_node": 1208,
+          "source_name": "VH_M_latissimus_dorsi_L",
           "ontology": "",
           "mesh_nodes": [
-            1209,
-            1210,
-            1211,
-            1212,
-            1213,
-            1214
+            1208
           ],
-          "children": [
-            "source.hra-v1-1.male.n1209",
-            "source.hra-v1-1.male.n1210",
-            "source.hra-v1-1.male.n1211",
-            "source.hra-v1-1.male.n1212",
-            "source.hra-v1-1.male.n1213",
-            "source.hra-v1-1.male.n1214"
-          ],
-          "parent": "anatomy.body",
+          "children": [],
+          "parent": "source.hra-v1-1.male.n1210",
           "review_status": "draft"
         },
         {
           "id": "source.hra-v1-1.male.n1209",
-          "label": "Left rectus abdominis",
+          "label": "Right latissimus dorsi",
           "source_node": 1209,
-          "source_name": "VH_M_rectus_abdominis_L",
+          "source_name": "VH_M_latissimus_dorsi_R",
           "ontology": "",
           "mesh_nodes": [
             1209
           ],
           "children": [],
-          "parent": "source.hra-v1-1.male.n1215",
+          "parent": "source.hra-v1-1.male.n1210",
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.male.n1210",
-          "label": "Right rectus abdominis",
-          "source_node": 1210,
-          "source_name": "VH_M_rectus_abdominis_R",
+          "id": "source.hra-v1-1.male.n1217",
+          "label": "Abdominal wall muscles",
+          "source_node": 1217,
+          "source_name": "VH_M_abdominal_wall_muscles",
           "ontology": "",
           "mesh_nodes": [
-            1210
+            1211,
+            1212,
+            1213,
+            1214,
+            1215,
+            1216
           ],
-          "children": [],
-          "parent": "source.hra-v1-1.male.n1215",
+          "children": [
+            "source.hra-v1-1.male.n1211",
+            "source.hra-v1-1.male.n1212",
+            "source.hra-v1-1.male.n1213",
+            "source.hra-v1-1.male.n1214",
+            "source.hra-v1-1.male.n1215",
+            "source.hra-v1-1.male.n1216"
+          ],
+          "parent": "anatomy.body",
           "review_status": "draft"
         },
         {
           "id": "source.hra-v1-1.male.n1211",
-          "label": "Left external oblique",
+          "label": "Left rectus abdominis",
           "source_node": 1211,
-          "source_name": "VH_M_external_oblique_L",
+          "source_name": "VH_M_rectus_abdominis_L",
           "ontology": "",
           "mesh_nodes": [
             1211
           ],
           "children": [],
-          "parent": "source.hra-v1-1.male.n1215",
+          "parent": "source.hra-v1-1.male.n1217",
           "review_status": "draft"
         },
         {
           "id": "source.hra-v1-1.male.n1212",
-          "label": "Right external oblique",
+          "label": "Right rectus abdominis",
           "source_node": 1212,
-          "source_name": "VH_M_external_oblique_R",
+          "source_name": "VH_M_rectus_abdominis_R",
           "ontology": "",
           "mesh_nodes": [
             1212
           ],
           "children": [],
-          "parent": "source.hra-v1-1.male.n1215",
+          "parent": "source.hra-v1-1.male.n1217",
           "review_status": "draft"
         },
         {
           "id": "source.hra-v1-1.male.n1213",
-          "label": "Left internal oblique",
+          "label": "Left external oblique",
           "source_node": 1213,
-          "source_name": "VH_M_internal_oblique_L",
+          "source_name": "VH_M_external_oblique_L",
           "ontology": "",
           "mesh_nodes": [
             1213
           ],
           "children": [],
-          "parent": "source.hra-v1-1.male.n1215",
+          "parent": "source.hra-v1-1.male.n1217",
           "review_status": "draft"
         },
         {
           "id": "source.hra-v1-1.male.n1214",
-          "label": "Right internal oblique",
+          "label": "Right external oblique",
           "source_node": 1214,
-          "source_name": "VH_M_internal_oblique_R",
+          "source_name": "VH_M_external_oblique_R",
           "ontology": "",
           "mesh_nodes": [
             1214
           ],
           "children": [],
-          "parent": "source.hra-v1-1.male.n1215",
+          "parent": "source.hra-v1-1.male.n1217",
           "review_status": "draft"
         },
         {
-          "id": "source.hra-v1-1.male.n1218",
-          "label": "Quadratus lumborum muscles",
-          "source_node": 1218,
-          "source_name": "VH_M_quadratus_lumborum",
+          "id": "source.hra-v1-1.male.n1215",
+          "label": "Left internal oblique",
+          "source_node": 1215,
+          "source_name": "VH_M_internal_oblique_L",
           "ontology": "",
           "mesh_nodes": [
-            1216,
-            1217
+            1215
           ],
-          "children": [
-            "source.hra-v1-1.male.n1216",
-            "source.hra-v1-1.male.n1217"
-          ],
-          "parent": "anatomy.body",
+          "children": [],
+          "parent": "source.hra-v1-1.male.n1217",
           "review_status": "draft"
         },
         {
           "id": "source.hra-v1-1.male.n1216",
-          "label": "Left quadratus lumborum",
+          "label": "Right internal oblique",
           "source_node": 1216,
-          "source_name": "VH_M_quadratus_lumborum_L",
+          "source_name": "VH_M_internal_oblique_R",
           "ontology": "",
           "mesh_nodes": [
             1216
           ],
           "children": [],
-          "parent": "source.hra-v1-1.male.n1218",
-          "review_status": "draft"
-        },
-        {
-          "id": "source.hra-v1-1.male.n1217",
-          "label": "Right quadratus lumborum",
-          "source_node": 1217,
-          "source_name": "VH_M_quadratus_lumborum_R",
-          "ontology": "",
-          "mesh_nodes": [
-            1217
-          ],
-          "children": [],
-          "parent": "source.hra-v1-1.male.n1218",
-          "review_status": "draft"
-        },
-        {
-          "id": "source.hra-v1-1.male.n1219",
-          "label": "Diaphragm",
-          "source_node": 1219,
-          "source_name": "VH_M_diaphragm",
-          "ontology": "FMA:13295",
-          "mesh_nodes": [
-            1219
-          ],
-          "children": [],
-          "parent": "anatomy.body",
-          "review_status": "draft"
-        },
-        {
-          "id": "source.hra-v1-1.male.n1224",
-          "label": "Shoulder girdle",
-          "source_node": 1224,
-          "source_name": "VH_M_shoulder_girdle",
-          "ontology": "",
-          "mesh_nodes": [
-            1220,
-            1221,
-            1222,
-            1223
-          ],
-          "children": [
-            "source.hra-v1-1.male.n1220",
-            "source.hra-v1-1.male.n1221",
-            "source.hra-v1-1.male.n1222",
-            "source.hra-v1-1.male.n1223"
-          ],
-          "parent": "anatomy.body",
+          "parent": "source.hra-v1-1.male.n1217",
           "review_status": "draft"
         },
         {
           "id": "source.hra-v1-1.male.n1220",
-          "label": "Left scapula",
+          "label": "Quadratus lumborum muscles",
           "source_node": 1220,
-          "source_name": "VH_M_scapula_L",
-          "ontology": "FMA:13396",
+          "source_name": "VH_M_quadratus_lumborum",
+          "ontology": "",
           "mesh_nodes": [
-            1220
+            1218,
+            1219
+          ],
+          "children": [
+            "source.hra-v1-1.male.n1218",
+            "source.hra-v1-1.male.n1219"
+          ],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.male.n1218",
+          "label": "Left quadratus lumborum",
+          "source_node": 1218,
+          "source_name": "VH_M_quadratus_lumborum_L",
+          "ontology": "",
+          "mesh_nodes": [
+            1218
           ],
           "children": [],
-          "parent": "source.hra-v1-1.male.n1224",
+          "parent": "source.hra-v1-1.male.n1220",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.male.n1219",
+          "label": "Right quadratus lumborum",
+          "source_node": 1219,
+          "source_name": "VH_M_quadratus_lumborum_R",
+          "ontology": "",
+          "mesh_nodes": [
+            1219
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.male.n1220",
           "review_status": "draft"
         },
         {
           "id": "source.hra-v1-1.male.n1221",
-          "label": "Right scapula",
+          "label": "Diaphragm",
           "source_node": 1221,
-          "source_name": "VH_M_scapula_R",
-          "ontology": "FMA:13395",
+          "source_name": "VH_M_diaphragm",
+          "ontology": "FMA:13295",
           "mesh_nodes": [
             1221
           ],
           "children": [],
-          "parent": "source.hra-v1-1.male.n1224",
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.male.n1226",
+          "label": "Shoulder girdle",
+          "source_node": 1226,
+          "source_name": "VH_M_shoulder_girdle",
+          "ontology": "",
+          "mesh_nodes": [
+            1222,
+            1223,
+            1224,
+            1225
+          ],
+          "children": [
+            "source.hra-v1-1.male.n1222",
+            "source.hra-v1-1.male.n1223",
+            "source.hra-v1-1.male.n1224",
+            "source.hra-v1-1.male.n1225"
+          ],
+          "parent": "anatomy.body",
           "review_status": "draft"
         },
         {
           "id": "source.hra-v1-1.male.n1222",
-          "label": "Left clavicle",
+          "label": "Left scapula",
           "source_node": 1222,
-          "source_name": "VH_M_clavicle_L",
-          "ontology": "FMA:13323",
+          "source_name": "VH_M_scapula_L",
+          "ontology": "FMA:13396",
           "mesh_nodes": [
             1222
           ],
           "children": [],
-          "parent": "source.hra-v1-1.male.n1224",
+          "parent": "source.hra-v1-1.male.n1226",
           "review_status": "draft"
         },
         {
           "id": "source.hra-v1-1.male.n1223",
-          "label": "Right clavicle",
+          "label": "Right scapula",
           "source_node": 1223,
-          "source_name": "VH_M_clavicle_R",
-          "ontology": "FMA:13322",
+          "source_name": "VH_M_scapula_R",
+          "ontology": "FMA:13395",
           "mesh_nodes": [
             1223
           ],
           "children": [],
-          "parent": "source.hra-v1-1.male.n1224",
+          "parent": "source.hra-v1-1.male.n1226",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.male.n1224",
+          "label": "Left clavicle",
+          "source_node": 1224,
+          "source_name": "VH_M_clavicle_L",
+          "ontology": "FMA:13323",
+          "mesh_nodes": [
+            1224
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.male.n1226",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.male.n1225",
+          "label": "Right clavicle",
+          "source_node": 1225,
+          "source_name": "VH_M_clavicle_R",
+          "ontology": "FMA:13322",
+          "mesh_nodes": [
+            1225
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.male.n1226",
           "review_status": "draft"
         }
       ],

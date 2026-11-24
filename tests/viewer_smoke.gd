@@ -33,7 +33,7 @@ func run() -> void:
 		check(error.is_empty(), str(body.id) + ": " + error)
 		if not error.is_empty():
 			continue
-		check(model.meshes.size() == (953 if body.id == "female" else 921), "Real mesh count must match the audited source")
+		check(model.meshes.size() == (953 if body.id == "female" else 923), "Real mesh count must match the audited source")
 		for structure in model.structures.values():
 			check("extraction" not in str(structure.source_name).to_lower(), "Sampling-site anatomy must be excluded")
 		var original: AABB = model.bounds_for("anatomy.heart")

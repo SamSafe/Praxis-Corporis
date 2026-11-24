@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": "body-study-12-draft",
+  "revision": "body-study-13-draft",
   "review_status": "draft",
   "expert_review": "pending",
   "scope": "Private draft explanations covering the chest, abdomen, pelvis, brain, eyes, knees and skin, including selected vessels, kidney interior, intestines, airways, bone tissue and the lymphatic system. General anatomy is separate from completeness and accuracy of the supplied source meshes. No source illustrations or video are reused.",
@@ -9204,7 +9204,7 @@
           "ontology": "FMA:13295"
         },
         "male": {
-          "id": "source.hra-v1-1.male.n1219",
+          "id": "source.hra-v1-1.male.n1221",
           "source_name": "VH_M_diaphragm",
           "ontology": "FMA:13295"
         }
@@ -10037,12 +10037,12 @@
         ],
         "male": [
           {
-            "id": "source.hra-v1-1.male.n1222",
+            "id": "source.hra-v1-1.male.n1224",
             "source_name": "VH_M_clavicle_L",
             "ontology": "FMA:13323"
           },
           {
-            "id": "source.hra-v1-1.male.n1223",
+            "id": "source.hra-v1-1.male.n1225",
             "source_name": "VH_M_clavicle_R",
             "ontology": "FMA:13322"
           }
@@ -10091,12 +10091,12 @@
         ],
         "male": [
           {
-            "id": "source.hra-v1-1.male.n1220",
+            "id": "source.hra-v1-1.male.n1222",
             "source_name": "VH_M_scapula_L",
             "ontology": "FMA:13396"
           },
           {
-            "id": "source.hra-v1-1.male.n1221",
+            "id": "source.hra-v1-1.male.n1223",
             "source_name": "VH_M_scapula_R",
             "ontology": "FMA:13395"
           }
@@ -10436,12 +10436,22 @@
         ],
         "male": [
           {
-            "id": "source.hra-v1-1.male.n1201",
+            "id": "source.hra-v1-1.male.n1203",
             "source_name": "VH_M_pharyngeal_constrictors",
             "ontology": ""
           },
           {
             "id": "source.hra-v1-1.male.n1200",
+            "source_name": "VH_M_superior_pharyngeal_constrictor",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1201",
+            "source_name": "VH_M_middle_pharyngeal_constrictor",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1202",
             "source_name": "VH_M_inferior_pharyngeal_constrictor",
             "ontology": ""
           }
@@ -10671,12 +10681,12 @@
         ],
         "male": [
           {
-            "id": "source.hra-v1-1.male.n1202",
+            "id": "source.hra-v1-1.male.n1204",
             "source_name": "VH_M_pectoralis_major_L",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.male.n1203",
+            "id": "source.hra-v1-1.male.n1205",
             "source_name": "VH_M_pectoralis_major_R",
             "ontology": ""
           }
@@ -11947,12 +11957,12 @@
         ],
         "male": [
           {
-            "id": "source.hra-v1-1.male.n1209",
+            "id": "source.hra-v1-1.male.n1211",
             "source_name": "VH_M_rectus_abdominis_L",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.male.n1210",
+            "id": "source.hra-v1-1.male.n1212",
             "source_name": "VH_M_rectus_abdominis_R",
             "ontology": ""
           }
@@ -12011,22 +12021,22 @@
         ],
         "male": [
           {
-            "id": "source.hra-v1-1.male.n1211",
+            "id": "source.hra-v1-1.male.n1213",
             "source_name": "VH_M_external_oblique_L",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.male.n1212",
+            "id": "source.hra-v1-1.male.n1214",
             "source_name": "VH_M_external_oblique_R",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.male.n1213",
+            "id": "source.hra-v1-1.male.n1215",
             "source_name": "VH_M_internal_oblique_L",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.male.n1214",
+            "id": "source.hra-v1-1.male.n1216",
             "source_name": "VH_M_internal_oblique_R",
             "ontology": ""
           }
@@ -12069,17 +12079,17 @@
         ],
         "male": [
           {
-            "id": "source.hra-v1-1.male.n1218",
+            "id": "source.hra-v1-1.male.n1220",
             "source_name": "VH_M_quadratus_lumborum",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.male.n1216",
+            "id": "source.hra-v1-1.male.n1218",
             "source_name": "VH_M_quadratus_lumborum_L",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.male.n1217",
+            "id": "source.hra-v1-1.male.n1219",
             "source_name": "VH_M_quadratus_lumborum_R",
             "ontology": ""
           }
@@ -12117,12 +12127,12 @@
         ],
         "male": [
           {
-            "id": "source.hra-v1-1.male.n1206",
+            "id": "source.hra-v1-1.male.n1208",
             "source_name": "VH_M_latissimus_dorsi_L",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.male.n1207",
+            "id": "source.hra-v1-1.male.n1209",
             "source_name": "VH_M_latissimus_dorsi_R",
             "ontology": ""
           }
@@ -12171,12 +12181,12 @@
         ],
         "male": [
           {
-            "id": "source.hra-v1-1.male.n1204",
+            "id": "source.hra-v1-1.male.n1206",
             "source_name": "VH_M_serratus_anterior_L",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.male.n1205",
+            "id": "source.hra-v1-1.male.n1207",
             "source_name": "VH_M_serratus_anterior_R",
             "ontology": ""
           }

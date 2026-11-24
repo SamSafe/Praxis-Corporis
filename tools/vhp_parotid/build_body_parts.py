@@ -123,11 +123,14 @@ groups = {
                                          for m in ("masseter", "temporalis", "medial_pterygoid", "lateral_pterygoid") for s in (L, R)],
                                extra / "head-head_muscles"),
     "mandible": ("skull", [("mandible", "mandible", "Mandible", "FMA:52748", 10000)], extra / "head-craniofacial_structures"),
+    # Neck muscles are traced on the 0.75 mm head-and-neck volume (<body>-headneck.nii.gz,
+    # 400 mm deep): headneck_muscles runs at 0.75 x 0.75 x 1 mm, so the 1.5 mm section
+    # gave it upsampled data and the thin constrictors and scalene slips broke up.
     "neck_muscles": ("skull", [(f"{m}_{s}", f"{m}_{s[0].upper()}", f"{s.capitalize()} {m.replace('_', ' ')}", "", 4000)
                                for m in ("sternocleidomastoid", "anterior_scalene", "middle_scalene", "posterior_scalene") for s in (L, R)],
-                     extra / "neck-headneck_muscles"),
+                     extra / "headneck-headneck_muscles"),
     "pharyngeal_constrictors": ("skull", [(f"{p}_pharyngeal_constrictor", f"{p}_pharyngeal_constrictor", f"{p.capitalize()} pharyngeal constrictor", "", 3000)
-                                          for p in ("superior", "middle", "inferior")], extra / "neck-headneck_muscles"),
+                                          for p in ("superior", "middle", "inferior")], extra / "headneck-headneck_muscles"),
     "hyoid": ("skull", [("hyoid", "hyoid_bone", "Hyoid bone", "FMA:52749", 2000)], extra / "neck-headneck_bones_vessels"),
     "chest_and_back_muscles": ("thorax", [(f"{m}_{s}", f"{m}_{s[0].upper()}", f"{s.capitalize()} {m.replace('_', ' ')}", "", 8000)
                                           for m in ("pectoralis_major", "serratus_anterior", "latissimus_dorsi", "trapezius") for s in (L, R)],

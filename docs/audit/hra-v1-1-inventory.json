@@ -1,13 +1,13 @@
 {
   "female": {
-    "sha256": "f9554c06145d4da6e95e827a8a7dbddc28c5ef0e36ebd52160520a78a8bd63aa",
-    "bytes": 138152868,
+    "sha256": "1b64801d26b9711f55bc1a5a3c164b776cd1559c024ba806a941684c848817ff",
+    "bytes": 138353180,
     "generator": "babylon.js glTF exporter for Autodesk MAYA 2022.2 v20211115.1",
     "anatomy_root": 0,
     "total_nodes": 1258,
     "anatomy_nodes": 1143,
     "anatomy_mesh_nodes": 953,
-    "anatomy_triangles": 5506810,
+    "anatomy_triangles": 5517930,
     "excluded_nodes": 115,
     "systems": [
       {
@@ -153,12 +153,12 @@
       {
         "source_name": "VH_F_neck_muscles",
         "mesh_nodes": 6,
-        "triangles": 13152
+        "triangles": 23876
       },
       {
         "source_name": "VH_F_pharyngeal_constrictors",
         "mesh_nodes": 1,
-        "triangles": 2604
+        "triangles": 3000
       },
       {
         "source_name": "VH_F_hyoid_bone",
@@ -199,14 +199,14 @@
     "note": "Source node counts are not verified anatomical coverage or clinical review."
   },
   "male": {
-    "sha256": "bdcb5aa8b8f0e90b005f95a44e5c208a66aeccfa4555a35036e00c270abcec4e",
-    "bytes": 99606644,
+    "sha256": "5f60029f78e77c5c212ddfcc0b3e48df9d73c2c98acfa7d4fed88a889d542479",
+    "bytes": 99838928,
     "generator": "babylon.js glTF exporter for Autodesk MAYA 2022.2 v20211115.1",
     "anatomy_root": 115,
-    "total_nodes": 1225,
-    "anatomy_nodes": 1110,
-    "anatomy_mesh_nodes": 921,
-    "anatomy_triangles": 4333188,
+    "total_nodes": 1227,
+    "anatomy_nodes": 1112,
+    "anatomy_mesh_nodes": 923,
+    "anatomy_triangles": 4346008,
     "excluded_nodes": 115,
     "systems": [
       {
@@ -342,12 +342,12 @@
       {
         "source_name": "VH_M_neck_muscles",
         "mesh_nodes": 6,
-        "triangles": 17180
+        "triangles": 24000
       },
       {
         "source_name": "VH_M_pharyngeal_constrictors",
-        "mesh_nodes": 1,
-        "triangles": 3000
+        "mesh_nodes": 3,
+        "triangles": 9000
       },
       {
         "source_name": "VH_M_chest_and_back_muscles",

@@ -3,7 +3,7 @@
   "review_status": "source geometry checked; medical review pending",
   "references": {
     "female": {
-      "source_sha256": "f9554c06145d4da6e95e827a8a7dbddc28c5ef0e36ebd52160520a78a8bd63aa",
+      "source_sha256": "1b64801d26b9711f55bc1a5a3c164b776cd1559c024ba806a941684c848817ff",
       "left": [
         1,
         0,
@@ -21,7 +21,7 @@
       ]
     },
     "male": {
-      "source_sha256": "bdcb5aa8b8f0e90b005f95a44e5c208a66aeccfa4555a35036e00c270abcec4e",
+      "source_sha256": "5f60029f78e77c5c212ddfcc0b3e48df9d73c2c98acfa7d4fed88a889d542479",
       "left": [
         1,
         0,
