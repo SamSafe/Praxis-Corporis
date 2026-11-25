@@ -41,6 +41,7 @@ var search_summary: Label
 var search_items: Dictionary = {}
 ## Search result metadata for a study card with no 3D model.
 const UNMODELLED_PREFIX := "unmodelled:"
+const CONDITION_PREFIX := "condition-result:"
 var search_total := 0
 var list_view_button: CheckButton
 var browse_pager: HBoxContainer
@@ -1690,6 +1691,17 @@ func rebuild_tree() -> void:
 					search_line("No 3D model" + (" · near " + str(model.structures[near].label) if not near.is_empty() else ""), true))
 				search_results.set_item_metadata(index, UNMODELLED_PREFIX + card_id)
 				search_results.set_item_tooltip(index, "No open source models this structure. Opens its study card and conditions.")
+			# Conditions offered on this body are found by title and open their draft text.
+			if not list_all:
+				for condition_id in study_content.find_conditions(AnatomySearch.words(query), model.structures):
+					search_total += 1
+					if search_results.item_count >= AnatomySearch.RESULT_LIMIT:
+						continue
+					var focus := study_content.condition_focus(condition_id, model.structures)
+					var index := search_results.add_item(search_line(str(study_content.condition(condition_id).title), false) + "\n" +
+						search_line("Condition" + (" · " + str(model.structures[focus].label) if not focus.is_empty() else " · text only"), true))
+					search_results.set_item_metadata(index, CONDITION_PREFIX + condition_id)
+					search_results.set_item_tooltip(index, "Draft condition summary. Opens its text, sources and reference location; anatomy is unchanged until you inspect.")
 		var reference := str(model.body.get("short_label", model.body.get("label", "Current reference")))
 		if list_all:
 			var start := browse_page * AnatomySearch.RESULT_LIMIT
@@ -1751,6 +1763,10 @@ func on_search_selected(index: int) -> void:
 		if target.begins_with(UNMODELLED_PREFIX):
 			sync_selection_tree()
 			show_unmodelled_card(target.trim_prefix(UNMODELLED_PREFIX))
+			return
+		if target.begins_with(CONDITION_PREFIX):
+			sync_selection_tree()
+			show_condition(target.trim_prefix(CONDITION_PREFIX))
 			return
 		select_structure(target)
 

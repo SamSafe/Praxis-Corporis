@@ -262,6 +262,24 @@ func find_unmodelled(query: String, structures: Dictionary = {}) -> Array[String
 	return result
 
 
+## Conditions offered on the loaded body whose title contains every word of the
+## query (already lower-cased and space-normalized), in title order.
+func find_conditions(query: String, structures: Dictionary) -> Array[String]:
+	var result: Array[String] = []
+	var words := query.split(" ", false)
+	if words.is_empty():
+		return result
+	for id in data.get("conditions", {}):
+		var title := str(condition(id).get("title", "")).to_lower()
+		var matched := true
+		for word in words:
+			matched = matched and title.contains(word)
+		if matched and condition_available(str(id), structures):
+			result.append(str(id))
+	result.sort_custom(func(a: String, b: String) -> bool: return str(condition(a).title) < str(condition(b).title))
+	return result
+
+
 func condition(id: String) -> Dictionary:
 	return data.get("conditions", {}).get(id, {})
 

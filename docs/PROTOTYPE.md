@@ -158,6 +158,7 @@ checkout revision and only the references prepared in that checkout.
 | Keyboard camera | Tab/click to focus the 3D view (teal border). Arrows orbit; Shift-arrows pan; +/- zoom; F fits selection; Home shows the body. |
 | Orient the camera | Camera views offers Front, Back, From body left/right and angled Above/Below around the current focus. The direction cue rotates with the camera; L/R refer to the body's sides. |
 | Find a source record | Ctrl/Cmd+F or View/Explore > Find anatomy opens search. Search names, source names, ontology IDs or catalogue IDs; Enter selects the first ranked result. Escape clears the query, then returns focus to 3D. |
+| Find a condition | Type a condition's name in the same search; matching conditions offered on this body follow the anatomy results and open their draft text. |
 | Browse all source records | Turn on List view. Previous/Next pages through every catalogue record, 100 at a time. Select a row to focus it; turn List view off to return to the hierarchy. |
 | Read study text | Read study card opens selectable draft text and source addresses. Explore offers the same action in expanded anatomy when a card exists. Close/Escape preserves the view. |
 | Trace source identity | Copy source record in the details panel copies the selected record and reference fingerprint. |
@@ -321,6 +322,16 @@ only names and identifiers present in the catalogue.
 Unicode spaces, including nonbreaking and narrow nonbreaking spaces copied from
 other text, work like ordinary spaces. A query containing only spaces shows the
 chosen browsing mode: hierarchy by default, or the paged list.
+
+**Conditions by name.** Search also lists the draft conditions offered on the current
+body whose title contains every word of the query, after the supplied records and
+any text-only study cards: for example `aortic stenosis`, `asthma` or
+`ovarian cyst`. Each row reads *Condition* and names its reference anatomy.
+Choosing one opens the condition's draft text and sources without changing the
+view; **Inspect reference anatomy** then isolates its supplied reference location.
+Conditions whose anatomy the current body lacks are not listed, so `prostate` finds
+prostate conditions on the male body only. Condition titles are not aliases for
+anatomy, and the result count includes them.
 
 Results show the display label and source name on separate lines. Repeated labels
 remain distinct records; their original left/right names or file IDs stay visible.

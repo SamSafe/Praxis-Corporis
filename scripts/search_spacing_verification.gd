@@ -72,13 +72,22 @@ static func run(viewer: Control) -> bool:
 		var text := "left" + String.chr(code) + "atrium"
 		valid = check(Search.normalize_spaces(text) == text and Browser.search_text(text) == text, "format character retention U+%04X" % code) and valid
 	valid = check(Search.words("left_atrium") == "left atrium" and Browser.search_text("left_atrium") == "left_atrium", "underscore behavior") and valid
+	# The visible list follows the catalogue ranking, then any text-only cards and
+	# conditions whose titles match; ordinary spaces give the expected list.
+	viewer.search.text = query
+	viewer.rebuild_tree()
+	var expected_total: int = viewer.search_total
+	var expected_ids: Array = []
+	for index in viewer.search_results.item_count:
+		expected_ids.append(viewer.search_results.get_item_metadata(index))
+	valid = check(expected_total >= baseline.total and expected_ids.slice(0, baseline.results.size()) == baseline.results.map(func(r): return r.id), "catalogue results lead the visible list") and valid
 	for code in [0x00A0, 0x202F, 0x2003, 0x3000]:
 		var space := String.chr(code)
 		viewer.search.text = query.replace(" ", space)
 		viewer.rebuild_tree()
-		valid = check(viewer.search_total == baseline.total and viewer.search_results.item_count == baseline.results.size(), "visible anatomy results U+%04X" % code) and valid
-		for index in baseline.results.size():
-			valid = check(viewer.search_results.get_item_metadata(index) == baseline.results[index].id, "visible anatomy identity U+%04X" % code) and valid
+		valid = check(viewer.search_total == expected_total and viewer.search_results.item_count == expected_ids.size(), "visible anatomy results U+%04X" % code) and valid
+		for index in expected_ids.size():
+			valid = check(viewer.search_results.get_item_metadata(index) == expected_ids[index], "visible anatomy identity U+%04X" % code) and valid
 		viewer.search.text = space + space
 		viewer.rebuild_tree()
 		viewer.activate_first_search_result()

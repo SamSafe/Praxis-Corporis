@@ -37,10 +37,15 @@ func run() -> void:
 		await viewer.switch_body("female")
 	var content = viewer.study_content
 	var anatomy: Dictionary = viewer.model.export_state().duplicate(true)
-	# Search finds an unmodelled structure by name, after any supplied records.
+	# Search finds an unmodelled structure by name, after any supplied records and
+	# before conditions whose titles match.
 	viewer.search.text = "vulva"
 	viewer.rebuild_tree()
-	var last: int = viewer.search_results.item_count - 1
+	var last := -1
+	for index in viewer.search_results.item_count:
+		if str(viewer.search_results.get_item_metadata(index)).begins_with(viewer.UNMODELLED_PREFIX):
+			last = index
+	check(last >= 0 and not str(viewer.search_results.get_item_metadata(last - 1 if last > 0 else 0)).begins_with(viewer.CONDITION_PREFIX), "Conditions follow the text-only card")
 	check(last >= 0 and str(viewer.search_results.get_item_metadata(last)) == viewer.UNMODELLED_PREFIX + "anatomy.vulva", "Search lists the vulva card")
 	check(last >= 0 and "No 3D model" in viewer.search_results.get_item_text(last) and "Vagina" in viewer.search_results.get_item_text(last), "The result says it has no model and names the nearby part")
 	var selected_before: String = viewer.model.selected_id
