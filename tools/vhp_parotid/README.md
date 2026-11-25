@@ -46,6 +46,7 @@ byte, restore their committed GLBs from `assets/vhp-ct/` into the parts folder b
 | Per-side shoulder fits (second round) | `shoulder_fit.py SECTIONS MERGED THORAX_FIT SKIN.npz PREFIX`, then `build_body_parts.py` again | fit JSON per side and bone group |
 | Join one structure traced on two volumes (third round: the trapezius) | `union.py OUT MASK MASK...` | one mask on the first mask's voxel size |
 | Refit superficial parts by the skin around them (third round) | `skin_fit.py VOLUMES BASE_FIT SKIN.npz OUT.json MASKS [NEAR_MM] [--scale]`; list the fits in `<body>-refits.json` (`{"mask": {"fit": FIT.json, "mask": MASK.nii.gz}}`) before `build_body_parts.py` | fit JSON per pair or side |
+| Intervertebral discs (fourth round) | `TotalSegmentator -ta vertebrae_body` on the 0-330, 230-630 and 480-860 sections, merged with `merge.py` into `seg-<body>/discs`; then `discs.py DISC_MASK <body>-fit-spine.json <body>-anchors.npz seg-<body>/disc-levels` before `build_body_parts.py` | one mask per level, named by the body's vertebrae |
 | Mesh (called by the above) | `mesh.py` | labelled GLB |
 | Check against skin and organs | `check.py` | outside-skin and overlap shares |
 | Check renders | `render.py` | PNG |

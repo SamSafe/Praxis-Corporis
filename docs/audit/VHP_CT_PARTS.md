@@ -310,10 +310,46 @@ blue): [female front](vhp-ct/female-round3-neck-front.png),
 - **Male gluteus maximus:** cut off where the male first pass ends.
 - **Female sternocleidomastoid, male submandibular glands and digastric:** no fit
   places them inside the skin without crossing each other or entering the mandible.
-- **Intervertebral discs:** need the free `vertebrae_body` model, whose weights are
-  not yet downloaded.
 - **Limb muscles, deltoid, rotator cuff, forearm, hand and foot bones:** only licensed
   TotalSegmentator tasks trace them, and the first pass ends mid-thigh.
+
+## Fourth round: intervertebral discs
+
+The user approved downloading the free `vertebrae_body` model (TotalSegmentator task 305,
+`Dataset305_vertebrae_discs_1559subj`, 234 MB, from TotalSegmentator's GitHub releases)
+on 2026-11-25. It traces vertebral bodies and intervertebral discs; only the discs are
+used, since the bodies supply their own vertebrae.
+
+- **Tracing:** the task ran on the three 1.5 mm trunk sections that hold the spine
+  (0-330, 230-630 and 480-860), about three minutes each on the CPU, and `merge.py`
+  joined them into `seg-<body>/discs` (`build/parotid-work/run_discs.ps1`).
+- **One disc per level:** the task traces all discs as one label. `discs.py` places each
+  connected piece in the body with the spine fit and names it by the body's own
+  vertebrae directly above and below it; a piece whose neighbours are not adjacent
+  vertebrae is dropped. The female body has six lumbar vertebrae, and the CT gives six
+  lumbar discs below T12-L1, so the names follow the body: 24 female discs, C2-C3 to
+  L6-S1, and 23 male discs, C2-C3 to L5-S1. Disc volumes rise from 0.4 cm³ in the neck
+  to 12-15 cm³ in the lower back.
+- **Fit:** the spine fit (vertebra centroids paired by position, median surface distance
+  0.7-1.5 mm). Every disc lies inside the skin. Between 8% and 58% of each disc's sampled
+  surface points fall inside the body's vertebrae: a thin disc's surface is mostly its two
+  endplate faces, so a 1-2 mm fit error puts much of it just inside the bone. The female
+  L6-S1 disc is 28% inside the sacrum, the male L5-S1 disc 0%; none enters the spinal
+  cord.
+- **Renders:** from the side, the discs sit in the gaps between the vertebral bodies at
+  every level ([female](vhp-ct/female-round4-spine-side.png),
+  [male](vhp-ct/male-round4-spine-side.png)). In the neck the HRA vertebral bodies
+  nearly touch, so the cervical discs show only with the vertebrae hidden.
+- **Limits:** at 1.5 mm the thin neck and upper-back discs mesh at about half their
+  traced volume after smoothing. The nucleus and annulus are not shown apart.
+- **App:** the `anatomy.intervertebral-disks` card maps the new group on both bodies,
+  so herniated disk is offered on both (110 female, 102 male conditions). Discs are
+  coloured as cartilage. The bodies have 999 and 963 meshes; the discs were added
+  after every other group, so no catalogue ID moved.
+
+With the discs, every part the free tasks can trace in these scans is traced or left out
+after review; the parts in [Still not traced](#still-not-traced) need a licensed model
+or a scan that covers them.
 
 ## Licence
 

@@ -25,6 +25,8 @@ GROUPS = {  # group -> label for the parent node of a multi-part group, or None
     "levator-scapulae": "Levator scapulae muscles", "infrahyoid-muscles": "Infrahyoid muscles",
     "prevertebral-muscles": "Prevertebral muscles", "digastric": "Digastric muscles", "soft-palate": None, "teeth": "Teeth",
     "internal-jugular-veins": "Internal jugular veins", "right-neck-arteries": "Right common carotid and subclavian arteries",
+    # Fourth round
+    "intervertebral-discs": "Intervertebral discs",
 }
 # card -> traced nodes it covers (without the VH_F_/VH_M_ prefix); a group's parent node
 # brings its parts with it, so selecting one side opens the same card.
@@ -55,6 +57,8 @@ CARDS = {
     "anatomy.soft-palate": ["soft_palate"], "anatomy.teeth": ["teeth"],
     "anatomy.internal-jugular-veins": ["internal_jugular_veins"],
     "anatomy.carotid-arteries": ["right_common_carotid_artery"], "anatomy.subclavian-arteries": ["right_subclavian_artery"],
+    # Fourth round
+    "anatomy.intervertebral-disks": ["intervertebral_discs"],
 }
 # TotalSegmentator task each group was traced with (all free tasks); "total" otherwise.
 TASK = {"submandibular-glands": "head_glands_cavities", "tongue": "head_muscles", "muscles-of-mastication": "head_muscles",
@@ -64,7 +68,7 @@ TASK = {"submandibular-glands": "head_glands_cavities", "tongue": "head_muscles"
         "diaphragm": "trunk_cavities (the sheet between the thoracic and abdominal cavities)",
         "levator-scapulae": "headneck_muscles", "infrahyoid-muscles": "headneck_muscles", "prevertebral-muscles": "headneck_muscles",
         "digastric": "head_muscles", "soft-palate": "head_glands_cavities", "teeth": "craniofacial_structures",
-        "internal-jugular-veins": "headneck_bones_vessels"}
+        "internal-jugular-veins": "headneck_bones_vessels", "intervertebral-discs": "vertebrae_body"}
 FIT = {"shoulder-girdle": "thorax fit refined per side by the skin around the shoulder",
        "humeri": "thorax fit refined per side by the skin around the shoulder"}
 # Groups where some parts carry their own skin refit (skin_fit.py); the group record

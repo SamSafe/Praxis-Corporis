@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": "body-study-14-draft",
+  "revision": "body-study-15-draft",
   "review_status": "draft",
   "expert_review": "pending",
   "scope": "Private draft explanations covering the chest, abdomen, pelvis, brain, eyes, knees and skin, including selected vessels, kidney interior, intestines, airways, bone tissue and the lymphatic system. General anatomy is separate from completeness and accuracy of the supplied source meshes. No source illustrations or video are reused.",
@@ -11256,7 +11256,256 @@
           "id": "source.bodyparts3d-v4-complete.FMA10446",
           "source_name": "FMA10446",
           "ontology": "FMA10446"
-        }
+        },
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1311",
+            "source_name": "VH_F_intervertebral_discs",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1287",
+            "source_name": "VH_F_intervertebral_disc_C2_C3",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1288",
+            "source_name": "VH_F_intervertebral_disc_C3_C4",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1289",
+            "source_name": "VH_F_intervertebral_disc_C4_C5",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1290",
+            "source_name": "VH_F_intervertebral_disc_C5_C6",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1291",
+            "source_name": "VH_F_intervertebral_disc_C6_C7",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1292",
+            "source_name": "VH_F_intervertebral_disc_C7_T1",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1293",
+            "source_name": "VH_F_intervertebral_disc_T1_T2",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1294",
+            "source_name": "VH_F_intervertebral_disc_T2_T3",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1295",
+            "source_name": "VH_F_intervertebral_disc_T3_T4",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1296",
+            "source_name": "VH_F_intervertebral_disc_T4_T5",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1297",
+            "source_name": "VH_F_intervertebral_disc_T5_T6",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1298",
+            "source_name": "VH_F_intervertebral_disc_T6_T7",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1299",
+            "source_name": "VH_F_intervertebral_disc_T7_T8",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1300",
+            "source_name": "VH_F_intervertebral_disc_T8_T9",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1301",
+            "source_name": "VH_F_intervertebral_disc_T9_T10",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1302",
+            "source_name": "VH_F_intervertebral_disc_T10_T11",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1303",
+            "source_name": "VH_F_intervertebral_disc_T11_T12",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1304",
+            "source_name": "VH_F_intervertebral_disc_T12_L1",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1305",
+            "source_name": "VH_F_intervertebral_disc_L1_L2",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1306",
+            "source_name": "VH_F_intervertebral_disc_L2_L3",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1307",
+            "source_name": "VH_F_intervertebral_disc_L3_L4",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1308",
+            "source_name": "VH_F_intervertebral_disc_L4_L5",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1309",
+            "source_name": "VH_F_intervertebral_disc_L5_L6",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1310",
+            "source_name": "VH_F_intervertebral_disc_L6_S1",
+            "ontology": ""
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n1272",
+            "source_name": "VH_M_intervertebral_discs",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1249",
+            "source_name": "VH_M_intervertebral_disc_C2_C3",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1250",
+            "source_name": "VH_M_intervertebral_disc_C3_C4",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1251",
+            "source_name": "VH_M_intervertebral_disc_C4_C5",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1252",
+            "source_name": "VH_M_intervertebral_disc_C5_C6",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1253",
+            "source_name": "VH_M_intervertebral_disc_C6_C7",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1254",
+            "source_name": "VH_M_intervertebral_disc_C7_T1",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1255",
+            "source_name": "VH_M_intervertebral_disc_T1_T2",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1256",
+            "source_name": "VH_M_intervertebral_disc_T2_T3",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1257",
+            "source_name": "VH_M_intervertebral_disc_T3_T4",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1258",
+            "source_name": "VH_M_intervertebral_disc_T4_T5",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1259",
+            "source_name": "VH_M_intervertebral_disc_T5_T6",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1260",
+            "source_name": "VH_M_intervertebral_disc_T6_T7",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1261",
+            "source_name": "VH_M_intervertebral_disc_T7_T8",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1262",
+            "source_name": "VH_M_intervertebral_disc_T8_T9",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1263",
+            "source_name": "VH_M_intervertebral_disc_T9_T10",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1264",
+            "source_name": "VH_M_intervertebral_disc_T10_T11",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1265",
+            "source_name": "VH_M_intervertebral_disc_T11_T12",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1266",
+            "source_name": "VH_M_intervertebral_disc_T12_L1",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1267",
+            "source_name": "VH_M_intervertebral_disc_L1_L2",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1268",
+            "source_name": "VH_M_intervertebral_disc_L2_L3",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1269",
+            "source_name": "VH_M_intervertebral_disc_L3_L4",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1270",
+            "source_name": "VH_M_intervertebral_disc_L4_L5",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1271",
+            "source_name": "VH_M_intervertebral_disc_L5_S1",
+            "ontology": ""
+          }
+        ]
       }
     },
     "anatomy.breasts": {

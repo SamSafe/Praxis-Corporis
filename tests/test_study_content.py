@@ -86,8 +86,9 @@ class StudyContentTests(unittest.TestCase):
             # hiccups, oral cancer), plus those its own supplied anatomy supports (13 female
             # with the traced shoulder and submandibular glands, 6 male), tooth decay on both
             # (traced teeth, revision 14) and carotid artery disease on the female (traced
-            # right common carotid); none is inferred from missing anatomy.
-            self.assertEqual(len(offered), 109 if body["id"] == "female" else 101)
+            # right common carotid), and herniated disk on both (traced intervertebral discs,
+            # revision 15); none is inferred from missing anatomy.
+            self.assertEqual(len(offered), 110 if body["id"] == "female" else 102)
             self.assertEqual("condition.bph" in offered, body["id"] == "male")
             self.assertEqual("condition.endometriosis" in offered, body["id"] == "female")
 

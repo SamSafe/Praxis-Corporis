@@ -56,6 +56,9 @@ func _initialize() -> void:
 		"VH_F_mandible": "bone",
 		"VH_M_humeri": "bone",
 		"VH_F_submandibular_gland_L": "gland",
+		"VH_F_intervertebral_disc_L6_S1": "cartilage",
+		"Intervertebral discs": "cartilage",
+		"VH_M_vertebrae": "bone",
 	}
 	for name in expected:
 		check(TissueAppearance.classify(name) == expected[name], "%s -> %s (got %s)" % [name, expected[name], TissueAppearance.classify(name)])

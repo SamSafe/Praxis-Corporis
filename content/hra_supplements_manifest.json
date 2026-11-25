@@ -482,6 +482,20 @@
               "sha256": "72145ef225c64208940072761fa09c11e752e4760fea7a478d9476681d0ec4c2"
             }
           ]
+        },
+        {
+          "node_name": "VH_F_intervertebral_discs",
+          "label": "Intervertebral discs",
+          "source": "Visible Human female normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 vertebrae_body task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/female-intervertebral-discs.glb",
+              "bytes": 387884,
+              "sha256": "fcb8eff101cf56bba92859d217478323b5f755ce0b3a1aae12f490ccec64f4d2"
+            }
+          ]
         }
       ]
     },
@@ -871,6 +885,20 @@
               "local_path": "assets/vhp-ct/male-internal-jugular-veins.glb",
               "bytes": 145584,
               "sha256": "4214bff68a2c95087e7a7487b912f29f594bb74f16cdb0e4cbec15c59494c79c"
+            }
+          ]
+        },
+        {
+          "node_name": "VH_M_intervertebral_discs",
+          "label": "Intervertebral discs",
+          "source": "Visible Human male normal CT (NLM), traced; tools/vhp_parotid",
+          "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
+          "derivation": "TotalSegmentator 2.18.0 vertebrae_body task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "files": [
+            {
+              "local_path": "assets/vhp-ct/male-intervertebral-discs.glb",
+              "bytes": 452316,
+              "sha256": "559459efeda8b52605e2d8c72957d7dcc4a08774833538038588ee9ab407a1e5"
             }
           ]
         }

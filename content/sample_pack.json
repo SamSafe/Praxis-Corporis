@@ -8,8 +8,8 @@
       "id": "female",
       "label": "Female reference (HRA v1.1)",
       "asset_path": "assets/hra/female-supplemented.glb",
-      "sha256": "7d7b797490dae1197d64f2862326da100625c546de9d59c26a4eb02d687d87fb",
-      "bytes": 140075332,
+      "sha256": "0cead5f84ed55ffd749de7b95e81ddb3b4775577dcce872e587e355af23d4e6d",
+      "bytes": 140463668,
       "root_id": "anatomy.body",
       "structures": [
         {
@@ -993,7 +993,31 @@
             1281,
             1282,
             1284,
-            1285
+            1285,
+            1287,
+            1288,
+            1289,
+            1290,
+            1291,
+            1292,
+            1293,
+            1294,
+            1295,
+            1296,
+            1297,
+            1298,
+            1299,
+            1300,
+            1301,
+            1302,
+            1303,
+            1304,
+            1305,
+            1306,
+            1307,
+            1308,
+            1309,
+            1310
           ],
           "children": [
             "anatomy.system.integumentary",
@@ -1040,7 +1064,8 @@
             "source.hra-v1-1.female.n1278",
             "source.hra-v1-1.female.n1280",
             "source.hra-v1-1.female.n1283",
-            "source.hra-v1-1.female.n1286"
+            "source.hra-v1-1.female.n1286",
+            "source.hra-v1-1.female.n1311"
           ],
           "parent": "",
           "review_status": "draft"
@@ -20503,6 +20528,379 @@
           "children": [],
           "parent": "source.hra-v1-1.female.n1286",
           "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.female.n1311",
+          "label": "Intervertebral discs",
+          "source_node": 1311,
+          "source_name": "VH_F_intervertebral_discs",
+          "ontology": "",
+          "mesh_nodes": [
+            1287,
+            1288,
+            1289,
+            1290,
+            1291,
+            1292,
+            1293,
+            1294,
+            1295,
+            1296,
+            1297,
+            1298,
+            1299,
+            1300,
+            1301,
+            1302,
+            1303,
+            1304,
+            1305,
+            1306,
+            1307,
+            1308,
+            1309,
+            1310
+          ],
+          "children": [
+            "source.hra-v1-1.female.n1287",
+            "source.hra-v1-1.female.n1288",
+            "source.hra-v1-1.female.n1289",
+            "source.hra-v1-1.female.n1290",
+            "source.hra-v1-1.female.n1291",
+            "source.hra-v1-1.female.n1292",
+            "source.hra-v1-1.female.n1293",
+            "source.hra-v1-1.female.n1294",
+            "source.hra-v1-1.female.n1295",
+            "source.hra-v1-1.female.n1296",
+            "source.hra-v1-1.female.n1297",
+            "source.hra-v1-1.female.n1298",
+            "source.hra-v1-1.female.n1299",
+            "source.hra-v1-1.female.n1300",
+            "source.hra-v1-1.female.n1301",
+            "source.hra-v1-1.female.n1302",
+            "source.hra-v1-1.female.n1303",
+            "source.hra-v1-1.female.n1304",
+            "source.hra-v1-1.female.n1305",
+            "source.hra-v1-1.female.n1306",
+            "source.hra-v1-1.female.n1307",
+            "source.hra-v1-1.female.n1308",
+            "source.hra-v1-1.female.n1309",
+            "source.hra-v1-1.female.n1310"
+          ],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.female.n1287",
+          "label": "Intervertebral disc c2-c3",
+          "source_node": 1287,
+          "source_name": "VH_F_intervertebral_disc_C2_C3",
+          "ontology": "",
+          "mesh_nodes": [
+            1287
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.female.n1311",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.female.n1288",
+          "label": "Intervertebral disc c3-c4",
+          "source_node": 1288,
+          "source_name": "VH_F_intervertebral_disc_C3_C4",
+          "ontology": "",
+          "mesh_nodes": [
+            1288
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.female.n1311",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.female.n1289",
+          "label": "Intervertebral disc c4-c5",
+          "source_node": 1289,
+          "source_name": "VH_F_intervertebral_disc_C4_C5",
+          "ontology": "",
+          "mesh_nodes": [
+            1289
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.female.n1311",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.female.n1290",
+          "label": "Intervertebral disc c5-c6",
+          "source_node": 1290,
+          "source_name": "VH_F_intervertebral_disc_C5_C6",
+          "ontology": "",
+          "mesh_nodes": [
+            1290
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.female.n1311",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.female.n1291",
+          "label": "Intervertebral disc c6-c7",
+          "source_node": 1291,
+          "source_name": "VH_F_intervertebral_disc_C6_C7",
+          "ontology": "",
+          "mesh_nodes": [
+            1291
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.female.n1311",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.female.n1292",
+          "label": "Intervertebral disc c7-t1",
+          "source_node": 1292,
+          "source_name": "VH_F_intervertebral_disc_C7_T1",
+          "ontology": "",
+          "mesh_nodes": [
+            1292
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.female.n1311",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.female.n1293",
+          "label": "Intervertebral disc t1-t2",
+          "source_node": 1293,
+          "source_name": "VH_F_intervertebral_disc_T1_T2",
+          "ontology": "",
+          "mesh_nodes": [
+            1293
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.female.n1311",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.female.n1294",
+          "label": "Intervertebral disc t2-t3",
+          "source_node": 1294,
+          "source_name": "VH_F_intervertebral_disc_T2_T3",
+          "ontology": "",
+          "mesh_nodes": [
+            1294
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.female.n1311",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.female.n1295",
+          "label": "Intervertebral disc t3-t4",
+          "source_node": 1295,
+          "source_name": "VH_F_intervertebral_disc_T3_T4",
+          "ontology": "",
+          "mesh_nodes": [
+            1295
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.female.n1311",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.female.n1296",
+          "label": "Intervertebral disc t4-t5",
+          "source_node": 1296,
+          "source_name": "VH_F_intervertebral_disc_T4_T5",
+          "ontology": "",
+          "mesh_nodes": [
+            1296
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.female.n1311",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.female.n1297",
+          "label": "Intervertebral disc t5-t6",
+          "source_node": 1297,
+          "source_name": "VH_F_intervertebral_disc_T5_T6",
+          "ontology": "",
+          "mesh_nodes": [
+            1297
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.female.n1311",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.female.n1298",
+          "label": "Intervertebral disc t6-t7",
+          "source_node": 1298,
+          "source_name": "VH_F_intervertebral_disc_T6_T7",
+          "ontology": "",
+          "mesh_nodes": [
+            1298
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.female.n1311",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.female.n1299",
+          "label": "Intervertebral disc t7-t8",
+          "source_node": 1299,
+          "source_name": "VH_F_intervertebral_disc_T7_T8",
+          "ontology": "",
+          "mesh_nodes": [
+            1299
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.female.n1311",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.female.n1300",
+          "label": "Intervertebral disc t8-t9",
+          "source_node": 1300,
+          "source_name": "VH_F_intervertebral_disc_T8_T9",
+          "ontology": "",
+          "mesh_nodes": [
+            1300
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.female.n1311",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.female.n1301",
+          "label": "Intervertebral disc t9-t10",
+          "source_node": 1301,
+          "source_name": "VH_F_intervertebral_disc_T9_T10",
+          "ontology": "",
+          "mesh_nodes": [
+            1301
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.female.n1311",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.female.n1302",
+          "label": "Intervertebral disc t10-t11",
+          "source_node": 1302,
+          "source_name": "VH_F_intervertebral_disc_T10_T11",
+          "ontology": "",
+          "mesh_nodes": [
+            1302
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.female.n1311",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.female.n1303",
+          "label": "Intervertebral disc t11-t12",
+          "source_node": 1303,
+          "source_name": "VH_F_intervertebral_disc_T11_T12",
+          "ontology": "",
+          "mesh_nodes": [
+            1303
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.female.n1311",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.female.n1304",
+          "label": "Intervertebral disc t12-l1",
+          "source_node": 1304,
+          "source_name": "VH_F_intervertebral_disc_T12_L1",
+          "ontology": "",
+          "mesh_nodes": [
+            1304
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.female.n1311",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.female.n1305",
+          "label": "Intervertebral disc l1-l2",
+          "source_node": 1305,
+          "source_name": "VH_F_intervertebral_disc_L1_L2",
+          "ontology": "",
+          "mesh_nodes": [
+            1305
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.female.n1311",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.female.n1306",
+          "label": "Intervertebral disc l2-l3",
+          "source_node": 1306,
+          "source_name": "VH_F_intervertebral_disc_L2_L3",
+          "ontology": "",
+          "mesh_nodes": [
+            1306
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.female.n1311",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.female.n1307",
+          "label": "Intervertebral disc l3-l4",
+          "source_node": 1307,
+          "source_name": "VH_F_intervertebral_disc_L3_L4",
+          "ontology": "",
+          "mesh_nodes": [
+            1307
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.female.n1311",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.female.n1308",
+          "label": "Intervertebral disc l4-l5",
+          "source_node": 1308,
+          "source_name": "VH_F_intervertebral_disc_L4_L5",
+          "ontology": "",
+          "mesh_nodes": [
+            1308
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.female.n1311",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.female.n1309",
+          "label": "Intervertebral disc l5-l6",
+          "source_node": 1309,
+          "source_name": "VH_F_intervertebral_disc_L5_L6",
+          "ontology": "",
+          "mesh_nodes": [
+            1309
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.female.n1311",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.female.n1310",
+          "label": "Intervertebral disc l6-s1",
+          "source_node": 1310,
+          "source_name": "VH_F_intervertebral_disc_L6_S1",
+          "ontology": "",
+          "mesh_nodes": [
+            1310
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.female.n1311",
+          "review_status": "draft"
         }
       ],
       "coordinates": "Original glTF metre coordinates and Y-up axes; no registration or scaling applied.",
@@ -20512,8 +20910,8 @@
       "id": "male",
       "label": "Male reference (HRA v1.1)",
       "asset_path": "assets/hra/male-supplemented.glb",
-      "sha256": "94e17a983f48dca8a09a1e349af5f70dea83e91f88eb9a36b4da4960604579cd",
-      "bytes": 101201632,
+      "sha256": "69c13b7c5cec3574007a2367470c2138baa23d2680d7edf01ce542170e19af56",
+      "bytes": 101654380,
       "root_id": "anatomy.body",
       "structures": [
         {
@@ -21462,7 +21860,30 @@
             1243,
             1244,
             1246,
-            1247
+            1247,
+            1249,
+            1250,
+            1251,
+            1252,
+            1253,
+            1254,
+            1255,
+            1256,
+            1257,
+            1258,
+            1259,
+            1260,
+            1261,
+            1262,
+            1263,
+            1264,
+            1265,
+            1266,
+            1267,
+            1268,
+            1269,
+            1270,
+            1271
           ],
           "children": [
             "anatomy.system.circulatory",
@@ -21503,7 +21924,8 @@
             "source.hra-v1-1.male.n1241",
             "source.hra-v1-1.male.n1242",
             "source.hra-v1-1.male.n1245",
-            "source.hra-v1-1.male.n1248"
+            "source.hra-v1-1.male.n1248",
+            "source.hra-v1-1.male.n1272"
           ],
           "parent": "",
           "review_status": "draft"
@@ -40368,6 +40790,364 @@
           ],
           "children": [],
           "parent": "source.hra-v1-1.male.n1248",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.male.n1272",
+          "label": "Intervertebral discs",
+          "source_node": 1272,
+          "source_name": "VH_M_intervertebral_discs",
+          "ontology": "",
+          "mesh_nodes": [
+            1249,
+            1250,
+            1251,
+            1252,
+            1253,
+            1254,
+            1255,
+            1256,
+            1257,
+            1258,
+            1259,
+            1260,
+            1261,
+            1262,
+            1263,
+            1264,
+            1265,
+            1266,
+            1267,
+            1268,
+            1269,
+            1270,
+            1271
+          ],
+          "children": [
+            "source.hra-v1-1.male.n1249",
+            "source.hra-v1-1.male.n1250",
+            "source.hra-v1-1.male.n1251",
+            "source.hra-v1-1.male.n1252",
+            "source.hra-v1-1.male.n1253",
+            "source.hra-v1-1.male.n1254",
+            "source.hra-v1-1.male.n1255",
+            "source.hra-v1-1.male.n1256",
+            "source.hra-v1-1.male.n1257",
+            "source.hra-v1-1.male.n1258",
+            "source.hra-v1-1.male.n1259",
+            "source.hra-v1-1.male.n1260",
+            "source.hra-v1-1.male.n1261",
+            "source.hra-v1-1.male.n1262",
+            "source.hra-v1-1.male.n1263",
+            "source.hra-v1-1.male.n1264",
+            "source.hra-v1-1.male.n1265",
+            "source.hra-v1-1.male.n1266",
+            "source.hra-v1-1.male.n1267",
+            "source.hra-v1-1.male.n1268",
+            "source.hra-v1-1.male.n1269",
+            "source.hra-v1-1.male.n1270",
+            "source.hra-v1-1.male.n1271"
+          ],
+          "parent": "anatomy.body",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.male.n1249",
+          "label": "Intervertebral disc c2-c3",
+          "source_node": 1249,
+          "source_name": "VH_M_intervertebral_disc_C2_C3",
+          "ontology": "",
+          "mesh_nodes": [
+            1249
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.male.n1272",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.male.n1250",
+          "label": "Intervertebral disc c3-c4",
+          "source_node": 1250,
+          "source_name": "VH_M_intervertebral_disc_C3_C4",
+          "ontology": "",
+          "mesh_nodes": [
+            1250
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.male.n1272",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.male.n1251",
+          "label": "Intervertebral disc c4-c5",
+          "source_node": 1251,
+          "source_name": "VH_M_intervertebral_disc_C4_C5",
+          "ontology": "",
+          "mesh_nodes": [
+            1251
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.male.n1272",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.male.n1252",
+          "label": "Intervertebral disc c5-c6",
+          "source_node": 1252,
+          "source_name": "VH_M_intervertebral_disc_C5_C6",
+          "ontology": "",
+          "mesh_nodes": [
+            1252
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.male.n1272",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.male.n1253",
+          "label": "Intervertebral disc c6-c7",
+          "source_node": 1253,
+          "source_name": "VH_M_intervertebral_disc_C6_C7",
+          "ontology": "",
+          "mesh_nodes": [
+            1253
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.male.n1272",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.male.n1254",
+          "label": "Intervertebral disc c7-t1",
+          "source_node": 1254,
+          "source_name": "VH_M_intervertebral_disc_C7_T1",
+          "ontology": "",
+          "mesh_nodes": [
+            1254
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.male.n1272",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.male.n1255",
+          "label": "Intervertebral disc t1-t2",
+          "source_node": 1255,
+          "source_name": "VH_M_intervertebral_disc_T1_T2",
+          "ontology": "",
+          "mesh_nodes": [
+            1255
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.male.n1272",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.male.n1256",
+          "label": "Intervertebral disc t2-t3",
+          "source_node": 1256,
+          "source_name": "VH_M_intervertebral_disc_T2_T3",
+          "ontology": "",
+          "mesh_nodes": [
+            1256
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.male.n1272",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.male.n1257",
+          "label": "Intervertebral disc t3-t4",
+          "source_node": 1257,
+          "source_name": "VH_M_intervertebral_disc_T3_T4",
+          "ontology": "",
+          "mesh_nodes": [
+            1257
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.male.n1272",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.male.n1258",
+          "label": "Intervertebral disc t4-t5",
+          "source_node": 1258,
+          "source_name": "VH_M_intervertebral_disc_T4_T5",
+          "ontology": "",
+          "mesh_nodes": [
+            1258
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.male.n1272",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.male.n1259",
+          "label": "Intervertebral disc t5-t6",
+          "source_node": 1259,
+          "source_name": "VH_M_intervertebral_disc_T5_T6",
+          "ontology": "",
+          "mesh_nodes": [
+            1259
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.male.n1272",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.male.n1260",
+          "label": "Intervertebral disc t6-t7",
+          "source_node": 1260,
+          "source_name": "VH_M_intervertebral_disc_T6_T7",
+          "ontology": "",
+          "mesh_nodes": [
+            1260
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.male.n1272",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.male.n1261",
+          "label": "Intervertebral disc t7-t8",
+          "source_node": 1261,
+          "source_name": "VH_M_intervertebral_disc_T7_T8",
+          "ontology": "",
+          "mesh_nodes": [
+            1261
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.male.n1272",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.male.n1262",
+          "label": "Intervertebral disc t8-t9",
+          "source_node": 1262,
+          "source_name": "VH_M_intervertebral_disc_T8_T9",
+          "ontology": "",
+          "mesh_nodes": [
+            1262
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.male.n1272",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.male.n1263",
+          "label": "Intervertebral disc t9-t10",
+          "source_node": 1263,
+          "source_name": "VH_M_intervertebral_disc_T9_T10",
+          "ontology": "",
+          "mesh_nodes": [
+            1263
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.male.n1272",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.male.n1264",
+          "label": "Intervertebral disc t10-t11",
+          "source_node": 1264,
+          "source_name": "VH_M_intervertebral_disc_T10_T11",
+          "ontology": "",
+          "mesh_nodes": [
+            1264
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.male.n1272",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.male.n1265",
+          "label": "Intervertebral disc t11-t12",
+          "source_node": 1265,
+          "source_name": "VH_M_intervertebral_disc_T11_T12",
+          "ontology": "",
+          "mesh_nodes": [
+            1265
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.male.n1272",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.male.n1266",
+          "label": "Intervertebral disc t12-l1",
+          "source_node": 1266,
+          "source_name": "VH_M_intervertebral_disc_T12_L1",
+          "ontology": "",
+          "mesh_nodes": [
+            1266
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.male.n1272",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.male.n1267",
+          "label": "Intervertebral disc l1-l2",
+          "source_node": 1267,
+          "source_name": "VH_M_intervertebral_disc_L1_L2",
+          "ontology": "",
+          "mesh_nodes": [
+            1267
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.male.n1272",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.male.n1268",
+          "label": "Intervertebral disc l2-l3",
+          "source_node": 1268,
+          "source_name": "VH_M_intervertebral_disc_L2_L3",
+          "ontology": "",
+          "mesh_nodes": [
+            1268
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.male.n1272",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.male.n1269",
+          "label": "Intervertebral disc l3-l4",
+          "source_node": 1269,
+          "source_name": "VH_M_intervertebral_disc_L3_L4",
+          "ontology": "",
+          "mesh_nodes": [
+            1269
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.male.n1272",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.male.n1270",
+          "label": "Intervertebral disc l4-l5",
+          "source_node": 1270,
+          "source_name": "VH_M_intervertebral_disc_L4_L5",
+          "ontology": "",
+          "mesh_nodes": [
+            1270
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.male.n1272",
+          "review_status": "draft"
+        },
+        {
+          "id": "source.hra-v1-1.male.n1271",
+          "label": "Intervertebral disc l5-s1",
+          "source_node": 1271,
+          "source_name": "VH_M_intervertebral_disc_L5_S1",
+          "ontology": "",
+          "mesh_nodes": [
+            1271
+          ],
+          "children": [],
+          "parent": "source.hra-v1-1.male.n1272",
           "review_status": "draft"
         }
       ],

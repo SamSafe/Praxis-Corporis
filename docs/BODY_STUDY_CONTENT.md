@@ -9,7 +9,7 @@ the brain, eyes and knees, for 63 cards and 25 conditions.
 [Revisions 3 and 4](#revisions-3-and-4-vessels-organ-interiors-airways-skin-and-bone)
 bring the totals to 112 cards and 54 conditions. Later revisions, from
 [revision 5](#revision-5-dictionary-terms-brain-fluid-spaces-and-more-cancers)
-to [revision 14](#revision-14-third-tracing-round-neck-muscles-teeth-and-neck-vessels),
+to [revision 15](#revision-15-intervertebral-discs),
 bring them to 222 cards and 126 conditions.
 
 **Everything here is a private draft.** Every record keeps `review_status: draft`
@@ -512,6 +512,19 @@ Added 2026-11-25 as `body-study-14-draft`, with the third tracing round
   disease on the female (109 conditions female, 101 male). No condition text changed.
 - **IDs:** both bodies' catalogue IDs of the CT parts after the first changed group
   moved; card mappings and coverage roots follow them.
+
+## Revision 15: intervertebral discs
+
+Added 2026-11-25 as `body-study-15-draft`, with the fourth tracing round
+([audit](audit/VHP_CT_PARTS.md#fourth-round-intervertebral-discs)).
+
+- **Existing card on new parts:** the intervertebral-disks card now shows the traced
+  discs on both HRA bodies (24 female, C2-C3 to L6-S1; 23 male, C2-C3 to L5-S1), one
+  disc per level, named by the body's vertebrae above and below it. Its text is
+  unchanged.
+- **Conditions:** herniated disk is now offered on both HRA bodies (110 conditions
+  female, 102 male). No condition text changed.
+- **IDs:** the discs were added after every other group, so no catalogue ID moved.
 
 ## Deliberate limits
 

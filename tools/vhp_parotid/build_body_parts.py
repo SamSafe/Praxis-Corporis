@@ -162,6 +162,12 @@ groups = {
     "teeth": ("skull", [("teeth_upper", "teeth_upper", "Upper teeth", "", 6000), ("teeth_lower", "teeth_lower", "Lower teeth", "", 6000)],
               extra / "head-craniofacial_structures"),
 }
+# Fourth round: intervertebral discs from the vertebrae_body task, one mask per level
+# named by the body's vertebrae (discs.py writes seg-<body>/disc-levels/levels.json).
+levels = seg / "disc-levels" / "levels.json"
+if levels.exists():
+    groups["intervertebral_discs"] = ("spine", [(e["mask"], e["node"], e["label"], "", 1500) for e in json.loads(levels.read_text(encoding="utf-8"))],
+                                      seg / "disc-levels")
 # Third round: parts the regional fit left outside the skin are refitted by the skin
 # around each left/right pair (skin_fit.py, one fit per pair so the two sides keep their
 # relation), and some masks are joined across volumes (union.py). WORK/<body>-refits.json

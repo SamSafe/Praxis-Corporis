@@ -21,7 +21,9 @@ const RULES := [
 	["sclera", ["sclera", "eyeball", "conjunctiva"]],
 	["brain", ["allen_", "brain", "cerebr", "cerebell", "thalam", "gyrus", "pons", "medulla_oblongata", "midbrain", "hippocamp", "amygdal", "nucleus", "callosum", "pineal", "olfactory", "fornix", "putamen", "caudate", "pallidus", "insula", "lobule", "lobe_of_brain"]],
 	["lung", ["bronchopulmonary"]],
-	["cartilage", ["cartilage", "trachea", "bronch", "carina", "larynx", "epiglott", "cricoid", "arytenoid_cart", "corniculate", "cuneiform", "menisc"]],
+	["cartilage", ["cartilage", "trachea", "bronch", "carina", "larynx", "epiglott", "cricoid", "arytenoid_cart", "corniculate", "cuneiform", "menisc",
+		# Before bone: "intervertebral" contains "vertebra".
+		"intervertebral"]],
 	["ligament", ["ligament", "tendon", "fascia", "aponeuros", "linea alba", "rectus sheath", "sheath of"]],
 	["muscle", ["muscle", "rectus", "oblique", "levator", "vocalis", "thyroarytenoid", "cricothyroid", "arytenoid", "thyroepiglott", "quadriceps", "sartorius", "gracilis", "gastrocnem", "popliteus", "biceps", "vastus", "muscular", "diaphragm", "gluteus", "iliopsoas", "psoas", "iliacus", "tongue", "masseter", "temporalis", "pterygoid", "mastication", "sternocleidomastoid", "scalene", "constrictor", "pectoralis", "serratus", "latissimus", "trapezius", "quadratus",
 		# Before bone and gland: "thyrohyoid" contains "hyoid" and "sterno_thyroid" "thyroid".

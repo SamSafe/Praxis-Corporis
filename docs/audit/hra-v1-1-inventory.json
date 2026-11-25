@@ -1,13 +1,13 @@
 {
   "female": {
-    "sha256": "7d7b797490dae1197d64f2862326da100625c546de9d59c26a4eb02d687d87fb",
-    "bytes": 140075332,
+    "sha256": "0cead5f84ed55ffd749de7b95e81ddb3b4775577dcce872e587e355af23d4e6d",
+    "bytes": 140463668,
     "generator": "babylon.js glTF exporter for Autodesk MAYA 2022.2 v20211115.1",
     "anatomy_root": 0,
-    "total_nodes": 1287,
-    "anatomy_nodes": 1172,
-    "anatomy_mesh_nodes": 975,
-    "anatomy_triangles": 5612686,
+    "total_nodes": 1312,
+    "anatomy_nodes": 1197,
+    "anatomy_mesh_nodes": 999,
+    "anatomy_triangles": 5633318,
     "excluded_nodes": 115,
     "systems": [
       {
@@ -234,19 +234,24 @@
         "source_name": "VH_F_right_neck_arteries",
         "mesh_nodes": 2,
         "triangles": 4756
+      },
+      {
+        "source_name": "VH_F_intervertebral_discs",
+        "mesh_nodes": 24,
+        "triangles": 20632
       }
     ],
     "note": "Source node counts are not verified anatomical coverage or clinical review."
   },
   "male": {
-    "sha256": "94e17a983f48dca8a09a1e349af5f70dea83e91f88eb9a36b4da4960604579cd",
-    "bytes": 101201632,
+    "sha256": "69c13b7c5cec3574007a2367470c2138baa23d2680d7edf01ce542170e19af56",
+    "bytes": 101654380,
     "generator": "babylon.js glTF exporter for Autodesk MAYA 2022.2 v20211115.1",
     "anatomy_root": 115,
-    "total_nodes": 1249,
-    "anatomy_nodes": 1134,
-    "anatomy_mesh_nodes": 940,
-    "anatomy_triangles": 4421008,
+    "total_nodes": 1273,
+    "anatomy_nodes": 1158,
+    "anatomy_mesh_nodes": 963,
+    "anatomy_triangles": 4445256,
     "excluded_nodes": 115,
     "systems": [
       {
@@ -443,6 +448,11 @@
         "source_name": "VH_M_internal_jugular_veins",
         "mesh_nodes": 2,
         "triangles": 8000
+      },
+      {
+        "source_name": "VH_M_intervertebral_discs",
+        "mesh_nodes": 23,
+        "triangles": 24248
       }
     ],
     "note": "Source node counts are not verified anatomical coverage or clinical review."

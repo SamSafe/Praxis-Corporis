@@ -187,7 +187,7 @@
         "female": "Vertebrae, appended from the HRA v1.2 release.",
         "male": "Vertebrae, appended from the HRA v1.2 release."
       },
-      "gaps": "No intervertebral disks, spinal ligaments or back muscles in the HRA bodies; the complete male body supplies those."
+      "gaps": "No spinal ligaments in the HRA bodies; the complete male body supplies those. Intervertebral discs and deep back muscles are traced from the Visible Human CT (separate entries)."
     },
     {
       "id": "parotid",
@@ -604,6 +604,19 @@
         "male": "Not supplied: on the male CT, which has no contrast, these arteries traced only as fragments (under 1 cm3)."
       },
       "gaps": "Approximate; the internal and external carotid arteries are not supplied."
+    },
+    {
+      "id": "ct-intervertebral-discs",
+      "label": "Intervertebral discs (Visible Human CT)",
+      "roots": {
+        "female": "source.hra-v1-1.female.n1311",
+        "male": "source.hra-v1-1.male.n1272"
+      },
+      "supplied": {
+        "female": "24 intervertebral discs, C2-C3 to L6-S1, traced from the Visible Human female CT and fitted to this body's spine; each is named by this body's vertebrae above and below it (this body has six lumbar vertebrae).",
+        "male": "23 intervertebral discs, C2-C3 to L5-S1, traced from the Visible Human male CT and fitted to this body's spine; each is named by this body's vertebrae above and below it."
+      },
+      "gaps": "Approximate; traced at 1.5 mm, so the thin neck and upper-back discs are thinner than in life, and in the neck the body's vertebral bodies nearly touch, so those discs show only with the vertebrae hidden. The nucleus and annulus are not shown apart, and spinal ligaments are not supplied."
     }
   ]
 }
