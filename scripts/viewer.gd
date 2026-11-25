@@ -23,6 +23,7 @@ const InformationDialog = preload("res://scripts/information_dialog.gd")
 const BuildIdentity = preload("res://scripts/build_identity.gd")
 const WindowState = preload("res://scripts/window_state.gd")
 const ReferenceState = preload("res://scripts/reference_state.gd")
+const PreparedCuts = preload("res://scripts/prepared_cuts.gd")
 enum ExpandedAction { FOCUS, WHOLE_BODY, INSPECT, RETURN_CONTEXT, SELECTION_LABELS,
 	LOCAL_LABELS, MOVE, UNDO, REDO, SAVED_VIEWS, SCREENSHOT, KEYBOARD_HELP, GUIDED_CHEST, CIRCULATION_ROUTE, FIND_ANATOMY, READ_STUDY }
 var save_path := "user://saved_view.json"
@@ -85,6 +86,7 @@ var selection_scroll_pending := false
 var visibility_buttons: Array[Button] = []
 var peel_button: Button
 var chest_button: Button
+var cuts_menu: MenuButton
 var source_credit: Label
 var coverage_hint: Label
 var action_buttons: Array[Button] = []
@@ -1224,6 +1226,18 @@ func build_interface() -> void:
 	left.add_child(tree)
 	peel_button = make_button("Peel away skin", peel_skin, left)
 	chest_button = make_button("Show chest", chest_view, left)
+	cuts_menu = MenuButton.new()
+	cuts_menu.text = "Prepared cut-aways"
+	cuts_menu.flat = false
+	cuts_menu.focus_mode = Control.FOCUS_ALL
+	cuts_menu.custom_minimum_size.y = 38
+	cuts_menu.tooltip_text = "Open a structure with a ready-made cut: its selection, a body-direction camera view and the cut-away depth. Display only; cut faces stay open."
+	UiAccessibility.describe(cuts_menu, "Prepared cut-aways", "Open a structure with a ready-made cut-away view.")
+	for index in PreparedCuts.CUTS.size():
+		cuts_menu.get_popup().add_item(PreparedCuts.CUTS[index].title, index)
+	cuts_menu.about_to_popup.connect(refresh_cuts_menu)
+	cuts_menu.get_popup().id_pressed.connect(open_prepared_cut)
+	left.add_child(cuts_menu)
 	coverage_hint = make_label("PARTIAL ATLAS\nSkeleton, muscles and nerves\ncover selected regions.", 13, Color("879db0"))
 	left.add_child(coverage_hint)
 	var center := VBoxContainer.new()
@@ -2497,6 +2511,8 @@ func refresh_details() -> void:
 		peel_button.disabled = loading or isolated or not model.structures.has("anatomy.skin")
 	if chest_button:
 		chest_button.disabled = loading or not model.structures.has("anatomy.heart")
+	if cuts_menu:
+		cuts_menu.disabled = loading or available_cuts().is_empty()
 	if inspect_button:
 		inspect_button.disabled = loading or not selected or model.isolated_id == model.selected_id or model.structures[model.selected_id].mesh_nodes.is_empty()
 	if inspection_banner:
@@ -2768,6 +2784,58 @@ func apply_cut() -> void:
 		"Cut %s cm %s the focus point" % [String.num(absf(depth), 1), "in front of" if depth > 0.0 else "beyond"]) + \
 		" · cut faces are open: no caps or interior tissue are drawn."
 	status.text = "Cut-away view · " + cut_note.text.get_slice(" · ", 0)
+
+
+## Prepared cuts the current reference can open: it has the structure and checked
+## body directions for the camera view. Indexes into PreparedCuts.CUTS.
+func available_cuts() -> Array[int]:
+	var result: Array[int] = []
+	if loading or model.body.is_empty() or orientation == null:
+		return result
+	if str(model.body.get("sha256", "")) != orientation.reference_hash:
+		orientation.refresh_reference()
+	if orientation.frame.is_empty():
+		return result
+	var cards: Dictionary = study_content.data.get("cards", {})
+	for index in PreparedCuts.CUTS.size():
+		if not PreparedCuts.structure_for(PreparedCuts.CUTS[index], str(model.body.id), model.structures, cards).is_empty():
+			result.append(index)
+	return result
+
+
+func refresh_cuts_menu() -> void:
+	var available := available_cuts()
+	var popup := cuts_menu.get_popup()
+	for index in PreparedCuts.CUTS.size():
+		var item := popup.get_item_index(index)
+		popup.set_item_disabled(item, index not in available)
+		popup.set_item_tooltip(item, PreparedCuts.CUTS[index].note if index in available else "Not available on this reference.")
+
+
+## Open a prepared cut-away: select its structure, turn the camera to its body
+## direction and set the cut. Selection and camera go into Back/Forward history like
+## any view change; the cut stays a display setting (turn off Cut-away view to remove it).
+func open_prepared_cut(index: int) -> void:
+	if index not in available_cuts():
+		return
+	var cut: Dictionary = PreparedCuts.CUTS[index]
+	var id := PreparedCuts.structure_for(cut, str(model.body.id), model.structures, study_content.data.get("cards", {}))
+	var direction := ReferenceOrientation.view_direction(orientation.frame, int(cut.view))
+	var previous := current_view()
+	leave_move_mode()
+	end_isolation()
+	select_structure(id, false)
+	orbit.yaw = atan2(direction.x, direction.z)
+	orbit.pitch = clampf(asin(direction.y), -1.45, 1.45)
+	orbit.update_camera()
+	cut_slider.value = float(cut.depth)
+	cut_button.button_pressed = true
+	apply_cut()
+	cut_note.text = str(cut.title) + " · " + str(cut.note) + " Cut faces are open: no caps or interior tissue are drawn, and only supplied surfaces show."
+	remember_view(previous)
+	anatomy_labels.update_labels()
+	status.text = "Prepared cut-away · " + str(cut.title)
+	scene_container.grab_focus()
 
 
 func leave_move_mode() -> void:

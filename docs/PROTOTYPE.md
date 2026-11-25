@@ -172,6 +172,7 @@ checkout revision and only the references prepared in that checkout.
 | First chest view | Show chest hides skin and fades lungs around the selected heart. |
 | Labels | Selection label is on by default. Enable Local part labels; Maximum labels controls density from 1 to 12. |
 | Cut-away view | In the details panel, turn on Cut-away view and drag its depth slider: anatomy nearer than a plane facing you, from 15 cm in front of the focus point to 15 cm beyond it, is not drawn. Clicks and labels reach what the cut exposes. |
+| Prepared cut-aways | Under Show chest, Prepared cut-aways opens the heart chambers from the front, the brain at the midline from the left or in a side-to-side section from the front, the left eye from the side, or the right kidney from behind. It selects the structure, turns the camera and sets the cut. Back returns the previous view; turn off Cut-away view to remove the cut. |
 | Previous/next view | Back/Forward or Alt + Left/Right outside text entry. |
 | Move anatomy | Enable Move selected, then primary-drag in the viewer's camera plane. Shift-drag still pans. |
 | Restore | Restore selected or Restore all recovers original transforms and visibility. |
@@ -320,6 +321,15 @@ cut-surface tissue or interior anatomy are created, so hollow organs show their
 inner walls and solid parts show their far inside surface. A depth nearer than the
 camera leaves the view uncut. The expanded view's Explore menu does not offer it;
 return to the workspace to change it.
+
+**Prepared cut-aways.** Each prepared cut is a structure, one of the six
+body-direction camera views and a cut depth (`scripts/prepared_cuts.gd`). Opening one
+ends any inspection, selects the structure, turns the camera and sets the cut-away
+view; the selection and camera change go into Back/Forward history, and anatomy
+visibility and positions are not changed. A reference lacking the structure or
+checked body directions shows the item disabled. They are the same uncapped cut at
+a chosen place, not validated sections: what shows is the supplied surfaces the cut
+exposes, and their descriptions are draft text pending review.
 
 ## Find structures and source records
 
@@ -507,8 +517,8 @@ text is selected, preserving the current anatomy view.
 - The HRA bodies have no skull, limb bones above the femur, or full muscle and peripheral-nerve
   sets; the complete male body supplies those for one separate, unaligned person.
 - Source labels, grouping and ontology fields remain draft import metadata.
-- Heart parts exist, but prepared cutaways, caps, reviewed interiors and tissue
-  explanations are not implemented. The cut-away view is an uncapped,
+- Heart parts exist, but caps, validated sections, reviewed interiors and tissue
+  explanations are not implemented. The cut-away view, prepared cuts included, is an uncapped,
   camera-facing near-plane cut, not a prepared section.
 - Draft condition summaries for 126 conditions and an unreviewed conceptual
   heart–lung route are available. Pathological geometry, disease comparisons, injury simulation and
