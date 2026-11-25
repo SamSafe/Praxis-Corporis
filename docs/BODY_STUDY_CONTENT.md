@@ -527,7 +527,7 @@ Added 2026-11-25 as `body-study-14-draft`, with the third tracing round
   samples, so they have no cards. (An earlier version of this note also listed
   the brain; the samples do include it, and revision 2 adds brain cards.)
 - **Review packet.** The [content-review packet](CONTENT_REVIEW_PACKET.md) now
-  covers build `42c19f6` (revision `body-study-13-draft`, all 216 cards and 126
+  covers build `978ee84` (revision `body-study-14-draft`, all 222 cards and 126
   conditions, with each card's parts listed for the female, male and complete
   bodies). Regenerate it with `tools/build_review_packet.py` after any later
   content change.
