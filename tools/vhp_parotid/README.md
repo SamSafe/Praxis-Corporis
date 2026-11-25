@@ -39,10 +39,13 @@ byte, restore their committed GLBs from `assets/vhp-ct/` into the parts folder b
 | Fit (one region) | `fit.py` | similarity transform JSON |
 | Second round: other free tasks (`head_muscles`, `craniofacial_structures`, `headneck_muscles`, `headneck_bones_vessels`, `abdominal_muscles`, `trunk_cavities`) | `TotalSegmentator -ta TASK` | masks under `seg-<body>/extra`, merged to `abd` and `cav` |
 | Head-and-neck volume for `headneck_muscles` (it runs at 0.75 mm and crops to the clavicles and C1-T4) | `build_volume.py ct-<body> <body>-headneck.nii.gz 400 -180 180 A0 A1 0.75` (A0 A1 as for the head volume), then `TotalSegmentator -ta headneck_muscles` | `seg-<body>/extra/headneck-headneck_muscles` |
+| Neck vessels (third round) | `TotalSegmentator --roi_subset` (carotid, subclavian, brachiocephalic vessels) on the 0-330 and 230-630 sections, merged with `merge.py` into `seg-<body>/vessels`; `-ta headneck_bones_vessels` on the head-and-neck volume | vessel masks |
 | Diaphragm (second round) | `diaphragm.py CAVITY_DIR` | `diaphragm.nii.gz` between the two cavities |
 | Body skin (second round) | `landmarks.py BODY.glb SKIN.npz skin=<X>_skin` | skin vertices |
 | Fit all regions, mesh and label | `build_body_parts.py BODY WORK OUT [SKIP]` | one GLB per group; shoulder groups wait for the next step |
 | Per-side shoulder fits (second round) | `shoulder_fit.py SECTIONS MERGED THORAX_FIT SKIN.npz PREFIX`, then `build_body_parts.py` again | fit JSON per side and bone group |
+| Join one structure traced on two volumes (third round: the trapezius) | `union.py OUT MASK MASK...` | one mask on the first mask's voxel size |
+| Refit superficial parts by the skin around them (third round) | `skin_fit.py VOLUMES BASE_FIT SKIN.npz OUT.json MASKS [NEAR_MM] [--scale]`; list the fits in `<body>-refits.json` (`{"mask": {"fit": FIT.json, "mask": MASK.nii.gz}}`) before `build_body_parts.py` | fit JSON per pair or side |
 | Mesh (called by the above) | `mesh.py` | labelled GLB |
 | Check against skin and organs | `check.py` | outside-skin and overlap shares |
 | Check renders | `render.py` | PNG |

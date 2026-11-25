@@ -10,268 +10,600 @@
     {
       "id": "integumentary",
       "label": "Skin / exterior",
-      "roots": {"female": "anatomy.system.integumentary", "male": "anatomy.system.integumentary"},
-      "supplied": {"female": "Exterior skin surface.", "male": "Exterior skin surface."},
+      "roots": {
+        "female": "anatomy.system.integumentary",
+        "male": "anatomy.system.integumentary"
+      },
+      "supplied": {
+        "female": "Exterior skin surface.",
+        "male": "Exterior skin surface."
+      },
       "gaps": "A skin surface does not establish complete skin layers, microscopic tissue or local disease geometry."
     },
     {
       "id": "skeletal",
       "label": "Skeleton",
-      "roots": {"female": "anatomy.system.skeletal", "male": "anatomy.system.skeletal"},
-      "supplied": {"female": "Pelvis and lower-limb source groups.", "male": "Pelvis, lower-limb source groups and a hyoid mesh."},
+      "roots": {
+        "female": "anatomy.system.skeletal",
+        "male": "anatomy.system.skeletal"
+      },
+      "supplied": {
+        "female": "Pelvis and lower-limb source groups.",
+        "male": "Pelvis, lower-limb source groups and a hyoid mesh."
+      },
       "gaps": "No skull, shoulder girdle or upper-limb skeleton in these samples; the spine (HRA v1.2) and the ribs and sternum (Visible Human CT) are listed separately. Regional completeness and small structures need review."
     },
     {
       "id": "muscular",
       "label": "Muscles",
-      "roots": {"female": "anatomy.system.muscular", "male": "anatomy.system.muscular"},
-      "supplied": {"female": "Eye and knee muscle groups.", "male": "Eye, knee and laryngeal muscle groups."},
+      "roots": {
+        "female": "anatomy.system.muscular",
+        "male": "anatomy.system.muscular"
+      },
+      "supplied": {
+        "female": "Eye and knee muscle groups.",
+        "male": "Eye, knee and laryngeal muscle groups."
+      },
       "gaps": "No comprehensive superficial/deep whole-body muscle collection; the gluteal, iliopsoas and deep back muscles traced from the Visible Human CT are listed separately."
     },
     {
       "id": "nervous",
       "label": "Nervous anatomy",
-      "roots": {"female": "anatomy.system.nervous", "male": "anatomy.system.nervous"},
-      "supplied": {"female": "Brain and eye-related source geometry, including an Allen brain contribution.", "male": "Brain and eye-related source geometry, including an Allen brain contribution."},
+      "roots": {
+        "female": "anatomy.system.nervous",
+        "male": "anatomy.system.nervous"
+      },
+      "supplied": {
+        "female": "Brain and eye-related source geometry, including an Allen brain contribution.",
+        "male": "Brain and eye-related source geometry, including an Allen brain contribution."
+      },
       "gaps": "These groups do not establish a whole-body peripheral nerve collection or a reviewed pathway graph."
     },
     {
       "id": "circulatory",
       "label": "Heart / circulation",
-      "roots": {"female": "anatomy.system.circulatory", "male": "anatomy.system.circulatory"},
-      "supplied": {"female": "Heart component groups and blood-vessel source meshes.", "male": "Heart component groups and blood-vessel source meshes."},
+      "roots": {
+        "female": "anatomy.system.circulatory",
+        "male": "anatomy.system.circulatory"
+      },
+      "supplied": {
+        "female": "Heart component groups and blood-vessel source meshes.",
+        "male": "Heart component groups and blood-vessel source meshes."
+      },
       "gaps": "Both hearts have 14 supplied component meshes. Cavity surfaces, completeness, clinical cutaways and source labels need review. Vessel proximity does not establish flow direction or connectivity."
     },
     {
       "id": "respiratory",
       "label": "Lungs / respiratory anatomy",
-      "roots": {"female": "anatomy.system.respiratory", "male": "anatomy.system.respiratory"},
-      "supplied": {"female": "Left/right lung groups, regional meshes and tracheobronchial geometry.", "male": "Left/right lung groups, regional meshes and tracheobronchial geometry."},
+      "roots": {
+        "female": "anatomy.system.respiratory",
+        "male": "anatomy.system.respiratory"
+      },
+      "supplied": {
+        "female": "Left/right lung groups, regional meshes and tracheobronchial geometry.",
+        "male": "Left/right lung groups, regional meshes and tracheobronchial geometry."
+      },
       "gaps": "Regional source meshes are not a complete or reviewed respiratory atlas. The separate Heart ↔ lungs study route remains an unreviewed conceptual guide. Pathological geometry is unavailable."
     },
     {
       "id": "digestive",
       "label": "Digestive anatomy",
-      "roots": {"female": "anatomy.system.digestive", "male": "anatomy.system.digestive"},
-      "supplied": {"female": "Colon, small intestine, biliary-tree, liver, pancreas and gallbladder groups.", "male": "Colon, small intestine, biliary-tree, liver, pancreas and gallbladder groups."},
+      "roots": {
+        "female": "anatomy.system.digestive",
+        "male": "anatomy.system.digestive"
+      },
+      "supplied": {
+        "female": "Colon, small intestine, biliary-tree, liver, pancreas and gallbladder groups.",
+        "male": "Colon, small intestine, biliary-tree, liver, pancreas and gallbladder groups."
+      },
       "gaps": "Supplied organs do not establish all digestive structures, wall layers, interior surfaces or passage/connection pathways."
     },
     {
       "id": "urinary",
       "label": "Urinary anatomy",
-      "roots": {"female": "anatomy.system.urinary", "male": "anatomy.system.urinary"},
-      "supplied": {"female": "Kidney, ureter and urinary-bladder groups.", "male": "Kidney, ureter, urinary-bladder and urethra groups."},
+      "roots": {
+        "female": "anatomy.system.urinary",
+        "male": "anatomy.system.urinary"
+      },
+      "supplied": {
+        "female": "Kidney, ureter and urinary-bladder groups.",
+        "male": "Kidney, ureter, urinary-bladder and urethra groups."
+      },
       "gaps": "Substructure completeness, interiors, correspondence and connection pathways remain unreviewed."
     },
     {
       "id": "reproductive",
       "label": "Reproductive anatomy",
-      "roots": {"female": "source.hra-v1-1.female.n371", "male": "source.hra-v1-1.male.n377"},
-      "supplied": {"female": "Vagina, fallopian-tube, ligament, ovary and uterus source groups.", "male": "Male genital-duct and prostate source groups."},
+      "roots": {
+        "female": "source.hra-v1-1.female.n371",
+        "male": "source.hra-v1-1.male.n377"
+      },
+      "supplied": {
+        "female": "Vagina, fallopian-tube, ligament, ovary and uterus source groups.",
+        "male": "Male genital-duct and prostate source groups."
+      },
       "gaps": "The reference collections differ substantially. Their source groups are not evidence of complete reproductive anatomy or equivalent detail across bodies."
     },
     {
       "id": "lymphatic",
       "label": "Lymphatic anatomy",
-      "roots": {"female": "anatomy.system.lymphatic", "male": "anatomy.system.lymphatic"},
-      "supplied": {"female": "Spleen, thymus and a Yao lymph-node contribution.", "male": "Spleen, thymus and a Yao lymph-node contribution."},
+      "roots": {
+        "female": "anatomy.system.lymphatic",
+        "male": "anatomy.system.lymphatic"
+      },
+      "supplied": {
+        "female": "Spleen, thymus and a Yao lymph-node contribution.",
+        "male": "Spleen, thymus and a Yao lymph-node contribution."
+      },
       "gaps": "A complete lymphatic vessel/node collection and reviewed routes are not established."
     },
     {
       "id": "mammary",
       "label": "Breasts (HRA v1.3)",
-      "roots": {"female": "source.hra-v1-1.female.n1103", "male": ""},
-      "supplied": {"female": "Left and right mammary glands with lobes, fat, nipple, areola and areolar tubercles, appended from the HRA v1.3 release.", "male": "Not supplied: the HRA library has no male mammary model."},
+      "roots": {
+        "female": "source.hra-v1-1.female.n1103",
+        "male": ""
+      },
+      "supplied": {
+        "female": "Left and right mammary glands with lobes, fat, nipple, areola and areolar tubercles, appended from the HRA v1.3 release.",
+        "male": "Not supplied: the HRA library has no male mammary model."
+      },
       "gaps": "Reference shapes only; no breast tissue states, lymphatics or disease geometry."
     },
     {
       "id": "tonsils",
       "label": "Palatine tonsils (HRA v1.4)",
-      "roots": {"female": "source.hra-v1-1.female.n1106", "male": "source.hra-v1-1.male.n1078"},
-      "supplied": {"female": "Left and right palatine tonsils, appended from the HRA v1.4 release.", "male": "Left and right palatine tonsils, appended from the HRA v1.4 release."},
+      "roots": {
+        "female": "source.hra-v1-1.female.n1106",
+        "male": "source.hra-v1-1.male.n1078"
+      },
+      "supplied": {
+        "female": "Left and right palatine tonsils, appended from the HRA v1.4 release.",
+        "male": "Left and right palatine tonsils, appended from the HRA v1.4 release."
+      },
       "gaps": "The pharyngeal tonsils (adenoids) and lingual tonsils are not supplied."
     },
     {
       "id": "spinal-cord",
       "label": "Spinal cord (HRA v1.2)",
-      "roots": {"female": "source.hra-v1-1.female.n1107", "male": "source.hra-v1-1.male.n1079"},
-      "supplied": {"female": "Spinal cord segments, appended from the HRA v1.2 release.", "male": "Spinal cord segments, appended from the HRA v1.2 release."},
+      "roots": {
+        "female": "source.hra-v1-1.female.n1107",
+        "male": "source.hra-v1-1.male.n1079"
+      },
+      "supplied": {
+        "female": "Spinal cord segments, appended from the HRA v1.2 release.",
+        "male": "Spinal cord segments, appended from the HRA v1.2 release."
+      },
       "gaps": "No spinal nerves, meninges or internal cord structure."
     },
     {
       "id": "vertebrae",
       "label": "Vertebrae (HRA v1.2)",
-      "roots": {"female": "source.hra-v1-1.female.n1137", "male": "source.hra-v1-1.male.n1110"},
-      "supplied": {"female": "Vertebrae, appended from the HRA v1.2 release.", "male": "Vertebrae, appended from the HRA v1.2 release."},
+      "roots": {
+        "female": "source.hra-v1-1.female.n1137",
+        "male": "source.hra-v1-1.male.n1110"
+      },
+      "supplied": {
+        "female": "Vertebrae, appended from the HRA v1.2 release.",
+        "male": "Vertebrae, appended from the HRA v1.2 release."
+      },
       "gaps": "No intervertebral disks, spinal ligaments or back muscles in the HRA bodies; the complete male body supplies those."
     },
     {
       "id": "parotid",
       "label": "Parotid glands (Visible Human CT)",
-      "roots": {"female": "source.hra-v1-1.female.n1165", "male": "source.hra-v1-1.male.n1137"},
-      "supplied": {"female": "Left and right parotid glands, traced from the Visible Human female CT and fitted to this body's eyes and neck vertebrae.", "male": "Left and right parotid glands, traced from the Visible Human male CT and fitted to this body's eyes and neck vertebrae."},
+      "roots": {
+        "female": "source.hra-v1-1.female.n1165",
+        "male": "source.hra-v1-1.male.n1137"
+      },
+      "supplied": {
+        "female": "Left and right parotid glands, traced from the Visible Human female CT and fitted to this body's eyes and neck vertebrae.",
+        "male": "Left and right parotid glands, traced from the Visible Human male CT and fitted to this body's eyes and neck vertebrae."
+      },
       "gaps": "Approximate: traced automatically from 1 mm CT, without the parotid duct, facial nerve or internal lobes."
     },
     {
       "id": "ct-stomach",
       "label": "Stomach (Visible Human CT)",
-      "roots": {"female": "source.hra-v1-1.female.n1166", "male": "source.hra-v1-1.male.n1138"},
-      "supplied": {"female": "The stomach, traced from the Visible Human female CT and fitted to this body's liver, spleen, kidneys and pancreas.", "male": "The stomach, traced from the Visible Human male CT and fitted to this body's liver, spleen, kidneys and pancreas."},
+      "roots": {
+        "female": "source.hra-v1-1.female.n1166",
+        "male": "source.hra-v1-1.male.n1138"
+      },
+      "supplied": {
+        "female": "The stomach, traced from the Visible Human female CT and fitted to this body's liver, spleen, kidneys and pancreas.",
+        "male": "The stomach, traced from the Visible Human male CT and fitted to this body's liver, spleen, kidneys and pancreas."
+      },
       "gaps": "Approximate outer surface only; no wall layers, folds or the gastro-oesophageal junction detail."
     },
     {
       "id": "ct-esophagus",
       "label": "Oesophagus (Visible Human CT)",
-      "roots": {"female": "source.hra-v1-1.female.n1167", "male": "source.hra-v1-1.male.n1139"},
-      "supplied": {"female": "The oesophagus from the neck to the stomach, traced from the Visible Human female CT and fitted to this body's spine, lungs, heart and windpipe.", "male": "The oesophagus from the neck to the stomach, traced from the Visible Human male CT and fitted to this body's spine, lungs, heart and windpipe."},
+      "roots": {
+        "female": "source.hra-v1-1.female.n1167",
+        "male": "source.hra-v1-1.male.n1139"
+      },
+      "supplied": {
+        "female": "The oesophagus from the neck to the stomach, traced from the Visible Human female CT and fitted to this body's spine, lungs, heart and windpipe.",
+        "male": "The oesophagus from the neck to the stomach, traced from the Visible Human male CT and fitted to this body's spine, lungs, heart and windpipe."
+      },
       "gaps": "Approximate outer surface only; no wall layers or sphincters."
     },
     {
       "id": "ct-thyroid",
       "label": "Thyroid gland (Visible Human CT)",
-      "roots": {"female": "source.hra-v1-1.female.n1168", "male": "source.hra-v1-1.male.n1140"},
-      "supplied": {"female": "The thyroid gland, traced from the Visible Human female CT and fitted to this body's neck and chest.", "male": "The thyroid gland, traced from the Visible Human male CT and fitted to this body's neck and chest."},
+      "roots": {
+        "female": "source.hra-v1-1.female.n1168",
+        "male": "source.hra-v1-1.male.n1140"
+      },
+      "supplied": {
+        "female": "The thyroid gland, traced from the Visible Human female CT and fitted to this body's neck and chest.",
+        "male": "The thyroid gland, traced from the Visible Human male CT and fitted to this body's neck and chest."
+      },
       "gaps": "Approximate; no parathyroid glands, lobes are not separated."
     },
     {
       "id": "ct-adrenal",
       "label": "Adrenal glands (Visible Human CT)",
-      "roots": {"female": "source.hra-v1-1.female.n1171", "male": "source.hra-v1-1.male.n1143"},
-      "supplied": {"female": "Left and right adrenal glands, traced from the Visible Human female CT and fitted to this body's abdominal organs.", "male": "Left and right adrenal glands, traced from the Visible Human male CT and fitted to this body's abdominal organs."},
+      "roots": {
+        "female": "source.hra-v1-1.female.n1171",
+        "male": "source.hra-v1-1.male.n1143"
+      },
+      "supplied": {
+        "female": "Left and right adrenal glands, traced from the Visible Human female CT and fitted to this body's abdominal organs.",
+        "male": "Left and right adrenal glands, traced from the Visible Human male CT and fitted to this body's abdominal organs."
+      },
       "gaps": "Approximate; small glands traced from CT, with no cortex or medulla."
     },
     {
       "id": "ct-ribs",
       "label": "Ribs and costal cartilages (Visible Human CT)",
-      "roots": {"female": "source.hra-v1-1.female.n1197", "male": "source.hra-v1-1.male.n1169"},
-      "supplied": {"female": "All 24 ribs and the costal cartilages, traced from the Visible Human female CT and fitted to this body's spine, lungs, heart and windpipe.", "male": "All 24 ribs and the costal cartilages, traced from the Visible Human male CT and fitted to this body's spine, lungs, heart and windpipe."},
+      "roots": {
+        "female": "source.hra-v1-1.female.n1197",
+        "male": "source.hra-v1-1.male.n1169"
+      },
+      "supplied": {
+        "female": "All 24 ribs and the costal cartilages, traced from the Visible Human female CT and fitted to this body's spine, lungs, heart and windpipe.",
+        "male": "All 24 ribs and the costal cartilages, traced from the Visible Human male CT and fitted to this body's spine, lungs, heart and windpipe."
+      },
       "gaps": "Approximate; the body's lungs, from frozen sections, bulge slightly between the upper ribs."
     },
     {
       "id": "ct-sternum",
       "label": "Sternum (Visible Human CT)",
-      "roots": {"female": "source.hra-v1-1.female.n1198", "male": "source.hra-v1-1.male.n1170"},
-      "supplied": {"female": "The sternum, traced from the Visible Human female CT.", "male": "The sternum, traced from the Visible Human male CT."},
+      "roots": {
+        "female": "source.hra-v1-1.female.n1198",
+        "male": "source.hra-v1-1.male.n1170"
+      },
+      "supplied": {
+        "female": "The sternum, traced from the Visible Human female CT.",
+        "male": "The sternum, traced from the Visible Human male CT."
+      },
       "gaps": "Approximate; its three parts are not separated."
     },
     {
       "id": "ct-gluteal",
       "label": "Gluteal muscles (Visible Human CT)",
-      "roots": {"female": "source.hra-v1-1.female.n1205", "male": "source.hra-v1-1.male.n1175"},
-      "supplied": {"female": "Gluteus maximus, medius and minimus on both sides, traced from the Visible Human female CT and fitted to this body's hip bones, sacrum and lumbar spine.", "male": "Gluteus medius and minimus on both sides, traced from the Visible Human male CT. Gluteus maximus is left out: the male scan's first pass ends before the muscle does."},
+      "roots": {
+        "female": "source.hra-v1-1.female.n1205",
+        "male": "source.hra-v1-1.male.n1175"
+      },
+      "supplied": {
+        "female": "Gluteus maximus, medius and minimus on both sides, traced from the Visible Human female CT and fitted to this body's hip bones, sacrum and lumbar spine.",
+        "male": "Gluteus medius and minimus on both sides, traced from the Visible Human male CT. Gluteus maximus is left out: the male scan's first pass ends before the muscle does."
+      },
       "gaps": "Approximate outer surfaces; no tendons or attachments."
     },
     {
       "id": "ct-iliopsoas",
       "label": "Iliopsoas muscles (Visible Human CT)",
-      "roots": {"female": "source.hra-v1-1.female.n1208", "male": "source.hra-v1-1.male.n1178"},
-      "supplied": {"female": "Left and right iliopsoas, traced from the Visible Human female CT and fitted to this body's hip bones, sacrum and lumbar spine.", "male": "Left and right iliopsoas, traced from the Visible Human male CT and fitted to this body's hip bones, sacrum and lumbar spine."},
+      "roots": {
+        "female": "source.hra-v1-1.female.n1208",
+        "male": "source.hra-v1-1.male.n1178"
+      },
+      "supplied": {
+        "female": "Left and right iliopsoas, traced from the Visible Human female CT and fitted to this body's hip bones, sacrum and lumbar spine.",
+        "male": "Left and right iliopsoas, traced from the Visible Human male CT and fitted to this body's hip bones, sacrum and lumbar spine."
+      },
       "gaps": "Approximate; psoas and iliacus are not separated."
     },
     {
       "id": "ct-back",
       "label": "Deep back muscles (Visible Human CT)",
-      "roots": {"female": "source.hra-v1-1.female.n1211", "male": "source.hra-v1-1.male.n1181"},
-      "supplied": {"female": "The deep muscles along each side of the spine (erector spinae and transversospinalis groups), traced from the Visible Human female CT and fitted to this body's vertebrae.", "male": "The deep muscles along each side of the spine (erector spinae and transversospinalis groups), traced from the Visible Human male CT and fitted to this body's vertebrae."},
+      "roots": {
+        "female": "source.hra-v1-1.female.n1211",
+        "male": "source.hra-v1-1.male.n1181"
+      },
+      "supplied": {
+        "female": "The deep muscles along each side of the spine (erector spinae and transversospinalis groups), traced from the Visible Human female CT and fitted to this body's vertebrae.",
+        "male": "The deep muscles along each side of the spine (erector spinae and transversospinalis groups), traced from the Visible Human male CT and fitted to this body's vertebrae."
+      },
       "gaps": "Approximate; the individual muscles of the group are not separated."
     },
     {
       "id": "ct-submandibular",
       "label": "Submandibular glands (Visible Human CT)",
-      "roots": {"female": "source.hra-v1-1.female.n1214", "male": ""},
-      "supplied": {"female": "Left and right submandibular glands, traced from the Visible Human female head CT and fitted to this body's eyes and neck vertebrae.", "male": "Not supplied: the traced male glands fell 26-43% outside this body's skin and were left out."},
+      "roots": {
+        "female": "source.hra-v1-1.female.n1214",
+        "male": ""
+      },
+      "supplied": {
+        "female": "Left and right submandibular glands, traced from the Visible Human female head CT and fitted to this body's eyes and neck vertebrae.",
+        "male": "Not supplied: the traced male glands fell 26-43% outside this body's skin, and fitting them by the surrounding skin moves them into the mandible."
+      },
       "gaps": "Approximate outer surface; no submandibular duct or sublingual glands."
     },
     {
       "id": "ct-tongue",
       "label": "Tongue (Visible Human CT)",
-      "roots": {"female": "source.hra-v1-1.female.n1215", "male": "source.hra-v1-1.male.n1182"},
-      "supplied": {"female": "The tongue, traced from the Visible Human female head CT and fitted to this body's eyes and neck vertebrae.", "male": "The tongue, traced from the Visible Human male head CT and fitted to this body's eyes and neck vertebrae."},
+      "roots": {
+        "female": "source.hra-v1-1.female.n1215",
+        "male": "source.hra-v1-1.male.n1182"
+      },
+      "supplied": {
+        "female": "The tongue, traced from the Visible Human female head CT and fitted to this body's eyes and neck vertebrae.",
+        "male": "The tongue, traced from the Visible Human male head CT and fitted to this body's eyes and neck vertebrae."
+      },
       "gaps": "Approximate outer surface; intrinsic and extrinsic muscles are not separated."
     },
     {
       "id": "ct-mastication",
       "label": "Muscles of mastication (Visible Human CT)",
-      "roots": {"female": "source.hra-v1-1.female.n1222", "male": "source.hra-v1-1.male.n1191"},
-      "supplied": {"female": "Masseter and medial and lateral pterygoid muscles on both sides, traced from the Visible Human female head CT and fitted to this body's eyes and neck vertebrae. Temporalis is left out: up to 22% fell outside this body's skin.", "male": "Masseter, temporalis and medial and lateral pterygoid muscles on both sides, traced from the Visible Human male head CT and fitted to this body's eyes and neck vertebrae."},
+      "roots": {
+        "female": "source.hra-v1-1.female.n1224",
+        "male": "source.hra-v1-1.male.n1191"
+      },
+      "supplied": {
+        "female": "Masseter, temporalis and medial and lateral pterygoid muscles on both sides, traced from the Visible Human female head CT and fitted to this body's eyes and neck vertebrae. Each temporalis is placed by a fit of the scan's skin around it to this body's skin.",
+        "male": "Masseter, temporalis and medial and lateral pterygoid muscles on both sides, traced from the Visible Human male head CT and fitted to this body's eyes and neck vertebrae."
+      },
       "gaps": "Approximate outer surfaces; no tendons or attachments to the skull, which these bodies lack."
     },
     {
       "id": "ct-mandible",
       "label": "Mandible (Visible Human CT)",
-      "roots": {"female": "source.hra-v1-1.female.n1223", "male": "source.hra-v1-1.male.n1192"},
-      "supplied": {"female": "The mandible, traced from the Visible Human female head CT and fitted to this body's eyes and neck vertebrae.", "male": "The mandible, traced from the Visible Human male head CT and fitted to this body's eyes and neck vertebrae."},
-      "gaps": "Approximate; no teeth, and the rest of the skull is not supplied."
+      "roots": {
+        "female": "source.hra-v1-1.female.n1225",
+        "male": "source.hra-v1-1.male.n1192"
+      },
+      "supplied": {
+        "female": "The mandible, traced from the Visible Human female head CT and fitted to this body's eyes and neck vertebrae.",
+        "male": "The mandible, traced from the Visible Human male head CT and fitted to this body's eyes and neck vertebrae."
+      },
+      "gaps": "Approximate; the teeth are listed separately, and the rest of the skull is not supplied."
     },
     {
       "id": "ct-neck-muscles",
       "label": "Neck muscles (Visible Human CT)",
-      "roots": {"female": "source.hra-v1-1.female.n1230", "male": "source.hra-v1-1.male.n1199"},
-      "supplied": {"female": "Anterior, middle and posterior scalene muscles on both sides, traced from the Visible Human female CT. Sternocleidomastoid is left out: it fell partly outside this body's skin.", "male": "Anterior, middle and posterior scalene muscles on both sides, traced from the Visible Human male CT. Sternocleidomastoid is left out: it fell partly outside this body's skin."},
-      "gaps": "Approximate; the thin posterior scalenes are small fragments (about 1 cm3). Other neck muscles are not supplied."
+      "roots": {
+        "female": "source.hra-v1-1.female.n1232",
+        "male": "source.hra-v1-1.male.n1201"
+      },
+      "supplied": {
+        "female": "Anterior, middle and posterior scalene muscles on both sides, traced from the Visible Human female CT. Sternocleidomastoid is left out: fitted by the skin around each side, the two muscles cross at the sternum, and one fit for both leaves the right side 36% outside this body's skin.",
+        "male": "Anterior, middle and posterior scalene muscles and the sternocleidomastoid on both sides, traced from the Visible Human male CT. Each sternocleidomastoid is placed by a fit of the scan's skin around it to this body's skin."
+      },
+      "gaps": "Approximate; the thin posterior scalenes are small fragments (about 1 cm3). The levator scapulae, infrahyoid and prevertebral muscles are listed separately."
     },
     {
       "id": "ct-pharyngeal-constrictors",
       "label": "Pharyngeal constrictor muscles (Visible Human CT)",
-      "roots": {"female": "source.hra-v1-1.female.n1232", "male": "source.hra-v1-1.male.n1203"},
-      "supplied": {"female": "The inferior pharyngeal constrictor, traced from the Visible Human female CT. The superior and middle constrictors traced only as fragments and are left out.", "male": "The superior, middle and inferior pharyngeal constrictors, traced from the Visible Human male CT."},
+      "roots": {
+        "female": "source.hra-v1-1.female.n1234",
+        "male": "source.hra-v1-1.male.n1205"
+      },
+      "supplied": {
+        "female": "The inferior pharyngeal constrictor, traced from the Visible Human female CT. The superior and middle constrictors traced only as fragments and are left out.",
+        "male": "The superior, middle and inferior pharyngeal constrictors, traced from the Visible Human male CT."
+      },
       "gaps": "Approximate; the pharynx itself and its other muscles are not supplied."
     },
     {
       "id": "ct-hyoid",
       "label": "Hyoid bone (Visible Human CT)",
-      "roots": {"female": "source.hra-v1-1.female.n1233", "male": ""},
-      "supplied": {"female": "The hyoid bone, traced from the Visible Human female CT and fitted to this body's eyes and neck vertebrae.", "male": "Not supplied from CT: this body has its own hyoid bone."},
+      "roots": {
+        "female": "source.hra-v1-1.female.n1235",
+        "male": ""
+      },
+      "supplied": {
+        "female": "The hyoid bone, traced from the Visible Human female CT and fitted to this body's eyes and neck vertebrae.",
+        "male": "Not supplied from CT: this body has its own hyoid bone."
+      },
       "gaps": "Approximate; the greater and lesser horns are not separated."
     },
     {
       "id": "ct-chest-back-muscles",
       "label": "Chest and back muscles (Visible Human CT)",
-      "roots": {"female": "source.hra-v1-1.female.n1238", "male": "source.hra-v1-1.male.n1210"},
-      "supplied": {"female": "Serratus anterior and latissimus dorsi on both sides, traced from the Visible Human female CT and fitted to this body's spine, lungs, heart and windpipe. Pectoralis major (up to 24% outside the skin) and trapezius (traced only in fragments) are left out.", "male": "Pectoralis major, serratus anterior and latissimus dorsi on both sides, traced from the Visible Human male CT and fitted to this body's spine, lungs, heart and windpipe. Trapezius is left out: it traced only beside the spine."},
+      "roots": {
+        "female": "source.hra-v1-1.female.n1244",
+        "male": "source.hra-v1-1.male.n1214"
+      },
+      "supplied": {
+        "female": "Pectoralis major, serratus anterior, latissimus dorsi and trapezius on both sides, traced from the Visible Human female CT and fitted to this body's spine, lungs, heart and windpipe. Pectoralis major and trapezius are placed by one fit of the scan's skin around each pair to this body's skin; the trapezius joins its upper part, traced on the head-and-neck scan, and its lower part, traced on the trunk.",
+        "male": "Pectoralis major, serratus anterior, latissimus dorsi and trapezius on both sides, traced from the Visible Human male CT and fitted to this body's spine, lungs, heart and windpipe. The trapezius joins its upper part, traced on the head-and-neck scan, and its lower part, traced on the trunk, and is placed by one fit of the scan's skin around both sides to this body's skin."
+      },
       "gaps": "Approximate outer surfaces; edges are ragged where the CT sections join, and no tendons or attachments are supplied."
     },
     {
       "id": "ct-abdominal-wall",
       "label": "Abdominal wall muscles (Visible Human CT)",
-      "roots": {"female": "source.hra-v1-1.female.n1245", "male": "source.hra-v1-1.male.n1217"},
-      "supplied": {"female": "Rectus abdominis and external and internal oblique muscles on both sides, traced from the Visible Human female CT and fitted to this body's abdominal organs and lower spine.", "male": "Rectus abdominis and external and internal oblique muscles on both sides, traced from the Visible Human male CT and fitted to this body's abdominal organs and lower spine."},
+      "roots": {
+        "female": "source.hra-v1-1.female.n1251",
+        "male": "source.hra-v1-1.male.n1221"
+      },
+      "supplied": {
+        "female": "Rectus abdominis and external and internal oblique muscles on both sides, traced from the Visible Human female CT and fitted to this body's abdominal organs and lower spine.",
+        "male": "Rectus abdominis and external and internal oblique muscles on both sides, traced from the Visible Human male CT and fitted to this body's abdominal organs and lower spine."
+      },
       "gaps": "Approximate; no transversus abdominis, rectus sheath or linea alba."
     },
     {
       "id": "ct-quadratus-lumborum",
       "label": "Quadratus lumborum muscles (Visible Human CT)",
-      "roots": {"female": "source.hra-v1-1.female.n1248", "male": "source.hra-v1-1.male.n1220"},
-      "supplied": {"female": "Left and right quadratus lumborum, traced from the Visible Human female CT and fitted to this body's vertebrae.", "male": "Left and right quadratus lumborum, traced from the Visible Human male CT and fitted to this body's vertebrae."},
+      "roots": {
+        "female": "source.hra-v1-1.female.n1254",
+        "male": "source.hra-v1-1.male.n1224"
+      },
+      "supplied": {
+        "female": "Left and right quadratus lumborum, traced from the Visible Human female CT and fitted to this body's vertebrae.",
+        "male": "Left and right quadratus lumborum, traced from the Visible Human male CT and fitted to this body's vertebrae."
+      },
       "gaps": "Approximate outer surfaces; no attachments."
     },
     {
       "id": "ct-diaphragm",
       "label": "Diaphragm (Visible Human CT)",
-      "roots": {"female": "source.hra-v1-1.female.n1249", "male": "source.hra-v1-1.male.n1221"},
-      "supplied": {"female": "The diaphragm, taken from the Visible Human female CT as the sheet where the traced chest and abdominal cavities meet, and fitted to this body's abdominal organs.", "male": "The diaphragm, taken from the Visible Human male CT as the sheet where the traced chest and abdominal cavities meet, and fitted to this body's abdominal organs."},
+      "roots": {
+        "female": "source.hra-v1-1.female.n1255",
+        "male": "source.hra-v1-1.male.n1225"
+      },
+      "supplied": {
+        "female": "The diaphragm, taken from the Visible Human female CT as the sheet where the traced chest and abdominal cavities meet, and fitted to this body's abdominal organs.",
+        "male": "The diaphragm, taken from the Visible Human male CT as the sheet where the traced chest and abdominal cavities meet, and fitted to this body's abdominal organs."
+      },
       "gaps": "Approximate: derived from the two cavities rather than traced directly, so its openings and crura are not shown. The body's lungs, from frozen sections, overlap it in places."
     },
     {
       "id": "ct-shoulder-girdle",
       "label": "Shoulder girdle (Visible Human CT)",
-      "roots": {"female": "source.hra-v1-1.female.n1254", "male": "source.hra-v1-1.male.n1226"},
-      "supplied": {"female": "Left and right scapulae and clavicles, traced from the Visible Human female CT and placed by a per-side fit of the scan's skin around each shoulder to this body's skin.", "male": "Left and right scapulae and clavicles, traced from the Visible Human male CT and placed by a per-side fit of the scan's skin around each shoulder to this body's skin."},
+      "roots": {
+        "female": "source.hra-v1-1.female.n1260",
+        "male": "source.hra-v1-1.male.n1230"
+      },
+      "supplied": {
+        "female": "Left and right scapulae and clavicles, traced from the Visible Human female CT and placed by a per-side fit of the scan's skin around each shoulder to this body's skin.",
+        "male": "Left and right scapulae and clavicles, traced from the Visible Human male CT and placed by a per-side fit of the scan's skin around each shoulder to this body's skin."
+      },
       "gaps": "Approximate: the shoulders are posed differently in the scan and the body, so placement follows the skin rather than the joints; the female clavicles overlap the body's lung apices."
     },
     {
       "id": "ct-humeri",
       "label": "Upper-arm bones (Visible Human CT)",
-      "roots": {"female": "source.hra-v1-1.female.n1257", "male": ""},
-      "supplied": {"female": "Left and right humeri, traced from the Visible Human female CT and placed by a per-side fit of the scan's skin around each shoulder to this body's skin.", "male": "Not supplied: the male scan's field of view cuts the humeri short."},
+      "roots": {
+        "female": "source.hra-v1-1.female.n1263",
+        "male": ""
+      },
+      "supplied": {
+        "female": "Left and right humeri, traced from the Visible Human female CT and placed by a per-side fit of the scan's skin around each shoulder to this body's skin.",
+        "male": "Not supplied: the male scan's field of view cuts the humeri short."
+      },
       "gaps": "Approximate; placed by the skin rather than the shoulder or elbow joints, and the rest of the arm is not supplied."
     },
     {
       "id": "unestablished",
       "label": "Other / unestablished coverage",
-      "roots": {"female": "", "male": ""},
-      "supplied": {"female": "No independent source grouping establishes additional system coverage in this catalogue.", "male": "No independent source grouping establishes additional system coverage in this catalogue."},
+      "roots": {
+        "female": "",
+        "male": ""
+      },
+      "supplied": {
+        "female": "No independent source grouping establishes additional system coverage in this catalogue.",
+        "male": "No independent source grouping establishes additional system coverage in this catalogue."
+      },
       "gaps": "Independent endocrine coverage, microscopic tissues, complete anatomical layers, disease geometry and reviewed connections remain unestablished. Organs may occur in other source groups; absence of a separate grouping is not proof that every relevant mesh is missing."
+    },
+    {
+      "id": "ct-levator-scapulae",
+      "label": "Levator scapulae (Visible Human CT)",
+      "roots": {
+        "female": "source.hra-v1-1.female.n1266",
+        "male": "source.hra-v1-1.male.n1233"
+      },
+      "supplied": {
+        "female": "Left and right levator scapulae, traced from the Visible Human female head-and-neck CT and fitted to this body's eyes and neck vertebrae.",
+        "male": "Left and right levator scapulae, traced from the Visible Human male head-and-neck CT and fitted to this body's eyes and neck vertebrae."
+      },
+      "gaps": "Approximate outer surfaces; no attachments."
+    },
+    {
+      "id": "ct-infrahyoid",
+      "label": "Infrahyoid muscles (Visible Human CT)",
+      "roots": {
+        "female": "source.hra-v1-1.female.n1271",
+        "male": "source.hra-v1-1.male.n1238"
+      },
+      "supplied": {
+        "female": "Sternothyroid and thyrohyoid on both sides, traced from the Visible Human female head-and-neck CT.",
+        "male": "Sternothyroid and thyrohyoid on both sides, traced from the Visible Human male head-and-neck CT."
+      },
+      "gaps": "Approximate; the sternohyoid and omohyoid are not supplied."
+    },
+    {
+      "id": "ct-prevertebral",
+      "label": "Prevertebral muscles (Visible Human CT)",
+      "roots": {
+        "female": "source.hra-v1-1.female.n1274",
+        "male": "source.hra-v1-1.male.n1241"
+      },
+      "supplied": {
+        "female": "The prevertebral muscles on each side (longus colli and longus capitis together), traced from the Visible Human female head-and-neck CT.",
+        "male": "The prevertebral muscles on each side (longus colli and longus capitis together), traced from the Visible Human male head-and-neck CT."
+      },
+      "gaps": "Approximate; the individual muscles are not separated."
+    },
+    {
+      "id": "ct-digastric",
+      "label": "Digastric muscles (Visible Human CT)",
+      "roots": {
+        "female": "source.hra-v1-1.female.n1277",
+        "male": ""
+      },
+      "supplied": {
+        "female": "Left and right digastric, traced from the Visible Human female head CT and fitted to this body's eyes and neck vertebrae.",
+        "male": "Not supplied: the traced male digastric fell 65-68% outside this body's skin, and fitting it by the surrounding skin moves it into the mandible."
+      },
+      "gaps": "Approximate; mostly the anterior belly, without the intermediate tendon."
+    },
+    {
+      "id": "ct-soft-palate",
+      "label": "Soft palate (Visible Human CT)",
+      "roots": {
+        "female": "source.hra-v1-1.female.n1278",
+        "male": "source.hra-v1-1.male.n1242"
+      },
+      "supplied": {
+        "female": "The soft palate, traced from the Visible Human female head CT and fitted to this body's eyes and neck vertebrae.",
+        "male": "The soft palate, traced from the Visible Human male head CT and fitted to this body's eyes and neck vertebrae."
+      },
+      "gaps": "Approximate outer surface; the uvula and the palate's muscles are not separated, and the hard palate is not supplied."
+    },
+    {
+      "id": "ct-teeth",
+      "label": "Teeth (Visible Human CT)",
+      "roots": {
+        "female": "source.hra-v1-1.female.n1280",
+        "male": "source.hra-v1-1.male.n1245"
+      },
+      "supplied": {
+        "female": "The lower teeth, traced together from the Visible Human female head CT. The upper teeth are not supplied: the scan's field of view cuts them off.",
+        "male": "The upper and lower teeth, traced as two sets from the Visible Human male head CT. They have no upper jaw around them, because the skull is not supplied."
+      },
+      "gaps": "Approximate: each set is one surface, without separate teeth, roots or pulp."
+    },
+    {
+      "id": "ct-jugular-veins",
+      "label": "Internal jugular veins (Visible Human CT)",
+      "roots": {
+        "female": "source.hra-v1-1.female.n1283",
+        "male": "source.hra-v1-1.male.n1248"
+      },
+      "supplied": {
+        "female": "Left and right internal jugular veins, traced from the Visible Human female head-and-neck CT and fitted to this body's eyes and neck vertebrae.",
+        "male": "Left and right internal jugular veins, traced from the Visible Human male head-and-neck CT; they reach this body's own brachiocephalic veins. The left vein traced thinner than the right."
+      },
+      "gaps": "Approximate; traced from CT without contrast, so the walls and tributaries are not shown. The female brachiocephalic veins traced only as short stubs and are not supplied."
+    },
+    {
+      "id": "ct-neck-arteries",
+      "label": "Right carotid and subclavian arteries (Visible Human CT)",
+      "roots": {
+        "female": "source.hra-v1-1.female.n1286",
+        "male": ""
+      },
+      "supplied": {
+        "female": "The right common carotid and right subclavian arteries, which this body's source lacks, traced from the Visible Human female CT and fitted to this body's spine, lungs, heart and windpipe. The left arteries are part of this body's own aortic-arch branches.",
+        "male": "Not supplied: on the male CT, which has no contrast, these arteries traced only as fragments (under 1 cm3)."
+      },
+      "gaps": "Approximate; the internal and external carotid arteries are not supplied."
     }
   ]
 }

@@ -84,9 +84,10 @@ class StudyContentTests(unittest.TestCase):
             # anatomy, the 12 its CT-traced stomach, oesophagus, thyroid and adrenal glands
             # support, the 3 its traced diaphragm, tongue and jaw support (hiatal hernia,
             # hiccups, oral cancer), plus those its own supplied anatomy supports (13 female
-            # with the traced shoulder and submandibular glands, 6 male); none is inferred
-            # from missing anatomy.
-            self.assertEqual(len(offered), 107 if body["id"] == "female" else 100)
+            # with the traced shoulder and submandibular glands, 6 male), tooth decay on both
+            # (traced teeth, revision 14) and carotid artery disease on the female (traced
+            # right common carotid); none is inferred from missing anatomy.
+            self.assertEqual(len(offered), 109 if body["id"] == "female" else 101)
             self.assertEqual("condition.bph" in offered, body["id"] == "male")
             self.assertEqual("condition.endometriosis" in offered, body["id"] == "female")
 
@@ -117,7 +118,7 @@ class StudyContentTests(unittest.TestCase):
         content = json.loads((ROOT / "content/study_content.json").read_text())
         catalogue = json.loads((ROOT / "content/sample_pack.json").read_text())
         self.assertEqual(content["expert_review"], "pending")
-        self.assertEqual(len(content["cards"]), 216)
+        self.assertEqual(len(content["cards"]), 222)
         mapped = {}
         for identity, card in content["cards"].items():
             self.assertEqual(card["review_status"], "draft")

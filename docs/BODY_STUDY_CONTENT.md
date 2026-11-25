@@ -9,8 +9,8 @@ the brain, eyes and knees, for 63 cards and 25 conditions.
 [Revisions 3 and 4](#revisions-3-and-4-vessels-organ-interiors-airways-skin-and-bone)
 bring the totals to 112 cards and 54 conditions. Later revisions, from
 [revision 5](#revision-5-dictionary-terms-brain-fluid-spaces-and-more-cancers)
-to [revision 13](#revision-13-neck-muscles-re-traced-at-075-mm),
-bring them to 216 cards and 126 conditions.
+to [revision 14](#revision-14-third-tracing-round-neck-muscles-teeth-and-neck-vessels),
+bring them to 222 cards and 126 conditions.
 
 **Everything here is a private draft.** Every record keeps `review_status: draft`
 with human source review and expert review pending, and the app labels it that
@@ -492,6 +492,27 @@ body it still shows the inferior constrictor only. No card or condition text cha
 and the offered conditions are unchanged. The male catalogue IDs of the CT parts after
 the constrictors moved by two, and the card mappings follow them.
 
+## Revision 14: third tracing round (neck muscles, teeth and neck vessels)
+
+Added 2026-11-25 as `body-study-14-draft`, with the third tracing round
+([audit](audit/VHP_CT_PARTS.md#third-round-skin-refits-the-whole-trapezius-and-more-neck-structures)).
+
+- **New cards (6):** sternocleidomastoid (male body), levator scapulae, infrahyoid
+  muscles (the body shows the sternothyroid and thyrohyoid), prevertebral muscles,
+  digastric (female body) and internal jugular veins. Each is cited to
+  TeachMeAnatomy; the sternocleidomastoid's attachments and actions come from its
+  accessory-nerve page, which describes the muscles that nerve supplies.
+- **Existing cards on new parts:** trapezius (both bodies), pectoralis major and
+  the muscles of mastication (female temporalis), soft palate, teeth (female lower
+  teeth only), and the carotid and subclavian arteries (female right common carotid
+  and right subclavian). The carotid and subclavian cards now also say that the right
+  arteries arise from the brachiocephalic trunk. On the HRA bodies the left arteries
+  stay with the aortic-arch-branches card, whose text names them.
+- **Conditions:** tooth decay is now offered on both HRA bodies, and carotid artery
+  disease on the female (109 conditions female, 101 male). No condition text changed.
+- **IDs:** both bodies' catalogue IDs of the CT parts after the first changed group
+  moved; card mappings and coverage roots follow them.
+
 ## Deliberate limits
 
 - **Sources (revision 1).** Claims come only from NIH pages: NHLBI, NIDDK, NICHD and NCI SEER
@@ -512,6 +533,20 @@ the constrictors moved by two, and the card mappings follow them.
   content change.
 
 ## Sources
+
+Revision 14 adds:
+
+- `tma-accessory-nerve`: [TeachMeAnatomy: The accessory nerve (CN XI)](https://teachmeanatomy.info/head/cranial-nerves/accessory/)
+- `tma-anterior-triangle`: [TeachMeAnatomy: The anterior triangle of the neck](https://teachmeanatomy.info/neck/areas/anterior-triangle/)
+- `tma-posterior-triangle`: [TeachMeAnatomy: The posterior triangle of the neck](https://teachmeanatomy.info/neck/areas/posterior-triangle/)
+- `tma-infrahyoid`: [TeachMeAnatomy: The infrahyoid muscles](https://teachmeanatomy.info/neck/muscles/infrahyoid/)
+- `tma-suprahyoid`: [TeachMeAnatomy: The suprahyoid muscles](https://teachmeanatomy.info/neck/muscles/suprahyoid-muscles/)
+- `tma-prevertebral`: [TeachMeAnatomy: The prevertebral muscles of the neck](https://teachmeanatomy.info/neck/muscles/prevertebral/)
+- `tma-neck-veins`: [TeachMeAnatomy: Venous drainage of the head and neck](https://teachmeanatomy.info/neck/vessels/venous-drainage/)
+- `tma-neck-arteries`: [TeachMeAnatomy: Arterial supply of the head and neck](https://teachmeanatomy.info/neck/vessels/arterial-supply/)
+- `tma-upper-limb-arteries`: [TeachMeAnatomy: Arterial supply to the upper limb](https://teachmeanatomy.info/upper-limb/vessels/arteries/)
+
+Earlier revisions:
 
 - `heart-flow`: [NHLBI: Blood flow through the heart](https://www.nhlbi.nih.gov/health/heart/blood-flow)
 - `nhlbi-aortic-aneurysm`: [NHLBI: Aortic aneurysm](https://www.nhlbi.nih.gov/health/aortic-aneurysm)

@@ -21,6 +21,10 @@ GROUPS = {  # group -> label for the parent node of a multi-part group, or None
     "chest-and-back-muscles": "Chest and back muscles", "abdominal-wall-muscles": "Abdominal wall muscles",
     "quadratus-lumborum": "Quadratus lumborum muscles", "diaphragm": None,
     "shoulder-girdle": "Shoulder girdle", "humeri": "Upper-arm bones",
+    # Third round
+    "levator-scapulae": "Levator scapulae muscles", "infrahyoid-muscles": "Infrahyoid muscles",
+    "prevertebral-muscles": "Prevertebral muscles", "digastric": "Digastric muscles", "soft-palate": None, "teeth": "Teeth",
+    "internal-jugular-veins": "Internal jugular veins", "right-neck-arteries": "Right common carotid and subclavian arteries",
 }
 # card -> traced nodes it covers (without the VH_F_/VH_M_ prefix); a group's parent node
 # brings its parts with it, so selecting one side opens the same card.
@@ -44,15 +48,28 @@ CARDS = {
     "anatomy.quadratus-lumborum": ["quadratus_lumborum"], "anatomy.diaphragm": ["diaphragm"],
     "anatomy.scapulae": ["scapula_L", "scapula_R"], "anatomy.clavicles": ["clavicle_L", "clavicle_R"],
     "anatomy.humerus": ["humeri"],
+    # Third round
+    "anatomy.sternocleidomastoid": ["sternocleidomastoid_L", "sternocleidomastoid_R"],
+    "anatomy.levator-scapulae": ["levator_scapulae"], "anatomy.infrahyoid-muscles": ["infrahyoid_muscles"],
+    "anatomy.prevertebral-muscles": ["prevertebral_muscles"], "anatomy.digastric": ["digastric"],
+    "anatomy.soft-palate": ["soft_palate"], "anatomy.teeth": ["teeth"],
+    "anatomy.internal-jugular-veins": ["internal_jugular_veins"],
+    "anatomy.carotid-arteries": ["right_common_carotid_artery"], "anatomy.subclavian-arteries": ["right_subclavian_artery"],
 }
 # TotalSegmentator task each group was traced with (all free tasks); "total" otherwise.
 TASK = {"submandibular-glands": "head_glands_cavities", "tongue": "head_muscles", "muscles-of-mastication": "head_muscles",
         "mandible": "craniofacial_structures", "neck-muscles": "headneck_muscles", "pharyngeal-constrictors": "headneck_muscles",
         "hyoid": "headneck_bones_vessels", "chest-and-back-muscles": "abdominal_muscles",
         "abdominal-wall-muscles": "abdominal_muscles", "quadratus-lumborum": "abdominal_muscles",
-        "diaphragm": "trunk_cavities (the sheet between the thoracic and abdominal cavities)"}
+        "diaphragm": "trunk_cavities (the sheet between the thoracic and abdominal cavities)",
+        "levator-scapulae": "headneck_muscles", "infrahyoid-muscles": "headneck_muscles", "prevertebral-muscles": "headneck_muscles",
+        "digastric": "head_muscles", "soft-palate": "head_glands_cavities", "teeth": "craniofacial_structures",
+        "internal-jugular-veins": "headneck_bones_vessels"}
 FIT = {"shoulder-girdle": "thorax fit refined per side by the skin around the shoulder",
        "humeri": "thorax fit refined per side by the skin around the shoulder"}
+# Groups where some parts carry their own skin refit (skin_fit.py); the group record
+# names it so the derivation stays accurate.
+REFIT = "; some parts refitted by the skin around them (tools/vhp_parotid/skin_fit.py)"
 SOURCE = {"female": "Visible Human female normal CT (NLM), traced; tools/vhp_parotid",
           "male": "Visible Human male normal CT (NLM), traced; tools/vhp_parotid"}
 
@@ -65,6 +82,7 @@ def register(parts: pathlib.Path) -> None:
     for body in manifest["bodies"]:
         b = body["body_id"]; X = "VH_M" if b == "male" else "VH_F"
         body["groups"] = [g for g in body["groups"] if "vhp-ct/" not in g["files"][0]["local_path"]]
+        built = json.loads((parts / f"{b}-parts.json").read_text())
         for group, label in GROUPS.items():
             src = parts / f"{b}-{group}.glb"
             if not src.exists():
@@ -75,7 +93,9 @@ def register(parts: pathlib.Path) -> None:
             record = {"source": SOURCE[b],
                       "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
                       "derivation": f"TotalSegmentator 2.18.0 {TASK.get(group, 'total')} task (Apache-2.0); "
-                                    f"{FIT.get(group, 'regional similarity fit to shared anatomy')}; see docs/audit/VHP_CT_PARTS.md",
+                                    f"{FIT.get(group, 'regional similarity fit to shared anatomy')}"
+                                    f"{REFIT if group not in FIT and any('fit' in p for p in built.get(group.replace('-', '_'), {}).get('parts', [])) else ''}"
+                                    "; see docs/audit/VHP_CT_PARTS.md",
                       "files": [{"local_path": dst.relative_to(ROOT).as_posix(), "bytes": len(data), "sha256": hashlib.sha256(data).hexdigest()}]}
             if label:
                 record = {"node_name": f"{X}_{group.replace('-', '_')}", "label": label, **record}

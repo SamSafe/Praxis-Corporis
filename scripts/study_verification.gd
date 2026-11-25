@@ -1816,7 +1816,7 @@ static func run(viewer: Control, rendered: bool) -> bool:
 	var redo: Array = viewer.model.redo_stack.duplicate(true)
 	var back: Array = viewer.back_views.duplicate(true)
 	var forward: Array = viewer.forward_views.duplicate(true)
-	var valid: bool = viewer.study_content.data.get("cards", {}).size() == 216
+	var valid: bool = viewer.study_content.data.get("cards", {}).size() == 222
 	valid = valid and viewer.study_content.error.is_empty()
 	if viewer.model.body.id == "female":
 		valid = await verify_cancel_loading(viewer) and valid
@@ -2138,7 +2138,7 @@ static func verify_conditions(viewer: Control, rendered: bool) -> bool:
 			available.append(str(id))
 	# Shared conditions, the 8 about anatomy no source models, and each body's own
 	# supported anatomy; see tests/test_study_content.py.
-	valid = valid and available.size() == (107 if viewer.model.body.id == "female" else 100)
+	valid = valid and available.size() == (109 if viewer.model.body.id == "female" else 101)
 	for id in available:
 		var dialog: Window = viewer.show_condition(id)
 		if dialog == null:

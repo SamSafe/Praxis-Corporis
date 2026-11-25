@@ -141,13 +141,52 @@ groups = {
     "quadratus_lumborum": ("spine", [(f"quadratus_lumborum_{s}", f"quadratus_lumborum_{s[0].upper()}", f"{s.capitalize()} quadratus lumborum", "", 4000)
                                      for s in (L, R)], seg / "abd"),
     "diaphragm": ("abdomen", [("diaphragm", "diaphragm", "Diaphragm", "FMA:13295", 8000)], seg / "cav"),
+    # Third round: more of the head-and-neck tasks' structures.
+    "levator_scapulae": ("skull", [(f"levator_scapulae_{s}", f"levator_scapulae_{s[0].upper()}", f"{s.capitalize()} levator scapulae", "", 4000)
+                                   for s in (L, R)], extra / "headneck-headneck_muscles"),
+    "infrahyoid_muscles": ("skull", [(f"{m}_{s}", f"{m}_{s[0].upper()}", f"{s.capitalize()} {label}", "", 3000)
+                                     for m, label in (("sterno_thyroid", "sternothyroid"), ("thyrohyoid", "thyrohyoid")) for s in (L, R)],
+                           extra / "headneck-headneck_muscles"),
+    "prevertebral_muscles": ("skull", [(f"prevertebral_{s}", f"prevertebral_muscles_{s[0].upper()}", f"{s.capitalize()} prevertebral muscles", "", 4000)
+                                       for s in (L, R)], extra / "headneck-headneck_muscles"),
+    "digastric": ("skull", [(f"digastric_{s}", f"digastric_{s[0].upper()}", f"{s.capitalize()} digastric", "", 2500)
+                            for s in (L, R)], extra / "head-head_muscles"),
+    "soft_palate": ("skull", [("soft_palate", "soft_palate", "Soft palate", "FMA:55021", 3000)], seg / "glands"),
+    # Vessels: the internal jugular veins from headneck_bones_vessels on the head-and-neck
+    # volume; the right common carotid and subclavian arteries, which the bodies lack, from
+    # the total task on the two upper sections (seg-<body>/vessels, merged by merge.py).
+    "internal_jugular_veins": ("skull", [(f"internal_jugular_vein_{s}", f"internal_jugular_vein_{s[0].upper()}", f"{s.capitalize()} internal jugular vein", "", 4000)
+                                         for s in (L, R)], extra / "headneck-headneck_bones_vessels"),
+    "right_neck_arteries": ("thorax", [("common_carotid_artery_right", "right_common_carotid_artery", "Right common carotid artery", "", 3000),
+                                       ("subclavian_artery_right", "right_subclavian_artery", "Right subclavian artery", "", 3000)], seg / "vessels"),
+    "teeth": ("skull", [("teeth_upper", "teeth_upper", "Upper teeth", "", 6000), ("teeth_lower", "teeth_lower", "Lower teeth", "", 6000)],
+              extra / "head-craniofacial_structures"),
 }
+# Third round: parts the regional fit left outside the skin are refitted by the skin
+# around each left/right pair (skin_fit.py, one fit per pair so the two sides keep their
+# relation), and some masks are joined across volumes (union.py). WORK/<body>-refits.json
+# maps a mask name to {"fit": FIT.json, "mask": MASK.nii.gz (optional)}.
+refits_path = work / f"{body}-refits.json"
+refits = json.loads(refits_path.read_text()) if refits_path.exists() else {}
+
+
+def refit(p):
+    r = refits.get(p[0])
+    if not r:
+        return p
+    mask = str((work / r["mask"]).resolve())[:-len(".nii.gz")] if "mask" in r else p[0]
+    return (mask, *p[1:5], str((work / r["fit"]).resolve()))
+
+
 manifest = {}
 for group, (region, parts, *where) in groups.items():
     folder = where[0] if where else merged
     if group in skip:
         print(f"[{group}] skipped after review"); continue
-    parts = [p for p in parts if present(p[0], folder) and p[0] not in skip]
+    parts = [p for p in parts if p[0] not in skip]
+    names = {refit(p)[0]: p[0] for p in parts}  # traced mask name for the manifest
+    parts = [refit(p) for p in parts]
+    parts = [p for p in parts if (pathlib.Path(p[0] + ".nii.gz").exists() if pathlib.Path(p[0]).is_absolute() else present(p[0], folder))]
     if any(len(p) > 5 and not pathlib.Path(p[5]).exists() for p in parts):
         print(f"[{group}] needs shoulder_fit.py first"); continue
     if not parts:
@@ -157,6 +196,6 @@ for group, (region, parts, *where) in groups.items():
     r = subprocess.run([py, "-I", str(tools / "mesh.py"), str(folder), str(fits[region]), str(glb)] + specs, capture_output=True, text=True, check=True)
     print(f"[{group}] region {region}\n" + r.stdout.strip())
     manifest[group] = {"region": region, "fit": json.loads(pathlib.Path(fits[region]).read_text()), "file": glb.name,
-                       "parts": [{"mask": p[0], "node": f"{X}_{p[1]}", "label": p[2], "ontology": p[3]}
+                       "parts": [{"mask": names[p[0]], "node": f"{X}_{p[1]}", "label": p[2], "ontology": p[3]}
                                  | ({"fit": json.loads(pathlib.Path(p[5]).read_text())} if len(p) > 5 else {}) for p in parts]}
 (out / f"{body}-parts.json").write_text(json.dumps(manifest, indent=1))

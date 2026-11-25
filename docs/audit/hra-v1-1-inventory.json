@@ -1,13 +1,13 @@
 {
   "female": {
-    "sha256": "1b64801d26b9711f55bc1a5a3c164b776cd1559c024ba806a941684c848817ff",
-    "bytes": 138353180,
+    "sha256": "7d7b797490dae1197d64f2862326da100625c546de9d59c26a4eb02d687d87fb",
+    "bytes": 140075332,
     "generator": "babylon.js glTF exporter for Autodesk MAYA 2022.2 v20211115.1",
     "anatomy_root": 0,
-    "total_nodes": 1258,
-    "anatomy_nodes": 1143,
-    "anatomy_mesh_nodes": 953,
-    "anatomy_triangles": 5517930,
+    "total_nodes": 1287,
+    "anatomy_nodes": 1172,
+    "anatomy_mesh_nodes": 975,
+    "anatomy_triangles": 5612686,
     "excluded_nodes": 115,
     "systems": [
       {
@@ -142,8 +142,8 @@
       },
       {
         "source_name": "VH_F_muscles_of_mastication",
-        "mesh_nodes": 6,
-        "triangles": 24000
+        "mesh_nodes": 8,
+        "triangles": 32000
       },
       {
         "source_name": "VH_F_mandible",
@@ -167,8 +167,8 @@
       },
       {
         "source_name": "VH_F_chest_and_back_muscles",
-        "mesh_nodes": 4,
-        "triangles": 32000
+        "mesh_nodes": 8,
+        "triangles": 64000
       },
       {
         "source_name": "VH_F_abdominal_wall_muscles",
@@ -194,19 +194,59 @@
         "source_name": "VH_F_humeri",
         "mesh_nodes": 2,
         "triangles": 38372
+      },
+      {
+        "source_name": "VH_F_levator_scapulae",
+        "mesh_nodes": 2,
+        "triangles": 8000
+      },
+      {
+        "source_name": "VH_F_infrahyoid_muscles",
+        "mesh_nodes": 4,
+        "triangles": 12000
+      },
+      {
+        "source_name": "VH_F_prevertebral_muscles",
+        "mesh_nodes": 2,
+        "triangles": 8000
+      },
+      {
+        "source_name": "VH_F_digastric",
+        "mesh_nodes": 2,
+        "triangles": 5000
+      },
+      {
+        "source_name": "VH_F_soft_palate",
+        "mesh_nodes": 1,
+        "triangles": 3000
+      },
+      {
+        "source_name": "VH_F_teeth",
+        "mesh_nodes": 1,
+        "triangles": 6000
+      },
+      {
+        "source_name": "VH_F_internal_jugular_veins",
+        "mesh_nodes": 2,
+        "triangles": 8000
+      },
+      {
+        "source_name": "VH_F_right_neck_arteries",
+        "mesh_nodes": 2,
+        "triangles": 4756
       }
     ],
     "note": "Source node counts are not verified anatomical coverage or clinical review."
   },
   "male": {
-    "sha256": "5f60029f78e77c5c212ddfcc0b3e48df9d73c2c98acfa7d4fed88a889d542479",
-    "bytes": 99838928,
+    "sha256": "94e17a983f48dca8a09a1e349af5f70dea83e91f88eb9a36b4da4960604579cd",
+    "bytes": 101201632,
     "generator": "babylon.js glTF exporter for Autodesk MAYA 2022.2 v20211115.1",
     "anatomy_root": 115,
-    "total_nodes": 1227,
-    "anatomy_nodes": 1112,
-    "anatomy_mesh_nodes": 923,
-    "anatomy_triangles": 4346008,
+    "total_nodes": 1249,
+    "anatomy_nodes": 1134,
+    "anatomy_mesh_nodes": 940,
+    "anatomy_triangles": 4421008,
     "excluded_nodes": 115,
     "systems": [
       {
@@ -341,8 +381,8 @@
       },
       {
         "source_name": "VH_M_neck_muscles",
-        "mesh_nodes": 6,
-        "triangles": 24000
+        "mesh_nodes": 8,
+        "triangles": 32000
       },
       {
         "source_name": "VH_M_pharyngeal_constrictors",
@@ -351,8 +391,8 @@
       },
       {
         "source_name": "VH_M_chest_and_back_muscles",
-        "mesh_nodes": 6,
-        "triangles": 48000
+        "mesh_nodes": 8,
+        "triangles": 64000
       },
       {
         "source_name": "VH_M_abdominal_wall_muscles",
@@ -373,6 +413,36 @@
         "source_name": "VH_M_shoulder_girdle",
         "mesh_nodes": 4,
         "triangles": 18000
+      },
+      {
+        "source_name": "VH_M_levator_scapulae",
+        "mesh_nodes": 2,
+        "triangles": 8000
+      },
+      {
+        "source_name": "VH_M_infrahyoid_muscles",
+        "mesh_nodes": 4,
+        "triangles": 12000
+      },
+      {
+        "source_name": "VH_M_prevertebral_muscles",
+        "mesh_nodes": 2,
+        "triangles": 8000
+      },
+      {
+        "source_name": "VH_M_soft_palate",
+        "mesh_nodes": 1,
+        "triangles": 3000
+      },
+      {
+        "source_name": "VH_M_teeth",
+        "mesh_nodes": 2,
+        "triangles": 12000
+      },
+      {
+        "source_name": "VH_M_internal_jugular_veins",
+        "mesh_nodes": 2,
+        "triangles": 8000
       }
     ],
     "note": "Source node counts are not verified anatomical coverage or clinical review."

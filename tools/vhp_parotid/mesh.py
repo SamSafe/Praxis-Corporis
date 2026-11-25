@@ -33,7 +33,9 @@ for arg in sys.argv[4:]:
     f = json.load(open(rest[1])) if len(rest) > 1 else fit
     s, R, t = f["scale"], np.array(f["R"]), np.array(f["t"])
     extras[node] = {"label": label, "ontologyid": ontology}
-    im = nib.load(next(seg.rglob(mask + ".nii.gz"))); d = np.asarray(im.dataobj) > 0
+    # A mask is found by name under SEG_DIR, or given as a path (masks joined by union.py).
+    path = pathlib.Path(mask + ".nii.gz")
+    im = nib.load(path if path.is_absolute() else next(seg.rglob(mask + ".nii.gz"))); d = np.asarray(im.dataobj) > 0
     lab, k = ndimage.label(d); sizes = ndimage.sum(d, lab, range(1, k + 1))
     d = np.isin(lab, 1 + np.flatnonzero(sizes >= 0.05 * sizes.max()))
     d = ndimage.binary_fill_holes(ndimage.binary_closing(d, iterations=1))

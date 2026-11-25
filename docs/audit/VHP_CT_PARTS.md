@@ -219,6 +219,102 @@ reference geometry version. Renders (side views, body vertebrae, hyoid, thyroid
 cartilage and trachea in grey): [female](vhp-ct/female-neck-0.75mm-side.png),
 [male](vhp-ct/male-neck-0.75mm-side.png).
 
+## Third round: skin refits, the whole trapezius and more neck structures
+
+Date: 2026-11-25. Assistant technical check, not anatomical review. Work script:
+`build/parotid-work/run_parts3.ps1` (vessel tracing: `run_vessels.ps1`).
+
+### Skin refits
+
+Superficial muscles failed the skin check because the scan and the body differ in pose
+and shape, not because of the trace. `skin_fit.py` refines a part's regional fit by a
+rigid ICP of the CT's own skin near the part onto the body's skin (the method
+`shoulder_fit.py` used for the shoulder bones). Each refit was then checked three ways:
+the share outside the skin, the share inside the body's bones and organs, and whether
+the left and right parts now intersect, which they never do in the scan.
+
+- **One fit per side** brings every part inside the skin, but it pulls each side
+  towards the midline: the left and right trapezius, pectoralis major and female
+  sternocleidomastoid then intersect (4-8% of vertices), against 0% in the scan.
+- **One fit for both sides** keeps the pair's relation. It is used where it brings
+  both sides under the 20% rule.
+- **Renders against the bones** decided the rest: a refit of the male submandibular
+  glands is inside the skin but moves them 26 mm up into the mandible, so they stay out.
+
+| Part | Female | Male |
+|---|---|---|
+| Trapezius (see below) | added; one fit for both sides, 11/6% outside the skin | added; one fit for both sides, 0% outside |
+| Pectoralis major | added; one fit for both sides (rotation 14 degrees, 33 mm), 0% outside | unchanged (added in round 2) |
+| Temporalis | added; one fit per side (the muscles are 14 cm apart; one fit leaves the right at 20%), 0% outside | unchanged |
+| Sternocleidomastoid | still left out: per-side fits cross at the sternum, one fit leaves the right 36% outside | added; one fit per side (rotation 5-7 degrees, 11-14 mm), 0/3% outside; the two meet only at their sternal heads |
+| Submandibular glands | unchanged (added in round 2) | still left out: the refit moves them into the mandible |
+
+### The whole trapezius
+
+`headneck_muscles` traces the upper trapezius on the 0.75 mm head-and-neck volume
+(female 138-150 cm3 per side, male 279-281 cm3) and `abdominal_muscles` its lower part
+on the trunk sections (44-54 and 139-149 cm3). `union.py` joins the two masks on one
+grid (female 162-182 cm3, male 365-378 cm3), so the muscle runs from the skull to T12.
+
+### More neck and head structures
+
+| Part | Female | Male |
+|---|---|---|
+| Levator scapulae | added (head fit), 0/6% outside | added, 0% outside |
+| Sternothyroid and thyrohyoid | added, 0% outside | added, 0% outside |
+| Prevertebral muscles (longus colli and capitis) | added, 0% outside | added, 0% outside |
+| Digastric (anterior belly region) | added, 0% outside | left out (65-68% outside; a refit moves it into the mandible) |
+| Soft palate | added, 0% outside | added, 0% outside |
+| Teeth | lower only: the scan's field of view cuts the upper teeth | upper and lower |
+| Platysma | left out: traced as small patches near the jaw, not a sheet | left out |
+
+The lower teeth are 31-42% inside the body's mandible, as tooth roots are in bone. The
+male upper teeth have no upper jaw around them, because the skull stays out. Shares
+are from the final meshes (400 sampled vertices each); they vary by a few points with
+the face count.
+
+### Neck vessels
+
+The HRA bodies have the aortic arch and its left branches, but no right common
+carotid or right subclavian artery, no internal jugular veins and, on the female, no
+brachiocephalic veins. The `total` task (with `--roi_subset`) traced the great vessels
+on the two upper 1.5 mm sections, merged by `merge.py`, and `headneck_bones_vessels`
+the jugular veins on the 0.75 mm head-and-neck volume. The Visible Human CT has no
+contrast, so arteries are faint.
+
+| Part | Female | Male |
+|---|---|---|
+| Internal jugular veins | added (head fit), 10/15 cm3 | added, 3/12 cm3: the left traced thinner; both reach the body's own brachiocephalic veins |
+| Right common carotid and subclavian arteries | added (thorax fit), 2.4 and 6.5 cm3; they leave the body's brachiocephalic artery | left out: traced only as fragments (0.1-0.7 cm3) |
+| Brachiocephalic veins | left out: traced only as stubs at the jugular veins, short of the superior vena cava | not traced: the body has its own |
+| Internal carotid arteries | left out: fragments under 1 cm3 | left out |
+
+All vessels are inside the skin. The carotid and subclavian cards map the right
+arteries; the body's own left arteries stay with the aortic-arch-branches card.
+
+The catalogue IDs of the CT parts after the muscles of mastication (female, which gains
+the temporalis) and after the neck muscles (male, which gain the sternocleidomastoid)
+moved; card mappings and coverage roots follow
+them. Both supplemented bodies changed (female 975 meshes, male 940), so views saved
+against earlier builds are refused as a different reference geometry version.
+
+Renders (bones in grey; trapezius and pectoralis major orange, sternocleidomastoid
+and scalenes red, levator scapulae green, infrahyoid muscles yellow, jugular veins
+blue): [female front](vhp-ct/female-round3-neck-front.png),
+[female back](vhp-ct/female-round3-back.png), [male front](vhp-ct/male-round3-neck-front.png),
+[male back](vhp-ct/male-round3-back.png).
+
+### Still not traced
+
+- **Skull, upper jaw and male humeri:** the scans' field of view cuts them.
+- **Male gluteus maximus:** cut off where the male first pass ends.
+- **Female sternocleidomastoid, male submandibular glands and digastric:** no fit
+  places them inside the skin without crossing each other or entering the mandible.
+- **Intervertebral discs:** need the free `vertebrae_body` model, whose weights are
+  not yet downloaded.
+- **Limb muscles, deltoid, rotator cuff, forearm, hand and foot bones:** only licensed
+  TotalSegmentator tasks trace them, and the first pass ends mid-thigh.
+
 ## Licence
 
 As for the parotid glands: NLM Terms and Conditions ("Courtesy of the U.S. National

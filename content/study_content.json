@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": "body-study-13-draft",
+  "revision": "body-study-14-draft",
   "review_status": "draft",
   "expert_review": "pending",
   "scope": "Private draft explanations covering the chest, abdomen, pelvis, brain, eyes, knees and skin, including selected vessels, kidney interior, intestines, airways, bone tissue and the lymphatic system. General anatomy is separate from completeness and accuracy of the supplied source meshes. No source illustrations or video are reused.",
@@ -1064,6 +1064,42 @@
     "tma-pectoral-region": {
       "title": "TeachMeAnatomy: Muscles of the pectoral region",
       "url": "https://teachmeanatomy.info/upper-limb/muscles/pectoral-region/"
+    },
+    "tma-infrahyoid": {
+      "title": "TeachMeAnatomy: The infrahyoid muscles",
+      "url": "https://teachmeanatomy.info/neck/muscles/infrahyoid/"
+    },
+    "tma-suprahyoid": {
+      "title": "TeachMeAnatomy: The suprahyoid muscles",
+      "url": "https://teachmeanatomy.info/neck/muscles/suprahyoid-muscles/"
+    },
+    "tma-prevertebral": {
+      "title": "TeachMeAnatomy: The prevertebral muscles of the neck",
+      "url": "https://teachmeanatomy.info/neck/muscles/prevertebral/"
+    },
+    "tma-posterior-triangle": {
+      "title": "TeachMeAnatomy: The posterior triangle of the neck",
+      "url": "https://teachmeanatomy.info/neck/areas/posterior-triangle/"
+    },
+    "tma-neck-veins": {
+      "title": "TeachMeAnatomy: Venous drainage of the head and neck",
+      "url": "https://teachmeanatomy.info/neck/vessels/venous-drainage/"
+    },
+    "tma-neck-arteries": {
+      "title": "TeachMeAnatomy: Arterial supply of the head and neck",
+      "url": "https://teachmeanatomy.info/neck/vessels/arterial-supply/"
+    },
+    "tma-upper-limb-arteries": {
+      "title": "TeachMeAnatomy: Arterial supply to the upper limb",
+      "url": "https://teachmeanatomy.info/upper-limb/vessels/arteries/"
+    },
+    "tma-accessory-nerve": {
+      "title": "TeachMeAnatomy: The accessory nerve (CN XI)",
+      "url": "https://teachmeanatomy.info/head/cranial-nerves/accessory/"
+    },
+    "tma-anterior-triangle": {
+      "title": "TeachMeAnatomy: The anterior triangle of the neck",
+      "url": "https://teachmeanatomy.info/neck/areas/anterior-triangle/"
     }
   },
   "cards": {
@@ -8098,7 +8134,7 @@
           "ontology": "FMA52749"
         },
         "female": {
-          "id": "source.hra-v1-1.female.n1233",
+          "id": "source.hra-v1-1.female.n1235",
           "source_name": "VH_F_hyoid_bone",
           "ontology": "FMA:52749"
         }
@@ -9199,12 +9235,12 @@
       "human_source_review": "pending",
       "geometry": {
         "female": {
-          "id": "source.hra-v1-1.female.n1249",
+          "id": "source.hra-v1-1.female.n1255",
           "source_name": "VH_F_diaphragm",
           "ontology": "FMA:13295"
         },
         "male": {
-          "id": "source.hra-v1-1.male.n1221",
+          "id": "source.hra-v1-1.male.n1225",
           "source_name": "VH_M_diaphragm",
           "ontology": "FMA:13295"
         }
@@ -10025,24 +10061,24 @@
         ],
         "female": [
           {
-            "id": "source.hra-v1-1.female.n1252",
+            "id": "source.hra-v1-1.female.n1258",
             "source_name": "VH_F_clavicle_L",
             "ontology": "FMA:13323"
           },
           {
-            "id": "source.hra-v1-1.female.n1253",
+            "id": "source.hra-v1-1.female.n1259",
             "source_name": "VH_F_clavicle_R",
             "ontology": "FMA:13322"
           }
         ],
         "male": [
           {
-            "id": "source.hra-v1-1.male.n1224",
+            "id": "source.hra-v1-1.male.n1228",
             "source_name": "VH_M_clavicle_L",
             "ontology": "FMA:13323"
           },
           {
-            "id": "source.hra-v1-1.male.n1225",
+            "id": "source.hra-v1-1.male.n1229",
             "source_name": "VH_M_clavicle_R",
             "ontology": "FMA:13322"
           }
@@ -10079,24 +10115,24 @@
         ],
         "female": [
           {
-            "id": "source.hra-v1-1.female.n1250",
+            "id": "source.hra-v1-1.female.n1256",
             "source_name": "VH_F_scapula_L",
             "ontology": "FMA:13396"
           },
           {
-            "id": "source.hra-v1-1.female.n1251",
+            "id": "source.hra-v1-1.female.n1257",
             "source_name": "VH_F_scapula_R",
             "ontology": "FMA:13395"
           }
         ],
         "male": [
           {
-            "id": "source.hra-v1-1.male.n1222",
+            "id": "source.hra-v1-1.male.n1226",
             "source_name": "VH_M_scapula_L",
             "ontology": "FMA:13396"
           },
           {
-            "id": "source.hra-v1-1.male.n1223",
+            "id": "source.hra-v1-1.male.n1227",
             "source_name": "VH_M_scapula_R",
             "ontology": "FMA:13395"
           }
@@ -10135,17 +10171,17 @@
         ],
         "female": [
           {
-            "id": "source.hra-v1-1.female.n1257",
+            "id": "source.hra-v1-1.female.n1263",
             "source_name": "VH_F_humeri",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.female.n1255",
+            "id": "source.hra-v1-1.female.n1261",
             "source_name": "VH_F_humerus_L",
             "ontology": "FMA:23131"
           },
           {
-            "id": "source.hra-v1-1.female.n1256",
+            "id": "source.hra-v1-1.female.n1262",
             "source_name": "VH_F_humerus_R",
             "ontology": "FMA:23130"
           }
@@ -10290,7 +10326,7 @@
           "ontology": "FMA52748"
         },
         "female": {
-          "id": "source.hra-v1-1.female.n1223",
+          "id": "source.hra-v1-1.female.n1225",
           "source_name": "VH_F_mandible",
           "ontology": "FMA:52748"
         },
@@ -10349,7 +10385,36 @@
           "id": "source.bodyparts3d-complete.group.teeth",
           "source_name": "extra:teeth",
           "ontology": ""
-        }
+        },
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1280",
+            "source_name": "VH_F_teeth",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1279",
+            "source_name": "VH_F_teeth_lower",
+            "ontology": ""
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n1245",
+            "source_name": "VH_M_teeth",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1243",
+            "source_name": "VH_M_teeth_upper",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1244",
+            "source_name": "VH_M_teeth_lower",
+            "ontology": ""
+          }
+        ]
       }
     },
     "anatomy.soft-palate": {
@@ -10371,6 +10436,16 @@
           "id": "source.bodyparts3d-v4-complete.FMA55021",
           "source_name": "FMA55021",
           "ontology": "FMA55021"
+        },
+        "female": {
+          "id": "source.hra-v1-1.female.n1278",
+          "source_name": "VH_F_soft_palate",
+          "ontology": "FMA:55021"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n1242",
+          "source_name": "VH_M_soft_palate",
+          "ontology": "FMA:55021"
         }
       }
     },
@@ -10424,34 +10499,34 @@
         ],
         "female": [
           {
-            "id": "source.hra-v1-1.female.n1232",
+            "id": "source.hra-v1-1.female.n1234",
             "source_name": "VH_F_pharyngeal_constrictors",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.female.n1231",
+            "id": "source.hra-v1-1.female.n1233",
             "source_name": "VH_F_inferior_pharyngeal_constrictor",
             "ontology": ""
           }
         ],
         "male": [
           {
-            "id": "source.hra-v1-1.male.n1203",
+            "id": "source.hra-v1-1.male.n1205",
             "source_name": "VH_M_pharyngeal_constrictors",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.male.n1200",
+            "id": "source.hra-v1-1.male.n1202",
             "source_name": "VH_M_superior_pharyngeal_constrictor",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.male.n1201",
+            "id": "source.hra-v1-1.male.n1203",
             "source_name": "VH_M_middle_pharyngeal_constrictor",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.male.n1202",
+            "id": "source.hra-v1-1.male.n1204",
             "source_name": "VH_M_inferior_pharyngeal_constrictor",
             "ontology": ""
           }
@@ -10538,7 +10613,7 @@
       }
     },
     "anatomy.carotid-arteries": {
-      "overview": "Major arteries, one on each side of the neck. The left common carotid artery branches from the aortic arch.",
+      "overview": "Major arteries, one on each side of the neck. The left common carotid artery branches from the aortic arch and the right from the brachiocephalic trunk; each divides at about the level of C4 into the internal and external carotid arteries.",
       "function": "Carry blood from the heart to the head. With the vertebral arteries, the internal carotid arteries supply the brain.",
       "related": [
         "anatomy.aorta.arch",
@@ -10546,7 +10621,8 @@
       ],
       "source_ids": [
         "nci-def-carotid-artery",
-        "seer-pathways"
+        "seer-pathways",
+        "tma-neck-arteries"
       ],
       "review_status": "draft",
       "expert_review": "pending",
@@ -10563,18 +10639,24 @@
             "source_name": "FMA3941",
             "ontology": "FMA3941"
           }
-        ]
+        ],
+        "female": {
+          "id": "source.hra-v1-1.female.n1284",
+          "source_name": "VH_F_right_common_carotid_artery",
+          "ontology": ""
+        }
       }
     },
     "anatomy.subclavian-arteries": {
-      "overview": "The left and right subclavian arteries. The left subclavian artery branches from the aortic arch.",
+      "overview": "The left and right subclavian arteries. The left subclavian artery branches from the aortic arch and the right from the brachiocephalic trunk.",
       "function": "Supply blood to the arms.",
       "related": [
         "anatomy.aorta.arch",
         "anatomy.humerus"
       ],
       "source_ids": [
-        "seer-pathways"
+        "seer-pathways",
+        "tma-upper-limb-arteries"
       ],
       "review_status": "draft",
       "expert_review": "pending",
@@ -10591,7 +10673,12 @@
             "source_name": "FMA3953",
             "ontology": "FMA3953"
           }
-        ]
+        ],
+        "female": {
+          "id": "source.hra-v1-1.female.n1285",
+          "source_name": "VH_F_right_subclavian_artery",
+          "ontology": ""
+        }
       }
     },
     "anatomy.leg-arteries": {
@@ -10681,13 +10768,25 @@
         ],
         "male": [
           {
-            "id": "source.hra-v1-1.male.n1204",
+            "id": "source.hra-v1-1.male.n1206",
             "source_name": "VH_M_pectoralis_major_L",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.male.n1205",
+            "id": "source.hra-v1-1.male.n1207",
             "source_name": "VH_M_pectoralis_major_R",
+            "ontology": ""
+          }
+        ],
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1236",
+            "source_name": "VH_F_pectoralis_major_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1237",
+            "source_name": "VH_F_pectoralis_major_R",
             "ontology": ""
           }
         ]
@@ -10875,6 +10974,30 @@
             "id": "source.bodyparts3d-v4-complete.FJ1520",
             "source_name": "FJ1520",
             "ontology": "FMA33581"
+          }
+        ],
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1242",
+            "source_name": "VH_F_trapezius_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1243",
+            "source_name": "VH_F_trapezius_R",
+            "ontology": ""
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n1212",
+            "source_name": "VH_M_trapezius_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1213",
+            "source_name": "VH_M_trapezius_R",
+            "ontology": ""
           }
         ]
       }
@@ -11730,7 +11853,7 @@
       "geometry": {
         "female": [
           {
-            "id": "source.hra-v1-1.female.n1222",
+            "id": "source.hra-v1-1.female.n1224",
             "source_name": "VH_F_muscles_of_mastication",
             "ontology": ""
           },
@@ -11746,21 +11869,31 @@
           },
           {
             "id": "source.hra-v1-1.female.n1218",
-            "source_name": "VH_F_medial_pterygoid_L",
+            "source_name": "VH_F_temporalis_L",
             "ontology": ""
           },
           {
             "id": "source.hra-v1-1.female.n1219",
-            "source_name": "VH_F_medial_pterygoid_R",
+            "source_name": "VH_F_temporalis_R",
             "ontology": ""
           },
           {
             "id": "source.hra-v1-1.female.n1220",
-            "source_name": "VH_F_lateral_pterygoid_L",
+            "source_name": "VH_F_medial_pterygoid_L",
             "ontology": ""
           },
           {
             "id": "source.hra-v1-1.female.n1221",
+            "source_name": "VH_F_medial_pterygoid_R",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1222",
+            "source_name": "VH_F_lateral_pterygoid_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1223",
             "source_name": "VH_F_lateral_pterygoid_R",
             "ontology": ""
           }
@@ -11862,64 +11995,64 @@
         ],
         "female": [
           {
-            "id": "source.hra-v1-1.female.n1224",
+            "id": "source.hra-v1-1.female.n1226",
             "source_name": "VH_F_anterior_scalene_L",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.female.n1225",
+            "id": "source.hra-v1-1.female.n1227",
             "source_name": "VH_F_anterior_scalene_R",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.female.n1226",
+            "id": "source.hra-v1-1.female.n1228",
             "source_name": "VH_F_middle_scalene_L",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.female.n1227",
+            "id": "source.hra-v1-1.female.n1229",
             "source_name": "VH_F_middle_scalene_R",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.female.n1228",
+            "id": "source.hra-v1-1.female.n1230",
             "source_name": "VH_F_posterior_scalene_L",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.female.n1229",
+            "id": "source.hra-v1-1.female.n1231",
             "source_name": "VH_F_posterior_scalene_R",
             "ontology": ""
           }
         ],
         "male": [
           {
-            "id": "source.hra-v1-1.male.n1193",
+            "id": "source.hra-v1-1.male.n1195",
             "source_name": "VH_M_anterior_scalene_L",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.male.n1194",
+            "id": "source.hra-v1-1.male.n1196",
             "source_name": "VH_M_anterior_scalene_R",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.male.n1195",
+            "id": "source.hra-v1-1.male.n1197",
             "source_name": "VH_M_middle_scalene_L",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.male.n1196",
+            "id": "source.hra-v1-1.male.n1198",
             "source_name": "VH_M_middle_scalene_R",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.male.n1197",
+            "id": "source.hra-v1-1.male.n1199",
             "source_name": "VH_M_posterior_scalene_L",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.male.n1198",
+            "id": "source.hra-v1-1.male.n1200",
             "source_name": "VH_M_posterior_scalene_R",
             "ontology": ""
           }
@@ -11945,24 +12078,24 @@
       "geometry": {
         "female": [
           {
-            "id": "source.hra-v1-1.female.n1239",
+            "id": "source.hra-v1-1.female.n1245",
             "source_name": "VH_F_rectus_abdominis_L",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.female.n1240",
+            "id": "source.hra-v1-1.female.n1246",
             "source_name": "VH_F_rectus_abdominis_R",
             "ontology": ""
           }
         ],
         "male": [
           {
-            "id": "source.hra-v1-1.male.n1211",
+            "id": "source.hra-v1-1.male.n1215",
             "source_name": "VH_M_rectus_abdominis_L",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.male.n1212",
+            "id": "source.hra-v1-1.male.n1216",
             "source_name": "VH_M_rectus_abdominis_R",
             "ontology": ""
           }
@@ -11999,44 +12132,44 @@
         ],
         "female": [
           {
-            "id": "source.hra-v1-1.female.n1241",
+            "id": "source.hra-v1-1.female.n1247",
             "source_name": "VH_F_external_oblique_L",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.female.n1242",
+            "id": "source.hra-v1-1.female.n1248",
             "source_name": "VH_F_external_oblique_R",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.female.n1243",
+            "id": "source.hra-v1-1.female.n1249",
             "source_name": "VH_F_internal_oblique_L",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.female.n1244",
+            "id": "source.hra-v1-1.female.n1250",
             "source_name": "VH_F_internal_oblique_R",
             "ontology": ""
           }
         ],
         "male": [
           {
-            "id": "source.hra-v1-1.male.n1213",
+            "id": "source.hra-v1-1.male.n1217",
             "source_name": "VH_M_external_oblique_L",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.male.n1214",
+            "id": "source.hra-v1-1.male.n1218",
             "source_name": "VH_M_external_oblique_R",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.male.n1215",
+            "id": "source.hra-v1-1.male.n1219",
             "source_name": "VH_M_internal_oblique_L",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.male.n1216",
+            "id": "source.hra-v1-1.male.n1220",
             "source_name": "VH_M_internal_oblique_R",
             "ontology": ""
           }
@@ -12062,34 +12195,34 @@
       "geometry": {
         "female": [
           {
-            "id": "source.hra-v1-1.female.n1248",
+            "id": "source.hra-v1-1.female.n1254",
             "source_name": "VH_F_quadratus_lumborum",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.female.n1246",
+            "id": "source.hra-v1-1.female.n1252",
             "source_name": "VH_F_quadratus_lumborum_L",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.female.n1247",
+            "id": "source.hra-v1-1.female.n1253",
             "source_name": "VH_F_quadratus_lumborum_R",
             "ontology": ""
           }
         ],
         "male": [
           {
-            "id": "source.hra-v1-1.male.n1220",
+            "id": "source.hra-v1-1.male.n1224",
             "source_name": "VH_M_quadratus_lumborum",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.male.n1218",
+            "id": "source.hra-v1-1.male.n1222",
             "source_name": "VH_M_quadratus_lumborum_L",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.male.n1219",
+            "id": "source.hra-v1-1.male.n1223",
             "source_name": "VH_M_quadratus_lumborum_R",
             "ontology": ""
           }
@@ -12115,24 +12248,24 @@
       "geometry": {
         "female": [
           {
-            "id": "source.hra-v1-1.female.n1236",
+            "id": "source.hra-v1-1.female.n1240",
             "source_name": "VH_F_latissimus_dorsi_L",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.female.n1237",
+            "id": "source.hra-v1-1.female.n1241",
             "source_name": "VH_F_latissimus_dorsi_R",
             "ontology": ""
           }
         ],
         "male": [
           {
-            "id": "source.hra-v1-1.male.n1208",
+            "id": "source.hra-v1-1.male.n1210",
             "source_name": "VH_M_latissimus_dorsi_L",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.male.n1209",
+            "id": "source.hra-v1-1.male.n1211",
             "source_name": "VH_M_latissimus_dorsi_R",
             "ontology": ""
           }
@@ -12169,25 +12302,315 @@
         ],
         "female": [
           {
-            "id": "source.hra-v1-1.female.n1234",
+            "id": "source.hra-v1-1.female.n1238",
             "source_name": "VH_F_serratus_anterior_L",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.female.n1235",
+            "id": "source.hra-v1-1.female.n1239",
             "source_name": "VH_F_serratus_anterior_R",
             "ontology": ""
           }
         ],
         "male": [
           {
-            "id": "source.hra-v1-1.male.n1206",
+            "id": "source.hra-v1-1.male.n1208",
             "source_name": "VH_M_serratus_anterior_L",
             "ontology": ""
           },
           {
-            "id": "source.hra-v1-1.male.n1207",
+            "id": "source.hra-v1-1.male.n1209",
             "source_name": "VH_M_serratus_anterior_R",
+            "ontology": ""
+          }
+        ]
+      }
+    },
+    "anatomy.sternocleidomastoid": {
+      "overview": "A superficial muscle on each side of the neck with two heads: the sternal head from the manubrium of the sternum and the clavicular head from the medial third of the clavicle. It runs up to the mastoid process of the temporal bone, and its borders outline the anterior and posterior triangles of the neck.",
+      "function": "Acting on one side, it bends the neck to that side and rotates it; acting together, the two muscles extend the head at the joints between the skull and the atlas. It is supplied by the accessory nerve.",
+      "related": [
+        "anatomy.sternum",
+        "anatomy.clavicles",
+        "anatomy.trapezius",
+        "anatomy.scalenes"
+      ],
+      "source_ids": [
+        "tma-accessory-nerve",
+        "tma-anterior-triangle",
+        "tma-posterior-triangle"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n1193",
+            "source_name": "VH_M_sternocleidomastoid_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1194",
+            "source_name": "VH_M_sternocleidomastoid_R",
+            "ontology": ""
+          }
+        ]
+      }
+    },
+    "anatomy.levator-scapulae": {
+      "overview": "A muscle at the back and side of the neck, one on each side. It runs from the transverse processes of the first four cervical vertebrae (C1-C4) to the medial border of the scapula.",
+      "function": "Raises the scapula. It is supplied by the dorsal scapular nerve.",
+      "related": [
+        "anatomy.scapulae",
+        "anatomy.vertebral-column",
+        "anatomy.trapezius"
+      ],
+      "source_ids": [
+        "tma-superficial-back"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1266",
+            "source_name": "VH_F_levator_scapulae",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1264",
+            "source_name": "VH_F_levator_scapulae_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1265",
+            "source_name": "VH_F_levator_scapulae_R",
+            "ontology": ""
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n1233",
+            "source_name": "VH_M_levator_scapulae",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1231",
+            "source_name": "VH_M_levator_scapulae_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1232",
+            "source_name": "VH_M_levator_scapulae_R",
+            "ontology": ""
+          }
+        ]
+      }
+    },
+    "anatomy.infrahyoid-muscles": {
+      "overview": "The muscles below the hyoid bone at the front of the neck: the sternohyoid, omohyoid, sternothyroid and thyrohyoid. The sternothyroid runs from the manubrium of the sternum to the thyroid cartilage, and the thyrohyoid from the thyroid cartilage to the hyoid. The female and male bodies show the sternothyroid and thyrohyoid only.",
+      "function": "They pull the hyoid bone down, and the sternothyroid pulls the thyroid cartilage down; when the hyoid is held still, the thyrohyoid raises the larynx. They are supplied by the upper cervical nerves (C1-C3).",
+      "related": [
+        "anatomy.hyoid",
+        "anatomy.larynx",
+        "anatomy.thyroid"
+      ],
+      "source_ids": [
+        "tma-infrahyoid"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1271",
+            "source_name": "VH_F_infrahyoid_muscles",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1267",
+            "source_name": "VH_F_sterno_thyroid_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1268",
+            "source_name": "VH_F_sterno_thyroid_R",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1269",
+            "source_name": "VH_F_thyrohyoid_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1270",
+            "source_name": "VH_F_thyrohyoid_R",
+            "ontology": ""
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n1238",
+            "source_name": "VH_M_infrahyoid_muscles",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1234",
+            "source_name": "VH_M_sterno_thyroid_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1235",
+            "source_name": "VH_M_sterno_thyroid_R",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1236",
+            "source_name": "VH_M_thyrohyoid_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1237",
+            "source_name": "VH_M_thyrohyoid_R",
+            "ontology": ""
+          }
+        ]
+      }
+    },
+    "anatomy.prevertebral-muscles": {
+      "overview": "Muscles on the front of the cervical spine, one group on each side: the longus colli and longus capitis, with the small rectus capitis anterior and lateralis below the skull. The longus colli runs between the vertebral bodies and transverse processes from the upper thoracic vertebrae to the atlas; the longus capitis runs from the cervical transverse processes to the base of the skull.",
+      "function": "They flex the neck and the head and help to steady the cervical spine. They are supplied by the anterior rami of the cervical spinal nerves.",
+      "related": [
+        "anatomy.vertebral-column",
+        "anatomy.scalenes",
+        "anatomy.pharynx-muscles"
+      ],
+      "source_ids": [
+        "tma-prevertebral"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1274",
+            "source_name": "VH_F_prevertebral_muscles",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1272",
+            "source_name": "VH_F_prevertebral_muscles_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1273",
+            "source_name": "VH_F_prevertebral_muscles_R",
+            "ontology": ""
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n1241",
+            "source_name": "VH_M_prevertebral_muscles",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1239",
+            "source_name": "VH_M_prevertebral_muscles_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1240",
+            "source_name": "VH_M_prevertebral_muscles_R",
+            "ontology": ""
+          }
+        ]
+      }
+    },
+    "anatomy.digastric": {
+      "overview": "A small muscle below the jaw, one on each side, with two bellies joined by a tendon that a fibrous sling holds to the hyoid bone. The anterior belly attaches to the mandible and the posterior belly to the mastoid process of the skull.",
+      "function": "Lowers the mandible, opening the mouth, and raises the hyoid bone. The two bellies have different nerves: a branch of the mandibular nerve for the anterior belly and the facial nerve for the posterior belly.",
+      "related": [
+        "anatomy.mandible",
+        "anatomy.hyoid",
+        "anatomy.tongue"
+      ],
+      "source_ids": [
+        "tma-suprahyoid"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1277",
+            "source_name": "VH_F_digastric",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1275",
+            "source_name": "VH_F_digastric_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1276",
+            "source_name": "VH_F_digastric_R",
+            "ontology": ""
+          }
+        ]
+      }
+    },
+    "anatomy.internal-jugular-veins": {
+      "overview": "A large vein on each side of the neck. It begins at the base of the skull, continuing the sigmoid sinus, leaves the skull through the jugular foramen and runs down the neck in the carotid sheath, beside the common carotid artery and deep to the sternocleidomastoid.",
+      "function": "Carries blood from inside the skull and, through tributaries such as the facial, lingual and thyroid veins, from the face and neck. Behind the sternal end of the clavicle it joins the subclavian vein to form the brachiocephalic vein.",
+      "related": [
+        "anatomy.brachiocephalic-veins",
+        "anatomy.carotid-arteries",
+        "anatomy.sternocleidomastoid"
+      ],
+      "source_ids": [
+        "tma-neck-veins"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1283",
+            "source_name": "VH_F_internal_jugular_veins",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1281",
+            "source_name": "VH_F_internal_jugular_vein_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n1282",
+            "source_name": "VH_F_internal_jugular_vein_R",
+            "ontology": ""
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n1248",
+            "source_name": "VH_M_internal_jugular_veins",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1246",
+            "source_name": "VH_M_internal_jugular_vein_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n1247",
+            "source_name": "VH_M_internal_jugular_vein_R",
             "ontology": ""
           }
         ]
@@ -15728,16 +16151,25 @@
       "tm-ulna",
       "tm-urethra",
       "tm-uterus",
-      "tma-anterior-thigh",
-      "tma-gluteal-muscles",
-      "tma-intrinsic-back-muscles",
-      "valve-disease-types",
-      "tma-mastication",
-      "tma-scalenes",
       "tma-abdominal-wall",
+      "tma-accessory-nerve",
+      "tma-anterior-thigh",
+      "tma-anterior-triangle",
+      "tma-gluteal-muscles",
+      "tma-infrahyoid",
+      "tma-intrinsic-back-muscles",
+      "tma-mastication",
+      "tma-neck-arteries",
+      "tma-neck-veins",
+      "tma-pectoral-region",
       "tma-posterior-abdominal-wall",
+      "tma-posterior-triangle",
+      "tma-prevertebral",
+      "tma-scalenes",
       "tma-superficial-back",
-      "tma-pectoral-region"
+      "tma-suprahyoid",
+      "tma-upper-limb-arteries",
+      "valve-disease-types"
     ]
   },
   "human_source_review": "pending"
