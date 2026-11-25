@@ -171,6 +171,7 @@ checkout revision and only the references prepared in that checkout.
 | Reveal deeper anatomy | Peel away skin; Hide/Fade/Show apply to the current selection. |
 | First chest view | Show chest hides skin and fades lungs around the selected heart. |
 | Labels | Selection label is on by default. Enable Local part labels; Maximum labels controls density from 1 to 12. |
+| Cut-away view | In the details panel, turn on Cut-away view and drag its depth slider: anatomy nearer than a plane facing you, from 15 cm in front of the focus point to 15 cm beyond it, is not drawn. Clicks and labels reach what the cut exposes. |
 | Previous/next view | Back/Forward or Alt + Left/Right outside text entry. |
 | Move anatomy | Enable Move selected, then primary-drag in the viewer's camera plane. Shift-drag still pans. |
 | Restore | Restore selected or Restore all recovers original transforms and visibility. |
@@ -309,6 +310,16 @@ available in their tooltips and the details panel. The details panel scrolls whe
 needed so the viewport and bottom controls remain available. Keyboard focus follows
 the scrollable panel's controls using
 [Godot's ScrollContainer](https://docs.godotengine.org/en/stable/classes/class_scrollcontainer.html).
+
+**Cut-away view.** The cut is the camera's near clipping plane moved to a set
+depth from the focus point, so it always faces you and follows orbit and zoom at
+that depth. It is a display setting, like the rendering resolution: it changes no
+selection, visibility, positions or histories, saved views do not record it, and
+it stays as set while switching references. The cut faces are open. No caps,
+cut-surface tissue or interior anatomy are created, so hollow organs show their
+inner walls and solid parts show their far inside surface. A depth nearer than the
+camera leaves the view uncut. The expanded view's Explore menu does not offer it;
+return to the workspace to change it.
 
 ## Find structures and source records
 
@@ -497,7 +508,8 @@ text is selected, preserving the current anatomy view.
   sets; the complete male body supplies those for one separate, unaligned person.
 - Source labels, grouping and ontology fields remain draft import metadata.
 - Heart parts exist, but prepared cutaways, caps, reviewed interiors and tissue
-  explanations are not implemented.
+  explanations are not implemented. The cut-away view is an uncapped,
+  camera-facing near-plane cut, not a prepared section.
 - Draft condition summaries for 126 conditions and an unreviewed conceptual
   heart–lung route are available. Pathological geometry, disease comparisons, injury simulation and
   physiological animation are not implemented.

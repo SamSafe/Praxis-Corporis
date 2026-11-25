@@ -652,7 +652,12 @@ func pick(camera: Camera3D, position: Vector2) -> String:
 
 func ray_hit(camera: Camera3D, position: Vector2) -> Dictionary:
 	var origin := camera.project_ray_origin(position)
-	var query := PhysicsRayQueryParameters3D.create(origin, origin + camera.project_ray_normal(position) * 30.0, 1)
+	var normal := camera.project_ray_normal(position)
+	# A cut-away view moves the near plane forward: start the ray at that plane, so
+	# picking and labels reach the anatomy the cut exposes, not what it removed.
+	if camera.near > 0.0021:
+		origin += normal * (camera.near / maxf(normal.dot(-camera.global_basis.z), 0.05))
+	var query := PhysicsRayQueryParameters3D.create(origin, origin + normal * 30.0, 1)
 	return get_world_3d().direct_space_state.intersect_ray(query)
 
 

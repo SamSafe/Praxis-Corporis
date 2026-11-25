@@ -58,6 +58,9 @@ var anatomy_labels: Control
 var labels_button: CheckButton
 var local_labels_button: CheckButton
 var label_density: SpinBox
+var cut_button: CheckButton
+var cut_slider: HSlider
+var cut_note: Label
 var back_button: Button
 var forward_button: Button
 var back_views: Array[Dictionary] = []
@@ -1437,6 +1440,25 @@ func build_interface() -> void:
 	label_density.value_changed.connect(func(value: float): anatomy_labels.density = int(value))
 	density_row.add_child(label_density)
 	right.add_child(density_row)
+	cut_button = CheckButton.new()
+	cut_button.text = "Cut-away view"
+	cut_button.tooltip_text = "Slice away the anatomy in front of a plane that faces you, at a set depth from the focus point. Display only: no caps or interior surfaces are added, and saved views do not keep it."
+	UiAccessibility.describe(cut_button, "Cut-away view", "Hide anatomy nearer than a plane facing the camera. Display only.")
+	cut_button.toggled.connect(func(_enabled: bool): apply_cut())
+	right.add_child(cut_button)
+	cut_slider = HSlider.new()
+	UiAccessibility.describe(cut_slider, "Cut-away depth", "Distance of the cut in front of the focus point, from 15 cm beyond it to 15 cm in front.")
+	cut_slider.min_value = -15.0
+	cut_slider.max_value = 15.0
+	cut_slider.step = 0.5
+	cut_slider.value = 0.0
+	cut_slider.editable = false
+	cut_slider.value_changed.connect(func(_value: float): apply_cut())
+	right.add_child(cut_slider)
+	cut_note = make_label("", 12, Color("879db0"))
+	cut_note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	cut_note.visible = false
+	right.add_child(cut_note)
 	right.add_child(make_label("CONTENT IN DEVELOPMENT", 12, Color("8a9fb2")))
 	var pending := make_label("Study cards, condition summaries and routes are private drafts; human source and medical review are pending. Pathological geometry and validated cutaways remain in development.", 14, Color("8a9fb2"))
 	pending.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -2730,6 +2752,22 @@ func copy_source_record() -> void:
 		return
 	DisplayServer.clipboard_set(text)
 	status.text = "Source record copied"
+
+
+## Cut-away view: a display-only near-plane cut at the slider's depth from the focus
+## point. Selection, anatomy state, saved views and histories are unchanged.
+func apply_cut() -> void:
+	var enabled := cut_button.button_pressed
+	cut_slider.editable = enabled
+	cut_note.visible = enabled
+	orbit.set_cut(cut_slider.value / 100.0 if enabled else NAN)
+	if not enabled:
+		return
+	var depth := cut_slider.value
+	cut_note.text = ("Cut through the focus point" if is_zero_approx(depth) else
+		"Cut %s cm %s the focus point" % [String.num(absf(depth), 1), "in front of" if depth > 0.0 else "beyond"]) + \
+		" · cut faces are open: no caps or interior tissue are drawn."
+	status.text = "Cut-away view · " + cut_note.text.get_slice(" · ", 0)
 
 
 func leave_move_mode() -> void:

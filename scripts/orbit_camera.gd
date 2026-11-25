@@ -30,6 +30,11 @@ var shown_pitch := 0.0
 var response := 9.0
 var glide := Vector2.ZERO
 var last_motion_usec := 0
+## Cut-away view: the near clipping plane, which faces the camera, is moved to this
+## distance in front of the focus point (metres; negative cuts beyond it). NAN is off.
+## Display only: the plane follows the camera and adds no caps or interior surfaces.
+var cut_depth := NAN
+const NEAR := 0.002
 const JUMP_RESPONSE := 7.5
 const KEY_RESPONSE := 16.0
 const DRAG_RESPONSE := 30.0
@@ -39,7 +44,7 @@ const WHEEL_RESPONSE := 14.0
 func _ready() -> void:
 	camera = Camera3D.new()
 	camera.fov = 38.0
-	camera.near = 0.002
+	camera.near = NEAR
 	camera.far = 40.0
 	add_child(camera)
 	camera.current = true
@@ -71,7 +76,21 @@ func place_camera() -> void:
 	var direction := Vector3(sin(shown_yaw) * cos(shown_pitch), sin(shown_pitch), cos(shown_yaw) * cos(shown_pitch))
 	camera.position = shown_target + direction * shown_distance
 	camera.look_at(shown_target, Vector3.UP)
+	camera.near = cut_near()
 	view_changed.emit()
+
+
+## Near-plane distance for the drawn camera: the cut-away plane, or the default.
+func cut_near() -> float:
+	if is_nan(cut_depth):
+		return NEAR
+	return clampf(shown_distance - cut_depth, NEAR, camera.far * 0.5)
+
+
+func set_cut(depth: float) -> void:
+	cut_depth = depth if is_finite(depth) else NAN
+	if camera:
+		place_camera()
 
 
 func set_interactive_motion(enabled: bool) -> void:
