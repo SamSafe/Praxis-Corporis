@@ -650,6 +650,39 @@ func pick(camera: Camera3D, position: Vector2) -> String:
 	return ""
 
 
+## The label of what a viewer at `eye` sees in front of structure `id`, or "" when part of
+## it is in plain view. Rays go to the middle of up to eight of its meshes; hidden and
+## faded anatomy is already click-through, so it never counts as covering.
+func covering(id: String, eye: Vector3) -> String:
+	if not structures.has(id) or structures[id].mesh_nodes.is_empty():
+		return ""
+	var own := {}
+	for index in structures[id].mesh_nodes:
+		own[int(index)] = true
+	var space := get_world_3d().direct_space_state
+	var blocker := -1
+	var cast := 0
+	for index in structures[id].mesh_nodes:
+		var mesh: MeshInstance3D = meshes[int(index)]
+		if not mesh.visible:
+			continue
+		var centre: Vector3 = (mesh.global_transform * mesh.get_aabb()).get_center()
+		var query := PhysicsRayQueryParameters3D.create(eye, centre + (centre - eye).normalized() * 0.005, 1)
+		var hit := space.intersect_ray(query)
+		if hit.is_empty() or own.has(int(hit.collider.get_meta("mesh_index"))):
+			return ""
+		blocker = int(hit.collider.get_meta("mesh_index"))
+		cast += 1
+		if cast >= 8:
+			break
+	if blocker < 0:
+		return ""
+	for key in structures:
+		if int(structures[key].source_node) == blocker:
+			return str(structures[key].label)
+	return "other anatomy"
+
+
 func ray_hit(camera: Camera3D, position: Vector2) -> Dictionary:
 	var origin := camera.project_ray_origin(position)
 	var normal := camera.project_ray_normal(position)

@@ -1194,7 +1194,9 @@ func build_interface() -> void:
 	search_results.visible = false
 	search_results.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	search_results.custom_minimum_size = Vector2(255, 160)
-	search_results.icon_mode = ItemList.ICON_MODE_LEFT
+	# Each row is a label line and a source line; ItemList only honours
+	# max_text_lines in ICON_MODE_TOP (in ICON_MODE_LEFT the lines run together).
+	search_results.icon_mode = ItemList.ICON_MODE_TOP
 	search_results.max_text_lines = 2
 	search_results.fixed_column_width = 235
 	search_results.allow_reselect = true
@@ -1379,7 +1381,8 @@ func build_interface() -> void:
 	right.add_theme_constant_override("separation", 12)
 	right_scroll.add_child(right)
 	heading = make_label("Explore the body", 23, Color("f2f6fa"))
-	heading.autowrap_mode = TextServer.AUTOWRAP_ARBITRARY
+	# Break between words; WORD_SMART still breaks a long source name that fits no line.
+	heading.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	right.add_child(heading)
 	study_summary = make_label("", 15)
 	study_summary.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -1843,6 +1846,22 @@ func select_structure(id: String, remember: bool = true) -> void:
 	if remember:
 		remember_view(previous)
 	refresh_navigation()
+	note_covered_selection()
+
+
+## A structure chosen from a list or card can lie inside other anatomy, leaving the
+## view on the covering surface. Say what covers it and how to reveal it.
+func note_covered_selection() -> void:
+	var id: String = model.selected_id
+	if not model.structures.has(id) or not model.isolated_id.is_empty() or cut_button.button_pressed:
+		return
+	var direction := Vector3(sin(orbit.yaw) * cos(orbit.pitch), sin(orbit.pitch), cos(orbit.yaw) * cos(orbit.pitch))
+	# Look from well outside the body along the view direction: a close focus can put the
+	# camera inside the covering anatomy, where rays would miss its surfaces.
+	var eye: Vector3 = orbit.to_global(orbit.target + direction * maxf(orbit.distance, 2.0))
+	var cover: String = model.covering(id, eye)
+	if not cover.is_empty():
+		status.text = "%s is behind %s · Inspect alone shows it" % [str(model.structures[id].label), cover]
 
 
 func sync_selection_tree() -> void:

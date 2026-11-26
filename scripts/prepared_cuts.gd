@@ -11,7 +11,7 @@ const CUTS := [
 		"note": "A cut through the middle of the heart, facing forward, opens the chambers and shows the walls and valves inside it."},
 	{"id": "brain-midline", "title": "Brain, midline from the left", "card": "anatomy.brain", "part": "", "view": 2, "depth": 0.0,
 		"note": "A cut down the middle of the head, between the two halves of the brain, shows the corpus callosum, the ventricles, the brainstem and the cerebellum."},
-	{"id": "brain-coronal", "title": "Brain, front-to-back section", "card": "anatomy.brain", "part": "", "view": 0, "depth": 0.0,
+	{"id": "brain-coronal", "title": "Brain, section from the front", "card": "anatomy.brain", "part": "", "view": 0, "depth": 0.0,
 		"note": "A cut across the brain from side to side, through its middle, shows both hemispheres and the deep structures between them."},
 	{"id": "eye-left", "title": "Left eye, from the side", "card": "anatomy.eyes", "part": "eye_L", "view": 2, "depth": 0.0,
 		"note": "A cut through the middle of the left eye shows the cornea, lens and the wall of the eyeball, with the optic nerve behind it."},

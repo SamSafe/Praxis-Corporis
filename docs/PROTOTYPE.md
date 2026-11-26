@@ -2,7 +2,7 @@
 
 The viewer uses real, separate HRA male and female reference samples inside
 one continuous scene. It is a partial atlas with medical review pending. Draft
-study cards (216) and 126 condition summaries ([body study content](BODY_STUDY_CONTENT.md))
+study cards (245) and 157 condition summaries ([body study content](BODY_STUDY_CONTENT.md))
 provide reference locations; pathological geometry is unavailable. Detailed source findings are in [the sample audit](audit/HRA_SAMPLE_FINDINGS.md).
 
 The female and male bodies also carry later HRA organs (breasts, palatine tonsils,
@@ -168,7 +168,7 @@ checkout revision and only the references prepared in that checkout.
 | Browse local components | The Supplied parts list follows the current organ/group and uses the same selection as the main tree. |
 | Inspect a covered part | Select it, then Inspect alone. Further selections follow this temporary view. |
 | Return to surroundings | Return to context restores the selection/camera from before inspection and preserves current body edits. |
-| Reveal deeper anatomy | Peel away skin; Hide/Fade/Show apply to the current selection. |
+| Reveal deeper anatomy | Peel away skin; Hide/Fade/Show apply to the current selection. Choosing a structure that other anatomy covers from the current view names what is in front of it in the status line. |
 | First chest view | Show chest hides skin and fades lungs around the selected heart. |
 | Labels | Selection label is on by default. Enable Local part labels; Maximum labels controls density from 1 to 12. |
 | Cut-away view | In the details panel, turn on Cut-away view and drag its depth slider: anatomy nearer than a plane facing you, from 15 cm in front of the focus point to 15 cm beyond it, is not drawn. Clicks and labels reach what the cut exposes. |
@@ -520,7 +520,7 @@ text is selected, preserving the current anatomy view.
 - Heart parts exist, but caps, validated sections, reviewed interiors and tissue
   explanations are not implemented. The cut-away view, prepared cuts included, is an uncapped,
   camera-facing near-plane cut, not a prepared section.
-- Draft condition summaries for 126 conditions and an unreviewed conceptual
+- Draft condition summaries for 157 conditions and an unreviewed conceptual
   heart–lung route are available. Pathological geometry, disease comparisons, injury simulation and
   physiological animation are not implemented.
 - Source labels remain unreviewed. Broader system sets, authored label anchors,
