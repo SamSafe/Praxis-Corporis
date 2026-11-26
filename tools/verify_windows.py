@@ -525,7 +525,10 @@ def verify(args: argparse.Namespace) -> dict:
         if reference_state:
             reference_fixture.parent.mkdir(parents=True, exist_ok=True)
             reference_fixture.write_text(reference_fixture_text, encoding='utf-8')
-        verification_timeout = 450 if label_reuse else 300 if scene_redraw else 180
+        # The full bundle check walks every card and condition on eight references; with
+        # revision 16 (245 cards, 157 conditions) it takes about 450 s headless on the
+        # development machine, so the newest bundles get 600 s.
+        verification_timeout = 600 if label_reuse else 300 if scene_redraw else 180
         log = run_native(args, windows_session, windows_session + "\\" + executable_relative,
                          process_timeout=verification_timeout)
         result = parse_result(log, args.mode == "rendered", circulation, information, conditions,
