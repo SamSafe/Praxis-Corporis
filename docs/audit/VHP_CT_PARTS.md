@@ -351,6 +351,21 @@ With the discs, every part the free tasks can trace in these scans is traced or 
 after review; the parts in [Still not traced](#still-not-traced) need a licensed model
 or a scan that covers them.
 
+## Refit after the app audit: female left obliques
+
+The 2026-11-25 app audit found the female left external oblique showing through the
+skin at the left flank in the default whole-body view (round 2 had left it 14% outside
+the skin, under the 20% rule; the left internal oblique was 11%). One skin refit for all
+six abdominal wall muscles made the left side worse (26% and 21% outside), so the two
+left obliques were refitted on their own: `skin_fit.py` on the 230-630 and 480-860
+sections, the abdomen fit as the base, 50 mm skin radius
+(`female-fit-skin-obliques_left.json`; skin distance 15.8 to 5.4 mm, 18.5 degree
+rotation). Both are now 0% outside the skin; the internal oblique lies 7% inside the
+left kidney and 9% inside the colon where they meet the body wall, as with the male
+latissimus dorsi. The right side and both recti are unchanged. Only
+`female-abdominal-wall-muscles.glb` and the female supplemented body changed; the male
+body is byte for byte the same and no catalogue ID moved.
+
 ## Licence
 
 As for the parotid glands: NLM Terms and Conditions ("Courtesy of the U.S. National

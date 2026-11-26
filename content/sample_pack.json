@@ -8,8 +8,8 @@
       "id": "female",
       "label": "Female reference (HRA v1.1)",
       "asset_path": "assets/hra/female-supplemented.glb",
-      "sha256": "0cead5f84ed55ffd749de7b95e81ddb3b4775577dcce872e587e355af23d4e6d",
-      "bytes": 140463668,
+      "sha256": "07f4d50b29add03126c7ba98253454f55818fb0545640ce86c1b16f95c740553",
+      "bytes": 140463672,
       "root_id": "anatomy.body",
       "structures": [
         {

@@ -1,7 +1,7 @@
 {
   "female": {
-    "sha256": "0cead5f84ed55ffd749de7b95e81ddb3b4775577dcce872e587e355af23d4e6d",
-    "bytes": 140463668,
+    "sha256": "07f4d50b29add03126c7ba98253454f55818fb0545640ce86c1b16f95c740553",
+    "bytes": 140463672,
     "generator": "babylon.js glTF exporter for Autodesk MAYA 2022.2 v20211115.1",
     "anatomy_root": 0,
     "total_nodes": 1312,

@@ -310,12 +310,12 @@
           "label": "Abdominal wall muscles",
           "source": "Visible Human female normal CT (NLM), traced; tools/vhp_parotid",
           "license": "Derived from NLM Visible Human Project data under the NLM Terms and Conditions (acknowledge the National Library of Medicine)",
-          "derivation": "TotalSegmentator 2.18.0 abdominal_muscles task (Apache-2.0); regional similarity fit to shared anatomy; see docs/audit/VHP_CT_PARTS.md",
+          "derivation": "TotalSegmentator 2.18.0 abdominal_muscles task (Apache-2.0); regional similarity fit to shared anatomy; some parts refitted by the skin around them (tools/vhp_parotid/skin_fit.py); see docs/audit/VHP_CT_PARTS.md",
           "files": [
             {
               "local_path": "assets/vhp-ct/female-abdominal-wall-muscles.glb",
-              "bytes": 868104,
-              "sha256": "0f2eb3bc8a6acff0ab847fe39cca9407b5aa3640462f1d2731d4012f555de8da"
+              "bytes": 868108,
+              "sha256": "306cd24f784b9bd9e164b0558422819f31a4413a44a952979ff099fa320882d0"
             }
           ]
         },
