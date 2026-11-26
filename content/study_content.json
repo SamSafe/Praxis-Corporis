@@ -1284,6 +1284,26 @@
     "cdc-pid": {
       "title": "CDC: About pelvic inflammatory disease (PID)",
       "url": "https://www.cdc.gov/pid/about/index.html"
+    },
+    "ninds-brain-basics": {
+      "title": "NINDS: Brain basics: know your brain",
+      "url": "https://www.ninds.nih.gov/health-information/public-education/brain-basics/brain-basics-know-your-brain"
+    },
+    "ninds-sleep": {
+      "title": "NINDS: Brain basics: understanding sleep",
+      "url": "https://www.ninds.nih.gov/health-information/public-education/brain-basics/brain-basics-understanding-sleep"
+    },
+    "nia-alzheimers-brain": {
+      "title": "NIA: What happens to the brain in Alzheimer's disease?",
+      "url": "https://www.nia.nih.gov/health/alzheimers-causes-and-risk-factors/what-happens-brain-alzheimers-disease"
+    },
+    "ninds-parkinsons": {
+      "title": "NINDS: Parkinson's disease",
+      "url": "https://www.ninds.nih.gov/health-information/disorders/parkinsons-disease"
+    },
+    "nidcr-tmd": {
+      "title": "NIDCR: Temporomandibular disorders (TMD)",
+      "url": "https://www.nidcr.nih.gov/health-info/tmd"
     }
   },
   "cards": {
@@ -2378,7 +2398,9 @@
         "anatomy.corpus-callosum",
         "anatomy.optic-nerves",
         "anatomy.cerebral-hemispheres",
-        "anatomy.basal-ganglia"
+        "anatomy.basal-ganglia",
+        "anatomy.hippocampus",
+        "anatomy.amygdala"
       ],
       "source_ids": [
         "seer-cns",
@@ -13132,7 +13154,7 @@
     },
     "anatomy.cerebral-hemispheres": {
       "overview": "The two halves of the cerebrum, the largest part of the brain, divided by a deep longitudinal fissure and joined by the corpus callosum. Each has frontal, parietal, temporal and occipital lobes, and a fifth lobe, the insula, deep inside.",
-      "function": "The association areas of the lobes handle higher functions: the frontal lobe intellect, personality, mood and language; the parietal lobe language, calculation and visuospatial functions; the temporal lobe memory, language and hearing; and the occipital lobe vision.",
+      "function": "The association areas of the lobes handle higher functions: the frontal lobe intellect, personality, mood and language; the parietal lobe language, calculation and visuospatial functions; the temporal lobe memory, language and hearing; and the occipital lobe vision. The right hemisphere mainly controls the left side of the body, and the left hemisphere the right side.",
       "related": [
         "anatomy.brain",
         "anatomy.corpus-callosum",
@@ -13141,7 +13163,8 @@
       ],
       "source_ids": [
         "seer-cns",
-        "tm-cerebrum"
+        "tm-cerebrum",
+        "ninds-brain-basics"
       ],
       "review_status": "draft",
       "expert_review": "pending",
@@ -13320,7 +13343,7 @@
     },
     "anatomy.basal-ganglia": {
       "overview": "Clusters of nerve cells deep in the brain, around the thalamus. The source models include the caudate nucleus, putamen, globus pallidus and nucleus accumbens, and the HRA bodies also the subthalamic nucleus; the substantia nigra has its own card.",
-      "function": "Part of the circuits that control movement. The putamen mainly receives input from the motor and sensory areas of the cortex and projects back to the motor areas, and the subthalamic nucleus acts as a brake that keeps unwanted movements from starting.",
+      "function": "Part of the circuits that control movement. The putamen mainly receives input from the motor and sensory areas of the cortex and projects back to the motor areas, and the subthalamic nucleus acts as a brake that keeps unwanted movements from starting. Parkinson's disease affects nerve cells in the basal ganglia.",
       "related": [
         "anatomy.substantia-nigra",
         "anatomy.thalamus",
@@ -13328,7 +13351,8 @@
         "anatomy.brain"
       ],
       "source_ids": [
-        "tm-basal-ganglia"
+        "tm-basal-ganglia",
+        "ninds-brain-basics"
       ],
       "review_status": "draft",
       "expert_review": "pending",
@@ -13554,7 +13578,7 @@
     },
     "anatomy.substantia-nigra": {
       "overview": "A pigmented nucleus in the midbrain, one on each side, between the two parts of each cerebral peduncle. It looks dark in brain specimens because of the pigment neuromelanin in its cells.",
-      "function": "Part of the basal ganglia circuits that control movement: its compact part (pars compacta) is one of their intrinsic nuclei and its reticular part (pars reticulata) one of their output nuclei.",
+      "function": "Part of the basal ganglia circuits that control movement: its compact part (pars compacta) is one of their intrinsic nuclei and its reticular part (pars reticulata) one of their output nuclei. Its nerve cells produce dopamine, a chemical messenger that helps the brain produce smooth, purposeful movements; most symptoms of Parkinson's disease happen when these cells weaken, become damaged and die.",
       "related": [
         "anatomy.basal-ganglia",
         "anatomy.brainstem",
@@ -13562,7 +13586,8 @@
       ],
       "source_ids": [
         "tm-midbrain",
-        "tm-basal-ganglia"
+        "tm-basal-ganglia",
+        "ninds-parkinsons"
       ],
       "review_status": "draft",
       "expert_review": "pending",
@@ -14491,6 +14516,230 @@
           "ontology": ""
         }
       }
+    },
+    "anatomy.hippocampus": {
+      "overview": "A small structure deep in the brain, one in each half, which the source models divide into its head, body and tail. An arching tract of nerve cells leads to it from the hypothalamus and thalamus.",
+      "function": "Acts as a memory indexer, sending memories out to the cerebral hemispheres for long-term storage and retrieving them when needed. At first, Alzheimer's disease usually damages connections among nerve cells in parts of the brain involved in memory, including the hippocampus.",
+      "related": [
+        "anatomy.amygdala",
+        "anatomy.thalamus",
+        "anatomy.hypothalamus",
+        "anatomy.cerebral-hemispheres"
+      ],
+      "source_ids": [
+        "ninds-brain-basics",
+        "nia-alzheimers-brain"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n164",
+            "source_name": "Allen_head_of_hippocampus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n165",
+            "source_name": "Allen_body_of_hippocampus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n166",
+            "source_name": "Allen_tail_of_hippocampus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n298",
+            "source_name": "Allen_head_of_hippocampus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n299",
+            "source_name": "Allen_body_of_hippocampus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n300",
+            "source_name": "Allen_tail_of_hippocampus_R",
+            "ontology": "-"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n707",
+            "source_name": "Allen_head_of_hippocampus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n708",
+            "source_name": "Allen_body_of_hippocampus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n709",
+            "source_name": "Allen_tail_of_hippocampus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n841",
+            "source_name": "Allen_head_of_hippocampus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n842",
+            "source_name": "Allen_body_of_hippocampus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n843",
+            "source_name": "Allen_tail_of_hippocampus_R",
+            "ontology": "-"
+          }
+        ]
+      }
+    },
+    "anatomy.amygdala": {
+      "overview": "An almond-shaped structure deep in the brain, one in each half. The source models include its main nuclei and nearby amygdaloid area as separate parts.",
+      "function": "Involved in processing emotions. It becomes increasingly active during REM sleep.",
+      "related": [
+        "anatomy.hippocampus",
+        "anatomy.cerebral-hemispheres",
+        "anatomy.brain"
+      ],
+      "source_ids": [
+        "ninds-sleep"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n78",
+            "source_name": "Allen_amygdaloid_complex_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n79",
+            "source_name": "Allen_anterior_amygdaloid_area_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n82",
+            "source_name": "Allen_basolateral_nucleus_basal_nucleus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n83",
+            "source_name": "Allen_basomedial_nucleus_accessory_basal_nucleus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n84",
+            "source_name": "Allen_anterior_cortical_nucleus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n85",
+            "source_name": "Allen_posterior_cortical_nucleus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n214",
+            "source_name": "Allen_amygdaloid_complex_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n215",
+            "source_name": "Allen_anterior_amygdaloid_area_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n218",
+            "source_name": "Allen_basolateral_nucleus_basal_nucleus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n219",
+            "source_name": "Allen_basomedial_nucleus_accessory_basal_nucleus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n220",
+            "source_name": "Allen_anterior_cortical_nucleus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n221",
+            "source_name": "Allen_posterior_cortical_nucleus_R",
+            "ontology": "-"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n621",
+            "source_name": "Allen_amygdaloid_complex_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n622",
+            "source_name": "Allen_anterior_amygdaloid_area_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n625",
+            "source_name": "Allen_basolateral_nucleus_basal_nucleus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n626",
+            "source_name": "Allen_basomedial_nucleus_accessory_basal_nucleus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n627",
+            "source_name": "Allen_anterior_cortical_nucleus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n628",
+            "source_name": "Allen_posterior_cortical_nucleus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n757",
+            "source_name": "Allen_amygdaloid_complex_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n758",
+            "source_name": "Allen_anterior_amygdaloid_area_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n761",
+            "source_name": "Allen_basolateral_nucleus_basal_nucleus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n762",
+            "source_name": "Allen_basomedial_nucleus_accessory_basal_nucleus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n763",
+            "source_name": "Allen_anterior_cortical_nucleus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n764",
+            "source_name": "Allen_posterior_cortical_nucleus_R",
+            "ontology": "-"
+          }
+        ]
+      }
     }
   },
   "routes": {
@@ -15293,12 +15542,14 @@
         "anatomy.brain"
       ],
       "display_on": [
-        "anatomy.brain"
+        "anatomy.brain",
+        "anatomy.hippocampus"
       ],
       "geometry_mode": "reference_location_only",
       "source_ids": [
         "mlp-alzheimers",
-        "seer-cns"
+        "seer-cns",
+        "nia-alzheimers-brain"
       ],
       "review_status": "draft",
       "expert_review": "pending",
@@ -15314,13 +15565,16 @@
         "anatomy.brain"
       ],
       "display_on": [
-        "anatomy.brain"
+        "anatomy.brain",
+        "anatomy.substantia-nigra",
+        "anatomy.basal-ganglia"
       ],
       "geometry_mode": "reference_location_only",
       "source_ids": [
         "mlp-parkinsons",
         "mlp-parkinson-disease",
-        "seer-cns"
+        "seer-cns",
+        "ninds-parkinsons"
       ],
       "review_status": "draft",
       "expert_review": "pending",
@@ -18271,7 +18525,8 @@
       "geometry_mode": "reference_location_only",
       "source_ids": [
         "mlp-tmd",
-        "tma-mastication"
+        "tma-mastication",
+        "nidcr-tmd"
       ],
       "review_status": "draft",
       "expert_review": "pending",
@@ -18655,6 +18910,7 @@
       "nhlbi-pulmonary-embolism",
       "nhlbi-pulmonary-hypertension",
       "nhlbi-sleep-apnea",
+      "nia-alzheimers-brain",
       "niams-ankylosing-spondylitis",
       "niams-atopic-dermatitis",
       "niams-back-pain",
@@ -18669,6 +18925,7 @@
       "nichd-fibroids",
       "nichd-pcos",
       "nichd-vulvodynia",
+      "nidcr-tmd",
       "niddk-adrenal-insufficiency",
       "niddk-appendicitis",
       "niddk-bladder-control",
@@ -18706,6 +18963,9 @@
       "niddk-ulcerative-colitis",
       "niddk-urinary",
       "niddk-viral-hepatitis",
+      "ninds-brain-basics",
+      "ninds-parkinsons",
+      "ninds-sleep",
       "pulmonary-branches",
       "seer-accessory",
       "seer-adrenal",

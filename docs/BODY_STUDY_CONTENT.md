@@ -10,7 +10,7 @@ the brain, eyes and knees, for 63 cards and 25 conditions.
 bring the totals to 112 cards and 54 conditions. Later revisions, from
 [revision 5](#revision-5-dictionary-terms-brain-fluid-spaces-and-more-cancers)
 to [revision 16](#revision-16-audit-additions),
-bring them to 245 cards and 157 conditions.
+bring them to 247 cards and 157 conditions.
 
 **Everything here is a private draft.** Every record keeps `review_status: draft`
 with human source review and expert review pending, and the app labels it that
@@ -532,8 +532,8 @@ Added 2026-11-25 as `body-study-16-draft`, after a card-by-card and condition-by
 audit of revision 15 and a check of what the two bodies supply but no card explained.
 Every new claim was read on its cited page that day (preliminary assistant check, not
 human review). Sources are limited to the government sites the tests accept and
-TeachMeAnatomy, as before; NINDS, NIA and NIDCR pages were read but are not on that list,
-so the same facts were cited from MedlinePlus or TeachMeAnatomy instead.
+TeachMeAnatomy. NINDS, NIA and NIDCR pages were first cited through MedlinePlus or
+TeachMeAnatomy instead, then added to the accepted list with the user's approval.
 
 - **New cards for supplied parts (20).** Cerebral hemispheres, motor cortex (precentral
   gyrus), sensory cortex (postcentral gyrus), auditory cortex (superior and transverse
@@ -567,12 +567,16 @@ so the same facts were cited from MedlinePlus or TeachMeAnatomy instead.
   female body has six lumbar vertebrae.
 - **Links.** Glaucoma, BPH, AMD, herniated disk, diverticular disease, colorectal cancer,
   osteoporosis and mitral regurgitation now also appear on the matching new cards.
-- **Left out.** No card for the hippocampus or amygdala: the only pages that state their
-  roles (NINDS, NIA) are outside the accepted sources, and NCBI Bookshelf asked for a
-  CAPTCHA, which was not attempted. The substantia nigra card describes its anatomy only;
-  no accepted page names it as the source of dopamine, so Parkinson's disease is not linked
-  to it. Prostate cancer's "most common cancer among men" matches its NCI page and was kept.
-- **Totals:** 245 cards, 157 conditions, one route, 320 sources. No catalogue ID moved.
+- **NINDS, NIA and NIDCR accepted (second part).** These NIH pages were first left out
+  because the tests' list of government sources did not include them; the user approved
+  adding them the same day. With them: hippocampus and amygdala cards; the substantia
+  nigra card now says its cells make dopamine and that Parkinson's symptoms follow their
+  loss, and Parkinson's disease is shown on it and on the basal ganglia; Alzheimer's
+  disease is shown on the hippocampus; the cerebral-hemispheres card notes that each
+  hemisphere mainly controls the opposite side of the body. NCBI Bookshelf asked for a
+  CAPTCHA, which was not attempted. Prostate cancer's "most common cancer among men"
+  matches its NCI page and was kept.
+- **Totals:** 247 cards, 157 conditions, one route, 325 sources. No catalogue ID moved.
 
 ## Deliberate limits
 
@@ -597,6 +601,11 @@ so the same facts were cited from MedlinePlus or TeachMeAnatomy instead.
 
 Revision 16 adds:
 
+- `ninds-brain-basics`: [NINDS: Brain basics: know your brain](https://www.ninds.nih.gov/health-information/public-education/brain-basics/brain-basics-know-your-brain)
+- `ninds-sleep`: [NINDS: Brain basics: understanding sleep](https://www.ninds.nih.gov/health-information/public-education/brain-basics/brain-basics-understanding-sleep)
+- `nia-alzheimers-brain`: [NIA: What happens to the brain in Alzheimer's disease?](https://www.nia.nih.gov/health/alzheimers-causes-and-risk-factors/what-happens-brain-alzheimers-disease)
+- `ninds-parkinsons`: [NINDS: Parkinson's disease](https://www.ninds.nih.gov/health-information/disorders/parkinsons-disease)
+- `nidcr-tmd`: [NIDCR: Temporomandibular disorders (TMD)](https://www.nidcr.nih.gov/health-info/tmd)
 - `tm-basal-ganglia`: [TeachMeAnatomy: The basal ganglia](https://teachmeanatomy.info/neuroanatomy/structures/basal-ganglia/)
 - `tm-cerebrum`: [TeachMeAnatomy: The cerebrum](https://teachmeanatomy.info/neuroanatomy/structures/cerebrum/)
 - `tm-pineal`: [TeachMeAnatomy: The pineal gland](https://teachmeanatomy.info/neuroanatomy/structures/pineal-gland/)

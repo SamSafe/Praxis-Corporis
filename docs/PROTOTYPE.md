@@ -2,7 +2,7 @@
 
 The viewer uses real, separate HRA male and female reference samples inside
 one continuous scene. It is a partial atlas with medical review pending. Draft
-study cards (245) and 157 condition summaries ([body study content](BODY_STUDY_CONTENT.md))
+study cards (247) and 157 condition summaries ([body study content](BODY_STUDY_CONTENT.md))
 provide reference locations; pathological geometry is unavailable. Detailed source findings are in [the sample audit](audit/HRA_SAMPLE_FINDINGS.md).
 
 The female and male bodies also carry later HRA organs (breasts, palatine tonsils,

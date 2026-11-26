@@ -11,11 +11,13 @@ sys.path.insert(0, str(ROOT / "tools"))
 from build_spinal_studies import build
 
 
+# NINDS, NIA and NIDCR were added at the user's request on 2026-11-25 (revision 16).
 def is_government_source(url):
     return url.startswith(("https://www.nhlbi.nih.gov/", "https://www.ncbi.nlm.nih.gov/", "https://www.niddk.nih.gov/",
                            "https://www.nichd.nih.gov/", "https://training.seer.cancer.gov/", "https://www.nei.nih.gov/",
                            "https://www.niams.nih.gov/", "https://medlineplus.gov/", "https://www.cancer.gov/",
-                           "https://www.cdc.gov/"))
+                           "https://www.cdc.gov/", "https://www.ninds.nih.gov/", "https://www.nia.nih.gov/",
+                           "https://www.nidcr.nih.gov/"))
 
 
 # Non-government anatomy references the user approved on 2026-11-21 for parts that have no
@@ -121,7 +123,7 @@ class StudyContentTests(unittest.TestCase):
         content = json.loads((ROOT / "content/study_content.json").read_text())
         catalogue = json.loads((ROOT / "content/sample_pack.json").read_text())
         self.assertEqual(content["expert_review"], "pending")
-        self.assertEqual(len(content["cards"]), 245)
+        self.assertEqual(len(content["cards"]), 247)
         mapped = {}
         for identity, card in content["cards"].items():
             self.assertEqual(card["review_status"], "draft")
