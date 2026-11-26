@@ -22,6 +22,11 @@ var tissues: Dictionary = {} # Mesh index -> illustrative tissue class; display 
 var reveal_selection := true
 var reveal_cache_id := "<unset>"
 var reveal_cache: Dictionary = {}
+# Parts in front of a deep selection from the chosen view, drawn faded while that
+# structure stays selected. Display only, like the outer-layer reveal.
+var view_reveal_id := ""
+var view_reveal: Dictionary = {}
+var sight_samples: Dictionary = {} # (mesh index, count) -> local sample points
 var colliders: Dictionary = {}
 var node_labels: Dictionary = {} # Source node index -> structure label, built on first use.
 var selected_id := ""
@@ -416,6 +421,9 @@ func clear_body() -> void:
 	tissues.clear()
 	reveal_cache_id = "<unset>"
 	reveal_cache.clear()
+	view_reveal_id = ""
+	view_reveal.clear()
+	sight_samples.clear()
 	colliders.clear()
 	undo_stack.clear()
 	redo_stack.clear()
@@ -444,6 +452,9 @@ func bounds_for(id: String) -> AABB:
 
 func select(id: String) -> void:
 	selected_id = id if structures.has(id) else ""
+	if view_reveal_id != selected_id:
+		view_reveal_id = ""
+		view_reveal.clear()
 	refresh_appearance()
 	state_changed.emit()
 
@@ -471,7 +482,8 @@ func effective_visibility(index: int) -> String:
 	# also muscle, bone, ligament and cartilage when the selection is an organ, vessel
 	# or nerve.
 	# Display only: stored states, saved views and undo history are unchanged.
-	if reveal_selection and states[index].visibility == "visible" and revealed_layers().has(index):
+	if reveal_selection and states[index].visibility == "visible" and (revealed_layers().has(index)
+			or (view_reveal_id == selected_id and view_reveal.has(index))):
 		return "faded"
 	return states[index].visibility
 
@@ -652,37 +664,127 @@ func pick(camera: Camera3D, position: Vector2) -> String:
 	return ""
 
 
-## The label of what a viewer at `eye` sees in front of structure `id`, or "" when part of
-## it is in plain view. Rays go to the middle of up to eight of its meshes; hidden and
-## faded anatomy is already click-through, so it never counts as covering.
+## The label of what a viewer at `eye` mostly sees in front of structure `id`, or "" when
+## it is in sight (see `sight`). Hidden and faded anatomy is click-through, so it never
+## counts as covering.
 func covering(id: String, eye: Vector3) -> String:
-	if not structures.has(id) or structures[id].mesh_nodes.is_empty():
+	var view := sight(id, eye)
+	if float(view.seen) >= IN_SIGHT or view.blockers.is_empty():
 		return ""
+	return label_for_node(most_crossed(view.blockers))
+
+
+## The mesh most sample rays crossed (see `sight`).
+func most_crossed(blockers: Dictionary) -> int:
+	var most := -1
+	for index in blockers:
+		if most < 0 or int(blockers[index]) > int(blockers[most]):
+			most = int(index)
+	return most
+
+
+## Share of sample rays that must reach a structure first for it to count as in sight.
+const IN_SIGHT := 0.3
+const SIGHT_SAMPLES := 24
+
+
+## How much of structure `id` an eye at `eye` sees. Rays go to up to 24 points on its own
+## surfaces (spread over up to eight of its meshes); `seen` is the share whose first hit is
+## the structure itself, and `blockers` (mesh index -> ray count) the opaque parts crossed
+## by the others before they reach it. A ray that never meets the structure (one that
+## slips through a gap between neighbouring parts) proves nothing and is not counted.
+## Returns {seen: 1.0, blockers: {}} when no ray can be checked. With `give_up` set, it
+## stops once more than that many parts are in front and returns {seen: 0.0, pruned: true}.
+func sight(id: String, eye: Vector3, samples: int = SIGHT_SAMPLES, give_up: int = -1) -> Dictionary:
+	var result := {"seen": 1.0, "blockers": {}}
+	if not structures.has(id) or structures[id].mesh_nodes.is_empty():
+		return result
 	var own := {}
+	var shown: Array[int] = []
 	for index in structures[id].mesh_nodes:
 		own[int(index)] = true
+		if meshes[int(index)].visible and shown.size() < 8:
+			shown.append(int(index))
+	if shown.is_empty():
+		return result
 	var space := get_world_3d().direct_space_state
-	var blocker := -1
-	var cast := 0
-	for index in structures[id].mesh_nodes:
-		var mesh: MeshInstance3D = meshes[int(index)]
-		if not mesh.visible:
-			continue
-		var centre: Vector3 = (mesh.global_transform * mesh.get_aabb()).get_center()
-		var query := PhysicsRayQueryParameters3D.create(eye, centre + (centre - eye).normalized() * 0.005, 1)
-		var hit := space.intersect_ray(query)
-		if hit.is_empty() or own.has(int(hit.collider.get_meta("mesh_index"))):
-			return ""
-		blocker = int(hit.collider.get_meta("mesh_index"))
-		cast += 1
-		if cast >= 8:
-			break
-	if blocker < 0:
-		return ""
+	var per_mesh := ceili(float(samples) / shown.size())
+	var reached := 0
+	var clear := 0
+	var blockers := {}
+	for index in shown:
+		var mesh: MeshInstance3D = meshes[index]
+		for local in sample_points(index, per_mesh):
+			var point: Vector3 = mesh.global_transform * local
+			# A long segment, as for picking: the engine rejects hits when triangle size times
+			# segment length is tiny, so short rays miss millimetre-scale source triangles.
+			var query := PhysicsRayQueryParameters3D.create(eye, eye + (point - eye).normalized() * 30.0, 1)
+			var limit := eye.distance_to(point) + 0.003
+			var crossed := {}
+			var arrived := false
+			for step in 32:
+				var hit := space.intersect_ray(query)
+				if hit.is_empty() or eye.distance_to(hit.position) > limit:
+					break
+				var hit_index := int(hit.collider.get_meta("mesh_index"))
+				if own.has(hit_index):
+					arrived = true
+					break
+				crossed[hit_index] = true
+				if give_up >= 0 and crossed.size() > give_up:
+					arrived = true # Blocked enough already: count it without walking further.
+					break
+				query.exclude = query.exclude + [hit.rid]
+			if not arrived:
+				continue
+			reached += 1
+			if crossed.is_empty():
+				clear += 1
+			for blocker in crossed:
+				blockers[blocker] = int(blockers.get(blocker, 0)) + 1
+			if give_up >= 0 and blockers.size() > give_up:
+				return {"seen": 0.0, "blockers": blockers, "pruned": true}
+	if reached > 0:
+		result.seen = float(clear) / reached
+		result.blockers = blockers
+	result.reached = reached
+	return result
+
+
+## Up to `count` vertices spread over a mesh's first surface (local space), cached.
+func sample_points(index: int, count: int) -> PackedVector3Array:
+	var key := Vector2i(index, count)
+	if sight_samples.has(key):
+		return sight_samples[key]
+	var points := PackedVector3Array()
+	var mesh: Mesh = meshes[index].mesh
+	if mesh and mesh.get_surface_count() > 0:
+		var vertices: PackedVector3Array = mesh.surface_get_arrays(0)[Mesh.ARRAY_VERTEX]
+		var step := maxf(float(vertices.size()) / count, 1.0)
+		var at := step * 0.5
+		while int(at) < vertices.size() and points.size() < count:
+			points.append(vertices[int(at)])
+			at += step
+	if points.is_empty():
+		points.append(meshes[index].get_aabb().get_center())
+	sight_samples[key] = points
+	return points
+
+
+## Fade `blockers` in front of the selected structure `id` (display only).
+func set_view_reveal(id: String, blockers: Dictionary) -> void:
+	if id != selected_id and not id.is_empty():
+		return
+	view_reveal_id = id if not blockers.is_empty() else ""
+	view_reveal = blockers.duplicate() if not blockers.is_empty() else {}
+	refresh_appearance()
+
+
+func label_for_node(index: int) -> String:
 	if node_labels.is_empty():
 		for key in structures:
 			node_labels[int(structures[key].source_node)] = str(structures[key].label)
-	return str(node_labels.get(blocker, "other anatomy"))
+	return str(node_labels.get(index, "other anatomy"))
 
 
 func ray_hit(camera: Camera3D, position: Vector2) -> Dictionary:

@@ -1846,7 +1846,106 @@ func select_structure(id: String, remember: bool = true) -> void:
 	if remember:
 		remember_view(previous)
 	refresh_navigation()
-	note_covered_selection()
+	show_covered_selection()
+
+
+func orbit_direction(yaw: float, pitch: float) -> Vector3:
+	return Vector3(sin(yaw) * cos(pitch), sin(pitch), cos(yaw) * cos(pitch))
+
+
+## Choose a view that shows a selection lying inside other anatomy. The current direction
+## is kept while the structure is in sight (AnatomyModel.sight); otherwise the camera takes
+## the nearest of the 26 directions around the body (front, sides, above, below and the
+## diagonals between), within a quarter turn, from which most of it is in sight. When none shows it, the parts in
+## front are to be drawn faded: from the current direction, unless another has at most half
+## as many in front. Returns {direction (camera space), blockers (mesh index -> ray count)}.
+func plan_clear_view(id: String) -> Dictionary:
+	var current := orbit_direction(orbit.yaw, orbit.pitch)
+	var frame: Dictionary = orientation.frame if orientation else {}
+	var anterior: Vector3 = frame.get("anterior", Vector3.BACK)
+	var left: Vector3 = frame.get("left", Vector3.RIGHT)
+	var superior: Vector3 = frame.get("superior", Vector3.UP)
+	var candidates: Array[Vector3] = []
+	for x in [-1, 0, 1]:
+		for y in [-1, 0, 1]:
+			for z in [-1, 0, 1]:
+				if x == 0 and y == 0 and z == 0:
+					continue
+				var d: Vector3 = (anterior * x + left * y + superior * z).normalized()
+				# Test what the camera can show: its pitch stops short of straight up or down.
+				d = orbit_direction(atan2(d.x, d.z), clampf(asin(d.y), -1.45, 1.45))
+				# Only directions within a quarter turn: swinging round to the far side of the
+				# body would lose the user's bearings.
+				if d.dot(current) < 0.9999 and d.dot(current) > -0.01:
+					candidates.append(d)
+	candidates.sort_custom(func(p: Vector3, q: Vector3) -> bool: return p.dot(current) > q.dot(current))
+	# Rays start well outside the body: a close focus can put the camera inside the
+	# covering anatomy, where rays would miss its surfaces.
+	var reach := maxf(orbit.distance, 2.0)
+	var here: Dictionary = model.sight(id, orbit.to_global(orbit.target + current * reach))
+	if float(here.seen) >= model.IN_SIGHT or here.blockers.is_empty():
+		return {"direction": current, "blockers": {}}
+	# Survey the other directions with fewer rays, dropping each once it is no better.
+	var best := current
+	var survey: Dictionary = model.sight(id, orbit.to_global(orbit.target + current * reach), 8)
+	var fewest: int = survey.blockers.size() / 2 + 1
+	for direction in candidates:
+		var view: Dictionary = model.sight(id, orbit.to_global(orbit.target + direction * reach), 8, fewest - 1)
+		if view.get("pruned", false) or int(view.get("reached", 0)) == 0:
+			continue
+		if float(view.seen) >= 0.5 or view.blockers.is_empty():
+			return {"direction": direction, "blockers": {}}
+		if view.blockers.size() < fewest:
+			best = direction
+			fewest = view.blockers.size()
+	if best == current:
+		return {"direction": current, "blockers": here.blockers}
+	return {"direction": best, "blockers": model.sight(id, orbit.to_global(orbit.target + best * reach)).blockers}
+
+
+## Bring a selection that lies inside other anatomy into sight: turn the camera to a
+## direction that shows it, or, when it is enclosed, to the most open direction with the
+## parts in front drawn faded while it stays selected. Display only: stored visibility,
+## saved views and undo history are unchanged. With Reveal deeper anatomy off, isolated,
+## or in a cut-away view, the camera stays put and the status line says what covers it.
+func show_covered_selection() -> void:
+	var id: String = model.selected_id
+	if not model.structures.has(id) or not model.isolated_id.is_empty() or cut_button.button_pressed or model.view_reveal_id == id:
+		note_covered_selection()
+		return
+	if not model.reveal_selection:
+		note_covered_selection()
+		return
+	var plan := plan_clear_view(id)
+	if plan.is_empty():
+		return
+	var direction: Vector3 = plan.direction
+	var label := str(model.structures[id].label)
+	var turned: bool = direction.dot(orbit_direction(orbit.yaw, orbit.pitch)) < 0.9999
+	if turned:
+		orbit.yaw = atan2(direction.x, direction.z)
+		orbit.pitch = clampf(asin(direction.y), -1.45, 1.45)
+		orbit.update_camera()
+		anatomy_labels.update_labels()
+	var blockers: Dictionary = plan.blockers
+	if not blockers.is_empty():
+		model.set_view_reveal(id, blockers)
+		var first: String = model.label_for_node(model.most_crossed(blockers))
+		var others := blockers.size() - 1
+		status.text = "Faded %s%s in front of %s · display only" % [first, "" if others == 0 else " and %d other part%s" % [others, "" if others == 1 else "s"], label]
+	elif turned:
+		status.text = "Camera turned to show " + label
+
+
+## Restored views keep a deep selection in sight from their own camera direction.
+func restore_view_reveal() -> void:
+	var id: String = model.selected_id
+	if not model.reveal_selection or not model.structures.has(id) or not model.isolated_id.is_empty() or model.view_reveal_id == id:
+		return
+	var eye: Vector3 = orbit.to_global(orbit.target + orbit_direction(orbit.yaw, orbit.pitch) * maxf(orbit.distance, 2.0))
+	var view: Dictionary = model.sight(id, eye)
+	if float(view.seen) < model.IN_SIGHT and not view.blockers.is_empty():
+		model.set_view_reveal(id, view.blockers)
 
 
 ## A structure chosen from a list or card can lie inside other anatomy, leaving the
@@ -1979,6 +2078,7 @@ func apply_view(view: Dictionary) -> void:
 	model.set_isolation(view.get("isolation", ""))
 	model.select(view.selection)
 	orbit.apply_state(view.camera)
+	restore_view_reveal()
 	sync_selection_tree()
 	refresh_details()
 
@@ -2844,6 +2944,7 @@ func open_prepared_cut(index: int) -> void:
 	leave_move_mode()
 	end_isolation()
 	select_structure(id, false)
+	model.set_view_reveal("", {}) # The cut shows the interior instead.
 	orbit.yaw = atan2(direction.x, direction.z)
 	orbit.pitch = clampf(asin(direction.y), -1.45, 1.45)
 	orbit.update_camera()
