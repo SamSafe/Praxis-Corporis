@@ -23,6 +23,7 @@ var reveal_selection := true
 var reveal_cache_id := "<unset>"
 var reveal_cache: Dictionary = {}
 var colliders: Dictionary = {}
+var node_labels: Dictionary = {} # Source node index -> structure label, built on first use.
 var selected_id := ""
 var isolated_id := ""
 var isolated_meshes: Dictionary = {}
@@ -406,6 +407,7 @@ func clear_body() -> void:
 		source_scene.free()
 	source_scene = null
 	structures.clear()
+	node_labels.clear()
 	meshes.clear()
 	baseline.clear()
 	baseline_world.clear()
@@ -677,10 +679,10 @@ func covering(id: String, eye: Vector3) -> String:
 			break
 	if blocker < 0:
 		return ""
-	for key in structures:
-		if int(structures[key].source_node) == blocker:
-			return str(structures[key].label)
-	return "other anatomy"
+	if node_labels.is_empty():
+		for key in structures:
+			node_labels[int(structures[key].source_node)] = str(structures[key].label)
+	return str(node_labels.get(blocker, "other anatomy"))
 
 
 func ray_hit(camera: Camera3D, position: Vector2) -> Dictionary:
