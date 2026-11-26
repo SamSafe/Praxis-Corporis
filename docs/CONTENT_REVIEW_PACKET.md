@@ -1,8 +1,8 @@
 # Current private candidate: content-review packet
 
-Prepared 2026-11-25. Review is pending. This packet identifies the exact draft
+Prepared 2026-11-26. Review is pending. This packet identifies the exact draft
 study material in one private build and supplies a
-[results template](reviews/E86A855_TEMPLATE.md) for a human source checker or
+[results template](reviews/0344141_TEMPLATE.md) for a human source checker or
 qualified medical reviewer. A completed review applies only to its recorded items,
 reference mappings and exact versions. The broader release scope in
 [SCOPE.md](SCOPE.md) still includes unresolved content and capabilities.
@@ -12,17 +12,17 @@ The previous packet, for build `c86cfba` and its 15 chest cards, is kept at
 
 ## Exact material
 
-- Application source: `e86a855c842bdd0670b8b27c109d15dedfd27d00`.
-- Private build ID: `c6f1079c41f045fbadd34236a8af0048`.
+- Application source: `0344141c9fc63ddca2ff94551dfe46c8ea74ab70`.
+- Private build ID: `77578195662a4722bcd356756693466c`.
 - Application version: `0.1.0`.
-- Source snapshot SHA-256: `469a6105ca4aa02418bfe4ae0f2ce8a21a1a3c8dfd2db76e6d7c8ddeaebb47b4`.
+- Source snapshot SHA-256: `e0ffaf9c6018c352a14681e445e6d87c1109ae0ae66a49e72c9efba1792a26ff`.
 - Engine: `4.7.2.stable.official.ed1daf0bf`.
 - Study-content revision: `body-study-16-draft`.
-- Frozen study JSON SHA-256: `89772c5a3db7ee447bb9b375ad4d7ce1274446d7ed466870fb5812472bc4b2d5`.
+- Frozen study JSON SHA-256: `a201e069a844b44c6fd7c890383b1404e66147445bede602da77d8628e228c14`.
 
 | Artifact | SHA-256 |
 | --- | --- |
-| PraxisCorporis-Windows-x64-private.zip | `bbb2e3e1d21b5a4d902a3d08b38142000d5661391deb939fb001214e0b92515b` |
+| PraxisCorporis-Windows-x64-private.zip | `b34d5a200e94e210080087beb82b7c1249e002d15e491ca73353f326809d0410` |
 
 The app's Sources dialog and START_HERE file show the build ID; check that it
 matches before reviewing. Use [native setup](NATIVE_BUILDS.md) and the
@@ -30,14 +30,14 @@ matches before reviewing. Use [native setup](NATIVE_BUILDS.md) and the
 
 ## What to review
 
-- **[Reviewer text](reviews/e86a855-reviewer-text.md):** every item in readable
+- **[Reviewer text](reviews/0344141-reviewer-text.md):** every item in readable
   form, grouped by body system, with the 3D part names shown in each body and
   every source link. Start here.
-- **[Frozen JSON](reviews/e86a855-study-content.json):** the authoritative copy of
+- **[Frozen JSON](reviews/0344141-study-content.json):** the authoritative copy of
   the same material.
-- **[Results template](reviews/E86A855_TEMPLATE.md):** one row per item.
+- **[Results template](reviews/0344141_TEMPLATE.md):** one row per item.
 
-The build contains **245 cards, 157 condition summaries and
+The build contains **247 cards, 157 condition summaries and
 1 route**, all marked draft with human source review
 and expert review pending. The female body offers 132 conditions
 and the male body 123; the rest need anatomy only one body has.
@@ -78,7 +78,7 @@ coordinates and pending registration/metadata questions. Catalogue paths are
 `content/spinal_studies.json`. Obtain the exact file with, for example:
 
 ```sh
-git show e86a855c842bdd0670b8b27c109d15dedfd27d00:content/sample_pack.json
+git show 0344141c9fc63ddca2ff94551dfe46c8ea74ab70:content/sample_pack.json
 ```
 
 ## Record findings and review boundaries

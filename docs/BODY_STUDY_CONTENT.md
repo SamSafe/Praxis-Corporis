@@ -592,7 +592,7 @@ TeachMeAnatomy instead, then added to the accepted list with the user's approval
   samples, so they have no cards. (An earlier version of this note also listed
   the brain; the samples do include it, and revision 2 adds brain cards.)
 - **Review packet.** The [content-review packet](CONTENT_REVIEW_PACKET.md) now
-  covers build `e86a855` (revision `body-study-16-draft`, all 245 cards and 157
+  covers build `0344141` (revision `body-study-16-draft`, all 247 cards and 157
   conditions, with each card's parts listed for the female, male and complete
   bodies). Regenerate it with `tools/build_review_packet.py` after any later
   content change.
