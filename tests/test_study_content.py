@@ -59,7 +59,7 @@ class StudyContentTests(unittest.TestCase):
     def test_conditions_are_sourced_reference_locations_with_explicit_associations(self):
         content = json.loads((ROOT / "content/study_content.json").read_text())
         catalogue = json.loads((ROOT / "content/sample_pack.json").read_text())
-        self.assertEqual(len(content["conditions"]), 126)
+        self.assertEqual(len(content["conditions"]), 157)
         for body in catalogue["bodies"]:
             available = {s["id"]: s for s in body["structures"]}
             offered = set()
@@ -86,9 +86,11 @@ class StudyContentTests(unittest.TestCase):
             # hiccups, oral cancer), plus those its own supplied anatomy supports (13 female
             # with the traced shoulder and submandibular glands, 6 male), tooth decay on both
             # (traced teeth, revision 14) and carotid artery disease on the female (traced
-            # right common carotid), and herniated disk on both (traced intervertebral discs,
-            # revision 15); none is inferred from missing anatomy.
-            self.assertEqual(len(offered), 110 if body["id"] == "female" else 102)
+            # right common carotid), herniated disk on both (traced intervertebral discs,
+            # revision 15), and the 31 conditions of revision 16 (30 on the male body: pelvic
+            # inflammatory disease needs the female organs; three are about the unmodelled ears
+            # and sinuses); none is inferred from missing anatomy.
+            self.assertEqual(len(offered), 141 if body["id"] == "female" else 132)
             self.assertEqual("condition.bph" in offered, body["id"] == "male")
             self.assertEqual("condition.endometriosis" in offered, body["id"] == "female")
 
@@ -119,7 +121,7 @@ class StudyContentTests(unittest.TestCase):
         content = json.loads((ROOT / "content/study_content.json").read_text())
         catalogue = json.loads((ROOT / "content/sample_pack.json").read_text())
         self.assertEqual(content["expert_review"], "pending")
-        self.assertEqual(len(content["cards"]), 222)
+        self.assertEqual(len(content["cards"]), 245)
         mapped = {}
         for identity, card in content["cards"].items():
             self.assertEqual(card["review_status"], "draft")
@@ -163,7 +165,7 @@ class StudyContentTests(unittest.TestCase):
         content = json.loads((ROOT / "content/study_content.json").read_text())
         cards = content["cards"]
         unmodelled = {k: c for k, c in cards.items() if "not_modelled" in c}
-        self.assertEqual(sorted(unmodelled), ["anatomy.adenoids", "anatomy.lingual-tonsils", "anatomy.parotid-glands", "anatomy.scrotum", "anatomy.vulva"])
+        self.assertEqual(sorted(unmodelled), ["anatomy.adenoids", "anatomy.ear", "anatomy.lingual-tonsils", "anatomy.parotid-glands", "anatomy.scrotum", "anatomy.sinuses", "anatomy.vulva"])
         for identity, card in unmodelled.items():
             # Only the parotid glands have geometry, traced from the Visible Human CT for the
             # two bodies made from those donors; the complete body keeps the text-only card.
@@ -201,7 +203,7 @@ class StudyContentTests(unittest.TestCase):
                 self.assertNotIn(mapping["id"], content["cards"])
         # Cards whose anatomy the complete male source supplies (no female or
         # source-absent parts); see docs/BODY_STUDY_CONTENT.md.
-        self.assertEqual(on_body, 151)
+        self.assertEqual(on_body, 158)
 
     def test_spinal_studies_preserve_ambiguous_source_identity(self):
         studies = json.loads((ROOT / "content/spinal_studies.json").read_text())["bodies"]

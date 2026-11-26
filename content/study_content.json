@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "revision": "body-study-15-draft",
+  "revision": "body-study-16-draft",
   "review_status": "draft",
   "expert_review": "pending",
-  "scope": "Private draft explanations covering the chest, abdomen, pelvis, brain, eyes, knees and skin, including selected vessels, kidney interior, intestines, airways, bone tissue and the lymphatic system. General anatomy is separate from completeness and accuracy of the supplied source meshes. No source illustrations or video are reused.",
+  "scope": "Private draft explanations covering the chest, abdomen, pelvis, brain, eyes, knees and skin, including selected vessels, kidney interior, intestines, airways, bone tissue, the lymphatic system, deep brain nuclei and the vertebral regions. General anatomy is separate from completeness and accuracy of the supplied source meshes. No source illustrations or video are reused.",
   "sources": {
     "heart-anatomy": {
       "title": "NHLBI: Heart anatomy",
@@ -1100,6 +1100,190 @@
     "tma-anterior-triangle": {
       "title": "TeachMeAnatomy: The anterior triangle of the neck",
       "url": "https://teachmeanatomy.info/neck/areas/anterior-triangle/"
+    },
+    "tm-basal-ganglia": {
+      "title": "TeachMeAnatomy: The basal ganglia",
+      "url": "https://teachmeanatomy.info/neuroanatomy/structures/basal-ganglia/"
+    },
+    "tm-cerebrum": {
+      "title": "TeachMeAnatomy: The cerebrum",
+      "url": "https://teachmeanatomy.info/neuroanatomy/structures/cerebrum/"
+    },
+    "tm-pineal": {
+      "title": "TeachMeAnatomy: The pineal gland",
+      "url": "https://teachmeanatomy.info/neuroanatomy/structures/pineal-gland/"
+    },
+    "tm-ventricles": {
+      "title": "TeachMeAnatomy: The ventricles of the brain",
+      "url": "https://teachmeanatomy.info/neuroanatomy/vessels/ventricles/"
+    },
+    "tm-fibula": {
+      "title": "TeachMeAnatomy: The fibula",
+      "url": "https://teachmeanatomy.info/lower-limb/bones/the-fibula/"
+    },
+    "tm-vertebral-column": {
+      "title": "TeachMeAnatomy: The vertebral column",
+      "url": "https://teachmeanatomy.info/back/bones/vertebral-column/"
+    },
+    "tm-heart-valves": {
+      "title": "TeachMeAnatomy: The heart valves",
+      "url": "https://teachmeanatomy.info/thorax/organs/heart/heart-valves/"
+    },
+    "tm-prostate": {
+      "title": "TeachMeAnatomy: The prostate gland",
+      "url": "https://teachmeanatomy.info/pelvis/the-male-reproductive-system/prostate-gland/"
+    },
+    "tm-bladder": {
+      "title": "TeachMeAnatomy: The urinary bladder",
+      "url": "https://teachmeanatomy.info/pelvis/viscera/bladder/"
+    },
+    "tm-colon": {
+      "title": "TeachMeAnatomy: The colon",
+      "url": "https://teachmeanatomy.info/abdomen/gi-tract/colon/"
+    },
+    "nci-def-coccyx": {
+      "title": "NCI Dictionary: coccyx",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/coccyx"
+    },
+    "nci-def-bone-marrow": {
+      "title": "NCI Dictionary: bone marrow",
+      "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/bone-marrow"
+    },
+    "nhlbi-high-blood-pressure": {
+      "title": "NHLBI: High blood pressure",
+      "url": "https://www.nhlbi.nih.gov/health/high-blood-pressure"
+    },
+    "nhlbi-atherosclerosis": {
+      "title": "NHLBI: Atherosclerosis",
+      "url": "https://www.nhlbi.nih.gov/health/atherosclerosis"
+    },
+    "nhlbi-cardiomyopathy": {
+      "title": "NHLBI: Cardiomyopathy",
+      "url": "https://www.nhlbi.nih.gov/health/cardiomyopathy"
+    },
+    "nhlbi-congenital-heart-defects": {
+      "title": "NHLBI: Congenital heart defects",
+      "url": "https://www.nhlbi.nih.gov/health/congenital-heart-defects"
+    },
+    "nhlbi-sleep-apnea": {
+      "title": "NHLBI: Sleep apnea",
+      "url": "https://www.nhlbi.nih.gov/health/sleep-apnea"
+    },
+    "nhlbi-cystic-fibrosis": {
+      "title": "NHLBI: Cystic fibrosis",
+      "url": "https://www.nhlbi.nih.gov/health/cystic-fibrosis"
+    },
+    "nhlbi-ipf": {
+      "title": "NHLBI: Idiopathic pulmonary fibrosis",
+      "url": "https://www.nhlbi.nih.gov/health/idiopathic-pulmonary-fibrosis"
+    },
+    "mlp-collapsed-lung": {
+      "title": "MedlinePlus: Collapsed lung (pneumothorax)",
+      "url": "https://medlineplus.gov/ency/article/000087.htm"
+    },
+    "cdc-tb": {
+      "title": "CDC: About tuberculosis",
+      "url": "https://www.cdc.gov/tb/about/index.html"
+    },
+    "niddk-kidney-infection": {
+      "title": "NIDDK: Kidney infection (pyelonephritis)",
+      "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/kidney-infection-pyelonephritis"
+    },
+    "niddk-bladder-control": {
+      "title": "NIDDK: Bladder control problems (urinary incontinence)",
+      "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/bladder-control-problems"
+    },
+    "niddk-ibs": {
+      "title": "NIDDK: Definition & facts for irritable bowel syndrome",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/irritable-bowel-syndrome/definition-facts"
+    },
+    "niddk-inguinal-hernia": {
+      "title": "NIDDK: Inguinal hernia",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/inguinal-hernia"
+    },
+    "niddk-gastritis": {
+      "title": "NIDDK: Gastritis & gastropathy",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/gastritis-gastropathy"
+    },
+    "niams-spinal-stenosis": {
+      "title": "NIAMS: Spinal stenosis",
+      "url": "https://www.niams.nih.gov/health-topics/spinal-stenosis"
+    },
+    "niams-ankylosing-spondylitis": {
+      "title": "NIAMS: Ankylosing spondylitis",
+      "url": "https://www.niams.nih.gov/health-topics/ankylosing-spondylitis"
+    },
+    "mlp-sciatica": {
+      "title": "MedlinePlus: Sciatica",
+      "url": "https://medlineplus.gov/ency/article/000686.htm"
+    },
+    "mlp-hip": {
+      "title": "MedlinePlus: Hip injuries and disorders",
+      "url": "https://medlineplus.gov/hipinjuriesanddisorders.html"
+    },
+    "mlp-osgood-schlatter": {
+      "title": "MedlinePlus: Osgood-Schlatter disease",
+      "url": "https://medlineplus.gov/ency/article/001258.htm"
+    },
+    "mlp-kneecap-dislocation": {
+      "title": "MedlinePlus: Kneecap dislocation - aftercare",
+      "url": "https://medlineplus.gov/ency/patientinstructions/000585.htm"
+    },
+    "mlp-hearing": {
+      "title": "MedlinePlus: Hearing disorders and deafness",
+      "url": "https://medlineplus.gov/hearingdisordersanddeafness.html"
+    },
+    "mlp-ear-infections": {
+      "title": "MedlinePlus: Ear infections",
+      "url": "https://medlineplus.gov/earinfections.html"
+    },
+    "mlp-sinusitis": {
+      "title": "MedlinePlus: Sinusitis",
+      "url": "https://medlineplus.gov/sinusitis.html"
+    },
+    "mlp-tmd": {
+      "title": "MedlinePlus: Temporomandibular disorders",
+      "url": "https://medlineplus.gov/temporomandibulardisorders.html"
+    },
+    "mlp-huntingtons": {
+      "title": "MedlinePlus: Huntington's disease",
+      "url": "https://medlineplus.gov/huntingtonsdisease.html"
+    },
+    "mlp-als": {
+      "title": "MedlinePlus: Amyotrophic lateral sclerosis (ALS)",
+      "url": "https://medlineplus.gov/amyotrophiclateralsclerosis.html"
+    },
+    "tm-descending-tracts": {
+      "title": "TeachMeAnatomy: The descending tracts",
+      "url": "https://teachmeanatomy.info/neuroanatomy/pathways/descending-tracts-motor/"
+    },
+    "tm-ascending-tracts": {
+      "title": "TeachMeAnatomy: The ascending tracts",
+      "url": "https://teachmeanatomy.info/neuroanatomy/pathways/ascending-tracts-sensory/"
+    },
+    "tm-midbrain": {
+      "title": "TeachMeAnatomy: The midbrain",
+      "url": "https://teachmeanatomy.info/neuroanatomy/brainstem/midbrain/"
+    },
+    "nei-refractive-errors": {
+      "title": "NEI: Refractive errors",
+      "url": "https://www.nei.nih.gov/eye-health-information/eye-conditions-and-diseases/refractive-errors"
+    },
+    "nci-lymphoma": {
+      "title": "NCI: Lymphoma—patient version",
+      "url": "https://www.cancer.gov/types/lymphoma"
+    },
+    "nci-leukemia": {
+      "title": "NCI: Leukemia—patient version",
+      "url": "https://www.cancer.gov/types/leukemia"
+    },
+    "nci-laryngeal-cancer": {
+      "title": "NCI: Laryngeal cancer treatment (PDQ)—patient version",
+      "url": "https://www.cancer.gov/types/head-and-neck/patient/adult/laryngeal-treatment-pdq"
+    },
+    "cdc-pid": {
+      "title": "CDC: About pelvic inflammatory disease (PID)",
+      "url": "https://www.cdc.gov/pid/about/index.html"
     }
   },
   "cards": {
@@ -1244,7 +1428,8 @@
         "anatomy.heart.valve.tricuspid",
         "anatomy.heart.valve.pulmonary",
         "anatomy.heart.valve.mitral",
-        "anatomy.heart.valve.aortic"
+        "anatomy.heart.valve.aortic",
+        "anatomy.heart.papillary-muscles"
       ],
       "source_ids": [
         "heart-flow"
@@ -1851,7 +2036,8 @@
       "function": "Absorbs water and electrolytes and moves waste toward the rectum for elimination.",
       "related": [
         "anatomy.small-intestine",
-        "anatomy.appendix"
+        "anatomy.appendix",
+        "anatomy.colon-segments"
       ],
       "source_ids": [
         "seer-intestine",
@@ -2056,7 +2242,8 @@
       "function": "A temporary storage reservoir for urine.",
       "related": [
         "anatomy.kidneys",
-        "anatomy.ureters"
+        "anatomy.ureters",
+        "anatomy.bladder-trigone"
       ],
       "source_ids": [
         "seer-bladder",
@@ -2163,7 +2350,8 @@
       "overview": "A gland that sits below the bladder and surrounds the urethra at the bladder's neck.",
       "function": "An accessory gland whose secretions enter the urethra and form part of semen.",
       "related": [
-        "anatomy.bladder"
+        "anatomy.bladder",
+        "anatomy.prostate-zones"
       ],
       "source_ids": [
         "seer-male-glands",
@@ -2188,7 +2376,9 @@
         "anatomy.brainstem",
         "anatomy.thalamus",
         "anatomy.corpus-callosum",
-        "anatomy.optic-nerves"
+        "anatomy.optic-nerves",
+        "anatomy.cerebral-hemispheres",
+        "anatomy.basal-ganglia"
       ],
       "source_ids": [
         "seer-cns",
@@ -2850,7 +3040,8 @@
         "anatomy.iris",
         "anatomy.lens",
         "anatomy.retina",
-        "anatomy.optic-nerves"
+        "anatomy.optic-nerves",
+        "anatomy.aqueous-humor"
       ],
       "source_ids": [
         "nei-how-eyes-work"
@@ -3073,7 +3264,9 @@
       "related": [
         "anatomy.eyes",
         "anatomy.macula",
-        "anatomy.optic-nerves"
+        "anatomy.optic-nerves",
+        "anatomy.fovea",
+        "anatomy.optic-disc"
       ],
       "source_ids": [
         "nei-how-eyes-work"
@@ -3125,7 +3318,8 @@
       "function": "Controls sharp, straight-ahead vision.",
       "related": [
         "anatomy.retina",
-        "anatomy.eyes"
+        "anatomy.eyes",
+        "anatomy.fovea"
       ],
       "source_ids": [
         "nei-amd"
@@ -3226,7 +3420,7 @@
     },
     "anatomy.knee": {
       "overview": "The joint where the end of the thigh bone (femur) meets the top of the shin bone (tibia). It is made up of bone, cartilage, ligaments and fluid.",
-      "function": "Four main ligaments connect the thigh bone and shin bone; muscles and tendons help the joint move.",
+      "function": "Four main ligaments hold the joint together: the two cruciate ligaments connect the thigh bone and shin bone, and the two collateral ligaments run along its sides. Muscles and tendons help the joint move.",
       "related": [
         "anatomy.femur",
         "anatomy.tibia",
@@ -3235,11 +3429,13 @@
         "anatomy.acl",
         "anatomy.pcl",
         "anatomy.mcl",
-        "anatomy.lcl"
+        "anatomy.lcl",
+        "anatomy.patella"
       ],
       "source_ids": [
         "mlp-knee",
-        "mlp-acl"
+        "mlp-acl",
+        "tm-knee"
       ],
       "review_status": "draft",
       "expert_review": "pending",
@@ -3343,7 +3539,8 @@
         "anatomy.knee",
         "anatomy.femur",
         "anatomy.acl",
-        "anatomy.pcl"
+        "anatomy.pcl",
+        "anatomy.fibula"
       ],
       "source_ids": [
         "mlp-acl"
@@ -3473,7 +3670,7 @@
       }
     },
     "anatomy.acl": {
-      "overview": "The anterior cruciate ligament, in the middle of the knee. One of the four main ligaments connecting the thigh bone and shin bone.",
+      "overview": "The anterior cruciate ligament, in the middle of the knee: one of the two cruciate ligaments, which connect the thigh bone and shin bone.",
       "function": "Prevents the shin bone from sliding out in front of the thigh bone.",
       "related": [
         "anatomy.pcl",
@@ -3482,7 +3679,8 @@
       ],
       "source_ids": [
         "mlp-acl",
-        "mlp-knee"
+        "mlp-knee",
+        "tm-knee"
       ],
       "review_status": "draft",
       "expert_review": "pending",
@@ -3595,14 +3793,16 @@
       }
     },
     "anatomy.lcl": {
-      "overview": "The lateral collateral ligament, which runs along the outside of the knee.",
+      "overview": "The lateral collateral ligament, which runs along the outside of the knee from the thigh bone to the head of the fibula.",
       "function": "Prevents the knee from bending outward.",
       "related": [
         "anatomy.mcl",
-        "anatomy.knee"
+        "anatomy.knee",
+        "anatomy.fibula"
       ],
       "source_ids": [
-        "mlp-acl"
+        "mlp-acl",
+        "tm-knee"
       ],
       "review_status": "draft",
       "expert_review": "pending",
@@ -6169,7 +6369,8 @@
       "function": "The quadriceps femoris muscle group straightens the leg at the knee.",
       "related": [
         "anatomy.knee",
-        "anatomy.femur"
+        "anatomy.femur",
+        "anatomy.patella"
       ],
       "source_ids": [
         "seer-lower-muscles",
@@ -6289,14 +6490,15 @@
     },
     "anatomy.choroid": {
       "overview": "One of the three parts of the uvea, at the back of the eye.",
-      "function": "Connects the retina to the sclera.",
+      "function": "A layer of connective tissue and blood vessels between the retina and the sclera.",
       "related": [
         "anatomy.retina",
         "anatomy.ciliary-body",
         "anatomy.eyes"
       ],
       "source_ids": [
-        "nei-uveitis"
+        "nei-uveitis",
+        "tm-eyeball"
       ],
       "review_status": "draft",
       "expert_review": "pending",
@@ -6844,14 +7046,15 @@
       }
     },
     "anatomy.pineal-gland": {
-      "overview": "A tiny organ in the cerebrum, also called the pineal body.",
-      "function": "Produces melatonin.",
+      "overview": "A small gland in the midline of the brain, between the two cerebral hemispheres, attached by a stalk to the back wall of the third ventricle. Also called the pineal body.",
+      "function": "Produces melatonin, which regulates the body's daily (circadian) rhythm.",
       "related": [
         "anatomy.brain",
         "anatomy.thalamus"
       ],
       "source_ids": [
-        "nci-def-pineal-gland"
+        "nci-def-pineal-gland",
+        "tm-pineal"
       ],
       "review_status": "draft",
       "expert_review": "pending",
@@ -6889,7 +7092,7 @@
       }
     },
     "anatomy.brain-ventricles": {
-      "overview": "Fluid-filled cavities in the brain: the parts of each lateral ventricle, the third ventricle and the fourth ventricle.",
+      "overview": "Fluid-filled cavities in the brain: the parts of each lateral ventricle, the third and fourth ventricles, and the cerebral aqueduct that connects the third ventricle to the fourth.",
       "function": "Tissue called the choroid plexus in the ventricles makes cerebrospinal fluid, which flows in and around the hollow spaces of the brain and spinal cord.",
       "related": [
         "anatomy.brain",
@@ -6897,7 +7100,8 @@
       ],
       "source_ids": [
         "nci-def-ventricle",
-        "nci-def-cerebrospinal-fluid"
+        "nci-def-cerebrospinal-fluid",
+        "tm-ventricles"
       ],
       "review_status": "draft",
       "expert_review": "pending",
@@ -6973,6 +7177,16 @@
             "id": "source.hra-v1-1.female.n328",
             "source_name": "Allen_atrium_of_lateral_ventricle_R",
             "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n175",
+            "source_name": "Allen_cerebral_aqueduct_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n311",
+            "source_name": "Allen_cerebral_aqueduct_R",
+            "ontology": "-"
           }
         ],
         "male": [
@@ -7044,6 +7258,16 @@
           {
             "id": "source.hra-v1-1.male.n871",
             "source_name": "Allen_atrium_of_lateral_ventricle_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n718",
+            "source_name": "Allen_cerebral_aqueduct_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n854",
+            "source_name": "Allen_cerebral_aqueduct_R",
             "ontology": "-"
           }
         ],
@@ -9123,7 +9347,8 @@
       "related": [
         "anatomy.quadriceps-tendon",
         "anatomy.tibia",
-        "anatomy.knee"
+        "anatomy.knee",
+        "anatomy.patella"
       ],
       "source_ids": [
         "tm-knee",
@@ -9336,17 +9561,22 @@
       "human_source_review": "pending"
     },
     "anatomy.vertebral-column": {
-      "overview": "The spine's column of bones: 7 cervical, 12 thoracic and 5 lumbar vertebrae, the sacrum and the coccyx, reaching from the base of the skull to the tailbone.",
+      "overview": "The spine's column of bones: usually 7 cervical, 12 thoracic and 5 lumbar vertebrae (the female body shown here has six lumbar vertebrae), the sacrum and the coccyx, reaching from the base of the skull to the tailbone.",
       "function": "Encloses the spinal cord and the fluid around it.",
       "related": [
         "anatomy.spinal-cord",
         "anatomy.skull",
         "anatomy.sacrum",
-        "anatomy.intervertebral-disks"
+        "anatomy.intervertebral-disks",
+        "anatomy.cervical-vertebrae",
+        "anatomy.thoracic-vertebrae",
+        "anatomy.lumbar-vertebrae",
+        "anatomy.coccyx"
       ],
       "source_ids": [
         "nci-def-spine",
-        "seer-axial"
+        "seer-axial",
+        "tm-vertebral-column"
       ],
       "review_status": "draft",
       "expert_review": "pending",
@@ -10291,7 +10521,8 @@
         "anatomy.pelvis"
       ],
       "source_ids": [
-        "nci-def-sacrum"
+        "nci-def-sacrum",
+        "tm-vertebral-column"
       ],
       "review_status": "draft",
       "expert_review": "pending",
@@ -10301,6 +10532,16 @@
           "id": "source.bodyparts3d-v4-complete.FMA16202",
           "source_name": "FMA16202",
           "ontology": "FMA16202"
+        },
+        "female": {
+          "id": "source.hra-v1-1.female.n886",
+          "source_name": "VH_F_sacrum",
+          "ontology": "UBERON:0003690"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n293",
+          "source_name": "VH_M_sacrum",
+          "ontology": "UBERON:0003690"
         }
       }
     },
@@ -11044,7 +11285,7 @@
       }
     },
     "anatomy.quadriceps": {
-      "overview": "The quadriceps femoris group of each thigh: the rectus femoris and three vastus muscles.",
+      "overview": "The quadriceps femoris group of each thigh: the rectus femoris and three vastus muscles. The female and male bodies show the rectus femoris only.",
       "function": "Straightens the leg at the knee.",
       "related": [
         "anatomy.quadriceps-tendon",
@@ -11098,6 +11339,30 @@
             "id": "source.bodyparts3d-v4-complete.FJ1441",
             "source_name": "FJ1441",
             "ontology": "FMA38934"
+          }
+        ],
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n366",
+            "source_name": "VH_F_rectus_femoris_R",
+            "ontology": "FMA:38928"
+          },
+          {
+            "id": "source.hra-v1-1.female.n369",
+            "source_name": "VH_F_rectus_femoris_L",
+            "ontology": "FMA:38929"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n968",
+            "source_name": "VH_M_rectus_femoris_L",
+            "ontology": "FMA:38929"
+          },
+          {
+            "id": "source.hra-v1-1.male.n971",
+            "source_name": "VH_M_rectus_femoris_R",
+            "ontology": "FMA:38928"
           }
         ]
       }
@@ -12864,6 +13129,1368 @@
           }
         ]
       }
+    },
+    "anatomy.cerebral-hemispheres": {
+      "overview": "The two halves of the cerebrum, the largest part of the brain, divided by a deep longitudinal fissure and joined by the corpus callosum. Each has frontal, parietal, temporal and occipital lobes, and a fifth lobe, the insula, deep inside.",
+      "function": "The association areas of the lobes handle higher functions: the frontal lobe intellect, personality, mood and language; the parietal lobe language, calculation and visuospatial functions; the temporal lobe memory, language and hearing; and the occipital lobe vision.",
+      "related": [
+        "anatomy.brain",
+        "anatomy.corpus-callosum",
+        "anatomy.motor-cortex",
+        "anatomy.sensory-cortex"
+      ],
+      "source_ids": [
+        "seer-cns",
+        "tm-cerebrum"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n62",
+            "source_name": "Allen_brain_hemisphere_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.female.n198",
+            "source_name": "Allen_brain_hemisphere_R",
+            "ontology": ""
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n605",
+            "source_name": "Allen_brain_Hemisphere_L",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n741",
+            "source_name": "Allen_brain_Hemisphere_R",
+            "ontology": ""
+          }
+        ]
+      }
+    },
+    "anatomy.motor-cortex": {
+      "overview": "The precentral gyrus: the ridge just in front of the central sulcus, at the back of each frontal lobe. It is the location of the primary motor cortex.",
+      "function": "The corticospinal and corticobulbar tracts, which give voluntary control of the muscles of the body and face, begin in the primary motor cortex and nearby areas of the cortex.",
+      "related": [
+        "anatomy.sensory-cortex",
+        "anatomy.cerebral-hemispheres",
+        "anatomy.basal-ganglia",
+        "anatomy.spinal-cord"
+      ],
+      "source_ids": [
+        "tm-cerebrum",
+        "tm-descending-tracts"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n125",
+            "source_name": "Allen_precentral_gyrus_L",
+            "ontology": "UBERON:0002703"
+          },
+          {
+            "id": "source.hra-v1-1.female.n259",
+            "source_name": "Allen_precentral_gyrus_R",
+            "ontology": "UBERON:0002703"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n668",
+            "source_name": "Allen_precentral_gyrus_L",
+            "ontology": "UBERON:0002703"
+          },
+          {
+            "id": "source.hra-v1-1.male.n802",
+            "source_name": "Allen_precentral_gyrus_R",
+            "ontology": "UBERON:0002703"
+          }
+        ]
+      }
+    },
+    "anatomy.sensory-cortex": {
+      "overview": "The postcentral gyrus: the ridge just behind the central sulcus, at the front of each parietal lobe. It is the location of the primary somatosensory cortex.",
+      "function": "Receives the sensory pathways that carry touch, pressure, vibration and the sense of body position (proprioception) up from the body through the spinal cord and the thalamus.",
+      "related": [
+        "anatomy.motor-cortex",
+        "anatomy.cerebral-hemispheres",
+        "anatomy.thalamus"
+      ],
+      "source_ids": [
+        "tm-cerebrum",
+        "tm-ascending-tracts"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n137",
+            "source_name": "Allen_postcentral_gyrus_L",
+            "ontology": "UBERON:0002581"
+          },
+          {
+            "id": "source.hra-v1-1.female.n271",
+            "source_name": "Allen_postcentral_gyrus_R",
+            "ontology": "UBERON:0002581"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n680",
+            "source_name": "Allen_postcentral_gyrus_L",
+            "ontology": "UBERON:0002581"
+          },
+          {
+            "id": "source.hra-v1-1.male.n814",
+            "source_name": "Allen_postcentral_gyrus_R",
+            "ontology": "UBERON:0002581"
+          }
+        ]
+      }
+    },
+    "anatomy.auditory-cortex": {
+      "overview": "The superior temporal gyrus, the ridge below the lateral sulcus at the top of each temporal lobe, with the transverse temporal (Heschl's) gyrus. The temporal lobe holds the primary auditory cortex.",
+      "function": "Receives and processes sound.",
+      "related": [
+        "anatomy.cerebral-hemispheres",
+        "anatomy.brain"
+      ],
+      "source_ids": [
+        "tm-cerebrum"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n143",
+            "source_name": "Allen_superior_temporal_gyrus_L",
+            "ontology": "UBERON:0002769"
+          },
+          {
+            "id": "source.hra-v1-1.female.n277",
+            "source_name": "Allen_superior_temporal_gyrus_R",
+            "ontology": "UBERON:0002769"
+          },
+          {
+            "id": "source.hra-v1-1.female.n147",
+            "source_name": "Allen_transverse_temporal_gyrus_Heschls_gyrus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n281",
+            "source_name": "Allen_transverse_temporal_gyrus_Heschls_gyrus_R",
+            "ontology": "-"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n686",
+            "source_name": "Allen_superior_temporal_gyrus_L",
+            "ontology": "UBERON:0002769"
+          },
+          {
+            "id": "source.hra-v1-1.male.n820",
+            "source_name": "Allen_superior_temporal_gyrus_R",
+            "ontology": "UBERON:0002769"
+          },
+          {
+            "id": "source.hra-v1-1.male.n690",
+            "source_name": "Allen_transverse_temporal_gyrus_Heschls_gyrus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n824",
+            "source_name": "Allen_transverse_temporal_gyrus_Heschls_gyrus_R",
+            "ontology": "-"
+          }
+        ]
+      }
+    },
+    "anatomy.basal-ganglia": {
+      "overview": "Clusters of nerve cells deep in the brain, around the thalamus. The source models include the caudate nucleus, putamen, globus pallidus and nucleus accumbens, and the HRA bodies also the subthalamic nucleus; the substantia nigra has its own card.",
+      "function": "Part of the circuits that control movement. The putamen mainly receives input from the motor and sensory areas of the cortex and projects back to the motor areas, and the subthalamic nucleus acts as a brake that keeps unwanted movements from starting.",
+      "related": [
+        "anatomy.substantia-nigra",
+        "anatomy.thalamus",
+        "anatomy.motor-cortex",
+        "anatomy.brain"
+      ],
+      "source_ids": [
+        "tm-basal-ganglia"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n68",
+            "source_name": "Allen_head_of_caudate_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n69",
+            "source_name": "Allen_body_of_caudate_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n70",
+            "source_name": "Allen_tail_of_caudate_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n204",
+            "source_name": "Allen_head_of_caudate_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n205",
+            "source_name": "Allen_body_of_caudate_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n206",
+            "source_name": "Allen_tail_of_caudate_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n71",
+            "source_name": "Allen_putamen_L",
+            "ontology": "UBERON:0008884"
+          },
+          {
+            "id": "source.hra-v1-1.female.n190",
+            "source_name": "Allen_posteroventral_putamen_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n207",
+            "source_name": "Allen_putamen_R",
+            "ontology": "UBERON:0008885"
+          },
+          {
+            "id": "source.hra-v1-1.female.n327",
+            "source_name": "Allen_posteroventral_putamen_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n72",
+            "source_name": "Allen_nucleus_accumbens_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n208",
+            "source_name": "Allen_nucleus_accumbens_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n73",
+            "source_name": "Allen_external_segment_of_globus_pallidus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n74",
+            "source_name": "Allen_internal_segment_of_globus_pallidus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n209",
+            "source_name": "Allen_external_segment_of_globus_pallidus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n210",
+            "source_name": "Allen_internal_segment_of_globus_pallidus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n336",
+            "source_name": "Allen_subthalamic_nucleus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.female.n345",
+            "source_name": "Allen_subthalamic_nucleus_L",
+            "ontology": "-"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n611",
+            "source_name": "Allen_head_of_caudate_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n612",
+            "source_name": "Allen_body_of_caudate_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n613",
+            "source_name": "Allen_tail_of_caudate_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n747",
+            "source_name": "Allen_head_of_caudate_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n748",
+            "source_name": "Allen_body_of_caudate_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n749",
+            "source_name": "Allen_tail_of_caudate_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n614",
+            "source_name": "Allen_putamen_L",
+            "ontology": "UBERON:0008884"
+          },
+          {
+            "id": "source.hra-v1-1.male.n733",
+            "source_name": "Allen_posteroventral_putamen_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n750",
+            "source_name": "Allen_putamen_R",
+            "ontology": "UBERON:0008885"
+          },
+          {
+            "id": "source.hra-v1-1.male.n870",
+            "source_name": "Allen_posteroventral_putamen_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n615",
+            "source_name": "Allen_nucleus_accumbens_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n751",
+            "source_name": "Allen_nucleus_accumbens_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n616",
+            "source_name": "Allen_external_segment_of_globus_pallidus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n617",
+            "source_name": "Allen_internal_segment_of_globus_pallidus_L",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n752",
+            "source_name": "Allen_external_segment_of_globus_pallidus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n753",
+            "source_name": "Allen_internal_segment_of_globus_pallidus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n879",
+            "source_name": "Allen_subthalamic_nucleus_R",
+            "ontology": "-"
+          },
+          {
+            "id": "source.hra-v1-1.male.n888",
+            "source_name": "Allen_subthalamic_nucleus_L",
+            "ontology": "-"
+          }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1754",
+            "source_name": "FJ1754",
+            "ontology": "FMA72827"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1757",
+            "source_name": "FJ1757",
+            "ontology": "FMA72831"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1776",
+            "source_name": "FJ1776",
+            "ontology": "FMA72829"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1802",
+            "source_name": "FJ1802",
+            "ontology": "FMA72826"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1805",
+            "source_name": "FJ1805",
+            "ontology": "FMA72830"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FJ1823",
+            "source_name": "FJ1823",
+            "ontology": "FMA72828"
+          }
+        ]
+      }
+    },
+    "anatomy.substantia-nigra": {
+      "overview": "A pigmented nucleus in the midbrain, one on each side, between the two parts of each cerebral peduncle. It looks dark in brain specimens because of the pigment neuromelanin in its cells.",
+      "function": "Part of the basal ganglia circuits that control movement: its compact part (pars compacta) is one of their intrinsic nuclei and its reticular part (pars reticulata) one of their output nuclei.",
+      "related": [
+        "anatomy.basal-ganglia",
+        "anatomy.brainstem",
+        "anatomy.brain"
+      ],
+      "source_ids": [
+        "tm-midbrain",
+        "tm-basal-ganglia"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n171",
+            "source_name": "Allen_substantia_nigra_L",
+            "ontology": "UBERON:0002038"
+          },
+          {
+            "id": "source.hra-v1-1.female.n306",
+            "source_name": "Allen_substantia_nigra_R",
+            "ontology": "UBERON:0002038"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n714",
+            "source_name": "Allen_substantia_nigra_L",
+            "ontology": "UBERON:0002038"
+          },
+          {
+            "id": "source.hra-v1-1.male.n849",
+            "source_name": "Allen_substantia_nigra_R",
+            "ontology": "UBERON:0002038"
+          }
+        ]
+      }
+    },
+    "anatomy.patella": {
+      "overview": "The kneecap: a triangular bone at the front of the knee, set within the quadriceps tendon. It is the largest sesamoid bone in the body.",
+      "function": "Increases the leverage of the quadriceps tendon, making the muscle more efficient at straightening the leg, and protects the front of the knee joint.",
+      "related": [
+        "anatomy.knee",
+        "anatomy.quadriceps-tendon",
+        "anatomy.patellar-ligament",
+        "anatomy.femur"
+      ],
+      "source_ids": [
+        "tm-patella"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n939",
+            "source_name": "VH_F_patella_R",
+            "ontology": "FMA:24486"
+          },
+          {
+            "id": "source.hra-v1-1.female.n967",
+            "source_name": "VH_F_patella_L",
+            "ontology": "FMA:24487"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n329",
+            "source_name": "VH_M_patella_R",
+            "ontology": "FMA:24486"
+          },
+          {
+            "id": "source.hra-v1-1.male.n376",
+            "source_name": "VH_M_patella_L",
+            "ontology": "FMA:24487"
+          }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA24487",
+            "source_name": "FMA24487",
+            "ontology": "FMA24487"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA24486",
+            "source_name": "FMA24486",
+            "ontology": "FMA24486"
+          }
+        ]
+      }
+    },
+    "anatomy.fibula": {
+      "overview": "The thinner bone on the outer side of the lower leg, beside the tibia. Its lower end, the lateral malleolus, forms the bony bump on the outside of the ankle.",
+      "function": "Serves mainly as an attachment for muscles rather than bearing weight. It joins the tibia just below the knee and the talus at the ankle, and the lateral collateral ligament of the knee attaches to its head.",
+      "related": [
+        "anatomy.tibia",
+        "anatomy.lcl",
+        "anatomy.knee",
+        "anatomy.foot-bones"
+      ],
+      "source_ids": [
+        "tm-fibula",
+        "tm-knee"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n938",
+            "source_name": "VH_F_fibula_R",
+            "ontology": "FMA:24480"
+          },
+          {
+            "id": "source.hra-v1-1.female.n969",
+            "source_name": "VH_F_fibula_L",
+            "ontology": "FMA:24481"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n328",
+            "source_name": "VH_M_fibula_R",
+            "ontology": "FMA:24480"
+          },
+          {
+            "id": "source.hra-v1-1.male.n358",
+            "source_name": "VH_M_fibula_L",
+            "ontology": "FMA:24481"
+          }
+        ],
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA24481",
+            "source_name": "FMA24481",
+            "ontology": "FMA24481"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA24480",
+            "source_name": "FMA24480",
+            "ontology": "FMA24480"
+          }
+        ]
+      }
+    },
+    "anatomy.coccyx": {
+      "overview": "The tailbone: the small bone at the bottom of the spine, below the sacrum, made of three to five fused vertebrae.",
+      "function": "The last part of the vertebral column. It joins the tip of the sacrum and, unlike the vertebrae above it, has no canal for the spinal cord.",
+      "related": [
+        "anatomy.sacrum",
+        "anatomy.vertebral-column",
+        "anatomy.pelvis"
+      ],
+      "source_ids": [
+        "nci-def-coccyx",
+        "tm-vertebral-column"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n887",
+          "source_name": "VH_F_coccyx",
+          "ontology": "UBERON:0001350"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n294",
+          "source_name": "VH_M_coccyx",
+          "ontology": "UBERON:0001350"
+        }
+      }
+    },
+    "anatomy.cervical-vertebrae": {
+      "overview": "The seven vertebrae of the neck, C1 to C7. The first two, C1 and C2 (the atlas and axis), are specialized to allow the head to move.",
+      "function": "Support the head and let the neck move. Their openings line up with those of the other vertebrae to form the vertebral canal, which encloses the spinal cord.",
+      "related": [
+        "anatomy.vertebral-column",
+        "anatomy.thoracic-vertebrae",
+        "anatomy.spinal-cord"
+      ],
+      "source_ids": [
+        "tm-vertebral-column"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1156",
+            "source_name": "VH_F_cervical_vertebra_1",
+            "ontology": "UBERON:0001092"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1157",
+            "source_name": "VH_F_cervical_vertebra_2",
+            "ontology": "UBERON:0001093"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1158",
+            "source_name": "VH_F_cervical_vertebra_3",
+            "ontology": "UBERON:0004612"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1159",
+            "source_name": "VH_F_cervical_vertebra_4",
+            "ontology": "UBERON:0004613"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1160",
+            "source_name": "VH_F_cervical_vertebra_5",
+            "ontology": "UBERON:0004614"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1161",
+            "source_name": "VH_F_cervical_vertebra_6",
+            "ontology": "UBERON:0004615"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1162",
+            "source_name": "VH_F_cervical_vertebra_7",
+            "ontology": "UBERON:0004616"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n1111",
+            "source_name": "VH_M_cervical_vertebra_1",
+            "ontology": "UBERON:0001092"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1112",
+            "source_name": "VH_M_cervical_vertebra_2",
+            "ontology": "UBERON:0001093"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1113",
+            "source_name": "VH_M_cervical_vertebra_3",
+            "ontology": "UBERON:0004612"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1114",
+            "source_name": "VH_M_cervical_vertebra_4",
+            "ontology": "UBERON:0004613"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1115",
+            "source_name": "VH_M_cervical_vertebra_5",
+            "ontology": "UBERON:0004614"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1116",
+            "source_name": "VH_M_cervical_vertebra_6",
+            "ontology": "UBERON:0004615"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1117",
+            "source_name": "VH_M_cervical_vertebra_7",
+            "ontology": "UBERON:0004616"
+          }
+        ],
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA24138",
+          "source_name": "FMA24138",
+          "ontology": "FMA24138"
+        }
+      }
+    },
+    "anatomy.thoracic-vertebrae": {
+      "overview": "The twelve vertebrae of the upper and middle back, T1 to T12, recognized by their joints with the ribs.",
+      "function": "Together with the ribs and sternum they form the bony thorax.",
+      "related": [
+        "anatomy.vertebral-column",
+        "anatomy.ribs",
+        "anatomy.cervical-vertebrae",
+        "anatomy.lumbar-vertebrae"
+      ],
+      "source_ids": [
+        "tm-vertebral-column"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1144",
+            "source_name": "VH_F_thoracic_vertebra_1",
+            "ontology": "UBERON:0004626"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1145",
+            "source_name": "VH_F_thoracic_vertebra_2",
+            "ontology": "UBERON:0004627"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1146",
+            "source_name": "VH_F_thoracic_vertebra_3",
+            "ontology": "UBERON:0004628"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1147",
+            "source_name": "VH_F_thoracic_vertebra_4",
+            "ontology": "UBERON:0004629"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1148",
+            "source_name": "VH_F_thoracic_vertebra_5",
+            "ontology": "UBERON:0004630"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1149",
+            "source_name": "VH_F_thoracic_vertebra_6",
+            "ontology": "UBERON:0004631"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1150",
+            "source_name": "VH_F_thoracic_vertebra_7",
+            "ontology": "UBERON:0004632"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1151",
+            "source_name": "VH_F_thoracic_vertebra_8",
+            "ontology": "UBERON:0011050"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1152",
+            "source_name": "VH_F_thoracic_vertebra_9",
+            "ontology": "UBERON:0004633"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1153",
+            "source_name": "VH_F_thoracic_vertebra_10",
+            "ontology": "UBERON:0004634"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1154",
+            "source_name": "VH_F_thoracic_vertebra_11",
+            "ontology": "UBERON:0004635"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1155",
+            "source_name": "VH_F_thoracic_vertebra_12",
+            "ontology": "UBERON:0004636"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n1118",
+            "source_name": "VH_M_thoracic_vertebra_1",
+            "ontology": "UBERON:0004626"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1119",
+            "source_name": "VH_M_thoracic_vertebra_2",
+            "ontology": "UBERON:0004627"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1120",
+            "source_name": "VH_M_thoracic_vertebra_3",
+            "ontology": "UBERON:0004628"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1121",
+            "source_name": "VH_M_thoracic_vertebra_4",
+            "ontology": "UBERON:0004629"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1122",
+            "source_name": "VH_M_thoracic_vertebra_5",
+            "ontology": "UBERON:0004630"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1123",
+            "source_name": "VH_M_thoracic_vertebra_6",
+            "ontology": "UBERON:0004631"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1124",
+            "source_name": "VH_M_thoracic_vertebra_7",
+            "ontology": "UBERON:0004632"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1125",
+            "source_name": "VH_M_thoracic_vertebra_8",
+            "ontology": "UBERON:0011050"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1126",
+            "source_name": "VH_M_thoracic_vertebra_9",
+            "ontology": "UBERON:0004633"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1127",
+            "source_name": "VH_M_thoracic_vertebra_10",
+            "ontology": "UBERON:0004634"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1128",
+            "source_name": "VH_M_thoracic_vertebra_11",
+            "ontology": "UBERON:0004635"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1129",
+            "source_name": "VH_M_thoracic_vertebra_12",
+            "ontology": "UBERON:0004636"
+          }
+        ],
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA9140",
+          "source_name": "FMA9140",
+          "ontology": "FMA9140"
+        }
+      }
+    },
+    "anatomy.lumbar-vertebrae": {
+      "overview": "The vertebrae of the lower back, the largest in the vertebral column, with large kidney-shaped bodies. There are usually five; the female body shown here has six.",
+      "function": "Built to support the weight of the torso.",
+      "related": [
+        "anatomy.vertebral-column",
+        "anatomy.thoracic-vertebrae",
+        "anatomy.sacrum",
+        "anatomy.intervertebral-disks"
+      ],
+      "source_ids": [
+        "tm-vertebral-column"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n1138",
+            "source_name": "VH_F_lumbar_vertebra_1",
+            "ontology": "UBERON:0004617"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1139",
+            "source_name": "VH_F_lumbar_vertebra_2",
+            "ontology": "UBERON:0004618"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1140",
+            "source_name": "VH_F_lumbar_vertebra_3",
+            "ontology": "UBERON:0004619"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1141",
+            "source_name": "VH_F_lumbar_vertebra_4",
+            "ontology": "UBERON:0004620"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1142",
+            "source_name": "VH_F_lumbar_vertebra_5",
+            "ontology": "UBERON:0004621"
+          },
+          {
+            "id": "source.hra-v1-1.female.n1143",
+            "source_name": "VH_F_lumbar_vertebra_6",
+            "ontology": "-"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n1130",
+            "source_name": "VH_M_lumbar_vertebra_1",
+            "ontology": "UBERON:0004617"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1131",
+            "source_name": "VH_M_lumbar_vertebra_2",
+            "ontology": "UBERON:0004618"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1132",
+            "source_name": "VH_M_lumbar_vertebra_3",
+            "ontology": "UBERON:0004619"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1133",
+            "source_name": "VH_M_lumbar_vertebra_4",
+            "ontology": "UBERON:0004620"
+          },
+          {
+            "id": "source.hra-v1-1.male.n1134",
+            "source_name": "VH_M_lumbar_vertebra_5",
+            "ontology": "UBERON:0004621"
+          }
+        ],
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FMA16203",
+          "source_name": "FMA16203",
+          "ontology": "FMA16203"
+        }
+      }
+    },
+    "anatomy.fovea": {
+      "overview": "A small depression in the center of the macula, at the back of each eye.",
+      "function": "Has a high concentration of light-detecting cells. The macula around it controls sharp, straight-ahead vision.",
+      "related": [
+        "anatomy.macula",
+        "anatomy.retina",
+        "anatomy.optic-disc"
+      ],
+      "source_ids": [
+        "tm-eyeball",
+        "nei-amd"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n25",
+            "source_name": "VH_F_fovea_L",
+            "ontology": "FMA:58663"
+          },
+          {
+            "id": "source.hra-v1-1.female.n46",
+            "source_name": "VH_F_fovea_R",
+            "ontology": "FMA:58661"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n919",
+            "source_name": "VH_M_fovea_L",
+            "ontology": "FMA:58663"
+          },
+          {
+            "id": "source.hra-v1-1.male.n944",
+            "source_name": "VH_M_fovea_R",
+            "ontology": "FMA:58661"
+          }
+        ]
+      }
+    },
+    "anatomy.optic-disc": {
+      "overview": "The place at the back of each eye where the optic nerve meets the retina.",
+      "function": "Contains no light-detecting cells. Swelling of the optic disc can be a sign of raised pressure inside the skull.",
+      "related": [
+        "anatomy.optic-nerves",
+        "anatomy.retina",
+        "anatomy.fovea"
+      ],
+      "source_ids": [
+        "tm-eyeball"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n27",
+            "source_name": "VH_F_optic_disc_L",
+            "ontology": "FMA:58636"
+          },
+          {
+            "id": "source.hra-v1-1.female.n48",
+            "source_name": "VH_F_optic_disc_R",
+            "ontology": "FMA:58635"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n921",
+            "source_name": "VH_M_optic_disc_L",
+            "ontology": "FMA:58636"
+          },
+          {
+            "id": "source.hra-v1-1.male.n946",
+            "source_name": "VH_M_optic_disc_R",
+            "ontology": "FMA:58635"
+          }
+        ]
+      }
+    },
+    "anatomy.aqueous-humor": {
+      "overview": "A clear, plasma-like fluid that fills the chambers at the front of each eye.",
+      "function": "Nourishes and protects the eye. It is produced constantly, with the help of the ciliary body, and drains away through the trabecular meshwork.",
+      "related": [
+        "anatomy.eye-drainage",
+        "anatomy.ciliary-body",
+        "anatomy.cornea"
+      ],
+      "source_ids": [
+        "tm-eyeball"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n16",
+            "source_name": "VH_F_aqueous_humor_L",
+            "ontology": "FMA:58821"
+          },
+          {
+            "id": "source.hra-v1-1.female.n37",
+            "source_name": "VH_F_aqueous_humor_R",
+            "ontology": "FMA:58820"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n910",
+            "source_name": "VH_M_aqueous_humor_L",
+            "ontology": "FMA:58821"
+          },
+          {
+            "id": "source.hra-v1-1.male.n935",
+            "source_name": "VH_M_aqueous_humor_R",
+            "ontology": "FMA:58820"
+          }
+        ]
+      }
+    },
+    "anatomy.eye-drainage": {
+      "overview": "The trabecular meshwork, an area of tissue at the base of the cornea near the front chamber of the eye, with the nearby Schlemm's canal.",
+      "function": "Aqueous humor drains out of the eye through the trabecular meshwork. If its drainage is blocked, glaucoma can result.",
+      "related": [
+        "anatomy.aqueous-humor",
+        "anatomy.cornea",
+        "anatomy.iris"
+      ],
+      "source_ids": [
+        "tm-eyeball",
+        "nei-glaucoma"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n15",
+            "source_name": "VH_F_trabecular_meshwork_L",
+            "ontology": "UBERON:0005969"
+          },
+          {
+            "id": "source.hra-v1-1.female.n17",
+            "source_name": "VH_F_schlemms_canal_L",
+            "ontology": "FMA:51875"
+          },
+          {
+            "id": "source.hra-v1-1.female.n32",
+            "source_name": "VH_F_schlemms_canal_R",
+            "ontology": "FMA:51874"
+          },
+          {
+            "id": "source.hra-v1-1.female.n33",
+            "source_name": "VH_F_trabecular_meshwork_R",
+            "ontology": "UBERON:0005969"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n909",
+            "source_name": "VH_M_trabecular_meshwork_L",
+            "ontology": "UBERON:0005969"
+          },
+          {
+            "id": "source.hra-v1-1.male.n911",
+            "source_name": "VH_M_schlemms_canal_L",
+            "ontology": "FMA:51875"
+          },
+          {
+            "id": "source.hra-v1-1.male.n930",
+            "source_name": "VH_M_schlemms_canal_R",
+            "ontology": "FMA:51874"
+          },
+          {
+            "id": "source.hra-v1-1.male.n931",
+            "source_name": "VH_M_trabecular_meshwork_R",
+            "ontology": "UBERON:0005969"
+          }
+        ]
+      }
+    },
+    "anatomy.prostate-zones": {
+      "overview": "The prostate's zones by tissue type: the peripheral zone, the main body of the gland at the back (about 65% of it); the central zone around the ejaculatory ducts (about 25%); and the transition zone around the urethra (5-10%).",
+      "function": "The glands of the transition zone are the ones that typically enlarge in benign prostatic hyperplasia, which can squeeze the urethra.",
+      "related": [
+        "anatomy.prostate",
+        "anatomy.urethra",
+        "anatomy.ejaculatory-ducts"
+      ],
+      "source_ids": [
+        "tm-prostate"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n392",
+            "source_name": "VH_M_peripheral_zone_of_prostate",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n398",
+            "source_name": "VH_M_central_zone_of_prostate",
+            "ontology": ""
+          },
+          {
+            "id": "source.hra-v1-1.male.n395",
+            "source_name": "VH_M_transition_zone_of_prostate",
+            "ontology": ""
+          }
+        ]
+      }
+    },
+    "anatomy.bladder-trigone": {
+      "overview": "A smooth-walled triangular area inside the base (fundus) of the bladder, marked out by the openings of the two ureters and of the urethra.",
+      "function": "Urine enters the bladder through the ureters, whose openings mark two of its corners, and leaves through the urethra at the third.",
+      "related": [
+        "anatomy.bladder",
+        "anatomy.ureters",
+        "anatomy.urethra"
+      ],
+      "source_ids": [
+        "tm-bladder"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n603",
+          "source_name": "VH_F_trigone_of_urinary_bladder",
+          "ontology": "UBERON:0001257"
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n578",
+          "source_name": "VH_M_trigone_of_urinary_bladder",
+          "ontology": "UBERON:0001257"
+        }
+      }
+    },
+    "anatomy.colon-segments": {
+      "overview": "The parts of the colon: the ascending colon rises from the cecum on the right, turns at the hepatic flexure into the transverse colon, which runs across to the spleen, and turns down at the splenic flexure into the descending colon, which becomes the sigmoid colon.",
+      "function": "Together they make up most of the colon, which absorbs water and moves waste toward the rectum.",
+      "related": [
+        "anatomy.colon",
+        "anatomy.cecum",
+        "anatomy.sigmoid-colon"
+      ],
+      "source_ids": [
+        "tm-colon",
+        "seer-intestine"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": [
+          {
+            "id": "source.hra-v1-1.female.n426",
+            "source_name": "VH_F_transverse_colon",
+            "ontology": "UBERON:0001157"
+          },
+          {
+            "id": "source.hra-v1-1.female.n427",
+            "source_name": "VH_F_ascending_colon",
+            "ontology": "UBERON:0001156"
+          },
+          {
+            "id": "source.hra-v1-1.female.n429",
+            "source_name": "VH_F_descending_colon",
+            "ontology": "UBERON:0001158"
+          },
+          {
+            "id": "source.hra-v1-1.female.n425",
+            "source_name": "VH_F_hepatic_flexure_of_colon",
+            "ontology": "UBERON:0022277"
+          },
+          {
+            "id": "source.hra-v1-1.female.n434",
+            "source_name": "VH_F_splenic_flexure_of_colon",
+            "ontology": "UBERON:0022276"
+          }
+        ],
+        "male": [
+          {
+            "id": "source.hra-v1-1.male.n469",
+            "source_name": "VH_M_ascending_colon",
+            "ontology": "UBERON:0001156"
+          },
+          {
+            "id": "source.hra-v1-1.male.n470",
+            "source_name": "VH_M_descending_colon",
+            "ontology": "UBERON:0001158"
+          },
+          {
+            "id": "source.hra-v1-1.male.n475",
+            "source_name": "VH_M_transverse_colon",
+            "ontology": "UBERON:0001157"
+          },
+          {
+            "id": "source.hra-v1-1.male.n471",
+            "source_name": "VH_M_hepatic_flexure_of_colon",
+            "ontology": "UBERON:0022277"
+          },
+          {
+            "id": "source.hra-v1-1.male.n474",
+            "source_name": "VH_M_splenic_flexure_of_colon",
+            "ontology": "UBERON:0022276"
+          }
+        ]
+      }
+    },
+    "anatomy.heart.papillary-muscles": {
+      "overview": "Muscles on the inner walls of the ventricles, five in total, joined by fibrous cords (chordae tendineae) to the cusps of the mitral and tricuspid valves.",
+      "function": "They contract as the ventricles pump, keeping the valve leaflets from being pushed back into the atria.",
+      "related": [
+        "anatomy.heart.valve.mitral",
+        "anatomy.heart.valve.tricuspid",
+        "anatomy.heart.ventricle.left",
+        "anatomy.heart.ventricle.right"
+      ],
+      "source_ids": [
+        "tm-heart-valves"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": [
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA7265",
+            "source_name": "FMA7265",
+            "ontology": "FMA7265"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA7264",
+            "source_name": "FMA7264",
+            "ontology": "FMA7264"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA7260",
+            "source_name": "FMA7260",
+            "ontology": "FMA7260"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA7261",
+            "source_name": "FMA7261",
+            "ontology": "FMA7261"
+          },
+          {
+            "id": "source.bodyparts3d-v4-complete.FMA7262",
+            "source_name": "FMA7262",
+            "ontology": "FMA7262"
+          }
+        ]
+      }
+    },
+    "anatomy.ear": {
+      "overview": "The organ of hearing. Sound waves have to reach the inner ear, which connects to the brain through the auditory nerve; the eardrum and the middle ear lie on the way.",
+      "function": "Hearing. Damage to the inner ear or the auditory nerve, or anything that keeps sound waves from reaching the inner ear, such as earwax, fluid or a punctured eardrum, can cause hearing loss.",
+      "related": [
+        "anatomy.parotid-glands",
+        "anatomy.brain"
+      ],
+      "source_ids": [
+        "mlp-hearing",
+        "mlp-ear-infections"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_modelled": {
+        "title": "Ears",
+        "note": "No open anatomical source supplies a model of this structure, so no body shows it. Locate selects the nearest supplied structure when the current body has one.",
+        "near": [
+          "anatomy.mandible",
+          "anatomy.brain"
+        ]
+      }
+    },
+    "anatomy.sinuses": {
+      "overview": "Hollow air spaces within the bones surrounding the nose.",
+      "function": "They produce mucus, which drains into the nose. If the nose is swollen, this can block the sinuses and cause pain.",
+      "related": [
+        "anatomy.eyes",
+        "anatomy.nasal-bones"
+      ],
+      "source_ids": [
+        "mlp-sinusitis"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_modelled": {
+        "title": "Sinuses",
+        "note": "No open anatomical source supplies a model of this structure, so no body shows it. Locate selects the nearest supplied structure when the current body has one.",
+        "near": [
+          "anatomy.eyes",
+          "anatomy.nasal-bones"
+        ]
+      }
+    },
+    "anatomy.venae-cavae": {
+      "overview": "The two venae cavae, the large veins through which blood returns to the heart: the superior vena cava and the inferior vena cava.",
+      "function": "Return oxygen-poor blood from the body to the right atrium.",
+      "related": [
+        "anatomy.vena-cava.superior",
+        "anatomy.vena-cava.inferior",
+        "anatomy.heart.atrium.right"
+      ],
+      "source_ids": [
+        "heart-flow"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "geometry": {
+        "female": {
+          "id": "source.hra-v1-1.female.n748",
+          "source_name": "VH_F_vena_cava",
+          "ontology": ""
+        },
+        "male": {
+          "id": "source.hra-v1-1.male.n255",
+          "source_name": "VH_M_vena_cava",
+          "ontology": ""
+        }
+      }
     }
   },
   "routes": {
@@ -13335,7 +14962,8 @@
       "display_on": [
         "anatomy.heart",
         "anatomy.heart.valves",
-        "anatomy.heart.valve.mitral"
+        "anatomy.heart.valve.mitral",
+        "anatomy.heart.papillary-muscles"
       ],
       "geometry_mode": "reference_location_only",
       "source_ids": [
@@ -13594,12 +15222,14 @@
         "anatomy.bladder"
       ],
       "display_on": [
-        "anatomy.prostate"
+        "anatomy.prostate",
+        "anatomy.prostate-zones"
       ],
       "geometry_mode": "reference_location_only",
       "source_ids": [
         "niddk-bph",
-        "seer-male-glands"
+        "seer-male-glands",
+        "tm-prostate"
       ],
       "review_status": "draft",
       "expert_review": "pending",
@@ -13753,12 +15383,16 @@
       "display_on": [
         "anatomy.optic-nerves",
         "anatomy.eyes",
-        "anatomy.retina"
+        "anatomy.retina",
+        "anatomy.eye-drainage",
+        "anatomy.aqueous-humor",
+        "anatomy.optic-disc"
       ],
       "geometry_mode": "reference_location_only",
       "source_ids": [
         "nei-glaucoma",
-        "nei-how-eyes-work"
+        "nei-how-eyes-work",
+        "tm-eyeball"
       ],
       "review_status": "draft",
       "expert_review": "pending",
@@ -13777,7 +15411,8 @@
       "display_on": [
         "anatomy.macula",
         "anatomy.retina",
-        "anatomy.eyes"
+        "anatomy.eyes",
+        "anatomy.fovea"
       ],
       "geometry_mode": "reference_location_only",
       "source_ids": [
@@ -14062,7 +15697,8 @@
       ],
       "display_on": [
         "anatomy.sigmoid-colon",
-        "anatomy.colon"
+        "anatomy.colon",
+        "anatomy.colon-segments"
       ],
       "geometry_mode": "reference_location_only",
       "source_ids": [
@@ -14247,7 +15883,8 @@
         "anatomy.colon",
         "anatomy.rectum",
         "anatomy.sigmoid-colon",
-        "anatomy.cecum"
+        "anatomy.cecum",
+        "anatomy.colon-segments"
       ],
       "geometry_mode": "reference_location_only",
       "source_ids": [
@@ -14533,7 +16170,8 @@
       "display_on": [
         "anatomy.spongy-bone",
         "anatomy.compact-bone",
-        "anatomy.vertebral-column"
+        "anatomy.vertebral-column",
+        "anatomy.lumbar-vertebrae"
       ],
       "geometry_mode": "reference_location_only",
       "source_ids": [
@@ -15480,7 +17118,9 @@
       ],
       "display_on": [
         "anatomy.intervertebral-disks",
-        "anatomy.vertebral-column"
+        "anatomy.vertebral-column",
+        "anatomy.lumbar-vertebrae",
+        "anatomy.cervical-vertebrae"
       ],
       "geometry_mode": "reference_location_only",
       "source_ids": [
@@ -16137,21 +17777,721 @@
       "expert_review": "pending",
       "human_source_review": "pending",
       "not_depicted": "Swelling is not depicted."
+    },
+    "condition.high-blood-pressure": {
+      "title": "High blood pressure (hypertension)",
+      "summary": "A common condition in which the force of blood on the walls of the arteries is often too high: consistent readings of 130/80 mm Hg or more. About half of American adults have it. It usually causes no symptoms until it leads to serious health problems; controlling it can help prevent or delay heart attack, heart failure, stroke and chronic kidney disease.",
+      "location": "Blood leaves the heart through the aorta, the body's main artery, and reaches the body through the arteries that branch from it.",
+      "focus_id": "anatomy.aorta",
+      "related_anatomy": [
+        "anatomy.aorta",
+        "anatomy.heart"
+      ],
+      "display_on": [
+        "anatomy.aorta",
+        "anatomy.heart",
+        "anatomy.kidneys"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nhlbi-high-blood-pressure",
+        "heart-flow"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Blood pressure and the artery walls are not depicted."
+    },
+    "condition.atherosclerosis": {
+      "title": "Atherosclerosis",
+      "summary": "A common disease in which plaque made of cholesterol, fat, blood cells and other substances builds up in the walls of arteries, narrowing them and reducing blood flow. It can affect almost any artery: in the heart it is coronary artery disease, in the neck carotid artery disease, and in the legs peripheral artery disease. Blockages can cause heart attack or stroke.",
+      "location": "Plaque can form in arteries throughout the body, including the aorta and the coronary arteries on the surface of the heart.",
+      "focus_id": "anatomy.aorta",
+      "related_anatomy": [
+        "anatomy.aorta",
+        "anatomy.coronary.left"
+      ],
+      "display_on": [
+        "anatomy.aorta",
+        "anatomy.coronary.left",
+        "anatomy.coronary.right",
+        "anatomy.carotid-arteries"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nhlbi-atherosclerosis"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Plaque, narrowed arteries and blood flow are not depicted."
+    },
+    "condition.cardiomyopathy": {
+      "title": "Cardiomyopathy",
+      "summary": "A disease of the heart muscle that makes it harder for the heart to pump blood. Depending on the type, the muscle may become thicker, stiffer or larger than normal, which can cause an irregular heartbeat or heart failure. It can affect people of any age, including young athletes.",
+      "location": "The ventricles are the heart's lower chambers, which pump blood to the lungs and the body.",
+      "focus_id": "anatomy.heart.ventricle.left",
+      "related_anatomy": [
+        "anatomy.heart.ventricle.left",
+        "anatomy.heart"
+      ],
+      "display_on": [
+        "anatomy.heart",
+        "anatomy.heart.ventricle.left",
+        "anatomy.heart.ventricle.right"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nhlbi-cardiomyopathy",
+        "heart-anatomy"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Changes in the heart muscle and pumping are not depicted."
+    },
+    "condition.congenital-heart-defects": {
+      "title": "Congenital heart defects",
+      "summary": "Heart problems present at birth, and the most common type of birth defect, in about 1 in 100 babies born in the United States. The most common defects involve the inside walls of the heart, its valves, or the large blood vessels that carry blood to and from it. Some need no treatment; others need treatment soon after birth.",
+      "location": "A wall, the septum, separates the right and left sides of the heart, and four valves control flow through it.",
+      "focus_id": "anatomy.heart.septum",
+      "related_anatomy": [
+        "anatomy.heart.septum",
+        "anatomy.heart"
+      ],
+      "display_on": [
+        "anatomy.heart",
+        "anatomy.heart.septum",
+        "anatomy.heart.valves"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nhlbi-congenital-heart-defects",
+        "heart-anatomy"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Defects of the walls, valves and vessels are not depicted."
+    },
+    "condition.sleep-apnea": {
+      "title": "Sleep apnea",
+      "summary": "Breathing stops and restarts many times during sleep. In obstructive sleep apnea, the most common type, the upper airway becomes blocked; obesity, large tonsils or hormone changes can narrow it. In central sleep apnea, the brain does not send the signals needed to breathe. Snoring or gasping during sleep and daytime sleepiness are common signs.",
+      "location": "The upper airway runs through the throat, past the tonsils, to the larynx.",
+      "focus_id": "anatomy.tonsils",
+      "related_anatomy": [
+        "anatomy.tonsils",
+        "anatomy.pharynx-muscles"
+      ],
+      "display_on": [
+        "anatomy.tonsils",
+        "anatomy.soft-palate",
+        "anatomy.pharynx-muscles"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nhlbi-sleep-apnea"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The blocked airway and breathing are not depicted."
+    },
+    "condition.collapsed-lung": {
+      "title": "Collapsed lung (pneumothorax)",
+      "summary": "Air escapes from the lung and fills the space between the lung and the chest wall, pressing on the lung so it cannot expand fully. Causes include chest injuries and air blisters on the lung that break open; tall, thin people, smokers and people with lung diseases are more at risk. Sharp chest pain made worse by breathing in and shortness of breath are common symptoms.",
+      "location": "Each lung sits inside the chest cavity, against the inside of the chest wall.",
+      "focus_id": "anatomy.lungs",
+      "related_anatomy": [
+        "anatomy.lungs"
+      ],
+      "display_on": [
+        "anatomy.lungs",
+        "anatomy.lung.left",
+        "anatomy.lung.right"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-collapsed-lung"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Air around the lung and the collapsed lung are not depicted."
+    },
+    "condition.cystic-fibrosis": {
+      "title": "Cystic fibrosis",
+      "summary": "A genetic condition that changes a protein in the body and makes mucus thick and sticky. As mucus builds up, it can cause blockages, damage or infections in the airways, digestive tract and other organs. Survival has improved greatly with newborn screening, medicines, nutrition and lung transplants.",
+      "location": "Normal mucus is slippery and protects the airways of the lungs and the digestive tract.",
+      "focus_id": "anatomy.lungs",
+      "related_anatomy": [
+        "anatomy.lungs"
+      ],
+      "display_on": [
+        "anatomy.lungs",
+        "anatomy.bronchi"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nhlbi-cystic-fibrosis"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Mucus and blocked airways are not depicted."
+    },
+    "condition.tuberculosis": {
+      "title": "Tuberculosis (TB)",
+      "summary": "An infection caused by the bacterium Mycobacterium tuberculosis. It usually affects the lungs, but can also affect other parts of the body such as the brain, kidneys or spine. In inactive TB the germs live in the body without causing illness or spreading; without treatment it can become active TB disease, which can be fatal if not treated properly.",
+      "location": "TB usually affects the lungs; it can also affect the lymph nodes and other organs.",
+      "focus_id": "anatomy.lungs",
+      "related_anatomy": [
+        "anatomy.lungs"
+      ],
+      "display_on": [
+        "anatomy.lungs",
+        "anatomy.lymph-node"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "cdc-tb"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Infection and lung damage are not depicted."
+    },
+    "condition.pulmonary-fibrosis": {
+      "title": "Idiopathic pulmonary fibrosis",
+      "summary": "A serious long-term disease in which the tissue around the air sacs of the lungs becomes thick and stiff for unknown reasons, causing permanent scarring that makes breathing progressively harder. Shortness of breath and cough are the most common symptoms; the risk is higher with smoking, a family history and age.",
+      "location": "The tiny air sacs (alveoli) lie inside both lungs, at the ends of the branching airways.",
+      "focus_id": "anatomy.lungs",
+      "related_anatomy": [
+        "anatomy.lungs"
+      ],
+      "display_on": [
+        "anatomy.lungs"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nhlbi-ipf",
+        "gas-exchange"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Scarring and stiffened lung tissue are not depicted."
+    },
+    "condition.kidney-infection": {
+      "title": "Kidney infection (pyelonephritis)",
+      "summary": "A type of urinary tract infection that often begins in the bladder and moves into one or both kidneys, most often caused by bacteria. Symptoms may include fever, pain in the back, side or groin, and painful urination. Early treatment prevents most complications.",
+      "location": "Urine flows from the kidneys through the ureters to the bladder.",
+      "focus_id": "anatomy.kidneys",
+      "related_anatomy": [
+        "anatomy.kidneys",
+        "anatomy.bladder"
+      ],
+      "display_on": [
+        "anatomy.kidneys",
+        "anatomy.ureters",
+        "anatomy.bladder"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-kidney-infection",
+        "niddk-urinary"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Infection and inflammation are not depicted."
+    },
+    "condition.urinary-incontinence": {
+      "title": "Bladder control problems (urinary incontinence)",
+      "summary": "Problems with the way a person holds or releases urine; urinary incontinence is when urine leaks accidentally. Childbirth, menopause, aging and other factors can contribute in women, and aging and prostate problems in men. Treatment depends on the type.",
+      "location": "The bladder stores urine, which leaves the body through the urethra.",
+      "focus_id": "anatomy.bladder",
+      "related_anatomy": [
+        "anatomy.bladder"
+      ],
+      "display_on": [
+        "anatomy.bladder",
+        "anatomy.bladder-trigone",
+        "anatomy.urethra"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-bladder-control",
+        "seer-bladder"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Bladder control and leakage are not depicted."
+    },
+    "condition.ibs": {
+      "title": "Irritable bowel syndrome (IBS)",
+      "summary": "A group of symptoms that occur together: repeated pain in the abdomen and changes in bowel movements (diarrhea, constipation or both), without visible signs of damage or disease in the digestive tract. It is a disorder of gut-brain interaction that can make the gut more sensitive and change how the bowel muscles contract.",
+      "location": "The colon is the main part of the large intestine; the small intestine empties into it.",
+      "focus_id": "anatomy.colon",
+      "related_anatomy": [
+        "anatomy.colon"
+      ],
+      "display_on": [
+        "anatomy.colon",
+        "anatomy.colon-segments",
+        "anatomy.small-intestine"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-ibs",
+        "niddk-digestive"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Bowel sensitivity and muscle contractions are not depicted."
+    },
+    "condition.inguinal-hernia": {
+      "title": "Inguinal hernia",
+      "summary": "Contents of the abdomen, most often fat or part of the small intestine, bulge through a weak area in the lower abdominal wall at one of the two inguinal canals in the groin. The lining of the abdominal cavity forms a sac around the bulge.",
+      "location": "The inguinal canals pass through the lower abdominal wall, which is made of layered muscles, one canal on each side of the groin.",
+      "focus_id": "anatomy.abdominal-obliques",
+      "related_anatomy": [
+        "anatomy.abdominal-obliques"
+      ],
+      "display_on": [
+        "anatomy.abdominal-obliques",
+        "anatomy.rectus-abdominis",
+        "anatomy.small-intestine"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-inguinal-hernia",
+        "tma-abdominal-wall"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The inguinal canals and the hernia are not depicted."
+    },
+    "condition.gastritis": {
+      "title": "Gastritis",
+      "summary": "The stomach lining is inflamed. Most people with gastritis have no symptoms; some have indigestion or bleeding in the stomach. Infection with Helicobacter pylori bacteria is the most common cause.",
+      "location": "The stomach lies in the upper left of the abdomen and receives food from the esophagus.",
+      "focus_id": "anatomy.stomach",
+      "related_anatomy": [
+        "anatomy.stomach"
+      ],
+      "display_on": [
+        "anatomy.stomach"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-gastritis",
+        "nci-def-stomach"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Inflammation of the stomach lining is not depicted."
+    },
+    "condition.huntingtons": {
+      "title": "Huntington's disease",
+      "summary": "An inherited disease that causes certain nerve cells in the brain to waste away. Symptoms usually appear in middle age, starting with uncontrolled movements, clumsiness and balance problems; later it can take away the ability to walk, talk and swallow. A person whose parent has it has a 50% chance of getting it. There is no cure, but medicines can help manage some symptoms.",
+      "location": "Huntington's disease causes certain nerve cells in the brain to waste away.",
+      "focus_id": "anatomy.brain",
+      "related_anatomy": [
+        "anatomy.brain"
+      ],
+      "display_on": [
+        "anatomy.brain",
+        "anatomy.cerebral-hemispheres"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-huntingtons"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The affected nerve cells and movements are not depicted."
+    },
+    "condition.als": {
+      "title": "Amyotrophic lateral sclerosis (ALS)",
+      "summary": "A disease of the nervous system, often called Lou Gehrig's disease, that attacks motor neurons, the nerve cells in the brain and spinal cord that send messages to the voluntary muscles. It gets worse over time: as the motor neurons die, the muscles become weak, twitch and waste away. Symptoms most often begin between ages 55 and 75.",
+      "location": "Motor neurons are found in the brain and the spinal cord.",
+      "focus_id": "anatomy.spinal-cord",
+      "related_anatomy": [
+        "anatomy.spinal-cord",
+        "anatomy.brain"
+      ],
+      "display_on": [
+        "anatomy.spinal-cord",
+        "anatomy.brain"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-als"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Motor neurons and muscle weakness are not depicted."
+    },
+    "condition.spinal-stenosis": {
+      "title": "Spinal stenosis",
+      "summary": "The spaces in the spine narrow and press on the spinal cord and the nerve roots that branch from it. The narrowing usually happens over time and can involve the spinal canal at the center of the vertebrae or the openings through which nerves leave the spine.",
+      "location": "The spinal cord and nerve roots run through the spinal canal, the hollow space formed by the vertebrae.",
+      "focus_id": "anatomy.vertebral-column",
+      "related_anatomy": [
+        "anatomy.vertebral-column",
+        "anatomy.spinal-cord"
+      ],
+      "display_on": [
+        "anatomy.vertebral-column",
+        "anatomy.spinal-cord",
+        "anatomy.cervical-vertebrae",
+        "anatomy.lumbar-vertebrae"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niams-spinal-stenosis"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Narrowing and pressure on the nerves are not depicted."
+    },
+    "condition.sciatica": {
+      "title": "Sciatica",
+      "summary": "Pain, weakness, numbness or tingling in the leg caused by pressure on or injury to the sciatic nerve, which starts in the lower back and runs down the back of each leg. It is a symptom rather than a condition by itself; common causes include a herniated disk and spinal stenosis. The pain is usually on one side.",
+      "location": "The sciatic nerve starts in the lower back, near the lumbar vertebrae.",
+      "focus_id": "anatomy.lumbar-vertebrae",
+      "related_anatomy": [
+        "anatomy.lumbar-vertebrae"
+      ],
+      "display_on": [
+        "anatomy.lumbar-vertebrae",
+        "anatomy.intervertebral-disks",
+        "anatomy.vertebral-column"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-sciatica"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The sciatic nerve and pressure on it are not depicted."
+    },
+    "condition.hip-fracture": {
+      "title": "Hip fracture",
+      "summary": "A break in the bones of the hip, where the thigh bone (femur) meets the pelvis. It takes great force to hurt a healthy hip, but falls can cause fractures. Osteoporosis of the hip, which is common in older people, causes weak bones that break easily.",
+      "location": "The hip is a ball-and-socket joint: a ball at the top of the femur fits into a socket in the pelvis.",
+      "focus_id": "anatomy.femur",
+      "related_anatomy": [
+        "anatomy.femur",
+        "anatomy.pelvis"
+      ],
+      "display_on": [
+        "anatomy.femur",
+        "anatomy.pelvis"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-hip",
+        "niams-osteoporosis"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The fracture and the hip joint are not depicted."
+    },
+    "condition.patellar-dislocation": {
+      "title": "Kneecap (patellar) dislocation",
+      "summary": "The kneecap moves fully out of the groove it glides in as the knee bends and straightens; sliding partway out is called a subluxation. Most dislocations are toward the outside of the knee, caused by a hit to the knee or a sudden twisting movement, and they are more common in contact sports. It can happen more than once.",
+      "location": "The kneecap sits within the quadriceps tendon, in a groove at the front of the lower end of the thigh bone.",
+      "focus_id": "anatomy.patella",
+      "related_anatomy": [
+        "anatomy.patella"
+      ],
+      "display_on": [
+        "anatomy.patella",
+        "anatomy.knee",
+        "anatomy.femur"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-kneecap-dislocation",
+        "tm-patella"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The displaced kneecap is not depicted."
+    },
+    "condition.osgood-schlatter": {
+      "title": "Osgood-Schlatter disease",
+      "summary": "A painful swelling of the bump on the upper part of the shinbone, just below the knee. It is thought to come from small injuries caused by overuse before the knee has finished growing, when the strong quadriceps muscle is used a lot in sports during a growth spurt. It is common in adolescents who run and jump.",
+      "location": "The patellar ligament connects the kneecap to the bump at the top of the front of the shinbone.",
+      "focus_id": "anatomy.tibia",
+      "related_anatomy": [
+        "anatomy.tibia",
+        "anatomy.patellar-ligament"
+      ],
+      "display_on": [
+        "anatomy.tibia",
+        "anatomy.patellar-ligament",
+        "anatomy.quadriceps-tendon"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-osgood-schlatter",
+        "tm-patella"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Swelling of the shinbone is not depicted."
+    },
+    "condition.tmd": {
+      "title": "Temporomandibular disorders (TMD)",
+      "summary": "More than 30 conditions that affect the temporomandibular joints (TMJs) and can cause pain, stiffness and trouble chewing in the jaw joint and the muscles that control jaw movement. The main types are disorders of the jaw joints, disorders of the chewing muscles, and headaches from a TMD. Many last only a short time and go away on their own.",
+      "location": "The two temporomandibular joints, one on each side of the jaw, connect the lower jaw (mandible) to the skull; the chewing muscles move it.",
+      "focus_id": "anatomy.mandible",
+      "related_anatomy": [
+        "anatomy.mandible",
+        "anatomy.muscles-of-mastication"
+      ],
+      "display_on": [
+        "anatomy.mandible",
+        "anatomy.muscles-of-mastication"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-tmd",
+        "tma-mastication"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The jaw joints, pain and joint problems are not depicted."
+    },
+    "condition.refractive-errors": {
+      "title": "Refractive errors (nearsightedness and farsightedness)",
+      "summary": "The most common type of vision problem: the shape of the eye keeps light from focusing correctly on the retina, so it is hard to see clearly. The common types are nearsightedness, farsightedness, astigmatism and presbyopia. Glasses or contact lenses can help people see clearly.",
+      "location": "The cornea and the lens focus light onto the retina at the back of the eye.",
+      "focus_id": "anatomy.cornea",
+      "related_anatomy": [
+        "anatomy.cornea",
+        "anatomy.lens"
+      ],
+      "display_on": [
+        "anatomy.eyes",
+        "anatomy.cornea",
+        "anatomy.lens",
+        "anatomy.retina"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nei-refractive-errors",
+        "nei-how-eyes-work"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The shape of the eye and the focusing of light are not depicted."
+    },
+    "condition.lymphoma": {
+      "title": "Lymphoma",
+      "summary": "Cancer that begins in cells of the lymph system. The two main types are Hodgkin lymphoma, which can often be cured, and non-Hodgkin lymphoma, whose outlook depends on its specific type.",
+      "location": "Lymph nodes lie along the lymphatic pathways; the spleen and thymus are also lymphatic organs.",
+      "focus_id": "anatomy.lymph-node",
+      "related_anatomy": [
+        "anatomy.lymph-node"
+      ],
+      "display_on": [
+        "anatomy.lymph-node",
+        "anatomy.spleen",
+        "anatomy.thymus"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nci-lymphoma",
+        "seer-lymph-nodes"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Tumors and their spread are not depicted."
+    },
+    "condition.leukemia": {
+      "title": "Leukemia",
+      "summary": "Cancers of the blood cells. The type depends on which blood cell becomes cancer and whether it grows quickly or slowly. It occurs most often in adults older than 55, but it is also the most common cancer in children younger than 15.",
+      "location": "Red bone marrow contains the blood stem cells that become red blood cells, white blood cells and platelets; it fills the small cavities of spongy bone.",
+      "focus_id": "anatomy.spongy-bone",
+      "related_anatomy": [
+        "anatomy.spongy-bone"
+      ],
+      "display_on": [
+        "anatomy.spongy-bone"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nci-leukemia",
+        "nci-def-bone-marrow",
+        "seer-bone-tissue"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Bone marrow and blood cells are not depicted."
+    },
+    "condition.laryngeal-cancer": {
+      "title": "Laryngeal cancer",
+      "summary": "Cancer that forms in the tissues of the larynx, a type of head and neck cancer. Using tobacco and drinking too much alcohol affect the risk. A sore throat or cough that does not go away, trouble swallowing, ear pain, a lump in the neck or throat, or a change in the voice are reasons to check with a doctor.",
+      "location": "The larynx has three parts: the supraglottis, above the vocal cords, including the epiglottis; the glottis, where the vocal cords are; and the subglottis, between the vocal cords and the trachea.",
+      "focus_id": "anatomy.larynx",
+      "related_anatomy": [
+        "anatomy.larynx"
+      ],
+      "display_on": [
+        "anatomy.larynx",
+        "anatomy.epiglottis",
+        "anatomy.vocal-folds"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nci-laryngeal-cancer"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Tumors and their spread are not depicted."
+    },
+    "condition.pid": {
+      "title": "Pelvic inflammatory disease (PID)",
+      "summary": "An infection of a woman's reproductive organs, often a complication of sexually transmitted infections such as chlamydia and gonorrhea; other infections can also cause it. About 1 in 8 women with a history of PID have difficulty getting pregnant.",
+      "location": "The female reproductive organs include the uterus, the fallopian tubes and the ovaries.",
+      "focus_id": "anatomy.uterus",
+      "related_anatomy": [
+        "anatomy.uterus",
+        "anatomy.fallopian-tubes"
+      ],
+      "display_on": [
+        "anatomy.uterus",
+        "anatomy.fallopian-tubes",
+        "anatomy.ovaries"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "cdc-pid",
+        "seer-female-tract"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Infection and inflammation are not depicted."
+    },
+    "condition.ankylosing-spondylitis": {
+      "title": "Ankylosing spondylitis",
+      "summary": "A type of arthritis that causes inflammation in the joints and ligaments of the spine, leading to stiffness. In severe cases the vertebrae can fuse, making the spine rigid. It can also affect joints such as the knees, ankles and hips, and some people develop eye disease (uveitis) or skin disease.",
+      "location": "The vertebral column runs from the base of the skull to the tailbone.",
+      "focus_id": "anatomy.vertebral-column",
+      "related_anatomy": [
+        "anatomy.vertebral-column"
+      ],
+      "display_on": [
+        "anatomy.vertebral-column",
+        "anatomy.sacrum"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niams-ankylosing-spondylitis"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Inflammation and fused vertebrae are not depicted."
+    },
+    "condition.hearing-loss": {
+      "title": "Hearing loss",
+      "summary": "Causes include heredity, diseases such as ear infections and meningitis, injury, certain medicines, long-term exposure to loud noise and aging. There are two main types: one happens when the inner ear or the auditory nerve is damaged; the other when sound waves cannot reach the inner ear, for example because of earwax, fluid or a punctured eardrum, and treatment or surgery can often reverse it.",
+      "location": "Sound waves reach the inner ear, which connects to the brain through the auditory nerve.",
+      "focus_id": "anatomy.ear",
+      "related_anatomy": [
+        "anatomy.ear"
+      ],
+      "display_on": [
+        "anatomy.ear"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-hearing"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The ear and hearing are not depicted."
+    },
+    "condition.ear-infection": {
+      "title": "Ear infections (otitis media)",
+      "summary": "The most common reason parents bring a child to a doctor: three out of four children have at least one ear infection by their third birthday. Adults can also get them, but less often. The infection usually affects the middle ear, and often goes away on its own.",
+      "location": "Ear infections usually affect the middle ear.",
+      "focus_id": "anatomy.ear",
+      "related_anatomy": [
+        "anatomy.ear"
+      ],
+      "display_on": [
+        "anatomy.ear"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-ear-infections"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The ear and the infection are not depicted."
+    },
+    "condition.sinusitis": {
+      "title": "Sinusitis (sinus infection)",
+      "summary": "The sinuses are inflamed, from an infection or another problem. Acute sinusitis often starts as a cold that turns into a bacterial infection; allergies, nasal problems and certain diseases can also cause it. Symptoms can include fever, weakness, fatigue, cough, congestion and mucus draining down the back of the throat.",
+      "location": "The sinuses are hollow air spaces within the bones surrounding the nose.",
+      "focus_id": "anatomy.sinuses",
+      "related_anatomy": [
+        "anatomy.sinuses"
+      ],
+      "display_on": [
+        "anatomy.sinuses"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-sinusitis"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The sinuses and their inflammation are not depicted."
     }
   },
   "assistant_checks": {
     "actor": "assistant",
     "kind": "preliminary_source_cross_check",
-    "checked_on": "2026-11-21",
+    "checked_on": "2026-11-25",
     "scope": "Preliminary comparison of the short explanations, route order and condition associations with the linked sources. This is not human reviewer evidence and does not establish anatomical mesh accuracy.",
     "source_ids": [
       "cdc-mumps",
+      "cdc-pid",
+      "cdc-tb",
       "gas-exchange",
       "heart-anatomy",
       "heart-flow",
       "lungs",
       "mlp-acl",
       "mlp-adenoids",
+      "mlp-als",
       "mlp-alzheimers",
       "mlp-bartholin",
       "mlp-brain",
@@ -16159,16 +18499,22 @@
       "mlp-carotid",
       "mlp-carpal-tunnel",
       "mlp-cerebellum",
+      "mlp-collapsed-lung",
       "mlp-dvt",
+      "mlp-ear-infections",
       "mlp-ectopic-pregnancy",
       "mlp-epilepsy",
       "mlp-eyelid-disorders",
+      "mlp-hearing",
       "mlp-herniated-disk",
       "mlp-hiatal-hernia",
       "mlp-hiccups",
+      "mlp-hip",
+      "mlp-huntingtons",
       "mlp-hydrocele",
       "mlp-hydrocephalus",
       "mlp-knee",
+      "mlp-kneecap-dislocation",
       "mlp-laryngitis",
       "mlp-male-infertility",
       "mlp-meningitis",
@@ -16176,6 +18522,7 @@
       "mlp-migraine",
       "mlp-ms",
       "mlp-mumps",
+      "mlp-osgood-schlatter",
       "mlp-ovarian-cysts",
       "mlp-parkinson-disease",
       "mlp-parkinsons",
@@ -16184,6 +18531,8 @@
       "mlp-retinal-artery-occlusion",
       "mlp-rotator-cuff",
       "mlp-salivary",
+      "mlp-sciatica",
+      "mlp-sinusitis",
       "mlp-spinal-cord-injury",
       "mlp-spleen-diseases",
       "mlp-sprains-strains",
@@ -16192,6 +18541,7 @@
       "mlp-tbi",
       "mlp-testicular-torsion",
       "mlp-thyroid-nodules",
+      "mlp-tmd",
       "mlp-tonsillitis",
       "mlp-tooth-decay",
       "mlp-urethral-disorders",
@@ -16206,12 +18556,14 @@
       "nci-def-adrenal-gland",
       "nci-def-areola",
       "nci-def-bile-duct",
+      "nci-def-bone-marrow",
       "nci-def-breast",
       "nci-def-broad-ligament",
       "nci-def-carina-of-trachea",
       "nci-def-carotid-artery",
       "nci-def-cerebrospinal-fluid",
       "nci-def-clavicle",
+      "nci-def-coccyx",
       "nci-def-conjunctiva",
       "nci-def-coronary-artery-disease",
       "nci-def-diaphragm",
@@ -16259,8 +18611,11 @@
       "nci-def-vulva",
       "nci-esophageal-cancer",
       "nci-kidney-cancer",
+      "nci-laryngeal-cancer",
+      "nci-leukemia",
       "nci-liver-cancer",
       "nci-lung-cancer",
+      "nci-lymphoma",
       "nci-oral-cancer",
       "nci-ovarian-cancer",
       "nci-pancreatic-cancer",
@@ -16279,19 +18634,28 @@
       "nei-glaucoma",
       "nei-how-eyes-work",
       "nei-pink-eye",
+      "nei-refractive-errors",
       "nei-retinal-detachment",
       "nei-uveitis",
       "nhlbi-afib",
       "nhlbi-aortic-aneurysm",
       "nhlbi-asthma",
+      "nhlbi-atherosclerosis",
+      "nhlbi-cardiomyopathy",
       "nhlbi-chd",
+      "nhlbi-congenital-heart-defects",
       "nhlbi-copd",
+      "nhlbi-cystic-fibrosis",
       "nhlbi-heart-attack",
       "nhlbi-heart-failure",
+      "nhlbi-high-blood-pressure",
+      "nhlbi-ipf",
       "nhlbi-pad",
       "nhlbi-pneumonia",
       "nhlbi-pulmonary-embolism",
       "nhlbi-pulmonary-hypertension",
+      "nhlbi-sleep-apnea",
+      "niams-ankylosing-spondylitis",
       "niams-atopic-dermatitis",
       "niams-back-pain",
       "niams-gout",
@@ -16300,12 +18664,14 @@
       "niams-psoriasis",
       "niams-ra",
       "niams-scoliosis",
+      "niams-spinal-stenosis",
       "nichd-endometriosis",
       "nichd-fibroids",
       "nichd-pcos",
       "nichd-vulvodynia",
       "niddk-adrenal-insufficiency",
       "niddk-appendicitis",
+      "niddk-bladder-control",
       "niddk-bladder-infection",
       "niddk-bph",
       "niddk-celiac",
@@ -16318,6 +18684,7 @@
       "niddk-diverticular",
       "niddk-ed",
       "niddk-gallstones",
+      "niddk-gastritis",
       "niddk-gerd",
       "niddk-graves",
       "niddk-hashimotos",
@@ -16325,6 +18692,9 @@
       "niddk-hyperparathyroidism",
       "niddk-hyperthyroidism",
       "niddk-hypothyroidism",
+      "niddk-ibs",
+      "niddk-inguinal-hernia",
+      "niddk-kidney-infection",
       "niddk-kidney-stones",
       "niddk-kidneys",
       "niddk-lactose-intolerance",
@@ -16375,20 +18745,31 @@
       "seer-tonsils",
       "seer-ureters",
       "tm-abdominal-veins",
+      "tm-ascending-tracts",
+      "tm-basal-ganglia",
+      "tm-bladder",
+      "tm-cerebrum",
       "tm-coeliac-trunk",
+      "tm-colon",
       "tm-coronary",
+      "tm-descending-tracts",
       "tm-extraocular",
       "tm-eyeball",
+      "tm-fibula",
       "tm-gallbladder",
+      "tm-heart-valves",
       "tm-hyoid",
       "tm-ima",
       "tm-knee",
       "tm-larynx-folds",
       "tm-larynx-muscles",
       "tm-liver",
+      "tm-midbrain",
       "tm-ovaries",
       "tm-patella",
       "tm-pelvic-veins",
+      "tm-pineal",
+      "tm-prostate",
       "tm-radius",
       "tm-rectum",
       "tm-seminal-vesicles",
@@ -16400,6 +18781,8 @@
       "tm-ulna",
       "tm-urethra",
       "tm-uterus",
+      "tm-ventricles",
+      "tm-vertebral-column",
       "tma-abdominal-wall",
       "tma-accessory-nerve",
       "tma-anterior-thigh",

@@ -57,7 +57,7 @@ func run() -> void:
 		var anatomy: Dictionary = viewer.model.export_state().duplicate(true)
 		var undo: Array = viewer.model.undo_stack.duplicate(true)
 		var back: Array = viewer.back_views.duplicate(true)
-		check(viewer.condition_links.visible and viewer.condition_links.get_child_count() == 7, "Heart exposes its six explicitly associated draft conditions")
+		check(viewer.condition_links.visible and viewer.condition_links.get_child_count() == 10, "Heart exposes its nine explicitly associated draft conditions")
 		viewer.condition_links.get_child(1).pressed.emit()
 		for child in viewer.get_children():
 			if child is InformationDialog:
@@ -74,7 +74,7 @@ func run() -> void:
 				available.append(str(identity))
 		# Shared conditions, the 8 about anatomy no source models, and each body's own
 		# supported anatomy; see tests/test_study_content.py.
-		check(available.size() == (110 if reference == "female" else 102) and ("condition.bph" in available) == (reference == "male") and ("condition.endometriosis" in available) == (reference == "female"), "Each body offers exactly the conditions its supplied anatomy supports")
+		check(available.size() == (141 if reference == "female" else 132) and ("condition.bph" in available) == (reference == "male") and ("condition.endometriosis" in available) == (reference == "female"), "Each body offers exactly the conditions its supplied anatomy supports")
 		for identity in available:
 			undo = viewer.model.undo_stack.duplicate(true)
 			dialog = viewer.show_condition(identity)
@@ -112,7 +112,7 @@ func run() -> void:
 		for child in viewer.condition_links.get_children():
 			if child is LinkButton:
 				titles.append(child.text)
-		check(titles == ["Cataracts"] and "focus light" in viewer.study_summary.text, "Second lens shows the shared lens card and its condition")
+		check(titles == ["Cataracts", "Refractive errors (nearsightedness and farsightedness)"] and "focus light" in viewer.study_summary.text, "Second lens shows the shared lens card and its conditions")
 		await viewer.restore_view_state(before)
 		viewer.inspect_alone("anatomy.heart")
 		var isolated: Dictionary = viewer.export_view_state().duplicate(true)

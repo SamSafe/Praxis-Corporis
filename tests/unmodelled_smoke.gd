@@ -102,7 +102,7 @@ func run() -> void:
 		scrotum.hide()
 		scrotum.queue_free()
 	# No other unmodelled card resolves to geometry.
-	for id in ["anatomy.scrotum", "anatomy.vulva", "anatomy.adenoids", "anatomy.lingual-tonsils"]:
+	for id in ["anatomy.scrotum", "anatomy.vulva", "anatomy.adenoids", "anatomy.lingual-tonsils", "anatomy.ear", "anatomy.sinuses"]:
 		check(content.unmodelled(id, viewer.model.structures) and content.structure_id(id, viewer.model.structures).is_empty(), "No geometry for " + id)
 	# The complete body locates the parotid glands through its salivary glands.
 	if "bodyparts-male-complete" in viewer.pack.bodies.map(func(b): return b.id):

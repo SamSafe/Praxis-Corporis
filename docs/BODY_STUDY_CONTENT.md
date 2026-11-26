@@ -9,8 +9,8 @@ the brain, eyes and knees, for 63 cards and 25 conditions.
 [Revisions 3 and 4](#revisions-3-and-4-vessels-organ-interiors-airways-skin-and-bone)
 bring the totals to 112 cards and 54 conditions. Later revisions, from
 [revision 5](#revision-5-dictionary-terms-brain-fluid-spaces-and-more-cancers)
-to [revision 15](#revision-15-intervertebral-discs),
-bring them to 222 cards and 126 conditions.
+to [revision 16](#revision-16-audit-additions),
+bring them to 245 cards and 157 conditions.
 
 **Everything here is a private draft.** Every record keeps `review_status: draft`
 with human source review and expert review pending, and the app labels it that
@@ -526,6 +526,54 @@ Added 2026-11-25 as `body-study-15-draft`, with the fourth tracing round
   female, 102 male). No condition text changed.
 - **IDs:** the discs were added after every other group, so no catalogue ID moved.
 
+## Revision 16: audit additions
+
+Added 2026-11-25 as `body-study-16-draft`, after a card-by-card and condition-by-condition
+audit of revision 15 and a check of what the two bodies supply but no card explained.
+Every new claim was read on its cited page that day (preliminary assistant check, not
+human review). Sources are limited to the government sites the tests accept and
+TeachMeAnatomy, as before; NINDS, NIA and NIDCR pages were read but are not on that list,
+so the same facts were cited from MedlinePlus or TeachMeAnatomy instead.
+
+- **New cards for supplied parts (20).** Cerebral hemispheres, motor cortex (precentral
+  gyrus), sensory cortex (postcentral gyrus), auditory cortex (superior and transverse
+  temporal gyri), basal ganglia (caudate, putamen, globus pallidus, nucleus accumbens,
+  subthalamic nucleus), substantia nigra, kneecap (patella), fibula, coccyx, cervical,
+  thoracic and lumbar vertebrae, fovea, optic disc, aqueous humor, the eye's drainage
+  tissue (trabecular meshwork and Schlemm's canal), prostate zones, bladder trigone,
+  colon segments and papillary muscles. All map to existing source meshes on both HRA
+  bodies (prostate zones on the male only); the complete male body also shows its basal
+  ganglia, patellae, fibulae, vertebral regions and papillary muscles.
+- **Venae cavae (1).** A card for the vena cava group the heart-lung route starts on,
+  which showed no explanation before.
+- **New text-only cards (2). The ears and the sinuses, which no open source models,
+  so hearing loss, ear infections and sinusitis can be read on every body.
+- **New mappings on existing cards.** The HRA sacra (sacrum card), rectus femoris
+  (quadriceps card) and cerebral aqueduct (brain-ventricles card).
+- **New conditions (31).** High blood pressure, atherosclerosis, cardiomyopathy,
+  congenital heart defects, sleep apnea, collapsed lung, cystic fibrosis, tuberculosis,
+  idiopathic pulmonary fibrosis, kidney infection, bladder control problems, irritable
+  bowel syndrome, inguinal hernia, gastritis, Huntington's disease, ALS, spinal
+  stenosis, sciatica, hip fracture, kneecap dislocation, Osgood-Schlatter disease, TMD,
+  refractive errors, lymphoma, leukemia, laryngeal cancer, pelvic inflammatory disease,
+  ankylosing spondylitis, hearing loss, ear infections and sinusitis. The female body now
+  offers 141 conditions and the male 132.
+- **Corrections.** The knee card said four ligaments connect the thigh bone and shin bone;
+  the lateral collateral ligament runs to the fibula, so the knee, ACL and LCL cards now
+  say which ligament goes where. The pineal card placed the gland "in the cerebrum"; it
+  now gives its midline position at the back of the third ventricle and its circadian
+  role. The choroid card now describes the choroid as the layer of connective tissue and
+  blood vessels between the retina and sclera. The vertebral-column card notes that the
+  female body has six lumbar vertebrae.
+- **Links.** Glaucoma, BPH, AMD, herniated disk, diverticular disease, colorectal cancer,
+  osteoporosis and mitral regurgitation now also appear on the matching new cards.
+- **Left out.** No card for the hippocampus or amygdala: the only pages that state their
+  roles (NINDS, NIA) are outside the accepted sources, and NCBI Bookshelf asked for a
+  CAPTCHA, which was not attempted. The substantia nigra card describes its anatomy only;
+  no accepted page names it as the source of dopamine, so Parkinson's disease is not linked
+  to it. Prostate cancer's "most common cancer among men" matches its NCI page and was kept.
+- **Totals:** 245 cards, 157 conditions, one route, 320 sources. No catalogue ID moved.
+
 ## Deliberate limits
 
 - **Sources (revision 1).** Claims come only from NIH pages: NHLBI, NIDDK, NICHD and NCI SEER
@@ -546,6 +594,55 @@ Added 2026-11-25 as `body-study-15-draft`, with the fourth tracing round
   content change.
 
 ## Sources
+
+Revision 16 adds:
+
+- `tm-basal-ganglia`: [TeachMeAnatomy: The basal ganglia](https://teachmeanatomy.info/neuroanatomy/structures/basal-ganglia/)
+- `tm-cerebrum`: [TeachMeAnatomy: The cerebrum](https://teachmeanatomy.info/neuroanatomy/structures/cerebrum/)
+- `tm-pineal`: [TeachMeAnatomy: The pineal gland](https://teachmeanatomy.info/neuroanatomy/structures/pineal-gland/)
+- `tm-ventricles`: [TeachMeAnatomy: The ventricles of the brain](https://teachmeanatomy.info/neuroanatomy/vessels/ventricles/)
+- `tm-fibula`: [TeachMeAnatomy: The fibula](https://teachmeanatomy.info/lower-limb/bones/the-fibula/)
+- `tm-vertebral-column`: [TeachMeAnatomy: The vertebral column](https://teachmeanatomy.info/back/bones/vertebral-column/)
+- `tm-heart-valves`: [TeachMeAnatomy: The heart valves](https://teachmeanatomy.info/thorax/organs/heart/heart-valves/)
+- `tm-prostate`: [TeachMeAnatomy: The prostate gland](https://teachmeanatomy.info/pelvis/the-male-reproductive-system/prostate-gland/)
+- `tm-bladder`: [TeachMeAnatomy: The urinary bladder](https://teachmeanatomy.info/pelvis/viscera/bladder/)
+- `tm-colon`: [TeachMeAnatomy: The colon](https://teachmeanatomy.info/abdomen/gi-tract/colon/)
+- `nci-def-coccyx`: [NCI Dictionary: coccyx](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/coccyx)
+- `nci-def-bone-marrow`: [NCI Dictionary: bone marrow](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/bone-marrow)
+- `nhlbi-high-blood-pressure`: [NHLBI: High blood pressure](https://www.nhlbi.nih.gov/health/high-blood-pressure)
+- `nhlbi-atherosclerosis`: [NHLBI: Atherosclerosis](https://www.nhlbi.nih.gov/health/atherosclerosis)
+- `nhlbi-cardiomyopathy`: [NHLBI: Cardiomyopathy](https://www.nhlbi.nih.gov/health/cardiomyopathy)
+- `nhlbi-congenital-heart-defects`: [NHLBI: Congenital heart defects](https://www.nhlbi.nih.gov/health/congenital-heart-defects)
+- `nhlbi-sleep-apnea`: [NHLBI: Sleep apnea](https://www.nhlbi.nih.gov/health/sleep-apnea)
+- `nhlbi-cystic-fibrosis`: [NHLBI: Cystic fibrosis](https://www.nhlbi.nih.gov/health/cystic-fibrosis)
+- `nhlbi-ipf`: [NHLBI: Idiopathic pulmonary fibrosis](https://www.nhlbi.nih.gov/health/idiopathic-pulmonary-fibrosis)
+- `mlp-collapsed-lung`: [MedlinePlus: Collapsed lung (pneumothorax)](https://medlineplus.gov/ency/article/000087.htm)
+- `cdc-tb`: [CDC: About tuberculosis](https://www.cdc.gov/tb/about/index.html)
+- `niddk-kidney-infection`: [NIDDK: Kidney infection (pyelonephritis)](https://www.niddk.nih.gov/health-information/urologic-diseases/kidney-infection-pyelonephritis)
+- `niddk-bladder-control`: [NIDDK: Bladder control problems (urinary incontinence)](https://www.niddk.nih.gov/health-information/urologic-diseases/bladder-control-problems)
+- `niddk-ibs`: [NIDDK: Definition & facts for irritable bowel syndrome](https://www.niddk.nih.gov/health-information/digestive-diseases/irritable-bowel-syndrome/definition-facts)
+- `niddk-inguinal-hernia`: [NIDDK: Inguinal hernia](https://www.niddk.nih.gov/health-information/digestive-diseases/inguinal-hernia)
+- `niddk-gastritis`: [NIDDK: Gastritis & gastropathy](https://www.niddk.nih.gov/health-information/digestive-diseases/gastritis-gastropathy)
+- `niams-spinal-stenosis`: [NIAMS: Spinal stenosis](https://www.niams.nih.gov/health-topics/spinal-stenosis)
+- `niams-ankylosing-spondylitis`: [NIAMS: Ankylosing spondylitis](https://www.niams.nih.gov/health-topics/ankylosing-spondylitis)
+- `mlp-sciatica`: [MedlinePlus: Sciatica](https://medlineplus.gov/ency/article/000686.htm)
+- `mlp-hip`: [MedlinePlus: Hip injuries and disorders](https://medlineplus.gov/hipinjuriesanddisorders.html)
+- `mlp-osgood-schlatter`: [MedlinePlus: Osgood-Schlatter disease](https://medlineplus.gov/ency/article/001258.htm)
+- `mlp-kneecap-dislocation`: [MedlinePlus: Kneecap dislocation - aftercare](https://medlineplus.gov/ency/patientinstructions/000585.htm)
+- `mlp-hearing`: [MedlinePlus: Hearing disorders and deafness](https://medlineplus.gov/hearingdisordersanddeafness.html)
+- `mlp-ear-infections`: [MedlinePlus: Ear infections](https://medlineplus.gov/earinfections.html)
+- `mlp-sinusitis`: [MedlinePlus: Sinusitis](https://medlineplus.gov/sinusitis.html)
+- `mlp-tmd`: [MedlinePlus: Temporomandibular disorders](https://medlineplus.gov/temporomandibulardisorders.html)
+- `mlp-huntingtons`: [MedlinePlus: Huntington's disease](https://medlineplus.gov/huntingtonsdisease.html)
+- `mlp-als`: [MedlinePlus: Amyotrophic lateral sclerosis (ALS)](https://medlineplus.gov/amyotrophiclateralsclerosis.html)
+- `tm-descending-tracts`: [TeachMeAnatomy: The descending tracts](https://teachmeanatomy.info/neuroanatomy/pathways/descending-tracts-motor/)
+- `tm-ascending-tracts`: [TeachMeAnatomy: The ascending tracts](https://teachmeanatomy.info/neuroanatomy/pathways/ascending-tracts-sensory/)
+- `tm-midbrain`: [TeachMeAnatomy: The midbrain](https://teachmeanatomy.info/neuroanatomy/brainstem/midbrain/)
+- `nei-refractive-errors`: [NEI: Refractive errors](https://www.nei.nih.gov/eye-health-information/eye-conditions-and-diseases/refractive-errors)
+- `nci-lymphoma`: [NCI: Lymphoma—patient version](https://www.cancer.gov/types/lymphoma)
+- `nci-leukemia`: [NCI: Leukemia—patient version](https://www.cancer.gov/types/leukemia)
+- `nci-laryngeal-cancer`: [NCI: Laryngeal cancer treatment (PDQ)—patient version](https://www.cancer.gov/types/head-and-neck/patient/adult/laryngeal-treatment-pdq)
+- `cdc-pid`: [CDC: About pelvic inflammatory disease (PID)](https://www.cdc.gov/pid/about/index.html)
 
 Revision 14 adds:
 
