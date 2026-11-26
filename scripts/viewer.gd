@@ -1882,12 +1882,12 @@ func plan_clear_view(id: String) -> Dictionary:
 	# Rays start well outside the body: a close focus can put the camera inside the
 	# covering anatomy, where rays would miss its surfaces.
 	var reach := maxf(orbit.distance, 2.0)
-	var here: Dictionary = model.sight(id, orbit.to_global(orbit.target + current * reach))
-	if float(here.seen) >= model.IN_SIGHT or here.blockers.is_empty():
-		return {"direction": current, "blockers": {}}
-	# Survey the other directions with fewer rays, dropping each once it is no better.
-	var best := current
+	# Survey with 8 rays per direction (most selections are already in sight), dropping
+	# each other direction once it is no better; the full check runs on the one chosen.
 	var survey: Dictionary = model.sight(id, orbit.to_global(orbit.target + current * reach), 8)
+	if float(survey.seen) >= model.IN_SIGHT or survey.blockers.is_empty():
+		return {"direction": current, "blockers": {}}
+	var best := current
 	var fewest: int = survey.blockers.size() / 2 + 1
 	for direction in candidates:
 		var view: Dictionary = model.sight(id, orbit.to_global(orbit.target + direction * reach), 8, fewest - 1)
@@ -1898,8 +1898,6 @@ func plan_clear_view(id: String) -> Dictionary:
 		if view.blockers.size() < fewest:
 			best = direction
 			fewest = view.blockers.size()
-	if best == current:
-		return {"direction": current, "blockers": here.blockers}
 	return {"direction": best, "blockers": model.sight(id, orbit.to_global(orbit.target + best * reach)).blockers}
 
 
