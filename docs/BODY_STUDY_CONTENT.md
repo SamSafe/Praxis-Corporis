@@ -600,7 +600,7 @@ Added 2026-11-26 as `body-study-17-draft`.
   overview and symptoms pages replace its treatment page, which gives neither.
 - **Totals:** 247 cards, 173 conditions, one route, 342 sources. The female body offers
   156 conditions and the male 147. No card text or catalogue ID changed otherwise. The
-  review packet below still covers revision 16.
+  review packet below covers this revision (build `09970ee`).
 
 ## Deliberate limits
 
@@ -616,10 +616,10 @@ Added 2026-11-26 as `body-study-17-draft`.
   samples, so they have no cards. (An earlier version of this note also listed
   the brain; the samples do include it, and revision 2 adds brain cards.)
 - **Review packet.** The [content-review packet](CONTENT_REVIEW_PACKET.md) now
-  covers build `0344141` (revision `body-study-16-draft`, all 247 cards and 157
+  covers build `09970ee` (revision `body-study-17-draft`, all 247 cards and 173
   conditions, with each card's parts listed for the female, male and complete
-  bodies). Revision 17 (the outer ears and 16 conditions) came after it. Regenerate it with
-  `tools/build_review_packet.py` after any later content change.
+  bodies). Regenerate it with `tools/build_review_packet.py` after any later
+  content change.
 
 ## Sources
 

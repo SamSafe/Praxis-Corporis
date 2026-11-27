@@ -220,6 +220,9 @@ def write(args):
             if a in index:
                 return True
             card = content["cards"].get(a, {})
+            # Anatomy no source models is a text-only card, and the app still lists its conditions.
+            if "not_modelled" in card:
+                return True
             return any(m["id"] in index for v in card.get("geometry", {}).values() for m in mapping_list(v) if v)
         counts[body["id"]] = sum(all(present(a) for a in c["related_anatomy"]) for c in content["conditions"].values())
     packet = f"""# Current private candidate: content-review packet
