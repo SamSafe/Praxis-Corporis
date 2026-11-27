@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": "body-study-16-draft",
+  "revision": "body-study-17-draft",
   "review_status": "draft",
   "expert_review": "pending",
   "scope": "Private draft explanations covering the chest, abdomen, pelvis, brain, eyes, knees and skin, including selected vessels, kidney interior, intestines, airways, bone tissue, the lymphatic system, deep brain nuclei and the vertebral regions. General anatomy is separate from completeness and accuracy of the supplied source meshes. No source illustrations or video are reused.",
@@ -1304,6 +1304,74 @@
     "nidcr-tmd": {
       "title": "NIDCR: Temporomandibular disorders (TMD)",
       "url": "https://www.nidcr.nih.gov/health-info/tmd"
+    },
+    "niddk-barretts": {
+      "title": "NIDDK: Barrett's esophagus",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/barretts-esophagus"
+    },
+    "niddk-constipation": {
+      "title": "NIDDK: Constipation",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/constipation"
+    },
+    "niddk-interstitial-cystitis": {
+      "title": "NIDDK: Interstitial cystitis (bladder pain syndrome)",
+      "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/interstitial-cystitis-painful-bladder-syndrome"
+    },
+    "niddk-glomerular": {
+      "title": "NIDDK: Glomerular disease",
+      "url": "https://www.niddk.nih.gov/health-information/kidney-disease/glomerular-diseases"
+    },
+    "niams-acne": {
+      "title": "NIAMS: Acne",
+      "url": "https://www.niams.nih.gov/health-topics/acne"
+    },
+    "niams-rosacea": {
+      "title": "NIAMS: Rosacea",
+      "url": "https://www.niams.nih.gov/health-topics/rosacea"
+    },
+    "niams-vitiligo": {
+      "title": "NIAMS: Vitiligo",
+      "url": "https://www.niams.nih.gov/health-topics/vitiligo"
+    },
+    "nidcr-gum-disease": {
+      "title": "NIDCR: Periodontal (gum) disease",
+      "url": "https://www.nidcr.nih.gov/health-info/gum-disease"
+    },
+    "mlp-keratoconus": {
+      "title": "MedlinePlus Medical Encyclopedia: Keratoconus",
+      "url": "https://medlineplus.gov/ency/article/001013.htm"
+    },
+    "nei-presbyopia": {
+      "title": "NEI: Presbyopia",
+      "url": "https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases/presbyopia"
+    },
+    "nci-gallbladder": {
+      "title": "NCI: What is gallbladder cancer?",
+      "url": "https://www.cancer.gov/types/gallbladder/what-is-gallbladder-cancer"
+    },
+    "nci-gallbladder-symptoms": {
+      "title": "NCI: Gallbladder cancer symptoms",
+      "url": "https://www.cancer.gov/types/gallbladder/symptoms"
+    },
+    "mlp-achalasia": {
+      "title": "MedlinePlus Medical Encyclopedia: Achalasia",
+      "url": "https://medlineplus.gov/ency/article/000267.htm"
+    },
+    "mlp-esophageal-varices": {
+      "title": "MedlinePlus Medical Encyclopedia: Bleeding esophageal varices",
+      "url": "https://medlineplus.gov/ency/article/000268.htm"
+    },
+    "mlp-aortic-dissection": {
+      "title": "MedlinePlus Medical Encyclopedia: Aortic dissection",
+      "url": "https://medlineplus.gov/ency/article/000181.htm"
+    },
+    "mlp-plantar-fasciitis": {
+      "title": "MedlinePlus Medical Encyclopedia: Plantar fasciitis",
+      "url": "https://medlineplus.gov/ency/article/007021.htm"
+    },
+    "mlp-intestinal-obstruction": {
+      "title": "MedlinePlus Medical Encyclopedia: Intestinal obstruction and ileus",
+      "url": "https://medlineplus.gov/ency/article/000260.htm"
     }
   },
   "cards": {
@@ -14459,9 +14527,16 @@
       "review_status": "draft",
       "expert_review": "pending",
       "human_source_review": "pending",
+      "geometry": {
+        "bodyparts-male-complete": {
+          "id": "source.bodyparts3d-v4-complete.FJ2811",
+          "source_name": "FJ2811",
+          "ontology": "FMA52781"
+        }
+      },
       "not_modelled": {
         "title": "Ears",
-        "note": "No open anatomical source supplies a model of this structure, so no body shows it. Locate selects the nearest supplied structure when the current body has one.",
+        "note": "No open anatomical source models the ears for this body, so they are not shown here. The complete male body shows the outer ears only; no body has a model of the middle or inner ear.",
         "near": [
           "anatomy.mandible",
           "anatomy.brain"
@@ -18688,7 +18763,7 @@
       "review_status": "draft",
       "expert_review": "pending",
       "human_source_review": "pending",
-      "not_depicted": "The ear and hearing are not depicted."
+      "not_depicted": "Only the complete male body shows the outer ears; the inner ear, the auditory nerve and hearing are not depicted."
     },
     "condition.ear-infection": {
       "title": "Ear infections (otitis media)",
@@ -18708,7 +18783,7 @@
       "review_status": "draft",
       "expert_review": "pending",
       "human_source_review": "pending",
-      "not_depicted": "The ear and the infection are not depicted."
+      "not_depicted": "Only the complete male body shows the outer ears; the middle ear and the infection are not depicted."
     },
     "condition.sinusitis": {
       "title": "Sinusitis (sinus infection)",
@@ -18729,12 +18804,358 @@
       "expert_review": "pending",
       "human_source_review": "pending",
       "not_depicted": "The sinuses and their inflammation are not depicted."
+    },
+    "condition.barretts-esophagus": {
+      "title": "Barrett's esophagus",
+      "summary": "The lining of the esophagus changes. Experts don't know the exact cause, but GERD (acid reflux disease) increases the chances of developing it. People with Barrett's esophagus have a higher risk of esophageal cancer.",
+      "location": "The esophagus carries food down to the stomach through an opening in the diaphragm.",
+      "focus_id": "anatomy.esophagus",
+      "related_anatomy": [
+        "anatomy.esophagus"
+      ],
+      "display_on": [
+        "anatomy.esophagus"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-barretts",
+        "seer-pharynx"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Changes to the lining are not depicted."
+    },
+    "condition.achalasia": {
+      "title": "Achalasia",
+      "summary": "A rare condition that makes it harder for the esophagus to move food into the stomach: the muscular ring where they meet does not relax as it should. It is caused by damage to the nerves of the esophagus. Symptoms include difficulty swallowing liquids and solids, backflow of food and weight loss.",
+      "location": "The lower esophageal sphincter is the muscular ring where the esophagus and stomach meet.",
+      "focus_id": "anatomy.esophagus",
+      "related_anatomy": [
+        "anatomy.esophagus",
+        "anatomy.stomach"
+      ],
+      "display_on": [
+        "anatomy.esophagus",
+        "anatomy.stomach"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-achalasia"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The sphincter and swallowing are not depicted."
+    },
+    "condition.esophageal-varices": {
+      "title": "Esophageal varices",
+      "summary": "Enlarged veins in the esophagus that may tear and bleed. Scarring of the liver (cirrhosis) is the most common cause: it cuts down blood flow through the liver. Bleeding can cause vomiting of blood and black, tarry stools; some people have no symptoms.",
+      "location": "The varices are veins in the esophagus; the liver scarring that most often causes them is in the liver.",
+      "focus_id": "anatomy.esophagus",
+      "related_anatomy": [
+        "anatomy.esophagus",
+        "anatomy.liver"
+      ],
+      "display_on": [
+        "anatomy.esophagus",
+        "anatomy.liver"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-esophageal-varices"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The enlarged veins and bleeding are not depicted."
+    },
+    "condition.aortic-dissection": {
+      "title": "Aortic dissection",
+      "summary": "A tear in the wall of the aorta lets blood flow between the layers of the vessel wall. It can lead to rupture of the aorta or decreased blood flow to organs, and usually causes severe chest pain described as sharp, stabbing, tearing or ripping. It most often occurs in men over age 60; risks include aging, atherosclerosis and high blood pressure.",
+      "location": "The aorta leaves the left ventricle and carries oxygen-rich blood to the body. Dissection very often occurs in its chest part.",
+      "focus_id": "anatomy.aorta",
+      "related_anatomy": [
+        "anatomy.aorta"
+      ],
+      "display_on": [
+        "anatomy.aorta"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-aortic-dissection",
+        "heart-flow"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The tear and blood flow are not depicted."
+    },
+    "condition.gallbladder-cancer": {
+      "title": "Gallbladder cancer",
+      "summary": "A rare cancer of the gallbladder. Gallstones are the most common risk factor, although the overall risk is low. People rarely have symptoms in the early stages; symptoms can include jaundice (yellowing of the skin and whites of the eyes), pain above the stomach, fever, nausea and vomiting, bloating and lumps in the abdomen.",
+      "location": "The gallbladder is a pear-shaped organ just under the liver that stores bile, a fluid made by the liver.",
+      "focus_id": "anatomy.gallbladder",
+      "related_anatomy": [
+        "anatomy.gallbladder"
+      ],
+      "display_on": [
+        "anatomy.gallbladder"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nci-gallbladder",
+        "nci-gallbladder-symptoms"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Tumors are not depicted."
+    },
+    "condition.glomerular-disease": {
+      "title": "Glomerular disease",
+      "summary": "Damage to the glomeruli, the tiny filters in the kidneys. Common causes include diabetic kidney disease, lupus nephritis and IgA nephropathy. It can cause no symptoms for many years; signs include too much protein or blood in the urine, swelling and high blood pressure, and it can lead to chronic kidney disease and kidney failure.",
+      "location": "The glomeruli are tiny filters inside the kidneys.",
+      "focus_id": "anatomy.kidneys",
+      "related_anatomy": [
+        "anatomy.kidneys"
+      ],
+      "display_on": [
+        "anatomy.kidneys",
+        "anatomy.kidney.left",
+        "anatomy.kidney.right"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-glomerular",
+        "niddk-kidneys"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The glomeruli and kidney damage are not depicted."
+    },
+    "condition.interstitial-cystitis": {
+      "title": "Interstitial cystitis (bladder pain syndrome)",
+      "summary": "A long-lasting condition that causes painful urinary symptoms: discomfort, pressure, tenderness or pain in the bladder, lower abdomen and pelvic area. Symptoms may come and go and can change over time.",
+      "location": "The bladder, in the pelvic cavity, is a temporary storage reservoir for urine.",
+      "focus_id": "anatomy.bladder",
+      "related_anatomy": [
+        "anatomy.bladder"
+      ],
+      "display_on": [
+        "anatomy.bladder"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-interstitial-cystitis",
+        "seer-bladder"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Bladder pain is not depicted."
+    },
+    "condition.constipation": {
+      "title": "Constipation",
+      "summary": "Having fewer than three bowel movements a week, or stools that are hard, dry or lumpy, difficult or painful to pass, or that leave a feeling that not all stool has passed. Bleeding from the rectum is a reason to see a doctor.",
+      "location": "The large intestine includes the cecum, colon and rectum.",
+      "focus_id": "anatomy.colon",
+      "related_anatomy": [
+        "anatomy.colon"
+      ],
+      "display_on": [
+        "anatomy.colon",
+        "anatomy.rectum",
+        "anatomy.sigmoid-colon"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niddk-constipation",
+        "niddk-digestive"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Stool and bowel movements are not depicted."
+    },
+    "condition.intestinal-obstruction": {
+      "title": "Intestinal obstruction",
+      "summary": "A partial or complete blockage of the bowel. It can be mechanical, for example from scar tissue (adhesions) that forms after surgery, or caused by ileus, in which the bowel does not work correctly. Symptoms include abdominal swelling, being unable to pass gas, and nausea and vomiting.",
+      "location": "The bowel includes the small intestine and the large intestine.",
+      "focus_id": "anatomy.small-intestine",
+      "related_anatomy": [
+        "anatomy.small-intestine",
+        "anatomy.colon"
+      ],
+      "display_on": [
+        "anatomy.small-intestine",
+        "anatomy.colon"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-intestinal-obstruction",
+        "niddk-digestive"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The blockage is not depicted."
+    },
+    "condition.gum-disease": {
+      "title": "Gum disease (periodontal disease)",
+      "summary": "An infection that causes inflammation of the tissues that hold the teeth in place. It starts with swollen, red and bleeding gums; untreated, it can spread to the bone, and teeth may become loose or need to be removed. Plaque from poor brushing and flossing causes it, and smoking or using tobacco is the most significant risk factor.",
+      "location": "The gums and the bone beneath them hold the teeth in place.",
+      "focus_id": "anatomy.teeth",
+      "related_anatomy": [
+        "anatomy.teeth"
+      ],
+      "display_on": [
+        "anatomy.teeth"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nidcr-gum-disease",
+        "seer-mouth"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The gums, the infection and bone loss are not depicted."
+    },
+    "condition.keratoconus": {
+      "title": "Keratoconus",
+      "summary": "An eye disease that affects the structure of the cornea: it gets thinner and slowly changes from a round shape to a cone shape. The earliest symptom is a slight blurring of vision that glasses cannot correct; later come halos and glare. It is often discovered during the teenage years, and its cause is unknown.",
+      "location": "The cornea is the clear tissue that covers the front of the eye; with the lens it focuses light onto the retina.",
+      "focus_id": "anatomy.cornea",
+      "related_anatomy": [
+        "anatomy.cornea"
+      ],
+      "display_on": [
+        "anatomy.cornea",
+        "anatomy.eyes"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-keratoconus",
+        "nei-how-eyes-work"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The cornea's change of shape is not depicted."
+    },
+    "condition.presbyopia": {
+      "title": "Presbyopia",
+      "summary": "A refractive error that makes it hard for middle-aged and older adults to see things up close. As people age, the lens gets harder and less flexible and stops focusing light correctly on the retina. It is a normal part of aging that usually starts after age 45 and usually stops getting worse after 65.",
+      "location": "The lens is a clear inner part of the eye that works with the cornea to focus light on the retina.",
+      "focus_id": "anatomy.lens",
+      "related_anatomy": [
+        "anatomy.lens"
+      ],
+      "display_on": [
+        "anatomy.lens",
+        "anatomy.eyes"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "nei-presbyopia",
+        "nei-how-eyes-work"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The stiffening of the lens is not depicted."
+    },
+    "condition.acne": {
+      "title": "Acne",
+      "summary": "A common skin condition that happens when hair follicles under the skin become clogged, with excess oil and bacteria in the pore. It causes outbreaks of pimples and other lesions, most often on the face and also on the back, chest and shoulders. It is most common in teens and young adults.",
+      "location": "The skin covers the entire outside of the body.",
+      "focus_id": "anatomy.skin",
+      "related_anatomy": [
+        "anatomy.skin"
+      ],
+      "display_on": [
+        "anatomy.skin"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niams-acne",
+        "seer-skin"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Lesions and clogged follicles are not depicted."
+    },
+    "condition.rosacea": {
+      "title": "Rosacea",
+      "summary": "A long-term inflammatory skin condition that causes reddened skin and a rash, usually on the nose and cheeks in the center of the face. Visible blood vessels, thickened skin and eye irritation can also occur. It is most common in middle-aged and older adults, and its cause is not known.",
+      "location": "The skin covers the entire outside of the body.",
+      "focus_id": "anatomy.skin",
+      "related_anatomy": [
+        "anatomy.skin"
+      ],
+      "display_on": [
+        "anatomy.skin"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niams-rosacea",
+        "seer-skin"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Redness and rash are not depicted."
+    },
+    "condition.vitiligo": {
+      "title": "Vitiligo",
+      "summary": "A long-lasting autoimmune disorder in which the immune system destroys melanocytes, so patches of skin lose their natural color, often on the hands, feet, arms and face. Hair in affected areas can turn white. Anyone can get vitiligo; patches often begin to appear before age 20.",
+      "location": "The skin covers the entire outside of the body.",
+      "focus_id": "anatomy.skin",
+      "related_anatomy": [
+        "anatomy.skin"
+      ],
+      "display_on": [
+        "anatomy.skin"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "niams-vitiligo",
+        "seer-skin"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "Loss of pigment is not depicted."
+    },
+    "condition.plantar-fasciitis": {
+      "title": "Plantar fasciitis",
+      "summary": "The plantar fascia, the tissue that connects the heel bone to the toes, becomes swollen or inflamed, often from being overstretched or overused. It causes pain and stiffness in the bottom of the heel, often worst with the first steps in the morning.",
+      "location": "Each foot has tarsals, metatarsals and phalanges; the plantar fascia connects the heel bone to the toes.",
+      "focus_id": "anatomy.foot-bones",
+      "related_anatomy": [
+        "anatomy.foot-bones"
+      ],
+      "display_on": [
+        "anatomy.foot-bones"
+      ],
+      "geometry_mode": "reference_location_only",
+      "source_ids": [
+        "mlp-plantar-fasciitis",
+        "seer-appendicular"
+      ],
+      "review_status": "draft",
+      "expert_review": "pending",
+      "human_source_review": "pending",
+      "not_depicted": "The plantar fascia and its inflammation are not depicted."
     }
   },
   "assistant_checks": {
     "actor": "assistant",
     "kind": "preliminary_source_cross_check",
-    "checked_on": "2026-11-25",
+    "checked_on": "2026-11-26",
     "scope": "Preliminary comparison of the short explanations, route order and condition associations with the linked sources. This is not human reviewer evidence and does not establish anatomical mesh accuracy.",
     "source_ids": [
       "cdc-mumps",
@@ -18744,10 +19165,12 @@
       "heart-anatomy",
       "heart-flow",
       "lungs",
+      "mlp-achalasia",
       "mlp-acl",
       "mlp-adenoids",
       "mlp-als",
       "mlp-alzheimers",
+      "mlp-aortic-dissection",
       "mlp-bartholin",
       "mlp-brain",
       "mlp-breast-diseases",
@@ -18759,6 +19182,7 @@
       "mlp-ear-infections",
       "mlp-ectopic-pregnancy",
       "mlp-epilepsy",
+      "mlp-esophageal-varices",
       "mlp-eyelid-disorders",
       "mlp-hearing",
       "mlp-herniated-disk",
@@ -18768,6 +19192,8 @@
       "mlp-huntingtons",
       "mlp-hydrocele",
       "mlp-hydrocephalus",
+      "mlp-intestinal-obstruction",
+      "mlp-keratoconus",
       "mlp-knee",
       "mlp-kneecap-dislocation",
       "mlp-laryngitis",
@@ -18783,6 +19209,7 @@
       "mlp-parkinsons",
       "mlp-pelvic-support",
       "mlp-pituitary-tumors",
+      "mlp-plantar-fasciitis",
       "mlp-retinal-artery-occlusion",
       "mlp-rotator-cuff",
       "mlp-salivary",
@@ -18865,6 +19292,8 @@
       "nci-def-vocal-cord",
       "nci-def-vulva",
       "nci-esophageal-cancer",
+      "nci-gallbladder",
+      "nci-gallbladder-symptoms",
       "nci-kidney-cancer",
       "nci-laryngeal-cancer",
       "nci-leukemia",
@@ -18889,6 +19318,7 @@
       "nei-glaucoma",
       "nei-how-eyes-work",
       "nei-pink-eye",
+      "nei-presbyopia",
       "nei-refractive-errors",
       "nei-retinal-detachment",
       "nei-uveitis",
@@ -18911,6 +19341,7 @@
       "nhlbi-pulmonary-hypertension",
       "nhlbi-sleep-apnea",
       "nia-alzheimers-brain",
+      "niams-acne",
       "niams-ankylosing-spondylitis",
       "niams-atopic-dermatitis",
       "niams-back-pain",
@@ -18919,21 +19350,26 @@
       "niams-osteoporosis",
       "niams-psoriasis",
       "niams-ra",
+      "niams-rosacea",
       "niams-scoliosis",
       "niams-spinal-stenosis",
+      "niams-vitiligo",
       "nichd-endometriosis",
       "nichd-fibroids",
       "nichd-pcos",
       "nichd-vulvodynia",
+      "nidcr-gum-disease",
       "nidcr-tmd",
       "niddk-adrenal-insufficiency",
       "niddk-appendicitis",
+      "niddk-barretts",
       "niddk-bladder-control",
       "niddk-bladder-infection",
       "niddk-bph",
       "niddk-celiac",
       "niddk-cirrhosis",
       "niddk-ckd",
+      "niddk-constipation",
       "niddk-crohns",
       "niddk-cushings",
       "niddk-diabetes",
@@ -18943,6 +19379,7 @@
       "niddk-gallstones",
       "niddk-gastritis",
       "niddk-gerd",
+      "niddk-glomerular",
       "niddk-graves",
       "niddk-hashimotos",
       "niddk-hemorrhoids",
@@ -18951,6 +19388,7 @@
       "niddk-hypothyroidism",
       "niddk-ibs",
       "niddk-inguinal-hernia",
+      "niddk-interstitial-cystitis",
       "niddk-kidney-infection",
       "niddk-kidney-stones",
       "niddk-kidneys",

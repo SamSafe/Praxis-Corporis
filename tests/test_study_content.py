@@ -61,7 +61,7 @@ class StudyContentTests(unittest.TestCase):
     def test_conditions_are_sourced_reference_locations_with_explicit_associations(self):
         content = json.loads((ROOT / "content/study_content.json").read_text())
         catalogue = json.loads((ROOT / "content/sample_pack.json").read_text())
-        self.assertEqual(len(content["conditions"]), 157)
+        self.assertEqual(len(content["conditions"]), 173)
         for body in catalogue["bodies"]:
             available = {s["id"]: s for s in body["structures"]}
             offered = set()
@@ -91,8 +91,10 @@ class StudyContentTests(unittest.TestCase):
             # right common carotid), herniated disk on both (traced intervertebral discs,
             # revision 15), and the 31 conditions of revision 16 (30 on the male body: pelvic
             # inflammatory disease needs the female organs; three are about the unmodelled ears
-            # and sinuses); none is inferred from missing anatomy.
-            self.assertEqual(len(offered), 141 if body["id"] == "female" else 132)
+            # and sinuses), and 15 of the 16 conditions of revision 17 (plantar fasciitis needs
+            # the foot bones, which only the complete male body has); none is inferred from
+            # missing anatomy.
+            self.assertEqual(len(offered), 156 if body["id"] == "female" else 147)
             self.assertEqual("condition.bph" in offered, body["id"] == "male")
             self.assertEqual("condition.endometriosis" in offered, body["id"] == "female")
 
@@ -169,9 +171,12 @@ class StudyContentTests(unittest.TestCase):
         unmodelled = {k: c for k, c in cards.items() if "not_modelled" in c}
         self.assertEqual(sorted(unmodelled), ["anatomy.adenoids", "anatomy.ear", "anatomy.lingual-tonsils", "anatomy.parotid-glands", "anatomy.scrotum", "anatomy.sinuses", "anatomy.vulva"])
         for identity, card in unmodelled.items():
-            # Only the parotid glands have geometry, traced from the Visible Human CT for the
-            # two bodies made from those donors; the complete body keeps the text-only card.
-            self.assertEqual(set(card.get("geometry", {})), {"female", "male"} if identity == "anatomy.parotid-glands" else set(), identity)
+            # The parotid glands have geometry traced from the Visible Human CT for the two
+            # bodies made from those donors; the complete body keeps the text-only card. The
+            # ears are shown only on the complete body, whose source has the outer ears
+            # (revision 17). Every other card is text-only on every body.
+            expected = {"anatomy.parotid-glands": {"female", "male"}, "anatomy.ear": {"bodyparts-male-complete"}}
+            self.assertEqual(set(card.get("geometry", {})), expected.get(identity, set()), identity)
             self.assertTrue(card["not_modelled"]["title"] and card["not_modelled"]["note"])
             self.assertTrue(any(is_government_source(content["sources"][s]["url"]) for s in card["source_ids"]), identity)
             for near in card["not_modelled"]["near"]:
@@ -205,7 +210,7 @@ class StudyContentTests(unittest.TestCase):
                 self.assertNotIn(mapping["id"], content["cards"])
         # Cards whose anatomy the complete male source supplies (no female or
         # source-absent parts); see docs/BODY_STUDY_CONTENT.md.
-        self.assertEqual(on_body, 158)
+        self.assertEqual(on_body, 159)
 
     def test_spinal_studies_preserve_ambiguous_source_identity(self):
         studies = json.loads((ROOT / "content/spinal_studies.json").read_text())["bodies"]

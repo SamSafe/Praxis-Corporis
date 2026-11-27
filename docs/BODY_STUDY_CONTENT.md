@@ -9,8 +9,8 @@ the brain, eyes and knees, for 63 cards and 25 conditions.
 [Revisions 3 and 4](#revisions-3-and-4-vessels-organ-interiors-airways-skin-and-bone)
 bring the totals to 112 cards and 54 conditions. Later revisions, from
 [revision 5](#revision-5-dictionary-terms-brain-fluid-spaces-and-more-cancers)
-to [revision 16](#revision-16-audit-additions),
-bring them to 247 cards and 157 conditions.
+to [revision 17](#revision-17-outer-ears-and-16-conditions),
+bring them to 247 cards and 173 conditions.
 
 **Everything here is a private draft.** Every record keeps `review_status: draft`
 with human source review and expert review pending, and the app labels it that
@@ -578,6 +578,30 @@ TeachMeAnatomy instead, then added to the accepted list with the user's approval
   matches its NCI page and was kept.
 - **Totals:** 247 cards, 157 conditions, one route, 325 sources. No catalogue ID moved.
 
+## Revision 17: outer ears and 16 conditions
+
+Added 2026-11-26 as `body-study-17-draft`.
+
+- **Outer ears.** The complete male body has a BodyParts3D mesh for both outer ears
+  (`FJ2811`, FMA52781 "External ear"), which the revision 16 text-only ears card had
+  missed. The card now maps to it, so selecting the outer ears there shows the card, and
+  hearing loss and ear infections focus on them. The HRA bodies still have no ear model
+  and keep the text-only card. Its note and the two conditions' "not depicted" lines now
+  say that only the outer ears are shown, on the complete male body, and that no body
+  models the middle or inner ear.
+- **New conditions (16)** on anatomy every body already supplies: Barrett's esophagus,
+  achalasia and esophageal varices (esophagus), aortic dissection (aorta), gallbladder
+  cancer, glomerular disease (kidneys), interstitial cystitis (bladder), constipation
+  (colon), intestinal obstruction (small intestine and colon), gum disease (teeth),
+  keratoconus (cornea), presbyopia (lens), acne, rosacea and vitiligo (skin), and
+  plantar fasciitis (foot bones, so on the complete male body only). Every claim was
+  read on its cited page that day (preliminary assistant check, not human review). NEI
+  has no keratoconus page, so keratoconus cites MedlinePlus; NCI's gallbladder cancer
+  overview and symptoms pages replace its treatment page, which gives neither.
+- **Totals:** 247 cards, 173 conditions, one route, 342 sources. The female body offers
+  156 conditions and the male 147. No card text or catalogue ID changed otherwise. The
+  review packet below still covers revision 16.
+
 ## Deliberate limits
 
 - **Sources (revision 1).** Claims come only from NIH pages: NHLBI, NIDDK, NICHD and NCI SEER
@@ -594,10 +618,30 @@ TeachMeAnatomy instead, then added to the accepted list with the user's approval
 - **Review packet.** The [content-review packet](CONTENT_REVIEW_PACKET.md) now
   covers build `0344141` (revision `body-study-16-draft`, all 247 cards and 157
   conditions, with each card's parts listed for the female, male and complete
-  bodies). Regenerate it with `tools/build_review_packet.py` after any later
-  content change.
+  bodies). Revision 17 (the outer ears and 16 conditions) came after it. Regenerate it with
+  `tools/build_review_packet.py` after any later content change.
 
 ## Sources
+
+Revision 17 adds:
+
+- `niddk-barretts`: [NIDDK: Barrett's esophagus](https://www.niddk.nih.gov/health-information/digestive-diseases/barretts-esophagus)
+- `mlp-achalasia`: [MedlinePlus Medical Encyclopedia: Achalasia](https://medlineplus.gov/ency/article/000267.htm)
+- `mlp-esophageal-varices`: [MedlinePlus Medical Encyclopedia: Bleeding esophageal varices](https://medlineplus.gov/ency/article/000268.htm)
+- `mlp-aortic-dissection`: [MedlinePlus Medical Encyclopedia: Aortic dissection](https://medlineplus.gov/ency/article/000181.htm)
+- `nci-gallbladder`: [NCI: What is gallbladder cancer?](https://www.cancer.gov/types/gallbladder/what-is-gallbladder-cancer)
+- `nci-gallbladder-symptoms`: [NCI: Gallbladder cancer symptoms](https://www.cancer.gov/types/gallbladder/symptoms)
+- `niddk-glomerular`: [NIDDK: Glomerular disease](https://www.niddk.nih.gov/health-information/kidney-disease/glomerular-diseases)
+- `niddk-interstitial-cystitis`: [NIDDK: Interstitial cystitis (bladder pain syndrome)](https://www.niddk.nih.gov/health-information/urologic-diseases/interstitial-cystitis-painful-bladder-syndrome)
+- `niddk-constipation`: [NIDDK: Constipation](https://www.niddk.nih.gov/health-information/digestive-diseases/constipation)
+- `mlp-intestinal-obstruction`: [MedlinePlus Medical Encyclopedia: Intestinal obstruction and ileus](https://medlineplus.gov/ency/article/000260.htm)
+- `nidcr-gum-disease`: [NIDCR: Periodontal (gum) disease](https://www.nidcr.nih.gov/health-info/gum-disease)
+- `mlp-keratoconus`: [MedlinePlus Medical Encyclopedia: Keratoconus](https://medlineplus.gov/ency/article/001013.htm)
+- `nei-presbyopia`: [NEI: Presbyopia](https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases/presbyopia)
+- `niams-acne`: [NIAMS: Acne](https://www.niams.nih.gov/health-topics/acne)
+- `niams-rosacea`: [NIAMS: Rosacea](https://www.niams.nih.gov/health-topics/rosacea)
+- `niams-vitiligo`: [NIAMS: Vitiligo](https://www.niams.nih.gov/health-topics/vitiligo)
+- `mlp-plantar-fasciitis`: [MedlinePlus Medical Encyclopedia: Plantar fasciitis](https://medlineplus.gov/ency/article/007021.htm)
 
 Revision 16 adds:
 

@@ -74,7 +74,7 @@ func run() -> void:
 				available.append(str(identity))
 		# Shared conditions, the 8 about anatomy no source models, and each body's own
 		# supported anatomy; see tests/test_study_content.py.
-		check(available.size() == (141 if reference == "female" else 132) and ("condition.bph" in available) == (reference == "male") and ("condition.endometriosis" in available) == (reference == "female"), "Each body offers exactly the conditions its supplied anatomy supports")
+		check(available.size() == (156 if reference == "female" else 147) and ("condition.bph" in available) == (reference == "male") and ("condition.endometriosis" in available) == (reference == "female"), "Each body offers exactly the conditions its supplied anatomy supports")
 		for identity in available:
 			undo = viewer.model.undo_stack.duplicate(true)
 			dialog = viewer.show_condition(identity)
@@ -103,7 +103,7 @@ func run() -> void:
 		for child in viewer.condition_links.get_children():
 			if child is LinkButton:
 				titles.append(child.text)
-		check(viewer.condition_links.visible and titles == ["Gallstones"], "Gallbladder lists its mapped draft condition")
+		check(viewer.condition_links.visible and titles == ["Gallstones", "Gallbladder cancer"], "Gallbladder lists its mapped draft conditions")
 		check("Stores bile" in viewer.study_summary.text, "Mapped organ shows its authored card")
 		# Either side of a paired part shows the shared card and its conditions.
 		var lenses: Array = viewer.study_content.data.cards["anatomy.lens"].geometry[reference]
@@ -112,7 +112,7 @@ func run() -> void:
 		for child in viewer.condition_links.get_children():
 			if child is LinkButton:
 				titles.append(child.text)
-		check(titles == ["Cataracts", "Refractive errors (nearsightedness and farsightedness)"] and "focus light" in viewer.study_summary.text, "Second lens shows the shared lens card and its conditions")
+		check(titles == ["Cataracts", "Refractive errors (nearsightedness and farsightedness)", "Presbyopia"] and "focus light" in viewer.study_summary.text, "Second lens shows the shared lens card and its conditions")
 		await viewer.restore_view_state(before)
 		viewer.inspect_alone("anatomy.heart")
 		var isolated: Dictionary = viewer.export_view_state().duplicate(true)
