@@ -2,7 +2,12 @@ extends RefCounted
 ## Explicit developer-only sampling; no background telemetry or session access.
 
 const ContentBundle = preload("res://scripts/content_bundle.gd")
+const CHEST_SCENE := "chest orbit with faded lungs and local labels"
+const CHEST_REFERENCES := ["female", "male", "bodyparts-male-complete"]
 const DEFAULTS := {"seconds": 5.0, "warmup_seconds": 1.0, "repetitions": 1, "window_pixels": [1440, 900], "scene_view": "workspace", "render_fraction": 1.0}
+
+
+var planned_samples := 0
 
 
 func configuration(arguments: PackedStringArray) -> Dictionary:
@@ -135,7 +140,7 @@ func append_sample(report: Dictionary, viewer: Control, name: String, config: Di
 		return false
 	report.scenes.append(result)
 	if "--profile-rendered-bundle" in OS.get_cmdline_user_args():
-		var progress := {"completed_samples": report.scenes.size(), "planned_samples": 8 * config.repetitions,
+		var progress := {"completed_samples": report.scenes.size(), "planned_samples": planned_samples,
 			"reference": result.reference, "scene": result.scene, "repetition": repetition,
 			"last_sample_seconds": result.elapsed_seconds, "viewport_pixels": result.scene_viewport_pixels,
 			"last_sample_focused": result.window_focused_throughout_sample}
@@ -235,11 +240,17 @@ func run(viewer: Control) -> Dictionary:
 			"Load intervals include partial boundary intervals; stage timings include scheduling and do not isolate CPU execution cost.",
 			"No condition content, human-input acceptance, representative-laptop or minimum-hardware claim."],
 		"measurement_plan": [], "loads": [], "scenes": []}
+	var planned := {}
 	for reference in viewer.pack.bodies:
 		var scenes := ["whole-body orbit", "isolated supplied-part orbit"]
-		if reference.id in ["female", "male"]:
-			scenes.insert(1, "chest orbit with faded lungs and local labels")
+		# References that supply the heart also get the chest workload.
+		if reference.id in CHEST_REFERENCES:
+			scenes.insert(1, CHEST_SCENE)
+		planned[reference.id] = scenes
 		report.measurement_plan.append({"reference": reference.id, "reference_hash": reference.sha256, "scenes": scenes})
+	planned_samples = 0
+	for scenes in planned.values():
+		planned_samples += scenes.size() * config.repetitions
 	for repetition in range(1, config.repetitions + 1):
 		for reference in viewer.pack.bodies:
 			var load_result := await measure_load(viewer, reference, repetition)
@@ -256,10 +267,12 @@ func run(viewer: Control) -> Dictionary:
 			viewer.whole_body(false)
 			if not await append_sample(report, viewer, "whole-body orbit", config, repetition):
 				return report
-			if viewer.model.structures.has("anatomy.heart"):
+			if CHEST_SCENE in planned[reference.id]:
+				if not viewer.model.structures.has("anatomy.heart"):
+					return {"error": "The chest profiling workload needs the heart: " + str(reference.id)}
 				viewer.chest_view()
 				viewer.local_labels_button.button_pressed = true
-				if not await append_sample(report, viewer, "chest orbit with faded lungs and local labels", config, repetition):
+				if not await append_sample(report, viewer, CHEST_SCENE, config, repetition):
 					return report
 				viewer.select_structure("anatomy.heart.valve.mitral")
 			else:

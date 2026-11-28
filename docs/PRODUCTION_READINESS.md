@@ -81,7 +81,7 @@ tasks. Its presence is a plan, not a completed trial record.
 | Focus the heart in its surroundings | Implemented and checked in both HRA references. |
 | Identify supplied parts using labels/lists | Implemented; source labels and anatomical interpretation remain unreviewed. |
 | Inspect supplied interiors or validated cutaways | Supplied components can be isolated; validated cutaways/interior completeness are not established. |
-| Distinguish conditions/highlights/comparisons | 126 draft condition summaries (chest, abdomen, pelvis, head and neck, brain, eyes, knees, skin and bone) can inspect reference locations; see [body study content](BODY_STUDY_CONTENT.md). Disease geometry and authored comparisons are unavailable. |
+| Distinguish conditions/highlights/comparisons | 173 draft condition summaries across the body systems can inspect reference locations; see [body study content](BODY_STUDY_CONTENT.md). Disease geometry and authored comparisons are unavailable. |
 | Follow the lung route and handle branches/gaps | The draft conceptual route has both lung branches, explicit gaps and reversible navigation. Qualified review is pending. |
 | Retain orientation, visibility and return | Scripted orientation/history/return checks pass; human understanding remains pending. |
 | Restore guided/manual separation | Exact starting-state/history and movement restoration checks pass. |

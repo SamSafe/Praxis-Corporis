@@ -44,6 +44,12 @@ class RenderProfileTests(unittest.TestCase):
         self.assertEqual(len(workloads), 7)
         self.assertEqual(sum(map(len, workloads.values())), 16)
         self.assertEqual(len(expected_workloads({})), 3)  # Older eight-workload artifacts stay verifiable.
+        # Builds that record the complete male body profile it too, chest included.
+        complete = dict(build, source_hashes=dict(build['source_hashes'], **{'content/bodyparts3d_complete_body.json': 'b' * 64}))
+        workloads = expected_workloads(complete)
+        self.assertEqual(len(workloads), 8)
+        self.assertEqual(sum(map(len, workloads.values())), 19)
+        self.assertIn('chest orbit with faded lungs and local labels', workloads['bodyparts-male-complete'])
         build['source_hashes'][relative] = '0' * 64
         with self.assertRaisesRegex(ValueError, 'recorded source'):
             expected_workloads(build)
@@ -175,6 +181,13 @@ class RenderProfileTests(unittest.TestCase):
         self.assertIn('--profile-view=workspace', arguments)
         self.assertIn('--profile-resolution=native', arguments)
         self.assertGreater(timeout, 8 * 62 * 3)
+        # The limit grows with the recorded workloads: 19 one-minute scenes for the current bundle.
+        relative = 'content/spinal_studies.json'
+        revision = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
+        recorded = subprocess.check_output(['git', 'show', revision + ':' + relative], cwd=ROOT)
+        build = {'source_revision': revision, 'source_hashes': {relative: hashlib.sha256(recorded).hexdigest(),
+                                                                'content/bodyparts3d_complete_body.json': 'b' * 64}}
+        self.assertGreater(profile_options(args, build)[2], 19 * 62 * 3 + 3 * 180)
         for key, value in [('seconds', float('inf')), ('seconds', 0), ('warmup', -1), ('repetitions', 4),
                            ('window', '1920x1080 --headless'), ('window', '1920x1080`whoami'), ('window', '1099x720')]:
             broken = copy.copy(args)

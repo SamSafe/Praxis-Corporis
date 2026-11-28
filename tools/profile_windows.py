@@ -25,8 +25,15 @@ CURRENT_WORKLOADS = {
 }
 
 
+COMPLETE_BODY = 'content/bodyparts3d_complete_body.json'
+COMPLETE_WORKLOADS = {'bodyparts-male-complete': CURRENT_WORKLOADS['female']}
+
+
 def expected_workloads(build: dict) -> dict:
     workloads = {key: value.copy() for key, value in CURRENT_WORKLOADS.items()}
+    # Builds that record the complete male body also profile it, chest included; older ones stay verifiable.
+    if COMPLETE_BODY in build.get('source_hashes', {}):
+        workloads.update({key: value.copy() for key, value in COMPLETE_WORKLOADS.items()})
     relative = 'content/spinal_studies.json'
     digest = build.get('source_hashes', {}).get(relative)
     if digest:
@@ -40,7 +47,7 @@ def expected_workloads(build: dict) -> dict:
     return workloads
 
 
-def profile_options(args: argparse.Namespace) -> tuple[dict, list[str], int]:
+def profile_options(args: argparse.Namespace, build: dict | None = None) -> tuple[dict, list[str], int]:
     if not re.fullmatch(r'[0-9]+x[0-9]+', args.window):
         raise ValueError('Window must be WIDTHxHEIGHT in pixels')
     config = {'seconds': args.seconds, 'warmup_seconds': args.warmup,
@@ -55,8 +62,9 @@ def profile_options(args: argparse.Namespace) -> tuple[dict, list[str], int]:
     arguments = ['--profile-rendered-bundle', f'--profile-seconds={args.seconds}',
                  f'--profile-warmup={args.warmup}', f'--profile-repetitions={args.repetitions}',
                  f'--profile-window={args.window}', f'--profile-view={view}', f'--profile-resolution={resolution}']
-    # Allow the expanded sixteen-scene catalogue plus loading/setup for each repeat.
-    timeout = math.ceil(16 * (args.seconds + args.warmup) * args.repetitions) + 180 * args.repetitions + 60
+    # Allow every bundled workload plus loading/setup for each repeat.
+    scenes = sum(map(len, expected_workloads(build or {}).values()))
+    timeout = math.ceil(scenes * (args.seconds + args.warmup) * args.repetitions) + 180 * args.repetitions + 60
     return config, arguments, timeout
 
 
@@ -97,8 +105,8 @@ active_power_scheme=$scheme} | ConvertTo-Json -Depth 5 -Compress""")
 
 
 def profile(args: argparse.Namespace) -> dict:
-    config, arguments, timeout = profile_options(args)
     build = json.loads(args.build_report.read_text(encoding='utf-8'))
+    config, arguments, timeout = profile_options(args, build)
     item = artifact_record(args.archive, build)
     if args.output.exists():
         raise ValueError('Use a new output folder; prior reports are kept unchanged')
