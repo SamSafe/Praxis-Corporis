@@ -1,0 +1,41 @@
+{
+  "scope": "Exact private Windows archive of 22e9943, 57 one-minute measurements across 19 workloads; every sample retained focus.",
+  "profiler_sha256": "0542a41c02e9d139311b24c24174fd2470bb700c1c1960a58cfacbabcd9e4abf",
+  "verifier_sha256": "fe6599f6d9b7d76af7a37e599fe0c241cb6675a553c2377cc6fd280d8b0d4080",
+  "validator_sha256": "bf85f5992659d0238370a5df4004961e6876db65bcd74a07744adfaef690165d",
+  "formatter_sha256": "e46f730bdd77362806e8ca65f0b552195f9c994c1d65b911d9330dce5ad21bbc",
+  "files": {
+    "22e9943-sustained-profile.json": {
+      "sha256": "fc7dd5ad2e2ebeadd9028a5f96a1d3233c18a600f827c54ef1e3c4017ca569c7",
+      "bytes": 2531668
+    },
+    "22e9943-sustained-profile-qa.json": {
+      "sha256": "3ecb252a1315da913a82d84ee9055af6716cd4e8e03bc408bf7fdf1f306db43c",
+      "bytes": 27855
+    },
+    "22e9943-sustained-profile-attempt.json": {
+      "sha256": "812b62e01f97d214f2ddb86712d078f887dca53369e4dcfc1bd5ff8e05cd8505",
+      "bytes": 1674
+    },
+    "22e9943-sustained-profile-runtime.log.txt": {
+      "sha256": "5e93624335e650be36550d1e2fe1fcfdd16fc6c9d9867d11c723a34569081252",
+      "bytes": 10499
+    },
+    "22e9943-sustained-profile-engine.log.txt": {
+      "sha256": "e01dfd53fccf7a065a4d62725954b1fb8237dd646b70293aad24bfc716598189",
+      "bytes": 10238
+    },
+    "WINDOWS_22E9943_SUSTAINED.md": {
+      "sha256": "34348dd472c37d626fe59d79d0ca05e73e5b8bfb3513dd5344574e21e6592053",
+      "bytes": 19673
+    },
+    "22e9943-sustained-validation.json": {
+      "sha256": "bc8d0bc5cf5fe68e673198c8e3a9cd92adc960740127f808c926402a4730b2cf",
+      "bytes": 1618
+    },
+    "22e9943-sustained-python.log.txt": {
+      "sha256": "6a8d508792de0fd8b7a209cf7f8a11c796e936e9e0e4b72cfd2d138b9d95da41",
+      "bytes": 18278
+    }
+  }
+}

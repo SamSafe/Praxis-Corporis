@@ -38,11 +38,13 @@ scene comparisons across seven references. Notes/identities, preferences and win
 state are preserved. The batch's 98 Python checks pass; seven altered real-data
 controls are rejected. [Exact pair, evidence and limits](audit/PRIVATE_UPGRADE_VERIFICATION.md).
 
-Current-build rendering measurements cover all sixteen workloads at actual 1080p:
-48 one-minute samples retain 169,448 intervals. Only 18/48 samples held focus
-throughout, so controlled foreground acceptance remains open. The formatter exposes
-each workload's focus count and retains all samples/outliers. All 100 Python checks
-pass. [Current evidence and limits](audit/CURRENT_PERFORMANCE_VERIFICATION.md).
+Rendering measurements of build `22e9943` (revision 17 content) cover all nineteen
+workloads at actual 1080p: 57 one-minute samples retain 200,407 intervals, and focus
+held throughout every sample. Seventeen workloads average 59.6–59.9 FPS; the complete
+male body's whole-body and chest orbits average 52.9–54.0 and 41.3–41.6 FPS, with no
+interval over 100 ms. Background work and thermal state were uncontrolled, so
+controlled foreground acceptance remains open. All 102 Python checks pass.
+[Current evidence and limits](audit/CURRENT_PERFORMANCE_VERIFICATION.md).
 
 The [fresh-source setup](audit/SOURCE_CHECKOUT_VERIFICATION.md) also passes from
 the committed tree without prior engine/geometry caches on the development host.
@@ -94,7 +96,7 @@ tasks. Its presence is a plan, not a completed trial record.
 | Declared scope and coverage in both bodies | [Coverage inventory](../content/coverage_notes.json) and [scope](SCOPE.md) explicitly retain missing skeleton/muscle/nerve coverage, unregistered studies, unavailable cutaways/comparisons and injury scenarios. Final release inventory and required content remain unresolved. |
 | Qualified review of published content | [Study content](../content/study_content.json) retains 247 cards, 173 conditions and one route as drafts, with human source and expert reviews pending. The [version-specific review packet](CONTENT_REVIEW_PACKET.md) covers build `09970ee` (revision 17) with reviewer-readable text, frozen JSON, exact build identities and a 421-row results template. Geometry/labels also remain unreviewed. Obtain actual human evidence; preparation and automated checks cannot supply it. |
 | Private pilot | Complete and retain actual task observations on representative Windows and Mac devices, including keyboard and trackpad use. No completed acceptance record is supplied by the automated runtime reports. |
-| Performance | [Current 48-sample measurements](audit/CURRENT_PERFORMANCE_VERIFICATION.md) cover `c86cfba`, sixteen workloads and actual 1080p on one Windows host; 18/48 samples retained focus. Controlled foreground, representative Windows/Mac, additional-density/overlay/transition and agreed load/memory-budget evidence remain required by the [protocol](PERFORMANCE_PROTOCOL.md). Historical all-focused measurements remain tied to `ae600197`. |
+| Performance | [Current 57-sample measurements](audit/CURRENT_PERFORMANCE_VERIFICATION.md) cover `22e9943`, nineteen workloads and actual 1080p on one Windows host; all 57 samples retained focus, and the complete male body's chest orbit averages about 41.5 FPS. Controlled foreground, representative Windows/Mac, additional-density/overlay/transition and agreed load/memory-budget evidence remain required by the [protocol](PERFORMANCE_PROTOCOL.md). Historical all-focused measurements remain tied to `ae600197`. |
 | Accessibility | Keyboard, focus, scalable text and text alternatives are implemented and checked. Native names, 3D focus, query updates and page/filter actions pass. Native assistive scrolling/row activation, actual screen-reader trials and conformance evidence remain open. |
 | Persistence and upgrades | Current-version save/reopen/recovery and the [exact Windows private pair](audit/PRIVATE_UPGRADE_VERIFICATION.md) pass. The [update/rollback guide](PRIVATE_UPDATE_TRIAL.md) covers backups and preserving later notes. Actual Mac, future schema/content changes and the public update process remain open. |
 | Offline behavior and downloads | Starter content is bundled; local behavior is implemented. Confirm the actual device experience and document any eventual update/download flow. |

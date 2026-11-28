@@ -1,0 +1,139 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 Core Profile Context 25.10.37.03.260407 - Compatibility - Using Device: ATI Technologies Inc. - AMD Radeon(TM) Graphics
+
+PASS private export resource boundary
+Loading female reference
+Prepared 999 meshes in 4.49s; 129 frames while loading
+PROFILE LOAD 1 / female: 4.56 s · largest process gap 303.75 ms
+PROFILE 1 / female / whole-body orbit: 59.9 frame-cadence FPS · p95 17.13 ms
+PROFILE 1 / female / chest orbit with faded lungs and local labels: 59.7 frame-cadence FPS · p95 22.95 ms
+PROFILE 1 / female / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 18.15 ms
+Loading male reference
+Prepared 963 meshes in 3.48s; 110 frames while loading
+PROFILE LOAD 1 / male: 3.58 s · largest process gap 227.02 ms
+PROFILE 1 / male / whole-body orbit: 59.9 frame-cadence FPS · p95 17.25 ms
+PROFILE 1 / male / chest orbit with faded lungs and local labels: 59.9 frame-cadence FPS · p95 21.29 ms
+PROFILE 1 / male / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 18.02 ms
+Loading bodyparts-male-complete reference
+Prepared 2228 meshes in 5.66s; 206 frames while loading
+PROFILE LOAD 1 / bodyparts-male-complete: 5.82 s · largest process gap 333.70 ms
+PROFILE 1 / bodyparts-male-complete / whole-body orbit: 53.8 frame-cadence FPS · p95 21.08 ms
+PROFILE 1 / bodyparts-male-complete / chest orbit with faded lungs and local labels: 41.6 frame-cadence FPS · p95 36.55 ms
+PROFILE 1 / bodyparts-male-complete / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 17.93 ms
+Loading bodyparts-male-bones-study reference
+Prepared 203 meshes in 0.62s; 18 frames while loading
+PROFILE LOAD 1 / bodyparts-male-bones-study: 0.67 s · largest process gap 222.12 ms
+PROFILE 1 / bodyparts-male-bones-study / whole-body orbit: 59.9 frame-cadence FPS · p95 17.94 ms
+PROFILE 1 / bodyparts-male-bones-study / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 17.92 ms
+Loading hra-v1-2-female-cord-study reference
+Prepared 29 meshes in 0.26s; 8 frames while loading
+PROFILE LOAD 1 / hra-v1-2-female-cord-study: 0.28 s · largest process gap 57.51 ms
+PROFILE 1 / hra-v1-2-female-cord-study / whole-body orbit: 59.9 frame-cadence FPS · p95 18.08 ms
+PROFILE 1 / hra-v1-2-female-cord-study / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 18.19 ms
+Loading hra-v1-2-female-vertebrae-study reference
+Prepared 25 meshes in 0.36s; 10 frames while loading
+PROFILE LOAD 1 / hra-v1-2-female-vertebrae-study: 0.37 s · largest process gap 59.53 ms
+PROFILE 1 / hra-v1-2-female-vertebrae-study / whole-body orbit: 59.9 frame-cadence FPS · p95 18.11 ms
+PROFILE 1 / hra-v1-2-female-vertebrae-study / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 18.14 ms
+Loading hra-v1-2-male-cord-study reference
+Prepared 30 meshes in 0.09s; 4 frames while loading
+PROFILE LOAD 1 / hra-v1-2-male-cord-study: 0.11 s · largest process gap 24.96 ms
+PROFILE 1 / hra-v1-2-male-cord-study / whole-body orbit: 59.9 frame-cadence FPS · p95 18.10 ms
+PROFILE 1 / hra-v1-2-male-cord-study / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 18.16 ms
+Loading hra-v1-2-male-vertebrae-study reference
+Prepared 24 meshes in 0.30s; 10 frames while loading
+PROFILE LOAD 1 / hra-v1-2-male-vertebrae-study: 0.31 s · largest process gap 53.99 ms
+PROFILE 1 / hra-v1-2-male-vertebrae-study / whole-body orbit: 59.9 frame-cadence FPS · p95 17.99 ms
+PROFILE 1 / hra-v1-2-male-vertebrae-study / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 18.18 ms
+Loading female reference
+Prepared 999 meshes in 4.47s; 134 frames while loading
+PROFILE LOAD 2 / female: 4.54 s · largest process gap 310.13 ms
+PROFILE 2 / female / whole-body orbit: 59.9 frame-cadence FPS · p95 17.11 ms
+PROFILE 2 / female / chest orbit with faded lungs and local labels: 59.7 frame-cadence FPS · p95 22.99 ms
+PROFILE 2 / female / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 17.93 ms
+Loading male reference
+Prepared 963 meshes in 3.60s; 112 frames while loading
+PROFILE LOAD 2 / male: 3.70 s · largest process gap 233.28 ms
+PROFILE 2 / male / whole-body orbit: 59.9 frame-cadence FPS · p95 17.23 ms
+PROFILE 2 / male / chest orbit with faded lungs and local labels: 59.9 frame-cadence FPS · p95 21.19 ms
+PROFILE 2 / male / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 18.18 ms
+Loading bodyparts-male-complete reference
+Prepared 2228 meshes in 5.71s; 205 frames while loading
+PROFILE LOAD 2 / bodyparts-male-complete: 5.89 s · largest process gap 365.00 ms
+PROFILE 2 / bodyparts-male-complete / whole-body orbit: 52.9 frame-cadence FPS · p95 19.77 ms
+PROFILE 2 / bodyparts-male-complete / chest orbit with faded lungs and local labels: 41.6 frame-cadence FPS · p95 37.18 ms
+PROFILE 2 / bodyparts-male-complete / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 18.04 ms
+Loading bodyparts-male-bones-study reference
+Prepared 203 meshes in 0.61s; 18 frames while loading
+PROFILE LOAD 2 / bodyparts-male-bones-study: 0.66 s · largest process gap 214.03 ms
+PROFILE 2 / bodyparts-male-bones-study / whole-body orbit: 59.9 frame-cadence FPS · p95 17.96 ms
+PROFILE 2 / bodyparts-male-bones-study / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 18.11 ms
+Loading hra-v1-2-female-cord-study reference
+Prepared 29 meshes in 0.26s; 8 frames while loading
+PROFILE LOAD 2 / hra-v1-2-female-cord-study: 0.28 s · largest process gap 56.62 ms
+PROFILE 2 / hra-v1-2-female-cord-study / whole-body orbit: 59.9 frame-cadence FPS · p95 18.16 ms
+PROFILE 2 / hra-v1-2-female-cord-study / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 18.19 ms
+Loading hra-v1-2-female-vertebrae-study reference
+Prepared 25 meshes in 0.35s; 10 frames while loading
+PROFILE LOAD 2 / hra-v1-2-female-vertebrae-study: 0.37 s · largest process gap 58.68 ms
+PROFILE 2 / hra-v1-2-female-vertebrae-study / whole-body orbit: 59.9 frame-cadence FPS · p95 18.14 ms
+PROFILE 2 / hra-v1-2-female-vertebrae-study / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 18.21 ms
+Loading hra-v1-2-male-cord-study reference
+Prepared 30 meshes in 0.09s; 4 frames while loading
+PROFILE LOAD 2 / hra-v1-2-male-cord-study: 0.11 s · largest process gap 23.57 ms
+PROFILE 2 / hra-v1-2-male-cord-study / whole-body orbit: 59.9 frame-cadence FPS · p95 18.20 ms
+PROFILE 2 / hra-v1-2-male-cord-study / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 18.14 ms
+Loading hra-v1-2-male-vertebrae-study reference
+Prepared 24 meshes in 0.30s; 10 frames while loading
+PROFILE LOAD 2 / hra-v1-2-male-vertebrae-study: 0.32 s · largest process gap 54.13 ms
+PROFILE 2 / hra-v1-2-male-vertebrae-study / whole-body orbit: 59.9 frame-cadence FPS · p95 18.13 ms
+PROFILE 2 / hra-v1-2-male-vertebrae-study / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 18.18 ms
+Loading female reference
+Prepared 999 meshes in 4.43s; 133 frames while loading
+PROFILE LOAD 3 / female: 4.50 s · largest process gap 304.09 ms
+PROFILE 3 / female / whole-body orbit: 59.9 frame-cadence FPS · p95 17.11 ms
+PROFILE 3 / female / chest orbit with faded lungs and local labels: 59.6 frame-cadence FPS · p95 23.01 ms
+PROFILE 3 / female / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 17.99 ms
+Loading male reference
+Prepared 963 meshes in 3.49s; 111 frames while loading
+PROFILE LOAD 3 / male: 3.59 s · largest process gap 221.28 ms
+PROFILE 3 / male / whole-body orbit: 59.9 frame-cadence FPS · p95 17.22 ms
+PROFILE 3 / male / chest orbit with faded lungs and local labels: 59.9 frame-cadence FPS · p95 21.23 ms
+PROFILE 3 / male / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 18.06 ms
+Loading bodyparts-male-complete reference
+Prepared 2228 meshes in 5.62s; 205 frames while loading
+PROFILE LOAD 3 / bodyparts-male-complete: 5.79 s · largest process gap 334.48 ms
+PROFILE 3 / bodyparts-male-complete / whole-body orbit: 54.0 frame-cadence FPS · p95 19.39 ms
+PROFILE 3 / bodyparts-male-complete / chest orbit with faded lungs and local labels: 41.3 frame-cadence FPS · p95 37.28 ms
+PROFILE 3 / bodyparts-male-complete / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 17.81 ms
+Loading bodyparts-male-bones-study reference
+Prepared 203 meshes in 0.60s; 18 frames while loading
+PROFILE LOAD 3 / bodyparts-male-bones-study: 0.65 s · largest process gap 203.56 ms
+PROFILE 3 / bodyparts-male-bones-study / whole-body orbit: 59.9 frame-cadence FPS · p95 17.87 ms
+PROFILE 3 / bodyparts-male-bones-study / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 18.19 ms
+Loading hra-v1-2-female-cord-study reference
+Prepared 29 meshes in 0.27s; 8 frames while loading
+PROFILE LOAD 3 / hra-v1-2-female-cord-study: 0.29 s · largest process gap 56.81 ms
+PROFILE 3 / hra-v1-2-female-cord-study / whole-body orbit: 59.9 frame-cadence FPS · p95 18.22 ms
+PROFILE 3 / hra-v1-2-female-cord-study / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 18.20 ms
+Loading hra-v1-2-female-vertebrae-study reference
+Prepared 25 meshes in 0.35s; 10 frames while loading
+PROFILE LOAD 3 / hra-v1-2-female-vertebrae-study: 0.37 s · largest process gap 58.68 ms
+PROFILE 3 / hra-v1-2-female-vertebrae-study / whole-body orbit: 59.9 frame-cadence FPS · p95 18.19 ms
+PROFILE 3 / hra-v1-2-female-vertebrae-study / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 18.28 ms
+Loading hra-v1-2-male-cord-study reference
+Prepared 30 meshes in 0.09s; 4 frames while loading
+PROFILE LOAD 3 / hra-v1-2-male-cord-study: 0.11 s · largest process gap 22.91 ms
+PROFILE 3 / hra-v1-2-male-cord-study / whole-body orbit: 59.9 frame-cadence FPS · p95 18.06 ms
+PROFILE 3 / hra-v1-2-male-cord-study / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 18.19 ms
+Loading hra-v1-2-male-vertebrae-study reference
+Prepared 24 meshes in 0.30s; 10 frames while loading
+PROFILE LOAD 3 / hra-v1-2-male-vertebrae-study: 0.32 s · largest process gap 56.40 ms
+PROFILE 3 / hra-v1-2-male-vertebrae-study / whole-body orbit: 59.9 frame-cadence FPS · p95 18.15 ms
+PROFILE 3 / hra-v1-2-male-vertebrae-study / isolated supplied-part orbit: 59.9 frame-cadence FPS · p95 18.19 ms
+PASS rendering profile recorded: user://render-profile.json
+
+
+QA observed peak working set bytes: 2646269952
+QA sampled maximum private bytes: 2868129792
+Windows native exit code: 0

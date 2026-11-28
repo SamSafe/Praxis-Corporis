@@ -1,0 +1,46 @@
+{
+  "result": "complete raw measurement validation; every sample retained focus; host conditions uncontrolled",
+  "source_revision": "22e99438096548e94a21e44cc91b738c3f6db008",
+  "artifact": {
+    "file": "PraxisCorporis-Windows-x64-private.zip",
+    "bytes": 661248869,
+    "sha256": "f39ab87b5dae1e7938c37772b2d60644b1a062b4230e1ae88cdb39d0a2dde621",
+    "architectures": [
+      "x86_64"
+    ]
+  },
+  "samples": 57,
+  "loads": 24,
+  "distinct_workloads": 19,
+  "focus": {
+    "focused_throughout": {
+      "samples": 57,
+      "minimum_fps": 41.309580696591176,
+      "maximum_fps": 59.91078742139438
+    },
+    "focus_interrupted": {
+      "samples": 0
+    }
+  },
+  "measured_seconds": 3420.478335,
+  "frames": 200407,
+  "intervals_over_33_33_ms": 680,
+  "intervals_over_100_ms": 0,
+  "maximum_interval_ms": 55.648,
+  "all_scene_buffers_native_1920x1080": true,
+  "process_memory_observations": {
+    "peak_working_set_bytes_observed": 2646269952,
+    "maximum_private_bytes_sampled": 2868129792,
+    "sampling_interval_ms": 500,
+    "scope": "Entire native process; not per-scene or GPU memory."
+  },
+  "session_cleanup": {
+    "status": "removed",
+    "path": "C:\\Users\\king-\\AppData\\Local\\Temp\\PraxisCorporis-QA-34f841e4e6554fd892594205b88e3ff2"
+  },
+  "limitations": [
+    "Focus flags record whether focus held throughout; foreground use, background work and thermal state were not observed.",
+    "The complete male body is the only reference below 59 FPS; the data does not establish why.",
+    "No Mac, representative-device, additional-workload or minimum-hardware acceptance is established."
+  ]
+}

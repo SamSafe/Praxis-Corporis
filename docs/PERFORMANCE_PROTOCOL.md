@@ -30,13 +30,14 @@ and observed average frame cadence of 59.5–60.1 FPS. Its raw measurements and 
 artifact binding are retained. This short run does not meet the sustained protocol;
 the current sixteen-workload plan requires 48 one-minute samples for three repeats.
 
-The [current 48-sample observation](audit/CURRENT_PERFORMANCE_VERIFICATION.md) now
-completes that measurement plan with all raw intervals retained. Eighteen samples
-held focus throughout; thirty had a focus interruption. Average frame cadence was
-59.8–59.9 FPS for the fully focused samples and 39.9–59.9 FPS across the interrupted
-samples. This mixed-focus run does not pass an uninterrupted foreground trial.
-Its report retains per-workload focus counts and all outliers. Controlled/device
-acceptance remains open.
+The `c86cfba` [48-sample observation](audit/WINDOWS_CURRENT_SUSTAINED.md) completed
+that plan with 18 of 48 samples focused throughout; it is retained as history.
+The [current 57-sample observation](audit/CURRENT_PERFORMANCE_VERIFICATION.md) of
+build `22e9943` covers nineteen workloads across eight references, the complete male
+body included, with focus held in every sample. Seventeen workloads average
+59.6–59.9 FPS; the complete male body's whole-body and chest orbits average
+52.9–54.0 and 41.3–41.6 FPS. Background work and thermal state were uncontrolled, so
+controlled/device acceptance remains open.
 
 ## Identify the test
 

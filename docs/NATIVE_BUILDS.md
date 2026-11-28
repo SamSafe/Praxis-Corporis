@@ -405,10 +405,12 @@ The exact current `c86cfba` archive separately passes a
 workloads at actual 1920 × 1080, with focus retained in every sample and average
 frame cadence of 59.5–60.1 FPS. That short observation does not establish sustained
 performance for the current build. [Raw evidence identities](audit/current-diagnostic-evidence.json).
-The subsequent [48 one-minute measurements](audit/CURRENT_PERFORMANCE_VERIFICATION.md)
-retain all three repeats, raw intervals and per-workload focus counts. Only 18/48
-samples held focus throughout; this completes measurement validation while leaving
-controlled foreground and representative-device acceptance open.
+The subsequent `c86cfba` [48 one-minute measurements](audit/WINDOWS_CURRENT_SUSTAINED.md)
+held focus in only 18/48 samples. The [current 57 one-minute measurements](audit/CURRENT_PERFORMANCE_VERIFICATION.md)
+of build `22e9943` cover all nineteen workloads, the complete male body included,
+with focus held in every sample; controlled foreground and representative-device
+acceptance remain open. The profiler's planned count and time limit now follow the
+recorded workload plan.
 Every repetition reloads each reference and reconstructs the ordinary scene before
 profiling. The 3D viewport dimensions are recorded separately from the entire window.
 Developer profiling fixes its own window's bounds and disables its resize controls.

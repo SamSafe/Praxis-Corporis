@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "started_at_utc": "2026-11-28T00:14:54.664410+00:00",
+  "source_revision": "22e99438096548e94a21e44cc91b738c3f6db008",
+  "artifact": {
+    "file": "PraxisCorporis-Windows-x64-private.zip",
+    "bytes": 661248869,
+    "sha256": "f39ab87b5dae1e7938c37772b2d60644b1a062b4230e1ae88cdb39d0a2dde621",
+    "architectures": [
+      "x86_64"
+    ]
+  },
+  "host": {
+    "os_caption": "Microsoft Windows 11 Home",
+    "cpus": [
+      {
+        "Name": "AMD Ryzen 5 PRO 6650U with Radeon Graphics     ",
+        "NumberOfLogicalProcessors": 12
+      }
+    ],
+    "total_physical_ram_bytes": 15859003392,
+    "active_power_scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)",
+    "os_build": "26300",
+    "reported_graphics_adapters": [
+      {
+        "Name": "AMD Radeon(TM) Graphics",
+        "DriverVersion": "32.0.21037.3009"
+      }
+    ],
+    "os_version": "10.0.26300"
+  },
+  "configuration": {
+    "seconds": 60.0,
+    "warmup_seconds": 2.0,
+    "repetitions": 3,
+    "window_pixels": [
+      1920,
+      1080
+    ],
+    "scene_view": "expanded",
+    "render_fraction": 1.0
+  },
+  "profiler_sha256": "0542a41c02e9d139311b24c24174fd2470bb700c1c1960a58cfacbabcd9e4abf",
+  "verifier_sha256": "fe6599f6d9b7d76af7a37e599fe0c241cb6675a553c2377cc6fd280d8b0d4080",
+  "validator_sha256": "bf85f5992659d0238370a5df4004961e6876db65bcd74a07744adfaef690165d",
+  "context": "Mains power (Windows reported the battery on AC). Started unattended from Claude Code; the user was told the run is more reliable if the PC is left alone, but foreground use and background work were not observed."
+}
